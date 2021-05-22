@@ -1,69 +1,8 @@
-// SPDX-License-Identifier: ISC
-pragma solidity ^0.8.4;
-
-import "openzeppelin-solidity/contracts/math/SafeMath.sol";
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.4;
+import "../../node_modules/@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "../../node_modules/@openzeppelin/contracts/access/Ownable.sol";
 import "./IBEP20.sol";
-
-/*
- * @dev Provides information about the current execution context, including the
- * sender of the transaction and its data. While these are generally available
- * via msg.sender and msg.data, they should not be accessed in such a direct
- * manner, since when dealing with GSN meta-transactions the account sending and
- * paying for execution may not be the actual sender (as far as an application
- * is concerned).
- *
- * This contract is only required for intermediate, library-like contracts.
- */
-contract Context {
-    // Empty internal constructor, to prevent people from mistakenly deploying
-    // an instance of this contract, which should be used via inheritance.
-    constructor() internal {}
-
-    function _msgSender() internal view returns (address payable) {
-        return msg.sender;
-    }
-
-    function _msgData() internal view returns (bytes memory) {
-        this;
-        // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691
-        return msg.data;
-    }
-}
-
-/**
- * @title Ownable
- * @dev The Ownable contract has an owner address, and provides basic authorization control
- * functions, this simplifies the implementation of "user permissions".
- */
-contract Ownable {
-    address public owner;
-
-    /**
-     * @dev The Ownable constructor sets the original `owner` of the contract to the sender
-     * account.
-     */
-    constructor() public {
-        owner = msg.sender;
-    }
-
-    /**
-     * @dev Throws if called by any account other than the owner.
-     */
-    modifier onlyOwner() {
-        require(msg.sender == owner);
-        _;
-    }
-
-    /**
-     * @dev Allows the current owner to transfer control of the contract to a newOwner.
-     * @param newOwner The address to transfer ownership to.
-     */
-    function transferOwnership(address newOwner) public onlyOwner {
-        if (newOwner != address(0)) {
-            owner = newOwner;
-        }
-    }
-}
 
 /**
  * @dev Implementation of the {IBEP20} interface.
@@ -84,7 +23,8 @@ contract Ownable {
  * functions have been added to mitigate the well-known issues around setting
  * allowances. See {IBEP20-approve}.
  */
-contract BEP20 is IBEP20, Ownable, Context {
+
+contract BEP20 is IBEP20, Ownable {
     using SafeMath for uint256;
 
     mapping(address => uint256) private _balances;
@@ -97,54 +37,54 @@ contract BEP20 is IBEP20, Ownable, Context {
     string private _name;
 
     constructor(
-        string memory name,
-        string memory symbol,
-        uint8 decimals
-    ) public {
-        _name = name;
-        _symbol = symbol;
-        _decimals = decimals;
+        string memory tokenName,
+        string memory tokenSymbol,
+        uint8 tokenDecimals
+    ) {
+        _name = tokenName;
+        _symbol = tokenSymbol;
+        _decimals = tokenDecimals;
     }
 
     /**
      * @dev Returns the bep token owner.
      */
-    function getOwner() external view returns (address) {
-        return owner;
+    function getOwner() external view override returns (address) {
+        return owner();
     }
 
     /**
      * @dev Returns the token decimals.
      */
-    function decimals() public view returns (uint8) {
+    function decimals() public view override returns (uint8) {
         return _decimals;
     }
 
     /**
      * @dev Returns the token symbol.
      */
-    function symbol() public view returns (string memory) {
+    function symbol() public view override returns (string memory) {
         return _symbol;
     }
 
     /**
      * @dev Returns the token name.
      */
-    function name() public view returns (string memory) {
+    function name() public view override returns (string memory) {
         return _name;
     }
 
     /**
      * @dev See {BEP20-totalSupply}.
      */
-    function totalSupply() public view returns (uint256) {
+    function totalSupply() public view override returns (uint256) {
         return _totalSupply;
     }
 
     /**
      * @dev See {BEP20-balanceOf}.
      */
-    function balanceOf(address account) public view returns (uint256) {
+    function balanceOf(address account) public view override returns (uint256) {
         return _balances[account];
     }
 
@@ -156,7 +96,12 @@ contract BEP20 is IBEP20, Ownable, Context {
      * - `recipient` cannot be the zero address.
      * - the caller must have a balance of at least `amount`.
      */
-    function transfer(address recipient, uint256 amount) public returns (bool) {
+    function transfer(address recipient, uint256 amount)
+        public
+        virtual
+        override
+        returns (bool)
+    {
         _transfer(_msgSender(), recipient, amount);
         return true;
     }
@@ -167,6 +112,7 @@ contract BEP20 is IBEP20, Ownable, Context {
     function allowance(address owner, address spender)
         public
         view
+        override
         returns (uint256)
     {
         return _allowances[owner][spender];
@@ -179,7 +125,12 @@ contract BEP20 is IBEP20, Ownable, Context {
      *
      * - `spender` cannot be the zero address.
      */
-    function approve(address spender, uint256 amount) public returns (bool) {
+    function approve(address spender, uint256 amount)
+        public
+        virtual
+        override
+        returns (bool)
+    {
         _approve(_msgSender(), spender, amount);
         return true;
     }
@@ -200,7 +151,7 @@ contract BEP20 is IBEP20, Ownable, Context {
         address sender,
         address recipient,
         uint256 amount
-    ) public returns (bool) {
+    ) public virtual override returns (bool) {
         _transfer(sender, recipient, amount);
         _approve(
             sender,

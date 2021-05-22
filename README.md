@@ -13,3 +13,8 @@
 ```
 truffle init
 ```
+
+## Compile constract
+```
+npx truffle compile
+```
