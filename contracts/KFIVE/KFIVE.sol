@@ -7,7 +7,7 @@ import "./Pausable.sol";
 import "./BlackList.sol";
 import "./TokenAdmin.sol";
 
-contract KFIVE is BEP20("Kfive", "KFIVE", 18), Pausable, BlackList, TokenAdmin {
+contract KFIVE is BEP20("KFIVE", "KFIVE", 10), Pausable, BlackList, TokenAdmin {
     // events to track onchain-offchain relationships
     event __transferByAdmin(bytes32 offchain);
     event __issue(bytes32 offchain);

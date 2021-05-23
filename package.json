@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "compile": "npx truffle compile"
+        "compile": "npx truffle compile",
+        "migrate-testnet": "npx truffle migrate --network bsctest"
     },
     "repository": {
         "type": "git",

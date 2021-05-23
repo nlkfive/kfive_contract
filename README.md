@@ -14,7 +14,18 @@
 truffle init
 ```
 
-## Compile constract
+## Compile constracts
 ```
-npx truffle compile
+npm run compile
+```
+
+## Deploy constracts
+```
+npx truffle migrate --network test
+npm run migrate-testnet
+```
+
+## Run test
+```
+npx truffle test --network test
 ```

@@ -1,10 +1,9 @@
 const TokenRegistry = artifacts.require('TokenRegistry');
-const Tether = artifacts.require("BEP20USDT")
-const Tokoin = artifacts.require("TokoinToken")
+const KFIVE = artifacts.require("KFIVE")
 
 const eq = assert.equal
-const u = require('./util.js')
-let token_registry, tokoin, usdt;
+const u = require('./utils.js')
+let token_registry, kfive;
 
 contract('TokenRegistry', (accounts) => {
 
@@ -14,26 +13,18 @@ contract('TokenRegistry', (accounts) => {
     const OFFCHAIN = web3.utils.fromAscii('1')
 
     before(async () => {
-
         token_registry = await TokenRegistry.new({
             from: root
         });
 
-        usdt = await Tether.new({
+        kfive = await KFIVE.new({
             from: root
         });
-
-        tokoin = await Tokoin.new({
-            from: root
-        });
-
     })
 
 
     describe('Add new token', async () => {
-
-        it('add more admin', async () => {
-
+        it('Add an admin', async () => {
             const i = {
                 admin: admin1
             }
@@ -41,16 +32,14 @@ contract('TokenRegistry', (accounts) => {
             await token_registry.addAdmin(i.admin, {
                 from: root
             });
-
         })
 
-        it('only admin', async () => {
-
+        it('Register new token: Only admin', async () => {
             const i = {
-                token: usdt.address,
-                symbol: 'USDT',
-                name: 'Tether USD',
-                decimals: 6,
+                token: kfive.address,
+                symbol: 'KFIVE',
+                name: 'KFIVE',
+                decimals: 10,
             }
 
             await u.assertRevert(token_registry.addNewToken(i.token, i.symbol, i.name, i.decimals, OFFCHAIN, {
@@ -60,35 +49,13 @@ contract('TokenRegistry', (accounts) => {
             await token_registry.addNewToken(i.token, i.symbol, i.name, i.decimals, OFFCHAIN, {
                 from: admin1
             });
-
         })
-
     })
 
-    describe('Check token is existed or not', async () => {
-
-        it('tokoin', async () => {
-
+    describe('Check if token is existed', async () => {
+        it('KFIVE token', async () => {
             const i = {
-                token: tokoin.address,
-            }
-
-            const o = {
-                result: false
-            }
-
-            let tx = await token_registry.tokenIsExisted(i.token, {
-                from: account1
-            });
-
-            eq(o.result, tx);
-
-        })
-
-        it('usdt', async () => {
-
-            const i = {
-                token: usdt.address,
+                token: kfive.address,
             }
 
             const o = {
@@ -100,23 +67,19 @@ contract('TokenRegistry', (accounts) => {
             });
 
             eq(o.result, tx);
-
         })
-
     })
 
     describe('Get token information', async () => {
-
-        it('tokoin', async () => {
-
+        it('KFIVE', async () => {
             const i = {
-                token: tokoin.address,
+                token: kfive.address,
             }
 
             const o = {
-                symbol: '',
-                name: '',
-                decimals: 0,
+                symbol: 'KFIVE',
+                name: 'KFIVE',
+                decimals: 10,
             }
 
             let tx = await token_registry.getTokenByAddr(i.token, {
@@ -126,31 +89,6 @@ contract('TokenRegistry', (accounts) => {
             eq(o.symbol, tx[0]);
             eq(o.name, tx[1]);
             eq(o.decimals, tx[2]);
-
         })
-
-        it('usdt', async () => {
-
-            const i = {
-                token: usdt.address,
-            }
-
-            const o = {
-                symbol: 'USDT',
-                name: 'Tether USD',
-                decimals: 6,
-            }
-
-            let tx = await token_registry.getTokenByAddr(i.token, {
-                from: account1
-            });
-
-            eq(o.symbol, tx[0]);
-            eq(o.name, tx[1]);
-            eq(o.decimals, tx[2]);
-
-        })
-
     })
-
 })

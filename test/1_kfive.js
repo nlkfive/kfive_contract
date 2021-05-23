@@ -2,8 +2,10 @@ const KFIVE = artifacts.require("KFIVE")
 // const Stake = artifacts.require("Stake")
 
 const eq = assert.equal
-const u = require('./util.js')
-const oc = u.oc
+const u = require('./utils.js')
+const oc = u.oc;
+const tokenDecimals = 10;
+const tokenCap = 1080000;
 var kfive, s;
 
 contract("KFIVE", (accounts) => {
@@ -21,7 +23,6 @@ contract("KFIVE", (accounts) => {
     const OFFCHAIN = web3.utils.fromAscii('1')
 
     before(async () => {
-
         kfive = await KFIVE.new({
             from: root
         });
@@ -29,15 +30,13 @@ contract("KFIVE", (accounts) => {
         // s = await Stake.new(kfive.address);
     })
 
-
     describe('Deployment stage', async () => {
-
         it('Token information', async () => {
             let o = {
                 balance: 0,
-                name: 'Kfive',
+                name: 'KFIVE',
                 symbol: 'KFIVE',
-                decimals: 18,
+                decimals: tokenDecimals,
             }
 
             let owner_balance = await kfive.balanceOf(root, {
@@ -48,26 +47,25 @@ contract("KFIVE", (accounts) => {
             eq(o.name, await kfive.name.call());
             eq(o.symbol, await kfive.symbol.call());
             eq(o.decimals, await kfive.decimals.call());
+            o = {
+                balance: tokenCap * (10 ** tokenDecimals),
+            }
 
-            await kfive.issue(root, web3.utils.toWei("2000000000"), OFFCHAIN, { // issue to root 2 mils Kfive
+            await kfive.issue(root, o.balance.toString(), OFFCHAIN, { // Issue all token to root
                 from: root
             });
 
-            o = {
-                balance: 2000000000 * (10 ** 18),
-            }
 
             owner_balance = await kfive.balanceOf(root, {
                 from: root
             });
 
-            eq(o.balance, owner_balance.toString());
+            eq(o.balance.toString(), owner_balance.toString());
         })
 
         it('Token supply', async () => {
-
             const o = {
-                total: 2000000000 * (10 ** 18),
+                total: tokenCap * (10 ** tokenDecimals),
             }
 
             let total_supply = await kfive.totalSupply({
@@ -75,54 +73,49 @@ contract("KFIVE", (accounts) => {
             });
 
             eq(o.total, total_supply.toString());
-
         })
-
     })
 
     describe('Issue / Redeem / Mint / Burn stage', async () => {
-
-        it('issue 10 kfive to account 1 (Cannot because all kfive issued to owner)', async () => {
+        it('Issue 10 kfive to account 1 (Cannot because all kfive issued to owner)', async () => {
             const i = {
                 issuer: account1,
-                value: web3.utils.toHex(10 * (10 ** 18)),
+                value: web3.utils.toHex(10 * (10 ** tokenDecimals)),
             }
             await u.assertRevert(kfive.issue(i.issuer, i.value, OFFCHAIN, {
                 from: root
             }));
         })
 
-        it('redeem 5 kfive from account 1 (onwer call) (Cannot account 1 has no kfive)', async () => {
+        it('Redeem 5 kfive from account 1 (onwer call) (Cannot account 1 has no kfive)', async () => {
             const i = {
                 redeemer: account1,
-                value: web3.utils.toHex(5 * (10 ** 18)),
+                value: web3.utils.toHex(5 * (10 ** tokenDecimals)),
             }
             await u.assertRevert(kfive.redeem(i.redeemer, i.value, OFFCHAIN, {
                 from: root
             }));
         })
 
-        it('redeem 5 kfive from root (account 1 call) - Only owner can call this function', async () => {
+        it('Redeem 5 kfive from root (account 1 call) - Only owner can call this function', async () => {
             const i = {
                 redeemer: root,
-                value: web3.utils.toHex(10 * (10 ** 18)), // 10 Kfive
+                value: web3.utils.toHex(10 * (10 ** tokenDecimals)), // 10 Kfive
             }
             await u.assertRevert(kfive.redeem(i.redeemer, i.value, OFFCHAIN, { // Burn 10 kfive from this issuer
                 from: account1
             }))
-
         })
 
         it('Redeem token from root', async () => {
-
             const i = {
                 redeemer: root,
-                value: web3.utils.toHex(10 * (10 ** 18)),
+                value: web3.utils.toHex(10 * (10 ** tokenDecimals)),
             }
 
             const o = {
-                owner_balance: 1999999990 * (10 ** 18),
-                total_supply: 1999999990 * (10 ** 18),
+                owner_balance: (tokenCap - 10) * (10 ** tokenDecimals),
+                total_supply: (tokenCap - 10) * (10 ** tokenDecimals),
             }
 
             await kfive.redeem(i.redeemer, i.value, OFFCHAIN, {
@@ -142,10 +135,10 @@ contract("KFIVE", (accounts) => {
 
         })
 
-        it('issue 11 kfive to account1 (There are still 10 kfive remaining for issue)', async () => {
+        it('Issue 11 kfive to account1 (There are still 10 kfive remaining for issue)', async () => {
             const i = {
                 issuer: account1,
-                value: web3.utils.toHex(11 * (10 ** 18)),
+                value: web3.utils.toHex(11 * (10 ** tokenDecimals)),
             }
 
             await u.assertRevert(kfive.issue(i.issuer, i.value, OFFCHAIN, {
@@ -153,16 +146,16 @@ contract("KFIVE", (accounts) => {
             }));
         })
 
-        it('issue 10 kfive to account1 (total supply will be reached)', async () => {
+        it('Issue 10 kfive to account1 (total supply will be reached)', async () => {
             const i = {
                 issuer: account1,
-                value: web3.utils.toHex(10 * (10 ** 18)),
+                value: web3.utils.toHex(10 * (10 ** tokenDecimals)),
             }
 
             const o = {
-                owner_balance: 1999999990 * (10 ** 18),
-                issuer_balance: 10 * (10 ** 18),
-                total_supply: 2000000000 * (10 ** 18),
+                owner_balance: (tokenCap - 10) * (10 ** tokenDecimals),
+                issuer_balance: 10 * (10 ** tokenDecimals),
+                total_supply: tokenCap * (10 ** tokenDecimals),
             }
 
             await kfive.issue(i.issuer, i.value, OFFCHAIN, {
@@ -195,7 +188,7 @@ contract("KFIVE", (accounts) => {
             const i = {
                 from: account1,
                 to: account2,
-                value: web3.utils.toHex(10 * (10 ** 18)),
+                value: web3.utils.toHex(10 * (10 ** tokenDecimals)),
             }
 
             await u.assertRevert(kfive.transferByAdmin(i.from, i.to, i.value, OFFCHAIN, {
@@ -207,7 +200,7 @@ contract("KFIVE", (accounts) => {
             const i = {
                 from: account1,
                 to: account2,
-                value: web3.utils.toHex(10 * (10 ** 18)),
+                value: web3.utils.toHex(10 * (10 ** tokenDecimals)),
             }
 
             await kfive.transferByAdmin(i.from, i.to, i.value, OFFCHAIN, {
@@ -219,7 +212,7 @@ contract("KFIVE", (accounts) => {
 
             const i = {
                 to: account1,
-                value: web3.utils.toHex(10 * (10 ** 18)),
+                value: web3.utils.toHex(10 * (10 ** tokenDecimals)),
             }
 
             await kfive.transfer(i.to, i.value, {
@@ -230,14 +223,14 @@ contract("KFIVE", (accounts) => {
 
         // Amount of token to given address so he/she (receiver) can use those for transfer
         it('Approve: account1 approve 10 KFIVE to root', async () => {
-            await kfive.approve(root, web3.utils.toHex(10 * (10 ** 18)), {
+            await kfive.approve(root, web3.utils.toHex(10 * (10 ** tokenDecimals)), {
                 from: account1
             });
         })
 
-        it('Allowance: approved token ammount ', async () => {
+        it('Allowance: approved token ammount 10 KFIVE', async () => {
             const o = {
-                value: "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+                value: web3.utils.toHex(10 * (10 ** tokenDecimals))
             }
 
             // var account1_allowance = await kfive.allowance(account1, s.address, {
@@ -256,12 +249,12 @@ contract("KFIVE", (accounts) => {
             const i = {
                 from: account1,
                 to: account2,
-                value: web3.utils.toHex(10 * (10 ** 18)),
+                value: web3.utils.toHex(10 * (10 ** tokenDecimals)),
             }
 
             const o = {
                 account1_balance: 0,
-                account2_balance: 10 * (10 ** 18),
+                account2_balance: 10 * (10 ** tokenDecimals),
             }
 
             await kfive.transferFrom(i.from, i.to, i.value, {
@@ -309,7 +302,7 @@ contract("KFIVE", (accounts) => {
 
             const i = {
                 to: account1,
-                value: web3.utils.toHex(10 * (10 ** 18)),
+                value: web3.utils.toHex(10 * (10 ** tokenDecimals)),
             }
 
             await u.assertRevert(kfive.transfer(i.to, i.value, {
@@ -322,7 +315,7 @@ contract("KFIVE", (accounts) => {
             const i = {
                 from: account2,
                 to: account1,
-                value: web3.utils.toHex(10 * (10 ** 18)),
+                value: web3.utils.toHex(10 * (10 ** tokenDecimals)),
             }
 
             await u.assertRevert(kfive.transferFrom(i.from, i.to, i.value, {
@@ -380,11 +373,11 @@ contract("KFIVE", (accounts) => {
 
             const i = {
                 to: evil,
-                value: web3.utils.toHex(10 * (10 ** 18)),
+                value: web3.utils.toHex(10 * (10 ** tokenDecimals)),
             }
 
             const o = {
-                evil_balance: 10 * (10 ** 18),
+                evil_balance: 10 * (10 ** tokenDecimals),
             }
 
             await kfive.transfer(i.to, i.value, {
@@ -440,7 +433,7 @@ contract("KFIVE", (accounts) => {
             const i = {
                 from: evil,
                 to: account2,
-                value: web3.utils.toHex(5 * (10 ** 18)),
+                value: web3.utils.toHex(5 * (10 ** tokenDecimals)),
             }
 
             // evil can call transfer method
@@ -454,7 +447,7 @@ contract("KFIVE", (accounts) => {
             });
 
             const o = {
-                account2_balance: 20 * (10 ** 18),
+                account2_balance: 20 * (10 ** tokenDecimals),
             }
 
             let account2_balance = await kfive.balanceOf(i.to, {
@@ -469,7 +462,7 @@ contract("KFIVE", (accounts) => {
         it('Cannot call destroy funds of non hacker (blacklist) wallet address', async () => {
             const i = {
                 to: account6,
-                value: web3.utils.toHex(10 * (10 ** 18)),
+                value: web3.utils.toHex(10 * (10 ** tokenDecimals)),
             }
 
             await kfive.transfer(i.to, i.value, {
@@ -497,7 +490,7 @@ contract("KFIVE", (accounts) => {
             const o = {
                 evil_address: account6,
                 evil_balance: 0,
-                evil_funds: 10 * (10 ** 18),
+                evil_funds: 10 * (10 ** tokenDecimals),
             }
 
             let tx = await kfive.destroyBlackFunds(i.evil, {
@@ -521,8 +514,8 @@ contract("KFIVE", (accounts) => {
         it('Only owner can add admin', async () => {
             const i = {
                 new_admin: new_admin,
-                max_issuing_per_times: web3.utils.toHex(10 * (10 ** 18)),
-                max_total_issuing_token: web3.utils.toHex(10 * (10 ** 18)),
+                max_issuing_per_times: web3.utils.toHex(10 * (10 ** tokenDecimals)),
+                max_total_issuing_token: web3.utils.toHex(10 * (10 ** tokenDecimals)),
             }
 
             await u.assertRevert(kfive.addAdmin(i.new_admin, i.max_issuing_per_times, i.max_total_issuing_token, {
@@ -535,8 +528,8 @@ contract("KFIVE", (accounts) => {
 
             const i = {
                 new_admin: new_admin,
-                max_issuing_per_times: web3.utils.toWei("10"),
-                max_total_issuing_token: web3.utils.toWei("2000000001"),
+                max_issuing_per_times: web3.utils.toHex(10 * (10 ** tokenDecimals)),
+                max_total_issuing_token: web3.utils.toHex((tokenCap + 1) * (10 ** tokenDecimals)),
             }
 
             await u.assertRevert(kfive.addAdmin(i.new_admin, i.max_issuing_per_times, i.max_total_issuing_token, {
@@ -547,15 +540,15 @@ contract("KFIVE", (accounts) => {
         it('Owner add admin', async () => {
             const i = {
                 new_admin: new_admin,
-                max_issuing_token_per_time: web3.utils.toWei("10"),
-                max_total_issuing_token: web3.utils.toWei("100"),
+                max_issuing_token_per_time: web3.utils.toHex(10 * (10 ** tokenDecimals)),
+                max_total_issuing_token: web3.utils.toHex(100 * (10 ** tokenDecimals)),
             }
 
             const o = {
                 status: true,
-                max_issuing_token_per_time: web3.utils.toWei("10"),
-                max_total_issuing_token: web3.utils.toWei("100"),
-                remaining_issuing_token: web3.utils.toWei("100"),
+                max_issuing_token_per_time: 10 * (10 ** tokenDecimals),
+                max_total_issuing_token: 100 * (10 ** tokenDecimals),
+                remaining_issuing_token: 100 * (10 ** tokenDecimals),
             }
 
             await kfive.addAdmin(i.new_admin, i.max_issuing_token_per_time, i.max_total_issuing_token, {
@@ -602,19 +595,18 @@ contract("KFIVE", (accounts) => {
         it('Issue by admin: root (also be an Admin) 10 Token to account 8 - Total supply is reached', async () => {
             i = {
                 issuer: account8,
-                value: web3.utils.toHex(10 * (10 ** 18)),
+                value: web3.utils.toHex(10 * (10 ** tokenDecimals)),
             }
             await u.assertRevert(kfive.issueByAdmin(i.issuer, i.value, OFFCHAIN, {
                 from: root
             }))
-
         })
 
         it('Issue by admin: account1 (Admin) 6 Token to account 8 - Maximum issuing token per time is only 5', async () => {
             let i = {
                 new_admin: account1,
-                max_issuing_token_per_time: web3.utils.toWei("5"),
-                max_total_issuing_token: web3.utils.toWei("10"),
+                max_issuing_token_per_time: web3.utils.toHex(5 * (10 ** tokenDecimals)),
+                max_total_issuing_token: web3.utils.toHex(100 * (10 ** tokenDecimals)),
             }
 
             await kfive.addAdmin(i.new_admin, i.max_issuing_token_per_time, i.max_total_issuing_token, {
@@ -623,7 +615,7 @@ contract("KFIVE", (accounts) => {
 
             i = {
                 issuer: account8,
-                value: web3.utils.toHex(6 * (10 ** 18)),
+                value: web3.utils.toHex(6 * (10 ** tokenDecimals)),
             }
             await u.assertRevert(kfive.issueByAdmin(i.issuer, i.value, OFFCHAIN, {
                 from: account1
@@ -634,7 +626,7 @@ contract("KFIVE", (accounts) => {
 
             i = {
                 issuer: account8,
-                value: web3.utils.toHex(11 * (10 ** 18)),
+                value: web3.utils.toHex(11 * (10 ** tokenDecimals)),
             }
             await u.assertRevert(kfive.issueByAdmin(i.issuer, i.value, OFFCHAIN, {
                 from: account2
@@ -645,12 +637,11 @@ contract("KFIVE", (accounts) => {
 
             const i = {
                 redeemer: root,
-                value: web3.utils.toHex(10 * (10 ** 18)),
+                value: web3.utils.toHex(10 * (10 ** tokenDecimals)),
             }
 
             const o = {
-                owner_balance: 1999999960 * (10 ** 18),
-                total_supply: 1999999990 * (10 ** 18),
+                total_supply: (tokenCap - 10) * (10 ** tokenDecimals),
             }
 
             await kfive.redeem(root, i.value, OFFCHAIN, {
@@ -661,26 +652,19 @@ contract("KFIVE", (accounts) => {
                 from: root
             });
 
-            let owner_balance = await kfive.balanceOf(root, {
-                from: root
-            });
-
             eq(o.total_supply, total_supply.toString());
-            eq(o.owner_balance, owner_balance.toString());
         })
 
-        it('Issue by admin:', async () => {
-
+        it('Issue by admin', async () => {
             const i = {
                 issuer: account9,
-                value: web3.utils.toHex(5 * (10 ** 18)),
+                value: web3.utils.toHex(5 * (10 ** tokenDecimals)),
             }
 
             const o = {
-                owner_balance: 1999999960 * (10 ** 18),
-                issuer_balance: 5 * (10 ** 18),
-                total_supply: 1999999995 * (10 ** 18),
-                admin_remaining_issuing: 5 * (10 ** 18),
+                issuer_balance: 5 * (10 ** tokenDecimals),
+                total_supply: (tokenCap - 5) * (10 ** tokenDecimals),
+                admin_remaining_issuing: 95 * (10 ** tokenDecimals),
             }
 
             await kfive.issueByAdmin(i.issuer, i.value, OFFCHAIN, {
@@ -694,25 +678,19 @@ contract("KFIVE", (accounts) => {
                 from: root
             });
 
-            let owner_balance = await kfive.balanceOf(root, {
-                from: root
-            });
-
             let issuer_balance = await kfive.balanceOf(i.issuer, {
                 from: root
             });
 
             eq(o.total_supply, total_supply.toString());
-            eq(o.owner_balance, owner_balance.toString());
             eq(o.issuer_balance, issuer_balance.toString());
-
         })
 
-        it('issue by admin: cannot issue total value greater than max total issue value', async () => {
+        it('Issue by admin: cannot issue total value greater than remaining issue value (100 - 5 = 95 Token)', async () => {
 
             const i = {
                 issuer: account9,
-                value: web3.utils.toHex(6 * (10 ** 18)),
+                value: web3.utils.toHex(96 * (10 ** tokenDecimals)),
             }
 
             await u.assertRevert(kfive.issueByAdmin(i.issuer, i.value, OFFCHAIN, {
@@ -753,7 +731,7 @@ contract("KFIVE", (accounts) => {
                 new_owner: new_owner,
                 from: root,
                 to: account5,
-                value: web3.utils.toHex(10 * (10 ** 18)),
+                value: web3.utils.toHex(10 * (10 ** tokenDecimals)),
             }
 
             await u.assertRevert(kfive.transferOwnership(i.new_owner, {
