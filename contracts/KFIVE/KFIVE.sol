@@ -3,7 +3,7 @@ pragma solidity 0.8.4;
 
 import "../BEP20/IBEP20.sol";
 import "../BEP20/BEP20.sol";
-import "./Pausable.sol";
+import "@openzeppelin/contracts/security/Pausable.sol";
 import "./BlackList.sol";
 import "./TokenAdmin.sol";
 
