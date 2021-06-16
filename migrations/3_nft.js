@@ -1,5 +1,5 @@
-const ERC721PresetMinterPauserAutoId = artifacts.require("ERC721PresetMinterPauserAutoId");
+const NLGinseng = artifacts.require("NLGinseng");
 
 module.exports = function (deployer) {
-    deployer.deploy(ERC721PresetMinterPauserAutoId, "My NFT", "NFT", "http://my-json-server.typicode.com/huangsuyu/nft/tokens");
+    deployer.deploy(NLGinseng, "https://ipfs.io/ipfs/");
 };

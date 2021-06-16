@@ -29,3 +29,8 @@ npm run migrate-testnet
 ```
 npx truffle test --network test
 ```
+
+## Verify constract
+```
+truffle run verify KFIVE@0x2991be6411cd52243f160fb0e16a81a37279d944 --network mainnet
+```
