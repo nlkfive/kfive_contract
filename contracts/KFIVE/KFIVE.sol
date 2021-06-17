@@ -125,4 +125,12 @@ contract KFIVE is BEP20("KFIVE", "KFIVE", 10), Pausable, BlackList, TokenAdmin {
         require(!isBlackListed[_from]);
         return super.transferFrom(_from, _to, _value);
     }
+
+    function pause() public onlyOwner {
+        _pause();
+    }
+
+    function unpause() public onlyOwner {
+        _unpause();
+    }
 }

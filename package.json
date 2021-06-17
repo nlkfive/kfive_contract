@@ -4,7 +4,8 @@
     "description": "",
     "scripts": {
         "compile": "npx truffle compile",
-        "migrate-testnet": "npx truffle migrate --network bsctest"
+        "migrate-testnet": "npx truffle migrate --network bsctest",
+        "test": "npx truffle test --network test"
     },
     "repository": {
         "type": "git",
