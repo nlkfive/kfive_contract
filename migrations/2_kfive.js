@@ -1,5 +1,5 @@
 var KFIVE = artifacts.require('KFIVE');
 
-module.exports = function (deployer, network, accounts) {
+module.exports = function (deployer) {
     deployer.deploy(KFIVE);
 };
