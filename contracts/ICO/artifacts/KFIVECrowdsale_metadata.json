@@ -1,0 +1,402 @@
+{
+	"compiler": {
+		"version": "0.8.4+commit.c7e474f2"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "rate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address payable",
+						"name": "wallet",
+						"type": "address"
+					},
+					{
+						"internalType": "contract IBEP20",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "cap",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "openingTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "closingTime",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "prevClosingTime",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newClosingTime",
+						"type": "uint256"
+					}
+				],
+				"name": "TimedCrowdsaleExtended",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "purchaser",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "beneficiary",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "TokensPurchased",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "beneficiary",
+						"type": "address"
+					}
+				],
+				"name": "buyTokens",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "cap",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "capReached",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "closingTime",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "hasClosed",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "isOpen",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "openingTime",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "rate",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "token",
+				"outputs": [
+					{
+						"internalType": "contract IBEP20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "wallet",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "weiRaised",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"buyTokens(address)": {
+					"details": "low level token purchase ***DO NOT OVERRIDE*** This function has a non-reentrancy guard, so it shouldn't be called by another `nonReentrant` function.",
+					"params": {
+						"beneficiary": "Recipient of the token purchase"
+					}
+				},
+				"cap()": {
+					"returns": {
+						"_0": "the cap of the crowdsale."
+					}
+				},
+				"capReached()": {
+					"details": "Checks whether the cap has been reached.",
+					"returns": {
+						"_0": "Whether the cap was reached"
+					}
+				},
+				"closingTime()": {
+					"returns": {
+						"_0": "the crowdsale closing time."
+					}
+				},
+				"hasClosed()": {
+					"details": "Checks whether the period in which the crowdsale is open has already elapsed.",
+					"returns": {
+						"_0": "Whether crowdsale period has elapsed"
+					}
+				},
+				"isOpen()": {
+					"returns": {
+						"_0": "true if the crowdsale is open, false otherwise."
+					}
+				},
+				"openingTime()": {
+					"returns": {
+						"_0": "the crowdsale opening time."
+					}
+				},
+				"rate()": {
+					"returns": {
+						"_0": "the number of token units a buyer gets per wei."
+					}
+				},
+				"token()": {
+					"returns": {
+						"_0": "the token being sold."
+					}
+				},
+				"wallet()": {
+					"returns": {
+						"_0": "the address where funds are collected."
+					}
+				},
+				"weiRaised()": {
+					"returns": {
+						"_0": "the amount of wei raised."
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"events": {
+				"TimedCrowdsaleExtended(uint256,uint256)": {
+					"notice": "Event for crowdsale extending"
+				},
+				"TokensPurchased(address,address,uint256,uint256)": {
+					"notice": "Event for token purchase logging"
+				}
+			},
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ICO/KFIVECrowdsale.sol": "KFIVECrowdsale"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/security/ReentrancyGuard.sol": {
+			"keccak256": "0x1278c76b840063ff5e14a2d7c5707812c1eabc2342ed040bf862c2d7552102fe",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b9989233808b8f475395f71ea757e277fa167cdac8a24d10f9784783defd313c",
+				"dweb:/ipfs/Qmdg6rbPsShpnzvqKmPVuFk7eYU53oXTPxqUJXd9WLD4vg"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0xf930d2df426bfcfc1f7415be724f04081c96f4fb9ec8d0e3a521c07692dface0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fc2bfdea0d2562c76fb3c4cf70a86c6ba25c5a30e8f8515c95aafdf8383f8395",
+				"dweb:/ipfs/QmTbFya18786ckJfLYUoWau9jBTKfmWnWm5XSViWvB7PXN"
+			]
+		},
+		"@openzeppelin/contracts/utils/math/SafeMath.sol": {
+			"keccak256": "0x2526b7c6a366fc211bbc176078ab02b83833e7682abcc5b3bed9d700b34e2a3e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5f9529d3d365e8415155cee11394e0f7c0de2152b601b7e77508fce16cb4a509",
+				"dweb:/ipfs/QmVhbcLVsAzvqfjsdLwy25XMjgVJm7Z3w2JCNiNbZF2GHT"
+			]
+		},
+		"contracts/BEP20/IBEP20.sol": {
+			"keccak256": "0x9b677911f92a456b583fd1e2578dd709e0d0a72f49dabc8a1ba821fd7cbf9e9a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1ea854680cc24752fccf8674be6343eef096f1e3a494d4bac92f69a4a22f79e4",
+				"dweb:/ipfs/QmQSFbHTNufgWZYhMUHcKRjuyJhQbGzekWsD2VPWkPdvpP"
+			]
+		},
+		"contracts/ICO/Crowdsale.sol": {
+			"keccak256": "0x77b8c0f4398b72a4909a6b1976cbfdb2b2df678aa836a04e5f3d8322098cd73b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://25d60d6162d0f9cb83c6b7cab28ba2837b1c5a7c5746cddd6e4a334e78527cfe",
+				"dweb:/ipfs/QmQc4JJvVe7TFzAfvqEMJEdx3t2xyNgxBScFB2wDvMtoT7"
+			]
+		},
+		"contracts/ICO/KFIVECrowdsale.sol": {
+			"keccak256": "0x70518a8ff9ecc6441ade9ba68485a503c593a13ebdda61ddfd27f0d3b14d366f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f99af5c2430caa2f5ee826d1422cf6012c41ffec1d4b4fec61a22f99a125cc15",
+				"dweb:/ipfs/QmZadHgnTEotijbHFuVP4snfY2MXnuWQAt1JPVL4GwygG8"
+			]
+		},
+		"contracts/ICO/validation/CappedCrowdsale.sol": {
+			"keccak256": "0xc7ac304fb4e7b5124e0856427996708f9ec4b8b5d17bde32b4e198d3ce7790b4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bbe45a77c56f48a74134e2858e7c0a5b0a7609e846b5556f1b2c9a9c87fb3e16",
+				"dweb:/ipfs/QmYyFXaYKGMeJZgksAaB8d34517LLCMQ8jmUJGsATCayz7"
+			]
+		},
+		"contracts/ICO/validation/TimedCrowdsale.sol": {
+			"keccak256": "0xf77b5bb3e644e30837562326cc4ea07d004255af01f9506b56d1db5643cf868c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://11c589cbd959dcc54ff46a8b3f3d4c8147fb9b7d03d68826f771a80c9aaef290",
+				"dweb:/ipfs/QmNyXjuve4AZFGyhAgDmxSkwgopoLWNV9jC1G1kaZBRmSd"
+			]
+		}
+	},
+	"version": 1
+}
