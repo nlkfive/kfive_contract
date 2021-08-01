@@ -34,3 +34,7 @@ npx truffle test --network test
 ```
 truffle run verify KFIVE@0x2991be6411cd52243f160fb0e16a81a37279d944 --network mainnet
 ```
+
+# Refs
+- CrowdSale: https://docs.openzeppelin.com/contracts/2.x/crowdsales
+- ICO: https://ico.readthedocs.io/en/latest/
