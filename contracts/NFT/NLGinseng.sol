@@ -29,7 +29,7 @@ contract NLGinseng is
      * See {ERC721-tokenURI}.
      */
     constructor(string memory baseTokenURI)
-        ERC721("Ngoc Linh Ginseng Token", "NLGT")
+        ERC721("Ngoc Linh Ginseng Token", "NLGST")
     {
         _baseTokenURI = baseTokenURI;
 
