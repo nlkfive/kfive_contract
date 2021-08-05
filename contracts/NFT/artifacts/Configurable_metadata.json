@@ -1,0 +1,61 @@
+{
+	"compiler": {
+		"version": "0.8.4+commit.c7e474f2"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "cap",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Configurable variables of the contract*",
+			"kind": "dev",
+			"methods": {},
+			"title": "Configurable",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"kfive/contracts/NFT/Configurable.sol": "Configurable"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"kfive/contracts/NFT/Configurable.sol": {
+			"keccak256": "0x0a1ca1acf0632b2ff510c5388c32e263b77af18730a9c91510eb6815dfa4ba14",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c8370b4dd74973681f08f457944afaddd1ad5f5213e4b42063ece74abb997f4c",
+				"dweb:/ipfs/QmNQe4VZVwXEdxS7G6LF1ji4pToYSzE5RYz2bNXkST5dH3"
+			]
+		}
+	},
+	"version": 1
+}

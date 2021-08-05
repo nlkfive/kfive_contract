@@ -20,6 +20,19 @@
 				"anonymous": false,
 				"inputs": [
 					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					}
+				],
+				"name": "AddedBlackList",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
 						"indexed": true,
 						"internalType": "address",
 						"name": "owner",
@@ -72,11 +85,62 @@
 					{
 						"indexed": false,
 						"internalType": "address",
+						"name": "_blackListedUser",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_balance",
+						"type": "uint256"
+					}
+				],
+				"name": "DestroyedBlackFunds",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
 						"name": "account",
 						"type": "address"
 					}
 				],
 				"name": "Paused",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					}
+				],
+				"name": "RemovedBlackList",
 				"type": "event"
 			},
 			{
@@ -193,6 +257,32 @@
 				"type": "event"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "offchain",
+						"type": "bytes32"
+					}
+				],
+				"name": "__redeem",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "offchain",
+						"type": "bytes32"
+					}
+				],
+				"name": "__transferByAdmin",
+				"type": "event"
+			},
+			{
 				"inputs": [],
 				"name": "DEFAULT_ADMIN_ROLE",
 				"outputs": [
@@ -226,6 +316,76 @@
 						"internalType": "bytes32",
 						"name": "",
 						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "a",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "maxIssuingTokenPerTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "maxTotalIssuingToken",
+						"type": "uint256"
+					}
+				],
+				"name": "addAdmin",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_evilUser",
+						"type": "address"
+					}
+				],
+				"name": "addBlackList",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "admin",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "maxIssuingTokenPerTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "maxTotalIssuingToken",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "remainingIssuingToken",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -269,6 +429,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "cap",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -282,6 +455,25 @@
 						"internalType": "address",
 						"name": "",
 						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_maker",
+						"type": "address"
+					}
+				],
+				"name": "getBlackListStatus",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -419,6 +611,25 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "isBlackListed",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "to",
 						"type": "address"
 					},
@@ -446,6 +657,19 @@
 						"internalType": "string",
 						"name": "",
 						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -488,6 +712,39 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "a",
+						"type": "address"
+					}
+				],
+				"name": "removeAdmin",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_clearedUser",
+						"type": "address"
+					}
+				],
+				"name": "removeBlackList",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -726,6 +983,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "unpause",
 				"outputs": [],
@@ -772,6 +1042,9 @@
 				"name()": {
 					"details": "See {IERC721Metadata-name}."
 				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
 				"ownerOf(uint256)": {
 					"details": "See {IERC721-ownerOf}."
 				},
@@ -780,6 +1053,9 @@
 				},
 				"paused()": {
 					"details": "Returns true if the contract is paused, and false otherwise."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
 				},
 				"renounceRole(bytes32,address)": {
 					"details": "Overload {renounceRole} to track enumerable memberships"
@@ -814,6 +1090,9 @@
 				"transferFrom(address,address,uint256)": {
 					"details": "See {IERC721-transferFrom}."
 				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				},
 				"unpause()": {
 					"details": "Unpauses all token transfers. See {ERC721Pausable} and {Pausable-_unpause}. Requirements: - the caller must have the `PAUSER_ROLE`."
 				}
@@ -828,7 +1107,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/NFT/NLGinseng.sol": "NLGinseng"
+			"kfive/contracts/NFT/NLGinseng.sol": "NLGinseng"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -843,51 +1122,59 @@
 	},
 	"sources": {
 		"@openzeppelin/contracts/access/AccessControl.sol": {
-			"keccak256": "0x98fac37221212c8f126f198d262a4df86394bd1a9969f61e40739fe8ac013dd8",
+			"keccak256": "0x084f583de2c714665b0304529fe8b826a2809f29d03314e4dd9eea926e4bb0f3",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://62f98a3c51ff54e1d19c8845da55415c85b4f28c81c0c3b1361eb6eaa905a0c6",
-				"dweb:/ipfs/QmTZxiScs2HXZRtscWGjBBXmG4qeFGk1Bq8FGzhbWi1wr3"
+				"bzz-raw://b64becd1da9fe30ecdb65cf57e1da968bcbbecd6a4a3fa55bcc7c23568d482c0",
+				"dweb:/ipfs/QmcXnRpWL7P9kEe15LZ5yHV2CDLE2CNv9sBRqVnvVQLr5T"
 			]
 		},
 		"@openzeppelin/contracts/access/AccessControlEnumerable.sol": {
-			"keccak256": "0x0d616363c1a1e6f9f489303f94df0cbe606826ab4944d315c3801a07f9b8d4ee",
+			"keccak256": "0x33ba8a175bb81046a02b02e8d5eb4cabc87e1875f4a74bbc6f11c51db5e40d8c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://976cf80d02556929369fc98196c4082f204e44e682e20d3f65cc61b31e29bf76",
-				"dweb:/ipfs/Qmeo1vvf7L3PLLDPNSVuVyirLB3FrCYKMFw3JZ7EXgC5YU"
+				"bzz-raw://61b5e6e61e0a342dafdab72b7113f735dfd1612389cda77d7edf6f263b400015",
+				"dweb:/ipfs/QmRxm43A3sSiJhnVtqYtCJfnWwLzzLd2365DNAToYHokbS"
+			]
+		},
+		"@openzeppelin/contracts/access/Ownable.sol": {
+			"keccak256": "0x6bb804a310218875e89d12c053e94a13a4607cdf7cc2052f3e52bd32a0dc50a1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b2ebbbe6d0011175bd9e7268b83de3f9c2f9d8d4cbfbaef12aff977d7d727163",
+				"dweb:/ipfs/Qmd5c7Vxtis9wzkDNhxwc6A2QT5H9xn9kfjhx7qx44vpro"
 			]
 		},
 		"@openzeppelin/contracts/security/Pausable.sol": {
-			"keccak256": "0xab1f67e4c96dfe0e3875d22883c3dee5411914f40ce0c54ef407f030d803512e",
+			"keccak256": "0xa35b1f2a670cd2a701a52c398032c9fed72df1909fe394d77ceacbf074e8937b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b651c0571e3ecc124b3af7a598357a19406969b21b8a3fa06eeaf5e5c9150d6c",
-				"dweb:/ipfs/QmPfcAhbGVfsSd7VKet77fuST397b7XSFU2myXxLdok79v"
+				"bzz-raw://72b957861691ebdaa78c52834465c4f8296480fe4f1a12ba72dc6c0c8ac076dd",
+				"dweb:/ipfs/QmVz1sHCwgEivHPRDswdt9tdvky7EnWqFmbuk1wFE55VMG"
 			]
 		},
 		"@openzeppelin/contracts/token/ERC721/ERC721.sol": {
-			"keccak256": "0x2d9f9af8b84d252e0e7ee716e4cb3ad1b58f3ec6619e4f54f40d4b5e28f75eb7",
+			"keccak256": "0xd644260d8e4e64563a7adba96d774dbaac6ae89c2ee58ef49a19850ff1239b08",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://43d6abdcb4cd5be9933f526b53f21008e9a7ab75ce134478625cc8ccd3c1a638",
-				"dweb:/ipfs/QmZrzWUYmNANRCvHaMGsJQXYnWCe6HvMmvrqaPn1GEcpJ1"
+				"bzz-raw://81a0c489456fafb7633712e4da200de197b5ddf5c1b7932820db852f0ff16c59",
+				"dweb:/ipfs/QmQrBxoR7gSSK9ShqunCUwXf57w19xN7DN4fgZe89sWTNw"
 			]
 		},
 		"@openzeppelin/contracts/token/ERC721/IERC721.sol": {
-			"keccak256": "0xc1c941ad1e580b4623007305921efe2f26fc7320a4edc226234dd707c658a428",
+			"keccak256": "0xf101e8720213560fab41104d53b3cc7ba0456ef3a98455aa7f022391783144a0",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://473e11d739868e0d9f48254ccf84ba63290d6a2321d59a37b74c244a27f9cad7",
-				"dweb:/ipfs/QmUGzDmecP936jzgM7SYyGwR1YgBGsveoHHJTbDfB8jbGF"
+				"bzz-raw://3e7820bcf567e6892d937c3cb10db263a4042e446799bca602535868d822384e",
+				"dweb:/ipfs/QmPG2oeDjKncqsEeyYGjAN7CwAJmMgHterXGGnpzhha4z7"
 			]
 		},
 		"@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
-			"keccak256": "0x96877bb2eb8ca360e949ee1bd77b47a14e92e42f79897c350f088f87a3c231d4",
+			"keccak256": "0xd9517254724276e2e8de3769183c1f738f445f0095c26fd9b86d3c6687e887b9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://48593d699a4ef6b5bd2efb20d37320e69303fd27d4b59a2b6b8a8e563e608456",
-				"dweb:/ipfs/QmdAPS8uLrzPJEeFZyJVkwTtaL3KB9jo9wJm1UcoJP55wT"
+				"bzz-raw://0e604bcdcd5e5b2fb299ad09769cde6db19d5aa1929d1b5e939234a0f10d7eb8",
+				"dweb:/ipfs/Qmd8hXE3GZfBHuWx3RNiYgFW2ci7KvHtib8DiwzJ2dgo9V"
 			]
 		},
 		"@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol": {
@@ -899,67 +1186,67 @@
 			]
 		},
 		"@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol": {
-			"keccak256": "0x3dce5847e70c056ef0f7cf91cb9a0067cf90784794017a45c1211cde7ed1c08c",
+			"keccak256": "0x41dc7bf7f69c668eb98aa078c5140a4d3c3b097124ee4b6058a649ca99688300",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://ba34b5028b6a297467a7364d9af182649dee0611a0f9620ec27ce10647885cad",
-				"dweb:/ipfs/QmWhGtHDcAYWA31f3Ze9izeh3SPMRzcFagTUwxExLg3sRc"
+				"bzz-raw://621b0e2f8b95aa04707f3106f48a8c7cfab2d6fbe2dd8253e70b0b024daee683",
+				"dweb:/ipfs/QmTptvu7MJ6QcogPJUxkDEkdKm97KGTC28bhsZKu4sex4M"
 			]
 		},
 		"@openzeppelin/contracts/token/ERC721/extensions/ERC721Pausable.sol": {
-			"keccak256": "0xa13cd62eaa1b09d931a025eed11b553303a4a0866b10318224ebf4dc45e7c490",
+			"keccak256": "0xe8f81ba5ba258c2a3ad5cf4c0bf6263c78e60f320bd0bc150c9de2445958c47b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://71a4c4902ca9c4aa18971ed1615292a170cd98000603fd94a0e70e0e874a8474",
-				"dweb:/ipfs/QmY54qoD7zidQ56gPoykdefj99VkuuXo5dDgMzZDJCRv2t"
+				"bzz-raw://0c64c6df28d5884d784d0b83ca067dd012dfda8c93e76e29c77c8906ab05894e",
+				"dweb:/ipfs/QmRoCfuwBaDRii84xeBFNGL1EWYX1AaAkYGVUe2y8JWP3a"
 			]
 		},
 		"@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol": {
-			"keccak256": "0xd03f5c3d258a9b0f751a3246e0802106585561ab5909b808368759364fc786f8",
+			"keccak256": "0x188d038a65a945481cc13fe30db334472dfbed61f7959d4478d05feb6303b1ea",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e89e3562a13d6acd5c6c0ce1c657f1ea1b472878c30a2f88528e721f2d3b4117",
-				"dweb:/ipfs/QmToL4MkNtn4BFipo6neazAsXwpcUxxhBBCkA6yVSLUAe9"
+				"bzz-raw://7aec4efa22389811ffa393463569410bbca1ecaa551bc94d69020bc9567e9277",
+				"dweb:/ipfs/QmPwk5uVSHPQkepebrZSQ9xqgXdPABKqHwJZ2HkzNByLRE"
 			]
 		},
 		"@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol": {
-			"keccak256": "0xccb7e6475afcb1c5cb13b3fbf1329c10b93620a9b66393388066683915271a78",
+			"keccak256": "0xa69205e5009601cf13be78b1e2f500e1e3b1d8012f22d966e63975273f602038",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://df5776161e3226ac31bfb919dfe5f42e173a08293fadb4ffa90ffb55e76869d7",
-				"dweb:/ipfs/QmXtKfvWj1v6oha8urbnw4RmjSpmQjZsGGqK5qk5trK4nH"
+				"bzz-raw://d919a0061e43f9878f6171b7f853cb92093805cd1160858c1884195a639b40a0",
+				"dweb:/ipfs/QmRZsS3EYuLp75nBym1QQ4y6aQXGew75wSbv1uwqkvouUK"
 			]
 		},
 		"@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
-			"keccak256": "0xb8d11e77eb1ed34a33720edb551d7d6a6b0eee2bfaa40a7024020e1fdf879b16",
+			"keccak256": "0xd32fb7f530a914b1083d10a6bed3a586f2451952fec04fe542bcc670a82f7ba5",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c583283c838cc624a96a69eaa823fa92ac5294ec88d417e266c09ea091e0ae62",
-				"dweb:/ipfs/QmNdzitXaFADaxooWpB4WsckkDyr4j6GQRxBjyKXsvEeXv"
+				"bzz-raw://af63ab940a34687c45f0ad84960b048fc5f49330c92ccb422db7822a444733b9",
+				"dweb:/ipfs/QmUShaQEu8HS1GjDnsMJQ8jkZEBrecn6NuDZ3pfjY1gVck"
 			]
 		},
 		"@openzeppelin/contracts/utils/Address.sol": {
-			"keccak256": "0x069b2631bb5b5193a58ccf7a06266c7361bd2c20095667af4402817605627f45",
+			"keccak256": "0x3b4820cac4f127869f6eb496c1d74fa6ac86ed24071e0f94742e6aef20e7252c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6a4c96fafff76deda5697c3c5c98cade6e6e1b178254544c106bf360c079ce4e",
-				"dweb:/ipfs/QmXmxubE3jnatFgZuN8ay1VV6hZ8WRmhvUjNpeVjki15HX"
+				"bzz-raw://23e1c7303c30a2ef9c9b3f861cda15c78e4c9697b4a7988f2bf7b21c392a02fb",
+				"dweb:/ipfs/QmWQJh5MsXJZjSTzAs9n5gtrqWYgXwkBa6xfwD5KKGQgSC"
 			]
 		},
 		"@openzeppelin/contracts/utils/Context.sol": {
-			"keccak256": "0xf930d2df426bfcfc1f7415be724f04081c96f4fb9ec8d0e3a521c07692dface0",
+			"keccak256": "0x95098bd1d9c8dec4d80d3dedb88a0d949fa0d740ee99f2aa466bc308216ca6d5",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://fc2bfdea0d2562c76fb3c4cf70a86c6ba25c5a30e8f8515c95aafdf8383f8395",
-				"dweb:/ipfs/QmTbFya18786ckJfLYUoWau9jBTKfmWnWm5XSViWvB7PXN"
+				"bzz-raw://7fec968dcd68e13961521fa3c7dd87baecad91a2653b19240e81f21cc4f3ba85",
+				"dweb:/ipfs/QmaXtsYt4Mphm8XHNUfk2me1cF3ssS2SqDBNFpYAzMjomC"
 			]
 		},
 		"@openzeppelin/contracts/utils/Strings.sol": {
-			"keccak256": "0x456e9b3a2bfe189b5249857f624f4139e59331db518483b456c4e587a20552e0",
+			"keccak256": "0x391d3ba97ab6856a16b225d6ee29617ad15ff00db70f3b4df1ab5ea33aa47c9d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1123c9545decc48a011370ebab4bf53dda98524fa21f9498e68851ba8f0ffc0f",
-				"dweb:/ipfs/QmUpgMg8EFDnv87ePKUjXxXpJT3qwHRj9VDNSnRxu7T9sy"
+				"bzz-raw://d636ba90bbbeed04a1ea7fe9ec2466757e30fd38ba2ca173636dbf69a518735e",
+				"dweb:/ipfs/QmQwCB2BHnEuYR22PYt9HkpbgeFDhq4rHmaYqAZbX3WRC7"
 			]
 		},
 		"@openzeppelin/contracts/utils/introspection/ERC165.sol": {
@@ -978,20 +1265,68 @@
 				"dweb:/ipfs/QmcsVgLgzWdor3UnAztUkXKNGcysm1MPneWksF72AvnwBx"
 			]
 		},
-		"@openzeppelin/contracts/utils/structs/EnumerableSet.sol": {
-			"keccak256": "0x4878ef6c288f4cef3c2a288d32cc548c648831cc55503ad3d9a581ed3b93aad9",
+		"@openzeppelin/contracts/utils/math/SafeMath.sol": {
+			"keccak256": "0x8666f020bd8fc9dc14f07e2ebc52b5f236ab4cdde7c77679b08cb2f94730043b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://ff1bdcc04ffc6b0a39e76ca4d8c09fb36927c2355008294db28096c1bd9ef544",
-				"dweb:/ipfs/QmSNmMUxcuQ9i6U1PVcd14gTCEYmFgkjPg3anzDckGhVRS"
+				"bzz-raw://163776cbf565c722232393aa2d62cbe8a2ffb5805986abf4906c00e1e07450a6",
+				"dweb:/ipfs/QmPZoN9T3cb6o8bGhjBPZcz7im8T8DWhpr3tjLwhJJHx9N"
 			]
 		},
-		"contracts/NFT/NLGinseng.sol": {
-			"keccak256": "0x6cc373efec4e7734e626e483f9e832433558d138bfb93fa6f75cd6765636b541",
+		"@openzeppelin/contracts/utils/structs/EnumerableSet.sol": {
+			"keccak256": "0x211639753e28bdca7f98618f51dca3dcd08a88b57c45050eb05fa4d0053327c3",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://3395b7af2f9e09f2183354f48167148832694d7cbbb99c5e41b38534e64d9c14",
-				"dweb:/ipfs/QmPM9iXaD9Wk2XkSsfkEWDoKVvye9B6VCW5yD3A7CojeZX"
+				"bzz-raw://4270d35fb4493275ceba45f1cce2d6486b0886f594f0ca6434077523844ff902",
+				"dweb:/ipfs/QmWqApTqnSKhTabGCAXocAF7ovstW4divjaoM1LPYHrLqY"
+			]
+		},
+		"kfive/contracts/BEP20/BEP20.sol": {
+			"keccak256": "0x673c8189677e70fa2f6f80fd05cd9d087649935064eb350978c0a4ab5603bb1f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://066bff1e90a521b6954ea0cc494d71276da04a21e7334776a6f1d4a4be0a8fb9",
+				"dweb:/ipfs/QmWoJYJZ51u2EDjt3ER2sEgSA4rMuBdyxXA76SqpVz3Fg2"
+			]
+		},
+		"kfive/contracts/BEP20/IBEP20.sol": {
+			"keccak256": "0x3019255471cf5d908ec336f28f63e0cd2667f6343b152b2b41923fcc5388235a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9d7ad1aaa45fbf376a9bca0edc27d5f56c19d73d69f1e99b48c3fd82da0e74a5",
+				"dweb:/ipfs/QmZFRh83HAxK69W1EKogGJkowPhShU28iLaSJmg9Lbg3Ph"
+			]
+		},
+		"kfive/contracts/KFIVE/BlackList.sol": {
+			"keccak256": "0x669d686ea2f647c1fbf7aac8bdfd1a30f31fc9b0bbd15d23ba80e778f0309267",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2c5b79cbe4c89dc29e514f70de91f6691d55f48bbcfc15a7bc28598dfc028fda",
+				"dweb:/ipfs/QmSW8hQ7oNQZXXQU8r23WPxTocZw65HfMMepEkjUtgrhES"
+			]
+		},
+		"kfive/contracts/NFT/Configurable.sol": {
+			"keccak256": "0x0a1ca1acf0632b2ff510c5388c32e263b77af18730a9c91510eb6815dfa4ba14",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c8370b4dd74973681f08f457944afaddd1ad5f5213e4b42063ece74abb997f4c",
+				"dweb:/ipfs/QmNQe4VZVwXEdxS7G6LF1ji4pToYSzE5RYz2bNXkST5dH3"
+			]
+		},
+		"kfive/contracts/NFT/NLGinseng.sol": {
+			"keccak256": "0x76fbd03dd07f3b975902e31e6a6c52aa4ce7c88d15830e38db16a39867961a4e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://67b9a1178d7eca4a8a42e81cf6e40bf171209526807a912380e6f2a9ac4a7aef",
+				"dweb:/ipfs/QmNfTHXUwUTyjdzBTzUYP1jNec5pFnPdCeg3C3uyUgZdbe"
+			]
+		},
+		"kfive/contracts/NFT/TokenAdmin.sol": {
+			"keccak256": "0x1ead115f95850dfe627b3b567c6ac66a0a8c42ebce0f2b24b1124e96f5ccf9d1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e85199d79dba9790fc17fec370ddca71faa1048bb73860ef6a7ab4710432f44a",
+				"dweb:/ipfs/QmT1iXTkWWvu2PGc54ikdjzyxpo2UihAyKQBxSvjEAuDu2"
 			]
 		}
 	},

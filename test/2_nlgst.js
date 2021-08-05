@@ -2,7 +2,10 @@ const NLGinseng = artifacts.require("NLGinseng")
 
 const eq = assert.equal
 const u = require('./utils.js')
+const tokenDecimals = 10
+const tokenCap = 1080000
 const keccak256 = require('js-sha3').keccak256;
+
 var nlgst;
 
 contract("NLGinseng", (accounts) => {
@@ -288,5 +291,236 @@ contract("NLGinseng", (accounts) => {
                 from: root
             }));
         });
+    })
+
+    describe('Blacklist stage', async () => {
+        it('Add blacklist (account1): failed because only owner can call it', async () => {
+            const i = {
+                 evil: evil,
+            }
+            await u.assertRevert(nlgst.addBlackList(i.evil, {
+                from: account1
+            }));
+        })
+
+        it('Add blacklist: Owner call', async () => {
+            const i = {
+                evil: evil,
+            }
+            await nlgst.addBlackList(i.evil, {
+                from: root
+            });
+        })
+
+        it('Evil cannot call transferFrom', async () => {
+            const i = {
+                tokenId: 1,
+                to: evil,
+            }
+
+            await nlgst.transferFrom(i.to, i.tokenId, {
+                from: root
+            });
+
+            const o = {
+                evil_balance: 1,
+                owner: evil,
+            }
+
+            let evil_balance = await nlgst.balanceOf(i.to, {
+                from: evil
+            });
+            eq(o.evil_balance, evil_balance.toString());
+
+            // evil try to call transfer method
+            await u.assertRevert(nlgst.transferFrom(evil, account1, i.value, {
+                from: evil
+            }));
+
+            await nlgst.approve(root, "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", {
+                from: evil
+            });
+            // evil try to call transfer from method
+            await u.assertRevert(nlgst.transferFrom(evil, account1, i.value, {
+                from: root
+            }));
+        });
+
+        it('Remove blacklist (account1): Failed because only owner can call it', async () => {
+            const i = {
+                evil: evil,
+            }
+            await u.assertRevert(nlgst.removeBlackList(i.evil, {
+                from: account1
+            }));
+        })
+
+        it('Remove blacklist', async () => {
+            const i = {
+                evil: evil,
+            }
+            await nlgst.removeBlackList(i.evil, {
+                from: root
+            });
+        })
+
+        it('Evil can call transfer from method', async () => {
+            const i = {
+                from: evil,
+                to: account6,
+                tokenId: 1,
+            }
+
+            // evil can call transfer from method
+            await nlgst.transferFrom(i.from, i.to, i.tokenId, {
+                from: i.from
+            });
+
+            const o = {
+                account6_balance: 1,
+                evil_balance: 0,
+            }
+
+            let account6_balance = await nlgst.balanceOf(i.to, {
+                from: root
+            });
+            eq(o.account6_balance, account6_balance.toString());
+        });
+
+        it('Destroy hacker (account6) funds: Failed because this is not black funds account', async () => {
+            const i = {
+                to: account6,
+                tokenId: 2,
+            }
+            await nlgst.transferFrom(i.from, i.to, i.value, {
+                from: root
+            });
+            await u.assertRevert(nlgst.destroyBlackFunds(i.to, {
+                from: root
+            }));
+        })
+
+        it('Destroy hacker (evil) funds: Failed because only owner can destroy', async () => {
+            const i = {
+                evil: evil,
+                tokenId: 3
+            }
+            await nlgst.transferFrom(i.evil, i.value, {
+                from: root
+            });
+
+            let evil_balance = await nlgst.balanceOf(i.evil, {
+                from: root
+            });
+            const o = {
+                evil_balance: 2
+            }
+            eq(o.evil_balance, evil_balance.toString());
+
+            await nlgst.addBlackList(i.evil, {
+                from: root
+            });
+            await u.assertRevert(nlgst.destroyBlackFunds(i.evil, {
+                from: account1,
+            }));
+        });
+
+        it('Destroy hacker (evil) funds: Failed because only owner can destroy', async () => {
+            const i = {
+                evil: evil,
+            }
+
+            const o = {
+                evil_address: evil,
+                evil_balance: 0,
+                evil_funds: 2,
+            }
+
+            let tx = await nlgst.destroyBlackFunds(i.evil, {
+                from: root,
+            });
+            let evil_balance = await nlgst.balanceOf(i.evil, {
+               from: i.evil
+            });
+
+            eq(o.evil_balance, evil_balance);
+            eq(o.evil_address, await oc(tx, "DestroyedBlackFunds", "_blackListedUser"))
+            eq(o.evil_funds, await oc(tx, "DestroyedBlackFunds", "_balance"))
+        });
+    });
+
+    describe('Admin stage', async () => {
+        it('Only owner can add admin', async () => {
+            const i = {
+                new_admin: new_admin,
+                max_issuing_per_times: web3.utils.toHex(10 * (10 ** tokenDecimals)),
+                max_total_issuing_token: web3.utils.toHex(10 * (10 ** tokenDecimals)),
+            }
+
+            await u.assertRevert(nlgst.addAdmin(i.new_admin, i.max_issuing_per_times, i.max_total_issuing_token, {
+                from: account1
+            }));
+        });
+
+        it('Cannot add admin with max_total_issuing_token > cap value', async () => {
+            const i = {
+                new_admin: new_admin,
+                max_issuing_per_times: web3.utils.toHex(10 * (10 ** tokenDecimals)),
+                max_total_issuing_token: web3.utils.toHex((tokenCap + 1) * (10 ** tokenDecimals)),
+            }
+
+            await u.assertRevert(nlgst.addAdmin(i.new_admin, i.max_issuing_per_times, i.max_total_issuing_token, {
+                from: account1
+            }));
+        })
+
+        it('Owner add admin', async () => {
+            const i = {
+                new_admin: new_admin,
+                max_issuing_token_per_time: web3.utils.toHex(10 * (10 ** tokenDecimals)),
+                max_total_issuing_token: web3.utils.toHex(100 * (10 ** tokenDecimals)),
+            }
+
+            const o = {
+                status: true,
+                max_issuing_token_per_time: 10 * (10 ** tokenDecimals),
+                max_total_issuing_token: 100 * (10 ** tokenDecimals),
+                remaining_issuing_token: 100 * (10 ** tokenDecimals),
+            }
+
+            await nlgst.addAdmin(i.new_admin, i.max_issuing_token_per_time, i.max_total_issuing_token, {
+                from: root
+            });
+
+            let a = await nlgst.admin(i.new_admin)
+
+            eq(o.status, a.status);
+            eq(o.max_issuing_token_per_time, a.maxIssuingTokenPerTime.toString());
+            eq(o.max_total_issuing_token, a.maxTotalIssuingToken.toString());
+            eq(o.remaining_issuing_token, a.remainingIssuingToken.toString());
+        })
+
+        it('Only owner can remove admin', async () => {
+            const i = {
+                new_admin: new_admin,
+            }
+
+            await u.assertRevert(nlgst.removeAdmin(i.new_admin, {
+                from: account1
+            }));
+        })
+
+        it('Owner remove admin', async () => {
+            const i = {
+                new_admin: new_admin,
+            }
+
+            await nlgst.removeAdmin(i.new_admin, {
+                from: root
+            });
+
+            let a = await nlgst.admin(i.new_admin)
+            eq(false, a.status);
+        })
     })
 });

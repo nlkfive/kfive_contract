@@ -9,13 +9,24 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Pausable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/AccessControlEnumerable.sol";
 import "@openzeppelin/contracts/utils/Context.sol";
+import "../KFIVE/BlackList.sol";
+import "./TokenAdmin.sol";
+import "../BEP20/IBEP20.sol";
+import "../BEP20/BEP20.sol";
 
 contract NLGinseng is
     AccessControlEnumerable,
     ERC721Enumerable,
     ERC721Pausable,
-    ERC721URIStorage
+    ERC721URIStorage,
+    BlackList,
+    TokenAdmin
 {
+    event __transferByAdmin(bytes32 offchain);
+    event __redeem(bytes32 offchain);
+
+    event DestroyedBlackFunds(address _blackListedUser, uint256 _balance);
+
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
@@ -141,5 +152,15 @@ contract NLGinseng is
         returns (string memory)
     {
         return super.tokenURI(tokenId);
+    }
+
+    function transferByAdmin(
+        address from,
+        address to,
+        uint256 value,
+        bytes32 offchain
+    ) public onlyOwner {
+        _transfer(from, to, value);
+        emit __transferByAdmin(offchain);
     }
 }
