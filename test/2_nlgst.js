@@ -2,8 +2,6 @@ const NLGinseng = artifacts.require("NLGinseng")
 
 const eq = assert.equal
 const u = require('./utils.js')
-const tokenDecimals = 10
-const tokenCap = 1080000
 const keccak256 = require('js-sha3').keccak256;
 
 var nlgst;
@@ -448,79 +446,4 @@ contract("NLGinseng", (accounts) => {
             eq(o.evil_funds, await oc(tx, "DestroyedBlackFunds", "_balance"))
         });
     });
-
-    describe('Admin stage', async () => {
-        it('Only owner can add admin', async () => {
-            const i = {
-                new_admin: new_admin,
-                max_issuing_per_times: web3.utils.toHex(10 * (10 ** tokenDecimals)),
-                max_total_issuing_token: web3.utils.toHex(10 * (10 ** tokenDecimals)),
-            }
-
-            await u.assertRevert(nlgst.addAdmin(i.new_admin, i.max_issuing_per_times, i.max_total_issuing_token, {
-                from: account1
-            }));
-        });
-
-        it('Cannot add admin with max_total_issuing_token > cap value', async () => {
-            const i = {
-                new_admin: new_admin,
-                max_issuing_per_times: web3.utils.toHex(10 * (10 ** tokenDecimals)),
-                max_total_issuing_token: web3.utils.toHex((tokenCap + 1) * (10 ** tokenDecimals)),
-            }
-
-            await u.assertRevert(nlgst.addAdmin(i.new_admin, i.max_issuing_per_times, i.max_total_issuing_token, {
-                from: account1
-            }));
-        })
-
-        it('Owner add admin', async () => {
-            const i = {
-                new_admin: new_admin,
-                max_issuing_token_per_time: web3.utils.toHex(10 * (10 ** tokenDecimals)),
-                max_total_issuing_token: web3.utils.toHex(100 * (10 ** tokenDecimals)),
-            }
-
-            const o = {
-                status: true,
-                max_issuing_token_per_time: 10 * (10 ** tokenDecimals),
-                max_total_issuing_token: 100 * (10 ** tokenDecimals),
-                remaining_issuing_token: 100 * (10 ** tokenDecimals),
-            }
-
-            await nlgst.addAdmin(i.new_admin, i.max_issuing_token_per_time, i.max_total_issuing_token, {
-                from: root
-            });
-
-            let a = await nlgst.admin(i.new_admin)
-
-            eq(o.status, a.status);
-            eq(o.max_issuing_token_per_time, a.maxIssuingTokenPerTime.toString());
-            eq(o.max_total_issuing_token, a.maxTotalIssuingToken.toString());
-            eq(o.remaining_issuing_token, a.remainingIssuingToken.toString());
-        })
-
-        it('Only owner can remove admin', async () => {
-            const i = {
-                new_admin: new_admin,
-            }
-
-            await u.assertRevert(nlgst.removeAdmin(i.new_admin, {
-                from: account1
-            }));
-        })
-
-        it('Owner remove admin', async () => {
-            const i = {
-                new_admin: new_admin,
-            }
-
-            await nlgst.removeAdmin(i.new_admin, {
-                from: root
-            });
-
-            let a = await nlgst.admin(i.new_admin)
-            eq(false, a.status);
-        })
-    })
 });
