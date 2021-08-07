@@ -3,3 +3,6 @@ test/.placeholder
 build
 node_modules
 .secret.js
+contracts/NFT/NLGinseng.sol
+contracts/NFT/artifacts/NLGinseng_metadata.json
+contracts/NFT/artifacts/NLGinseng.json

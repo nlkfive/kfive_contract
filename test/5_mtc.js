@@ -6,6 +6,7 @@ const u = require('./utils.js')
 const oc = u.oc;
 const tokenDecimals = 10;
 const tokenCap = 1116400000;
+const tokenCapKfive = 1080000;
 var mtc, kfive;
 
 contract("MTC", (accounts) => {
@@ -464,7 +465,7 @@ contract("MTC", (accounts) => {
             }));
         });
 
-        it('Destroy hacker (evil) funds: Failed because only owner can destroy', async () => {
+        it('Destroy hacker (evil) funds', async () => {
             const i = {
                 evil: evil,
             }
@@ -563,7 +564,7 @@ contract("MTC", (accounts) => {
         });
     });
 
-    describe('Mint by admin stage', async () => {
+    describe('Issue by admin stage', async () => {
         it('Issue by admin: root (also be an Admin) 10 Token to account 8 - Total supply is reached', async () => {
             i = {
                 issuer: account8,
@@ -722,7 +723,6 @@ contract("MTC", (accounts) => {
             const i = {
                 new_kfiveReceiver: kfive.address,
             }
-            console.log(i),
             await u.assertRevert(mtc.transferKfiveReceiver(i.new_kfiveReceiver, {
                 from: account1
             }));
@@ -732,7 +732,6 @@ contract("MTC", (accounts) => {
             const i = {
                 new_kfiveReceiver: '0x0000000000000000000000000000000000000000',
             }
-            console.log(i),
             await u.assertRevert(mtc.transferKfiveReceiver(i.new_kfiveReceiver, {
                 from: new_owner
             }));
@@ -740,18 +739,17 @@ contract("MTC", (accounts) => {
 
         it('Owner transfer KFIVE_receiver to new KfiveReceiver', async () => {
             const i = {
-                new_kfiveReceiver: kfive.address,
+                new_kfiveReceiver: root,
             }
             await mtc.transferKfiveReceiver(i.new_kfiveReceiver, {
                 from: new_owner
             });
         });
 
-        it('Owner transfer KFIVE_receiver to self', async () => {
+        it('Owner transfer KFIVE_receiver to account2', async () => {
             const i = {
-                new_kfiveReceiver: new_owner,
+                new_kfiveReceiver: account2,
             }
-            console.log(i),
             await mtc.transferKfiveReceiver(i.new_kfiveReceiver, {
                 from: new_owner
             });
@@ -759,22 +757,21 @@ contract("MTC", (accounts) => {
     });
 
     describe('Update KFIVE Address', async () => {
-        it('Account 1 update KfiveAddress, Cannot because account1 is not owner', async () => {
+        it('Account1 (admin) update KfiveAddress, Cannot because account1 is not owner', async () => {
             const i = {
                 new_kfiveAddress: kfive.address,
             }
-            console.log(i),
             await u.assertRevert(mtc.updateKfiveAddress(i.new_kfiveAddress, {
                 from: account1
             }));
         });
 
-        it('Account 1 update KfiveAddress, Cannot because account1 is not owner', async () => {
+        it('Account2 update KfiveAddress, Cannot because account2 is not owner', async () => {
             const i = {
                 new_kfiveAddress: kfive.address,
             }
             await u.assertRevert(mtc.updateKfiveAddress(i.new_kfiveAddress, {
-                from: account1
+                from: account2
             }));
         });
 
@@ -794,6 +791,146 @@ contract("MTC", (accounts) => {
             await mtc.updateKfiveAddress(i.new_kfiveAddress, {
                 from: new_owner
             });
+        });
+    });
+
+    describe('Exchange From KFIVE', async () => {
+        before(async () => {
+            kfive = await KFIVE.new({
+                from: root
+            });
+            mtc = await MTC.new(kfive.address, {
+                from: root
+            });
+        });
+
+        it('Account5 approve contract MTC can transfer KFIVE', async () => {
+            var allowance = web3.utils.toHex(1080 * (10 ** tokenDecimals));
+            await kfive.approve(mtc.address, allowance, {
+                from: account5
+            });
+
+            const o2 = {
+                root_allowance: web3.utils.toHex(1080 * (10 ** tokenDecimals))
+            }
+
+            root_allowance = await kfive.allowance(account5, mtc.address, {
+                from: account5
+            });
+            eq(o2.root_allowance, web3.utils.toHex(root_allowance));
+        });
+
+        it('Account5 transfer 1 Kfive and receive 1080 MTC, Cannot because account5 does not have any KFIVE', async () => {
+            const value = 1 * (10 ** tokenDecimals);
+            await u.assertRevert(mtc.exchangeFromKfive(value, {
+                from: account5
+            }));
+        });
+
+        it('Account6 transfer 1 Kfive and receive 1080 MTC, Cannot because account6 does not approve MTC contract', async () => {
+            const balance = 1 * (10 ** tokenDecimals);
+            await kfive.issue(account6, balance.toString(), OFFCHAIN, {
+                from: root
+            });
+            await u.assertRevert(mtc.exchangeFromKfive(balance, {
+                from: account6
+            }));
+        });
+
+        it('Account6 also approve contract MTC can transfer KFIVE', async () => {
+            var allowance = web3.utils.toHex(1080 * (10 ** tokenDecimals));
+            await kfive.approve(mtc.address, allowance, {
+                from: account6
+            });
+
+            const o2 = {
+                root_allowance: web3.utils.toHex(1080 * (10 ** tokenDecimals))
+            }
+
+            root_allowance = await kfive.allowance(account6, mtc.address, {
+                from: account6
+            });
+            eq(o2.root_allowance, web3.utils.toHex(root_allowance));
+        });
+
+        it('Issue 1 kfive to account5', async () => {
+            const balance = 1 * (10 ** tokenDecimals);
+            await kfive.issue(account5, balance.toString(), OFFCHAIN, {
+                from: root
+            });
+            account5_balance = await kfive.balanceOf(account5, {
+                from: root
+            });
+            eq(balance.toString(), account5_balance.toString());
+        });
+
+        it('Account5 transfer 1 Kfive and receive 1080 MTC', async () => {
+            const value = 1 * (10 ** tokenDecimals);
+            await mtc.exchangeFromKfive(value, {
+                from: account5
+            });
+
+            const o = {
+                account5_mtc_balance: 1080 * (10 ** tokenDecimals),
+            }
+
+            let account5_mtc_balance = await mtc.balanceOf(account5, {
+                from: root
+            });
+            eq(o.account5_mtc_balance, account5_mtc_balance.toString());
+
+            const o2 = {
+                account5_kfive_balance: 0,
+                root_kfive_balance: 1 * (10 ** tokenDecimals),
+            }
+
+            let account5_kfive_balance = await kfive.balanceOf(account5, {
+                from: root
+            });
+            eq(o2.account5_kfive_balance, account5_kfive_balance.toString());
+
+            let root_kfive_balance = await kfive.balanceOf(root, {
+                from: root
+            });
+            eq(o2.root_kfive_balance, root_kfive_balance.toString());
+        });
+
+        it('Account6 transfer 5 Kfive and receive 1080*5 MTC, Cannot because account6 only has 1 KFIVE', async () => {
+            const value = 5 * (10 ** tokenDecimals);
+            await u.assertRevert(mtc.exchangeFromKfive(value, {
+                from: account6
+            }));
+        });
+
+        it('Account6 transfer 1 Kfive and receive 1080 MTC', async () => {
+            const value = 1 * (10 ** tokenDecimals);
+            await mtc.exchangeFromKfive(value, {
+                from: account6
+            });
+
+            const o = {
+                account6_mtc_balance: 1080 * (10 ** tokenDecimals),
+            }
+
+            let account6_mtc_balance = await mtc.balanceOf(account5, {
+                from: root
+            });
+            eq(o.account6_mtc_balance, account6_mtc_balance.toString());
+
+            const o2 = {
+                account6_kfive_balance: 0,
+                root_kfive_balance: 2 * (10 ** tokenDecimals),
+            }
+
+            let account6_kfive_balance = await kfive.balanceOf(account5, {
+                from: root
+            });
+            eq(o2.account6_kfive_balance, account6_kfive_balance.toString());
+
+            let root_kfive_balance = await kfive.balanceOf(root, {
+                from: root
+            });
+            eq(o2.root_kfive_balance, root_kfive_balance.toString());
         });
     });
 });
