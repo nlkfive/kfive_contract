@@ -1,9 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.4;
 
-import "./Configurable.sol";
-
-contract TokenAdmin is Configurable {
+abstract contract TokenAdmin {
     address private superAdmin;
     mapping(address => AdminInfo) public admin;
 
@@ -14,9 +12,11 @@ contract TokenAdmin is Configurable {
         uint256 remainingIssuingToken;
     }
 
+    function cap() internal virtual returns (uint256);
+
     constructor() {
         superAdmin = msg.sender;
-        addAdmin(msg.sender, cap, cap);
+        addAdmin(msg.sender, cap(), cap());
     }
 
     modifier onlyAdmin() {
@@ -40,7 +40,7 @@ contract TokenAdmin is Configurable {
             "maxIssuingTokenPerTime must be less than or equal to maxTotalIssuingToken"
         );
         require(
-            maxTotalIssuingToken <= cap,
+            maxTotalIssuingToken <= cap(),
             "maxTotalIssuingToken must be less than or equal to cap value"
         );
 

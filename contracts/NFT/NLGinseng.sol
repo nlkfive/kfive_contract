@@ -9,12 +9,14 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Pausable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/AccessControlEnumerable.sol";
 import "@openzeppelin/contracts/utils/Context.sol";
+import "../common/BlackList.sol";
 
 contract NLGinseng is
     AccessControlEnumerable,
     ERC721Enumerable,
     ERC721Pausable,
-    ERC721URIStorage
+    ERC721URIStorage,
+    BlackList
 {
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");

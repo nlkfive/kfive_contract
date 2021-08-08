@@ -4,8 +4,8 @@ pragma solidity 0.8.4;
 import "../BEP20/IBEP20.sol";
 import "../BEP20/BEP20.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
-import "./BlackList.sol";
-import "./TokenAdmin.sol";
+import "../common/BlackList.sol";
+import "../common/TokenAdmin.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
 
 contract MTC is BEP20("MTC", "MTC", 10), Pausable, BlackList, TokenAdmin {
@@ -17,6 +17,8 @@ contract MTC is BEP20("MTC", "MTC", 10), Pausable, BlackList, TokenAdmin {
     event KfiveReceiverTransferred(address oldReceiver, address newReceiver);
     event ExchangeFromKFIVE(address user, uint256 value);
     event KfiveAddressChanged(address kfiveAddress);
+
+    uint256 public constant KFIVE2MTC = 1080;
 
     // exchanged KFIVE to MTC will be transfer to this address
     address private kfiveReceiver;
@@ -34,6 +36,10 @@ contract MTC is BEP20("MTC", "MTC", 10), Pausable, BlackList, TokenAdmin {
         );
         kfiveReceiver = msg.sender;
         kfiveToken = IBEP20(_kfiveAddress);
+    }
+
+    function cap() internal pure override returns (uint256) {
+        return 1116400000 * 10**10;
     }
 
     /**
@@ -77,7 +83,7 @@ contract MTC is BEP20("MTC", "MTC", 10), Pausable, BlackList, TokenAdmin {
      */
     function _issue(address issuer, uint256 value) private {
         require(
-            totalSupply() + value <= cap,
+            totalSupply() + value <= cap(),
             "minted value + total supply must be smaller or equal token cap"
         );
         _mint(issuer, value);

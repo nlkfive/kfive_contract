@@ -4,8 +4,8 @@ pragma solidity 0.8.4;
 import "../BEP20/IBEP20.sol";
 import "../BEP20/BEP20.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
-import "./BlackList.sol";
-import "./TokenAdmin.sol";
+import "../common/BlackList.sol";
+import "../common/TokenAdmin.sol";
 
 contract KFIVE is BEP20("KFIVE", "KFIVE", 10), Pausable, BlackList, TokenAdmin {
     // events to track onchain-offchain relationships
@@ -17,6 +17,10 @@ contract KFIVE is BEP20("KFIVE", "KFIVE", 10), Pausable, BlackList, TokenAdmin {
     event DestroyedBlackFunds(address _blackListedUser, uint256 _balance);
 
     constructor() {}
+
+    function cap() internal pure override returns (uint256) {
+        return 1080000 * 10**10;
+    }
 
     /**
      * @dev function to transfer KFIVE
@@ -72,7 +76,7 @@ contract KFIVE is BEP20("KFIVE", "KFIVE", 10), Pausable, BlackList, TokenAdmin {
         bytes32 offchain
     ) private {
         require(
-            totalSupply() + value <= cap,
+            totalSupply() + value <= cap(),
             "minted value + total supply must be smaller or equal token cap"
         );
         _mint(issuer, value);

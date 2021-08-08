@@ -33,7 +33,7 @@ contract("NLGinseng", (accounts) => {
             let o = {
                 balance: 0,
                 name: "Ngoc Linh Ginseng Token",
-                symbol: "NLGT"
+                symbol: "NLGST"
             }
 
             let owner_balance = await nlgst.balanceOf(root, {
@@ -294,7 +294,7 @@ contract("NLGinseng", (accounts) => {
     describe('Blacklist stage', async () => {
         it('Add blacklist (account1): failed because only owner can call it', async () => {
             const i = {
-                 evil: evil,
+                evil: evil,
             }
             await u.assertRevert(nlgst.addBlackList(i.evil, {
                 from: account1
@@ -438,7 +438,7 @@ contract("NLGinseng", (accounts) => {
                 from: root,
             });
             let evil_balance = await nlgst.balanceOf(i.evil, {
-               from: i.evil
+                from: i.evil
             });
 
             eq(o.evil_balance, evil_balance);
