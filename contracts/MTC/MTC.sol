@@ -8,7 +8,7 @@ import "../common/BlackList.sol";
 import "../common/TokenAdmin.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
 
-contract MTC is BEP20("MTC", "MTC", 10), Pausable, BlackList, TokenAdmin {
+contract MTC is BEP20("Maitreya coin", "MTC", 10), Pausable, BlackList, TokenAdmin {
     using Address for address;
 
     event __transferByAdmin();

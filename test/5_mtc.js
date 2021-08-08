@@ -36,7 +36,7 @@ contract("MTC", (accounts) => {
         it('Token information', async () => {
             let o = {
                 balance: 0,
-                name: 'MTC',
+                name: 'Maitreya coin',
                 symbol: 'MTC',
                 decimals: tokenDecimals,
                 // kfiveToken: kfive.address,
