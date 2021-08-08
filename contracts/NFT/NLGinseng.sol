@@ -111,6 +111,7 @@ contract NLGinseng is
         address to,
         uint256 tokenId
     ) internal virtual override(ERC721, ERC721Enumerable, ERC721Pausable) {
+        require(!isBlackListed[from]);
         super._beforeTokenTransfer(from, to, tokenId);
     }
 
