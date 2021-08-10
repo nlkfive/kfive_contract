@@ -90,6 +90,18 @@ contract("NLGinseng", (accounts) => {
             }));
         });
 
+        it('Give admin_role to account1 (root)', async () => {
+            await nlgst.grantRole("0x" + keccak256("ADMIN_ROLE"), account1, {
+                from: root
+            });
+        });
+
+        it('Mint new token (account1): Failed because account1 does not have minter_role', async () => {
+            await u.assertRevert(nlgst.mint(account1, 2, "2", {
+                from: account1
+            }));
+        });
+
         it('Give minter_role to account1 (root)', async () => {
             await nlgst.grantRole("0x" + keccak256("MINTER_ROLE"), account1, {
                 from: root
@@ -133,8 +145,74 @@ contract("NLGinseng", (accounts) => {
             });
         });
 
+        it('Give minter_role to account1 (account1). Failed because Account1 (admin) cant grantRole', async () => {
+            await u.assertRevert(nlgst.grantRole("0x" + keccak256("MINTER_ROLE"), account1, {
+                from: account1
+            }));
+        });
+
+        it('Give minter_role to account1 (root)', async () => {
+            await nlgst.grantRole("0x" + keccak256("MINTER_ROLE"), account1, {
+                from: root
+            });
+        });
+
+        it('Mint new token (account1) to [3] account1', async () => {
+            const i = {
+                tokenId: 3,
+                tokenURI: "3"
+            }
+
+            await nlgst.mint(account1, i.tokenId, i.tokenURI, {
+                from: account1
+            });
+
+            let o = {
+                account1_balance: 3,
+                tokenURI: baseURL + i.tokenURI,
+                owner: account1
+            }
+            let account1_balance = await nlgst.balanceOf(account1, {
+                from: account1
+            });
+            eq(o.account1_balance, account1_balance.toString());
+
+            let tokenURI = await nlgst.tokenURI(i.tokenId, {
+                from: account1
+            });
+            eq(o.tokenURI, tokenURI);
+
+            let owner = await nlgst.ownerOf(i.tokenId, {
+                from: root
+            });
+            eq(o.owner, owner);
+        });
+
+        it('Mint again token (account1) to [3] account1. Failed because token id=3 already minted', async () => {
+            const i = {
+                tokenId: 3,
+                tokenURI: "3"
+            }
+
+            await u.assertRevert(nlgst.mint(account1, i.tokenId, i.tokenURI, {
+                from: account1
+            }));
+        });
+
+        it('Revoke minter_role to account1 (account2)', async () => {
+            await u.assertRevert(nlgst.revokeRole("0x" + keccak256("MINTER_ROLE"), account1, {
+                from: account2
+            }));
+        });
+
+        it('Revoke minter_role to account1 (root)', async () => {
+            await nlgst.revokeRole("0x" + keccak256("MINTER_ROLE"), account1, {
+                from: root
+            });
+        });
+
         it('Mint new token (account1): Failed because account1 does not have minter_role', async () => {
-            await u.assertRevert(nlgst.mint(account1, 1, "1", {
+            await u.assertRevert(nlgst.mint(account1, 4, "4", {
                 from: account1
             }));
         });
@@ -153,7 +231,7 @@ contract("NLGinseng", (accounts) => {
             });
 
             let o = {
-                account1_balance: 1,
+                account1_balance: 2,
                 account2_balance: 1,
                 owner: account2
             }
@@ -171,6 +249,18 @@ contract("NLGinseng", (accounts) => {
                 from: root
             });
             eq(o.owner, owner);
+        });
+
+        it('Transfer token (account1) [2] to account2. Failed because account1 does not own token_id=4', async () => {
+            const i = {
+                tokenId: 4,
+                from: account1,
+                to: account2
+            }
+
+            await u.assertRevert(nlgst.transferFrom(i.from, i.to, i.tokenId, {
+                from: i.from
+            }));
         });
 
         it('Transfer (root): token [1] from account1 to account2: Failed because root does not own this token', async () => {
@@ -208,7 +298,7 @@ contract("NLGinseng", (accounts) => {
             });
 
             let o = {
-                account1_balance: 0,
+                account1_balance: 1,
                 account2_balance: 2,
                 owner: account2
             }
