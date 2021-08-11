@@ -423,7 +423,55 @@ contract("NLGinseng", (accounts) => {
             await u.assertRevert(nlgst.addBlackList(i.evil, {
                 from: account1
             }));
-        })
+        });
+
+        it('Give admin_role to account1 (root), for future step', async () => {
+            await nlgst.grantRole("0x" + keccak256("ADMIN_ROLE"), account1, {
+                from: root
+            });
+        });
+
+        it('Add blacklist (account1 - admin): failed because only owner can call it', async () => {
+            const i = {
+                evil: evil,
+            }
+            await u.assertRevert(nlgst.addBlackList(i.evil, {
+                from: account1
+            }));
+        });
+
+        it('Account1 transferFrom account1 -> evil tokenId = 3 for future transaction', async () => {
+            const i = {
+                tokenId: 3,
+                from: account1,
+                to: evil,
+            }
+
+            await nlgst.transferFrom(i.from, i.to, i.tokenId, {
+                from: account1
+            });
+
+            const o = {
+                evil_balance: 1,
+                account1_balance: 0,
+                owner: evil,
+            }
+
+            let evil_balance = await nlgst.balanceOf(i.to, {
+                from: root
+            });
+            eq(o.evil_balance, evil_balance.toString());
+
+            let account1_balance = await nlgst.balanceOf(account1, {
+                from: root
+            });
+            eq(o.account1_balance, account1_balance.toString());
+
+            let owner = await nlgst.ownerOf(i.tokenId, {
+                from: root
+            });
+            eq(o.owner, owner);
+        });
 
         it('Add blacklist: Owner call', async () => {
             const i = {
@@ -432,68 +480,73 @@ contract("NLGinseng", (accounts) => {
             await nlgst.addBlackList(i.evil, {
                 from: root
             });
-        })
+        });
 
         it('Evil cannot call transferFrom', async () => {
             const i = {
-                tokenId: 1,
-                to: evil,
+                tokenId: 3,
+                from: evil,
+                to: account1,
             }
 
-            await nlgst.transferFrom(i.to, i.tokenId, {
-                from: root
-            });
-
-            const o = {
-                evil_balance: 1,
-                owner: evil,
-            }
-
-            let evil_balance = await nlgst.balanceOf(i.to, {
-                from: evil
-            });
-            eq(o.evil_balance, evil_balance.toString());
-
-            // evil try to call transfer method
-            await u.assertRevert(nlgst.transferFrom(evil, account1, i.value, {
+            // evil try to call transfer and safeTransfer method
+            await u.assertRevert(nlgst.transferFrom(i.from, i.to, i.tokenId, {
                 from: evil
             }));
 
-            await nlgst.approve(root, "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", {
+            await u.assertRevert(nlgst.safeTransferFrom(i.from, i.to, i.tokenId, {
+                from: evil
+            }));
+
+            // evil try to approve token id = 3 to root and root call transferFrom + safeTransferFrom method
+            await nlgst.approve(root, i.tokenId, {
                 from: evil
             });
-            // evil try to call transfer from method
-            await u.assertRevert(nlgst.transferFrom(evil, account1, i.value, {
+
+            await u.assertRevert(nlgst.transferFrom(evil, account1, i.tokenId, {
                 from: root
+            }));
+
+            await u.assertRevert(nlgst.safeTransferFrom(evil, account1, i.tokenId, {
+            from: root
             }));
         });
 
-        it('Remove blacklist (account1): Failed because only owner can call it', async () => {
+        it('Remove blacklist (account2): Failed because only owner can call it', async () => {
+            const i = {
+                evil: evil,
+            }
+            await u.assertRevert(nlgst.removeBlackList(i.evil, {
+                from: account2
+            }));
+        });
+
+        it('Remove blacklist (account1 - admin): Failed because only owner can call it', async () => {
             const i = {
                 evil: evil,
             }
             await u.assertRevert(nlgst.removeBlackList(i.evil, {
                 from: account1
             }));
-        })
+        });
 
-        it('Remove blacklist', async () => {
+        it('Remove blacklist (Root)', async () => {
             const i = {
                 evil: evil,
             }
             await nlgst.removeBlackList(i.evil, {
                 from: root
             });
-        })
+        });
 
-        it('Evil can call transfer from method', async () => {
+        it('Evil can call transferFrom method, transfer token_id=3 to account6 (hacker)', async () => {
             const i = {
                 from: evil,
                 to: account6,
-                tokenId: 1,
+                tokenId: 3,
             }
 
-            // evil can call transfer from method
+            // evil can call transferFrom method
             await nlgst.transferFrom(i.from, i.to, i.tokenId, {
                 from: i.from
             });
@@ -507,67 +560,6 @@ contract("NLGinseng", (accounts) => {
                 from: root
             });
             eq(o.account6_balance, account6_balance.toString());
-        });
-
-        it('Destroy hacker (account6) funds: Failed because this is not black funds account', async () => {
-            const i = {
-                to: account6,
-                tokenId: 2,
-            }
-            await nlgst.transferFrom(i.from, i.to, i.value, {
-                from: root
-            });
-            await u.assertRevert(nlgst.destroyBlackFunds(i.to, {
-                from: root
-            }));
-        })
-
-        it('Destroy hacker (evil) funds: Failed because only owner can destroy', async () => {
-            const i = {
-                evil: evil,
-                tokenId: 3
-            }
-            await nlgst.transferFrom(i.evil, i.value, {
-                from: root
-            });
-
-            let evil_balance = await nlgst.balanceOf(i.evil, {
-                from: root
-            });
-            const o = {
-                evil_balance: 2
-            }
-            eq(o.evil_balance, evil_balance.toString());
-
-            await nlgst.addBlackList(i.evil, {
-                from: root
-            });
-            await u.assertRevert(nlgst.destroyBlackFunds(i.evil, {
-                from: account1,
-            }));
-        });
-
-        it('Destroy hacker (evil) funds: Failed because only owner can destroy', async () => {
-            const i = {
-                evil: evil,
-            }
-
-            const o = {
-                evil_address: evil,
-                evil_balance: 0,
-                evil_funds: 2,
-            }
-
-            let tx = await nlgst.destroyBlackFunds(i.evil, {
-                from: root,
-            });
-            let evil_balance = await nlgst.balanceOf(i.evil, {
-                from: i.evil
-            });
-
-            eq(o.evil_balance, evil_balance);
-            eq(o.evil_address, await oc(tx, "DestroyedBlackFunds", "_blackListedUser"))
-            eq(o.evil_funds, await oc(tx, "DestroyedBlackFunds", "_balance"))
         });
     });
 });
