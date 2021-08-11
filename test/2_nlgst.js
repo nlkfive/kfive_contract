@@ -332,23 +332,41 @@ contract("NLGinseng", (accounts) => {
     });
 
     describe('Pausable stage', async () => {
-        it('Pause: Failed because ony owner can call it', async () => {
+        it('Pause (account1): Failed because only owner can call it', async () => {
             await u.assertRevert(nlgst.pause({
                 from: account1
             }));
-        })
+        });
 
-        it('Pause: Onwer call', async () => {
+        it('Give admin_role to account1 (root)', async () => {
+            await nlgst.grantRole("0x" + keccak256("ADMIN_ROLE"), account1, {
+                from: root
+            });
+        });
+
+        it('Pause (account1 - admin): Failed because only owner can call it', async () => {
+            await u.assertRevert(nlgst.pause({
+                from: account1
+            }));
+        });
+
+        it('Give pauser_role to account1 (root)', async () => {
+            await nlgst.grantRole("0x" + keccak256("PAUSER_ROLE"), account1, {
+                from: root
+            });
+        });
+
+        it('Pause (account1 - pauser_role): Account1 call', async () => {
             await nlgst.pause({
                 from: root
             });
         });
 
-        it('Pause: Failed because cannot pause while already paused', async () => {
+        it('Pause again (owner): Failed because cannot pause while already paused', async () => {
             await u.assertRevert(nlgst.pause({
                 from: root
             }));
-        })
+        });
 
         it('TransferFrom: Failed because cannot transfer while pausing', async () => {
             const i = {
@@ -362,9 +380,25 @@ contract("NLGinseng", (accounts) => {
             }));
         });
 
+        it('Unpause (account2): Failed because only owner can call it', async () => {
+            await u.assertRevert(nlgst.unpause({
+                from: account2
+            }));
+        });
+
+        it('Revoke admin_role and admin_role to account1 (root). Can revoke while pausing', async () => {
+            await nlgst.revokeRole("0x" + keccak256("ADMIN_ROLE"), account1, {
+                from: root
+            });
+
+            await nlgst.revokeRole("0x" + keccak256("PAUSER_ROLE"), account1, {
+                from: root
+            });
+        });
+
         it('Unpause (account1): Failed because only owner can call it', async () => {
             await u.assertRevert(nlgst.unpause({
-                from: account1
+                from: account2
             }));
         });
 
@@ -372,14 +406,14 @@ contract("NLGinseng", (accounts) => {
             await nlgst.unpause({
                 from: root
             });
-        })
+        });
 
         it('Unpause: failed because cannot unpause while constract is not pausing ', async () => {
             await u.assertRevert(nlgst.unpause({
                 from: root
             }));
         });
-    })
+    });
 
     describe('Blacklist stage', async () => {
         it('Add blacklist (account1): failed because only owner can call it', async () => {
