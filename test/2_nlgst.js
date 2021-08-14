@@ -205,8 +205,12 @@ contract("NLGinseng", (accounts) => {
             }));
         });
 
-        it('Revoke minter_role to account1 (root)', async () => {
+        it('Revoke minter_role and admin_role to account1 (root)', async () => {
             await nlgst.revokeRole("0x" + keccak256("MINTER_ROLE"), account1, {
+                from: root
+            });
+
+            await nlgst.revokeRole("0x" + keccak256("ADMIN_ROLE"), account1, {
                 from: root
             });
         });
@@ -560,6 +564,90 @@ contract("NLGinseng", (accounts) => {
                 from: root
             });
             eq(o.account6_balance, account6_balance.toString());
+        });
+    });
+
+    describe('Transfer ownership / Revoke / Renounce', async () => {
+        it('Account1 (admin) transferOwnership to new_owner. Failed: only owner can call transfer ownership', async () => {
+            const i = {
+                new_owner: new_owner,
+            }
+
+            await u.assertRevert(nlgst.transferOwnership(i.new_owner, {
+                from: account1
+            }));
+        });
+
+        it('Root renounceRole ADMIN_ROLE account1. Failed: account1 should renouce itself', async () => {
+            await u.assertRevert(nlgst.renounceRole("0x" + keccak256("ADMIN_ROLE"), account1, {
+                from: root
+            }));
+        });
+
+        it('Account2 revoke ADMIN_ROLE account1. Failed: only owner can revoke', async () => {
+            await u.assertRevert(nlgst.revokeRole("0x" + keccak256("ADMIN_ROLE"), account1, {
+                from: account2
+            }));
+        });
+
+        it('Account1 renounceRole ADMIN_ROLE account1', async () => {
+            await nlgst.renounceRole("0x" + keccak256("ADMIN_ROLE"), account1, {
+                from: account1
+            });
+        });
+
+        it('Account1 renounceRole ADMIN_ROLE account1 again. Failed: account1 has no admin role', async () => {
+            await u.assertRevert(nlgst.renounceRole("0x" + keccak256("ADMIN_ROLE"), account1, {
+                from: account1
+            }));
+        });
+
+        it('Root revoke ADMIN_ROLE account1 again. Failed: account1 has no admin role', async () => {
+            await u.assertRevert(nlgst.revokeRole("0x" + keccak256("ADMIN_ROLE"), account1, {
+                from: root
+            }));
+        });
+
+        it('Account1 (not admin) transferOwnership to new_owner. Failed: only owner can call transfer ownership', async () => {
+            const i = {
+                new_owner: new_owner,
+            }
+
+            await u.assertRevert(nlgst.transferOwnership(i.new_owner, {
+                from: account1
+            }));
+        });
+
+        it('Root transferOwnership to new_owner', async () => {
+            const i = {
+                new_owner: new_owner,
+            }
+
+            await u.assertRevert(nlgst.transferOwnership(i.new_owner, {
+                from: account1
+            }));
+        });
+
+        it('Root call transferOwnership, addBlacklist, removeBacklist to account2', async () => {
+            const i = {
+                to: account2,
+            }
+
+            await u.assertRevert(nlgst.transferOwnership(i.to, {
+                from: root
+            }));
+
+            await u.assertRevert(nlgst.revokeRole("0x" + keccak256("MINTER_ROLE"), i.to, {
+                from: root
+            }));
+
+            await u.assertRevert(nlgst.addBlackList(i.to, {
+                from: root
+            }));
+
+            await u.assertRevert(nlgst.removeBlackList(i.to, {
+                from: root
+            }));
         });
     });
 });
