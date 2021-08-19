@@ -1,4 +1,10 @@
 const NLGinseng = artifacts.require("NLGinseng")
+const NFT1 = require('./ipfs/NFT1.json');
+const NFT2 = require('./ipfs/NFT2.json');
+
+global.fetch = require("node-fetch");
+
+const IPFS = require('ipfs')
 
 const eq = assert.equal
 const u = require('./utils.js')
@@ -623,9 +629,9 @@ contract("NLGinseng", (accounts) => {
                 new_owner: new_owner,
             }
 
-            await u.assertRevert(nlgst.transferOwnership(i.new_owner, {
-                from: account1
-            }));
+            await nlgst.transferOwnership(i.new_owner, {
+                from: root
+            });
         });
 
         it('Root call transferOwnership, addBlacklist, removeBacklist to account2', async () => {
@@ -648,6 +654,57 @@ contract("NLGinseng", (accounts) => {
             await u.assertRevert(nlgst.removeBlackList(i.to, {
                 from: root
             }));
+        });
+    });
+
+    describe('Check NFT data', async () => {
+        it('Mint a tokenId (hash sha256(name)) and IPFS URI', async () => {  
+            const i = {
+                tokenId: "0x" + keccak256("NFT NGOC LINH GINSENG 1"),
+                tokenURI: "QmTHjqtn7oiJAkdJPMLKGM3r1yxUkEQEAdqWAnG8umwiV9"
+            }
+
+            await nlgst.mint(root, i.tokenId, i.tokenURI, {
+                from: root
+            });
+        });
+
+        it('Check NFT data of NFT NGOC LINH GINSENG 1. Get IPFS link through tokenId and compare IPFS data = original data', async () => {
+            const i = {
+                tokenId1: "0x" + keccak256("NFT NGOC LINH GINSENG 1"),
+            }
+            
+            // Get tokenURI 1 by tokenId1 
+            let tokenuri1 = await nlgst.tokenURI(i.tokenId1, {
+                from: new_owner
+            });
+
+            // Get CID of NFT1
+            let CID_NFT1 = tokenuri1.substring(tokenuri1.length - 46);
+
+            // Get NFT1 data from IPFS
+            const ipfs = await IPFS.create();
+            const stream_NFT1 = ipfs.cat(CID_NFT1)
+            let data_NFT1 = ''
+
+            for await (const chunk of stream_NFT1) {
+            data_NFT1 += chunk.toString()
+            }
+
+            const jsonNFT = JSON.parse(data_NFT1);
+
+            // Compare IPFS data and original data
+            assert.deepEqual(jsonNFT.name, NFT1.name);
+            assert.deepEqual(jsonNFT.image, NFT1.image);
+            assert.deepEqual(jsonNFT.dna, NFT1.dna);
+            assert.deepEqual(jsonNFT.explored_at, NFT1.explored_at);
+            assert.deepEqual(jsonNFT.place, NFT1.place);
+            assert.deepEqual(jsonNFT.total_weight, NFT1.total_weight);
+            assert.deepEqual(jsonNFT.weight_unit, NFT1.weight_unit);
+            assert.deepEqual(jsonNFT.seeded_at, NFT1.seeded_at);
+            assert.deepEqual(jsonNFT.type, NFT1.type);
+            assert.deepEqual(jsonNFT.description, NFT1.description);
+            assert.deepEqual(jsonNFT.extra_data, NFT1.extra_data);
         });
     });
 });
