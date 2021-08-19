@@ -694,17 +694,7 @@ contract("NLGinseng", (accounts) => {
             const jsonNFT = JSON.parse(data_NFT1);
 
             // Compare IPFS data and original data
-            assert.deepEqual(jsonNFT.name, NFT1.name);
-            assert.deepEqual(jsonNFT.image, NFT1.image);
-            assert.deepEqual(jsonNFT.dna, NFT1.dna);
-            assert.deepEqual(jsonNFT.explored_at, NFT1.explored_at);
-            assert.deepEqual(jsonNFT.place, NFT1.place);
-            assert.deepEqual(jsonNFT.total_weight, NFT1.total_weight);
-            assert.deepEqual(jsonNFT.weight_unit, NFT1.weight_unit);
-            assert.deepEqual(jsonNFT.seeded_at, NFT1.seeded_at);
-            assert.deepEqual(jsonNFT.type, NFT1.type);
-            assert.deepEqual(jsonNFT.description, NFT1.description);
-            assert.deepEqual(jsonNFT.extra_data, NFT1.extra_data);
+            assert.deepEqual(jsonNFT, NFT1);
         });
     });
 });
