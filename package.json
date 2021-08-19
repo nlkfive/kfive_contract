@@ -23,6 +23,7 @@
         "@truffle/hdwallet-provider": "^1.4.2",
         "dotenv": "^8.2.0",
         "eth-gas-reporter": "^0.2.22",
+        "ipfs": "^0.58.1",
         "js-sha3": "^0.8.0",
         "solc": "^0.8.4",
         "truffle": "^5.3.7",
