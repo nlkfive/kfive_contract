@@ -638,6 +638,72 @@ contract("NLGinseng", (accounts) => {
         });
     });
 
+    describe('Burn stage', async () => {
+        it('Burn token (account1) [1]. Cannot because only owner can call it', async () => {
+            const i = {
+                tokenId: 1,
+            }
+
+            await u.assertRevert(nlgst.burn(i.tokenId, {
+                from: account1
+            }));
+
+            await nlgst.grantRole(adminRole, account1, {
+                from: root
+            });
+
+            await u.assertRevert(nlgst.burn(i.tokenId, {
+                from: account1
+            }));
+
+            await u.assertRevert(nlgst.grantRole("0x" + keccak256("MINTER_ROLE"), account1, {
+                from: account1
+            }));
+
+            await u.assertRevert(nlgst.burn(i.tokenId, {
+                from: account1
+            }));
+
+            await u.assertRevert(nlgst.grantRole("0x" + keccak256("PAUSER_ROLE"), account1, {
+                from: account1
+            }));
+
+            await u.assertRevert(nlgst.burn(i.tokenId, {
+                from: account1
+            }));
+        });
+
+        it('Burn token (root) [1]. Cannot because root is not owner', async () => {
+            const i = {
+                tokenId: 1,
+            }
+
+            await u.assertRevert(nlgst.burn(i.tokenId, {
+                from: root
+            }));
+        });
+
+        it('Burn token (new_owner) [1]', async () => {
+            const i = {
+                tokenId: 1,
+            }
+
+            await nlgst.burn(i.tokenId, {
+                from: new_owner
+            });
+        });
+
+        it('Burn token again (new_owner) [1]. Cannot because token [1] has been burned', async () => {
+            const i = {
+                tokenId: 1,
+            }
+
+            await u.assertRevert(nlgst.burn(i.tokenId, {
+                from: new_owner
+            }));
+        });
+    });
+
     describe('Check NFT data', async () => {
         it('Add NFT1 data to IPFS', async () => {
             const node = await IPFS.create()
