@@ -136,6 +136,12 @@ contract NLGinseng is
         super._burn(tokenId);
     }
 
+    function burn(
+        uint256 tokenId
+    ) public onlyOwner {
+        _burn(tokenId);
+    }
+
     function tokenURI(uint256 tokenId)
         public
         view
