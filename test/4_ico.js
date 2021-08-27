@@ -23,7 +23,7 @@ contract("NLGinseng", (accounts) => {
 
     const rate = 1;
     const wallet = root;
-    const cap = 700000000000000;
+    const cap = 540000000000000;
     const openingTime = Math.floor(new Date().getTime() / 1000 + 60);
     const closingTime = Math.floor(openingTime + 150);
     const delay = ms => new Promise(res => setTimeout(res, ms));
@@ -179,13 +179,13 @@ contract("NLGinseng", (accounts) => {
             eq(o.weiRaised, weiRaised.toString());
         });
 
-        it('Account3 transfer wei to get 24.000 token', async () => {
-            await ico.sendTransaction({from: account3, value: '240000000000000'});
+        it('Account3 transfer wei to get 20.000 token', async () => {
+            await ico.sendTransaction({from: account3, value: '200000000000000'});
 
             const o = {
-                ico_balance: 0,
-                account3_balance: 24000 * (10 ** tokenDecimals),
-                weiRaised: 540000000000000,
+                ico_balance: 40000000000000,
+                account3_balance: 20000 * (10 ** tokenDecimals),
+                weiRaised: 500000000000000,
             }
 
             let ico_balance = await kfive.balanceOf(ico.address, {
@@ -204,64 +204,15 @@ contract("NLGinseng", (accounts) => {
             eq(o.weiRaised, weiRaised.toString());
         });
 
-        it('Account4 transfer wei to get 10.000 token. Cannot because crowdsale has no KFIVE', async () => {
-            await u.assertRevert(ico.sendTransaction({from: account4, value: '100000000000000'}));
-        });
-
-        it('Issue (owner) 26.000 KFIVE token to Crowdsale contract', async () => {
-            const i = {
-                to: ico.address,
-                value: web3.utils.toHex(26000 * (10 ** tokenDecimals)),
-            }
-
-            await kfive.issue(i.to, i.value, OFFCHAIN, {
-                from: root
-            });
-
-            const o = {
-                ico_balance: 26000 * (10 ** tokenDecimals),
-            }
-
-            let ico_balance = await kfive.balanceOf(ico.address, {
-                from: root
-            });
-            eq(o.ico_balance, ico_balance.toString());
-        });
-
-        it('Account4 transfer wei to get 26.000 token. Cannot because exceed weiRaised', async () => {
-            await u.assertRevert(ico.sendTransaction({from: account4, value: '260000000000000'}));
-        });
-
-        it('Account4 transfer wei to get 10.000 token', async () => {
-            await ico.sendTransaction({from: account4, value: '100000000000000'});
-
-            const o = {
-                ico_balance: 16000 * (10 ** tokenDecimals),
-                account4_balance: 10000 * (10 ** tokenDecimals),
-                weiRaised: 640000000000000,
-            }
-
-            let ico_balance = await kfive.balanceOf(ico.address, {
-                from: root
-            });
-            eq(o.ico_balance, ico_balance.toString());
-
-            let account4_balance = await kfive.balanceOf(account4, {
-                from: root
-            });
-            eq(o.account4_balance, account4_balance.toString());
-
-            let weiRaised = await ico.weiRaised({
-                from: root
-            });
-            eq(o.weiRaised, weiRaised.toString());
+        it('Account4 transfer wei to get 5.000 token. Cannot because crowdsale does not have enough KFIVE', async () => {
+            await u.assertRevert(ico.sendTransaction({from: account4, value: '50000000000000'}));
         });
     });
 
     describe('Closing ICO stage', async () => {
-        it('Account4 transfer wei to get 5.000 KFIVE. Cannot because the crowdsale has been closed', async () => {
+        it('Account4 transfer wei to get 4.000 KFIVE. Cannot because the crowdsale has been closed', async () => {
             await delay(100000);
-            await u.assertRevert(ico.sendTransaction({from: account4, value: '50000000000000'}));
+            await u.assertRevert(ico.sendTransaction({from: account4, value: '40000000000000'}));
         });
     });
 });
