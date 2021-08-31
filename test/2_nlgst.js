@@ -20,7 +20,7 @@ contract("NLGinseng", (accounts) => {
     const account2 = accounts[2]
     const evil = accounts[3]
     const new_owner = accounts[4]
-    const account5 = accounts[5]
+    const root2 = accounts[5]
     const account6 = accounts[6]
     const new_admin = accounts[7]
     const account8 = accounts[8]
@@ -615,12 +615,16 @@ contract("NLGinseng", (accounts) => {
             });
         });
 
-        it('Root can not call transferOwnership, addBlacklist, removeBacklist', async () => {
+        it('Root can not call transferOwnership, addBlacklist, removeBacklist, revokeRole, grantRole', async () => {
             const i = {
                 to: account2,
             }
 
             await u.assertRevert(nlgst.transferOwnership(i.to, {
+                from: root
+            }));
+
+            await u.assertRevert(nlgst.grantRole("0x" + keccak256("MINTER_ROLE"), i.to, {
                 from: root
             }));
 
@@ -635,6 +639,28 @@ contract("NLGinseng", (accounts) => {
             await u.assertRevert(nlgst.removeBlackList(i.to, {
                 from: root
             }));
+        });
+
+        it('New owner can call addBlacklist, removeBacklist, grantRole, revokeRole', async () => {
+            const i = {
+                to: account9,
+            }
+
+            await nlgst.grantRole("0x" + keccak256("MINTER_ROLE"), i.to, {
+                from: new_owner
+            });
+
+            await nlgst.revokeRole("0x" + keccak256("MINTER_ROLE"), i.to, {
+                from: new_owner
+            });
+
+            await nlgst.addBlackList(i.to, {
+                from: new_owner
+            });
+
+            await nlgst.removeBlackList(i.to, {
+                from: new_owner
+            });
         });
     });
 
@@ -766,6 +792,64 @@ contract("NLGinseng", (accounts) => {
 
             // Compare IPFS data and original data
             assert.deepEqual(data_NFT1, NFT1);
+        });
+    });
+
+    describe('Accident 1 - Hacker login to new_owner account and change password', async () => {
+        it('Root2 should immediately pause transaction, renounce admin, minter, pauser role', async () => {
+            await nlgst.pause({
+                from: root2
+            });
+
+            await nlgst.renounceRole(adminRole, new_owner, {
+                from: root2
+            });
+
+            await nlgst.renounceRole("0x" + keccak256("MINTER_ROLE"), new_owner, {
+                from: root2
+            });
+
+            await nlgst.renounceRole("0x" + keccak256("PAUSER_ROLE"), new_owner, {
+                from: root2
+            });
+        });
+
+        it('Root2 add new_owner to Black list to avoid bad request', async () => {
+            await nlgst.addBlackList(new_owner, {
+                from: root2
+            });
+        });
+    });
+
+    describe('Accident 2 - Root transfer ownership to Evil (wrong account)', async () => {
+        it('Remove Blacklist (root2) and unpause (root2). For future transaction', async () => {
+            await nlgst.unpause({
+                from: root2
+            });
+
+            await nlgst.removeBlackList(new_owner, {
+                from: root2
+            });
+        });
+
+        it('Transfer ownership (new_owner) to evil', async () => {
+            const i = {
+                evil: evil,
+            }
+
+            await nlgst.transferOwnership(i.evil, {
+                from: new_owner
+            });
+        });
+
+        it('Root2 must revoke minter_role, pauser_role, and add New_owner to blacklist', async () => {
+            const i = {
+                evil: new_owner,
+            }
+
+            await nlgst.addBlackList(i.evil, {
+                from: root2
+            });
         });
     });
 });
