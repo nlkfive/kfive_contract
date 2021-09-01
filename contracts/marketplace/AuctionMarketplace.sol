@@ -4,7 +4,7 @@ pragma solidity 0.8.4;
 import "./Marketplace.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
-contract AuctionMarketplace is Marketplace {
+contract AuctionMarketplace is BlindAuctionStorage, Marketplace {
     using SafeMath for uint256;
 
     constructor(address _acceptedToken, uint256 _ownerCutPerMillion)

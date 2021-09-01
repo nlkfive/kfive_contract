@@ -6,7 +6,7 @@ import "./BlindAuctionStorage.sol";
 import "./OrderStorage.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
-contract MarketplaceStorage is BlindAuctionStorage, OrderStorage {
+contract MarketplaceStorage {
     IBEP20 public acceptedToken;
 
     uint256 public ownerCutPerMillion;
@@ -16,12 +16,4 @@ contract MarketplaceStorage is BlindAuctionStorage, OrderStorage {
 
     event ChangedPublicationFee(uint256 publicationFee);
     event ChangedOwnerCutPerMillion(uint256 ownerCutPerMillion);
-
-    function onlyBefore(uint256 _time) internal view {
-        if (block.timestamp >= _time) revert TooLate(_time);
-    }
-
-    function onlyAfter(uint256 _time) internal view {
-        if (block.timestamp <= _time) revert TooEarly(_time);
-    }
 }
