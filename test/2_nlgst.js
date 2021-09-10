@@ -795,7 +795,7 @@ contract("NLGST", (accounts) => {
         });
     });
 
-    describe('Accident 1 - Hacker login to new_owner account and change password', async () => {
+    describe('Accident 1 - Hacker access new_owner account and change password', async () => {
         it('Root2 should immediately pause transaction, renounce admin, minter, pauser role', async () => {
             await nlgst.pause({
                 from: root2

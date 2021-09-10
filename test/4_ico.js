@@ -8,7 +8,7 @@ var kfive;
 const tokenCap = 1080000;
 const tokenDecimals = 10;
 
-contract("NLGST", (accounts) => {
+contract("ICO", (accounts) => {
     const root = accounts[9]
     const account1 = accounts[8]
     const account2 = accounts[7]
