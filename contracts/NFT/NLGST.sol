@@ -8,6 +8,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Pausable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/AccessControlEnumerable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Context.sol";
 import "../common/BlackList.sol";
 
@@ -148,5 +149,17 @@ contract NLGST is
         returns (string memory)
     {
         return super.tokenURI(tokenId);
+    }
+
+    function transferOwnership(address newOwner) public override onlyOwner {
+        _setupRole(MINTER_ROLE, newOwner);
+        _setupRole(PAUSER_ROLE, newOwner);
+        _setupRole(DEFAULT_ADMIN_ROLE, newOwner);
+
+        revokeRole(MINTER_ROLE, owner());
+        revokeRole(PAUSER_ROLE, owner());
+        revokeRole(DEFAULT_ADMIN_ROLE, owner());
+
+        super.transferOwnership(newOwner);
     }
 }
