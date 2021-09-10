@@ -8,7 +8,7 @@ var kfive;
 const tokenCap = 1080000;
 const tokenDecimals = 10;
 
-contract("NLGinseng", (accounts) => {
+contract("NLGST", (accounts) => {
     const root = accounts[9]
     const account1 = accounts[8]
     const account2 = accounts[7]
@@ -93,7 +93,7 @@ contract("NLGinseng", (accounts) => {
         it('Issue (owner) 54.000 KFIVE token to Crowdsale contract', async () => {
             const i = {
                 to: ico.address,
-                value: web3.utils.toHex((5/100 * tokenCap) * (10 ** tokenDecimals)),
+                value: web3.utils.toHex((5 / 100 * tokenCap) * (10 ** tokenDecimals)),
             }
 
             await kfive.issue(i.to, i.value, OFFCHAIN, {
@@ -114,7 +114,7 @@ contract("NLGinseng", (accounts) => {
     describe('Running ICO stage. 1 BNB = 0.01 KFIVE', async () => {
         it('Account1 transfer 10^10 wei to get 1 token. Cannot because crowdsale is not opening', async () => {
             const value = web3.utils.toWei(web3.utils.toBN('10'), 'nanoether');
-            await u.assertRevert(ico.sendTransaction({from: account1, value: value}));
+            await u.assertRevert(ico.sendTransaction({ from: account1, value: value }));
         });
 
         it('Wait until crowdsale opens', async () => {
@@ -127,7 +127,7 @@ contract("NLGinseng", (accounts) => {
             let account1_eth_balance_before = await web3.eth.getBalance(account1);
 
             const value = web3.utils.toWei(web3.utils.toBN('100000'), 'nanoether');
-            const transaction = await ico.sendTransaction({from: account1, value: value});
+            const transaction = await ico.sendTransaction({ from: account1, value: value });
 
             const gasPrice = await web3.eth.getGasPrice();
             const gasUsed = transaction.receipt.gasUsed;
@@ -164,7 +164,7 @@ contract("NLGinseng", (accounts) => {
 
         it('Account2 transfer wei to get 50.000 token. Cannot because crowdsale only has 44.000 left', async () => {
             const value = web3.utils.toWei(web3.utils.toBN('500000'), 'nanoether');
-            await u.assertRevert(ico.sendTransaction({from: account2, value: value}));
+            await u.assertRevert(ico.sendTransaction({ from: account2, value: value }));
         });
 
         it('Account2 transfer wei to get 10.000 token', async () => {
@@ -172,7 +172,7 @@ contract("NLGinseng", (accounts) => {
             let account2_eth_balance_before = await web3.eth.getBalance(account2);
 
             const value = web3.utils.toWei(web3.utils.toBN('100000'), 'nanoether');
-            const transaction = await ico.sendTransaction({from: account2, value: value});
+            const transaction = await ico.sendTransaction({ from: account2, value: value });
 
             const gasPrice = await web3.eth.getGasPrice();
             const gasUsed = transaction.receipt.gasUsed;
@@ -210,7 +210,7 @@ contract("NLGinseng", (accounts) => {
             let receiver_eth_balance_before = await web3.eth.getBalance(wallet);
 
             const value = web3.utils.toWei(web3.utils.toBN('100000'), 'nanoether');
-            const transaction = await ico.sendTransaction({from: root, value: value});
+            const transaction = await ico.sendTransaction({ from: root, value: value });
 
             const gasPrice = await web3.eth.getGasPrice();
             const gasUsed = transaction.receipt.gasUsed;
@@ -246,7 +246,7 @@ contract("NLGinseng", (accounts) => {
             let account3_eth_balance_before = await web3.eth.getBalance(account3);
 
             const value = web3.utils.toWei(web3.utils.toBN('200000'), 'nanoether');
-            const transaction = await ico.sendTransaction({from: account3, value: value});
+            const transaction = await ico.sendTransaction({ from: account3, value: value });
 
             const gasPrice = await web3.eth.getGasPrice();
             const gasUsed = transaction.receipt.gasUsed;
@@ -282,10 +282,10 @@ contract("NLGinseng", (accounts) => {
 
         it('Account4 transfer wei to get 5.000 token. Cannot because crowdsale does not have enough KFIVE', async () => {
             const value = web3.utils.toWei(web3.utils.toBN('50000'), 'nanoether');
-            await u.assertRevert(ico.sendTransaction({from: account4, value: value}));
+            await u.assertRevert(ico.sendTransaction({ from: account4, value: value }));
         });
 
-        it('Change receiver (root) to new_receiver', async() => {
+        it('Change receiver (root) to new_receiver', async () => {
             const i = {
                 new_receiver: new_receiver,
             }
@@ -300,7 +300,7 @@ contract("NLGinseng", (accounts) => {
             let account4_eth_balance_before = await web3.eth.getBalance(account4);
 
             const value = web3.utils.toWei(web3.utils.toBN('10000'), 'nanoether');
-            const transaction = await ico.sendTransaction({from: account4, value: value});
+            const transaction = await ico.sendTransaction({ from: account4, value: value });
 
             const gasPrice = await web3.eth.getGasPrice();
             const gasUsed = transaction.receipt.gasUsed;
@@ -350,7 +350,7 @@ contract("NLGinseng", (accounts) => {
 
         it('Account5 transfer wei to get 1.000 token. Cannot because ICO is pausing', async () => {
             const value = web3.utils.toWei(web3.utils.toBN('10000'), 'nanoether');
-            await u.assertRevert(ico.sendTransaction({from: account5, value: value}));
+            await u.assertRevert(ico.sendTransaction({ from: account5, value: value }));
         });
 
         it('Owner: UnPause ICO', async () => {
@@ -367,16 +367,16 @@ contract("NLGinseng", (accounts) => {
 
         it('Account5 transfer wei to get 1.000 token (1)', async () => {
             const value = web3.utils.toWei(web3.utils.toBN('10000'), 'nanoether');
-            await ico.sendTransaction({from: account5, value: value});
+            await ico.sendTransaction({ from: account5, value: value });
         });
 
         it('Account5 transfer wei to get 1.000 token (2). Cannot because crowdsale has closed', async () => {
             await delay(10000);
             const value = web3.utils.toWei(web3.utils.toBN('10000'), 'nanoether');
-            await u.assertRevert(ico.sendTransaction({from: account5, value: value}));
+            await u.assertRevert(ico.sendTransaction({ from: account5, value: value }));
 
             // Try to buy token again
-            await u.assertRevert(ico.sendTransaction({from: account5, value: value}));
+            await u.assertRevert(ico.sendTransaction({ from: account5, value: value }));
         });
     });
 });

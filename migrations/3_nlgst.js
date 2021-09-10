@@ -1,5 +1,5 @@
-const NLGinseng = artifacts.require("NLGinseng");
+const NLGST = artifacts.require("NLGST");
 
 module.exports = function (deployer) {
-    deployer.deploy(NLGinseng, "https://ipfs.io/ipfs/");
+    deployer.deploy(NLGST, "https://ipfs.io/ipfs/");
 };

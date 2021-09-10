@@ -1,4 +1,4 @@
-const NLGinseng = artifacts.require("NLGinseng")
+const NLGST = artifacts.require("NLGST")
 
 const NFT1 = require('./ipfs/NFT1.json');
 
@@ -13,7 +13,7 @@ const adminRole = "0x00000000000000000000000000000000000000000000000000000000000
 
 var nlgst;
 
-contract("NLGinseng", (accounts) => {
+contract("NLGST", (accounts) => {
 
     const root = accounts[0]
     const account1 = accounts[1]
@@ -30,7 +30,7 @@ contract("NLGinseng", (accounts) => {
     const baseURL = "https://ipfs.io/ipfs/";
 
     before(async () => {
-        nlgst = await NLGinseng.new(baseURL, {
+        nlgst = await NLGST.new(baseURL, {
             from: root
         });
     });
@@ -510,7 +510,7 @@ contract("NLGinseng", (accounts) => {
             }));
 
             await u.assertRevert(nlgst.safeTransferFrom(evil, account1, i.tokenId, {
-            from: root
+                from: root
             }));
         });
 
@@ -740,12 +740,12 @@ contract("NLGinseng", (accounts) => {
                 dna: "https://ipfs.io/ipfs/QmNWmvmH4s7Df8VqZmY21NHRsSsm4otn4ercZxtU8SaKvz",
                 explored_at: 1629199374,
                 place: "Ngoc Linh mountain - Dak Na commune - Tu Mo Rong district - Kon Tum province",
-                total_weight : 225,
+                total_weight: 225,
                 weight_unit: "gram",
                 seeded_at: 94665600,
                 type: "live plants",
-                description : "grown and cared for at PoYan Garden in Tu Mo Rong district, Kon Tum province. It is expected that freeze-drying will be carried out on August 8, 2022 for preservation after in vitro conservation of seeds samples.",
-                extra_data: {      }
+                description: "grown and cared for at PoYan Garden in Tu Mo Rong district, Kon Tum province. It is expected that freeze-drying will be carried out on August 8, 2022 for preservation after in vitro conservation of seeds samples.",
+                extra_data: {}
             };
 
             const file = {
@@ -773,7 +773,7 @@ contract("NLGinseng", (accounts) => {
             const i = {
                 tokenId1: "0x" + keccak256("NFT NGOC LINH GINSENG 1"),
             }
-            
+
             // Get tokenURI 1 by tokenId1
             let tokenuri1 = await nlgst.tokenURI(i.tokenId1, {
                 from: root
@@ -786,7 +786,7 @@ contract("NLGinseng", (accounts) => {
             const node = await IPFS.create()
             let data_NFT1 = ''
 
-            for await (const chunk of node.cat(CID_NFT1, {timeout: 10000})) {
+            for await (const chunk of node.cat(CID_NFT1, { timeout: 10000 })) {
                 data_NFT1 = JSON.parse(chunk)
             }
 

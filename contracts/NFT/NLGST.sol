@@ -11,7 +11,7 @@ import "@openzeppelin/contracts/access/AccessControlEnumerable.sol";
 import "@openzeppelin/contracts/utils/Context.sol";
 import "../common/BlackList.sol";
 
-contract NLGinseng is
+contract NLGST is
     AccessControlEnumerable,
     ERC721Enumerable,
     ERC721Pausable,
@@ -63,7 +63,7 @@ contract NLGinseng is
     ) public virtual {
         require(
             hasRole(MINTER_ROLE, _msgSender()),
-            "NLGinseng: must have minter role to mint"
+            "NLGST: must have minter role to mint"
         );
 
         // We cannot just use balanceOf to create the new tokenId because tokens
@@ -84,7 +84,7 @@ contract NLGinseng is
     function pause() public virtual {
         require(
             hasRole(PAUSER_ROLE, _msgSender()),
-            "NLGinseng: must have pauser role to pause"
+            "NLGST: must have pauser role to pause"
         );
         _pause();
     }
@@ -101,7 +101,7 @@ contract NLGinseng is
     function unpause() public virtual {
         require(
             hasRole(PAUSER_ROLE, _msgSender()),
-            "NLGinseng: must have pauser role to unpause"
+            "NLGST: must have pauser role to unpause"
         );
         _unpause();
     }
@@ -136,9 +136,7 @@ contract NLGinseng is
         super._burn(tokenId);
     }
 
-    function burn(
-        uint256 tokenId
-    ) public onlyOwner {
+    function burn(uint256 tokenId) public onlyOwner {
         _burn(tokenId);
     }
 

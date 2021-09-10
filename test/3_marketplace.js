@@ -1,4 +1,4 @@
-const NLGinseng = artifacts.require("NLGinseng")
+const NLGST = artifacts.require("NLGST")
 const KFIVE = artifacts.require("KFIVE")
 const AuctionMarketplace = artifacts.require("AuctionMarketplace")
 const OrderMarketplace = artifacts.require("OrderMarketplace")
@@ -14,7 +14,7 @@ function getBlindedBid(value, fake, secret) {
     );
 }
 
-contract("NLGinseng", (accounts) => {
+contract("NLGST", (accounts) => {
     const root = accounts[0]
     const account1 = accounts[1]
     const account2 = accounts[2]
@@ -38,7 +38,7 @@ contract("NLGinseng", (accounts) => {
         kfive = await KFIVE.new({
             from: root
         });
-        nlgst = await NLGinseng.new(BASE_URL, {
+        nlgst = await NLGST.new(BASE_URL, {
             from: root
         });
         auctionMarketplace = await AuctionMarketplace.new(kfive.address, OWNER_CUT_PER_MILLION);
@@ -95,7 +95,7 @@ contract("NLGinseng", (accounts) => {
 
     beforeEach(async () => {
         const issuedToken = web3.utils.toHex(issuedTokenAmount);
-        const owner = await kfive.owner({from: root});
+        const owner = await kfive.owner({ from: root });
         await kfive.issue(account1, issuedToken, OFFCHAIN, { from: owner });
         await kfive.issue(account2, issuedToken, OFFCHAIN, { from: owner });
 
@@ -104,17 +104,17 @@ contract("NLGinseng", (accounts) => {
             account2_balance: 10 * (10 ** tokenDecimals),
         }
 
-        let account1_balance = await kfive.balanceOf(account1, {from: root});
+        let account1_balance = await kfive.balanceOf(account1, { from: root });
         eq(o.account1_balance, account1_balance.toString());
 
-        let account2_balance = await kfive.balanceOf(account2, {from: root});
+        let account2_balance = await kfive.balanceOf(account2, { from: root });
         eq(o.account2_balance, account2_balance.toString());
     });
 
     afterEach(async () => {
-        const owner = await kfive.owner({from: root});
-        const account1_balance = await kfive.balanceOf(account1, {from: root});
-        const account2_balance = await kfive.balanceOf(account2, {from: root});
+        const owner = await kfive.owner({ from: root });
+        const account1_balance = await kfive.balanceOf(account1, { from: root });
+        const account2_balance = await kfive.balanceOf(account2, { from: root });
         await kfive.redeem(account1, account1_balance, OFFCHAIN, { from: owner });
         await kfive.redeem(account2, account2_balance, OFFCHAIN, { from: owner });
     });
@@ -664,8 +664,8 @@ contract("NLGinseng", (accounts) => {
         });
 
         it('(Account2) Execute order NFT (2)', async () => {
-            let account1_balance_before = await kfive.balanceOf(account1, {from: root});
-            let account2_balance_before = await kfive.balanceOf(account2, {from: root});
+            let account1_balance_before = await kfive.balanceOf(account1, { from: root });
+            let account2_balance_before = await kfive.balanceOf(account2, { from: root });
 
             const i = {
                 nftAddress: nlgst.address,
@@ -720,15 +720,15 @@ contract("NLGinseng", (accounts) => {
             let i = {
                 fee: publicationFee1
             }
-            await u.assertRevert(orderMarketplace.setPublicationFee(i.fee, {from: root}));
-            await u.assertRevert(orderMarketplace.setPublicationFee(i.fee, {from: account1}));
+            await u.assertRevert(orderMarketplace.setPublicationFee(i.fee, { from: root }));
+            await u.assertRevert(orderMarketplace.setPublicationFee(i.fee, { from: account1 }));
         });
 
         it('(new_owner) Set publication fee (0.1 KFIVE)', async () => {
             let i = {
                 fee: publicationFee1
             }
-            await orderMarketplace.setPublicationFee(i.fee, {from: new_owner});
+            await orderMarketplace.setPublicationFee(i.fee, { from: new_owner });
 
             let o = {
                 fee: publicationFee1.toString()
@@ -766,7 +766,7 @@ contract("NLGinseng", (accounts) => {
                 account2_balance_create: 10 * (10 ** tokenDecimals) - 0.1 * (10 ** tokenDecimals),
             }
 
-            let account2_balance_create = await kfive.balanceOf(account2, {from: root});
+            let account2_balance_create = await kfive.balanceOf(account2, { from: root });
             eq(o.account2_balance_create, account2_balance_create.toString());
 
             // EXECUTE ORDER. Should not subtract 0.1 KFIVE publication fee after execute order
@@ -822,7 +822,7 @@ contract("NLGinseng", (accounts) => {
                 account1_balance_create: 10 * (10 ** tokenDecimals) - 0.1 * (10 ** tokenDecimals),
             }
 
-            let account1_balance_create = await kfive.balanceOf(account1, {from: root});
+            let account1_balance_create = await kfive.balanceOf(account1, { from: root });
             eq(o.account1_balance_create, account1_balance_create.toString());
 
             // Cancel order
@@ -835,7 +835,7 @@ contract("NLGinseng", (accounts) => {
                 account1_balance_execute: 10 * (10 ** tokenDecimals) - 0.1 * (10 ** tokenDecimals),
             }
 
-            let account1_balance_execute = await kfive.balanceOf(account1, {from: root});
+            let account1_balance_execute = await kfive.balanceOf(account1, { from: root });
             eq(e.account1_balance_execute, account1_balance_execute.toString());
         });
 
