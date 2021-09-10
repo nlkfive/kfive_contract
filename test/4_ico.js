@@ -335,9 +335,34 @@ contract("NLGinseng", (accounts) => {
         });
     });
 
+    describe('Pause ICO stage', async () => {
+        it('Account1: Pause ICO. Cannot because only can pause ICO', async () => {
+            await u.assertRevert(ico.pause({
+                from: account1
+            }));
+        });
+
+        it('Owner: Pause ICO', async () => {
+            await ico.pause({
+                from: root
+            });
+        });
+
+        it('Account5 transfer wei to get 1.000 token. Cannot because ICO is pausing', async () => {
+            const value = web3.utils.toWei(web3.utils.toBN('10000'), 'nanoether');
+            await u.assertRevert(ico.sendTransaction({from: account5, value: value}));
+        });
+
+        it('Owner: UnPause ICO', async () => {
+            await ico.unpause({
+                from: root
+            });
+        });
+    });
+
     describe('Closing ICO stage', async () => {
-        it('Delay 80s', async () => {
-            await delay(80000);
+        it('Delay 50s', async () => {
+            await delay(50000);
         });
 
         it('Account5 transfer wei to get 1.000 token (1)', async () => {
