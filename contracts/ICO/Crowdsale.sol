@@ -6,6 +6,7 @@ import "@openzeppelin/contracts/utils/Context.sol";
 import "../BEP20/IBEP20.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 /**
  * @title Crowdsale
@@ -19,7 +20,7 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
  * the methods to add functionality. Consider using 'super' where appropriate to concatenate
  * behavior.
  */
-contract Crowdsale is Context, ReentrancyGuard {
+contract Crowdsale is Context, Ownable, ReentrancyGuard {
     using SafeMath for uint256;
 
     // The token being sold
@@ -44,7 +45,12 @@ contract Crowdsale is Context, ReentrancyGuard {
      * @param value weis paid for purchase
      * @param amount amount of tokens purchased
      */
-    event TokensPurchased(address indexed purchaser, address indexed beneficiary, uint256 value, uint256 amount);
+    event TokensPurchased(
+        address indexed purchaser,
+        address indexed beneficiary,
+        uint256 value,
+        uint256 amount
+    );
 
     /**
      * @param __rate Number of token units a buyer gets per wei
@@ -54,10 +60,20 @@ contract Crowdsale is Context, ReentrancyGuard {
      * @param __wallet Address where collected funds will be forwarded to
      * @param __token Address of the token being sold
      */
-    constructor (uint256 __rate, address payable __wallet, IBEP20 __token) {
+    constructor(
+        uint256 __rate,
+        address payable __wallet,
+        IBEP20 __token
+    ) {
         require(__rate > 0, "Crowdsale: rate is 0");
-        require(__wallet != address(0), "Crowdsale: wallet is the zero address");
-        require(address(__token) != address(0), "Crowdsale: token is the zero address");
+        require(
+            __wallet != address(0),
+            "Crowdsale: wallet is the zero address"
+        );
+        require(
+            address(__token) != address(0),
+            "Crowdsale: token is the zero address"
+        );
 
         _rate = __rate;
         _wallet = __wallet;
@@ -108,23 +124,24 @@ contract Crowdsale is Context, ReentrancyGuard {
      * another `nonReentrant` function.
      * @param beneficiary Recipient of the token purchase
      */
-    function buyTokens(address beneficiary) public nonReentrant payable {
-        uint256 weiAmount = msg.value;
-        _preValidatePurchase(beneficiary, weiAmount);
+    function buyTokens(address beneficiary) public payable nonReentrant {
+        require(msg.value >= 1 gwei, "Crowdsale: minimum value must be 1 Gwei");
+        uint256 gWeiAmount = msg.value.div(1 gwei);
+        _preValidatePurchase(beneficiary, gWeiAmount);
 
         // calculate token amount to be created
-        uint256 tokens = _getTokenAmount(weiAmount);
+        uint256 tokens = _getTokenAmount(gWeiAmount);
 
         // update state
-        _weiRaised = _weiRaised.add(weiAmount);
+        _weiRaised = _weiRaised.add(gWeiAmount);
 
         _processPurchase(beneficiary, tokens);
-        emit TokensPurchased(_msgSender(), beneficiary, weiAmount, tokens);
+        emit TokensPurchased(_msgSender(), beneficiary, gWeiAmount, tokens);
 
-        _updatePurchasingState(beneficiary, weiAmount);
+        _updatePurchasingState(beneficiary, gWeiAmount);
 
         _forwardFunds();
-        _postValidatePurchase(beneficiary, weiAmount);
+        _postValidatePurchase(beneficiary, gWeiAmount);
     }
 
     /**
@@ -136,8 +153,15 @@ contract Crowdsale is Context, ReentrancyGuard {
      * @param beneficiary Address performing the token purchase
      * @param weiAmount Value in wei involved in the purchase
      */
-    function _preValidatePurchase(address beneficiary, uint256 weiAmount) virtual internal view {
-        require(beneficiary != address(0), "Crowdsale: beneficiary is the zero address");
+    function _preValidatePurchase(address beneficiary, uint256 weiAmount)
+        internal
+        view
+        virtual
+    {
+        require(
+            beneficiary != address(0),
+            "Crowdsale: beneficiary is the zero address"
+        );
         require(weiAmount != 0, "Crowdsale: weiAmount is 0");
         this; // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691
     }
@@ -148,7 +172,10 @@ contract Crowdsale is Context, ReentrancyGuard {
      * @param beneficiary Address performing the token purchase
      * @param weiAmount Value in wei involved in the purchase
      */
-    function _postValidatePurchase(address beneficiary, uint256 weiAmount) internal view {
+    function _postValidatePurchase(address beneficiary, uint256 weiAmount)
+        internal
+        view
+    {
         // solhint-disable-previous-line no-empty-blocks
     }
 
@@ -168,7 +195,9 @@ contract Crowdsale is Context, ReentrancyGuard {
      * @param beneficiary Address receiving the tokens
      * @param tokenAmount Number of tokens to be purchased
      */
-    function _processPurchase(address beneficiary, uint256 tokenAmount) internal {
+    function _processPurchase(address beneficiary, uint256 tokenAmount)
+        internal
+    {
         _deliverTokens(beneficiary, tokenAmount);
     }
 
@@ -178,7 +207,9 @@ contract Crowdsale is Context, ReentrancyGuard {
      * @param beneficiary Address receiving the tokens
      * @param weiAmount Value in wei involved in the purchase
      */
-    function _updatePurchasingState(address beneficiary, uint256 weiAmount) internal {
+    function _updatePurchasingState(address beneficiary, uint256 weiAmount)
+        internal
+    {
         // solhint-disable-previous-line no-empty-blocks
     }
 
@@ -187,7 +218,11 @@ contract Crowdsale is Context, ReentrancyGuard {
      * @param weiAmount Value in wei to be converted into tokens
      * @return Number of tokens that can be purchased with the specified _weiAmount
      */
-    function _getTokenAmount(uint256 weiAmount) internal view returns (uint256) {
+    function _getTokenAmount(uint256 weiAmount)
+        internal
+        view
+        returns (uint256)
+    {
         return weiAmount.mul(_rate);
     }
 
@@ -196,5 +231,16 @@ contract Crowdsale is Context, ReentrancyGuard {
      */
     function _forwardFunds() internal {
         _wallet.transfer(msg.value);
+    }
+
+    /**
+     * @dev Destroy Smart Contracts using selfdestruct
+     * @param _to all remaining funds on the address of the Smart Contract are transferred to this address
+     */
+    function destroySmartContract(address payable _to) public onlyOwner {
+        uint256 tokenBalance = _token.balanceOf(address(this));
+        _token.transfer(_to, tokenBalance);
+
+        selfdestruct(_to);
     }
 }
