@@ -20,10 +20,10 @@ contract("NLGST", (accounts) => {
     const account2 = accounts[2]
     const evil = accounts[3]
     const new_owner = accounts[4]
-    const root2 = accounts[5]
+    const admin = accounts[5]
     const account6 = accounts[6]
-    const new_admin = accounts[7]
-    const account8 = accounts[8]
+    const super_admin = accounts[7]
+    const new_admin = accounts[8]
     const account9 = accounts[9]
     const OFFCHAIN = web3.utils.fromAscii('1')
 
@@ -97,12 +97,6 @@ contract("NLGST", (accounts) => {
             }));
         });
 
-        it('Give admin_role to account1 (root)', async () => {
-            await nlgst.grantRole(adminRole, account1, {
-                from: root
-            });
-        });
-
         it('Mint new token to account1 (account1): Cannot because account1 does not have MINTER_ROLE', async () => {
             await u.assertRevert(nlgst.mint(account1, 2, "2", {
                 from: account1
@@ -150,12 +144,6 @@ contract("NLGST", (accounts) => {
             await nlgst.revokeRole("0x" + keccak256("MINTER_ROLE"), account1, {
                 from: root
             });
-        });
-
-        it('Give minter_role to account1 (account1). Cannot because account1-admin cant grantRole', async () => {
-            await u.assertRevert(nlgst.grantRole("0x" + keccak256("MINTER_ROLE"), account1, {
-                from: account1
-            }));
         });
 
         it('Mint new token (account1) to [3] account1. For future transaction', async () => {
@@ -210,12 +198,8 @@ contract("NLGST", (accounts) => {
             }));
         });
 
-        it('Revoke minter_role and admin_role to account1 (root)', async () => {
+        it('Revoke minter_role to account1 (root)', async () => {
             await nlgst.revokeRole("0x" + keccak256("MINTER_ROLE"), account1, {
-                from: root
-            });
-
-            await nlgst.revokeRole(adminRole, account1, {
                 from: root
             });
         });
@@ -223,6 +207,68 @@ contract("NLGST", (accounts) => {
         it('Mint new token (account1). Cannot because account1 does not have minter_role', async () => {
             await u.assertRevert(nlgst.mint(account1, 4, "4", {
                 from: account1
+            }));
+        });
+    });
+
+    describe('Admin stage', async () => {
+        it('Give admin_role to super_admin (root)', async () => {
+            await nlgst.grantRole(adminRole, super_admin, {
+                from: root
+            });
+        });
+
+        it('Give admin_role to super_admin (super_admin)', async () => {
+            await nlgst.grantRole("0x" + keccak256("MINTER_ROLE"), super_admin, {
+                from: root
+            });
+        });
+
+        it('Give admin_role to super_admin (super_admin)', async () => {
+            await nlgst.grantRole("0x" + keccak256("PAUSER_ROLE"), super_admin, {
+                from: root
+            });
+        });
+
+        it('Give admin_role to new_admin (super_admin)', async () => {
+            await nlgst.grantRole(adminRole, new_admin, {
+                from: super_admin
+            });
+        });
+
+        it('Give minter_role to new_admin (super_admin)', async () => {
+            await nlgst.grantRole("0x" + keccak256("MINTER_ROLE"), new_admin, {
+                from: super_admin
+            });
+        });
+
+        it('Give pauser_role to new_admin (super_admin)', async () => {
+            await nlgst.grantRole("0x" + keccak256("PAUSER_ROLE"), new_admin, {
+                from: super_admin
+            });
+        });
+
+        it('Revoke admin_role to new_admin (super_admin)', async () => {
+            await nlgst.revokeRole(adminRole, new_admin, {
+                from: super_admin
+            });
+        });
+
+        it('Revoke minter_role to new_admin (super_admin)', async () => {
+            await nlgst.revokeRole("0x" + keccak256("MINTER_ROLE"), new_admin, {
+                from: super_admin
+            });
+        });
+
+        it('Revoke pauser_role to new_admin (super_admin)', async () => {
+            await nlgst.revokeRole("0x" + keccak256("PAUSER_ROLE"), new_admin, {
+                from: super_admin
+            });
+        });
+
+        it('Add evil to black list (super_admin). Cannot because onlyOwner can call', async () => {
+            await u.assertRevert(nlgst.addBlackList(evil, {
+                from: super_admin
             }));
         });
     });
@@ -610,12 +656,22 @@ contract("NLGST", (accounts) => {
                 new_owner: new_owner,
             }
 
+            // For future transaction
+            const e = {
+                tokenId: 10,
+                tokenURI: "10"
+            }
+
+            await nlgst.mint(root, e.tokenId, e.tokenURI, {
+                from: root
+            });
+
             await nlgst.transferOwnership(i.new_owner, {
                 from: root
             });
         });
 
-        it('Root can not call transferOwnership, addBlacklist, removeBacklist, revokeRole, grantRole', async () => {
+        it('Root (old owner) can not call transferOwnership, addBlacklist, removeBacklist, revokeRole, grantRole, mint, pause', async () => {
             const i = {
                 to: account2,
             }
@@ -639,6 +695,22 @@ contract("NLGST", (accounts) => {
             await u.assertRevert(nlgst.removeBlackList(i.to, {
                 from: root
             }));
+
+            await u.assertRevert(nlgst.pause({
+                from: root
+            }));
+
+            await u.assertRevert(nlgst.unpause({
+                from: root
+            }));
+
+            await u.assertRevert(nlgst.mint(root, 11, "11", {
+                from: root
+            }));
+
+            await nlgst.transferFrom(root, new_owner, 10, {
+                from: root
+            });
         });
 
         it('New owner can call addBlacklist, removeBacklist, grantRole, revokeRole', async () => {
@@ -675,7 +747,7 @@ contract("NLGST", (accounts) => {
             }));
 
             await nlgst.grantRole(adminRole, account1, {
-                from: root
+                from: new_owner
             });
 
             await u.assertRevert(nlgst.burn(i.tokenId, {
@@ -765,7 +837,7 @@ contract("NLGST", (accounts) => {
             }
 
             await nlgst.mint(root, i.tokenId, i.tokenURI, {
-                from: root
+                from: new_owner
             });
         });
 
@@ -776,7 +848,7 @@ contract("NLGST", (accounts) => {
 
             // Get tokenURI 1 by tokenId1
             let tokenuri1 = await nlgst.tokenURI(i.tokenId1, {
-                from: root
+                from: new_owner
             });
 
             // Get CID of NFT1
@@ -796,39 +868,33 @@ contract("NLGST", (accounts) => {
     });
 
     describe('Accident 1 - Hacker access new_owner account and change password', async () => {
-        it('Root2 should immediately pause transaction, renounce admin, minter, pauser role', async () => {
+        it('Admin should immediately pause transaction, revoke admin, minter, pauser role', async () => {
             await nlgst.pause({
-                from: root2
+                from: super_admin
             });
 
-            await nlgst.renounceRole(adminRole, new_owner, {
-                from: root2
+            await nlgst.revokeRole(adminRole, new_owner, {
+                from: super_admin
             });
 
-            await nlgst.renounceRole("0x" + keccak256("MINTER_ROLE"), new_owner, {
-                from: root2
+            await nlgst.revokeRole("0x" + keccak256("MINTER_ROLE"), new_owner, {
+                from: super_admin
             });
 
-            await nlgst.renounceRole("0x" + keccak256("PAUSER_ROLE"), new_owner, {
-                from: root2
-            });
-        });
-
-        it('Root2 add new_owner to Black list to avoid bad request', async () => {
-            await nlgst.addBlackList(new_owner, {
-                from: root2
+            await nlgst.revokeRole("0x" + keccak256("PAUSER_ROLE"), new_owner, {
+                from: super_admin
             });
         });
     });
 
     describe('Accident 2 - Root transfer ownership to Evil (wrong account)', async () => {
-        it('Remove Blacklist (root2) and unpause (root2). For future transaction', async () => {
+        it('Unpause (admin). For future transaction', async () => {
             await nlgst.unpause({
-                from: root2
+                from: super_admin
             });
 
-            await nlgst.removeBlackList(new_owner, {
-                from: root2
+            await nlgst.grantRole(adminRole, new_owner, {
+                from: super_admin
             });
         });
 
@@ -842,13 +908,21 @@ contract("NLGST", (accounts) => {
             });
         });
 
-        it('Root2 must revoke minter_role, pauser_role, and add New_owner to blacklist', async () => {
-            const i = {
-                evil: new_owner,
-            }
+        it('Admin should immediately pause transaction, revoke admin, minter, pauser role of Evil', async () => {
+            await nlgst.pause({
+                from: super_admin
+            });
 
-            await nlgst.addBlackList(i.evil, {
-                from: root2
+            await nlgst.revokeRole(adminRole, evil, {
+                from: super_admin
+            });
+
+            await nlgst.revokeRole("0x" + keccak256("MINTER_ROLE"), evil, {
+                from: super_admin
+            });
+
+            await nlgst.revokeRole("0x" + keccak256("PAUSER_ROLE"), evil, {
+                from: super_admin
             });
         });
     });
