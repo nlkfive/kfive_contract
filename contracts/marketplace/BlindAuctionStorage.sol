@@ -43,40 +43,31 @@ contract BlindAuctionStorage {
     // AUCTION EVENTS
     event BidSuccessful(
         address indexed bidder,
-        address nftAddress,
-        uint256 indexed assetId,
+        bytes32 indexed auctionId,
         bytes32 blindedBid
     );
-
+    event RevealSuccessful(bool fake, bytes32 indexed auctionId, uint256 value);
     event AuctionRefund(
-        address nftAddress,
-        uint256 indexed assetId,
-        uint256 deposit,
-        address indexed bidder
+        address indexed bidder,
+        bytes32 auctionId,
+        uint256 deposit
     );
     event AuctionCreated(
-        bytes32 id,
-        uint256 indexed assetId,
         address indexed seller,
         address nftAddress,
+        bytes32 indexed auctionId,
+        uint256 assetId,
         uint256 biddingEnd,
         uint256 revealEnd,
         uint256 startPriceInWei
     );
     event AuctionSuccessful(
-        bytes32 id,
-        uint256 indexed assetId,
         address indexed seller,
-        address nftAddress,
-        uint256 totalPrice,
-        address indexed buyer
+        address indexed buyer,
+        bytes32 indexed auctionId,
+        uint256 totalPrice
     );
-    event AuctionCancelled(
-        bytes32 id,
-        uint256 indexed assetId,
-        address indexed seller,
-        address nftAddress
-    );
+    event AuctionCancelled(bytes32 indexed id);
 
     function onlyBefore(uint256 _time) internal view {
         if (block.timestamp >= _time) revert TooLate(_time);

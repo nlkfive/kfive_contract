@@ -121,9 +121,13 @@ contract AuctionMarketplace is BlindAuctionStorage, Marketplace {
             // Make it impossible for the sender to re-claim
             // the same deposit.
             bidToCheck.blindedBid = bytes32(0);
+
+            emit RevealSuccessful(fake, auctionId, value);
         }
-        emit AuctionRefund(nftAddress, assetId, refund, sender);
-        acceptedToken.transfer(sender, refund);
+        if (refund > 0) {
+            acceptedToken.transfer(sender, refund);
+            emit AuctionRefund(sender, auctionId, refund);
+        }
     }
 
     /**
@@ -149,6 +153,7 @@ contract AuctionMarketplace is BlindAuctionStorage, Marketplace {
             // conditions -> effects -> interaction).
             _auction.pendingReturns[sender] = 0;
             acceptedToken.transfer(sender, amount);
+            emit AuctionRefund(sender, auctionId, amount);
         }
     }
 
@@ -233,12 +238,10 @@ contract AuctionMarketplace is BlindAuctionStorage, Marketplace {
         nftRegistry.safeTransferFrom(seller, auctionHighestBidder, assetId);
 
         emit AuctionSuccessful(
-            auctionId,
-            assetId,
             seller,
-            nftAddress,
-            auctionHighestBid,
-            auctionHighestBidder
+            auctionHighestBidder,
+            auctionId,
+            auctionHighestBid
         );
     }
 
@@ -325,10 +328,10 @@ contract AuctionMarketplace is BlindAuctionStorage, Marketplace {
         }
 
         emit AuctionCreated(
-            auctionId,
-            assetId,
             assetOwner,
             nftAddress,
+            auctionId,
+            assetId,
             auction.biddingEnd,
             auction.revealEnd,
             startPriceInWei
@@ -351,16 +354,8 @@ contract AuctionMarketplace is BlindAuctionStorage, Marketplace {
             "Unauthorized user"
         );
 
-        address auctionSeller = auction.seller;
-        address auctionNftAddress = auction.nftAddress;
         auction.ended = true;
-
-        emit AuctionCancelled(
-            auctionId,
-            assetId,
-            auctionSeller,
-            auctionNftAddress
-        );
+        emit AuctionCancelled(auctionId);
     }
 
     /// Place a blinded bid with `_blindedBid` =
@@ -394,7 +389,7 @@ contract AuctionMarketplace is BlindAuctionStorage, Marketplace {
         _auction.bids[sender].push(
             Bid({blindedBid: _blindedBid, deposit: deposit})
         );
-        emit BidSuccessful(sender, nftAddress, assetId, _blindedBid);
+        emit BidSuccessful(sender, auctionId, _blindedBid);
     }
 
     function _placeBid(
