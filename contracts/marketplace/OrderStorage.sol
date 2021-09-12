@@ -17,27 +17,15 @@ contract OrderStorage {
 
     // ORDER EVENTS
     event OrderCreated(
-        bytes32 id,
+        bytes32 indexed id,
         uint256 indexed assetId,
         address indexed seller,
         address nftAddress,
         uint256 priceInWei,
         uint256 expiresAt
     );
-    event OrderSuccessful(
-        bytes32 id,
-        uint256 indexed assetId,
-        address indexed seller,
-        address nftAddress,
-        uint256 totalPrice,
-        address indexed buyer
-    );
-    event OrderCancelled(
-        bytes32 id,
-        uint256 indexed assetId,
-        address indexed seller,
-        address nftAddress
-    );
+    event OrderSuccessful(bytes32 indexed id, address indexed buyer);
+    event OrderCancelled(bytes32 indexed id);
 
     // From ERC721 registry assetId to Order (to avoid asset collision)
     mapping(address => mapping(uint256 => Order)) public orderByAssetId;

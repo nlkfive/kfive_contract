@@ -132,11 +132,9 @@ contract OrderMarketplace is OrderStorage, Marketplace {
         );
 
         bytes32 orderId = order.id;
-        address orderSeller = order.seller;
-        address orderNftAddress = order.nftAddress;
         delete orderByAssetId[nftAddress][assetId];
 
-        emit OrderCancelled(orderId, assetId, orderSeller, orderNftAddress);
+        emit OrderCancelled(orderId);
 
         return order;
     }
@@ -196,14 +194,7 @@ contract OrderMarketplace is OrderStorage, Marketplace {
         // Transfer asset owner
         nftRegistry.safeTransferFrom(seller, sender, assetId);
 
-        emit OrderSuccessful(
-            orderId,
-            assetId,
-            seller,
-            nftAddress,
-            price,
-            sender
-        );
+        emit OrderSuccessful(orderId, sender);
 
         return order;
     }
