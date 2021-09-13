@@ -8,15 +8,14 @@ contract BlindAuctionStorage {
     }
 
     struct Auction {
-        bool ended;
-        // Auction ID
-        bytes32 id;
         // Owner of the NFT
         address seller;
         // Highest bidder
         address highestBidder;
         // NFT registry address
         address nftAddress;
+        // Auction ID
+        bytes32 id;
         // Bidding end time
         uint256 biddingEnd;
         // Reveal end time
@@ -31,9 +30,13 @@ contract BlindAuctionStorage {
         mapping(address => uint256) pendingReturns;
     }
 
-    // From ERC721 registry assetId to Auction (to avoid asset collision)
-    mapping(address => mapping(uint256 => mapping(bytes32 => Auction)))
-        public auctionByAssetId;
+    struct NftAuction {
+        bytes32 runningAuction;
+        mapping(bytes32 => Auction) auctions;
+    }
+
+    // From ERC721 registry keccak256(abi.encodePacked(nft,assetId)) to NftAuction (to avoid asset collision)
+    mapping(bytes32 => NftAuction) public nftAuctions;
 
     // ERRORS
     error TooEarly(uint256 time);

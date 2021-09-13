@@ -87,9 +87,9 @@ contract AuctionMarketplace is BlindAuctionStorage, Marketplace {
         bool[] memory _fake,
         bytes32[] memory _secret
     ) external {
-        Auction storage _auction = auctionByAssetId[nftAddress][assetId][
-            auctionId
-        ];
+        Auction storage _auction = nftAuctions[
+            keccak256(abi.encodePacked(nftAddress, assetId))
+        ].auctions[auctionId];
         onlyAfter(_auction.biddingEnd);
         onlyBefore(_auction.revealEnd);
         address sender = _msgSender();
@@ -142,9 +142,9 @@ contract AuctionMarketplace is BlindAuctionStorage, Marketplace {
         bytes32 auctionId
     ) external {
         address sender = _msgSender();
-        Auction storage _auction = auctionByAssetId[nftAddress][assetId][
-            auctionId
-        ];
+        Auction storage _auction = nftAuctions[
+            keccak256(abi.encodePacked(nftAddress, assetId))
+        ].auctions[auctionId];
         uint256 amount = _auction.pendingReturns[sender];
         if (amount > 0) {
             // It is important to set this to zero because the recipient
@@ -169,9 +169,9 @@ contract AuctionMarketplace is BlindAuctionStorage, Marketplace {
         bytes32 auctionId
     ) external view returns (uint256) {
         address sender = _msgSender();
-        Auction storage _auction = auctionByAssetId[nftAddress][assetId][
-            auctionId
-        ];
+        Auction storage _auction = nftAuctions[
+            keccak256(abi.encodePacked(nftAddress, assetId))
+        ].auctions[auctionId];
         uint256 amount = _auction.pendingReturns[sender];
         return amount;
     }
@@ -187,10 +187,13 @@ contract AuctionMarketplace is BlindAuctionStorage, Marketplace {
         uint256 assetId,
         bytes32 auctionId
     ) external {
-        Auction storage _auction = auctionByAssetId[nftAddress][assetId][
-            auctionId
-        ];
-        if (_auction.ended) revert AuctionEndAlreadyCalled();
+        Auction storage _auction = nftAuctions[
+            keccak256(abi.encodePacked(nftAddress, assetId))
+        ].auctions[auctionId];
+        if (
+            nftAuctions[keccak256(abi.encodePacked(nftAddress, assetId))]
+                .runningAuction == bytes32(0)
+        ) revert AuctionEndAlreadyCalled();
         onlyAfter(_auction.revealEnd);
 
         address auctionHighestBidder = _auction.highestBidder;
@@ -208,7 +211,8 @@ contract AuctionMarketplace is BlindAuctionStorage, Marketplace {
             seller == nftRegistry.ownerOf(assetId),
             "The seller is no longer the owner"
         );
-        _auction.ended = true;
+        nftAuctions[keccak256(abi.encodePacked(nftAddress, assetId))]
+            .runningAuction = bytes32(0);
 
         uint256 saleShareAmount = 0;
 
@@ -258,9 +262,9 @@ contract AuctionMarketplace is BlindAuctionStorage, Marketplace {
         bytes32 auctionId,
         uint256 assetId
     ) external view returns (uint256) {
-        Auction storage _auction = auctionByAssetId[nftAddress][assetId][
-            auctionId
-        ];
+        Auction storage _auction = nftAuctions[
+            keccak256(abi.encodePacked(nftAddress, assetId))
+        ].auctions[auctionId];
         return _auction.bids[bidder].length;
     }
 
@@ -276,17 +280,28 @@ contract AuctionMarketplace is BlindAuctionStorage, Marketplace {
             require(startPriceInWei > 0, "Price should be bigger than 0");
             address sender = _msgSender();
             {
+                // Check owner
                 IERC721 nftRegistry = IERC721(nftAddress);
                 assetOwner = nftRegistry.ownerOf(assetId);
-
                 require(
                     sender == assetOwner,
                     "Only the owner can create auctions"
                 );
+
+                // Check permission
                 require(
                     nftRegistry.getApproved(assetId) == address(this) ||
                         nftRegistry.isApprovedForAll(assetOwner, address(this)),
                     "The contract is not authorized to manage the asset"
+                );
+
+                // Check if there isn't any running auction
+                bytes32 runningAuction = nftAuctions[
+                    keccak256(abi.encodePacked(nftAddress, assetId))
+                ].runningAuction;
+                require(
+                    runningAuction != bytes32(0),
+                    "This asset has a running auction"
                 );
             }
             // Check if there's a publication fee and
@@ -312,9 +327,10 @@ contract AuctionMarketplace is BlindAuctionStorage, Marketplace {
                 startPriceInWei
             )
         );
-        Auction storage auction = auctionByAssetId[nftAddress][assetId][
-            auctionId
-        ];
+
+        Auction storage auction = nftAuctions[
+            keccak256(abi.encodePacked(nftAddress, assetId))
+        ].auctions[auctionId];
         {
             uint256 biddingEnd = block.timestamp.add(biddingTime);
             uint256 revealEnd = biddingEnd.add(revealTime);
@@ -324,7 +340,9 @@ contract AuctionMarketplace is BlindAuctionStorage, Marketplace {
             auction.biddingEnd = biddingEnd;
             auction.revealEnd = revealEnd;
             auction.startPrice = startPriceInWei;
-            auction.ended = false;
+
+            nftAuctions[keccak256(abi.encodePacked(nftAddress, assetId))]
+                .runningAuction = auctionId;
         }
 
         emit AuctionCreated(
@@ -344,17 +362,23 @@ contract AuctionMarketplace is BlindAuctionStorage, Marketplace {
         bytes32 auctionId
     ) internal {
         address sender = _msgSender();
-        Auction storage auction = auctionByAssetId[nftAddress][assetId][
-            auctionId
-        ];
+        Auction storage auction = nftAuctions[
+            keccak256(abi.encodePacked(nftAddress, assetId))
+        ].auctions[auctionId];
 
         require(auction.id != 0, "Asset not published");
+        require(
+            nftAuctions[keccak256(abi.encodePacked(nftAddress, assetId))]
+                .runningAuction != bytes32(0),
+            "Auction ended already"
+        );
         require(
             auction.seller == sender || sender == owner(),
             "Unauthorized user"
         );
 
-        auction.ended = true;
+        nftAuctions[keccak256(abi.encodePacked(nftAddress, assetId))]
+            .runningAuction = bytes32(0);
         emit AuctionCancelled(auctionId);
     }
 
@@ -374,11 +398,14 @@ contract AuctionMarketplace is BlindAuctionStorage, Marketplace {
         bytes32 _blindedBid,
         uint256 deposit
     ) internal {
-        Auction storage _auction = auctionByAssetId[nftAddress][assetId][
-            auctionId
-        ];
+        Auction storage _auction = nftAuctions[
+            keccak256(abi.encodePacked(nftAddress, assetId))
+        ].auctions[auctionId];
         onlyBefore(_auction.biddingEnd);
-        if (_auction.ended) revert AuctionEndAlreadyCalled();
+        if (
+            nftAuctions[keccak256(abi.encodePacked(nftAddress, assetId))]
+                .runningAuction == bytes32(0)
+        ) revert AuctionEndAlreadyCalled();
         address sender = _msgSender();
 
         require(
