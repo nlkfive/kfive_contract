@@ -7,8 +7,6 @@ contract BlindAuctionStorage {
         address seller;
         // Highest bidder
         address highestBidder;
-        // NFT registry address
-        address nftAddress;
         // Auction ID
         bytes32 id;
         // Bidding end time
