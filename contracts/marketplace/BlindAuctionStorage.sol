@@ -2,11 +2,6 @@
 pragma solidity 0.8.4;
 
 contract BlindAuctionStorage {
-    struct Bid {
-        bytes32 blindedBid;
-        uint256 deposit;
-    }
-
     struct Auction {
         // Owner of the NFT
         address seller;
@@ -24,8 +19,8 @@ contract BlindAuctionStorage {
         uint256 highestBid;
         // Start Price (in wei) for the published item
         uint256 startPrice;
-        // List of bids
-        mapping(address => Bid[]) bids;
+        // List of bids (user => _blindedBid => deposit value)
+        mapping(address => mapping(bytes32 => uint256)) bids;
         // List of pending returns
         mapping(address => uint256) pendingReturns;
     }
@@ -41,7 +36,6 @@ contract BlindAuctionStorage {
     // ERRORS
     error TooEarly(uint256 time);
     error TooLate(uint256 time);
-    error AuctionEndAlreadyCalled();
 
     // AUCTION EVENTS
     event BidSuccessful(
@@ -78,5 +72,21 @@ contract BlindAuctionStorage {
 
     function onlyAfter(uint256 _time) internal view {
         if (block.timestamp <= _time) revert TooEarly(_time);
+    }
+
+    modifier auctionExisted(bytes32 nftAsset, bytes32 auctionId) {
+        require(
+            nftAuctions[nftAsset].auctions[auctionId].id != 0,
+            "Auction is not existed"
+        );
+        _;
+    }
+
+    modifier auctionIsRunning(bytes32 nftAsset, bytes32 auctionId) {
+        require(
+            nftAuctions[nftAsset].runningAuction == auctionId,
+            "Auction is not running"
+        );
+        _;
     }
 }
