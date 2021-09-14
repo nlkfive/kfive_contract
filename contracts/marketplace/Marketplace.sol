@@ -2,21 +2,26 @@
 pragma solidity 0.8.4;
 
 import "@openzeppelin/contracts/utils/Address.sol";
-
-import "./MarketplaceStorage.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 import "../BEP20/IBEP20.sol";
+import "./storage/IMarketplaceStorage.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
-import "@openzeppelin/contracts/utils/cryptography/draft-EIP712.sol";
 
-contract Marketplace is
-    Ownable,
-    Pausable,
-    MarketplaceStorage,
-    EIP712("KFIVE Marketplace", "1")
-{
+contract Marketplace is Ownable, Pausable {
+    IBEP20 public acceptedToken;
+    IMarketplaceStorage public marketplaceStorage;
+
+    uint256 public ownerCutPerMillion;
+    uint256 public publicationFeeInWei;
+
+    bytes4 public constant ERC721_Interface = bytes4(0x80ac58cd);
+    bytes4 public constant IMarketplaceStorage_Interface = bytes4(0x85c93a92);
+
+    event ChangedPublicationFee(uint256 publicationFee);
+    event ChangedOwnerCutPerMillion(uint256 ownerCutPerMillion);
+
     using Address for address;
 
     /**
@@ -24,10 +29,13 @@ contract Marketplace is
      * @param _acceptedToken - Address of the ERC20 accepted for this marketplace
      * @param _ownerCutPerMillion - owner cut per million
      */
-    constructor(address _acceptedToken, uint256 _ownerCutPerMillion) {
+    constructor(
+        address _acceptedToken,
+        address _marketplaceStorage,
+        uint256 _ownerCutPerMillion
+    ) _requireMarketplaceStorage(_marketplaceStorage) {
         // Fee init
         setOwnerCutPerMillion(_ownerCutPerMillion);
-
         transferOwnership(_msgSender());
 
         require(
@@ -35,6 +43,7 @@ contract Marketplace is
             "The accepted token address must be a deployed contract"
         );
         acceptedToken = IBEP20(_acceptedToken);
+        marketplaceStorage = IMarketplaceStorage(_marketplaceStorage);
     }
 
     /**
@@ -73,6 +82,23 @@ contract Marketplace is
         require(
             nftRegistry.supportsInterface(ERC721_Interface),
             "The NFT contract has an invalid ERC721 implementation"
+        );
+        _;
+    }
+
+    modifier _requireMarketplaceStorage(address storageAddress) {
+        require(
+            storageAddress.isContract(),
+            "The Marketplace storage Address should be a contract"
+        );
+        IMarketplaceStorage storageAddressRegistry = IMarketplaceStorage(
+            storageAddress
+        );
+        require(
+            storageAddressRegistry.supportsInterface(
+                IMarketplaceStorage_Interface
+            ),
+            "The Marketplace storage contract has an invalid IMarketplaceStorage implementation"
         );
         _;
     }

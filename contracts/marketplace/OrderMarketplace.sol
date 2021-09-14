@@ -2,42 +2,41 @@
 pragma solidity 0.8.4;
 
 import "./Marketplace.sol";
+import "./storage/IOrder.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
-contract OrderMarketplace is OrderStorage, Marketplace {
+contract OrderMarketplace is IOrder, Marketplace {
     using SafeMath for uint256;
 
-    constructor(address _acceptedToken, uint256 _ownerCutPerMillion)
-        Marketplace(_acceptedToken, _ownerCutPerMillion)
-    {}
+    constructor(
+        address _acceptedToken,
+        address _marketplaceStorage,
+        uint256 _ownerCutPerMillion
+    ) Marketplace(_acceptedToken, _marketplaceStorage, _ownerCutPerMillion) {}
 
     /**
      * @dev Creates a new order
      * @param nftAddress - Non fungible registry address
      * @param assetId - ID of the published NFT
      * @param priceInWei - Price in Wei for the supported coin
-     * @param expiresAt - Duration of the order (in hours)
+     * @param expiredAt - Duration of the order (in hours)
      */
     function createOrder(
         address nftAddress,
         uint256 assetId,
         uint256 priceInWei,
-        uint256 expiresAt
+        uint256 expiredAt
     ) external whenNotPaused {
-        _createOrder(nftAddress, assetId, priceInWei, expiresAt);
+        _createOrder(nftAddress, assetId, priceInWei, expiredAt);
     }
 
     /**
      * @dev Cancel an already published order
      *  can only be canceled by seller or the contract owner
-     * @param nftAddress - Address of the NFT registry
-     * @param assetId - ID of the published NFT
+     * @param nftAsset - keccak256(abi.encodePacked(nftAddress, assetId))
      */
-    function cancelOrder(address nftAddress, uint256 assetId)
-        public
-        whenNotPaused
-    {
-        _cancelOrder(nftAddress, assetId);
+    function cancelOrder(bytes32 nftAsset) public whenNotPaused {
+        _cancelOrder(nftAsset);
     }
 
     /**
@@ -58,7 +57,7 @@ contract OrderMarketplace is OrderStorage, Marketplace {
         address nftAddress,
         uint256 assetId,
         uint256 priceInWei,
-        uint256 expiresAt
+        uint256 expiredAt
     ) internal _requireERC721(nftAddress) {
         address sender = _msgSender();
 
@@ -73,8 +72,13 @@ contract OrderMarketplace is OrderStorage, Marketplace {
         );
         require(priceInWei > 0, "Price should be bigger than 0");
         require(
-            expiresAt > block.timestamp.add(1 minutes),
+            expiredAt > block.timestamp.add(1 minutes),
             "Publication should be more than 1 minute in the future"
+        );
+        bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
+        require(
+            marketplaceStorage.assetIsAvailable(nftAsset),
+            "This asset is unavailable"
         );
 
         bytes32 orderId = keccak256(
@@ -87,13 +91,14 @@ contract OrderMarketplace is OrderStorage, Marketplace {
             )
         );
 
-        orderByAssetId[nftAddress][assetId] = Order({
-            id: orderId,
-            seller: assetOwner,
-            nftAddress: nftAddress,
-            price: priceInWei,
-            expiresAt: expiresAt
-        });
+        marketplaceStorage.createOrder(
+            assetOwner,
+            nftAddress,
+            assetId,
+            orderId,
+            priceInWei,
+            expiredAt
+        );
 
         // Check if there's a publication fee and
         // transfer the amount to marketplace owner
@@ -114,28 +119,24 @@ contract OrderMarketplace is OrderStorage, Marketplace {
             assetOwner,
             nftAddress,
             priceInWei,
-            expiresAt
+            expiredAt
         );
     }
 
-    function _cancelOrder(address nftAddress, uint256 assetId)
-        internal
-        returns (Order memory)
-    {
+    function _cancelOrder(bytes32 nftAsset) internal returns (Order memory) {
         address sender = _msgSender();
-        Order memory order = orderByAssetId[nftAddress][assetId];
+        Order memory order = marketplaceStorage.getOrder(nftAsset);
 
-        require(order.id != 0, "Asset not published");
+        require(order.orderId != 0, "Order is not existed");
         require(
             order.seller == sender || sender == owner(),
             "Unauthorized user"
         );
 
-        bytes32 orderId = order.id;
-        delete orderByAssetId[nftAddress][assetId];
+        bytes32 orderId = order.orderId;
+        marketplaceStorage.deleteOrder(nftAsset);
 
         emit OrderCancelled(orderId);
-
         return order;
     }
 
@@ -143,27 +144,29 @@ contract OrderMarketplace is OrderStorage, Marketplace {
         address nftAddress,
         uint256 assetId,
         uint256 price
-    ) internal _requireERC721(nftAddress) returns (Order memory) {
-        address sender = _msgSender();
-
-        IERC721 nftRegistry = IERC721(nftAddress);
-        Order memory order = orderByAssetId[nftAddress][assetId];
-        require(order.id != 0, "Asset not published");
+    ) internal returns (Order memory) {
+        bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
+        Order memory order = marketplaceStorage.getOrder(nftAsset);
+        require(order.orderId != 0, "Order is not existed");
 
         address seller = order.seller;
         require(seller != address(0), "Invalid address");
+
+        address sender = _msgSender();
         require(seller != sender, "Unauthorized user");
         require(order.price == price, "The price is not correct");
-        require(block.timestamp < order.expiresAt, "The order expired");
+        require(block.timestamp < order.expiredAt, "The order expired");
+
+        IERC721 nftRegistry = IERC721(nftAddress);
         require(
             seller == nftRegistry.ownerOf(assetId),
             "The seller is no longer the owner"
         );
 
-        bytes32 orderId = order.id;
+        bytes32 orderId = order.orderId;
         {
             uint256 saleShareAmount = 0;
-            delete orderByAssetId[nftAddress][assetId];
+            marketplaceStorage.deleteOrder(nftAsset);
 
             if (ownerCutPerMillion > 0) {
                 // Calculate sale share
