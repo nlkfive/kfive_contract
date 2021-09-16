@@ -457,4 +457,273 @@ contract("ICO", (accounts) => {
             eq(account6_token_balance.toString(), 1 * (10 ** tokenDecimals));
         });
     });
+
+    describe('ICO running stage with rate=1274', async () => {
+        const walletReceiver = root;
+        const newRate = 1274;
+
+        it('Start ICO crowdsale with newRate and check ICO information', async () => {
+            const token = kfive.address;
+            const openingTime = Math.floor(new Date().getTime() / 1000 + 15);
+            const closingTime = Math.floor(openingTime + 30);
+
+            ico2 = await ICO.new(newRate, walletReceiver, token, cap, openingTime, closingTime, {
+                from: root
+            });
+
+            let o = {
+                token: kfive.address,
+                wallet: root,
+                wei: 0,
+                rate: 1274,
+            }
+
+            let saleToken = await ico2.token({
+                from: root
+            });
+            eq(o.token, saleToken);
+
+            let receiver = await ico2.wallet({
+                from: root
+            });
+            eq(o.wallet, receiver);
+
+            let initial_wei = await ico2.weiRaised({
+                from: root
+            });
+            eq(o.wei, initial_wei);
+
+            let rate = await ico2.rate({
+                from: root
+            })
+            eq(o.rate, rate);
+        });
+
+        it('Issue (owner) 10 KFIVE token to Crowdsale contract', async () => {
+            const i = {
+                to: ico2.address,
+                value: web3.utils.toHex(10 * (10 ** tokenDecimals)),
+            }
+
+            await kfive.issue(i.to, i.value, OFFCHAIN, {
+                from: root
+            });
+
+            const o = {
+                ico_balance: 10 * (10 ** tokenDecimals),
+            }
+
+            let ico_balance = await kfive.balanceOf(ico2.address, {
+                from: root
+            });
+            eq(o.ico_balance, ico_balance.toString());
+        });
+
+        it('Account1 transfer 1 gwei to get 1 token. Cannot because crowdsale is not opening', async () => {
+            const value = web3.utils.toWei('1', 'gwei');
+            await u.assertRevert(ico2.buyTokens(account1, { value: value }));
+        });
+
+        it('Wait until crowdsale opens', async () => {
+            await delay(15000);
+        });
+
+        //////////////////////////////////////
+        // BUY TOKEN
+        //////////////////////////////////////
+        it('Account1 transfer 1 gwei to get token', async () => {
+            // Check receiver and account1 balance before transaction
+            let receiver_eth_balance_before = await web3.eth.getBalance(walletReceiver);
+
+            const value = web3.utils.toWei('1', 'gwei');
+            await ico2.buyTokens(account1, { value: value });
+
+            // TKBbits = rate * wei. 1 GWei = 10^9 wei
+            const o = {
+                ico_balance: 10 * (10 ** tokenDecimals) - (newRate * 1),
+                account1_balance: 1 * (10 ** tokenDecimals) + (newRate * 1),
+                weiRaised: 1,
+            }
+
+            let ico_balance = await kfive.balanceOf(ico2.address, {
+                from: root
+            });
+            eq(o.ico_balance, ico_balance.toString());
+
+            let account1_balance = await kfive.balanceOf(account1, {
+                from: root
+            });
+            eq(o.account1_balance, account1_balance.toString());
+
+            let weiRaised = await ico2.weiRaised({
+                from: root
+            });
+            eq(o.weiRaised, weiRaised.toString());
+
+            // Check receiver after transaction
+            let receiver_eth_balance_after = await web3.eth.getBalance(walletReceiver);
+            eq(web3.utils.toBN(receiver_eth_balance_before).add(web3.utils.toBN(value)).toString(), receiver_eth_balance_after.toString());
+        });
+
+        it('Account4 transfer 11 gwei to get token', async () => {
+            let receiver_eth_balance_before = await web3.eth.getBalance(walletReceiver);
+
+            const value = web3.utils.toWei('11', 'gwei');
+            await ico2.buyTokens(account4, { value: value });
+
+            const o = {
+                ico_balance: 10 * (10 ** tokenDecimals) - (newRate * 12),
+                account4_balance: 1 * (10 ** tokenDecimals) + (newRate * 11),
+                weiRaised: 12,
+            }
+
+            let ico_balance = await kfive.balanceOf(ico2.address, {
+                from: root
+            });
+            eq(o.ico_balance, ico_balance.toString());
+
+            let account4_balance = await kfive.balanceOf(account4, {
+                from: root
+            });
+            eq(o.account4_balance, account4_balance.toString());
+
+            let weiRaised = await ico2.weiRaised({
+                from: root
+            });
+            eq(o.weiRaised, weiRaised.toString());
+
+            let receiver_eth_balance_after = await web3.eth.getBalance(walletReceiver);
+            eq(web3.utils.toBN(receiver_eth_balance_before).add(web3.utils.toBN(value)).toString(), receiver_eth_balance_after.toString());
+        });
+
+
+        //////////////////////////////////////
+        // PAUSE
+        //////////////////////////////////////
+        it('Owner: Pause ICO', async () => {
+            await ico.pause({
+                from: root
+            });
+        });
+
+        it('Account5 transfer wei to get 1 token. Cannot because ICO is pausing', async () => {
+            const value = (web3.utils.toWei(web3.utils.toBN('10', 'wei')));
+            await u.assertRevert(ico.sendTransaction({ from: account5, value: value }));
+        });
+
+        it('Owner: UnPause ICO', async () => {
+            await ico.unpause({
+                from: root
+            });
+        });
+
+        //////////////////////////////////////
+        // BUY TOKEN AFTER UNPAUSE
+        //////////////////////////////////////
+        it('Root transfer 1 gwei to get token', async () => {
+            let receiver_eth_balance_before = await web3.eth.getBalance(walletReceiver);
+
+            const value = web3.utils.toWei('1100000000', 'wei');
+            await ico2.buyTokens(root, { value: value });
+
+            const o = {
+                ico_balance: 10 * (10 ** tokenDecimals) - (newRate * 13),
+                root_balance: 1 * (10 ** tokenDecimals) + (newRate * 1),
+                weiRaised: 13,
+            }
+
+            let ico_balance = await kfive.balanceOf(ico2.address, {
+                from: root
+            });
+            eq(o.ico_balance, ico_balance.toString());
+
+            let root_balance = await kfive.balanceOf(root, {
+                from: root
+            });
+            eq(o.root_balance, root_balance.toString());
+
+            let weiRaised = await ico2.weiRaised({
+                from: root
+            });
+            eq(o.weiRaised, weiRaised.toString());
+
+            let receiver_eth_balance_after = await web3.eth.getBalance(walletReceiver);
+            eq(web3.utils.toBN(receiver_eth_balance_before).add(web3.utils.toBN(value)).toString(), receiver_eth_balance_after.toString());
+        });
+
+        it('Account1 transfer gwei to get 10 token. Cannot because exceed KFIVE amount', async () => {
+            const value = web3.utils.toWei('10000000000', 'gwei');
+            await u.assertRevert(ico2.buyTokens(account1, { value: value }));
+
+            const o = {
+                account1_balance: 1 * (10 ** tokenDecimals) + (newRate * 1),
+            }
+
+            let account1_balance = await kfive.balanceOf(account1, {
+                from: root
+            });
+            eq(o.account1_balance, account1_balance.toString());
+        });
+
+        //////////////////////////////////////
+        // DESTROY CONTRACT
+        //////////////////////////////////////
+        it('Owner Destroy contract', async () => {
+            await ico2.destroySmartContract(account7, {
+                from: root
+            });
+
+            const o = {
+                ico_token_balance: 0,
+                account7_token_balance: 10.5 * (10 ** tokenDecimals) - (newRate * 13),
+            }
+
+            let ico_token_balance = await kfive.balanceOf(ico.address, {from: root});
+            eq(ico_token_balance.toString(), o.ico_token_balance);
+
+            let account7_token_balance = await kfive.balanceOf(account7, {from: root});
+            eq(account7_token_balance.toString(), o.account7_token_balance);
+        });
+
+        it('Owner Destroy contract again. Cannot because there is no contract', async () => {
+            await u.assertRevert(ico.destroySmartContract(account7, {
+                from: root
+            }));
+        });
+
+        it('Account1 transfer 1 gwei to get 1 token. Cannot because crowdsale has been destroyed', async () => {
+            const value = web3.utils.toWei('1', 'gwei');
+            await u.assertRevert(ico2.buyTokens(account1, { value: value }));
+
+            const o = {
+                account1_balance: 1 * (10 ** tokenDecimals) + (newRate * 1),
+            }
+
+            let account1_balance = await kfive.balanceOf(account1, {
+                from: root
+            });
+            eq(o.account1_balance, account1_balance.toString());
+        });
+
+        //////////////////////////////////////
+        // CLOSE CROWDSALE
+        //////////////////////////////////////
+        it('Wait 25s', async () => {
+            await delay(25000);
+        });
+
+        it('Account1 transfer 1 gwei to get 1 token. Cannot because crowdsale is over', async () => {
+            const value = web3.utils.toWei('1', 'gwei');
+            await u.assertRevert(ico2.buyTokens(account1, { value: value }));
+
+            const o = {
+                account1_balance: 1 * (10 ** tokenDecimals) + (newRate * 1),
+            }
+
+            let account1_balance = await kfive.balanceOf(account1, {
+                from: root
+            });
+            eq(o.account1_balance, account1_balance.toString());
+        });
+    });
 });
