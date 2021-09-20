@@ -23,8 +23,8 @@ interface IAuction {
         address nftAddress,
         bytes32 indexed auctionId,
         uint256 assetId,
-        uint256 biddingTime,
-        uint256 revealTime,
+        uint256 biddingEnd,
+        uint256 revealEnd,
         uint256 startPriceInWei
     );
     event AuctionSuccessful(

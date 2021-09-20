@@ -146,8 +146,8 @@ contract MarketplaceStorage is
         address nftAddress,
         uint256 assetId,
         bytes32 auctionId,
-        uint256 biddingTime,
-        uint256 revealTime,
+        uint256 biddingEnd,
+        uint256 revealEnd,
         uint256 startPriceInWei
     ) external override {
         require(
@@ -163,8 +163,6 @@ contract MarketplaceStorage is
         // Create new auction
         Auction storage auction = auctions[auctionId];
         {
-            uint256 biddingEnd = block.timestamp.add(biddingTime);
-            uint256 revealEnd = biddingEnd.add(revealTime);
             auction.id = auctionId;
             auction.seller = assetOwner;
             auction.biddingEnd = biddingEnd;

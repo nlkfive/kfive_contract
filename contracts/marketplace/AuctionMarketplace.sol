@@ -24,22 +24,22 @@ contract AuctionMarketplace is IAuction, Marketplace {
      * @param nftAddress - Non fungible registry address
      * @param assetId - ID of the published NFT
      * @param startPriceInWei - Price in Wei for the supported coin
-     * @param biddingTime - Duration of the bidding (in seconds)
-     * @param revealTime - Duration of the reveal (in seconds)
+     * @param biddingEnd - Timestamp when bidding end (in seconds)
+     * @param revealEnd - Timestamp when reveal end (in seconds)
      */
     function createAuction(
         address nftAddress,
         uint256 assetId,
         uint256 startPriceInWei,
-        uint256 biddingTime,
-        uint256 revealTime
+        uint256 biddingEnd,
+        uint256 revealEnd
     ) external _requireERC721(nftAddress) whenNotPaused {
         _createAuction(
             nftAddress,
             assetId,
             startPriceInWei,
-            biddingTime,
-            revealTime
+            biddingEnd,
+            revealEnd
         );
     }
 
@@ -167,12 +167,20 @@ contract AuctionMarketplace is IAuction, Marketplace {
         address nftAddress,
         uint256 assetId,
         uint256 startPriceInWei,
-        uint256 biddingTime,
-        uint256 revealTime
+        uint256 biddingEnd,
+        uint256 revealEnd
     ) internal _requireERC721(nftAddress) {
         // Validate input
         address assetOwner;
         {
+            require(
+                biddingEnd > block.timestamp.add(1 hours),
+                "BiddingEnd should be more than 1 hour in the future"
+            );
+            require(
+                revealEnd > biddingEnd.add(1 hours),
+                "RevealEnd should be more than biddingEnd 1 hour in the future"
+            );
             require(startPriceInWei > 0, "Price should be bigger than 0");
             address sender = _msgSender();
             {
@@ -228,8 +236,8 @@ contract AuctionMarketplace is IAuction, Marketplace {
             nftAddress,
             assetId,
             auctionId,
-            biddingTime,
-            revealTime,
+            biddingEnd,
+            revealEnd,
             startPriceInWei
         );
 
@@ -238,8 +246,8 @@ contract AuctionMarketplace is IAuction, Marketplace {
             nftAddress,
             auctionId,
             assetId,
-            biddingTime,
-            revealTime,
+            biddingEnd,
+            revealEnd,
             startPriceInWei
         );
     }
@@ -248,7 +256,10 @@ contract AuctionMarketplace is IAuction, Marketplace {
         address sender = _msgSender();
         address seller = marketplaceStorage.getAuction(auctionId).seller;
 
-        require(seller == sender || sender == owner(), "Unauthorized user");
+        require(
+            seller == sender || hasRole(CANCEL_ROLE, _msgSender()),
+            "Unauthorized user"
+        );
         marketplaceStorage.auctionEnded(nftAsset);
         emit AuctionCancelled(auctionId);
     }

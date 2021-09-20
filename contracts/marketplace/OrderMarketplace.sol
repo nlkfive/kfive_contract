@@ -72,8 +72,8 @@ contract OrderMarketplace is IOrder, Marketplace {
         );
         require(priceInWei > 0, "Price should be bigger than 0");
         require(
-            expiredAt > block.timestamp.add(1 minutes),
-            "Publication should be more than 1 minute in the future"
+            expiredAt > block.timestamp.add(1 hours),
+            "Publication should be more than 1 hour in the future"
         );
         bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
         require(
@@ -123,13 +123,13 @@ contract OrderMarketplace is IOrder, Marketplace {
         );
     }
 
-    function _cancelOrder(bytes32 nftAsset) internal returns (Order memory) {
+    function _cancelOrder(bytes32 nftAsset) internal {
         address sender = _msgSender();
         Order memory order = marketplaceStorage.getOrder(nftAsset);
 
         require(order.orderId != 0, "Order is not existed");
         require(
-            order.seller == sender || sender == owner(),
+            order.seller == sender || hasRole(CANCEL_ROLE, _msgSender()),
             "Unauthorized user"
         );
 
@@ -137,7 +137,6 @@ contract OrderMarketplace is IOrder, Marketplace {
         marketplaceStorage.deleteOrder(nftAsset);
 
         emit OrderCancelled(orderId);
-        return order;
     }
 
     function _executeOrder(

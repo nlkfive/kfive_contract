@@ -2,14 +2,15 @@
 pragma solidity 0.8.4;
 
 import "@openzeppelin/contracts/utils/Address.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 import "../BEP20/IBEP20.sol";
+import "../common/BlackList.sol";
 import "./storage/IMarketplaceStorage.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
+import "@openzeppelin/contracts/access/AccessControlEnumerable.sol";
 
-contract Marketplace is Ownable, Pausable {
+contract Marketplace is AccessControlEnumerable, Pausable, BlackList {
     IBEP20 public acceptedToken;
     IMarketplaceStorage public marketplaceStorage;
 
@@ -21,6 +22,10 @@ contract Marketplace is Ownable, Pausable {
 
     event ChangedPublicationFee(uint256 publicationFee);
     event ChangedOwnerCutPerMillion(uint256 ownerCutPerMillion);
+
+    bytes32 public constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
+    bytes32 public constant CANCEL_ROLE = keccak256("CANCEL_ROLE");
+    bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
     using Address for address;
 
@@ -44,13 +49,24 @@ contract Marketplace is Ownable, Pausable {
         );
         acceptedToken = IBEP20(_acceptedToken);
         marketplaceStorage = IMarketplaceStorage(_marketplaceStorage);
+
+        _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
+
+        _setupRole(CANCEL_ROLE, _msgSender());
+        _setupRole(PAUSER_ROLE, _msgSender());
+
+        _setRoleAdmin(CANCEL_ROLE, ADMIN_ROLE);
+        _setRoleAdmin(PAUSER_ROLE, ADMIN_ROLE);
     }
 
     /**
      * @dev Sets the publication fee that's charged to users to publish items
      * @param _publicationFee - Fee amount in wei this contract charges to publish an item
      */
-    function setPublicationFee(uint256 _publicationFee) external onlyOwner {
+    function setPublicationFee(uint256 _publicationFee)
+        external
+        onlyRole(ADMIN_ROLE)
+    {
         publicationFeeInWei = _publicationFee;
         emit ChangedPublicationFee(publicationFeeInWei);
     }
@@ -62,7 +78,7 @@ contract Marketplace is Ownable, Pausable {
      */
     function setOwnerCutPerMillion(uint256 _ownerCutPerMillion)
         public
-        onlyOwner
+        onlyRole(ADMIN_ROLE)
     {
         require(
             _ownerCutPerMillion < 1000000,
@@ -120,11 +136,23 @@ contract Marketplace is Ownable, Pausable {
         return sender;
     }
 
-    function pause() public onlyOwner {
+    function pause() public onlyRole(PAUSER_ROLE) {
         _pause();
     }
 
-    function unpause() public onlyOwner {
+    function unpause() public onlyRole(PAUSER_ROLE) {
         _unpause();
+    }
+
+    function transferOwnership(address newOwner) public override onlyOwner {
+        _setupRole(CANCEL_ROLE, newOwner);
+        _setupRole(PAUSER_ROLE, newOwner);
+        _setupRole(DEFAULT_ADMIN_ROLE, newOwner);
+
+        revokeRole(CANCEL_ROLE, owner());
+        revokeRole(PAUSER_ROLE, owner());
+        revokeRole(DEFAULT_ADMIN_ROLE, owner());
+
+        super.transferOwnership(newOwner);
     }
 }
