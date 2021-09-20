@@ -149,13 +149,9 @@ contract MarketplaceStorage is
         uint256 biddingEnd,
         uint256 revealEnd,
         uint256 startPriceInWei
-    ) external override {
-        require(
-            _msgSender() == auctionMarketplace,
-            "Must be called from auction marketplace contract"
-        );
+    ) external override onlyFrom(auctionMarketplace) {
         bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
-        require(assetIsAvailable(nftAsset), "This asset is unvailable");
+        require(assetIsAvailable(nftAsset), "Unvailable");
 
         // Update current running before actually create
         runningActionIds[nftAsset] = auctionId;
@@ -186,15 +182,12 @@ contract MarketplaceStorage is
     /**
      * @dev Delete auction by nftAsset.
      */
-    function auctionEnded(bytes32 nftAsset) external override {
-        require(
-            _msgSender() == auctionMarketplace,
-            "Must be called from auction marketplace contract"
-        );
-        require(
-            runningActionIds[nftAsset] != 0,
-            "Auction has been already ended"
-        );
+    function auctionEnded(bytes32 nftAsset)
+        external
+        override
+        onlyFrom(auctionMarketplace)
+    {
+        require(runningActionIds[nftAsset] != 0, "Already ended");
         delete runningActionIds[nftAsset];
     }
 
@@ -205,11 +198,7 @@ contract MarketplaceStorage is
         address bidder,
         uint256 highestBid,
         bytes32 auctionId
-    ) external override {
-        require(
-            _msgSender() == auctionMarketplace,
-            "Must be called from auction marketplace contract"
-        );
+    ) external override onlyFrom(auctionMarketplace) {
         Auction storage auction = auctions[auctionId];
         onlyBefore(auction.biddingEnd);
 
@@ -230,13 +219,9 @@ contract MarketplaceStorage is
         bytes32 orderId,
         uint256 priceInWei,
         uint256 expiredAt
-    ) external override {
-        require(
-            _msgSender() == orderMarketplace,
-            "Must be called from order marketplace contract"
-        );
+    ) external override onlyFrom(orderMarketplace) {
         bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
-        require(assetIsAvailable(nftAsset), "This asset is unvailable");
+        require(assetIsAvailable(nftAsset), "Unvailable");
 
         orderByNftAsset[nftAsset] = Order({
             orderId: orderId,
@@ -256,15 +241,12 @@ contract MarketplaceStorage is
         return orderByNftAsset[nftAsset];
     }
 
-    function deleteOrder(bytes32 nftAsset) external override {
-        require(
-            _msgSender() == orderMarketplace,
-            "Must be called from order marketplace contract"
-        );
-        require(
-            orderByNftAsset[nftAsset].orderId != bytes32(0),
-            "Order is not existed"
-        );
+    function deleteOrder(bytes32 nftAsset)
+        external
+        override
+        onlyFrom(orderMarketplace)
+    {
+        require(orderByNftAsset[nftAsset].orderId != bytes32(0), "Not existed");
         delete orderByNftAsset[nftAsset];
     }
 
@@ -274,5 +256,10 @@ contract MarketplaceStorage is
 
     function onlyAfter(uint256 _time) internal view {
         if (block.timestamp <= _time) revert TooEarly(_time);
+    }
+
+    modifier onlyFrom(address contractAddr) {
+        require(_msgSender() == contractAddr, "Invalid sender");
+        _;
     }
 }

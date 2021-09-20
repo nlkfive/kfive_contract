@@ -1,24 +1,26 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.4;
 
-import "@openzeppelin/contracts/utils/Address.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 import "../BEP20/IBEP20.sol";
+import "../common/StorageLock.sol";
 import "../common/BlackList.sol";
 import "./storage/IMarketplaceStorage.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
-import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 import "@openzeppelin/contracts/access/AccessControlEnumerable.sol";
 
-contract Marketplace is AccessControlEnumerable, Pausable, BlackList {
+contract Marketplace is
+    AccessControlEnumerable,
+    StorageLock,
+    Pausable,
+    BlackList
+{
     IBEP20 public acceptedToken;
-    IMarketplaceStorage public marketplaceStorage;
 
     uint256 public ownerCutPerMillion;
     uint256 public publicationFeeInWei;
 
     bytes4 public constant ERC721_Interface = bytes4(0x80ac58cd);
-    bytes4 public constant IMarketplaceStorage_Interface = bytes4(0x85c93a92);
 
     event ChangedPublicationFee(uint256 publicationFee);
     event ChangedOwnerCutPerMillion(uint256 ownerCutPerMillion);
@@ -38,25 +40,24 @@ contract Marketplace is AccessControlEnumerable, Pausable, BlackList {
         address _acceptedToken,
         address _marketplaceStorage,
         uint256 _ownerCutPerMillion
-    ) _requireMarketplaceStorage(_marketplaceStorage) {
-        // Fee init
-        setOwnerCutPerMillion(_ownerCutPerMillion);
+    ) StorageLock(_marketplaceStorage) {
         transferOwnership(_msgSender());
 
-        require(
-            _acceptedToken.isContract(),
-            "The accepted token address must be a deployed contract"
-        );
+        require(_acceptedToken.isContract(), "Invalid contract");
         acceptedToken = IBEP20(_acceptedToken);
         marketplaceStorage = IMarketplaceStorage(_marketplaceStorage);
 
         _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
 
+        _setupRole(ADMIN_ROLE, _msgSender());
         _setupRole(CANCEL_ROLE, _msgSender());
         _setupRole(PAUSER_ROLE, _msgSender());
 
         _setRoleAdmin(CANCEL_ROLE, ADMIN_ROLE);
         _setRoleAdmin(PAUSER_ROLE, ADMIN_ROLE);
+
+        // Fee init
+        setOwnerCutPerMillion(_ownerCutPerMillion);
     }
 
     /**
@@ -80,41 +81,16 @@ contract Marketplace is AccessControlEnumerable, Pausable, BlackList {
         public
         onlyRole(ADMIN_ROLE)
     {
-        require(
-            _ownerCutPerMillion < 1000000,
-            "The owner cut should be between 0 and 999,999"
-        );
-
+        require(_ownerCutPerMillion < 1000000, "Invalid cut");
         ownerCutPerMillion = _ownerCutPerMillion;
         emit ChangedOwnerCutPerMillion(ownerCutPerMillion);
     }
 
     modifier _requireERC721(address nftAddress) {
+        require(nftAddress.isContract(), "Invalid contract");
         require(
-            nftAddress.isContract(),
-            "The NFT Address should be a contract"
-        );
-        IERC721 nftRegistry = IERC721(nftAddress);
-        require(
-            nftRegistry.supportsInterface(ERC721_Interface),
-            "The NFT contract has an invalid ERC721 implementation"
-        );
-        _;
-    }
-
-    modifier _requireMarketplaceStorage(address storageAddress) {
-        require(
-            storageAddress.isContract(),
-            "The Marketplace storage Address should be a contract"
-        );
-        IMarketplaceStorage storageAddressRegistry = IMarketplaceStorage(
-            storageAddress
-        );
-        require(
-            storageAddressRegistry.supportsInterface(
-                IMarketplaceStorage_Interface
-            ),
-            "The Marketplace storage contract has an invalid IMarketplaceStorage implementation"
+            IERC721(nftAddress).supportsInterface(ERC721_Interface),
+            "Invalid erc721"
         );
         _;
     }
@@ -154,5 +130,13 @@ contract Marketplace is AccessControlEnumerable, Pausable, BlackList {
         revokeRole(DEFAULT_ADMIN_ROLE, owner());
 
         super.transferOwnership(newOwner);
+    }
+
+    function updateStorageAddress(address _marketplaceStorage)
+        public
+        override
+        onlyRole(ADMIN_ROLE)
+    {
+        super.updateStorageAddress(_marketplaceStorage);
     }
 }

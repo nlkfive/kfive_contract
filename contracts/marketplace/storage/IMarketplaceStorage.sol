@@ -36,8 +36,8 @@ interface IMarketplaceStorage is IERC165, IOrder, IAuction {
         address nftAddress,
         uint256 assetId,
         bytes32 auctionId,
-        uint256 biddingTime,
-        uint256 revealTime,
+        uint256 biddingEnd,
+        uint256 revealEnd,
         uint256 startPriceInWei
     ) external;
 

@@ -64,22 +64,16 @@ contract OrderMarketplace is IOrder, Marketplace {
         IERC721 nftRegistry = IERC721(nftAddress);
         address assetOwner = nftRegistry.ownerOf(assetId);
 
-        require(sender == assetOwner, "Only the owner can create orders");
+        require(sender == assetOwner, "Unauthorized");
         require(
             nftRegistry.getApproved(assetId) == address(this) ||
                 nftRegistry.isApprovedForAll(assetOwner, address(this)),
-            "The contract is not authorized to manage the asset"
+            "Unauthorized"
         );
-        require(priceInWei > 0, "Price should be bigger than 0");
-        require(
-            expiredAt > block.timestamp.add(1 hours),
-            "Publication should be more than 1 hour in the future"
-        );
+        require(priceInWei > 0, "Invalid price");
+        require(expiredAt > block.timestamp.add(1 hours), "Invalid time");
         bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
-        require(
-            marketplaceStorage.assetIsAvailable(nftAsset),
-            "This asset is unavailable"
-        );
+        require(marketplaceStorage.assetIsAvailable(nftAsset), "Unavailable");
 
         bytes32 orderId = keccak256(
             abi.encodePacked(
@@ -109,7 +103,7 @@ contract OrderMarketplace is IOrder, Marketplace {
                     owner(),
                     publicationFeeInWei
                 ),
-                "Transfering the publication fee to the Marketplace owner failed"
+                "Transfering fee failed"
             );
         }
 
@@ -127,10 +121,10 @@ contract OrderMarketplace is IOrder, Marketplace {
         address sender = _msgSender();
         Order memory order = marketplaceStorage.getOrder(nftAsset);
 
-        require(order.orderId != 0, "Order is not existed");
+        require(order.orderId != 0, "Not existed");
         require(
             order.seller == sender || hasRole(CANCEL_ROLE, _msgSender()),
-            "Unauthorized user"
+            "Unauthorized"
         );
 
         bytes32 orderId = order.orderId;
@@ -146,21 +140,18 @@ contract OrderMarketplace is IOrder, Marketplace {
     ) internal returns (Order memory) {
         bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
         Order memory order = marketplaceStorage.getOrder(nftAsset);
-        require(order.orderId != 0, "Order is not existed");
+        require(order.orderId != 0, "Not existed");
 
         address seller = order.seller;
         require(seller != address(0), "Invalid address");
 
         address sender = _msgSender();
-        require(seller != sender, "Unauthorized user");
-        require(order.price == price, "The price is not correct");
-        require(block.timestamp < order.expiredAt, "The order expired");
+        require(seller != sender, "Unauthorized");
+        require(order.price == price, "Invalid price");
+        require(block.timestamp < order.expiredAt, "Expired");
 
         IERC721 nftRegistry = IERC721(nftAddress);
-        require(
-            seller == nftRegistry.ownerOf(assetId),
-            "The seller is no longer the owner"
-        );
+        require(seller == nftRegistry.ownerOf(assetId), "Invalid owner");
 
         bytes32 orderId = order.orderId;
         {
@@ -178,7 +169,7 @@ contract OrderMarketplace is IOrder, Marketplace {
                         owner(),
                         saleShareAmount
                     ),
-                    "Transfering the cut to the Marketplace owner failed"
+                    "Transfer cut failed"
                 );
             }
 
@@ -189,7 +180,7 @@ contract OrderMarketplace is IOrder, Marketplace {
                     seller,
                     price.sub(saleShareAmount)
                 ),
-                "Transfering the sale amount to the seller failed"
+                "Transfer sale failed"
             );
         }
 

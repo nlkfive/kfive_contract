@@ -8,9 +8,10 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Pausable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/AccessControlEnumerable.sol";
 import "../common/BlackList.sol";
-import "../marketplace/storage/IMarketplaceStorage.sol";
+import "../common/StorageLock.sol";
 
 contract KfiveNFT is
+    StorageLock,
     AccessControlEnumerable,
     ERC721Enumerable,
     ERC721Pausable,
@@ -22,9 +23,6 @@ contract KfiveNFT is
     bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
     string private _baseTokenURI;
-    IMarketplaceStorage public marketplaceStorage;
-    bytes4 public constant IMarketplaceStorage_Interface = bytes4(0x85c93a92);
-    using Address for address;
 
     /**
      * @dev Grants `DEFAULT_ADMIN_ROLE`, `MINTER_ROLE` and `PAUSER_ROLE` to the
@@ -38,14 +36,12 @@ contract KfiveNFT is
         string memory tokenName,
         string memory tokenSymbol,
         string memory baseTokenURI
-    )
-        ERC721(tokenName, tokenSymbol)
-        _requireMarketplaceStorage(_marketplaceStorage)
-    {
+    ) StorageLock(_marketplaceStorage) ERC721(tokenName, tokenSymbol) {
         _baseTokenURI = baseTokenURI;
 
         _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
 
+        _setupRole(ADMIN_ROLE, _msgSender());
         _setupRole(MINTER_ROLE, _msgSender());
         _setupRole(PAUSER_ROLE, _msgSender());
 
@@ -114,10 +110,7 @@ contract KfiveNFT is
     ) internal virtual override(ERC721, ERC721Enumerable, ERC721Pausable) {
         require(!isBlackListed[from]);
         bytes32 nftAsset = keccak256(abi.encodePacked(address(this), tokenId));
-        require(
-            marketplaceStorage.assetIsAvailable(nftAsset),
-            "This asset is unavailable"
-        );
+        require(marketplaceStorage.assetIsAvailable(nftAsset), "Unavailable");
         super._beforeTokenTransfer(from, to, tokenId);
     }
 
@@ -157,10 +150,12 @@ contract KfiveNFT is
     }
 
     function transferOwnership(address newOwner) public override onlyOwner {
+        _setupRole(ADMIN_ROLE, newOwner);
         _setupRole(MINTER_ROLE, newOwner);
         _setupRole(PAUSER_ROLE, newOwner);
         _setupRole(DEFAULT_ADMIN_ROLE, newOwner);
 
+        revokeRole(ADMIN_ROLE, owner());
         revokeRole(MINTER_ROLE, owner());
         revokeRole(PAUSER_ROLE, owner());
         revokeRole(DEFAULT_ADMIN_ROLE, owner());
@@ -168,20 +163,11 @@ contract KfiveNFT is
         super.transferOwnership(newOwner);
     }
 
-    modifier _requireMarketplaceStorage(address storageAddress) {
-        require(
-            storageAddress.isContract(),
-            "The Marketplace storage Address should be a contract"
-        );
-        IMarketplaceStorage storageAddressRegistry = IMarketplaceStorage(
-            storageAddress
-        );
-        require(
-            storageAddressRegistry.supportsInterface(
-                IMarketplaceStorage_Interface
-            ),
-            "The Marketplace storage contract has an invalid IMarketplaceStorage implementation"
-        );
-        _;
+    function updateStorageAddress(address _marketplaceStorage)
+        public
+        override
+        onlyRole(ADMIN_ROLE)
+    {
+        super.updateStorageAddress(_marketplaceStorage);
     }
 }

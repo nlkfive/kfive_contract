@@ -65,15 +65,9 @@ contract Crowdsale is Context, Ownable, ReentrancyGuard {
         address payable __wallet,
         IBEP20 __token
     ) {
-        require(__rate > 0, "Crowdsale: rate is 0");
-        require(
-            __wallet != address(0),
-            "Crowdsale: wallet is the zero address"
-        );
-        require(
-            address(__token) != address(0),
-            "Crowdsale: token is the zero address"
-        );
+        require(__rate > 0, "Invalid rate");
+        require(__wallet != address(0), "Invalid address");
+        require(address(__token) != address(0), "Invalid token");
 
         _rate = __rate;
         _wallet = __wallet;
@@ -125,7 +119,7 @@ contract Crowdsale is Context, Ownable, ReentrancyGuard {
      * @param beneficiary Recipient of the token purchase
      */
     function buyTokens(address beneficiary) public payable nonReentrant {
-        require(msg.value >= 1 gwei, "Crowdsale: minimum value must be 1 Gwei");
+        require(msg.value >= 1 gwei, "Invalid amount");
         uint256 gWeiAmount = msg.value.div(1 gwei);
         _preValidatePurchase(beneficiary, gWeiAmount);
 
@@ -158,11 +152,8 @@ contract Crowdsale is Context, Ownable, ReentrancyGuard {
         view
         virtual
     {
-        require(
-            beneficiary != address(0),
-            "Crowdsale: beneficiary is the zero address"
-        );
-        require(weiAmount != 0, "Crowdsale: weiAmount is 0");
+        require(beneficiary != address(0), "Invalid beneficiary");
+        require(weiAmount != 0, "Invalid");
         this; // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691
     }
 

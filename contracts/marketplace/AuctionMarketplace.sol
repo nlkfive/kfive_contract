@@ -34,169 +34,24 @@ contract AuctionMarketplace is IAuction, Marketplace {
         uint256 biddingEnd,
         uint256 revealEnd
     ) external _requireERC721(nftAddress) whenNotPaused {
-        _createAuction(
-            nftAddress,
-            assetId,
-            startPriceInWei,
-            biddingEnd,
-            revealEnd
-        );
-    }
-
-    /**
-     * @dev Cancel an already published auction
-     *  can only be canceled by seller or the contract owner
-     * @param nftAsset - keccak256(abi.encodePacked(nftAddress, assetId))
-     * @param auctionId - ID of the auction
-     */
-    function cancelAuction(bytes32 nftAsset, bytes32 auctionId)
-        external
-        whenNotPaused
-    {
-        require(
-            marketplaceStorage.auctionIsExisted(auctionId),
-            "Auction is not existed"
-        );
-        require(
-            marketplaceStorage.auctionIsRunning(nftAsset, auctionId),
-            "Auction is not running"
-        );
-        _cancelAuction(nftAsset, auctionId);
-    }
-
-    /**
-     * @dev Bid the auction for a published NFT
-     * @param nftAsset - keccak256(abi.encodePacked(nftAddress, assetId))
-     * @param auctionId - ID of the auction
-     * @param blindedBid - Encoded Bid price
-     * @param deposit - Deposit value (Must be large than bid price)
-     */
-    function bidAuction(
-        bytes32 nftAsset,
-        bytes32 auctionId,
-        bytes32 blindedBid,
-        uint256 deposit
-    ) external whenNotPaused {
-        require(
-            marketplaceStorage.auctionIsExisted(auctionId),
-            "Auction is not existed"
-        );
-        require(
-            marketplaceStorage.auctionIsRunning(nftAsset, auctionId),
-            "Auction is not running"
-        );
-        _bidAuction(auctionId, blindedBid, deposit);
-    }
-
-    /**
-     * @dev Reveal your blinded bids. You will get a refund for all
-     * correctly blinded invalid bids and for all bids except for
-     * the totally highest.
-     * @param nftAsset - keccak256(abi.encodePacked(nftAddress, assetId))
-     * @param auctionId - ID of the auction
-     * @param _values - Array of bid values
-     * @param _fake - Array of true - false values, auction will ignore true value
-     * @param _secret - Array of secret values used for verify the encoded bid values in bidding stage
-     */
-    function revealBid(
-        bytes32 nftAsset,
-        bytes32 auctionId,
-        uint256[] memory _values,
-        bool[] memory _fake,
-        bytes32[] memory _secret
-    ) external whenNotPaused {
-        require(
-            marketplaceStorage.auctionIsExisted(auctionId),
-            "Auction is not existed"
-        );
-        require(
-            marketplaceStorage.auctionIsRunning(nftAsset, auctionId),
-            "Auction is not running"
-        );
-        _revealBid(auctionId, _values, _fake, _secret);
-    }
-
-    /**
-     * @dev Withdraw a bid that was overbid.
-     * @param auctionId - ID of the auction
-     */
-    function withdraw(bytes32 auctionId) external whenNotPaused {
-        require(
-            marketplaceStorage.auctionIsExisted(auctionId),
-            "Auction is not existed"
-        );
-        _withdraw(auctionId);
-    }
-
-    /**
-     * @dev Withdraw a bid that was overbid.
-     * @param auctionId - ID of the auction
-     */
-    function pendingReturns(bytes32 auctionId) external view returns (uint256) {
-        require(
-            marketplaceStorage.auctionIsExisted(auctionId),
-            "Auction is not existed"
-        );
-        return _pendingReturns[auctionId][_msgSender()];
-    }
-
-    /**
-     * @dev End the auction and send the highest bid to the beneficiary.
-     * @param nftAddress - NFT Address
-     * @param assetId - ID of NFT address
-     * @param auctionId - ID of the auction
-     */
-    function auctionEnd(
-        address nftAddress,
-        uint256 assetId,
-        bytes32 auctionId
-    ) external whenNotPaused {
-        bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
-        require(
-            marketplaceStorage.auctionIsExisted(auctionId),
-            "Auction is not existed"
-        );
-        require(
-            marketplaceStorage.auctionIsRunning(nftAsset, auctionId),
-            "Auction is not running"
-        );
-        _auctionEnd(nftAddress, assetId, nftAsset, auctionId);
-    }
-
-    function _createAuction(
-        address nftAddress,
-        uint256 assetId,
-        uint256 startPriceInWei,
-        uint256 biddingEnd,
-        uint256 revealEnd
-    ) internal _requireERC721(nftAddress) {
         // Validate input
         address assetOwner;
         {
-            require(
-                biddingEnd > block.timestamp.add(1 hours),
-                "BiddingEnd should be more than 1 hour in the future"
-            );
-            require(
-                revealEnd > biddingEnd.add(1 hours),
-                "RevealEnd should be more than biddingEnd 1 hour in the future"
-            );
-            require(startPriceInWei > 0, "Price should be bigger than 0");
+            require(biddingEnd > block.timestamp.add(1 hours), "Invalid BE");
+            require(revealEnd > biddingEnd.add(1 hours), "Invalid RE");
+            require(startPriceInWei > 0, "Invalid Price");
             address sender = _msgSender();
             {
                 // Check owner
                 IERC721 nftRegistry = IERC721(nftAddress);
                 assetOwner = nftRegistry.ownerOf(assetId);
-                require(
-                    sender == assetOwner,
-                    "Only the owner can create auctions"
-                );
+                require(sender == assetOwner, "Unauthorized");
 
                 // Check permission
                 require(
                     nftRegistry.getApproved(assetId) == address(this) ||
                         nftRegistry.isApprovedForAll(assetOwner, address(this)),
-                    "The contract is not authorized to manage the asset"
+                    "Unauthorized"
                 );
 
                 // Check if asset is available
@@ -204,7 +59,7 @@ contract AuctionMarketplace is IAuction, Marketplace {
                     abi.encodePacked(nftAddress, assetId)
                 );
                 if (marketplaceStorage.assetIsAvailable(nftAsset)) {
-                    revert("This asset is unavailable");
+                    revert("Unavailable");
                 }
             }
             // Check if there's a publication fee and
@@ -216,7 +71,7 @@ contract AuctionMarketplace is IAuction, Marketplace {
                         owner(),
                         publicationFeeInWei
                     ),
-                    "Transfering the publication fee to the Marketplace owner failed"
+                    "Transfer failed"
                 );
             }
         }
@@ -252,32 +107,52 @@ contract AuctionMarketplace is IAuction, Marketplace {
         );
     }
 
-    function _cancelAuction(bytes32 nftAsset, bytes32 auctionId) internal {
+    /**
+     * @dev Cancel an already published auction
+     *  can only be canceled by seller or the contract owner
+     * @param nftAsset - keccak256(abi.encodePacked(nftAddress, assetId))
+     * @param auctionId - ID of the auction
+     */
+    function cancelAuction(bytes32 nftAsset, bytes32 auctionId)
+        external
+        whenNotPaused
+    {
+        checkExisted(auctionId);
+        checkRunning(nftAsset, auctionId);
         address sender = _msgSender();
         address seller = marketplaceStorage.getAuction(auctionId).seller;
 
         require(
             seller == sender || hasRole(CANCEL_ROLE, _msgSender()),
-            "Unauthorized user"
+            "Unauthorized"
         );
         marketplaceStorage.auctionEnded(nftAsset);
         emit AuctionCancelled(auctionId);
     }
 
-    /// Place a blinded bid with `_blindedBid` =
-    /// keccak256(abi.encodePacked(value, fake, secret)).
-    /// The sent ether is only refunded if the bid is correctly
-    /// revealed in the revealing phase. The bid is valid if the
-    /// ether sent together with the bid is at least "value" and
-    /// "fake" is not true. Setting "fake" to true and sending
-    /// not the exact amount are ways to hide the real bid but
-    /// still make the required deposit. The same address can
-    /// place multiple bids.
-    function _bidAuction(
+    /**
+     * @dev Bid the auction for a published NFT
+     * Place a blinded bid with `_blindedBid` =
+     * keccak256(abi.encodePacked(value, fake, secret)).
+     * The sent ether is only refunded if the bid is correctly
+     * revealed in the revealing phase. The bid is valid if the
+     * ether sent together with the bid is at least "value" and
+     * "fake" is not true. Setting "fake" to true and sending
+     * not the exact amount are ways to hide the real bid but
+     * still make the required deposit. The same address can
+     * place multiple bids.
+     * @param nftAsset - keccak256(abi.encodePacked(nftAddress, assetId))
+     * @param auctionId - ID of the auction
+     * @param blindedBid - Encoded Bid price
+     * @param deposit - Deposit value (Must be large than bid price)
+     */
+    function bidAuction(
+        bytes32 nftAsset,
         bytes32 auctionId,
-        bytes32 _blindedBid,
+        bytes32 blindedBid,
         uint256 deposit
-    ) internal {
+    ) external whenNotPaused {
+        checkRunning(nftAsset, auctionId);
         uint256 biddingEnd = marketplaceStorage
             .getAuction(auctionId)
             .biddingEnd;
@@ -286,41 +161,32 @@ contract AuctionMarketplace is IAuction, Marketplace {
 
         require(
             acceptedToken.transferFrom(sender, address(this), deposit),
-            "Deposit the bid to the Marketplace contract failed"
+            "Deposit failed"
         );
-        require(
-            _bids[auctionId][sender][_blindedBid] != 0,
-            "You have already bidded this value"
-        );
+        require(_bids[auctionId][sender][blindedBid] != 0, "Already bidded");
 
-        _bids[auctionId][sender][_blindedBid] = deposit;
-        emit BidSuccessful(sender, auctionId, _blindedBid);
+        _bids[auctionId][sender][blindedBid] = deposit;
+        emit BidSuccessful(sender, auctionId, blindedBid);
     }
 
-    function _placeBid(
-        Auction memory _auction,
-        address bidder,
-        uint256 value
-    ) internal returns (bool success) {
-        if (value <= _auction.startPrice || value <= _auction.highestBid) {
-            return false;
-        }
-        if (_auction.highestBidder != address(0)) {
-            // Refund the previously highest bidder.
-            _pendingReturns[_auction.id][_auction.highestBidder] += _auction
-                .highestBid;
-        }
-        // Update highest Bid
-        marketplaceStorage.updateHighestBid(bidder, value, _auction.id);
-        return true;
-    }
-
-    function _revealBid(
+    /**
+     * @dev Reveal your blinded bids. You will get a refund for all
+     * correctly blinded invalid bids and for all bids except for
+     * the totally highest.
+     * @param nftAsset - keccak256(abi.encodePacked(nftAddress, assetId))
+     * @param auctionId - ID of the auction
+     * @param _values - Array of bid values
+     * @param _fake - Array of true - false values, auction will ignore true value
+     * @param _secret - Array of secret values used for verify the encoded bid values in bidding stage
+     */
+    function revealBid(
+        bytes32 nftAsset,
         bytes32 auctionId,
         uint256[] memory _values,
         bool[] memory _fake,
         bytes32[] memory _secret
-    ) internal {
+    ) external whenNotPaused {
+        checkRunning(nftAsset, auctionId);
         Auction memory _auction = marketplaceStorage.getAuction(auctionId);
         onlyAfter(_auction.biddingEnd);
         onlyBefore(_auction.revealEnd);
@@ -331,12 +197,14 @@ contract AuctionMarketplace is IAuction, Marketplace {
 
         uint256 refund;
         for (uint256 i = 0; i < length; i++) {
-            refund += _verifyRevealBid(
-                _fake[i],
-                sender,
-                _secret[i],
-                _values[i],
-                _auction
+            refund = refund.add(
+                _verifyRevealBid(
+                    _fake[i],
+                    sender,
+                    _secret[i],
+                    _values[i],
+                    auctionId
+                )
             );
         }
         if (refund > 0) {
@@ -345,37 +213,12 @@ contract AuctionMarketplace is IAuction, Marketplace {
         }
     }
 
-    function _verifyRevealBid(
-        bool fake,
-        address sender,
-        bytes32 secret,
-        uint256 value,
-        Auction memory _auction
-    ) internal returns (uint256 refund) {
-        bytes32 blindedBid = keccak256(abi.encodePacked(value, fake, secret));
-        uint256 deposit = _bids[_auction.id][sender][blindedBid];
-        if (deposit == 0) {
-            // Incorrect bid parameter
-            return 0;
-        }
-
-        // Make it impossible for the sender to re-claim
-        // the same deposit.
-        _bids[_auction.id][sender][blindedBid] = 0;
-
-        // Add to refund
-        refund += deposit;
-
-        // If this is the highest bid then save it
-        if (!fake && deposit >= value && _placeBid(_auction, sender, value)) {
-            refund -= value;
-        }
-
-        emit RevealSuccessful(fake, _auction.id, value);
-        return refund;
-    }
-
-    function _withdraw(bytes32 auctionId) internal {
+    /**
+     * @dev Withdraw a bid that was overbid.
+     * @param auctionId - ID of the auction
+     */
+    function withdraw(bytes32 auctionId) external whenNotPaused {
+        checkExisted(auctionId);
         address sender = _msgSender();
         uint256 amount = _pendingReturns[auctionId][sender];
         if (amount > 0) {
@@ -389,12 +232,94 @@ contract AuctionMarketplace is IAuction, Marketplace {
         }
     }
 
+    /**
+     * @dev Withdraw a bid that was overbid.
+     * @param auctionId - ID of the auction
+     */
+    function pendingReturns(bytes32 auctionId) external view returns (uint256) {
+        checkExisted(auctionId);
+        return _pendingReturns[auctionId][_msgSender()];
+    }
+
+    /**
+     * @dev End the auction and send the highest bid to the beneficiary.
+     * @param nftAddress - NFT Address
+     * @param assetId - ID of NFT address
+     * @param auctionId - ID of the auction
+     */
+    function auctionEnd(
+        address nftAddress,
+        uint256 assetId,
+        bytes32 auctionId
+    ) external whenNotPaused {
+        checkExisted(auctionId);
+        _auctionEnd(
+            nftAddress,
+            assetId,
+            keccak256(abi.encodePacked(nftAddress, assetId)),
+            auctionId
+        );
+    }
+
+    function _placeBid(
+        bytes32 auctionId,
+        address bidder,
+        uint256 value
+    ) internal returns (bool success) {
+        Auction memory _auction = marketplaceStorage.getAuction(auctionId);
+        if (value <= _auction.startPrice || value <= _auction.highestBid) {
+            return false;
+        }
+        if (_auction.highestBidder != address(0)) {
+            // Refund the previously highest bidder.
+            _pendingReturns[_auction.id][
+                _auction.highestBidder
+            ] = _pendingReturns[_auction.id][_auction.highestBidder].add(
+                _auction.highestBid
+            );
+        }
+        // Update highest Bid
+        marketplaceStorage.updateHighestBid(bidder, value, _auction.id);
+        return true;
+    }
+
+    function _verifyRevealBid(
+        bool fake,
+        address sender,
+        bytes32 secret,
+        uint256 value,
+        bytes32 auctionId
+    ) internal returns (uint256 refund) {
+        bytes32 blindedBid = keccak256(abi.encodePacked(value, fake, secret));
+        uint256 deposit = _bids[auctionId][sender][blindedBid];
+        if (deposit == 0) {
+            // Incorrect bid parameter
+            return 0;
+        }
+
+        // Make it impossible for the sender to re-claim
+        // the same deposit.
+        _bids[auctionId][sender][blindedBid] = 0;
+
+        // Add to refund
+        refund = refund.add(deposit);
+
+        // If this is the highest bid then save it
+        if (!fake && deposit >= value && _placeBid(auctionId, sender, value)) {
+            refund = refund.sub(value);
+        }
+
+        emit RevealSuccessful(fake, auctionId, value);
+        return refund;
+    }
+
     function _auctionEnd(
         address nftAddress,
         uint256 assetId,
         bytes32 nftAsset,
         bytes32 auctionId
     ) internal {
+        checkRunning(nftAsset, auctionId);
         Auction memory _auction = marketplaceStorage.getAuction(auctionId);
         onlyAfter(_auction.revealEnd);
 
@@ -402,16 +327,10 @@ contract AuctionMarketplace is IAuction, Marketplace {
         address seller = _auction.seller;
         uint256 auctionHighestBid = _auction.highestBid;
 
-        require(seller != address(0), "Invalid seller address");
-        require(
-            auctionHighestBidder != address(0),
-            "Invalid highest bidder address"
-        );
+        require(seller != address(0), "Invalid seller");
+        require(auctionHighestBidder != address(0), "Invalid HBidder");
         IERC721 nftRegistry = IERC721(nftAddress);
-        require(
-            seller == nftRegistry.ownerOf(assetId),
-            "The seller is no longer the owner"
-        );
+        require(seller == nftRegistry.ownerOf(assetId), "Invalid owner");
         marketplaceStorage.auctionEnded(nftAsset);
 
         uint256 saleShareAmount = 0;
@@ -425,7 +344,7 @@ contract AuctionMarketplace is IAuction, Marketplace {
             // Transfer share amount for marketplace Owner
             require(
                 acceptedToken.transfer(owner(), saleShareAmount),
-                "Transfering the cut to the Marketplace owner failed"
+                "Transfer share failed"
             );
         }
 
@@ -435,7 +354,7 @@ contract AuctionMarketplace is IAuction, Marketplace {
                 seller,
                 auctionHighestBid.sub(saleShareAmount)
             ),
-            "Transfering the sale amount to the seller failed"
+            "Transfer HBid failed"
         );
 
         // Transfer asset owner
@@ -455,5 +374,16 @@ contract AuctionMarketplace is IAuction, Marketplace {
 
     function onlyAfter(uint256 _time) internal view {
         if (block.timestamp <= _time) revert TooEarly(_time);
+    }
+
+    function checkExisted(bytes32 auctionId) private view {
+        if (!marketplaceStorage.auctionIsExisted(auctionId))
+            revert NotExisted();
+    }
+
+    function checkRunning(bytes32 nftAsset, bytes32 auctionId) private view {
+        checkExisted(auctionId);
+        if (!marketplaceStorage.auctionIsRunning(nftAsset, auctionId))
+            revert NotRunning();
     }
 }
