@@ -7,6 +7,7 @@ import "../BEP20/IBEP20.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/security/Pausable.sol";
 
 /**
  * @title Crowdsale
@@ -20,7 +21,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
  * the methods to add functionality. Consider using 'super' where appropriate to concatenate
  * behavior.
  */
-contract Crowdsale is Context, Ownable, ReentrancyGuard {
+contract Crowdsale is Context, Ownable, ReentrancyGuard, Pausable {
     using SafeMath for uint256;
 
     // The token being sold
@@ -118,7 +119,12 @@ contract Crowdsale is Context, Ownable, ReentrancyGuard {
      * another `nonReentrant` function.
      * @param beneficiary Recipient of the token purchase
      */
-    function buyTokens(address beneficiary) public payable nonReentrant {
+    function buyTokens(address beneficiary)
+        public
+        payable
+        nonReentrant
+        whenNotPaused
+    {
         require(msg.value >= 1 gwei, "Invalid amount");
         uint256 gWeiAmount = msg.value.div(1 gwei);
         _preValidatePurchase(beneficiary, gWeiAmount);
@@ -233,5 +239,31 @@ contract Crowdsale is Context, Ownable, ReentrancyGuard {
         _token.transfer(_to, tokenBalance);
 
         selfdestruct(_to);
+    }
+
+    function changeWallet(address payable newReceiver) external onlyOwner {
+        _wallet = newReceiver;
+    }
+
+    /**
+     * @dev Pauses all token transfers.
+     *
+     * Requirements:
+     *
+     * - the caller must have the `PAUSER_ROLE`.
+     */
+    function pause() public whenNotPaused onlyOwner {
+        _pause();
+    }
+
+    /**
+     * @dev Unpauses all token transfers.
+     *
+     * Requirements:
+     *
+     * - the caller must have the `PAUSER_ROLE`.
+     */
+    function unpause() public whenPaused onlyOwner {
+        _unpause();
     }
 }
