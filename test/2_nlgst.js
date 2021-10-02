@@ -1,4 +1,5 @@
 const NLGST = artifacts.require("NLGST")
+const STORAGE = artifacts.require("MarketplaceStorage")
 
 const NFT1 = require('./ipfs/NFT1.json');
 
@@ -11,7 +12,7 @@ const u = require('./utils.js')
 const keccak256 = require('js-sha3').keccak256;
 const adminRole = "0x0000000000000000000000000000000000000000000000000000000000000000";
 
-var nlgst;
+var nlgst, storage;
 
 contract("NLGST", (accounts) => {
 
@@ -30,7 +31,11 @@ contract("NLGST", (accounts) => {
     const baseURL = "https://ipfs.io/ipfs/";
 
     before(async () => {
-        nlgst = await NLGST.new(baseURL, {
+        storage = await STORAGE.new({
+            from: root
+        });
+
+        nlgst = await NLGST.new(storage.address, baseURL, {
             from: root
         });
     });
