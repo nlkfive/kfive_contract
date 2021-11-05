@@ -25,7 +25,7 @@ function nftAssetInfo(nftAddress, assetId) {
 }
 
 function amountSellerReceiveAfterAuction(bidValue, OWNER_CUT_PER_MILLION) {
-    return (bidValue - bidValue * OWNER_CUT_PER_MILLION / 1000000) * (10 ** tokenDecimals);
+    return (bidValue - bidValue * OWNER_CUT_PER_MILLION / 1000000);
 }
 
 function amountContractOwnerReceiveAfterAuction(bidValue, OWNER_CUT_PER_MILLION) {
@@ -99,7 +99,7 @@ contract("Auction Marketplace", (accounts) => {
         });
     });
 
-    describe('AUCTION 1: Simple auction', async () => {
+    describe('AUCTION 1: Simple auction. Single Bid / Account', async () => {
         ////////////////////////////
         // Information
         // ISSUE 10 KFIVE to Account1, Account2, Account5, Account8
@@ -159,6 +159,7 @@ contract("Auction Marketplace", (accounts) => {
 
         after(async () => {
             const owner = await kfive.owner({ from: root });
+            const root_balance = await kfive.balanceOf(root, { from: root });
             const account1_balance = await kfive.balanceOf(account1, { from: root });
             const account2_balance = await kfive.balanceOf(account2, { from: root });
             const account5_balance = await kfive.balanceOf(account5, { from: root });
@@ -166,6 +167,7 @@ contract("Auction Marketplace", (accounts) => {
             const account8_balance = await kfive.balanceOf(account8, { from: root });
             const auctionMarketplace_balance = await kfive.balanceOf(auctionMarketplace.address, { from: root });
 
+            await kfive.redeem(root, root_balance, OFFCHAIN, { from: owner });
             await kfive.redeem(account1, account1_balance, OFFCHAIN, { from: owner });
             await kfive.redeem(account2, account2_balance, OFFCHAIN, { from: owner });
             await kfive.redeem(account5, account5_balance, OFFCHAIN, { from: owner });
@@ -374,7 +376,7 @@ contract("Auction Marketplace", (accounts) => {
             }));
         });
 
-        it('(Account2) Bid: 0.1 KFIVE; Deposit: 0.1 KFIVE; Fake: false. INVALID BID. Lower than startPrice', async () => {
+        it('(Account2) Bid: 0.1 KFIVE; Deposit: 0.1 KFIVE; Fake: false. BidValue is LOWER than startPrice', async () => {
             const i = {
                 bidValue: 0.1 * (10 ** tokenDecimals),
                 fake: false,
@@ -393,7 +395,7 @@ contract("Auction Marketplace", (accounts) => {
             });
         });
 
-        it('(Account5) Bid: 2 KFIVE; Deposit: 1 KFIVE; Fake: false. VALID BID. Higher than startPrice', async () => {
+        it('(Account5) Bid: 2 KFIVE; Deposit: 1 KFIVE; Fake: false. VALID BID. BidValue is HIGHER than startPrice', async () => {
             const i = {
                 bidValue: 2 * (10 ** tokenDecimals),
                 fake: false,
@@ -431,7 +433,7 @@ contract("Auction Marketplace", (accounts) => {
             }));
         });
 
-        it('(Account8) Bid: 3 KFIVE; Deposit: 3 KFIVE; Fake: false. VALID BID. Higher Bid than Account2', async () => {
+        it('(Account8) Bid: 3 KFIVE; Deposit: 3 KFIVE; Fake: false. VALID BID. BidValue is HIGHER than Account2', async () => {
             const i = {
                 bidValue: 3 * (10 ** tokenDecimals),
                 fake: false,
@@ -455,8 +457,6 @@ contract("Auction Marketplace", (accounts) => {
                 nftAddress: nlgst.address,
                 nftID: 1,
                 value_account2: 0.1 * (10 ** tokenDecimals),
-                value_account5: 2 * (10 ** tokenDecimals),
-                value_account8: 3 * (10 ** tokenDecimals),
                 fake: false,
                 secret: web3.utils.fromAscii("secret"),
             }
@@ -464,10 +464,10 @@ contract("Auction Marketplace", (accounts) => {
             await u.assertRevert(auctionMarketplace.revealBid(
                 nftAssetInfo(i.nftAddress, i.nftID),
                 auctionId,
-                [i.value_account2, i.value_account5, i.value_account8],
-                [i.fake, i.fake, i.fake],
-                [i.secret, i.secret, i.secret], {
-                from: root
+                [i.value_account2],
+                [i.fake],
+                [i.secret], {
+                from: account2
             }));
         });
 
@@ -516,14 +516,129 @@ contract("Auction Marketplace", (accounts) => {
             eq(o.kfive_market_balance_before_reveal, kfive_market_balance_before_reveal.toString());
         });
 
-        it('Reveal Stage Auction 1. The Successful BID' + '\n' +
-            '                       (Account8) Bid: 3 KFIVE; Deposit: 3 KFIVE; Fake: false', async () => {
-
+        // REVEAL
+        it('(Account2) Reveal Bid of account2', async () => {
             const i = {
                 nftAddress: nlgst.address,
                 nftID: 1,
                 value_account2: 0.1 * (10 ** tokenDecimals),
+                fake: false,
+                secret: web3.utils.fromAscii("secret"),
+            }
+
+            await auctionMarketplace.revealBid(
+                nftAssetInfo(i.nftAddress, i.nftID),
+                auctionId,
+                [i.value_account2],
+                [i.fake],
+                [i.secret], {
+                from: account2
+            });
+
+            const o = {
+                kfive_account2_balance: 10 * (10 ** tokenDecimals),
+                kfive_market_balance_after_reveal: 4 * (10 ** tokenDecimals),
+            }
+
+            kfive_account2_balance = await kfive.balanceOf(account2, {from: root});
+            kfive_market_balance_after_reveal = await kfive.balanceOf(auctionMarketplace.address, {from: root});
+
+            eq(o.kfive_account2_balance, kfive_account2_balance.toString());
+            eq(o.kfive_market_balance_after_reveal, kfive_market_balance_after_reveal.toString());
+        });
+
+        it('(Account2) Reveal Bid of account2 again with the same value. Cannot because value has been revealled', async () => {
+            const i = {
+                nftAddress: nlgst.address,
+                nftID: 1,
+                value_account2: 0.1 * (10 ** tokenDecimals),
+                fake: false,
+                secret: web3.utils.fromAscii("secret"),
+            }
+
+            await u.assertRevert(auctionMarketplace.revealBid(
+                nftAssetInfo(i.nftAddress, i.nftID),
+                auctionId,
+                [i.value_account2],
+                [i.fake],
+                [i.secret], {
+                from: account2
+            }));
+        });
+
+        it('(Account2) Reveal Bid of account5. Cannot because only account5 can reveal its bid', async () => {
+            const i = {
+                nftAddress: nlgst.address,
+                nftID: 1,
                 value_account5: 2 * (10 ** tokenDecimals),
+                fake: false,
+                secret: web3.utils.fromAscii("secret"),
+            }
+
+            await u.assertRevert(auctionMarketplace.revealBid(
+                nftAssetInfo(i.nftAddress, i.nftID),
+                auctionId,
+                [i.value_account5],
+                [i.fake],
+                [i.secret], {
+                from: account2
+            }));
+        });
+
+        it('(Root) Reveal Bid of account5. Cannot because only account5 can reveal its bid', async () => {
+            const i = {
+                nftAddress: nlgst.address,
+                nftID: 1,
+                value_account5: 2 * (10 ** tokenDecimals),
+                fake: false,
+                secret: web3.utils.fromAscii("secret"),
+            }
+
+            await u.assertRevert(auctionMarketplace.revealBid(
+                nftAssetInfo(i.nftAddress, i.nftID),
+                auctionId,
+                [i.value_account5],
+                [i.fake],
+                [i.secret], {
+                from: root
+            }));
+        });
+
+        it('(Account5) Reveal Bid of account5', async () => {
+            const i = {
+                nftAddress: nlgst.address,
+                nftID: 1,
+                value_account5: 2 * (10 ** tokenDecimals),
+                fake: false,
+                secret: web3.utils.fromAscii("secret"),
+            }
+
+            await auctionMarketplace.revealBid(
+                nftAssetInfo(i.nftAddress, i.nftID),
+                auctionId,
+                [i.value_account5],
+                [i.fake],
+                [i.secret], {
+                from: account5
+            });
+
+            // Giữ lại Bid cao nhất. Account5 bid 2 kfive -> Không trả deposit (1 KFIVE)
+            const o = {
+                kfive_account5_balance: 9 * (10 ** tokenDecimals),
+                kfive_market_balance_after_reveal: 4 * (10 ** tokenDecimals),
+            }
+
+            kfive_account5_balance = await kfive.balanceOf(account5, {from: root});
+            kfive_market_balance_after_reveal = await kfive.balanceOf(auctionMarketplace.address, {from: root});
+
+            eq(o.kfive_account5_balance, kfive_account5_balance.toString());
+            eq(o.kfive_market_balance_after_reveal, kfive_market_balance_after_reveal.toString());
+        });
+
+        it('(Account8) Reveal Stage Auction 1', async () => {
+            const i = {
+                nftAddress: nlgst.address,
+                nftID: 1,
                 value_account8: 3 * (10 ** tokenDecimals),
                 fake: false,
                 secret: web3.utils.fromAscii("secret"),
@@ -532,29 +647,50 @@ contract("Auction Marketplace", (accounts) => {
             await auctionMarketplace.revealBid(
                 nftAssetInfo(i.nftAddress, i.nftID),
                 auctionId,
-                [i.value_account2, i.value_account5, i.value_account8],
-                [i.fake, i.fake, i.fake],
-                [i.secret, i.secret, i.secret], {
-                from: root
+                [i.value_account8],
+                [i.fake],
+                [i.secret], {
+                from: account8
             });
+
+            // Giữ lại Bid cao nhất. Account5 bid 2 kfive, nhưng account8 bid 3 kfive -> Không trả deposit cho account8, trả deposit cho account5
+            const o = {
+                kfive_account5_balance: 10 * (10 ** tokenDecimals),
+                kfive_account8_balance: 7 * (10 ** tokenDecimals),
+                kfive_market_balance_after_reveal: 4 * (10 ** tokenDecimals),
+            }
+
+            kfive_account5_balance = await kfive.balanceOf(account5, {from: root});
+            kfive_account8_balance = await kfive.balanceOf(account8, {from: root});
+            kfive_market_balance_after_reveal = await kfive.balanceOf(auctionMarketplace.address, {from: root});
+
+            eq(o.kfive_account5_balance, kfive_account5_balance.toString());
+            eq(o.kfive_account8_balance, kfive_account8_balance.toString());
+            eq(o.kfive_market_balance_after_reveal, kfive_market_balance_after_reveal.toString());
+        });
+
+        it('Wait until Reveal end', async () => {
+            await delay(120 * 1000);
         });
 
         it('AFTER REVEAL Auction 1: Check balance of root, account1, account2, account5, account8 and auctionMarketplace' + '\n' +
-            '                       Account2: 9.9 KFIVE. Because of Invalid Bid -> No refund' + '\n' +
-            '                       Account5:  10 KFIVE. Because Valid Bid but not the highest Bid -> Refund' + '\n' +
-            '                       Account8:   7 KFIVE. Because of Valid Bid and Highest Bid -> No refund' + '\n' +
-            '                       AuMarket: 0.1 KFIVE', async () => {
+        '                           Root: 0.103 KFIVE. PublicationFee 0.1 KFIVE + ownerCutPerMillion 0.003 KFIVE' + '\n' +
+        '                           Account1: 0.103 KFIVE. PublicationFee 0.1 KFIVE + nft1Amount 2.997 KFIVE' + '\n' +
+        '                           Account2: 10 KFIVE. Invalid Bid -> Refund' + '\n' +
+        '                           Account5: 10 KFIVE. Valid Bid but not the highest Bid -> Refund' + '\n' +
+        '                           Account8:  7 KFIVE. Valid Bid and Highest Bid -> No refund' + '\n' +
+        '                           AuMarket:  0 KFIVE', async () => {
 
             amount_seller_receive = amountSellerReceiveAfterAuction(3, OWNER_CUT_PER_MILLION);
             amount_contractOwner_receive = amountContractOwnerReceiveAfterAuction(3, OWNER_CUT_PER_MILLION);
 
             const o = {
-                kfive_root_balance: (publicationFee1 + amount_contractOwner_receive) * (10 ** tokenDecimals),
-                kfive_account1_balance: (issuedTokenAmount - publicationFee1 + amount_seller_receive).toString(),
-                kfive_account2_balance: (10 - 0.1) * (10 ** tokenDecimals),
+                kfive_root_balance: (0.103) * (10 ** tokenDecimals),
+                kfive_account1_balance: (10 - 0.1 + amount_seller_receive) * (10 ** tokenDecimals),
+                kfive_account2_balance: 10 * (10 ** tokenDecimals),
                 kfive_account5_balance: 10 * (10 ** tokenDecimals),
                 kfive_account8_balance: 7 * (10 ** tokenDecimals),
-                kfive_market_balance_after_reveal: 0.1 * (10 ** tokenDecimals),
+                kfive_market_balance_after_reveal: 0,
             }
 
             kfive_root_balance = await kfive.balanceOf(root, {from: root});
@@ -585,15 +721,9 @@ contract("Auction Marketplace", (accounts) => {
         ////////////////////////////
         // Withdraw
         ////////////////////////////
-        it('Wait until Reveal end', async () => {
-            await delay(120 * 1000);
-        });
+        it('Withdraw Stage Auction 1. Only account2 withdraw. Cannot because have been refunded', async () => {
 
-        it('Withdraw Stage Auction 1. Only account2 can withdraw because of invalid Bid' + '\n' +
-            '               Balance of Account2 after Withdraw: 10 KFIVE' + '\n' +
-            '               Balance of AuMarket after Withdraw:  3 KFIVE', async () => {
-
-            await auctionMarketplace.withdraw(auctionId, { from: account2 });
+            await u.assertRevert(auctionMarketplace.withdraw(auctionId, { from: account2 }));
 
             const o = {
                 kfive_account2_balance: 10 * (10 ** tokenDecimals),
@@ -608,7 +738,7 @@ contract("Auction Marketplace", (accounts) => {
         });
     });
 
-    describe('AUCTION 2: Pause Auction / fake = true / Invalid Bid', async () => {
+    describe('AUCTION 2: Multiple Bids/Account + Pause Auction / fake = true / Invalid Bid', async () => {
         ////////////////////////////
         // Information
         // ISSUE 10 KFIVE to Account1, Account2, Account5, Account6, Account8
@@ -672,6 +802,7 @@ contract("Auction Marketplace", (accounts) => {
 
         after(async () => {
             const owner = await kfive.owner({ from: root });
+            const root_balance = await kfive.balanceOf(root, { from: root });
             const account1_balance = await kfive.balanceOf(account1, { from: root });
             const account2_balance = await kfive.balanceOf(account2, { from: root });
             const account5_balance = await kfive.balanceOf(account5, { from: root });
@@ -679,6 +810,7 @@ contract("Auction Marketplace", (accounts) => {
             const account8_balance = await kfive.balanceOf(account8, { from: root });
             const auctionMarketplace_balance = await kfive.balanceOf(auctionMarketplace.address, { from: root });
 
+            await kfive.redeem(root, root_balance, OFFCHAIN, { from: owner });
             await kfive.redeem(account1, account1_balance, OFFCHAIN, { from: owner });
             await kfive.redeem(account2, account2_balance, OFFCHAIN, { from: owner });
             await kfive.redeem(account5, account5_balance, OFFCHAIN, { from: owner });
@@ -735,7 +867,7 @@ contract("Auction Marketplace", (accounts) => {
             });
 
             let o = {
-                rootBalance: (publicationFee1 + publicationFee1).toString(),
+                rootBalance: (publicationFee1).toString(),
                 account1Balance: (issuedTokenAmount - publicationFee1).toString(),
                 seller: account1,
                 nftID: 2,
@@ -769,7 +901,7 @@ contract("Auction Marketplace", (accounts) => {
         ////////////////////////////
         // Bidding
         ////////////////////////////
-        it('(Account2) Bid: 0.1 KFIVE; Deposit: 0.1 KFIVE; Fake: false. INVALID BID', async () => {
+        it('(Account2) Bid: 0.1 KFIVE; Deposit: 0.1 KFIVE; Fake: false. BidValue is LOWER than startPrice', async () => {
             const i = {
                 bidValue: 0.1 * (10 ** tokenDecimals),
                 fake: false,
@@ -784,7 +916,7 @@ contract("Auction Marketplace", (accounts) => {
             });
         });
 
-        it('(Account2) Bid: 1 KFIVE; Deposit: 1 KFIVE; Fake: false. VALID BID', async () => {
+        it('(Account2) Bid: 1 KFIVE; Deposit: 1 KFIVE; Fake: false. BidValue is EQUAL to startPrice', async () => {
             const i = {
                 bidValue: 1 * (10 ** tokenDecimals),
                 fake: false,
@@ -838,7 +970,7 @@ contract("Auction Marketplace", (accounts) => {
             });
         });
 
-        it('(Account2) Bid: 3 KFIVE; Deposit: 1 KFIVE; Fake: false. VALID BID', async () => {
+        it('(Account2) Bid: 3 KFIVE; Deposit: 1 KFIVE; Fake: false. BidValue is HIGHER than previous bid (account2)', async () => {
             const i = {
                 bidValue: 3 * (10 ** tokenDecimals),
                 fake: false,
@@ -853,7 +985,7 @@ contract("Auction Marketplace", (accounts) => {
             });
         });
 
-        it('(Account5) Bid: 5 KFIVE; Deposit: 5 KFIVE; Fake: true. INVALID BID', async () => {
+        it('(Account5) Bid: 5 KFIVE; Deposit: 5 KFIVE; Fake: true. BidValue is Highest but fake is true', async () => {
             const i = {
                 bidValue: 5 * (10 ** tokenDecimals),
                 fake: true,
@@ -868,7 +1000,7 @@ contract("Auction Marketplace", (accounts) => {
             });
         });
 
-        it('(Account5) Bid: 2 KFIVE; Deposit: 2 KFIVE; Fake: false. VALID BID', async () => {
+        it('(Account5) Bid: 2 KFIVE; Deposit: 2 KFIVE; Fake: false. BidValue is HIGHER than startPrice but LOWER than account2', async () => {
             const i = {
                 bidValue: 2 * (10 ** tokenDecimals),
                 fake: false,
@@ -883,7 +1015,7 @@ contract("Auction Marketplace", (accounts) => {
             });
         });
 
-        it('(Account6) Bid: 1 KFIVE; Deposit: 8 KFIVE; Fake: false. VALID BID', async () => {
+        it('(Account6) Bid: 1 KFIVE; Deposit: 8 KFIVE; Fake: false. BidValue is EQUAL to startPrice, but deposit is the HIGHEST', async () => {
             const i = {
                 bidValue: 1 * (10 ** tokenDecimals),
                 fake: false,
@@ -898,7 +1030,7 @@ contract("Auction Marketplace", (accounts) => {
             });
         });
 
-        it('(Account8) Bid: 3 KFIVE; Deposit: 2 KFIVE; Fake: true. INVALID BID', async () => {
+        it('(Account8) Bid: 3 KFIVE; Deposit: 2 KFIVE; Fake: true. BidValue is EQUAL to account2, but fake is true', async () => {
             const i = {
                 bidValue: 3 * (10 ** tokenDecimals),
                 fake: true,
@@ -942,18 +1074,188 @@ contract("Auction Marketplace", (accounts) => {
             eq(o.kfive_market_balance_before_reveal, kfive_market_balance_before_reveal.toString());
         });
 
-        it('Reveal Stage Auction 2. The successful BID:' + '\n' +
-        '                           (Account2) Bid: 3 KFIVE; Deposit: 1 KFIVE; Fake: false', async () => {
+        it('(Account2) reveal bids', async () => {
             const i = {
                 nftAddress: nlgst.address,
                 nftID: 2,
                 auctionID: auctionId,
-                value_account2: 1 * (10 ** tokenDecimals),
-                value_account2_2: 3 * (10 ** tokenDecimals),
-                value_account2_3: 0.1 * (10 ** tokenDecimals),
+                value_account2_1: 0.1 * (10 ** tokenDecimals),
+                value_account2_2: 1 * (10 ** tokenDecimals),
+                value_account2_3: 3 * (10 ** tokenDecimals),
+                fakeFalse: false,
+                fakeTrue: true,
+                secret: web3.utils.fromAscii("secret"),
+            }
+
+            await auctionMarketplace.revealBid(
+                nftAssetInfo(i.nftAddress, i.nftID),
+                i.auctionID,
+                [i.value_account2_1, i.value_account2_2, i.value_account2_3],
+                [i.fakeFalse, i.fakeFalse, i.fakeFalse],
+                [i.secret, i.secret, i.secret], {
+                from: account2
+            });
+
+            const o = {
+                kfive_account2_balance: 9 * (10 ** tokenDecimals),
+                kfive_market_balance_after_reveal: 18 * (10 ** tokenDecimals),
+            }
+
+            // Bid 0.1, 1 and 3 KFIVE. return depost of 0.1, 1 KFIVE. Bid 3 KFIVE (deposit 1 KFIVE)
+            kfive_account2_balance = await kfive.balanceOf(account2, {from: root});
+            kfive_market_balance_after_reveal = await kfive.balanceOf(auctionMarketplace.address, {from: root});
+
+            eq(o.kfive_account2_balance, kfive_account2_balance.toString());
+            eq(o.kfive_market_balance_after_reveal, kfive_market_balance_after_reveal.toString());
+        });
+
+        it('(Account5) reveal bids (1)', async () => {
+            const i = {
+                nftAddress: nlgst.address,
+                nftID: 2,
+                auctionID: auctionId,
                 value_account5_1: 2 * (10 ** tokenDecimals),
+                fakeFalse: false,
+                fakeTrue: true,
+                secret: web3.utils.fromAscii("secret"),
+            }
+
+            await auctionMarketplace.revealBid(
+                nftAssetInfo(i.nftAddress, i.nftID),
+                i.auctionID,
+                [i.value_account5_1],
+                [i.fakeFalse],
+                [i.secret], {
+                from: account5
+            });
+
+            const o = {
+                kfive_account5_balance: 5 * (10 ** tokenDecimals),
+                kfive_market_balance_after_reveal: 16 * (10 ** tokenDecimals),
+            }
+
+            // Account5 bid 2 KFIVE. Smaller than Account2. Refund
+            kfive_account5_balance = await kfive.balanceOf(account5, {from: root});
+            kfive_market_balance_after_reveal = await kfive.balanceOf(auctionMarketplace.address, {from: root});
+
+            eq(o.kfive_account5_balance, kfive_account5_balance.toString());
+            eq(o.kfive_market_balance_after_reveal, kfive_market_balance_after_reveal.toString());
+        });
+
+        it('(Account5) reveal bids (2)', async () => {
+            const i = {
+                nftAddress: nlgst.address,
+                nftID: 2,
+                auctionID: auctionId,
                 value_account5_2: 5 * (10 ** tokenDecimals),
-                value_account6: 3 * (10 ** tokenDecimals),
+                fakeFalse: false,
+                fakeTrue: true,
+                secret: web3.utils.fromAscii("secret"),
+            }
+
+            await auctionMarketplace.revealBid(
+                nftAssetInfo(i.nftAddress, i.nftID),
+                i.auctionID,
+                [i.value_account5_2],
+                [i.fakeTrue],
+                [i.secret], {
+                from: account5
+            });
+
+            const o = {
+                kfive_account5_balance: 10 * (10 ** tokenDecimals),
+                kfive_market_balance_after_reveal: 11 * (10 ** tokenDecimals),
+            }
+
+            // Account5 bid 5 KFIVE but fake = true. Refund
+            kfive_account5_balance = await kfive.balanceOf(account5, {from: root});
+            kfive_market_balance_after_reveal = await kfive.balanceOf(auctionMarketplace.address, {from: root});
+
+            eq(o.kfive_account5_balance, kfive_account5_balance.toString());
+            eq(o.kfive_market_balance_after_reveal, kfive_market_balance_after_reveal.toString());
+        });
+
+        it('(Account5) reveal bids (2) again. Cannot because has already been revealled', async () => {
+            const i = {
+                nftAddress: nlgst.address,
+                nftID: 2,
+                auctionID: auctionId,
+                value_account5_2: 5 * (10 ** tokenDecimals),
+                fakeFalse: false,
+                fakeTrue: true,
+                secret: web3.utils.fromAscii("secret"),
+            }
+
+            await u.assertRevert(auctionMarketplace.revealBid(
+                nftAssetInfo(i.nftAddress, i.nftID),
+                i.auctionID,
+                [i.value_account5_2],
+                [i.fakeTrue],
+                [i.secret], {
+                from: account5
+            }));
+        });
+
+        it('(Account6) reveal bids', async () => {
+            const i = {
+                nftAddress: nlgst.address,
+                nftID: 2,
+                auctionID: auctionId,
+                value_account6: 1 * (10 ** tokenDecimals),
+                fakeFalse: false,
+                fakeTrue: true,
+                secret: web3.utils.fromAscii("secret"),
+            }
+
+            await auctionMarketplace.revealBid(
+                nftAssetInfo(i.nftAddress, i.nftID),
+                i.auctionID,
+                [i.value_account6],
+                [i.fakeFalse],
+                [i.secret], {
+                from: account6
+            });
+
+            // Only Bid 1 KFIVE but depost 8 KFIVE. Refund
+            const o = {
+                kfive_account6_balance: 10 * (10 ** tokenDecimals),
+                kfive_market_balance_after_reveal: 3 * (10 ** tokenDecimals),
+            }
+
+            // Account5 bid 2 KFIVE. Smaller than Account2. Refund
+            kfive_account6_balance = await kfive.balanceOf(account6, {from: root});
+            kfive_market_balance_after_reveal = await kfive.balanceOf(auctionMarketplace.address, {from: root});
+
+            eq(o.kfive_account6_balance, kfive_account6_balance.toString());
+            eq(o.kfive_market_balance_after_reveal, kfive_market_balance_after_reveal.toString());
+        });
+
+        it('(Account6) reveal non-existed bids. Cannot because the bid is not existed', async () => {
+            const i = {
+                nftAddress: nlgst.address,
+                nftID: 2,
+                auctionID: auctionId,
+                value_account6: 10 * (10 ** tokenDecimals),
+                fakeFalse: false,
+                fakeTrue: true,
+                secret: web3.utils.fromAscii("secret"),
+            }
+
+            await u.assertRevert(auctionMarketplace.revealBid(
+                nftAssetInfo(i.nftAddress, i.nftID),
+                i.auctionID,
+                [i.value_account6],
+                [i.fakeFalse],
+                [i.secret], {
+                from: account6
+            }));
+        });
+
+        it('(Account8) reveal bids', async () => {
+            const i = {
+                nftAddress: nlgst.address,
+                nftID: 2,
+                auctionID: auctionId,
                 value_account8: 3 * (10 ** tokenDecimals),
                 fakeFalse: false,
                 fakeTrue: true,
@@ -963,33 +1265,52 @@ contract("Auction Marketplace", (accounts) => {
             await auctionMarketplace.revealBid(
                 nftAssetInfo(i.nftAddress, i.nftID),
                 i.auctionID,
-                [i.value_account2, i.value_account2_2, i.value_account2_3, i.value_account5_1, i.value_account5_2, i.value_account6, i.value_account8],
-                [i.fakeFalse, i.fakeFalse, i.fakeFalse, i.fakeFalse, i.fakeTrue, i.fakeFalse, i.fakeTrue],
-                [i.secret, i.secret, i.secret, i.secret, i.secret, i.secret, i.secret], {
-                from: root
-            })
+                [i.value_account8],
+                [i.fakeTrue],
+                [i.secret], {
+                from: account8
+            });
+
+            // Only Bid 3 KFIVE, deposit 2 KFIVE but fake = true. Refund
+            const o = {
+                kfive_account8_balance: 10 * (10 ** tokenDecimals),
+                kfive_market_balance_after_reveal: 1 * (10 ** tokenDecimals),
+            }
+
+            // Account5 bid 2 KFIVE. Smaller than Account2. Refund
+            kfive_account8_balance = await kfive.balanceOf(account6, {from: root});
+            kfive_market_balance_after_reveal = await kfive.balanceOf(auctionMarketplace.address, {from: root});
+
+            eq(o.kfive_account8_balance, kfive_account8_balance.toString());
+            eq(o.kfive_market_balance_after_reveal, kfive_market_balance_after_reveal.toString());
+        });
+
+        it('Wait until Reveal end', async () => {
+            await delay(120 * 1000);
         });
 
         it('AFTER REVEAL Auction 2: Check balance of account2, account5, account6, account8 and auctionMarketplace' + '\n' +
-            '                       Account2 (1st): Valid Bid but not highest -> Refund 1 KFIVE' + '\n' +
-            '                       Account2 (2nd): Valid Bid and Highest Bid -> No refund and account2 transfer 2 KFIVE to Auction' + '\n' +
-            '                       Account2 (3nd): Invalid -> No refund' + '\n' +
-            '                       Account5 (1st): Valid Bid but not highest -> Refund 2 KFIVE' + '\n' +
-            '                       Account5 (2nd): Invalid Bid -> No refund' + '\n' +
-            '                       Account6: Valid Bid but not highest -> Refund 8 KFIVE' + '\n' +
-            '                       Account8: Invalid Bid -> No refund', async () => {
+        '                           Root: PublicationFee 0.1 + 0.003 (Auction2)' + '\n' +
+        '                           Account1: PublicationFee 0.1 + 2.997 (Auction2)' + '\n' +
+        '                           Account2 (1st): Invalid Bid but not highest -> Refund 0.1 KFIVE' + '\n' +
+        '                           Account2 (2nd): Valid Bid but not highest -> Refund' + '\n' +
+        '                           Account2 (3nd): Valid Bid and Highest Bid -> No refund and transfer 2 more KFIVE to Auction -> Refund' + '\n' +
+        '                           Account5 (1st): Valid Bid but not highest -> Refund 2 KFIVE' + '\n' +
+        '                           Account5 (2nd): Invalid Bid -> Refund' + '\n' +
+        '                           Account6: Valid Bid but not highest -> Refund 8 KFIVE' + '\n' +
+        '                           Account8: Invalid Bid -> Refund', async () => {
 
             amount_seller_receive = amountSellerReceiveAfterAuction(3, OWNER_CUT_PER_MILLION);
             amount_contractOwner_receive = amountContractOwnerReceiveAfterAuction(3, OWNER_CUT_PER_MILLION);
 
             const o = {
-                kfive_root_balance: (0.1 + 0.1  + amount_contractOwner_receive) * (10 ** tokenDecimals),
-                kfive_account1_balance: (issuedTokenAmount - publicationFee1 + amount_seller_receive).toString(),
-                kfive_account2_balance: 6.9 * (10 ** tokenDecimals),
-                kfive_account5_balance: 5 * (10 ** tokenDecimals),
+                kfive_root_balance: (0.1 + amount_contractOwner_receive) * (10 ** tokenDecimals),
+                kfive_account1_balance: (10 - 0.1 + amount_seller_receive) * (10 ** tokenDecimals),
+                kfive_account2_balance: 7 * (10 ** tokenDecimals),
+                kfive_account5_balance: 10 * (10 ** tokenDecimals),
                 kfive_account6_balance: 10 * (10 ** tokenDecimals),
-                kfive_account8_balance: 8 * (10 ** tokenDecimals),
-                kfive_market_balance_after_reveal: 7.1 * (10 ** tokenDecimals),
+                kfive_account8_balance: 10 * (10 ** tokenDecimals),
+                kfive_market_balance_after_reveal: 0,
             }
 
             kfive_root_balance = await kfive.balanceOf(root, {from: root});
@@ -1017,47 +1338,6 @@ contract("Auction Marketplace", (accounts) => {
             const nft2_owner = await nlgst.ownerOf(2, { from: root })
 
             eq(o.nft2_owner, nft2_owner);
-        });
-
-        ////////////////////////////
-        // Withdraw
-        ////////////////////////////
-        it('Wait until Bidding end', async () => {
-            await delay(120 * 1000);
-        });
-
-        it('Withdraw Stage. Only account2, account5 and account8 can withdraw because of invalid bid' + '\n' +
-        '                   Balance of Account2 after Withdraw: 7 KFIVE' + '\n ' +
-        '                   Balance of Account5 after Withdraw: 10 KFIVE' + '\n ' +
-        '                   Balance of Account8 after Withdraw: 10 KFIVE' + '\n ' +
-        '                   Balance of AuMarket after Withdraw: 3 KFIVE', async () => {
-
-            await auctionMarketplace.withdraw(auctionId, { from: account2 });
-            await auctionMarketplace.withdraw(auctionId, { from: account5 });
-            await auctionMarketplace.withdraw(auctionId, { from: account8 });
-
-            const o = {
-                kfive_account2_balance: 7 * (10 ** tokenDecimals),
-                kfive_account5_balance: 10 * (10 ** tokenDecimals),
-                kfive_account8_balance: 10 * (10 ** tokenDecimals),
-                kfive_auctionMarketplace_balance: 0 * (10 ** tokenDecimals),
-            }
-
-            kfive_account2_balance = await kfive.balanceOf(account2, {from: root});
-            eq(o.kfive_account2_balance, kfive_account2_balance.toString());
-
-            kfive_account5_balance = await kfive.balanceOf(account5, {from: root});
-            eq(o.kfive_account5_balance, kfive_account5_balance.toString());
-
-            kfive_account8_balance = await kfive.balanceOf(account8, {from: root});
-            eq(o.kfive_account8_balance, kfive_account8_balance.toString());
-
-            kfive_auctionMarketplace_balance = await kfive.balanceOf(auctionMarketplace.address, {from: root});
-            eq(o.kfive_auctionMarketplace_balance, kfive_auctionMarketplace_balance.toString());
-        });
-
-        it('Account2 try to withdraw again. Cannot because there is no invalid Bid', async () => {
-            await u.assertRevert(auctionMarketplace.withdraw(auctionId, { from: account2 }));
         });
     });
 
@@ -1173,7 +1453,7 @@ contract("Auction Marketplace", (accounts) => {
             });
 
             let o = {
-                rootBalance: (publicationFee1 + publicationFee1 + publicationFee1).toString(),
+                rootBalance: (publicationFee1).toString(),
                 account1Balance: (issuedTokenAmount - publicationFee1).toString(),
                 seller: account1,
                 nftID: 3,
@@ -1282,7 +1562,7 @@ contract("Auction Marketplace", (accounts) => {
             });
 
             let o = {
-                rootBalance: (publicationFee1 + publicationFee1 + publicationFee1 + 0.5 * (10 ** tokenDecimals)).toString(),
+                rootBalance: (publicationFee1 + 0.5 * (10 ** tokenDecimals)).toString(),
                 account1Balance: (issuedTokenAmount - publicationFee1 - 0.5 * (10 ** tokenDecimals)).toString(),
                 seller: account1,
                 nftID: 3,
@@ -1563,7 +1843,7 @@ contract("Auction Marketplace", (accounts) => {
             });
 
             let o = {
-                rootBalance: (publicationFee1 + publicationFee1 + publicationFee1 + 0.5 * (10 ** tokenDecimals)).toString(),
+                rootBalance: (publicationFee1 + 0.5 * (10 ** tokenDecimals)).toString(),
                 newOwnerBalance: (0.5 * (10 ** tokenDecimals)).toString(),
                 account1Balance: (issuedTokenAmount - 0.5 * (10 ** tokenDecimals)).toString(),
                 seller: account1,
@@ -1624,6 +1904,7 @@ contract("Auction Marketplace", (accounts) => {
                 nftID: 4,
                 nftAddress: nlgst.address,
             }
+
             await u.assertRevert(auctionMarketplace.transferOwnership(account1, {
                 from: root
             }));
@@ -1647,9 +1928,9 @@ contract("Auction Marketplace", (accounts) => {
                 from: new_owner
             });
 
-            await u.assertRevert(auctionMarketplace.cancelAuction(nftAssetInfo(nlgst.address, 4), auctionId, {
-                from: new_owner
-            }));
+            // await u.assertRevert(auctionMarketplace.cancelAuction(nftAssetInfo(nlgst.address, 4), auctionId, {
+            //     from: new_owner
+            // }));
 
             await auctionMarketplace.unpause({
                 from: new_owner
@@ -1755,13 +2036,12 @@ contract("Auction Marketplace", (accounts) => {
             eq(o.kfive_market_balance_before_reveal, kfive_market_balance_before_reveal.toString());
         });
 
-        it('(Root) Reveal Stage Auction 4. Cannot because root is not owner', async () => {
+        it('(New_owner) Reveal bid of account2. Cannot because only account2 can review its bid', async () => {
             const i = {
                 nftAddress: nlgst.address,
                 nftID: 4,
                 auctionID: auctionId,
                 value_account2: 5 * (10 ** tokenDecimals),
-                value_account5: 4 * (10 ** tokenDecimals),
                 fakeFalse: false,
                 secret: web3.utils.fromAscii("secret"),
             }
@@ -1769,20 +2049,18 @@ contract("Auction Marketplace", (accounts) => {
             await u.assertRevert(auctionMarketplace.revealBid(
                 nftAssetInfo(i.nftAddress, i.nftID),
                 i.auctionID,
-                [i.value_account2, i.value_account5],
-                [i.fakeFalse, i.fakeFalse],
-                [i.secret, i.secret], {
-                from: root
+                [i.value_account2],
+                [i.fakeFalse],
+                [i.secret], {
+                from: new_owner
             }));
         });
 
-        it('Reveal Stage Auction 4. The successful BID:' + '\n' +
-        '                           (Account2) Bid: 5 KFIVE; Deposit: 5 KFIVE; Fake: false', async () => {
+        it('(Account5) Reveal bid', async () => {
             const i = {
                 nftAddress: nlgst.address,
                 nftID: 4,
                 auctionID: auctionId,
-                value_account2: 5 * (10 ** tokenDecimals),
                 value_account5: 4 * (10 ** tokenDecimals),
                 fakeFalse: false,
                 secret: web3.utils.fromAscii("secret"),
@@ -1791,26 +2069,41 @@ contract("Auction Marketplace", (accounts) => {
             await auctionMarketplace.revealBid(
                 nftAssetInfo(i.nftAddress, i.nftID),
                 i.auctionID,
-                [i.value_account2, i.value_account5],
-                [i.fakeFalse, i.fakeFalse],
-                [i.secret, i.secret], {
-                from: new_owner
+                [i.value_account5],
+                [i.fakeFalse],
+                [i.secret], {
+                from: account5
             });
+
+            const o = {
+                kfive_account5_balance: 6 * (10 ** tokenDecimals),
+                kfive_market_balance_after_reveal: 9 * (10 ** tokenDecimals),
+            }
+
+            kfive_account5_balance = await kfive.balanceOf(account5, {from: root});
+            kfive_market_balance_after_reveal = await kfive.balanceOf(auctionMarketplace.address, {from: root});
+
+            eq(o.kfive_account5_balance, kfive_account5_balance.toString());
+            eq(o.kfive_market_balance_after_reveal, kfive_market_balance_after_reveal.toString());
+        });
+
+        it('Wait until Reveal end', async () => {
+            await delay(120 * 1000);
         });
 
         it('AFTER REVEAL Auction 4: Check balance of account2, account5, account6, account8 and auctionMarketplace' + '\n' +
             '                       Account2 (1st): Valid Bid and Highest Bid' + '\n' +
             '                       Account5 (2nd): Valid Bid but not highest -> Refund', async () => {
 
-            amount_seller_receive = amountSellerReceiveAfterAuction(5, 200000);
-            amount_contractOwner_receive = amountContractOwnerReceiveAfterAuction(5, 200000);
+            amount_seller_receive = amountSellerReceiveAfterAuction(4, 200000);
+            amount_contractOwner_receive = amountContractOwnerReceiveAfterAuction(4, 200000);
 
             const o = {
                 kfive_newOwner_balance: (1 + amount_contractOwner_receive) * (10 ** tokenDecimals),
-                kfive_account1_balance: (issuedTokenAmount - 1 * (10 ** tokenDecimals) + amount_seller_receive).toString(),
+                kfive_account1_balance: (10 - 1 + amount_seller_receive) * (10 ** tokenDecimals),
                 kfive_account2_balance: 5 * (10 ** tokenDecimals),
-                kfive_account5_balance: 10 * (10 ** tokenDecimals),
-                kfive_market_balance_after_reveal: 0,
+                kfive_account5_balance: 6 * (10 ** tokenDecimals),
+                kfive_market_balance_after_reveal: 5 * (10 ** tokenDecimals),
             }
 
             kfive_newOwner_balance = await kfive.balanceOf(new_owner, {from: root});
@@ -1826,14 +2119,38 @@ contract("Auction Marketplace", (accounts) => {
             eq(o.kfive_market_balance_after_reveal, kfive_market_balance_after_reveal.toString());
         });
 
-        it('Account2 should be the owner of NFT(4)', async () => {
+        it('Account5 should be the owner of NFT(4)', async () => {
             const o = {
-                nft4_owner: account2,
+                nft4_owner: account5,
             }
 
             const nft4_owner = await nlgst.ownerOf(4, { from: root })
 
             eq(o.nft4_owner, nft4_owner);
+        });
+
+        ////////////////////////////
+        // Withdraw
+        ////////////////////////////
+        it('Withdraw. Only account2 can withdraw because account2 forget to reveal', async () => {
+            const o = {
+                nft4_owner: account5,
+            }
+
+            // account5 cannot reveal bids of account5
+            await u.assertRevert(auctionMarketplace.withdraw(auctionId, { from: account5}));
+
+            // account2 withdraw
+            await auctionMarketplace.withdraw(auctionId, { from: account2});
+
+            // account2 withdraw again. Cannot
+            await u.assertRevert(auctionMarketplace.withdraw(auctionId, { from: account2}));
+
+            const account2_balance = await kfive.balanceOf(account2, { from: root })
+            const auction_balance = await kfive.balanceOf(auctionMarketplace.address, { from: root })
+
+            eq(account2_balance.toString(), 10 * (10 ** tokenDecimals));
+            eq(auction_balance.toString(), 0);
         });
     });
 
@@ -2020,8 +2337,38 @@ contract("Auction Marketplace", (accounts) => {
             eq(o.kfive_market_balance_before_reveal, kfive_market_balance_before_reveal.toString());
         });
 
-        it('Reveal Stage Auction 4. The successful BID:' + '\n' +
-        '                           (Account2) Bid: 4 KFIVE; Deposit: 4 KFIVE; Fake: false', async () => {
+        it('(Account2) reveal bid', async () => {
+            const i = {
+                nftAddress: nlgst.address,
+                nftID: 5,
+                auctionID: auctionId,
+                value_account2: 4 * (10 ** tokenDecimals),
+                fakeFalse: false,
+                secret: web3.utils.fromAscii("secret"),
+            }
+
+            await auctionMarketplace.revealBid(
+                nftAssetInfo(i.nftAddress, i.nftID),
+                i.auctionID,
+                [i.value_account2],
+                [i.fakeFalse],
+                [i.secret], {
+                from: account2
+            });
+
+            const o = {
+                kfive_account2_balance: 6 * (10 ** tokenDecimals),
+                kfive_market_balance_after_reveal: 8 * (10 ** tokenDecimals),
+            }
+
+            kfive_account2_balance = await kfive.balanceOf(account2, {from: root});
+            kfive_market_balance_after_reveal = await kfive.balanceOf(auctionMarketplace.address, {from: root});
+
+            eq(o.kfive_account2_balance, kfive_account2_balance.toString());
+            eq(o.kfive_market_balance_after_reveal, kfive_market_balance_after_reveal.toString());
+        });
+
+        it('(Account5) reveal bid. Market refund 4 KFIVE because account2 reveal the same deposit and bid value first', async () => {
             const i = {
                 nftAddress: nlgst.address,
                 nftID: 5,
@@ -2035,14 +2382,29 @@ contract("Auction Marketplace", (accounts) => {
             await auctionMarketplace.revealBid(
                 nftAssetInfo(i.nftAddress, i.nftID),
                 i.auctionID,
-                [i.value_account2, i.value_account5],
-                [i.fakeFalse, i.fakeFalse],
-                [i.secret, i.secret], {
-                from: new_owner
+                [i.value_account5],
+                [i.fakeFalse],
+                [i.secret], {
+                from: account5
             });
+
+            const o = {
+                kfive_account5_balance: 10 * (10 ** tokenDecimals),
+                kfive_market_balance_after_reveal: 4,
+            }
+
+            kfive_account5_balance = await kfive.balanceOf(account5, {from: root});
+            kfive_market_balance_after_reveal = await kfive.balanceOf(auctionMarketplace.address, {from: root});
+
+            eq(o.kfive_account5_balance, kfive_account5_balance.toString());
+            eq(o.kfive_market_balance_after_reveal, kfive_market_balance_after_reveal.toString());
         });
 
-        it('AFTER REVEAL Auction 4: Check balance of account2, account5nd auctionMarketplace' + '\n' +
+        it('Wait until Bidding end', async () => {
+            await delay(120 * 1000);
+        });
+
+        it('AFTER REVEAL Auction 5: Check balance of account2, account5nd auctionMarketplace' + '\n' +
             '                       Account2 (1st): Valid Bid with same amount account5. Earlier bid' + '\n' +
             '                       Account5 (2nd): Valid Bid with same amount account2. Refund', async () => {
 
@@ -2051,7 +2413,7 @@ contract("Auction Marketplace", (accounts) => {
 
             const o = {
                 kfive_newOwner_balance: (0.5 + amount_contractOwner_receive) * (10 ** tokenDecimals),
-                kfive_account1_balance: (issuedTokenAmount - 0.5 * (10 ** tokenDecimals) + amount_seller_receive).toString(),
+                kfive_account1_balance: (10 - 0.5 + amount_seller_receive) * (10 ** tokenDecimals),
                 kfive_account2_balance: 6 * (10 ** tokenDecimals),
                 kfive_account5_balance: 10 * (10 ** tokenDecimals),
                 kfive_market_balance_after_reveal: 0,
@@ -2081,7 +2443,7 @@ contract("Auction Marketplace", (accounts) => {
         });
     });
 
-    describe('AUCTION 6: Forget to reveal 1 bid', async () => {
+    describe('AUCTION 6: Two accounts bid the same bidValue but different deposit value', async () => {
         var auctionId;
         var auctionBiddingEnd;
         var auctionRevealEnd;
@@ -2215,12 +2577,12 @@ contract("Auction Marketplace", (accounts) => {
             eq(o.nftAddress, nftAddress);
         });
 
-        it('(Account2) Bid: 4 KFIVE; Deposit: 4 KFIVE; Fake: false. VALID BID', async () => {
+        it('(Account2) Bid: 4 KFIVE; Deposit: 2 KFIVE; Fake: false. VALID BID', async () => {
             const i = {
                 bidValue: 4 * (10 ** tokenDecimals),
                 fake: false,
                 secret: web3.utils.fromAscii("secret"),
-                depositValue: 4 * (10 ** tokenDecimals),
+                depositValue: 2 * (10 ** tokenDecimals),
             }
 
             await auctionMarketplace.bidAuction(nftAssetInfo(nlgst.address, 6), auctionId, getBlindedBid(i.bidValue, i.fake, i.secret), i.depositValue, {
@@ -2228,12 +2590,12 @@ contract("Auction Marketplace", (accounts) => {
             });
         });
 
-        it('(Account5) Bid: 5 KFIVE; Deposit: 5 KFIVE; Fake: false. VALID BID', async () => {
+        it('(Account5) Bid: 4 KFIVE; Deposit: 3 KFIVE; Fake: false. VALID BID', async () => {
             const i = {
-                bidValue: 5 * (10 ** tokenDecimals),
+                bidValue: 4 * (10 ** tokenDecimals),
                 fake: false,
                 secret: web3.utils.fromAscii("secret"),
-                depositValue: 5 * (10 ** tokenDecimals),
+                depositValue: 3 * (10 ** tokenDecimals),
             }
 
             await auctionMarketplace.bidAuction(nftAssetInfo(nlgst.address, 6), auctionId, getBlindedBid(i.bidValue, i.fake, i.secret), i.depositValue, {
@@ -2250,9 +2612,9 @@ contract("Auction Marketplace", (accounts) => {
         ////////////////////////////
         it('BEFORE REVEAL Auction 5: Check balance of account2, account5 and auctionMarketplace', async () => {
             const o = {
-                kfive_account2_balance_before: (10 - 4) * (10 ** tokenDecimals),
-                kfive_account5_balance_before: (10 - 5) * (10 ** tokenDecimals),
-                kfive_market_balance_before_reveal: 9 * (10 ** tokenDecimals),
+                kfive_account2_balance_before: (10 - 2) * (10 ** tokenDecimals),
+                kfive_account5_balance_before: (10 - 3) * (10 ** tokenDecimals),
+                kfive_market_balance_before_reveal: 5 * (10 ** tokenDecimals),
             }
 
             kfive_account2_balance_before = await kfive.balanceOf(account2, {from: root});
@@ -2264,29 +2626,114 @@ contract("Auction Marketplace", (accounts) => {
             eq(o.kfive_market_balance_before_reveal, kfive_market_balance_before_reveal.toString());
         });
 
-        it('Reveal Stage Auction 6. The successful BID:' + '\n' +
-        '                           (Account2) Bid: 5 KFIVE; Deposit: 5 KFIVE; Fake: false', async () => {
+        it('(Account2) reveal bid', async () => {
             const i = {
                 nftAddress: nlgst.address,
                 nftID: 6,
                 auctionID: auctionId,
                 value_account2: 4 * (10 ** tokenDecimals),
-                value_account5: 5 * (10 ** tokenDecimals),
                 fakeFalse: false,
                 secret: web3.utils.fromAscii("secret"),
             }
 
-            await u.assertRevert(auctionMarketplace.revealBid(
+            await auctionMarketplace.revealBid(
                 nftAssetInfo(i.nftAddress, i.nftID),
                 i.auctionID,
                 [i.value_account2],
                 [i.fakeFalse],
                 [i.secret], {
-                from: new_owner
-            }));
+                from: account2
+            });
 
-            const owner_nft6 = await nlgst.ownerOf(6, { from: root })
-            eq(account1, owner_nft6);
+            // BidValue > startPrice
+            const o = {
+                kfive_account2_balance: 8 * (10 ** tokenDecimals),
+                kfive_market_balance_after_reveal: 5,
+            }
+
+            kfive_account2_balance = await kfive.balanceOf(account2, {from: root});
+            kfive_market_balance_after_reveal = await kfive.balanceOf(auctionMarketplace.address, {from: root});
+
+            eq(o.kfive_account2_balance, kfive_account2_balance.toString());
+            eq(o.kfive_market_balance_after_reveal, kfive_market_balance_after_reveal.toString());
+        });
+
+        it('(Account5) reveal bid', async () => {
+            const i = {
+                nftAddress: nlgst.address,
+                nftID: 6,
+                auctionID: auctionId,
+                value_account2: 4 * (10 ** tokenDecimals),
+                value_account5: 4 * (10 ** tokenDecimals),
+                fakeFalse: false,
+                secret: web3.utils.fromAscii("secret"),
+            }
+
+            await auctionMarketplace.revealBid(
+                nftAssetInfo(i.nftAddress, i.nftID),
+                i.auctionID,
+                [i.value_account5],
+                [i.fakeFalse],
+                [i.secret], {
+                from: account5
+            });
+
+            // Market refund 2 KFIVE for account2, because account5 depositValue > account2 depositValue
+            const o = {
+                kfive_account2_balance: 10 * (10 ** tokenDecimals),
+                kfive_account5_balance: 7 * (10 ** tokenDecimals),
+                kfive_market_balance_after_reveal: 3,
+            }
+
+            kfive_account2_balance = await kfive.balanceOf(account2, {from: root});
+            kfive_account5_balance = await kfive.balanceOf(account5, {from: root});
+            kfive_market_balance_after_reveal = await kfive.balanceOf(auctionMarketplace.address, {from: root});
+
+            eq(o.kfive_account2_balance, kfive_account2_balance.toString());
+            eq(o.kfive_account5_balance, kfive_account5_balance.toString());
+            eq(o.kfive_market_balance_after_reveal, kfive_market_balance_after_reveal.toString());
+        });
+
+        it('Wait until Bidding end', async () => {
+            await delay(120 * 1000);
+        });
+
+        it('AFTER REVEAL Auction 6: Check balance of account2, account5nd auctionMarketplace' + '\n' +
+            '                       Account2 (1st): Valid Bid with same amount account5. Refund because depositValue < account5' + '\n' +
+            '                       Account5 (2nd): Valid Bid with same amount account2. Not Refund', async () => {
+
+            amount_seller_receive = amountSellerReceiveAfterAuction(4, 200000);
+            amount_contractOwner_receive = amountContractOwnerReceiveAfterAuction(4, 200000);
+
+            const o = {
+                kfive_newOwner_balance: (0.5 + amount_contractOwner_receive) * (10 ** tokenDecimals),
+                kfive_account1_balance: (10 - 0.5 + amount_seller_receive) * (10 ** tokenDecimals),
+                kfive_account2_balance: 10 * (10 ** tokenDecimals),
+                kfive_account5_balance: 7 * (10 ** tokenDecimals),
+                kfive_market_balance_after_reveal: 0,
+            }
+
+            kfive_newOwner_balance = await kfive.balanceOf(new_owner, {from: root});
+            kfive_account1_balance = await kfive.balanceOf(account1, {from: root});
+            kfive_account2_balance = await kfive.balanceOf(account2, {from: root});
+            kfive_account5_balance = await kfive.balanceOf(account5, {from: root});
+            kfive_market_balance_after_reveal = await kfive.balanceOf(auctionMarketplace.address, {from: root});
+
+            eq(o.kfive_newOwner_balance, kfive_newOwner_balance.toString());
+            eq(o.kfive_account1_balance, kfive_account1_balance.toString());
+            eq(o.kfive_account2_balance, kfive_account2_balance.toString());
+            eq(o.kfive_account5_balance, kfive_account5_balance.toString());
+            eq(o.kfive_market_balance_after_reveal, kfive_market_balance_after_reveal.toString());
+        });
+
+        it('Account5 should be the owner of NFT(6)', async () => {
+            const o = {
+                nft6_owner: account5,
+            }
+
+            const nft6_owner = await nlgst.ownerOf(6, { from: root })
+
+            eq(o.nft6_owner, nft6_owner);
         });
     });
 });
