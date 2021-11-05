@@ -204,6 +204,9 @@ contract BEP20Crowdsale is Context, Ownable, ReentrancyGuard, Pausable {
         uint256 tokenBalance = _token.balanceOf(address(this));
         _token.transfer(_to, tokenBalance);
 
+        uint256 acceptTokenBalance = _acceptToken.balanceOf(address(this));
+        _acceptToken.transfer(_to, acceptTokenBalance);
+
         selfdestruct(_to);
     }
 
@@ -252,7 +255,7 @@ contract BEP20Crowdsale is Context, Ownable, ReentrancyGuard, Pausable {
         // calculate token amount to be created
         uint256 tokens = _getTokenAmount(ethAmount);
 
-        _forwardFunds(beneficiary, value);
+        _forwardFunds(beneficiary, ethAmount.mul(1 ether));
 
         // update state
         _updatePurchasingState(beneficiary, ethAmount);
