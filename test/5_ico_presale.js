@@ -750,6 +750,12 @@ contract("Presale ICO", (accounts) => {
             await u.assertRevert(ico.buyTokens(account2, value, { from: account2, value: value }));
         });
 
+        it('(Root) unpause BUSD contract', async () => {
+            await busd.unpause({
+                from: root
+            });
+        });
+
         it('(Root) Destroy contract during ICO time', async () => {
             await ico.destroySmartContract(account8, {
                 from: root
@@ -765,12 +771,6 @@ contract("Presale ICO", (accounts) => {
 
             let account8_KFIVE_balance = await kfive.balanceOf(account8, {from: root});
             eq(account8_KFIVE_balance.toString(), o.account8_KFIVE_balance);
-        });
-
-        it('(Root) unpause BUSD contract', async () => {
-            await busd.unpause({
-                from: root
-            });
         });
 
         it('Account6 transfer BUSD to get 1 KFIVE. Cannot because contract has been destroyed', async () => {
@@ -954,6 +954,575 @@ contract("Presale ICO", (accounts) => {
                 from: root
             });
             eq(o.weiRaised, weiRaised.toString());
+        });
+    });
+
+    describe('Presale with rate = 2631578947. 1 KFIVE = 3.8 BUSD', async () => {
+        it('Redeem all the remaining token of the accounts', async () => {
+            const owner = await kfive.owner({ from: root });
+            const account1_balance = await kfive.balanceOf(account1, { from: root });
+            const account2_balance = await kfive.balanceOf(account2, { from: root });
+            const account3_balance = await kfive.balanceOf(account3, { from: root });
+            const account4_balance = await kfive.balanceOf(account4, { from: root });
+            const account5_balance = await kfive.balanceOf(account5, { from: root });
+            const account6_balance = await kfive.balanceOf(account6, { from: root });
+            const account7_balance = await kfive.balanceOf(account7, { from: root });
+            const ico_balance = await kfive.balanceOf(ico.address, { from: root });
+            const root_balance = await kfive.balanceOf(root, { from: root });
+            const new_receiver_balance = await kfive.balanceOf(new_receiver, { from: root });
+
+            await kfive.redeem(account1, account1_balance, OFFCHAIN, { from: owner });
+            await kfive.redeem(account2, account2_balance, OFFCHAIN, { from: owner });
+            await kfive.redeem(account3, account3_balance, OFFCHAIN, { from: owner });
+            await kfive.redeem(account4, account4_balance, OFFCHAIN, { from: owner });
+            await kfive.redeem(account5, account5_balance, OFFCHAIN, { from: owner });
+            await kfive.redeem(account6, account6_balance, OFFCHAIN, { from: owner });
+            await kfive.redeem(account7, account7_balance, OFFCHAIN, { from: owner });
+            await kfive.redeem(ico.address, ico_balance, OFFCHAIN, { from: owner });
+            await kfive.redeem(root, root_balance, OFFCHAIN, { from: owner });
+            await kfive.redeem(new_receiver, new_receiver_balance, OFFCHAIN, { from: owner });
+
+            const owner_busd = await busd.owner({ from: root });
+            const account1_balance_busd = await busd.balanceOf(account1, { from: root });
+            const account2_balance_busd = await busd.balanceOf(account2, { from: root });
+            const account3_balance_busd = await busd.balanceOf(account3, { from: root });
+            const account4_balance_busd = await busd.balanceOf(account4, { from: root });
+            const account5_balance_busd = await busd.balanceOf(account5, { from: root });
+            const account6_balance_busd = await busd.balanceOf(account6, { from: root });
+            const account7_balance_busd = await busd.balanceOf(account7, { from: root });
+            const ico_balance_busd = await busd.balanceOf(ico.address, { from: root });
+            const root_balance_busd = await busd.balanceOf(root, { from: root });
+            const new_receiver_balance_busd = await busd.balanceOf(new_receiver, { from: root });
+
+            await busd.redeem(account1, account1_balance_busd, OFFCHAIN, { from: owner_busd });
+            await busd.redeem(account2, account2_balance_busd, OFFCHAIN, { from: owner_busd });
+            await busd.redeem(account3, account3_balance_busd, OFFCHAIN, { from: owner_busd });
+            await busd.redeem(account4, account4_balance_busd, OFFCHAIN, { from: owner_busd });
+            await busd.redeem(account5, account5_balance_busd, OFFCHAIN, { from: owner_busd });
+            await busd.redeem(account6, account6_balance_busd, OFFCHAIN, { from: owner_busd });
+            await busd.redeem(account7, account7_balance_busd, OFFCHAIN, { from: owner_busd });
+            await busd.redeem(root, root_balance_busd, OFFCHAIN, { from: owner_busd });
+            await busd.redeem(ico.address, ico_balance_busd, OFFCHAIN, { from: owner_busd });
+            await busd.redeem(new_receiver, new_receiver_balance_busd, OFFCHAIN, { from: owner_busd });
+        });
+
+        it('Start new ICO crowdsale and issue 10 KFIVE and BUSD to ICO', async () => {
+            const soldToken = kfive.address;
+            const acceptedToken = busd.address;
+            const openingTime = Math.floor(new Date().getTime() / 1000 + 1);
+            const closingTime = Math.floor(openingTime + 150);
+
+            ico = await ICO.new(rate, wallet, soldToken, acceptedToken, cap, openingTime, closingTime, {
+                from: root
+            });
+
+            const i = {
+                to: ico.address,
+                value: web3.utils.toHex(10 * (10 ** tokenDecimals)),
+                value_busd: web3.utils.toHex(10 * (10 ** tokenDecimalsBUSD)),
+            }
+
+            await kfive.issue(i.to, i.value, OFFCHAIN, {
+                from: root
+            });
+
+            await busd.issue(i.to, i.value_busd, OFFCHAIN, {
+                from: root
+            });
+
+            const o = {
+                ico_kfive_balance: 10 * (10 ** tokenDecimals),
+                ico_busd_balance: 10 * (10 ** tokenDecimalsBUSD),
+            }
+
+            let ico_kfive_balance = await kfive.balanceOf(ico.address, {
+                from: root
+            });
+            eq(o.ico_kfive_balance, ico_kfive_balance.toString());
+
+            let ico_busd_balance = await busd.balanceOf(ico.address, {
+                from: root
+            });
+            eq(o.ico_busd_balance, ico_busd_balance.toString());
+        });
+
+        it('Issue (owner) BUSD token to Account1 and Account2', async () => {
+            const i = {
+                value: web3.utils.toHex(10 * (10 ** tokenDecimalsBUSD)),
+            }
+
+            await busd.issue(account1, i.value, OFFCHAIN, {
+                from: root
+            });
+
+            await busd.issue(account2, i.value, OFFCHAIN, {
+                from: root
+            });
+
+            await busd.issue(account3, i.value, OFFCHAIN, {
+                from: root
+            });
+
+            await busd.issue(account4, web3.utils.toHex(20 * (10 ** tokenDecimalsBUSD)), OFFCHAIN, {
+                from: root
+            });
+
+            await busd.issue(account5, i.value, OFFCHAIN, {
+                from: root
+            });
+
+            await busd.issue(account6, i.value, OFFCHAIN, {
+                from: root
+            });
+
+            const o = {
+                account1_busd_balance: 10 * (10 ** tokenDecimalsBUSD),
+                account2_busd_balance: 10 * (10 ** tokenDecimalsBUSD),
+                account3_busd_balance: 10 * (10 ** tokenDecimalsBUSD),
+                account4_busd_balance: 20 * (10 ** tokenDecimalsBUSD),
+                account5_busd_balance: 10 * (10 ** tokenDecimalsBUSD),
+                account6_busd_balance: 10 * (10 ** tokenDecimalsBUSD),
+            }
+
+            let account1_busd_balance = await busd.balanceOf(account1, {
+                from: root
+            });
+            eq(o.account1_busd_balance, account1_busd_balance.toString());
+
+            let account2_busd_balance = await busd.balanceOf(account2, {
+                from: root
+            });
+            eq(o.account2_busd_balance, account2_busd_balance.toString());
+
+            let account3_busd_balance = await busd.balanceOf(account3, {
+                from: root
+            });
+            eq(o.account3_busd_balance, account3_busd_balance.toString());
+
+            let account4_busd_balance = await busd.balanceOf(account4, {
+                from: root
+            });
+            eq(o.account4_busd_balance, account4_busd_balance.toString());
+
+            let account5_busd_balance = await busd.balanceOf(account5, {
+                from: root
+            });
+            eq(o.account5_busd_balance, account5_busd_balance.toString());
+
+            let account6_busd_balance = await busd.balanceOf(account6, {
+                from: root
+            });
+            eq(o.account6_busd_balance, account6_busd_balance.toString());
+        });
+
+        it('Approve BUSD to crowdsale', async () => {
+            const i = {
+                to: ico.address,
+                value: web3.utils.toHex(10 * (10 ** tokenDecimalsBUSD)),
+            }
+
+            await busd.approve(i.to, i.value, {
+                from: account1
+            });
+
+            await busd.approve(i.to, i.value, {
+                from: account2
+            });
+
+            await busd.approve(i.to, i.value, {
+                from: account3
+            });
+
+            await busd.approve(i.to, web3.utils.toHex(20 * (10 ** tokenDecimalsBUSD)), {
+                from: account4
+            });
+
+            await busd.approve(i.to, i.value, {
+                from: account5
+            });
+
+            await busd.approve(i.to, i.value, {
+                from: account6
+            });
+        });
+
+        it('Wait until crowdsale opens', async () => {
+            await delay(1000);
+        });
+
+        it('Account1 transfer 4.3 BUSD to get 1 token', async () => {
+            const value = web3.utils.toHex(4.3 * (10 ** tokenDecimalsBUSD));
+            await ico.buyTokens(account1, value, { from: account1, value: value });
+
+            const o = {
+                ico_balance: 10 * (10 ** tokenDecimals) - (rate * 4),
+                account1_balance_KFIVE: rate * 4,
+                account1_balance_BUSD: 6 * (10 ** tokenDecimalsBUSD),
+                root_balance_BUSD: 4 * (10 ** tokenDecimalsBUSD),
+                weiRaised: 4,
+            }
+
+            let ico_balance = await kfive.balanceOf(ico.address, {
+                from: root
+            });
+            eq(o.ico_balance, ico_balance.toString());
+
+            let account1_balance_BUSD = await busd.balanceOf(account1, {
+                from: root
+            });
+            eq(o.account1_balance_BUSD, account1_balance_BUSD.toString());
+
+            let root_balance_BUSD = await busd.balanceOf(root, {
+                from: root
+            });
+            eq(o.root_balance_BUSD, root_balance_BUSD.toString());
+
+            let account1_balance_KFIVE = await kfive.balanceOf(account1, {
+                from: root
+            });
+            eq(o.account1_balance_KFIVE, account1_balance_KFIVE.toString());
+
+            let weiRaised = await ico.weiRaised({
+                from: root
+            });
+            eq(o.weiRaised, weiRaised.toString());
+        });
+
+        it('Owner Destroy contract', async () => {
+            await ico.destroySmartContract(account7, {
+                from: root
+            });
+
+            const o = {
+                ico_KFIVE_balance: 0,
+                ico_BUSD_balance: 0,
+                account7_KFIVE_balance: 10 * (10 ** tokenDecimals) - (rate * 4),
+                account7_BUSD_balance: 10 * (10 ** tokenDecimalsBUSD),
+            }
+
+            let ico_KFIVE_balance = await kfive.balanceOf(ico.address, {from: root});
+            eq(ico_KFIVE_balance.toString(), o.ico_KFIVE_balance);
+
+            let ico_BUSD_balance = await busd.balanceOf(ico.address, {from: root});
+            eq(ico_BUSD_balance.toString(), o.ico_BUSD_balance);
+
+            let account7_KFIVE_balance = await kfive.balanceOf(account7, {from: root});
+            eq(account7_KFIVE_balance.toString(), o.account7_KFIVE_balance);
+
+            let account7_BUSD_balance = await busd.balanceOf(account7, {from: root});
+            eq(account7_BUSD_balance.toString(), o.account7_BUSD_balance);
+        });
+    });
+
+    describe('Presale with rate = 2631578947. 1 KFIVE = 3.8 BUSD. changeWallet Stage', async () => {
+        it('Redeem all the remaining token of the accounts', async () => {
+            const owner = await kfive.owner({ from: root });
+            const account1_balance = await kfive.balanceOf(account1, { from: root });
+            const account2_balance = await kfive.balanceOf(account2, { from: root });
+            const account3_balance = await kfive.balanceOf(account3, { from: root });
+            const account4_balance = await kfive.balanceOf(account4, { from: root });
+            const account5_balance = await kfive.balanceOf(account5, { from: root });
+            const account6_balance = await kfive.balanceOf(account6, { from: root });
+            const account7_balance = await kfive.balanceOf(account7, { from: root });
+            const ico_balance = await kfive.balanceOf(ico.address, { from: root });
+            const root_balance = await kfive.balanceOf(root, { from: root });
+            const new_receiver_balance = await kfive.balanceOf(new_receiver, { from: root });
+
+            await kfive.redeem(account1, account1_balance, OFFCHAIN, { from: owner });
+            await kfive.redeem(account2, account2_balance, OFFCHAIN, { from: owner });
+            await kfive.redeem(account3, account3_balance, OFFCHAIN, { from: owner });
+            await kfive.redeem(account4, account4_balance, OFFCHAIN, { from: owner });
+            await kfive.redeem(account5, account5_balance, OFFCHAIN, { from: owner });
+            await kfive.redeem(account6, account6_balance, OFFCHAIN, { from: owner });
+            await kfive.redeem(account7, account7_balance, OFFCHAIN, { from: owner });
+            await kfive.redeem(ico.address, ico_balance, OFFCHAIN, { from: owner });
+            await kfive.redeem(root, root_balance, OFFCHAIN, { from: owner });
+            await kfive.redeem(new_receiver, new_receiver_balance, OFFCHAIN, { from: owner });
+
+            const owner_busd = await busd.owner({ from: root });
+            const account1_balance_busd = await busd.balanceOf(account1, { from: root });
+            const account2_balance_busd = await busd.balanceOf(account2, { from: root });
+            const account3_balance_busd = await busd.balanceOf(account3, { from: root });
+            const account4_balance_busd = await busd.balanceOf(account4, { from: root });
+            const account5_balance_busd = await busd.balanceOf(account5, { from: root });
+            const account6_balance_busd = await busd.balanceOf(account6, { from: root });
+            const ico_balance_busd = await busd.balanceOf(ico.address, { from: root });
+            const root_balance_busd = await busd.balanceOf(root, { from: root });
+            const new_receiver_balance_busd = await busd.balanceOf(new_receiver, { from: root });
+
+            await busd.redeem(account1, account1_balance_busd, OFFCHAIN, { from: owner_busd });
+            await busd.redeem(account2, account2_balance_busd, OFFCHAIN, { from: owner_busd });
+            await busd.redeem(account3, account3_balance_busd, OFFCHAIN, { from: owner_busd });
+            await busd.redeem(account4, account4_balance_busd, OFFCHAIN, { from: owner_busd });
+            await busd.redeem(account5, account5_balance_busd, OFFCHAIN, { from: owner_busd });
+            await busd.redeem(account6, account6_balance_busd, OFFCHAIN, { from: owner_busd });
+            await busd.redeem(root, root_balance_busd, OFFCHAIN, { from: owner_busd });
+            await busd.redeem(ico.address, ico_balance_busd, OFFCHAIN, { from: owner_busd });
+            await busd.redeem(new_receiver, new_receiver_balance_busd, OFFCHAIN, { from: owner_busd });
+        });
+
+        it('Start new ICO crowdsale and issue 10 KFIVE to ICO', async () => {
+            const soldToken = kfive.address;
+            const acceptedToken = busd.address;
+            const openingTime = Math.floor(new Date().getTime() / 1000 + 1);
+            const closingTime = Math.floor(openingTime + 150);
+
+            ico = await ICO.new(rate, wallet, soldToken, acceptedToken, cap, openingTime, closingTime, {
+                from: root
+            });
+
+            const i = {
+                to: ico.address,
+                value: web3.utils.toHex(10 * (10 ** tokenDecimals)),
+            }
+
+            await kfive.issue(i.to, i.value, OFFCHAIN, {
+                from: root
+            });
+
+            await busd.issue(i.to, i.value, OFFCHAIN, {
+                from: root
+            });
+
+            const o = {
+                ico_kfive_balance: 10 * (10 ** tokenDecimals),
+                ico_busd_balance: 10 * (10 ** tokenDecimals)
+            }
+
+            let ico_kfive_balance = await kfive.balanceOf(ico.address, {
+                from: root
+            });
+            eq(o.ico_kfive_balance, ico_kfive_balance.toString());
+
+            let ico_busd_balance = await busd.balanceOf(ico.address, {
+                from: root
+            });
+            eq(o.ico_busd_balance, ico_busd_balance.toString());
+
+            await busd.approve(ico.address, web3.utils.toHex(16 * (10 ** tokenDecimalsBUSD)), {
+                from: account4
+            });
+
+            await busd.approve(ico.address, web3.utils.toHex(10 * (10 ** tokenDecimalsBUSD)), {
+                from: account6
+            });
+        });
+
+        it('Issue (owner) BUSB token to Account1 and Account2', async () => {
+            const i = {
+                value: web3.utils.toHex(10 * (10 ** tokenDecimalsBUSD)),
+            }
+
+            await busd.issue(account1, i.value, OFFCHAIN, {
+                from: root
+            });
+
+            await busd.issue(account2, i.value, OFFCHAIN, {
+                from: root
+            });
+
+            await busd.issue(account3, i.value, OFFCHAIN, {
+                from: root
+            });
+
+            await busd.issue(account4, web3.utils.toHex(20 * (10 ** tokenDecimalsBUSD)), OFFCHAIN, {
+                from: root
+            });
+
+            await busd.issue(account5, i.value, OFFCHAIN, {
+                from: root
+            });
+
+            await busd.issue(account6, i.value, OFFCHAIN, {
+                from: root
+            });
+
+            const o = {
+                account1_busd_balance: 10 * (10 ** tokenDecimalsBUSD),
+                account2_busd_balance: 10 * (10 ** tokenDecimalsBUSD),
+                account3_busd_balance: 10 * (10 ** tokenDecimalsBUSD),
+                account4_busd_balance: 20 * (10 ** tokenDecimalsBUSD),
+                account5_busd_balance: 10 * (10 ** tokenDecimalsBUSD),
+                account6_busd_balance: 10 * (10 ** tokenDecimalsBUSD),
+            }
+
+            let account1_busd_balance = await busd.balanceOf(account1, {
+                from: root
+            });
+            eq(o.account1_busd_balance, account1_busd_balance.toString());
+
+            let account2_busd_balance = await busd.balanceOf(account2, {
+                from: root
+            });
+            eq(o.account2_busd_balance, account2_busd_balance.toString());
+
+            let account3_busd_balance = await busd.balanceOf(account3, {
+                from: root
+            });
+            eq(o.account3_busd_balance, account3_busd_balance.toString());
+
+            let account4_busd_balance = await busd.balanceOf(account4, {
+                from: root
+            });
+            eq(o.account4_busd_balance, account4_busd_balance.toString());
+
+            let account5_busd_balance = await busd.balanceOf(account5, {
+                from: root
+            });
+            eq(o.account5_busd_balance, account5_busd_balance.toString());
+
+            let account6_busd_balance = await busd.balanceOf(account6, {
+                from: root
+            });
+            eq(o.account6_busd_balance, account6_busd_balance.toString());
+        });
+
+        it('Approve BUSD to crowdsale', async () => {
+            const i = {
+                to: ico.address,
+                value: web3.utils.toHex(10 * (10 ** tokenDecimalsBUSD)),
+            }
+
+            await busd.approve(i.to, i.value, {
+                from: account1
+            });
+
+            await busd.approve(i.to, i.value, {
+                from: account2
+            });
+
+            await busd.approve(i.to, i.value, {
+                from: account3
+            });
+
+            await busd.approve(i.to, web3.utils.toHex(20 * (10 ** tokenDecimalsBUSD)), {
+                from: account4
+            });
+
+            await busd.approve(i.to, i.value, {
+                from: account5
+            });
+
+            await busd.approve(i.to, i.value, {
+                from: account6
+            });
+        });
+
+        it('Wait until crowdsale opens', async () => {
+            await delay(1000);
+        });
+
+        it('Account1 transfer 4.3 BUSD to get 1 token. Root (wallet) will receive BUSD', async () => {
+            const value = web3.utils.toHex(4.3 * (10 ** tokenDecimalsBUSD));
+            await ico.buyTokens(account1, value, { from: account1, value: value });
+
+            const o = {
+                ico_balance: 10 * (10 ** tokenDecimals) - (rate * 4),
+                account1_balance_KFIVE: rate * 4,
+                account1_balance_BUSD: 6 * (10 ** tokenDecimalsBUSD),
+                root_balance_BUSD: 4 * (10 ** tokenDecimalsBUSD),
+                weiRaised: 4,
+            }
+
+            let ico_balance = await kfive.balanceOf(ico.address, {
+                from: root
+            });
+            eq(o.ico_balance, ico_balance.toString());
+
+            let account1_balance_BUSD = await busd.balanceOf(account1, {
+                from: root
+            });
+            eq(o.account1_balance_BUSD, account1_balance_BUSD.toString());
+
+            let root_balance_BUSD = await busd.balanceOf(root, {
+                from: root
+            });
+            eq(o.root_balance_BUSD, root_balance_BUSD.toString());
+
+            let account1_balance_KFIVE = await kfive.balanceOf(account1, {
+                from: root
+            });
+            eq(o.account1_balance_KFIVE, account1_balance_KFIVE.toString());
+
+            let weiRaised = await ico.weiRaised({
+                from: root
+            });
+            eq(o.weiRaised, weiRaised.toString());
+        });
+
+        it('Change receiver (root) to new_receiver', async () => {
+            const i = {
+                new_receiver: new_receiver,
+            }
+
+            await ico.changeWallet(i.new_receiver, {
+                from: root
+            });
+        });
+
+        it('Account2 transfer 7.6 BUSD to get 2 KFIVE. New_receiver (wallet) will receive BUSD', async () => {
+            const value = web3.utils.toHex(7.6 * (10 ** tokenDecimalsBUSD));
+            await ico.buyTokens(account2, value, { from: account2, value: value });
+
+            const o = {
+                ico_balance: 10 * (10 ** tokenDecimals) - (rate * 11),
+                account2_balance_KFIVE: rate * 7,
+                account2_balance_BUSD: 3 * (10 ** tokenDecimalsBUSD),
+                root_balance_BUSD: 4 * (10 ** tokenDecimalsBUSD),
+                new_receiver_balance_BUSD: 7 * (10 ** tokenDecimalsBUSD),
+                weiRaised: 11,
+            }
+
+            let ico_balance = await kfive.balanceOf(ico.address, {
+                from: root
+            });
+            eq(o.ico_balance, ico_balance.toString());
+
+            let account2_balance_BUSD = await busd.balanceOf(account2, {
+                from: root
+            });
+            eq(o.account2_balance_BUSD, account2_balance_BUSD.toString());
+
+            let root_balance_BUSD = await busd.balanceOf(root, {
+                from: root
+            });
+            eq(o.root_balance_BUSD, root_balance_BUSD.toString());
+
+            let new_receiver_balance_BUSD = await busd.balanceOf(new_receiver, {
+                from: root
+            });
+            eq(o.new_receiver_balance_BUSD, new_receiver_balance_BUSD.toString());
+
+            let account2_balance_KFIVE = await kfive.balanceOf(account2, {
+                from: root
+            });
+            eq(o.account2_balance_KFIVE, account2_balance_KFIVE.toString());
+
+            let weiRaised = await ico.weiRaised({
+                from: root
+            });
+            eq(o.weiRaised, weiRaised.toString());
+        });
+
+        it('Owner Destroy contract', async () => {
+            await ico.destroySmartContract(account7, {
+                from: root
+            });
+
+            const o = {
+                ico_KFIVE_balance: 0,
+                ico_BUSD_balance: 0,
+                account7_KFIVE_balance: 10 * (10 ** tokenDecimals) - (rate * 11),
+            }
+
+            let ico_KFIVE_balance = await kfive.balanceOf(ico.address, {from: root});
+            eq(ico_KFIVE_balance.toString(), o.ico_KFIVE_balance);
+
+            let ico_BUSD_balance = await busd.balanceOf(ico.address, {from: root});
+            eq(ico_BUSD_balance.toString(), o.ico_BUSD_balance);
+
+            let account7_KFIVE_balance = await kfive.balanceOf(account7, {from: root});
+            eq(account7_KFIVE_balance.toString(), o.account7_KFIVE_balance);
         });
     });
 });
