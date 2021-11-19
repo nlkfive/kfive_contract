@@ -58,7 +58,7 @@ contract AuctionMarketplace is IAuction, Marketplace {
                 bytes32 nftAsset = keccak256(
                     abi.encodePacked(nftAddress, assetId)
                 );
-                if (marketplaceStorage.assetIsAvailable(nftAsset)) {
+                if (!marketplaceStorage.assetIsAvailable(nftAsset)) {
                     revert("Unavailable");
                 }
             }
@@ -163,7 +163,7 @@ contract AuctionMarketplace is IAuction, Marketplace {
             acceptedToken.transferFrom(sender, address(this), deposit),
             "Deposit failed"
         );
-        require(_bids[auctionId][sender][blindedBid] != 0, "Already bidded");
+        require(_bids[auctionId][sender][blindedBid] == 0, "Already bidded");
 
         _bids[auctionId][sender][blindedBid] = deposit;
         emit BidSuccessful(sender, auctionId, blindedBid);
