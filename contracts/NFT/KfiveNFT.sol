@@ -39,11 +39,8 @@ contract KfiveNFT is
     ) StorageLock(_marketplaceStorage) ERC721(tokenName, tokenSymbol) {
         _baseTokenURI = baseTokenURI;
 
-        _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
-
-        _setupRole(ADMIN_ROLE, _msgSender());
-        _setupRole(MINTER_ROLE, _msgSender());
-        _setupRole(PAUSER_ROLE, _msgSender());
+        _grantRole(DEFAULT_ADMIN_ROLE, _msgSender());
+        _grantRole(ADMIN_ROLE, _msgSender());
 
         _setRoleAdmin(MINTER_ROLE, ADMIN_ROLE);
         _setRoleAdmin(PAUSER_ROLE, ADMIN_ROLE);
@@ -150,17 +147,29 @@ contract KfiveNFT is
     }
 
     function transferOwnership(address newOwner) public override onlyOwner {
-        _setupRole(ADMIN_ROLE, newOwner);
-        _setupRole(MINTER_ROLE, newOwner);
-        _setupRole(PAUSER_ROLE, newOwner);
-        _setupRole(DEFAULT_ADMIN_ROLE, newOwner);
+        _grantRole(ADMIN_ROLE, newOwner);
+        _grantRole(DEFAULT_ADMIN_ROLE, newOwner);
 
-        revokeRole(ADMIN_ROLE, owner());
-        revokeRole(MINTER_ROLE, owner());
-        revokeRole(PAUSER_ROLE, owner());
-        revokeRole(DEFAULT_ADMIN_ROLE, owner());
+        _revokeRole(ADMIN_ROLE, owner());
+        _revokeRole(DEFAULT_ADMIN_ROLE, owner());
 
         super.transferOwnership(newOwner);
+    }
+
+    function _grantRole(bytes32 role, address account) internal override {
+        super._grantRole(role, account);
+        if (role == ADMIN_ROLE) {
+            super._grantRole(MINTER_ROLE, account);
+            super._grantRole(PAUSER_ROLE, account);
+        }
+    }
+
+    function _revokeRole(bytes32 role, address account) internal override {
+        super._revokeRole(role, account);
+        if (role == ADMIN_ROLE) {
+            super._revokeRole(MINTER_ROLE, account);
+            super._revokeRole(PAUSER_ROLE, account);
+        }
     }
 
     function updateStorageAddress(address _marketplaceStorage)
