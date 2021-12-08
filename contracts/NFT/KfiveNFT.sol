@@ -158,17 +158,23 @@ contract KfiveNFT is
 
     function _grantRole(bytes32 role, address account) internal override {
         super._grantRole(role, account);
-        if (role == ADMIN_ROLE) {
+        if (role == ADMIN_ROLE || role == DEFAULT_ADMIN_ROLE) {
             super._grantRole(MINTER_ROLE, account);
             super._grantRole(PAUSER_ROLE, account);
+            if (role == DEFAULT_ADMIN_ROLE) {
+                super._grantRole(ADMIN_ROLE, account);
+            }
         }
     }
 
     function _revokeRole(bytes32 role, address account) internal override {
         super._revokeRole(role, account);
-        if (role == ADMIN_ROLE) {
+        if (role == ADMIN_ROLE || role == DEFAULT_ADMIN_ROLE) {
             super._revokeRole(MINTER_ROLE, account);
             super._revokeRole(PAUSER_ROLE, account);
+            if (role == DEFAULT_ADMIN_ROLE) {
+                super._grantRole(ADMIN_ROLE, account);
+            }
         }
     }
 

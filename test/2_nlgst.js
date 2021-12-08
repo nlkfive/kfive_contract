@@ -10,7 +10,10 @@ const IPFS = require('ipfs')
 const eq = assert.equal
 const u = require('./utils.js')
 const keccak256 = require('js-sha3').keccak256;
-const adminRole = "0x0000000000000000000000000000000000000000000000000000000000000000";
+const superAdminRole = "0x0000000000000000000000000000000000000000000000000000000000000000";
+const adminRole = "0x" + keccak256("ADMIN_ROLE");
+const minterRole = "0x" + keccak256("MINTER_ROLE");
+const pauserRole = "0x" + keccak256("PAUSER_ROLE");
 
 var nlgst, storage;
 
@@ -97,7 +100,7 @@ contract("NLGST", (accounts) => {
         });
 
         it('Give minter_role to account1 (account1): Cannot because account1 does not have permission for grant this role', async () => {
-            await u.assertRevert(nlgst.grantRole("0x" + keccak256("MINTER_ROLE"), account1, {
+            await u.assertRevert(nlgst.grantRole(minterRole, account1, {
                 from: account1
             }));
         });
@@ -109,7 +112,7 @@ contract("NLGST", (accounts) => {
         });
 
         it('Give minter_role to account1 (root)', async () => {
-            await nlgst.grantRole("0x" + keccak256("MINTER_ROLE"), account1, {
+            await nlgst.grantRole(minterRole, account1, {
                 from: root
             });
         });
@@ -146,13 +149,13 @@ contract("NLGST", (accounts) => {
         });
 
         it('Revoke minter_role to account1 (root)', async () => {
-            await nlgst.revokeRole("0x" + keccak256("MINTER_ROLE"), account1, {
+            await nlgst.revokeRole(minterRole, account1, {
                 from: root
             });
         });
 
         it('Mint new token (account1) to [3] account1. For future transaction', async () => {
-            await nlgst.grantRole("0x" + keccak256("MINTER_ROLE"), account1, {
+            await nlgst.grantRole(minterRole, account1, {
                 from: root
             });
 
@@ -198,13 +201,13 @@ contract("NLGST", (accounts) => {
         });
 
         it('Revoke minter_role to account1 (account2). Cannot because only owner can revokeRole', async () => {
-            await u.assertRevert(nlgst.revokeRole("0x" + keccak256("MINTER_ROLE"), account1, {
+            await u.assertRevert(nlgst.revokeRole(minterRole, account1, {
                 from: account2
             }));
         });
 
         it('Revoke minter_role to account1 (root)', async () => {
-            await nlgst.revokeRole("0x" + keccak256("MINTER_ROLE"), account1, {
+            await nlgst.revokeRole(minterRole, account1, {
                 from: root
             });
         });
@@ -218,56 +221,32 @@ contract("NLGST", (accounts) => {
 
     describe('Admin stage', async () => {
         it('Give admin_role to super_admin (root)', async () => {
-            await nlgst.grantRole(adminRole, super_admin, {
+            await nlgst.grantRole(superAdminRole, super_admin, {
                 from: root
             });
         });
 
         it('Give admin_role to super_admin (super_admin)', async () => {
-            await nlgst.grantRole("0x" + keccak256("MINTER_ROLE"), super_admin, {
+            await nlgst.grantRole(minterRole, super_admin, {
                 from: root
             });
         });
 
         it('Give admin_role to super_admin (super_admin)', async () => {
-            await nlgst.grantRole("0x" + keccak256("PAUSER_ROLE"), super_admin, {
+            await nlgst.grantRole(pauserRole, super_admin, {
                 from: root
             });
         });
 
-        it('Give admin_role to new_admin (super_admin)', async () => {
+        it('Give admin_role to new_admin (root)', async () => {
             await nlgst.grantRole(adminRole, new_admin, {
-                from: super_admin
+                from: root
             });
         });
 
-        it('Give minter_role to new_admin (super_admin)', async () => {
-            await nlgst.grantRole("0x" + keccak256("MINTER_ROLE"), new_admin, {
-                from: super_admin
-            });
-        });
-
-        it('Give pauser_role to new_admin (super_admin)', async () => {
-            await nlgst.grantRole("0x" + keccak256("PAUSER_ROLE"), new_admin, {
-                from: super_admin
-            });
-        });
-
-        it('Revoke admin_role to new_admin (super_admin)', async () => {
+        it('Revoke admin_role to new_admin (root)', async () => {
             await nlgst.revokeRole(adminRole, new_admin, {
-                from: super_admin
-            });
-        });
-
-        it('Revoke minter_role to new_admin (super_admin)', async () => {
-            await nlgst.revokeRole("0x" + keccak256("MINTER_ROLE"), new_admin, {
-                from: super_admin
-            });
-        });
-
-        it('Revoke pauser_role to new_admin (super_admin)', async () => {
-            await nlgst.revokeRole("0x" + keccak256("PAUSER_ROLE"), new_admin, {
-                from: super_admin
+                from: root
             });
         });
 
@@ -404,18 +383,6 @@ contract("NLGST", (accounts) => {
             });
         });
 
-        it('Pause (account1 with admin_role). Cannot because only pauser_role can call it', async () => {
-            await u.assertRevert(nlgst.pause({
-                from: account1
-            }));
-        });
-
-        it('Give pauser_role to account1 (root)', async () => {
-            await nlgst.grantRole("0x" + keccak256("PAUSER_ROLE"), account1, {
-                from: root
-            });
-        });
-
         it('Pause (account1 with pauser_role).', async () => {
             await nlgst.pause({
                 from: root
@@ -451,7 +418,7 @@ contract("NLGST", (accounts) => {
                 from: root
             });
 
-            await nlgst.revokeRole("0x" + keccak256("PAUSER_ROLE"), account1, {
+            await nlgst.revokeRole(pauserRole, account1, {
                 from: root
             });
         });
@@ -685,11 +652,11 @@ contract("NLGST", (accounts) => {
                 from: root
             }));
 
-            await u.assertRevert(nlgst.grantRole("0x" + keccak256("MINTER_ROLE"), i.to, {
+            await u.assertRevert(nlgst.grantRole(minterRole, i.to, {
                 from: root
             }));
 
-            await u.assertRevert(nlgst.revokeRole("0x" + keccak256("MINTER_ROLE"), i.to, {
+            await u.assertRevert(nlgst.revokeRole(minterRole, i.to, {
                 from: root
             }));
 
@@ -723,11 +690,11 @@ contract("NLGST", (accounts) => {
                 to: account9,
             }
 
-            await nlgst.grantRole("0x" + keccak256("MINTER_ROLE"), i.to, {
+            await nlgst.grantRole(minterRole, i.to, {
                 from: new_owner
             });
 
-            await nlgst.revokeRole("0x" + keccak256("MINTER_ROLE"), i.to, {
+            await nlgst.revokeRole(minterRole, i.to, {
                 from: new_owner
             });
 
@@ -759,7 +726,7 @@ contract("NLGST", (accounts) => {
                 from: account1
             }));
 
-            await u.assertRevert(nlgst.grantRole("0x" + keccak256("MINTER_ROLE"), account1, {
+            await u.assertRevert(nlgst.grantRole(minterRole, account1, {
                 from: account1
             }));
 
@@ -767,7 +734,7 @@ contract("NLGST", (accounts) => {
                 from: account1
             }));
 
-            await u.assertRevert(nlgst.grantRole("0x" + keccak256("PAUSER_ROLE"), account1, {
+            await u.assertRevert(nlgst.grantRole(pauserRole, account1, {
                 from: account1
             }));
 
@@ -881,14 +848,6 @@ contract("NLGST", (accounts) => {
             await nlgst.revokeRole(adminRole, new_owner, {
                 from: super_admin
             });
-
-            await nlgst.revokeRole("0x" + keccak256("MINTER_ROLE"), new_owner, {
-                from: super_admin
-            });
-
-            await nlgst.revokeRole("0x" + keccak256("PAUSER_ROLE"), new_owner, {
-                from: super_admin
-            });
         });
     });
 
@@ -898,7 +857,7 @@ contract("NLGST", (accounts) => {
                 from: super_admin
             });
 
-            await nlgst.grantRole(adminRole, new_owner, {
+            await nlgst.grantRole(superAdminRole, new_owner, {
                 from: super_admin
             });
         });
@@ -918,15 +877,7 @@ contract("NLGST", (accounts) => {
                 from: super_admin
             });
 
-            await nlgst.revokeRole(adminRole, evil, {
-                from: super_admin
-            });
-
-            await nlgst.revokeRole("0x" + keccak256("MINTER_ROLE"), evil, {
-                from: super_admin
-            });
-
-            await nlgst.revokeRole("0x" + keccak256("PAUSER_ROLE"), evil, {
+            await nlgst.grantRole(superAdminRole, evil, {
                 from: super_admin
             });
         });
