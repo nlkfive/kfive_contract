@@ -28,8 +28,6 @@ contract MarketplaceStorage is
     constructor() {
         _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
         _setupRole(ADMIN_ROLE, _msgSender());
-        _setupRole(PAUSER_ROLE, _msgSender());
-
         _setRoleAdmin(PAUSER_ROLE, ADMIN_ROLE);
     }
 
@@ -261,5 +259,35 @@ contract MarketplaceStorage is
     modifier onlyFrom(address contractAddr) {
         require(_msgSender() == contractAddr, "Invalid sender");
         _;
+    }
+
+    function transferOwnership(address newOwner) public override onlyOwner {
+        _grantRole(ADMIN_ROLE, newOwner);
+        _grantRole(DEFAULT_ADMIN_ROLE, newOwner);
+
+        _revokeRole(ADMIN_ROLE, owner());
+        _revokeRole(DEFAULT_ADMIN_ROLE, owner());
+
+        super.transferOwnership(newOwner);
+    }
+
+    function _grantRole(bytes32 role, address account) internal override {
+        super._grantRole(role, account);
+        if (role == ADMIN_ROLE || role == DEFAULT_ADMIN_ROLE) {
+            super._grantRole(PAUSER_ROLE, account);
+            if (role == DEFAULT_ADMIN_ROLE) {
+                super._grantRole(ADMIN_ROLE, account);
+            }
+        }
+    }
+
+    function _revokeRole(bytes32 role, address account) internal override {
+        super._revokeRole(role, account);
+        if (role == ADMIN_ROLE || role == DEFAULT_ADMIN_ROLE) {
+            super._revokeRole(PAUSER_ROLE, account);
+            if (role == DEFAULT_ADMIN_ROLE) {
+                super._grantRole(ADMIN_ROLE, account);
+            }
+        }
     }
 }
