@@ -709,57 +709,45 @@ contract("NLGST", (accounts) => {
     });
 
     describe('Burn stage', async () => {
-        it('Burn token (account1) [1]. Cannot because only owner can call it', async () => {
+        it('Burn token (account2) [1]. Cannot because only admin can call it', async () => {
             const i = {
                 tokenId: 1,
             }
 
             await u.assertRevert(nlgst.burn(i.tokenId, {
-                from: account1
+                from: account2
             }));
 
-            await nlgst.grantRole(adminRole, account1, {
+            await u.assertRevert(nlgst.grantRole(minterRole, account2, {
+                from: new_owner
+            }));
+
+            await u.assertRevert(nlgst.burn(i.tokenId, {
+                from: account2
+            }));
+
+            await u.assertRevert(nlgst.grantRole(pauserRole, account2, {
+                from: new_owner
+            }));
+
+            await u.assertRevert(nlgst.burn(i.tokenId, {
+                from: account2
+            }));
+        });
+
+        it('Give admin role to Account2. For future transaction', async () => {
+            await nlgst.grantRole(adminRole, account2, {
                 from: new_owner
             });
-
-            await u.assertRevert(nlgst.burn(i.tokenId, {
-                from: account1
-            }));
-
-            await u.assertRevert(nlgst.grantRole(minterRole, account1, {
-                from: account1
-            }));
-
-            await u.assertRevert(nlgst.burn(i.tokenId, {
-                from: account1
-            }));
-
-            await u.assertRevert(nlgst.grantRole(pauserRole, account1, {
-                from: account1
-            }));
-
-            await u.assertRevert(nlgst.burn(i.tokenId, {
-                from: account1
-            }));
         });
 
-        it('Burn token (root) [1]. Cannot because root is not owner', async () => {
-            const i = {
-                tokenId: 1,
-            }
-
-            await u.assertRevert(nlgst.burn(i.tokenId, {
-                from: root
-            }));
-        });
-
-        it('Burn token (new_owner) [1]', async () => {
+        it('Burn token (Account2) [1]', async () => {
             const i = {
                 tokenId: 1,
             }
 
             await nlgst.burn(i.tokenId, {
-                from: new_owner
+                from: account2
             });
         });
 
