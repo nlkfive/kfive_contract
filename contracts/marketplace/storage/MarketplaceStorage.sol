@@ -198,7 +198,7 @@ contract MarketplaceStorage is
         bytes32 auctionId
     ) external override onlyFrom(auctionMarketplace) {
         Auction storage auction = auctions[auctionId];
-        onlyBefore(auction.biddingEnd);
+        onlyBefore(auction.revealEnd);
 
         auction.highestBid = highestBid;
         auction.highestBidder = bidder;

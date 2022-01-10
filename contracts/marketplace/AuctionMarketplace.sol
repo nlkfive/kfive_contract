@@ -12,12 +12,15 @@ contract AuctionMarketplace is IAuction, Marketplace {
     mapping(bytes32 => mapping(address => mapping(bytes32 => uint256))) _bids;
     // List of pending returns
     mapping(bytes32 => mapping(address => uint256)) _pendingReturns;
+    uint256 _minStageDuration;
 
     constructor(
         address _acceptedToken,
         address _marketplaceStorage,
         uint256 _ownerCutPerMillion
-    ) Marketplace(_acceptedToken, _marketplaceStorage, _ownerCutPerMillion) {}
+    ) Marketplace(_acceptedToken, _marketplaceStorage, _ownerCutPerMillion) {
+        _minStageDuration = 1 hours;
+    }
 
     /**
      * @dev Creates a new auction
@@ -37,8 +40,8 @@ contract AuctionMarketplace is IAuction, Marketplace {
         // Validate input
         address assetOwner;
         {
-            require(biddingEnd > block.timestamp.add(1 hours), "Invalid BE");
-            require(revealEnd > biddingEnd.add(1 hours), "Invalid RE");
+            require(biddingEnd > block.timestamp.add(_minStageDuration), "Invalid BE");
+            require(revealEnd > biddingEnd.add(_minStageDuration), "Invalid RE");
             require(startPriceInWei > 0, "Invalid Price");
             address sender = _msgSender();
             {
@@ -173,33 +176,30 @@ contract AuctionMarketplace is IAuction, Marketplace {
      * @dev Reveal your blinded bids. You will get a refund for all
      * correctly blinded invalid bids and for all bids except for
      * the totally highest.
-     * @param nftAsset - keccak256(abi.encodePacked(nftAddress, assetId))
      * @param auctionId - ID of the auction
      * @param _values - Array of bid values
      * @param _fake - Array of true - false values, auction will ignore true value
      * @param _secret - Array of secret values used for verify the encoded bid values in bidding stage
      */
     function revealBid(
-        bytes32 nftAsset,
         bytes32 auctionId,
         uint256[] memory _values,
         bool[] memory _fake,
         bytes32[] memory _secret
     ) external whenNotPaused {
-        checkRunning(nftAsset, auctionId);
         Auction memory _auction = marketplaceStorage.getAuction(auctionId);
         onlyAfter(_auction.biddingEnd);
-        onlyBefore(_auction.revealEnd);
         address sender = _msgSender();
         uint256 length = _values.length;
         require(_fake.length == length);
         require(_secret.length == length);
+        bool isEnded = block.timestamp >= _auction.revealEnd;
 
         uint256 refund;
         for (uint256 i = 0; i < length; i++) {
             refund = refund.add(
                 _verifyRevealBid(
-                    _fake[i],
+                    _fake[i] || isEnded, 
                     sender,
                     _secret[i],
                     _values[i],
@@ -294,6 +294,7 @@ contract AuctionMarketplace is IAuction, Marketplace {
         uint256 deposit = _bids[auctionId][sender][blindedBid];
         if (deposit == 0) {
             // Incorrect bid parameter
+            emit RevealFailed(fake, auctionId, value);
             return 0;
         }
 
@@ -328,44 +329,47 @@ contract AuctionMarketplace is IAuction, Marketplace {
         uint256 auctionHighestBid = _auction.highestBid;
 
         require(seller != address(0), "Invalid seller");
-        require(auctionHighestBidder != address(0), "Invalid HBidder");
         IERC721 nftRegistry = IERC721(nftAddress);
         require(seller == nftRegistry.ownerOf(assetId), "Invalid owner");
         marketplaceStorage.auctionEnded(nftAsset);
 
-        uint256 saleShareAmount = 0;
+        if (auctionHighestBidder != address(0)){
+            uint256 saleShareAmount = 0;
 
-        if (ownerCutPerMillion > 0) {
-            // Calculate sale share
-            saleShareAmount = auctionHighestBid.mul(ownerCutPerMillion).div(
-                1000000
-            );
+            if (ownerCutPerMillion > 0) {
+                // Calculate sale share
+                saleShareAmount = auctionHighestBid.mul(ownerCutPerMillion).div(
+                    1000000
+                );
 
-            // Transfer share amount for marketplace Owner
+                // Transfer share amount for marketplace Owner
+                require(
+                    acceptedToken.transfer(owner(), saleShareAmount),
+                    "Transfer share failed"
+                );
+            }
+
+            // Transfer sale amount to seller
             require(
-                acceptedToken.transfer(owner(), saleShareAmount),
-                "Transfer share failed"
+                acceptedToken.transfer(
+                    seller,
+                    auctionHighestBid.sub(saleShareAmount)
+                ),
+                "Transfer HBid failed"
             );
-        }
 
-        // Transfer sale amount to seller
-        require(
-            acceptedToken.transfer(
+            // Transfer asset owner
+            nftRegistry.safeTransferFrom(seller, auctionHighestBidder, assetId);
+
+            emit AuctionSuccessful(
                 seller,
-                auctionHighestBid.sub(saleShareAmount)
-            ),
-            "Transfer HBid failed"
-        );
-
-        // Transfer asset owner
-        nftRegistry.safeTransferFrom(seller, auctionHighestBidder, assetId);
-
-        emit AuctionSuccessful(
-            seller,
-            auctionHighestBidder,
-            auctionId,
-            auctionHighestBid
-        );
+                auctionHighestBidder,
+                auctionId,
+                auctionHighestBid
+            );
+        } else {
+            emit AuctionEnded(auctionId);
+        }
     }
 
     function onlyBefore(uint256 _time) internal view {
@@ -385,5 +389,9 @@ contract AuctionMarketplace is IAuction, Marketplace {
         checkExisted(auctionId);
         if (!marketplaceStorage.auctionIsRunning(nftAsset, auctionId))
             revert NotRunning();
+    }
+
+    function setMinStageDuration(uint256 _duration) external onlyRole(ADMIN_ROLE) {
+        _minStageDuration = _duration;
     }
 }
