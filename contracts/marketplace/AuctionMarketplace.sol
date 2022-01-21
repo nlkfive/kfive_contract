@@ -36,7 +36,11 @@ contract AuctionMarketplace is IAuction, Marketplace {
         uint256 startPriceInWei,
         uint256 biddingEnd,
         uint256 revealEnd
-    ) external _requireERC721(nftAddress) whenNotPaused {
+    ) 
+        external 
+        _requireERC721(nftAddress) 
+        whenNotPaused 
+    {
         // Validate input
         address assetOwner;
         {

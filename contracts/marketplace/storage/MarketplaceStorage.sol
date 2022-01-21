@@ -4,32 +4,16 @@ pragma solidity 0.8.4;
 import "./IAuction.sol";
 import "./IOrder.sol";
 import "./IMarketplaceStorage.sol";
+import "../../common/AccessControl.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/utils/introspection/ERC165.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/access/AccessControlEnumerable.sol";
-import "@openzeppelin/contracts/security/Pausable.sol";
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 contract MarketplaceStorage is
-    AccessControlEnumerable,
-    Ownable,
-    Pausable,
+    KfiveAccessControl,
     IMarketplaceStorage
 {
-    using SafeMath for uint256;
-
-    bytes32 public constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
-    bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
-
     address auctionMarketplace;
     address orderMarketplace;
-
-    constructor() {
-        _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
-        _setupRole(ADMIN_ROLE, _msgSender());
-        _setRoleAdmin(PAUSER_ROLE, ADMIN_ROLE);
-    }
 
     /**
      * @dev See {IERC165-supportsInterface}.
@@ -55,6 +39,7 @@ contract MarketplaceStorage is
      */
     function updateAuctionMarketplace(address _auctionMarketplace)
         external
+        whenNotPaused
         onlyRole(ADMIN_ROLE)
     {
         auctionMarketplace = _auctionMarketplace;
@@ -69,31 +54,10 @@ contract MarketplaceStorage is
      */
     function updateOrderMarketplace(address _orderMarketplace)
         external
+        whenNotPaused
         onlyRole(ADMIN_ROLE)
     {
         orderMarketplace = _orderMarketplace;
-    }
-
-    /**
-     * @dev Pauses all token transfers.
-     *
-     * Requirements:
-     *
-     * - the caller must have the `PAUSER_ROLE`.
-     */
-    function pause() public onlyRole(PAUSER_ROLE) {
-        _pause();
-    }
-
-    /**
-     * @dev Unpauses all token transfers.
-     *
-     * Requirements:
-     *
-     * - the caller must have the `PAUSER_ROLE`.
-     */
-    function unpause() public onlyRole(PAUSER_ROLE) {
-        _unpause();
     }
 
     ////////////////////////////////////////////////////////////
@@ -147,7 +111,12 @@ contract MarketplaceStorage is
         uint256 biddingEnd,
         uint256 revealEnd,
         uint256 startPriceInWei
-    ) external override onlyFrom(auctionMarketplace) {
+    ) 
+        external 
+        override 
+        whenNotPaused 
+        onlyFrom(auctionMarketplace) 
+    {
         bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
         require(assetIsAvailable(nftAsset), "Unvailable");
 
@@ -183,6 +152,7 @@ contract MarketplaceStorage is
     function auctionEnded(bytes32 nftAsset)
         external
         override
+        whenNotPaused
         onlyFrom(auctionMarketplace)
     {
         require(runningActionIds[nftAsset] != 0, "Already ended");
@@ -196,7 +166,12 @@ contract MarketplaceStorage is
         address bidder,
         uint256 highestBid,
         bytes32 auctionId
-    ) external override onlyFrom(auctionMarketplace) {
+    ) 
+        external 
+        override 
+        whenNotPaused
+        onlyFrom(auctionMarketplace) 
+    {
         Auction storage auction = auctions[auctionId];
         onlyBefore(auction.revealEnd);
 
@@ -217,7 +192,12 @@ contract MarketplaceStorage is
         bytes32 orderId,
         uint256 priceInWei,
         uint256 expiredAt
-    ) external override onlyFrom(orderMarketplace) {
+    ) 
+        external 
+        override 
+        onlyFrom(orderMarketplace) 
+        whenNotPaused
+    {
         bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
         require(assetIsAvailable(nftAsset), "Unvailable");
 
@@ -242,6 +222,7 @@ contract MarketplaceStorage is
     function deleteOrder(bytes32 nftAsset)
         external
         override
+        whenNotPaused
         onlyFrom(orderMarketplace)
     {
         require(orderByNftAsset[nftAsset].orderId != bytes32(0), "Not existed");
@@ -259,35 +240,5 @@ contract MarketplaceStorage is
     modifier onlyFrom(address contractAddr) {
         require(_msgSender() == contractAddr, "Invalid sender");
         _;
-    }
-
-    function transferOwnership(address newOwner) public override onlyOwner {
-        _grantRole(ADMIN_ROLE, newOwner);
-        _grantRole(DEFAULT_ADMIN_ROLE, newOwner);
-
-        _revokeRole(ADMIN_ROLE, owner());
-        _revokeRole(DEFAULT_ADMIN_ROLE, owner());
-
-        super.transferOwnership(newOwner);
-    }
-
-    function _grantRole(bytes32 role, address account) internal override {
-        super._grantRole(role, account);
-        if (role == ADMIN_ROLE || role == DEFAULT_ADMIN_ROLE) {
-            super._grantRole(PAUSER_ROLE, account);
-            if (role == DEFAULT_ADMIN_ROLE) {
-                super._grantRole(ADMIN_ROLE, account);
-            }
-        }
-    }
-
-    function _revokeRole(bytes32 role, address account) internal override {
-        super._revokeRole(role, account);
-        if (role == ADMIN_ROLE || role == DEFAULT_ADMIN_ROLE) {
-            super._revokeRole(PAUSER_ROLE, account);
-            if (role == DEFAULT_ADMIN_ROLE) {
-                super._grantRole(ADMIN_ROLE, account);
-            }
-        }
     }
 }

@@ -581,6 +581,11 @@
     "@babel/helper-validator-identifier" "^7.15.7"
     to-fast-properties "^2.0.0"
 
+"@chainlink/contracts@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@chainlink/contracts/-/contracts-0.3.1.tgz#a1a2e1b179a6ce6a9b5b16992f6202918110ef5c"
+  integrity sha512-A8DRvmfNCwLS1iduPPj7wNAZJMe9/ZimMhoHhbbBiq+7Vq/HFjiNcdoQ5NinFdXD5aTsoNUGG5pAYKj7YMpm9A==
+
 "@chainsafe/libp2p-noise@^4.0.0":
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/@chainsafe/libp2p-noise/-/libp2p-noise-4.1.1.tgz#87bc944d5b17b1a4d9cbe0d960ce18e03c98e757"
