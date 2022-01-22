@@ -29,6 +29,14 @@ interface IBething is IERC165 {
     ) external;
 
     /**
+     * @dev Claim commission from ended race - Admin only
+     */
+    function claimCommission(
+        bytes32 raceId,
+        address receiver
+    ) external;
+
+    /**
      * @dev Get your total slot bet
      */
     function totalSlotBet(
@@ -41,6 +49,14 @@ interface IBething is IERC165 {
      */
     function totalRaceBet(
         bytes32 raceId
+    ) external returns (uint256);
+
+    /**
+     * @dev Get slot position after race ended
+     */
+    function getSlotPosition(
+        bytes32 raceId,
+        uint256 slotId
     ) external returns (uint256);
 
     /**
@@ -58,6 +74,7 @@ interface IBething is IERC165 {
     event BetSuccessful(uint256 slotId, bytes32 raceId, uint256 betValue);
     event FundSuccessful(bytes32 raceId, uint256 fundValue);
     event ClaimSuccessful(bytes32 raceId, uint256 claimValue);
+    event ClaimCommission(bytes32 raceId, uint256 claimValue, address receiver);
     event RaceListUpdated(address race);
     event AcceptTokenUpdated(address acceptToken);
 

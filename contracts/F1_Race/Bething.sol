@@ -33,9 +33,13 @@ contract Bething is
     }
 
     // From raceId to (slotId to (bettor to total bet))
-    mapping(bytes32 => mapping(uint256 => mapping(address => uint256))) public bettors;
+    mapping(bytes32 => mapping(uint256 => mapping(address => uint256))) private bettors;
+    // From raceId to (slotId to total bet)
+    mapping(bytes32 => mapping(uint256 => uint256)) private totalSlotBets;
     // From raceId to total bet
-    mapping(bytes32 => uint256) public totalBets;
+    mapping(bytes32 => uint256) private totalBets;
+    // From raceId to commission is received
+    mapping(bytes32 => bool) private commissionReceived;
 
     /**
      * @dev See {IERC165-supportsInterface}.
@@ -75,6 +79,7 @@ contract Bething is
             "Bet failed"
         );
         bettors[raceId][slotId][_msgSender()].add(betValue);
+        totalSlotBets[raceId][slotId].add(betValue);
         totalBets[raceId].add(betValue);
         emit BetSuccessful(slotId, raceId, betValue);
     }
@@ -105,9 +110,18 @@ contract Bething is
 
     /**
      * @dev Claim winning reward from the ended race
+     * 1st = total1stBet * rewardRate^2 * [totalRaceBet - %commission] 
+     * div (total1stBet*rewardRate^2 + total2ndBet*rewardRate + total3rdBet)
+     ***
+     * 2nd = total2ndBet * rewardRate * [totalRaceBet - %commission] 
+     * div (total1stBet*rewardRate^2 + total2ndBet*rewardRate + total3rdBet)
+     ***
+     * 3rd = total3rdBet * [totalRaceBet - %commission] 
+     * div (total1stBet*rewardRate^2 + total2ndBet*rewardRate + total3rdBet)
      */
     function claim(
-        bytes32 raceId
+        bytes32 raceId,
+        uint256 slotId
     ) 
         external
         override
@@ -117,8 +131,42 @@ contract Bething is
         require(_race.registerAt != 0, "Not existed");
         onlyAfter(_race.betEnded);
 
-        // TODO: Calculate the reward
-        emit ClaimSuccessful(raceId, 0);
+        uint256 totalTop3BetReward = _totalTop3BetReward(
+            raceId,
+            _race.slots,
+            _race.result,
+            _race.rewardRate
+        );
+        uint256 reward = _calculateReward(
+            raceId, 
+            slotId,
+            _race.rewardRate,
+            _race.commission,
+            totalTop3BetReward
+        );
+        bettors[raceId][slotId][_msgSender()] = 0;
+        _acceptedToken.transfer(_msgSender(), reward);
+        emit ClaimSuccessful(raceId, reward);
+    }
+
+    /**
+     * @dev Claim commission from ended race - Admin only
+     */
+    function claimCommission(
+        bytes32 raceId,
+        address receiver
+    ) 
+        external 
+        override
+    {
+        require(!commissionReceived[raceId], "Already received");
+        Race memory _race = _raceList.getRace(raceId);
+        require(_race.registerAt != 0, "Not existed");
+        onlyAfter(_race.betEnded);
+        uint256 commission = _calculateCommission(raceId, _race.commission);
+        commissionReceived[raceId] = true;
+        _acceptedToken.transfer(receiver, commission);
+        emit ClaimCommission(raceId, commission, receiver);
     }
 
     /**
@@ -128,7 +176,7 @@ contract Bething is
         bytes32 raceId,
         uint256 slotId
     ) 
-        external 
+        public 
         override
         view
         returns (uint256) 
@@ -142,12 +190,28 @@ contract Bething is
     function totalRaceBet(
         bytes32 raceId
     ) 
-        external 
+        public 
         override
         view
         returns (uint256) 
     {
         return totalBets[raceId];
+    }
+
+    /**
+     * @dev Get total race bet
+     */
+    function getSlotPosition(
+        bytes32 raceId,
+        uint256 slotId
+    ) 
+        public 
+        override
+        view
+        returns (uint256) 
+    {
+        Race memory _race = _raceList.getRace(raceId);
+        return uint256(_race.result[slotId]);
     }
 
     /**
@@ -174,6 +238,68 @@ contract Bething is
     {
         _acceptedToken = IBEP20(acceptToken);
         emit AcceptTokenUpdated(acceptToken);
+    }
+
+    // = totalRaceBet * (1000 - commission)/1000
+    function _calculateCommission(bytes32 raceId, uint256 commission) 
+        private 
+        returns (uint256)
+    {
+        return totalRaceBet(raceId).mul(1000 - commission).div(1000);
+    }
+
+    function _totalTop3BetReward(
+        bytes32 raceId, 
+        uint256 slots,
+        bytes32 result,
+        uint256 rewardRate
+    ) 
+        private
+        returns (uint256 totalTop3BetReward)
+    {
+        for (uint256 slotId = 0; slotId < slots; slotId++) {
+            if (result[index] == 1){
+                totalTop3BetReward.add(
+                    totalSlotBets[raceId][slotId].mul(rewardRate).mul(rewardRate)
+                );
+            } else if (result[index] == 2) {
+                totalTop3BetReward.add(
+                    totalSlotBets[raceId][slotId].mul(rewardRate)
+                );
+            } else if (result[index] == 3){
+                totalTop3BetReward.add(
+                    totalSlotBets[raceId][slotId]
+                );
+            }
+        }
+    }
+
+    // * Top 3 position:
+    // * slotReward = totalSlotBet * rewardRate^(3-position) * [totalRaceBet - %commission] 
+    // * div (total1stBet*rewardRate^2 + total2ndBet*rewardRate + total3rdBet)
+    function _calculateReward(
+        bytes32 raceId, 
+        uint256 slotId,
+        uint256 rewardRate,
+        uint256 commission,
+        uint256 totalTop3BetReward
+    ) 
+        private 
+        returns (uint256 reward)
+    {
+        // if the race isn't ended or you are out of top 3
+        uint256 position = getSlotPosition(raceId, slotId);
+        if (position > 0 && position < 3){
+            reward = totalSlotBet(raceId, slotId).mul(
+                totalRaceBet(raceId) - _calculateCommission(raceId, commission)
+            ).div(
+                totalTop3BetReward
+            );
+
+            for (uint256 count = 0; count < position; count++) {
+                reward = reward.mul(rewardRate);
+            }
+        }
     }
 
     function onlyBefore(uint256 _time) internal view {

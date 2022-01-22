@@ -12,7 +12,9 @@ interface IRaceList is IRace, IERC165 {
         uint256 slots,
         uint256 registerAt,
         uint256 betStarted,
-        uint256 betEnded
+        uint256 betEnded,
+        uint256 commission,
+        uint256 rewardRate
     ) external;
 
     /**
@@ -31,8 +33,24 @@ interface IRaceList is IRace, IERC165 {
     /**
      * @dev Update race result.
      */
-    function updateRaceResult(
+    function updateResult(
         bytes32 id
+    ) external;
+
+    /**
+     * @dev Update commission.
+     */
+    function updateCommission(
+        bytes32 id,
+        uint256 commission
+    ) external;
+
+    /**
+     * @dev Update rewardRate.
+     */
+    function updateRewardRate(
+        bytes32 id,
+        uint256 rewardRate
     ) external;
 
     function raceIsExisted(bytes32 raceId)
@@ -40,13 +58,24 @@ interface IRaceList is IRace, IERC165 {
         view
         returns (bool);
 
+    function raceResult(bytes32 raceId)
+        external
+        view
+        returns (bytes32);
+
     event RaceCreated(
         bytes32 id,
         uint256 slots,
         uint256 registerAt,
         uint256 betStarted,
-        uint256 betEnded
+        uint256 betEnded,
+        uint256 commission,
+        uint256 rewardRate
     );
+    event RaceResultUpdated(bytes32 id, bytes32 result);
+    event RaceCommissionUpdated(bytes32 id, uint256 commission);
+    event RaceRewardRateUpdated(bytes32 id, uint256 rewardRate);
 
+    error TooLate(uint256 time);
     error TooEarly(uint256 time);
 }
