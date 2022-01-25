@@ -66,8 +66,6 @@ contract RegistrationList is
     ////////////////////////////////////////////////////////////
     // Participants list
     ////////////////////////////////////////////////////////////
-    // From raceId => (slotId => participant address)
-    mapping(bytes32 => mapping(uint256 => address)) private participants;
     // From raceId => (slotId => (index => participant address))
     mapping(bytes32 => mapping(uint256 => mapping(uint8 => address))) private registrationList;
     // Random number (32 bytes = 32 slots) - Using for select selected participants
@@ -102,9 +100,9 @@ contract RegistrationList is
     {
         require(_nlggt.balanceOf(_msgSender()) > 0, "Not NLGGT holder");
         Race memory _race = _raceList.getRace(raceId);
-        require(_race.registerAt != 0, "Not existed");
-        require(slotId < _race.slots, "Invalid slot id");
-        onlyAfter(_race.registerAt);
+        require(_race.betStarted != 0, "Not existed");
+        require(slotId < _race.slots, "Invalid slot");
+        onlyAfter(_race.betStarted);
         onlyBefore(_race.betEnded);
         uint8 totalRegisteredAtSlot = uint8(totalRegistered[raceId][slotId]);
         require(totalRegisteredAtSlot < 255, "Maximum reached");
@@ -128,12 +126,13 @@ contract RegistrationList is
         // checking participant at slot is already selected
         require(randomSelected[raceId] == 0, "Already selected");
         // check if race is existed
-        require(_raceList.raceIsExisted(raceId), "Not existed");
+        Race memory _race = _raceList.getRace(raceId);
+        require(_race.betStarted, "Not existed");
+        onlyAfter(_race.betEnded);
         // requesting randomness
         requestId = requestRandomness(s_keyHash, s_fee);
         // storing requestId and raceId
         vrfRandomMap[requestId] = raceId;
-        // emitting event to signal rolling of die
         randomSelected[raceId] = RANDOM_IN_PROGRESS;
 
         emit RandomInProgress(raceId);
@@ -143,17 +142,23 @@ contract RegistrationList is
     {
         bytes32 raceId = vrfRandomMap[requestId];
         randomSelected[raceId] = modBytes(totalRegistered[raceId], bytes32(randomness));
+        // Mark this race has selected participants
+        randomSelected[raceId] |= 0xff;
         emit ParticipantsSelected(requestId, raceId, randomness, randomSelected[raceId]);
     }
 
     /**
      * @dev Receive reward after race ended.
      */
-    function receiveReward(bytes32 raceId) 
+    function receiveReward(bytes32 raceId, uint256 slotId) 
         external 
         override
         whenNotPaused
     {
+        require(totalRegistered[raceId][slotId] != bytes1(0), "Invalid slot");
+        require(randomSelected[raceId] != bytes32(0), "Invalid race");
+        address slotWinner = registrationList[raceId][slotId][index][uint8(randomSelected[raceId][slotId])];
+        require(slotWinner != _msgSender(), "Invalid winner");
         // TODO: get reward
     }
 
@@ -196,10 +201,28 @@ contract RegistrationList is
         return bytes32(uint256(input) + (1 << ((31 - index) * 8)));
     }
 
-    // ^ -> Xor from number of participant to random bytes
-    // & -> Limit the random number is larger than input
     // Random select index from participant bytes array
-    function modBytes(bytes32 _totalRegistered, bytes32 random) internal pure returns (bytes32) {
-        return (_totalRegistered ^ random) & _totalRegistered;
+    function modBytes(bytes32 _totalRegistered, bytes32 random) internal pure returns (bytes32 result) {
+        for (uint256 slotId = 0; slotId < 32; slotId++) {
+            if (uint8(_totalRegistered[slotId]) > 0){
+                result |= bytes32(uint256(uint8(random[slotId]) % uint8(_totalRegistered[slotId]))) << (8 * (32 - slotId));
+            }
+        }
+    }
+
+    function selectedParticipants(bytes32 raceId) 
+        external 
+        view
+        returns (bytes32)
+    {
+        return randomSelected[raceId];
+    }
+
+    function selectedParticipant(bytes32 raceId, uint256 slotId) 
+        external 
+        view
+        returns (bytes1)
+    {
+        return randomSelected[raceId][slotId];
     }
 }

@@ -9,8 +9,6 @@ interface IRace {
         uint256 rewardRate;
         // Number of slots
         uint256 slots;
-        // Registration start time
-        uint256 registerAt;
         // Bething start time
         uint256 betStarted;
         // Bething end time

@@ -5,12 +5,14 @@ import "./IRaceList.sol";
 import "../common/AccessControl.sol";
 import "@openzeppelin/contracts/utils/introspection/ERC165.sol";
 import "@chainlink/contracts/src/v0.8/ChainlinkClient.sol";
+import "@openzeppelin/contracts/utils/Address.sol";
 
 contract RaceList is
     KfiveAccessControl,
     IRaceList,
     ChainlinkClient
 {
+    using Address for address;
     using Chainlink for Chainlink.Request;
     
     /**
@@ -40,8 +42,13 @@ contract RaceList is
     bytes32 private jobId;
     uint256 private fee;
 
-    constructor(address _oracle, bytes32 _jobId, uint256 _fee) {
-        setPublicChainlinkToken();
+    // https://market.link/jobs/5f9f57b4-afcb-4f3c-957d-63a7bb91469d
+    // jobId: ce039030ac69497cbb9615b9b1d7b363 -> 0x2063653033393033306163363934393763626239363135623962316437623336
+    // oracle: 0x77a5310E41F0B9FE35E95239Fa5624390fadFbBA
+    // fee: 0.04 * 10 ** 18 LINK -> 40000000000000000
+    constructor(address chainlink, address _oracle, bytes32 _jobId, uint256 _fee) {
+        require(chainlink.isContract(), "Invalid Chainlink");
+        setChainlinkToken(chainlink);
         oracle = _oracle;
         jobId = _jobId;
         fee = _fee;
@@ -53,7 +60,7 @@ contract RaceList is
         override
         returns (bool)
     {
-        return races[raceId].registerAt != 0;
+        return races[raceId].betStarted != 0;
     }
 
     function raceResult(bytes32 raceId)
@@ -70,7 +77,6 @@ contract RaceList is
      */
     function createRace(
         uint256 slots,
-        uint256 registerAt,
         uint256 betStarted,
         uint256 betEnded,
         uint256 commission,
@@ -82,8 +88,8 @@ contract RaceList is
         onlyRole(ADMIN_ROLE) 
     {
         require(slots < 32, "Invalid slots");
-        require(betStarted < betEnded, "Invalid bet time");
-        require(registerAt < betEnded, "Invalid register time");
+        require(block.timestamp < betStarted, "Invalid time");
+        require(betStarted < betEnded, "Invalid time");
         // These two value will be divide to 1000
         // Commission will be share to the bething holder
         // Its value (percentage) must be lower than 1
@@ -94,7 +100,6 @@ contract RaceList is
         bytes32 raceId = keccak256(
             abi.encodePacked(
                 slots,
-                registerAt,
                 betStarted,
                 betEnded
             )
@@ -104,7 +109,6 @@ contract RaceList is
         Race storage race = races[raceId];
         {
             race.slots = slots;
-            race.registerAt = registerAt;
             race.betStarted = betStarted;
             race.betEnded = betEnded;
             race.commission = commission;
@@ -114,7 +118,6 @@ contract RaceList is
         emit RaceCreated(
             raceId,
             slots,
-            registerAt,
             betStarted,
             betEnded,
             commission,
@@ -142,9 +145,10 @@ contract RaceList is
         override
         onlyRole(ADMIN_ROLE)
     {
-        require(races[id].registerAt != 0, "Not existed");
+        require(races[id].betStarted != 0, "Not existed");
         onlyBefore(races[id].betStarted);
         delete races[id];
+        emit RaceCancelled(id);
     }
 
     /**
@@ -162,6 +166,8 @@ contract RaceList is
         onlyAfter(race.betEnded);
 
         Chainlink.Request memory request = buildChainlinkRequest(jobId, address(this), this.fulfill.selector);
+        // TODO: add api get race result
+        request.add("get", "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH&tsyms=USD");
         request.addBytes("id", abi.encodePacked(id));
         bytes32 requestId = sendChainlinkRequestTo(oracle, request, fee);
         apiRequestMap[requestId] = id;
@@ -170,7 +176,7 @@ contract RaceList is
     function fulfill(bytes32 _requestId, bytes32 _data) public recordChainlinkFulfillment(_requestId) {
         bytes32 raceId = apiRequestMap[_requestId];
         Race storage race = races[raceId];
-        require(race.registerAt != 0, "Not existed");
+        require(race.betStarted != 0, "Not existed");
         race.result = _data;
         emit RaceResultUpdated(raceId, _data);
     }

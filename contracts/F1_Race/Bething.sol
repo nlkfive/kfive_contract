@@ -69,7 +69,7 @@ contract Bething is
         whenNotPaused
     {
         Race memory _race = _raceList.getRace(raceId);
-        require(_race.registerAt != 0, "Not existed");
+        require(_race.betStarted != 0, "Not existed");
         require(slotId < _race.slots, "Invalid slot id");
         onlyAfter(_race.betStarted);
         onlyBefore(_race.betEnded);
@@ -96,7 +96,7 @@ contract Bething is
         whenNotPaused
     {
         Race memory _race = _raceList.getRace(raceId);
-        require(_race.registerAt != 0, "Not existed");
+        require(_race.betStarted != 0, "Not existed");
         onlyAfter(_race.betStarted);
         onlyBefore(_race.betEnded);
 
@@ -128,7 +128,7 @@ contract Bething is
         whenNotPaused
     {
         Race memory _race = _raceList.getRace(raceId);
-        require(_race.registerAt != 0, "Not existed");
+        require(_race.betStarted != 0, "Not existed");
         onlyAfter(_race.betEnded);
 
         uint256 totalTop3BetReward = _totalTop3BetReward(
@@ -161,7 +161,7 @@ contract Bething is
     {
         require(!commissionReceived[raceId], "Already received");
         Race memory _race = _raceList.getRace(raceId);
-        require(_race.registerAt != 0, "Not existed");
+        require(_race.betStarted != 0, "Not existed");
         onlyAfter(_race.betEnded);
         uint256 commission = _calculateCommission(raceId, _race.commission);
         commissionReceived[raceId] = true;

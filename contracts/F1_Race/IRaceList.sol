@@ -10,7 +10,6 @@ interface IRaceList is IRace, IERC165 {
      */
     function createRace(
         uint256 slots,
-        uint256 registerAt,
         uint256 betStarted,
         uint256 betEnded,
         uint256 commission,
@@ -66,13 +65,13 @@ interface IRaceList is IRace, IERC165 {
     event RaceCreated(
         bytes32 id,
         uint256 slots,
-        uint256 registerAt,
         uint256 betStarted,
         uint256 betEnded,
         uint256 commission,
         uint256 rewardRate
     );
     event RaceResultUpdated(bytes32 id, bytes32 result);
+    event RaceCancelled(bytes32 id);
     event RaceCommissionUpdated(bytes32 id, uint256 commission);
     event RaceRewardRateUpdated(bytes32 id, uint256 rewardRate);
 
