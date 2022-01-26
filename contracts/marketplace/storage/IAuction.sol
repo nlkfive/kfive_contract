@@ -14,7 +14,7 @@ interface IAuction {
         bytes32 indexed auctionId,
         bytes32 blindedBid
     );
-    event RevealSuccessful(bool fake, bytes32 indexed auctionId, uint256 value);
+    event RevealSuccessful(bool fake, bytes32 indexed auctionId, uint256 value, bytes32 blindedBid);
     event RevealFailed(bool fake, bytes32 indexed auctionId, uint256 value);
     event AuctionEnded(bytes32 indexed auctionId);
     event AuctionRefund(

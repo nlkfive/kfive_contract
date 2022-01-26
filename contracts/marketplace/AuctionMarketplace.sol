@@ -197,7 +197,7 @@ contract AuctionMarketplace is IAuction, Marketplace {
         uint256 length = _values.length;
         require(_fake.length == length);
         require(_secret.length == length);
-        bool isEnded = block.timestamp >= _auction.revealEnd;
+        bool isEnded = marketplaceStorage.auctionIsEnded(auctionId);
 
         uint256 refund;
         for (uint256 i = 0; i < length; i++) {
@@ -314,7 +314,7 @@ contract AuctionMarketplace is IAuction, Marketplace {
             refund = refund.sub(value);
         }
 
-        emit RevealSuccessful(fake, auctionId, value);
+        emit RevealSuccessful(fake, auctionId, value, blindedBid);
         return refund;
     }
 

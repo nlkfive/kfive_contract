@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/utils/Address.sol";
 
 contract StorageLock {
     IMarketplaceStorage public marketplaceStorage;
-    bytes4 public constant IMarketplaceStorage_Interface = bytes4(0x85c93a92);
+    bytes4 public constant IMarketplaceStorage_Interface = bytes4(0xb342dcf7);
     using Address for address;
 
     constructor(address _marketplaceStorage)

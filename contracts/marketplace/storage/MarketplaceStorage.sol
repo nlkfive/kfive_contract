@@ -78,9 +78,9 @@ contract MarketplaceStorage is
     // Auction storage
     ////////////////////////////////////////////////////////////
     // From running auction Id to auction
-    mapping(bytes32 => Auction) public auctions;
+    mapping(bytes32 => Auction) private auctions;
     // From ERC721 registry keccak256(abi.encodePacked(nft,assetId)) to running Auction ID
-    mapping(bytes32 => bytes32) public runningActionIds;
+    mapping(bytes32 => bytes32) private runningActionIds;
 
     function auctionIsExisted(bytes32 auctionId)
         external
@@ -89,6 +89,15 @@ contract MarketplaceStorage is
         returns (bool)
     {
         return auctions[auctionId].id != bytes32(0);
+    }
+
+    function auctionIsEnded(bytes32 auctionId)
+    external
+        view
+        override
+        returns (bool)
+    {
+        return runningActionIds[auctionId] != bytes32(0);
     }
 
     function auctionIsRunning(bytes32 nftAsset, bytes32 auctionId)
