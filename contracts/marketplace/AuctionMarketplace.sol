@@ -311,7 +311,7 @@ contract AuctionMarketplace is IAuction, Marketplace {
 
         // If this is the highest bid then save it
         if (!fake && deposit >= value && _placeBid(auctionId, sender, value)) {
-            refund = refund.sub(deposit);
+            refund = refund.sub(value);
         }
 
         emit RevealSuccessful(fake, auctionId, value, blindedBid);

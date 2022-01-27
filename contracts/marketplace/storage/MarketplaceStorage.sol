@@ -97,7 +97,7 @@ contract MarketplaceStorage is
         override
         returns (bool)
     {
-        return runningActionIds[auctionId] != bytes32(0);
+        return runningActionIds[auctionId] == bytes32(0);
     }
 
     function auctionIsRunning(bytes32 nftAsset, bytes32 auctionId)

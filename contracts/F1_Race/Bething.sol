@@ -258,15 +258,15 @@ contract Bething is
         returns (uint256 totalTop3BetReward)
     {
         for (uint256 slotId = 0; slotId < slots; slotId++) {
-            if (result[index] == 1){
+            if (result[slotId] == 1){
                 totalTop3BetReward.add(
                     totalSlotBets[raceId][slotId].mul(rewardRate).mul(rewardRate)
                 );
-            } else if (result[index] == 2) {
+            } else if (result[slotId] == 2) {
                 totalTop3BetReward.add(
                     totalSlotBets[raceId][slotId].mul(rewardRate)
                 );
-            } else if (result[index] == 3){
+            } else if (result[slotId] == 3){
                 totalTop3BetReward.add(
                     totalSlotBets[raceId][slotId]
                 );
