@@ -23,7 +23,7 @@ interface IMarketplaceStorage is IERC165, IOrder, IAuction {
     /**
      * @dev Returns if the auction is ended or not.
      */
-    function auctionIsEnded(bytes32 auctionId)
+    function auctionIsEnded(bytes32 nftAsset, bytes32 auctionId)
         external
         view
         returns (bool ended);

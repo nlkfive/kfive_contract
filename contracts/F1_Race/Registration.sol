@@ -127,7 +127,7 @@ contract RegistrationList is
         require(randomSelected[raceId] == 0, "Already selected");
         // check if race is existed
         Race memory _race = _raceList.getRace(raceId);
-        require(_race.betStarted, "Not existed");
+        require(_race.betStarted != 0, "Not existed");
         onlyAfter(_race.betEnded);
         // requesting randomness
         requestId = requestRandomness(s_keyHash, s_fee);
@@ -143,7 +143,7 @@ contract RegistrationList is
         bytes32 raceId = vrfRandomMap[requestId];
         randomSelected[raceId] = modBytes(totalRegistered[raceId], bytes32(randomness));
         // Mark this race has selected participants
-        randomSelected[raceId] |= 0xff;
+        randomSelected[raceId] |= bytes32(uint256(0xff));
         emit ParticipantsSelected(requestId, raceId, randomness, randomSelected[raceId]);
     }
 
@@ -157,8 +157,8 @@ contract RegistrationList is
     {
         require(totalRegistered[raceId][slotId] != bytes1(0), "Invalid slot");
         require(randomSelected[raceId] != bytes32(0), "Invalid race");
-        address slotWinner = registrationList[raceId][slotId][index][uint8(randomSelected[raceId][slotId])];
-        require(slotWinner != _msgSender(), "Invalid winner");
+        // address slotWinner = registrationList[raceId][slotId][index][uint8(randomSelected[raceId][slotId])];
+        // require(slotWinner != _msgSender(), "Invalid winner");
         // TODO: get reward
     }
 

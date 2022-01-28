@@ -25,7 +25,8 @@ interface IBething is IERC165 {
      * @dev Claim winning reward from the ended race
      */
     function claim(
-        bytes32 raceId
+        bytes32 raceId,
+        uint256 slotId
     ) external;
 
     /**
@@ -57,7 +58,7 @@ interface IBething is IERC165 {
     function getSlotPosition(
         bytes32 raceId,
         uint256 slotId
-    ) external returns (uint256);
+    ) external returns (uint8);
 
     /**
      * @dev Update race address

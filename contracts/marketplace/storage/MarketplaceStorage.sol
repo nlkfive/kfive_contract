@@ -91,13 +91,13 @@ contract MarketplaceStorage is
         return auctions[auctionId].id != bytes32(0);
     }
 
-    function auctionIsEnded(bytes32 auctionId)
+    function auctionIsEnded(bytes32 nftAsset, bytes32 auctionId)
     external
         view
         override
         returns (bool)
     {
-        return runningActionIds[auctionId] == bytes32(0);
+        return runningActionIds[nftAsset] != auctionId;
     }
 
     function auctionIsRunning(bytes32 nftAsset, bytes32 auctionId)

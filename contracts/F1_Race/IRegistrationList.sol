@@ -33,7 +33,7 @@ interface IRegistrationList is IERC165 {
     /**
      * @dev Receive reward after race ended.
      */
-    function receiveReward(bytes32 raceId) external;
+    function receiveReward(bytes32 raceId, uint256 slotId) external;
 
     event Registered(
         uint256 slotId,

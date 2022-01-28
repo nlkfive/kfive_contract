@@ -186,6 +186,7 @@ contract AuctionMarketplace is IAuction, Marketplace {
      * @param _secret - Array of secret values used for verify the encoded bid values in bidding stage
      */
     function revealBid(
+        bytes32 nftAsset,
         bytes32 auctionId,
         uint256[] memory _values,
         bool[] memory _fake,
@@ -197,7 +198,7 @@ contract AuctionMarketplace is IAuction, Marketplace {
         uint256 length = _values.length;
         require(_fake.length == length);
         require(_secret.length == length);
-        bool isEnded = marketplaceStorage.auctionIsEnded(auctionId);
+        bool isEnded = marketplaceStorage.auctionIsEnded(nftAsset, auctionId);
 
         uint256 refund;
         for (uint256 i = 0; i < length; i++) {
@@ -205,7 +206,7 @@ contract AuctionMarketplace is IAuction, Marketplace {
                 _verifyRevealBid(
                     _fake[i] || isEnded, 
                     sender,
-                    _secret[i],
+                    _blindedBid(_values[i], _fake[i], _secret[i]),
                     _values[i],
                     auctionId
                 )
@@ -215,6 +216,10 @@ contract AuctionMarketplace is IAuction, Marketplace {
             acceptedToken.transfer(sender, refund);
             emit AuctionRefund(sender, auctionId, refund);
         }
+    }
+
+    function _blindedBid(uint256 value, bool fake, bytes32 secret) internal pure returns (bytes32) {
+        return keccak256(abi.encodePacked(value, fake, secret));
     }
 
     /**
@@ -290,11 +295,10 @@ contract AuctionMarketplace is IAuction, Marketplace {
     function _verifyRevealBid(
         bool fake,
         address sender,
-        bytes32 secret,
+        bytes32 blindedBid,
         uint256 value,
         bytes32 auctionId
     ) internal returns (uint256 refund) {
-        bytes32 blindedBid = keccak256(abi.encodePacked(value, fake, secret));
         uint256 deposit = _bids[auctionId][sender][blindedBid];
         if (deposit == 0) {
             // Incorrect bid parameter

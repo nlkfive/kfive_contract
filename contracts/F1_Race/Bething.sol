@@ -208,10 +208,10 @@ contract Bething is
         public 
         override
         view
-        returns (uint256) 
+        returns (uint8) 
     {
         Race memory _race = _raceList.getRace(raceId);
-        return uint256(_race.result[slotId]);
+        return uint8(_race.result[slotId]);
     }
 
     /**
@@ -258,15 +258,15 @@ contract Bething is
         returns (uint256 totalTop3BetReward)
     {
         for (uint256 slotId = 0; slotId < slots; slotId++) {
-            if (result[slotId] == 1){
+            if (result[slotId] == bytes1(uint8(1))){
                 totalTop3BetReward.add(
                     totalSlotBets[raceId][slotId].mul(rewardRate).mul(rewardRate)
                 );
-            } else if (result[slotId] == 2) {
+            } else if (result[slotId] == bytes1(uint8(2))) {
                 totalTop3BetReward.add(
                     totalSlotBets[raceId][slotId].mul(rewardRate)
                 );
-            } else if (result[slotId] == 3){
+            } else if (result[slotId] == bytes1(uint8(3))){
                 totalTop3BetReward.add(
                     totalSlotBets[raceId][slotId]
                 );
