@@ -78,9 +78,9 @@ contract Bething is
             _acceptedToken.transferFrom(_msgSender(), address(this), betValue),
             "Bet failed"
         );
-        bettors[raceId][slotId][_msgSender()].add(betValue);
-        totalSlotBets[raceId][slotId].add(betValue);
-        totalBets[raceId].add(betValue);
+        bettors[raceId][slotId][_msgSender()] = bettors[raceId][slotId][_msgSender()].add(betValue);
+        totalSlotBets[raceId][slotId] = totalSlotBets[raceId][slotId].add(betValue);
+        totalBets[raceId] = totalBets[raceId].add(betValue);
         emit BetSuccessful(slotId, raceId, betValue);
     }
 
@@ -104,7 +104,7 @@ contract Bething is
             _acceptedToken.transferFrom(_msgSender(), address(this), fundValue),
             "Fund failed"
         );
-        totalBets[raceId].add(fundValue);
+        totalBets[raceId] = totalBets[raceId].add(fundValue);
         emit FundSuccessful(raceId, fundValue);
     }
 
@@ -259,15 +259,15 @@ contract Bething is
     {
         for (uint256 slotId = 0; slotId < slots; slotId++) {
             if (result[slotId] == bytes1(uint8(1))){
-                totalTop3BetReward.add(
+                totalTop3BetReward = totalTop3BetReward.add(
                     totalSlotBets[raceId][slotId].mul(rewardRate).mul(rewardRate)
                 );
             } else if (result[slotId] == bytes1(uint8(2))) {
-                totalTop3BetReward.add(
+                totalTop3BetReward = totalTop3BetReward.add(
                     totalSlotBets[raceId][slotId].mul(rewardRate)
                 );
             } else if (result[slotId] == bytes1(uint8(3))){
-                totalTop3BetReward.add(
+                totalTop3BetReward = totalTop3BetReward.add(
                     totalSlotBets[raceId][slotId]
                 );
             }
