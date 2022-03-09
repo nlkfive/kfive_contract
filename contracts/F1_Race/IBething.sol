@@ -46,6 +46,15 @@ interface IBething is IERC165 {
     ) external returns (uint256);
 
     /**
+     * @dev Get your user slot bet
+     */
+    function userSlotBet(
+        bytes32 raceId,
+        uint256 slotId,
+        address user
+    ) external returns (uint256);
+
+    /**
      * @dev Get total race bet
      */
     function totalRaceBet(
