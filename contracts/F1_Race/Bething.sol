@@ -78,9 +78,9 @@ contract Bething is
             _acceptedToken.transferFrom(_msgSender(), address(this), betValue),
             "Bet failed"
         );
-        bettors[raceId][slotId][_msgSender()].add(betValue);
-        totalSlotBets[raceId][slotId].add(betValue);
-        totalBets[raceId].add(betValue);
+        bettors[raceId][slotId][_msgSender()] = bettors[raceId][slotId][_msgSender()].add(betValue);
+        totalSlotBets[raceId][slotId] = totalSlotBets[raceId][slotId].add(betValue);
+        totalBets[raceId] = totalBets[raceId].add(betValue);
         emit BetSuccessful(slotId, raceId, betValue);
     }
 
@@ -104,7 +104,7 @@ contract Bething is
             _acceptedToken.transferFrom(_msgSender(), address(this), fundValue),
             "Fund failed"
         );
-        totalBets[raceId].add(fundValue);
+        totalBets[raceId] = totalBets[raceId].add(fundValue);
         emit FundSuccessful(raceId, fundValue);
     }
 
@@ -181,7 +181,23 @@ contract Bething is
         view
         returns (uint256) 
     {
-        return bettors[raceId][slotId][_msgSender()];
+        return totalSlotBets[raceId][slotId];
+    }
+
+    /**
+     * @dev Get your user slot bet
+     */
+    function userSlotBet(
+        bytes32 raceId,
+        uint256 slotId,
+        address user
+    ) 
+        public 
+        override
+        view
+        returns (uint256) 
+    {
+        return bettors[raceId][slotId][user];
     }
 
     /**
@@ -243,6 +259,7 @@ contract Bething is
     // = totalRaceBet * (1000 - commission)/1000
     function _calculateCommission(bytes32 raceId, uint256 commission) 
         private 
+        view
         returns (uint256)
     {
         return totalRaceBet(raceId).mul(1000 - commission).div(1000);
@@ -255,19 +272,20 @@ contract Bething is
         uint256 rewardRate
     ) 
         private
+        view
         returns (uint256 totalTop3BetReward)
     {
         for (uint256 slotId = 0; slotId < slots; slotId++) {
             if (result[slotId] == bytes1(uint8(1))){
-                totalTop3BetReward.add(
+                totalTop3BetReward = totalTop3BetReward.add(
                     totalSlotBets[raceId][slotId].mul(rewardRate).mul(rewardRate)
                 );
             } else if (result[slotId] == bytes1(uint8(2))) {
-                totalTop3BetReward.add(
+                totalTop3BetReward = totalTop3BetReward.add(
                     totalSlotBets[raceId][slotId].mul(rewardRate)
                 );
             } else if (result[slotId] == bytes1(uint8(3))){
-                totalTop3BetReward.add(
+                totalTop3BetReward = totalTop3BetReward.add(
                     totalSlotBets[raceId][slotId]
                 );
             }
@@ -285,6 +303,7 @@ contract Bething is
         uint256 totalTop3BetReward
     ) 
         private 
+        view
         returns (uint256 reward)
     {
         // if the race isn't ended or you are out of top 3
