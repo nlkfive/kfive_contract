@@ -26,8 +26,8 @@ contract Bething is
         address acceptedToken,
         address raceList
     ) {
-        require(acceptedToken.isContract(), "Invalid token");
-        require(raceList.isContract(), "Invalid RaceList");
+        if(!acceptedToken.isContract()) revert InvalidContract();
+        if(!raceList.isContract()) revert InvalidContract();
         _raceList = IRaceList(raceList);
         _acceptedToken = IBEP20(acceptedToken);
     }
@@ -69,15 +69,13 @@ contract Bething is
         whenNotPaused
     {
         Race memory _race = _raceList.getRace(raceId);
-        require(_race.betStarted != 0, "Not existed");
-        require(slotId < _race.slots, "Invalid slot id");
+        if (_race.betStarted == 0) revert RaceNotExisted();
+        if (slotId >= _race.slots) revert InvalidSlot();
         onlyAfter(_race.betStarted);
         onlyBefore(_race.betEnded);
 
-        require(
-            _acceptedToken.transferFrom(_msgSender(), address(this), betValue),
-            "Bet failed"
-        );
+        if (!_acceptedToken.transferFrom(_msgSender(), address(this), betValue)) revert BetFailed();
+
         bettors[raceId][slotId][_msgSender()] = bettors[raceId][slotId][_msgSender()].add(betValue);
         totalSlotBets[raceId][slotId] = totalSlotBets[raceId][slotId].add(betValue);
         totalBets[raceId] = totalBets[raceId].add(betValue);
@@ -96,14 +94,11 @@ contract Bething is
         whenNotPaused
     {
         Race memory _race = _raceList.getRace(raceId);
-        require(_race.betStarted != 0, "Not existed");
+        if (_race.betStarted == 0) revert RaceNotExisted();
         onlyAfter(_race.betStarted);
         onlyBefore(_race.betEnded);
 
-        require(
-            _acceptedToken.transferFrom(_msgSender(), address(this), fundValue),
-            "Fund failed"
-        );
+        if (! _acceptedToken.transferFrom(_msgSender(), address(this), fundValue)) revert FundFailed();
         totalBets[raceId] = totalBets[raceId].add(fundValue);
         emit FundSuccessful(raceId, fundValue);
     }
@@ -128,7 +123,7 @@ contract Bething is
         whenNotPaused
     {
         Race memory _race = _raceList.getRace(raceId);
-        require(_race.betStarted != 0, "Not existed");
+        if (_race.betStarted == 0) revert RaceNotExisted();
         onlyAfter(_race.betEnded);
 
         uint256 totalTop3BetReward = _totalTop3BetReward(
@@ -159,9 +154,9 @@ contract Bething is
         external 
         override
     {
-        require(!commissionReceived[raceId], "Already received");
+        if (commissionReceived[raceId]) revert AlreadyReceived();
         Race memory _race = _raceList.getRace(raceId);
-        require(_race.betStarted != 0, "Not existed");
+        if (_race.betStarted == 0) revert RaceNotExisted();
         onlyAfter(_race.betEnded);
         uint256 commission = _calculateCommission(raceId, _race.commission);
         commissionReceived[raceId] = true;
@@ -327,5 +322,16 @@ contract Bething is
 
     function onlyAfter(uint256 _time) internal view {
         if (block.timestamp <= _time) revert TooEarly(_time);
+    }
+
+    /**
+     * @dev Destroy Smart Contracts using selfdestruct
+     * @param _to all remaining funds on the address of the Smart Contract are transferred to this address
+     */
+    function destroySmartContract(address payable _to) public onlyOwner {
+        uint256 tokenBalance = _acceptedToken.balanceOf(address(this));
+        _acceptedToken.transfer(_to, tokenBalance);
+
+        selfdestruct(_to);
     }
 }

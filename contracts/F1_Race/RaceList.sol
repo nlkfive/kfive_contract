@@ -47,7 +47,7 @@ contract RaceList is
     // oracle: 0x77a5310E41F0B9FE35E95239Fa5624390fadFbBA
     // fee: 0.04 * 10 ** 18 LINK -> 40000000000000000
     constructor(address chainlink, address _oracle, bytes32 _jobId, uint256 _fee) {
-        require(chainlink.isContract(), "Invalid Chainlink");
+        if(!chainlink.isContract()) revert InvalidContract();
         setChainlinkToken(chainlink);
         oracle = _oracle;
         jobId = _jobId;
@@ -87,16 +87,18 @@ contract RaceList is
         whenNotPaused
         onlyRole(ADMIN_ROLE) 
     {
-        require(slots < 32, "Invalid slots");
-        require(block.timestamp < betStarted, "Invalid time");
-        require(betStarted < betEnded, "Invalid time");
+        if(slots >= 32) revert InvalidSlot();
+        if (block.timestamp >= betStarted) revert TooLate(betStarted);
+        if (betStarted >= betEnded) revert TooLate(betEnded);
         // These two value will be divide to 1000
         // Commission will be share to the bething holder
         // Its value (percentage) must be lower than 1
-        require(commission < 1000, "Invalid commission");
+        if (commission >= 1000) revert InvalidCommission();
+        
         // Reward rate will be multiply to the base reward for 1st and 2nd bettors
         // Its value (percentage) must be bigger than 1
-        require(rewardRate >= 1000, "Invalid rewardRate");
+        if (rewardRate < 1000) revert InvalidRewardRate();
+
         bytes32 raceId = keccak256(
             abi.encodePacked(
                 slots,
@@ -145,7 +147,7 @@ contract RaceList is
         override
         onlyRole(ADMIN_ROLE)
     {
-        require(races[id].betStarted != 0, "Not existed");
+        if (races[id].betStarted == 0) revert RaceNotExisted();
         onlyBefore(races[id].betStarted);
         delete races[id];
         emit RaceCancelled(id);
@@ -176,7 +178,7 @@ contract RaceList is
     function fulfill(bytes32 _requestId, bytes32 _data) public recordChainlinkFulfillment(_requestId) {
         bytes32 raceId = apiRequestMap[_requestId];
         Race storage race = races[raceId];
-        require(race.betStarted != 0, "Not existed");
+        if (race.betStarted == 0) revert RaceNotExisted();
         race.result = _data;
         emit RaceResultUpdated(raceId, _data);
     }
@@ -195,6 +197,10 @@ contract RaceList is
     {
         Race storage race = races[id];
         onlyBefore(race.betEnded);
+        // These two value will be divide to 1000
+        // Commission will be share to the bething holder
+        // Its value (percentage) must be lower than 1
+        if (commission >= 1000) revert InvalidCommission();
         race.commission = commission;
         emit RaceCommissionUpdated(id, commission);
     }
@@ -213,6 +219,10 @@ contract RaceList is
     {
         Race storage race = races[id];
         onlyBefore(race.betEnded);
+        // Reward rate will be multiply to the base reward for 1st and 2nd bettors
+        // Its value (percentage) must be bigger than 1
+        if (rewardRate < 1000) revert InvalidRewardRate();
+
         race.rewardRate = rewardRate;
         emit RaceRewardRateUpdated(id, rewardRate);
     }

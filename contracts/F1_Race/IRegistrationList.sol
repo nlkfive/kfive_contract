@@ -57,4 +57,12 @@ interface IRegistrationList is IERC165 {
 
     error TooEarly(uint256 time);
     error TooLate(uint256 time);
+    error NotNLGGTHolder();
+    error RaceNotExisted();
+    error InvalidSlot();
+    error MaximumReached();
+    error InvalidContract();
+    error NotEnoughLink();
+    error AlreadySelected();
+    error AlreadyRegistered();
 }

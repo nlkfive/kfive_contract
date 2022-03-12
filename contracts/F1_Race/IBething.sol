@@ -90,4 +90,10 @@ interface IBething is IERC165 {
 
     error TooEarly(uint256 time);
     error TooLate(uint256 time);
+    error InvalidContract();
+    error RaceNotExisted();
+    error InvalidSlot();
+    error BetFailed();
+    error FundFailed();
+    error AlreadyReceived();
 }

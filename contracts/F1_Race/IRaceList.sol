@@ -77,4 +77,9 @@ interface IRaceList is IRace, IERC165 {
 
     error TooLate(uint256 time);
     error TooEarly(uint256 time);
+    error InvalidContract();
+    error InvalidSlot();
+    error InvalidCommission();
+    error InvalidRewardRate();
+    error RaceNotExisted();
 }

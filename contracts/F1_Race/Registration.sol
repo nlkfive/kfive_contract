@@ -40,8 +40,8 @@ contract RegistrationList is
         bytes32 keyHash, 
         uint256 fee
     ) VRFConsumerBase(vrfCoordinator, link) {
-        require(nlggt.isContract(), "Invalid NLGGT");
-        require(raceList.isContract(), "Invalid RaceList");
+        if(!nlggt.isContract()) revert InvalidContract();
+        if(!raceList.isContract()) revert InvalidContract();
         _raceList = IRaceList(raceList);
         _nlggt = IERC721Enumerable(nlggt);
         s_keyHash = keyHash;
@@ -68,6 +68,9 @@ contract RegistrationList is
     ////////////////////////////////////////////////////////////
     // From raceId => (slotId => (index => participant address))
     mapping(bytes32 => mapping(uint256 => mapping(uint8 => address))) private registrationList;
+    // Track user only register one slot each race
+    // From raceId => (slotId => (participant address => index))
+    mapping(bytes32 => mapping(address => bool)) private registeredSlot;
     // Random number (32 bytes = 32 slots) - Using for select selected participants
     // byte index 1 => slot 1 (L2R)
     // byte index 2 => slot 2
@@ -98,16 +101,19 @@ contract RegistrationList is
         override
         whenNotPaused
     {
-        require(_nlggt.balanceOf(_msgSender()) > 0, "Not NLGGT holder");
+        if(_nlggt.balanceOf(_msgSender()) == 0) revert NotNLGGTHolder();
         Race memory _race = _raceList.getRace(raceId);
-        require(_race.betStarted != 0, "Not existed");
-        require(slotId < _race.slots, "Invalid slot");
+        if(_race.betStarted == 0) revert RaceNotExisted();
+        if(slotId >= _race.slots) revert InvalidSlot();
+        if(registeredSlot[raceId][_msgSender()]) revert AlreadyRegistered();
+
         onlyAfter(_race.betStarted);
         onlyBefore(_race.betEnded);
         uint8 totalRegisteredAtSlot = uint8(totalRegistered[raceId][slotId]);
-        require(totalRegisteredAtSlot < 255, "Maximum reached");
+        if (totalRegisteredAtSlot >= 255) revert MaximumReached();
 
         registrationList[raceId][slotId][totalRegisteredAtSlot + 1] = _msgSender();
+        registeredSlot[raceId][_msgSender()] = true;
         totalRegistered[raceId] = increaseAtIndex(totalRegistered[raceId], slotId);
         emit Registered(slotId, _msgSender(), raceId);
     }
@@ -122,12 +128,12 @@ contract RegistrationList is
         onlyRole(ADMIN_ROLE) returns (bytes32 requestId)
     {
         // checking LINK balance
-        require(LINK.balanceOf(address(this)) >= s_fee, "Not enough LINK to pay fee");
+        if (LINK.balanceOf(address(this)) < s_fee) revert NotEnoughLink();
         // checking participant at slot is already selected
-        require(randomSelected[raceId] == 0, "Already selected");
+        if(randomSelected[raceId] != 0) revert AlreadySelected();
         // check if race is existed
         Race memory _race = _raceList.getRace(raceId);
-        require(_race.betStarted != 0, "Not existed");
+        if(_race.betStarted == 0) revert RaceNotExisted();
         onlyAfter(_race.betEnded);
         // requesting randomness
         requestId = requestRandomness(s_keyHash, s_fee);
@@ -155,8 +161,8 @@ contract RegistrationList is
         override
         whenNotPaused
     {
-        require(totalRegistered[raceId][slotId] != bytes1(0), "Invalid slot");
-        require(randomSelected[raceId] != bytes32(0), "Invalid race");
+        if(totalRegistered[raceId][slotId] == bytes1(0)) revert InvalidSlot();
+        if(randomSelected[raceId] == bytes1(0)) revert RaceNotExisted();
         // address slotWinner = registrationList[raceId][slotId][index][uint8(randomSelected[raceId][slotId])];
         // require(slotWinner != _msgSender(), "Invalid winner");
         // TODO: get reward
