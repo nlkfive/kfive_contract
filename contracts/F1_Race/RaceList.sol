@@ -169,7 +169,7 @@ contract RaceList is
 
         Chainlink.Request memory request = buildChainlinkRequest(jobId, address(this), this.fulfill.selector);
         // TODO: add api get race result
-        request.add("get", "https://staging.kfive.ru/race/result/get");
+        request.add("get", "https://staging.kfive.ru/race/result");
         request.addBytes("raceResult", abi.encodePacked(id));
         bytes32 requestId = sendChainlinkRequestTo(oracle, request, fee);
         apiRequestMap[requestId] = id;
