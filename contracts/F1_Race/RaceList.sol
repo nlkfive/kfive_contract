@@ -4,16 +4,13 @@ pragma solidity 0.8.4;
 import "./IRaceList.sol";
 import "../common/AccessControl.sol";
 import "@openzeppelin/contracts/utils/introspection/ERC165.sol";
-import "@chainlink/contracts/src/v0.8/ChainlinkClient.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
 
 contract RaceList is
     KfiveAccessControl,
-    IRaceList,
-    ChainlinkClient
+    IRaceList
 {
     using Address for address;
-    using Chainlink for Chainlink.Request;
     
     /**
      * @dev See {IERC165-supportsInterface}.
@@ -35,24 +32,6 @@ contract RaceList is
     ////////////////////////////////////////////////////////////
     // From running raceId to race
     mapping(bytes32 => Race) private races;
-    // From api request id to running raceId
-    mapping(bytes32 => bytes32) public apiRequestMap;
-
-    address private oracle;
-    bytes32 private jobId;
-    uint256 private fee;
-
-    // https://market.link/jobs/5f9f57b4-afcb-4f3c-957d-63a7bb91469d
-    // jobId: ce039030ac69497cbb9615b9b1d7b363 -> 0x2063653033393033306163363934393763626239363135623962316437623336
-    // oracle: 0x77a5310E41F0B9FE35E95239Fa5624390fadFbBA
-    // fee: 0.04 * 10 ** 18 LINK -> 40000000000000000
-    constructor(address chainlink, address _oracle, bytes32 _jobId, uint256 _fee) {
-        if(!chainlink.isContract()) revert InvalidContract();
-        setChainlinkToken(chainlink);
-        oracle = _oracle;
-        jobId = _jobId;
-        fee = _fee;
-    }
 
     function raceIsExisted(bytes32 raceId)
         external
@@ -157,7 +136,8 @@ contract RaceList is
      * @dev Update race result.
      */
     function updateResult(
-        bytes32 id
+        bytes32 id,
+        bytes32 result
     ) 
         external 
         override 
@@ -165,22 +145,11 @@ contract RaceList is
         onlyRole(ADMIN_ROLE) 
     {
         Race storage race = races[id];
+        if (race.betStarted == 0) revert RaceNotExisted();
         onlyAfter(race.betEnded);
 
-        Chainlink.Request memory request = buildChainlinkRequest(jobId, address(this), this.fulfill.selector);
-        // TODO: add api get race result
-        request.add("get", "https://staging.kfive.ru/race/result");
-        request.addBytes("raceResult", abi.encodePacked(id));
-        bytes32 requestId = sendChainlinkRequestTo(oracle, request, fee);
-        apiRequestMap[requestId] = id;
-    }
-
-    function fulfill(bytes32 _requestId, bytes32 _data) public recordChainlinkFulfillment(_requestId) {
-        bytes32 raceId = apiRequestMap[_requestId];
-        Race storage race = races[raceId];
-        if (race.betStarted == 0) revert RaceNotExisted();
-        race.result = _data;
-        emit RaceResultUpdated(raceId, _data);
+        race.result = result;
+        emit RaceResultUpdated(id, result);
     }
 
     /**

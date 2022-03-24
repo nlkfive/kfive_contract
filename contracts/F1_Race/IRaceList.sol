@@ -33,7 +33,8 @@ interface IRaceList is IRace, IERC165 {
      * @dev Update race result.
      */
     function updateResult(
-        bytes32 id
+        bytes32 id,
+        bytes32 result
     ) external;
 
     /**
@@ -77,7 +78,6 @@ interface IRaceList is IRace, IERC165 {
 
     error TooLate(uint256 time);
     error TooEarly(uint256 time);
-    error InvalidContract();
     error InvalidSlot();
     error InvalidCommission();
     error InvalidRewardRate();

@@ -13,10 +13,16 @@ interface IRegistrationList is IERC165 {
     ) external;
 
     /**
+     * @dev Add reward.
+     */
+    function addReward(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex) 
+        external;
+
+    /**
      * @dev Select random participant for race into slot from registered list for each slot
      */
     function selectParticipant(bytes32 raceId)
-        external returns (bytes32 requestId);
+        external returns (uint256 requestId);
 
     /**
      * @dev Update race address
@@ -45,15 +51,16 @@ interface IRegistrationList is IERC165 {
         bytes32 raceId
     );
     event ParticipantsSelected(
-        bytes32 requestId,
+        uint256 requestId,
         bytes32 raceId,
-        uint256 randomness,
+        bytes32 randomness,
         bytes32 selected
     );
 
     event RaceListUpdated(address race);
     event NlggtUpdated(address nlggt);
-    
+    event RewardAdded(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex);
+    event RewardReceived(bytes32 raceId, uint256 slotId, uint256 nftRewardId);
 
     error TooEarly(uint256 time);
     error TooLate(uint256 time);
@@ -62,7 +69,9 @@ interface IRegistrationList is IERC165 {
     error InvalidSlot();
     error MaximumReached();
     error InvalidContract();
-    error NotEnoughLink();
     error AlreadySelected();
     error AlreadyRegistered();
+    error InvalidSender();
+    error RewardNotExistedOrReceived();
+    error RewardIsExisted();
 }

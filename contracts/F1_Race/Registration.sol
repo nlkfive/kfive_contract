@@ -6,46 +6,78 @@ import "../common/AccessControl.sol";
 import "@openzeppelin/contracts/utils/introspection/ERC165.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol";
-import "@chainlink/contracts/src/v0.8/VRFConsumerBase.sol";
+import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 import "./IRaceList.sol";
 import "./IRace.sol";
 
+import "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol";
+import "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol";
+
 contract RegistrationList is
-    VRFConsumerBase,
+    VRFConsumerBaseV2,
     IRace,
     KfiveAccessControl,
-    IRegistrationList
+    IRegistrationList,
+    IERC721Receiver
 {
     using Address for address;
     IRaceList private _raceList;
     IERC721Enumerable private _nlggt;
+    IERC721Enumerable private _raceReward;
+    VRFCoordinatorV2Interface private _vrfCoordinator;
+
     // The contract will contain multiple objects. 
     // Each oracle job has a unique key hash that identifies the tasks that it should perform. 
     // The contract will store the Key Hash that identifies Chainlink VRF and the fee amount to use in the request.
     bytes32 private s_keyHash;
-    uint256 private s_fee;
+    uint64 private s_subscriptionId;
+
+    // The default is 3, but you can set this higher.
+    uint16 private constant requestConfirmations = 3;
+
+    // Depends on the number of requested values that you want sent to the
+    // fulfillRandomWords() function. Storing each word costs about 20,000 gas,
+    // so 100,000 is a safe default for this example contract. Test and adjust
+    // this limit based on the network that you select, the size of the request,
+    // and the processing of the callback request in the fulfillRandomWords()
+    // function.
+    uint32 private constant callbackGasLimit = 100000;
+
+    // For this example, retrieve 2 random values in one request.
+    // Cannot exceed VRFCoordinatorV2.MAX_NUM_WORDS.
+    uint32 private constant numWords =  1;
 
     bytes32 private constant RANDOM_IN_PROGRESS = 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff;
 
-    // Binance Smart Chain Mainnet - https://docs.chain.link/docs/vrf-contracts/#binance-smart-chain-mainnet
-    // LINK Token	0x404460C6A5EdE2D891e8297795264fDe62ADBB75
-    // VRF Coordinator	0x747973a5A2a4Ae1D3a8fDF5479f1514F65Db9C31
-    // Key Hash	0xc251acd21ec4fb7f31bb8868288bfdbaeb4fbfec2df3735ddbd4f7dc8d60103c
-    // Fee	0.2 LINK - initial fees on BSC are meant to cover the highest gas cost prices.
+
+    // https://docs.chain.link/docs/vrf-contracts/
+    // https://vrf.chain.link/?_ga=2.219199065.197734000.1648027927-202136979.1647858568
+
+    // Binance Smart Chain Testnet
+    // VRF Coordinator	0x6A2AAd07396B36Fe02a22b33cf443582f682c82f
+    // Key Hash	0xd4bb89654db74673a187bd804519e65e3f71a52bc55f11da7601a13dcf505314
+
+    // Binance Smart Chain Mainnet
+    // VRF Coordinator	0xc587d9053cd1118f25F645F9E08BB98c9712A4EE
+    // Key Hash	0x114f3da0a805b6a67d6e9cd2ec746f7028f1b7376365af575cfea3550dd1aa04
+    
     constructor(
         address vrfCoordinator,
-        address link,
         address nlggt,
+        address raceReward,
         address raceList,
-        bytes32 keyHash, 
-        uint256 fee
-    ) VRFConsumerBase(vrfCoordinator, link) {
+        uint64 subscriptionId,
+        bytes32 keyHash
+    ) VRFConsumerBaseV2(vrfCoordinator) {
         if(!nlggt.isContract()) revert InvalidContract();
         if(!raceList.isContract()) revert InvalidContract();
+        if(!raceReward.isContract()) revert InvalidContract();
         _raceList = IRaceList(raceList);
         _nlggt = IERC721Enumerable(nlggt);
+        _raceReward = IERC721Enumerable(raceReward);
+        _vrfCoordinator = VRFCoordinatorV2Interface(vrfCoordinator);
         s_keyHash = keyHash;
-        s_fee = fee;
+        s_subscriptionId = subscriptionId;
     }
 
     /**
@@ -87,7 +119,9 @@ contract RegistrationList is
     // From raceId => total registered bytes array
     mapping(bytes32 => bytes32) private totalRegistered;
     // From vrf request id to running raceId
-    mapping(bytes32 => bytes32) private vrfRandomMap;
+    mapping(uint256 => bytes32) private vrfRandomMap;
+    // From raceId => (race result index => NFT reward ID)
+    mapping(bytes32 => mapping(bytes1 => uint256)) private raceRewards;
 
     /**
      * @dev Register to be a participant
@@ -112,9 +146,9 @@ contract RegistrationList is
         uint8 totalRegisteredAtSlot = uint8(totalRegistered[raceId][slotId]);
         if (totalRegisteredAtSlot >= 255) revert MaximumReached();
 
-        registrationList[raceId][slotId][totalRegisteredAtSlot + 1] = _msgSender();
         registeredSlot[raceId][_msgSender()] = true;
         totalRegistered[raceId] = increaseAtIndex(totalRegistered[raceId], slotId);
+        registrationList[raceId][slotId][totalRegisteredAtSlot] = _msgSender();
         emit Registered(slotId, _msgSender(), raceId);
     }
 
@@ -125,32 +159,65 @@ contract RegistrationList is
         external 
         override
         whenNotPaused
-        onlyRole(ADMIN_ROLE) returns (bytes32 requestId)
+        onlyRole(ADMIN_ROLE) returns (uint256 requestId)
     {
-        // checking LINK balance
-        if (LINK.balanceOf(address(this)) < s_fee) revert NotEnoughLink();
         // checking participant at slot is already selected
         if(randomSelected[raceId] != 0) revert AlreadySelected();
         // check if race is existed
         Race memory _race = _raceList.getRace(raceId);
         if(_race.betStarted == 0) revert RaceNotExisted();
         onlyAfter(_race.betEnded);
-        // requesting randomness
-        requestId = requestRandomness(s_keyHash, s_fee);
-        // storing requestId and raceId
-        vrfRandomMap[requestId] = raceId;
+
+        // storing raceId
         randomSelected[raceId] = RANDOM_IN_PROGRESS;
+        // requesting randomness
+        requestId = _vrfCoordinator.requestRandomWords(
+            s_keyHash,
+            s_subscriptionId,
+            requestConfirmations,
+            callbackGasLimit,
+            numWords
+        );
+        // storing requestId
+        vrfRandomMap[requestId] = raceId;
 
         emit RandomInProgress(raceId);
     }
 
-    function fulfillRandomness(bytes32 requestId, uint256 randomness) internal override 
+    function fulfillRandomWords(uint256 requestId, uint256[] memory randomWords) internal override 
     {
         bytes32 raceId = vrfRandomMap[requestId];
-        randomSelected[raceId] = modBytes(totalRegistered[raceId], bytes32(randomness));
+        bytes32 randomness = bytes32(randomWords[0]);
+        // checking participant at slot is already selected
+        if(randomSelected[raceId] != 0 && randomSelected[raceId] != RANDOM_IN_PROGRESS) revert AlreadySelected();
         // Mark this race has selected participants
+        randomSelected[raceId] = modBytes(totalRegistered[raceId], randomness);
         randomSelected[raceId] |= bytes32(uint256(0xff));
         emit ParticipantsSelected(requestId, raceId, randomness, randomSelected[raceId]);
+    }
+
+    /**
+     * @dev Add reward.
+     */
+    function addReward(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex) 
+        external 
+        override
+        whenNotPaused
+        onlyRole(ADMIN_ROLE)
+    {
+        Race memory _race = _raceList.getRace(raceId);
+        if (_race.betStarted == 0) revert RaceNotExisted();
+
+        if (raceRewards[raceId][resultIndex] != 0){
+            revert RewardIsExisted();
+        }
+        _raceReward.safeTransferFrom(
+            _msgSender(),
+            address(this),
+            nftRewardId
+        );
+        raceRewards[raceId][resultIndex] = nftRewardId;
+        emit RewardAdded(raceId, nftRewardId, resultIndex);
     }
 
     /**
@@ -161,11 +228,26 @@ contract RegistrationList is
         override
         whenNotPaused
     {
-        if(totalRegistered[raceId][slotId] == bytes1(0)) revert InvalidSlot();
-        if(randomSelected[raceId] == bytes1(0)) revert RaceNotExisted();
-        // address slotWinner = registrationList[raceId][slotId][index][uint8(randomSelected[raceId][slotId])];
-        // require(slotWinner != _msgSender(), "Invalid winner");
-        // TODO: get reward
+        address slotWinner = selectedParticipant(raceId, slotId);
+        if(slotWinner != _msgSender()) {
+            revert InvalidSender();
+        }
+
+        Race memory _race = _raceList.getRace(raceId);
+        if (_race.betStarted == 0) revert RaceNotExisted();
+        onlyAfter(_race.betEnded);
+
+        uint256 nftRewardId = raceRewards[raceId][_race.result[slotId]];
+        if (nftRewardId == 0){
+            revert RewardNotExistedOrReceived();
+        }
+        raceRewards[raceId][_race.result[slotId]] = 0;
+        _raceReward.safeTransferFrom(
+            address(this),
+            slotWinner,
+            nftRewardId
+        );
+        emit RewardReceived(raceId, slotId, nftRewardId);
     }
 
     /**
@@ -207,28 +289,65 @@ contract RegistrationList is
         return bytes32(uint256(input) + (1 << ((31 - index) * 8)));
     }
 
-    // Random select index from participant bytes array
+    // Random select index from participant bytes array - Gas = 35000
     function modBytes(bytes32 _totalRegistered, bytes32 random) internal pure returns (bytes32 result) {
         for (uint256 slotId = 0; slotId < 32; slotId++) {
-            if (uint8(_totalRegistered[slotId]) > 0){
-                result |= bytes32(uint256(uint8(random[slotId]) % uint8(_totalRegistered[slotId]))) << (8 * (32 - slotId));
+            if (_totalRegistered[slotId] != bytes1(0)){
+            result |= bytes32(
+                uint256(
+                    uint8(random[slotId]) % uint8(_totalRegistered[slotId])
+                )
+            ) << (8 * (31 - slotId));
             }
         }
     }
 
+    // Gas: 33619
     function selectedParticipants(bytes32 raceId) 
+        external 
+        view
+        returns (bytes32 result)
+    {
+        if (randomSelected[raceId] == bytes32(0) || randomSelected[raceId] == RANDOM_IN_PROGRESS){
+            result = bytes32(0);
+        } else {
+            for (uint256 slotId = 0; slotId < 32; slotId++) {
+                if (totalRegistered[raceId][slotId] == bytes1(0)){
+                continue;
+                }
+                result |= bytes32(
+                (uint256(uint8(randomSelected[raceId][slotId])) + 1) 
+                << (8 * (31 - slotId))
+                );
+            }
+        }
+    }
+
+    function selectedParticipant(bytes32 raceId, uint256 slotId) 
+        public 
+        view
+        returns (address)
+    {
+        return registrationList[raceId][slotId][uint8(randomSelected[raceId][slotId])];
+    }
+
+    function totalRegister(bytes32 raceId) 
         external 
         view
         returns (bytes32)
     {
-        return randomSelected[raceId];
+        return totalRegistered[raceId];
     }
 
-    function selectedParticipant(bytes32 raceId, uint256 slotId) 
-        external 
-        view
-        returns (bytes1)
-    {
-        return randomSelected[raceId][slotId];
+    function onERC721Received(
+        address,
+        address,
+        uint256,
+        bytes calldata
+    ) external pure override returns (bytes4) {
+        return
+            bytes4(
+                keccak256("onERC721Received(address,address,uint256,bytes)")
+            );
     }
 }
