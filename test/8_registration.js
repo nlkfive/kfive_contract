@@ -1,9 +1,9 @@
 const RaceList = artifacts.require("RaceList")
-const ChainLink = artifacts.require("Chainlink")
 const Registration = artifacts.require("RegistrationList")
+const RaceReward = artifacts.require("RaceReward")
 const NLGGT = artifacts.require("NLGGT")
-const STORAGE = artifacts.require("MarketplaceStorage")
 const LINK = artifacts.require("BEP20")
+const STORAGE = artifacts.require("MarketplaceStorage")
 
 const eq = assert.equal
 const u = require('./utils.js')
@@ -11,10 +11,9 @@ const u = require('./utils.js')
 const { soliditySha3 } = require("web3-utils");
 const keccak256 = require('js-sha3').keccak256;
 const tokenDecimals = 10;
-const secret = "0x0000000000000000000000000000000000000000000000000000000000000001";
-const superAdminRole = "0x0000000000000000000000000000000000000000000000000000000000000000";
+const defaultParticipant = "0x0000000000000000000000000000000000000000";
 
-var racelist, chainlink, registration, nlggt, storage, link;
+var racelist, registration, nlggt, storage, link, racereward;
 const adminRole = "0x" + keccak256("ADMIN_ROLE");
 const pauserRole = "0x" + keccak256("PAUSER_ROLE");
 
@@ -32,23 +31,20 @@ contract("Registration", (accounts) => {
     const OFFCHAIN = web3.utils.fromAscii('1')
 
     const baseURL = "https://ipfs.io/ipfs/";
-    const oracle = "0x77a5310E41F0B9FE35E95239Fa5624390fadFbBA";
-    const jobId = "0x2063653033393033306163363934393763626239363135623962316437623336";
-    const fee1 = web3.utils.toHex(0.4 * (10 ** 18));
 
     const vrfCoor = "0x747973a5A2a4Ae1D3a8fDF5479f1514F65Db9C31";
     const keyHash = "0xc251acd21ec4fb7f31bb8868288bfdbaeb4fbfec2df3735ddbd4f7dc8d60103c";
-    const fee2 = web3.utils.toHex(0.02 * (10 ** 18));
+    subscriptionId = 311;
 
     const delay = ms => new Promise(res => setTimeout(res, ms));
 
     before(async () => {
-        chainlink = await ChainLink.new( {from: root});
-        storage = await STORAGE.new( {from: root});
+        storage = await STORAGE.new( {from: root} );
         nlggt = await NLGGT.new(storage.address, baseURL, {from: root});
+        racereward = await RaceReward.new(storage.address, baseURL, {from: root})
         link = await LINK.new("LINK Token", "LINK", 18, {from: root})
-        racelist = await RaceList.new(chainlink.address, oracle, jobId, fee1, {from: root});
-        registration = await Registration.new(vrfCoor, link.address, nlggt.address, racelist.address, keyHash, fee2, {from: root});
+        racelist = await RaceList.new({from: root});
+        registration = await Registration.new(vrfCoor, nlggt.address, racereward.address, racelist.address, subscriptionId, keyHash, {from: root});
     });
 
     afterEach(function() {
@@ -188,18 +184,27 @@ contract("Registration", (accounts) => {
             await registration.register(0, raceId, {
                 from: account1
             });
+
+            selectedParticipant = await registration.selectedParticipant(raceId, 0, {from: root});
+            eq(selectedParticipant, defaultParticipant);
         });
 
         it('(Account2) Register slot0 successful', async () => {
             await registration.register(0, raceId, {
                 from: account2
             });
+
+            selectedParticipant = await registration.selectedParticipant(raceId, 0, {from: root});
+            eq(selectedParticipant, defaultParticipant);
         });
 
         it('(Account5) Register slot1 successful', async () => {
             await registration.register(1, raceId, {
                 from: account5
             });
+
+            selectedParticipant = await registration.selectedParticipant(raceId, 1, {from: root});
+            eq(selectedParticipant, defaultParticipant);
         });
 
         it('(Account5) Register slot1. Cannot because account5 has already registered', async () => {
@@ -220,71 +225,7 @@ contract("Registration", (accounts) => {
             }));
         });
 
-        it('Wait until raceEnded', async () => {
-            while (Math.floor(new Date().getTime() / 1000 < raceEndedAt)) {}
-        });
-
-        it('(Account9) Register a slot. Cannot because race ended', async () => {
-            await u.assertRevert(registration.register(2, raceId, {
-                from: account9
-            }));
-        });
-
-        it('(Account1) Select participant. Cannot because only admin can call', async () => {
-            await u.assertRevert(registration.selectParticipant(raceId, {
-                from: account1
-            }));
-        });
-
-        it('(Root) Select participant. Cannot because there is no LINK token to pay fee', async () => {
-            await u.assertRevert(registration.selectParticipant(raceId, {
-                from: root
-            }));
-        });
-
-        it('(Root) transfer LINK token to registration address', async () => {
-            const i = {
-                to: registration.address,
-                value: web3.utils.toHex(100 * (10 ** 18)),
-            }
-
-            await link.mint(i.value, {
-                from: root
-            })
-
-            await link.transfer(i.to, i.value, {
-                from: root
-            });
-
-            const o = {
-                registration_balance: 100 * (10 ** 18),
-                root_balance: 0,
-            }
-
-            let registration_balance = await link.balanceOf(registration.address, {
-                from: root
-            });
-            eq(o.registration_balance, registration_balance.toString());
-
-            let root_balance = await link.balanceOf(root, {
-                from: root
-            });
-            eq(o.root_balance, root_balance.toString());
-        });
-
-        it('(Root) Select participant', async () => {
-            await registration.selectParticipant(raceId, {
-                from: root
-            });
-
-            await registration.selectedParticipant(raceId, 0, {
-                from: root
-            })
-
-            await registration.selectedParticipant(raceId, 1, {
-                from: root
-            })
-        });
+        // selectParticipant and receiveReward  are tested manually
     });
 
     describe('Pause/Unpause', async () => {
@@ -491,9 +432,7 @@ contract("Registration", (accounts) => {
             });
 
             const lastestEvent = await registration.getPastEvents("NlggtUpdated");
-            console.log(lastestEvent);
             new_nlggt_address = lastestEvent[0].returnValues.nlggt;
-            console.log(new_nlggt_address);
             eq(new_nlggt_address, new_nlggt.address);
         });
 
@@ -514,7 +453,7 @@ contract("Registration", (accounts) => {
         });
 
         it('(Root) Deploy new racelist address', async () => {
-            new_racelist = await RaceList.new(chainlink.address, oracle, jobId, fee1, {from: root});
+            new_racelist = await RaceList.new({from: root});
         });
 
         it('(Admin) Update new Race address', async () => {
@@ -523,10 +462,44 @@ contract("Registration", (accounts) => {
             });
 
             const lastestEvent = await registration.getPastEvents("RaceListUpdated");
-            console.log(lastestEvent);
             new_race_address = lastestEvent[0].returnValues.race;
-            console.log(new_race_address);
             eq(new_race_address, new_racelist.address);
+        });
+
+        it('(Root) Create a new race successful', async () => {
+            const i = {
+                slots: 2,
+                betStarted: Math.floor(new Date().getTime() / 1000 + 10),
+                betEnded: Math.floor(new Date().getTime() / 1000 + 60),
+                commission: 20,
+                rewardRate: 1000,
+            }
+
+            await new_racelist.createRace(i.slots, i.betStarted, i.betEnded, i.commission, i.rewardRate, {
+                from: root
+            });
+
+            const lastestEvent = await new_racelist.getPastEvents("RaceCreated");
+            raceId3 = lastestEvent[0].returnValues.id;
+
+            raceEndedAt = lastestEvent[0].returnValues.betEnded;
+            eq(raceEndedAt, i.betEnded);
+
+            raceStartedAt = lastestEvent[0].returnValues.betStarted;
+            eq(raceStartedAt, i.betStarted);
+
+            slots = lastestEvent[0].returnValues.slots;
+            eq(slots, i.slots);
+
+            commission = lastestEvent[0].returnValues.commission;
+            eq(commission, i.commission);
+
+            rewardRate = lastestEvent[0].returnValues.rewardRate;
+            eq(rewardRate, i.rewardRate);
+        });
+
+        it('Wait until raceStartedAt', async () => {
+            while (Math.floor(new Date().getTime() / 1000 < raceStartedAt)) {}
         });
 
         it('(Account5) Register a slot after updating racelist', async () => {
@@ -534,7 +507,7 @@ contract("Registration", (accounts) => {
                 from: root
             });
 
-            await registration.register(2, raceId3, {
+            await registration.register(0, raceId3, {
                 from: account1
             });
         });

@@ -1,5 +1,4 @@
 const RaceList = artifacts.require("RaceList")
-const ChainLink = artifacts.require("Chainlink")
 
 const eq = assert.equal
 const u = require('./utils.js')
@@ -29,11 +28,7 @@ contract("Race List", (accounts) => {
     const delay = ms => new Promise(res => setTimeout(res, ms));
 
     before(async () => {
-        chainlink = await ChainLink.new( {from: root} );
-        const oracle = "0x77a5310E41F0B9FE35E95239Fa5624390fadFbBA";
-        const jobId = "0x2063653033393033306163363934393763626239363135623962316437623336";
-        const fee = "40000000000000000";
-        racelist = await RaceList.new(chainlink.address, oracle, jobId, fee, {from: root} );
+        racelist = await RaceList.new({from: root});
     });
 
     afterEach(function() {
@@ -411,8 +406,8 @@ contract("Race List", (accounts) => {
                 from: root
             });
 
-            // const Commission = getRace[0];
-            // eq(Commission, 200)
+            const Commission = getRace[0];
+            eq(Commission, 200);
         });
 
         it('(Root) Update rewardRate = 1111. Cannot because betEnded', async () => {
@@ -424,8 +419,8 @@ contract("Race List", (accounts) => {
                 from: root
             });
 
-            // const RewardRate = getRace[1];
-            // eq(RewardRate, 1500)
+            const rewardRate = getRace[1];
+            eq(rewardRate, 1500);
         });
     });
 
