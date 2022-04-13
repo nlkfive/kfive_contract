@@ -273,11 +273,11 @@ contract Bething is
         for (uint256 slotId = 0; slotId < slots; slotId++) {
             if (result[slotId] == bytes1(uint8(1))){
                 totalTop3BetReward = totalTop3BetReward.add(
-                    totalSlotBets[raceId][slotId].mul(rewardRate).mul(rewardRate)
+                    totalSlotBets[raceId][slotId].mul(rewardRate).mul(rewardRate).div(1000000)
                 );
             } else if (result[slotId] == bytes1(uint8(2))) {
                 totalTop3BetReward = totalTop3BetReward.add(
-                    totalSlotBets[raceId][slotId].mul(rewardRate)
+                    totalSlotBets[raceId][slotId].mul(rewardRate).div(1000)
                 );
             } else if (result[slotId] == bytes1(uint8(3))){
                 totalTop3BetReward = totalTop3BetReward.add(
@@ -311,7 +311,7 @@ contract Bething is
             );
 
             for (uint256 count = 0; count < position; count++) {
-                reward = reward.mul(rewardRate);
+                reward = reward.mul(rewardRate).div(1000);
             }
         }
     }
