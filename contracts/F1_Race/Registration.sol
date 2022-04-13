@@ -328,6 +328,7 @@ contract RegistrationList is
         view
         returns (address)
     {
+        if(randomSelected[raceId] == bytes32(0) || randomSelected[raceId] == RANDOM_IN_PROGRESS) return address(0);
         return registrationList[raceId][slotId][uint8(randomSelected[raceId][slotId])];
     }
 
