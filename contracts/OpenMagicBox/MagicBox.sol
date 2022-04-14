@@ -104,9 +104,9 @@ contract MagicBox is
     ) 
         external
         whenNotPaused
+        onlyBefore
         returns (uint256 requestId)
     {
-        onlyBefore(_endedAt);
 
         address sender = _msgSender();
 
@@ -172,8 +172,9 @@ contract MagicBox is
         emit RewardAdded(boxType, rewardIndex, nftRewardId);
     }
 
-    function onlyBefore(uint256 _time) internal view {
-        if (block.timestamp >= _time) revert TooLate(_time);
+    modifier onlyBefore() {
+        if (block.timestamp >= _endedAt) revert TooLate(_endedAt);
+        _;
     }
 
     function onERC721Received(

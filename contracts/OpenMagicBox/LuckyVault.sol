@@ -48,8 +48,8 @@ contract LuckyVault is KfiveAccessControl, ReentrancyGuard {
         address rewardToken, // LF5
         address receiver, // Address where receive tradeToken
         uint256 tradeRate, // 5.2 BUSD/KFIVE -> 0.192 => 192
-        uint256 tradeRewardRate, // 10 KFIVE/LF5 -> 
-        uint256 depositRewardRate,
+        uint256 tradeRewardRate, // 10 KFIVE/LF5 -> 0.1 => 100
+        uint256 depositRewardRate, // 100 KFIVE/LF5 -> 0.01 => 10
         uint256 endedAt
     ) {
         if(!tradeToken.isContract()) revert InvalidContract();
@@ -75,6 +75,7 @@ contract LuckyVault is KfiveAccessControl, ReentrancyGuard {
     ) 
         external
         nonReentrant
+        onlyBefore
         whenNotPaused
     {
         address sender = _msgSender();
@@ -100,6 +101,7 @@ contract LuckyVault is KfiveAccessControl, ReentrancyGuard {
     ) 
         external
         nonReentrant
+        onlyBefore
         whenNotPaused
     {
         if (amount < 1 ether) revert InvalidAmount(); // At least 1 BUSD
@@ -131,9 +133,9 @@ contract LuckyVault is KfiveAccessControl, ReentrancyGuard {
         uint256 amount
     ) 
         external
+        onlyAfter
         whenNotPaused
     {
-        onlyAfter(_endedAt);
 
         address sender = _msgSender();
         if (depositList[sender] < amount) revert InvalidWithdrawAmount();
@@ -172,8 +174,14 @@ contract LuckyVault is KfiveAccessControl, ReentrancyGuard {
         if (!_rewardToken.transfer(sender, amount)) revert RewardFailed();
     }
 
-    function onlyAfter(uint256 _time) internal view {
-        if (block.timestamp <= _time) revert TooEarly(_time);
+    modifier onlyBefore()  {
+        if (block.timestamp >= _endedAt) revert TooLate(_endedAt);
+        _;
+    }
+
+    modifier onlyAfter() {
+        if (block.timestamp <= _endedAt) revert TooEarly(_endedAt);
+        _;
     }
 
     function checkBalance(uint256 amount) internal view {
