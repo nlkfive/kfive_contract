@@ -1,0 +1,778 @@
+// Code generated - DO NOT EDIT.
+// This file is a generated binding and any manual changes will be lost.
+
+package smc
+
+import (
+	"errors"
+	"math/big"
+	"strings"
+
+	ethereum "github.com/ethereum/go-ethereum"
+	"github.com/ethereum/go-ethereum/accounts/abi"
+	"github.com/ethereum/go-ethereum/accounts/abi/bind"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/event"
+)
+
+// Reference imports to suppress errors if they are not otherwise used.
+var (
+	_ = errors.New
+	_ = big.NewInt
+	_ = strings.NewReader
+	_ = ethereum.NotFound
+	_ = bind.Bind
+	_ = common.Big1
+	_ = types.BloomLookup
+	_ = event.NewSubscription
+)
+
+// SmcMetaData contains all meta data concerning the Smc contract.
+var SmcMetaData = &bind.MetaData{
+	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_user\",\"type\":\"address\"}],\"name\":\"AddedBlackList\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_user\",\"type\":\"address\"}],\"name\":\"RemovedBlackList\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"isBlackListed\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_maker\",\"type\":\"address\"}],\"name\":\"getBlackListStatus\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_evilUser\",\"type\":\"address\"}],\"name\":\"addBlackList\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_clearedUser\",\"type\":\"address\"}],\"name\":\"removeBlackList\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
+}
+
+// SmcABI is the input ABI used to generate the binding from.
+// Deprecated: Use SmcMetaData.ABI instead.
+var SmcABI = SmcMetaData.ABI
+
+// Smc is an auto generated Go binding around an Ethereum contract.
+type Smc struct {
+	SmcCaller     // Read-only binding to the contract
+	SmcTransactor // Write-only binding to the contract
+	SmcFilterer   // Log filterer for contract events
+}
+
+// SmcCaller is an auto generated read-only Go binding around an Ethereum contract.
+type SmcCaller struct {
+	contract *bind.BoundContract // Generic contract wrapper for the low level calls
+}
+
+// SmcTransactor is an auto generated write-only Go binding around an Ethereum contract.
+type SmcTransactor struct {
+	contract *bind.BoundContract // Generic contract wrapper for the low level calls
+}
+
+// SmcFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type SmcFilterer struct {
+	contract *bind.BoundContract // Generic contract wrapper for the low level calls
+}
+
+// SmcSession is an auto generated Go binding around an Ethereum contract,
+// with pre-set call and transact options.
+type SmcSession struct {
+	Contract     *Smc              // Generic contract binding to set the session for
+	CallOpts     bind.CallOpts     // Call options to use throughout this session
+	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+}
+
+// SmcCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// with pre-set call options.
+type SmcCallerSession struct {
+	Contract *SmcCaller    // Generic contract caller binding to set the session for
+	CallOpts bind.CallOpts // Call options to use throughout this session
+}
+
+// SmcTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// with pre-set transact options.
+type SmcTransactorSession struct {
+	Contract     *SmcTransactor    // Generic contract transactor binding to set the session for
+	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+}
+
+// SmcRaw is an auto generated low-level Go binding around an Ethereum contract.
+type SmcRaw struct {
+	Contract *Smc // Generic contract binding to access the raw methods on
+}
+
+// SmcCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type SmcCallerRaw struct {
+	Contract *SmcCaller // Generic read-only contract binding to access the raw methods on
+}
+
+// SmcTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type SmcTransactorRaw struct {
+	Contract *SmcTransactor // Generic write-only contract binding to access the raw methods on
+}
+
+// NewSmc creates a new instance of Smc, bound to a specific deployed contract.
+func NewSmc(address common.Address, backend bind.ContractBackend) (*Smc, error) {
+	contract, err := bindSmc(address, backend, backend, backend)
+	if err != nil {
+		return nil, err
+	}
+	return &Smc{SmcCaller: SmcCaller{contract: contract}, SmcTransactor: SmcTransactor{contract: contract}, SmcFilterer: SmcFilterer{contract: contract}}, nil
+}
+
+// NewSmcCaller creates a new read-only instance of Smc, bound to a specific deployed contract.
+func NewSmcCaller(address common.Address, caller bind.ContractCaller) (*SmcCaller, error) {
+	contract, err := bindSmc(address, caller, nil, nil)
+	if err != nil {
+		return nil, err
+	}
+	return &SmcCaller{contract: contract}, nil
+}
+
+// NewSmcTransactor creates a new write-only instance of Smc, bound to a specific deployed contract.
+func NewSmcTransactor(address common.Address, transactor bind.ContractTransactor) (*SmcTransactor, error) {
+	contract, err := bindSmc(address, nil, transactor, nil)
+	if err != nil {
+		return nil, err
+	}
+	return &SmcTransactor{contract: contract}, nil
+}
+
+// NewSmcFilterer creates a new log filterer instance of Smc, bound to a specific deployed contract.
+func NewSmcFilterer(address common.Address, filterer bind.ContractFilterer) (*SmcFilterer, error) {
+	contract, err := bindSmc(address, nil, nil, filterer)
+	if err != nil {
+		return nil, err
+	}
+	return &SmcFilterer{contract: contract}, nil
+}
+
+// bindSmc binds a generic wrapper to an already deployed contract.
+func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := abi.JSON(strings.NewReader(SmcABI))
+	if err != nil {
+		return nil, err
+	}
+	return bind.NewBoundContract(address, parsed, caller, transactor, filterer), nil
+}
+
+// Call invokes the (constant) contract method with params as input values and
+// sets the output to result. The result type might be a single field for simple
+// returns, a slice of interfaces for anonymous returns and a struct for named
+// returns.
+func (_Smc *SmcRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _Smc.Contract.SmcCaller.contract.Call(opts, result, method, params...)
+}
+
+// Transfer initiates a plain transaction to move funds to the contract, calling
+// its default method if one is available.
+func (_Smc *SmcRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _Smc.Contract.SmcTransactor.contract.Transfer(opts)
+}
+
+// Transact invokes the (paid) contract method with params as input values.
+func (_Smc *SmcRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _Smc.Contract.SmcTransactor.contract.Transact(opts, method, params...)
+}
+
+// Call invokes the (constant) contract method with params as input values and
+// sets the output to result. The result type might be a single field for simple
+// returns, a slice of interfaces for anonymous returns and a struct for named
+// returns.
+func (_Smc *SmcCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _Smc.Contract.contract.Call(opts, result, method, params...)
+}
+
+// Transfer initiates a plain transaction to move funds to the contract, calling
+// its default method if one is available.
+func (_Smc *SmcTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _Smc.Contract.contract.Transfer(opts)
+}
+
+// Transact invokes the (paid) contract method with params as input values.
+func (_Smc *SmcTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _Smc.Contract.contract.Transact(opts, method, params...)
+}
+
+// GetBlackListStatus is a free data retrieval call binding the contract method 0x59bf1abe.
+//
+// Solidity: function getBlackListStatus(address _maker) view returns(bool)
+func (_Smc *SmcCaller) GetBlackListStatus(opts *bind.CallOpts, _maker common.Address) (bool, error) {
+	var out []interface{}
+	err := _Smc.contract.Call(opts, &out, "getBlackListStatus", _maker)
+
+	if err != nil {
+		return *new(bool), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
+
+	return out0, err
+
+}
+
+// GetBlackListStatus is a free data retrieval call binding the contract method 0x59bf1abe.
+//
+// Solidity: function getBlackListStatus(address _maker) view returns(bool)
+func (_Smc *SmcSession) GetBlackListStatus(_maker common.Address) (bool, error) {
+	return _Smc.Contract.GetBlackListStatus(&_Smc.CallOpts, _maker)
+}
+
+// GetBlackListStatus is a free data retrieval call binding the contract method 0x59bf1abe.
+//
+// Solidity: function getBlackListStatus(address _maker) view returns(bool)
+func (_Smc *SmcCallerSession) GetBlackListStatus(_maker common.Address) (bool, error) {
+	return _Smc.Contract.GetBlackListStatus(&_Smc.CallOpts, _maker)
+}
+
+// IsBlackListed is a free data retrieval call binding the contract method 0xe47d6060.
+//
+// Solidity: function isBlackListed(address ) view returns(bool)
+func (_Smc *SmcCaller) IsBlackListed(opts *bind.CallOpts, arg0 common.Address) (bool, error) {
+	var out []interface{}
+	err := _Smc.contract.Call(opts, &out, "isBlackListed", arg0)
+
+	if err != nil {
+		return *new(bool), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
+
+	return out0, err
+
+}
+
+// IsBlackListed is a free data retrieval call binding the contract method 0xe47d6060.
+//
+// Solidity: function isBlackListed(address ) view returns(bool)
+func (_Smc *SmcSession) IsBlackListed(arg0 common.Address) (bool, error) {
+	return _Smc.Contract.IsBlackListed(&_Smc.CallOpts, arg0)
+}
+
+// IsBlackListed is a free data retrieval call binding the contract method 0xe47d6060.
+//
+// Solidity: function isBlackListed(address ) view returns(bool)
+func (_Smc *SmcCallerSession) IsBlackListed(arg0 common.Address) (bool, error) {
+	return _Smc.Contract.IsBlackListed(&_Smc.CallOpts, arg0)
+}
+
+// Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
+//
+// Solidity: function owner() view returns(address)
+func (_Smc *SmcCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
+	var out []interface{}
+	err := _Smc.contract.Call(opts, &out, "owner")
+
+	if err != nil {
+		return *new(common.Address), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+
+	return out0, err
+
+}
+
+// Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
+//
+// Solidity: function owner() view returns(address)
+func (_Smc *SmcSession) Owner() (common.Address, error) {
+	return _Smc.Contract.Owner(&_Smc.CallOpts)
+}
+
+// Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
+//
+// Solidity: function owner() view returns(address)
+func (_Smc *SmcCallerSession) Owner() (common.Address, error) {
+	return _Smc.Contract.Owner(&_Smc.CallOpts)
+}
+
+// AddBlackList is a paid mutator transaction binding the contract method 0x0ecb93c0.
+//
+// Solidity: function addBlackList(address _evilUser) returns()
+func (_Smc *SmcTransactor) AddBlackList(opts *bind.TransactOpts, _evilUser common.Address) (*types.Transaction, error) {
+	return _Smc.contract.Transact(opts, "addBlackList", _evilUser)
+}
+
+// AddBlackList is a paid mutator transaction binding the contract method 0x0ecb93c0.
+//
+// Solidity: function addBlackList(address _evilUser) returns()
+func (_Smc *SmcSession) AddBlackList(_evilUser common.Address) (*types.Transaction, error) {
+	return _Smc.Contract.AddBlackList(&_Smc.TransactOpts, _evilUser)
+}
+
+// AddBlackList is a paid mutator transaction binding the contract method 0x0ecb93c0.
+//
+// Solidity: function addBlackList(address _evilUser) returns()
+func (_Smc *SmcTransactorSession) AddBlackList(_evilUser common.Address) (*types.Transaction, error) {
+	return _Smc.Contract.AddBlackList(&_Smc.TransactOpts, _evilUser)
+}
+
+// RemoveBlackList is a paid mutator transaction binding the contract method 0xe4997dc5.
+//
+// Solidity: function removeBlackList(address _clearedUser) returns()
+func (_Smc *SmcTransactor) RemoveBlackList(opts *bind.TransactOpts, _clearedUser common.Address) (*types.Transaction, error) {
+	return _Smc.contract.Transact(opts, "removeBlackList", _clearedUser)
+}
+
+// RemoveBlackList is a paid mutator transaction binding the contract method 0xe4997dc5.
+//
+// Solidity: function removeBlackList(address _clearedUser) returns()
+func (_Smc *SmcSession) RemoveBlackList(_clearedUser common.Address) (*types.Transaction, error) {
+	return _Smc.Contract.RemoveBlackList(&_Smc.TransactOpts, _clearedUser)
+}
+
+// RemoveBlackList is a paid mutator transaction binding the contract method 0xe4997dc5.
+//
+// Solidity: function removeBlackList(address _clearedUser) returns()
+func (_Smc *SmcTransactorSession) RemoveBlackList(_clearedUser common.Address) (*types.Transaction, error) {
+	return _Smc.Contract.RemoveBlackList(&_Smc.TransactOpts, _clearedUser)
+}
+
+// RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
+//
+// Solidity: function renounceOwnership() returns()
+func (_Smc *SmcTransactor) RenounceOwnership(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _Smc.contract.Transact(opts, "renounceOwnership")
+}
+
+// RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
+//
+// Solidity: function renounceOwnership() returns()
+func (_Smc *SmcSession) RenounceOwnership() (*types.Transaction, error) {
+	return _Smc.Contract.RenounceOwnership(&_Smc.TransactOpts)
+}
+
+// RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
+//
+// Solidity: function renounceOwnership() returns()
+func (_Smc *SmcTransactorSession) RenounceOwnership() (*types.Transaction, error) {
+	return _Smc.Contract.RenounceOwnership(&_Smc.TransactOpts)
+}
+
+// TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
+//
+// Solidity: function transferOwnership(address newOwner) returns()
+func (_Smc *SmcTransactor) TransferOwnership(opts *bind.TransactOpts, newOwner common.Address) (*types.Transaction, error) {
+	return _Smc.contract.Transact(opts, "transferOwnership", newOwner)
+}
+
+// TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
+//
+// Solidity: function transferOwnership(address newOwner) returns()
+func (_Smc *SmcSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
+	return _Smc.Contract.TransferOwnership(&_Smc.TransactOpts, newOwner)
+}
+
+// TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
+//
+// Solidity: function transferOwnership(address newOwner) returns()
+func (_Smc *SmcTransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
+	return _Smc.Contract.TransferOwnership(&_Smc.TransactOpts, newOwner)
+}
+
+// SmcAddedBlackListIterator is returned from FilterAddedBlackList and is used to iterate over the raw logs and unpacked data for AddedBlackList events raised by the Smc contract.
+type SmcAddedBlackListIterator struct {
+	Event *SmcAddedBlackList // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *SmcAddedBlackListIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(SmcAddedBlackList)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(SmcAddedBlackList)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *SmcAddedBlackListIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *SmcAddedBlackListIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// SmcAddedBlackList represents a AddedBlackList event raised by the Smc contract.
+type SmcAddedBlackList struct {
+	User common.Address
+	Raw  types.Log // Blockchain specific contextual infos
+}
+
+// FilterAddedBlackList is a free log retrieval operation binding the contract event 0x42e160154868087d6bfdc0ca23d96a1c1cfa32f1b72ba9ba27b69b98a0d819dc.
+//
+// Solidity: event AddedBlackList(address _user)
+func (_Smc *SmcFilterer) FilterAddedBlackList(opts *bind.FilterOpts) (*SmcAddedBlackListIterator, error) {
+
+	logs, sub, err := _Smc.contract.FilterLogs(opts, "AddedBlackList")
+	if err != nil {
+		return nil, err
+	}
+	return &SmcAddedBlackListIterator{contract: _Smc.contract, event: "AddedBlackList", logs: logs, sub: sub}, nil
+}
+
+// WatchAddedBlackList is a free log subscription operation binding the contract event 0x42e160154868087d6bfdc0ca23d96a1c1cfa32f1b72ba9ba27b69b98a0d819dc.
+//
+// Solidity: event AddedBlackList(address _user)
+func (_Smc *SmcFilterer) WatchAddedBlackList(opts *bind.WatchOpts, sink chan<- *SmcAddedBlackList) (event.Subscription, error) {
+
+	logs, sub, err := _Smc.contract.WatchLogs(opts, "AddedBlackList")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(SmcAddedBlackList)
+				if err := _Smc.contract.UnpackLog(event, "AddedBlackList", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseAddedBlackList is a log parse operation binding the contract event 0x42e160154868087d6bfdc0ca23d96a1c1cfa32f1b72ba9ba27b69b98a0d819dc.
+//
+// Solidity: event AddedBlackList(address _user)
+func (_Smc *SmcFilterer) ParseAddedBlackList(log types.Log) (*SmcAddedBlackList, error) {
+	event := new(SmcAddedBlackList)
+	if err := _Smc.contract.UnpackLog(event, "AddedBlackList", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// SmcOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the Smc contract.
+type SmcOwnershipTransferredIterator struct {
+	Event *SmcOwnershipTransferred // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *SmcOwnershipTransferredIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(SmcOwnershipTransferred)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(SmcOwnershipTransferred)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *SmcOwnershipTransferredIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *SmcOwnershipTransferredIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// SmcOwnershipTransferred represents a OwnershipTransferred event raised by the Smc contract.
+type SmcOwnershipTransferred struct {
+	PreviousOwner common.Address
+	NewOwner      common.Address
+	Raw           types.Log // Blockchain specific contextual infos
+}
+
+// FilterOwnershipTransferred is a free log retrieval operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
+//
+// Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
+func (_Smc *SmcFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previousOwner []common.Address, newOwner []common.Address) (*SmcOwnershipTransferredIterator, error) {
+
+	var previousOwnerRule []interface{}
+	for _, previousOwnerItem := range previousOwner {
+		previousOwnerRule = append(previousOwnerRule, previousOwnerItem)
+	}
+	var newOwnerRule []interface{}
+	for _, newOwnerItem := range newOwner {
+		newOwnerRule = append(newOwnerRule, newOwnerItem)
+	}
+
+	logs, sub, err := _Smc.contract.FilterLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
+	if err != nil {
+		return nil, err
+	}
+	return &SmcOwnershipTransferredIterator{contract: _Smc.contract, event: "OwnershipTransferred", logs: logs, sub: sub}, nil
+}
+
+// WatchOwnershipTransferred is a free log subscription operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
+//
+// Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
+func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink chan<- *SmcOwnershipTransferred, previousOwner []common.Address, newOwner []common.Address) (event.Subscription, error) {
+
+	var previousOwnerRule []interface{}
+	for _, previousOwnerItem := range previousOwner {
+		previousOwnerRule = append(previousOwnerRule, previousOwnerItem)
+	}
+	var newOwnerRule []interface{}
+	for _, newOwnerItem := range newOwner {
+		newOwnerRule = append(newOwnerRule, newOwnerItem)
+	}
+
+	logs, sub, err := _Smc.contract.WatchLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(SmcOwnershipTransferred)
+				if err := _Smc.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseOwnershipTransferred is a log parse operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
+//
+// Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
+func (_Smc *SmcFilterer) ParseOwnershipTransferred(log types.Log) (*SmcOwnershipTransferred, error) {
+	event := new(SmcOwnershipTransferred)
+	if err := _Smc.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// SmcRemovedBlackListIterator is returned from FilterRemovedBlackList and is used to iterate over the raw logs and unpacked data for RemovedBlackList events raised by the Smc contract.
+type SmcRemovedBlackListIterator struct {
+	Event *SmcRemovedBlackList // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *SmcRemovedBlackListIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(SmcRemovedBlackList)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(SmcRemovedBlackList)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *SmcRemovedBlackListIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *SmcRemovedBlackListIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// SmcRemovedBlackList represents a RemovedBlackList event raised by the Smc contract.
+type SmcRemovedBlackList struct {
+	User common.Address
+	Raw  types.Log // Blockchain specific contextual infos
+}
+
+// FilterRemovedBlackList is a free log retrieval operation binding the contract event 0xd7e9ec6e6ecd65492dce6bf513cd6867560d49544421d0783ddf06e76c24470c.
+//
+// Solidity: event RemovedBlackList(address _user)
+func (_Smc *SmcFilterer) FilterRemovedBlackList(opts *bind.FilterOpts) (*SmcRemovedBlackListIterator, error) {
+
+	logs, sub, err := _Smc.contract.FilterLogs(opts, "RemovedBlackList")
+	if err != nil {
+		return nil, err
+	}
+	return &SmcRemovedBlackListIterator{contract: _Smc.contract, event: "RemovedBlackList", logs: logs, sub: sub}, nil
+}
+
+// WatchRemovedBlackList is a free log subscription operation binding the contract event 0xd7e9ec6e6ecd65492dce6bf513cd6867560d49544421d0783ddf06e76c24470c.
+//
+// Solidity: event RemovedBlackList(address _user)
+func (_Smc *SmcFilterer) WatchRemovedBlackList(opts *bind.WatchOpts, sink chan<- *SmcRemovedBlackList) (event.Subscription, error) {
+
+	logs, sub, err := _Smc.contract.WatchLogs(opts, "RemovedBlackList")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(SmcRemovedBlackList)
+				if err := _Smc.contract.UnpackLog(event, "RemovedBlackList", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseRemovedBlackList is a log parse operation binding the contract event 0xd7e9ec6e6ecd65492dce6bf513cd6867560d49544421d0783ddf06e76c24470c.
+//
+// Solidity: event RemovedBlackList(address _user)
+func (_Smc *SmcFilterer) ParseRemovedBlackList(log types.Log) (*SmcRemovedBlackList, error) {
+	event := new(SmcRemovedBlackList)
+	if err := _Smc.contract.UnpackLog(event, "RemovedBlackList", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}

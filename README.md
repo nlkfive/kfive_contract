@@ -40,6 +40,14 @@ truffle run verify KFIVE@0x2991be6411cd52243f160fb0e16a81a37279d944 --network ma
 - ICO: https://ico.readthedocs.io/en/latest/
 
 # Connect project to Remix
+
 ```
 npx remixd -s .
+```
+
+# Generate abi and bin
+
+```
+npx truffle run abigen
+sh genGoBinding.sh
 ```
