@@ -1,7 +1,7 @@
 // Code generated - DO NOT EDIT.
 // This file is a generated binding and any manual changes will be lost.
 
-package smc
+package ERC721Verifiable
 
 import (
 	"errors"
@@ -28,113 +28,113 @@ var (
 	_ = event.NewSubscription
 )
 
-// SmcMetaData contains all meta data concerning the Smc contract.
-var SmcMetaData = &bind.MetaData{
+// ERC721VerifiableMetaData contains all meta data concerning the ERC721Verifiable contract.
+var ERC721VerifiableMetaData = &bind.MetaData{
 	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"approved\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"ApprovalForAll\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"balance\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getApproved\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"name\":\"isApprovedForAll\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"ownerOf\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"_approved\",\"type\":\"bool\"}],\"name\":\"setApprovalForAll\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"verifyFingerprint\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]",
 }
 
-// SmcABI is the input ABI used to generate the binding from.
-// Deprecated: Use SmcMetaData.ABI instead.
-var SmcABI = SmcMetaData.ABI
+// ERC721VerifiableABI is the input ABI used to generate the binding from.
+// Deprecated: Use ERC721VerifiableMetaData.ABI instead.
+var ERC721VerifiableABI = ERC721VerifiableMetaData.ABI
 
-// Smc is an auto generated Go binding around an Ethereum contract.
-type Smc struct {
-	SmcCaller     // Read-only binding to the contract
-	SmcTransactor // Write-only binding to the contract
-	SmcFilterer   // Log filterer for contract events
+// ERC721Verifiable is an auto generated Go binding around an Ethereum contract.
+type ERC721Verifiable struct {
+	ERC721VerifiableCaller     // Read-only binding to the contract
+	ERC721VerifiableTransactor // Write-only binding to the contract
+	ERC721VerifiableFilterer   // Log filterer for contract events
 }
 
-// SmcCaller is an auto generated read-only Go binding around an Ethereum contract.
-type SmcCaller struct {
+// ERC721VerifiableCaller is an auto generated read-only Go binding around an Ethereum contract.
+type ERC721VerifiableCaller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcTransactor is an auto generated write-only Go binding around an Ethereum contract.
-type SmcTransactor struct {
+// ERC721VerifiableTransactor is an auto generated write-only Go binding around an Ethereum contract.
+type ERC721VerifiableTransactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
-type SmcFilterer struct {
+// ERC721VerifiableFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type ERC721VerifiableFilterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcSession is an auto generated Go binding around an Ethereum contract,
+// ERC721VerifiableSession is an auto generated Go binding around an Ethereum contract,
 // with pre-set call and transact options.
-type SmcSession struct {
-	Contract     *Smc              // Generic contract binding to set the session for
+type ERC721VerifiableSession struct {
+	Contract     *ERC721Verifiable // Generic contract binding to set the session for
 	CallOpts     bind.CallOpts     // Call options to use throughout this session
 	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 }
 
-// SmcCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// ERC721VerifiableCallerSession is an auto generated read-only Go binding around an Ethereum contract,
 // with pre-set call options.
-type SmcCallerSession struct {
-	Contract *SmcCaller    // Generic contract caller binding to set the session for
-	CallOpts bind.CallOpts // Call options to use throughout this session
+type ERC721VerifiableCallerSession struct {
+	Contract *ERC721VerifiableCaller // Generic contract caller binding to set the session for
+	CallOpts bind.CallOpts           // Call options to use throughout this session
 }
 
-// SmcTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// ERC721VerifiableTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
 // with pre-set transact options.
-type SmcTransactorSession struct {
-	Contract     *SmcTransactor    // Generic contract transactor binding to set the session for
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type ERC721VerifiableTransactorSession struct {
+	Contract     *ERC721VerifiableTransactor // Generic contract transactor binding to set the session for
+	TransactOpts bind.TransactOpts           // Transaction auth options to use throughout this session
 }
 
-// SmcRaw is an auto generated low-level Go binding around an Ethereum contract.
-type SmcRaw struct {
-	Contract *Smc // Generic contract binding to access the raw methods on
+// ERC721VerifiableRaw is an auto generated low-level Go binding around an Ethereum contract.
+type ERC721VerifiableRaw struct {
+	Contract *ERC721Verifiable // Generic contract binding to access the raw methods on
 }
 
-// SmcCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
-type SmcCallerRaw struct {
-	Contract *SmcCaller // Generic read-only contract binding to access the raw methods on
+// ERC721VerifiableCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type ERC721VerifiableCallerRaw struct {
+	Contract *ERC721VerifiableCaller // Generic read-only contract binding to access the raw methods on
 }
 
-// SmcTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
-type SmcTransactorRaw struct {
-	Contract *SmcTransactor // Generic write-only contract binding to access the raw methods on
+// ERC721VerifiableTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type ERC721VerifiableTransactorRaw struct {
+	Contract *ERC721VerifiableTransactor // Generic write-only contract binding to access the raw methods on
 }
 
-// NewSmc creates a new instance of Smc, bound to a specific deployed contract.
-func NewSmc(address common.Address, backend bind.ContractBackend) (*Smc, error) {
-	contract, err := bindSmc(address, backend, backend, backend)
+// NewERC721Verifiable creates a new instance of ERC721Verifiable, bound to a specific deployed contract.
+func NewERC721Verifiable(address common.Address, backend bind.ContractBackend) (*ERC721Verifiable, error) {
+	contract, err := bindERC721Verifiable(address, backend, backend, backend)
 	if err != nil {
 		return nil, err
 	}
-	return &Smc{SmcCaller: SmcCaller{contract: contract}, SmcTransactor: SmcTransactor{contract: contract}, SmcFilterer: SmcFilterer{contract: contract}}, nil
+	return &ERC721Verifiable{ERC721VerifiableCaller: ERC721VerifiableCaller{contract: contract}, ERC721VerifiableTransactor: ERC721VerifiableTransactor{contract: contract}, ERC721VerifiableFilterer: ERC721VerifiableFilterer{contract: contract}}, nil
 }
 
-// NewSmcCaller creates a new read-only instance of Smc, bound to a specific deployed contract.
-func NewSmcCaller(address common.Address, caller bind.ContractCaller) (*SmcCaller, error) {
-	contract, err := bindSmc(address, caller, nil, nil)
+// NewERC721VerifiableCaller creates a new read-only instance of ERC721Verifiable, bound to a specific deployed contract.
+func NewERC721VerifiableCaller(address common.Address, caller bind.ContractCaller) (*ERC721VerifiableCaller, error) {
+	contract, err := bindERC721Verifiable(address, caller, nil, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcCaller{contract: contract}, nil
+	return &ERC721VerifiableCaller{contract: contract}, nil
 }
 
-// NewSmcTransactor creates a new write-only instance of Smc, bound to a specific deployed contract.
-func NewSmcTransactor(address common.Address, transactor bind.ContractTransactor) (*SmcTransactor, error) {
-	contract, err := bindSmc(address, nil, transactor, nil)
+// NewERC721VerifiableTransactor creates a new write-only instance of ERC721Verifiable, bound to a specific deployed contract.
+func NewERC721VerifiableTransactor(address common.Address, transactor bind.ContractTransactor) (*ERC721VerifiableTransactor, error) {
+	contract, err := bindERC721Verifiable(address, nil, transactor, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTransactor{contract: contract}, nil
+	return &ERC721VerifiableTransactor{contract: contract}, nil
 }
 
-// NewSmcFilterer creates a new log filterer instance of Smc, bound to a specific deployed contract.
-func NewSmcFilterer(address common.Address, filterer bind.ContractFilterer) (*SmcFilterer, error) {
-	contract, err := bindSmc(address, nil, nil, filterer)
+// NewERC721VerifiableFilterer creates a new log filterer instance of ERC721Verifiable, bound to a specific deployed contract.
+func NewERC721VerifiableFilterer(address common.Address, filterer bind.ContractFilterer) (*ERC721VerifiableFilterer, error) {
+	contract, err := bindERC721Verifiable(address, nil, nil, filterer)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcFilterer{contract: contract}, nil
+	return &ERC721VerifiableFilterer{contract: contract}, nil
 }
 
-// bindSmc binds a generic wrapper to an already deployed contract.
-func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-	parsed, err := abi.JSON(strings.NewReader(SmcABI))
+// bindERC721Verifiable binds a generic wrapper to an already deployed contract.
+func bindERC721Verifiable(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := abi.JSON(strings.NewReader(ERC721VerifiableABI))
 	if err != nil {
 		return nil, err
 	}
@@ -145,46 +145,46 @@ func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.SmcCaller.contract.Call(opts, result, method, params...)
+func (_ERC721Verifiable *ERC721VerifiableRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _ERC721Verifiable.Contract.ERC721VerifiableCaller.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transfer(opts)
+func (_ERC721Verifiable *ERC721VerifiableRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _ERC721Verifiable.Contract.ERC721VerifiableTransactor.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transact(opts, method, params...)
+func (_ERC721Verifiable *ERC721VerifiableRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _ERC721Verifiable.Contract.ERC721VerifiableTransactor.contract.Transact(opts, method, params...)
 }
 
 // Call invokes the (constant) contract method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.contract.Call(opts, result, method, params...)
+func (_ERC721Verifiable *ERC721VerifiableCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _ERC721Verifiable.Contract.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transfer(opts)
+func (_ERC721Verifiable *ERC721VerifiableTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _ERC721Verifiable.Contract.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transact(opts, method, params...)
+func (_ERC721Verifiable *ERC721VerifiableTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _ERC721Verifiable.Contract.contract.Transact(opts, method, params...)
 }
 
 // BalanceOf is a free data retrieval call binding the contract method 0x70a08231.
 //
 // Solidity: function balanceOf(address owner) view returns(uint256 balance)
-func (_Smc *SmcCaller) BalanceOf(opts *bind.CallOpts, owner common.Address) (*big.Int, error) {
+func (_ERC721Verifiable *ERC721VerifiableCaller) BalanceOf(opts *bind.CallOpts, owner common.Address) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "balanceOf", owner)
+	err := _ERC721Verifiable.contract.Call(opts, &out, "balanceOf", owner)
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -199,23 +199,23 @@ func (_Smc *SmcCaller) BalanceOf(opts *bind.CallOpts, owner common.Address) (*bi
 // BalanceOf is a free data retrieval call binding the contract method 0x70a08231.
 //
 // Solidity: function balanceOf(address owner) view returns(uint256 balance)
-func (_Smc *SmcSession) BalanceOf(owner common.Address) (*big.Int, error) {
-	return _Smc.Contract.BalanceOf(&_Smc.CallOpts, owner)
+func (_ERC721Verifiable *ERC721VerifiableSession) BalanceOf(owner common.Address) (*big.Int, error) {
+	return _ERC721Verifiable.Contract.BalanceOf(&_ERC721Verifiable.CallOpts, owner)
 }
 
 // BalanceOf is a free data retrieval call binding the contract method 0x70a08231.
 //
 // Solidity: function balanceOf(address owner) view returns(uint256 balance)
-func (_Smc *SmcCallerSession) BalanceOf(owner common.Address) (*big.Int, error) {
-	return _Smc.Contract.BalanceOf(&_Smc.CallOpts, owner)
+func (_ERC721Verifiable *ERC721VerifiableCallerSession) BalanceOf(owner common.Address) (*big.Int, error) {
+	return _ERC721Verifiable.Contract.BalanceOf(&_ERC721Verifiable.CallOpts, owner)
 }
 
 // GetApproved is a free data retrieval call binding the contract method 0x081812fc.
 //
 // Solidity: function getApproved(uint256 tokenId) view returns(address operator)
-func (_Smc *SmcCaller) GetApproved(opts *bind.CallOpts, tokenId *big.Int) (common.Address, error) {
+func (_ERC721Verifiable *ERC721VerifiableCaller) GetApproved(opts *bind.CallOpts, tokenId *big.Int) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getApproved", tokenId)
+	err := _ERC721Verifiable.contract.Call(opts, &out, "getApproved", tokenId)
 
 	if err != nil {
 		return *new(common.Address), err
@@ -230,23 +230,23 @@ func (_Smc *SmcCaller) GetApproved(opts *bind.CallOpts, tokenId *big.Int) (commo
 // GetApproved is a free data retrieval call binding the contract method 0x081812fc.
 //
 // Solidity: function getApproved(uint256 tokenId) view returns(address operator)
-func (_Smc *SmcSession) GetApproved(tokenId *big.Int) (common.Address, error) {
-	return _Smc.Contract.GetApproved(&_Smc.CallOpts, tokenId)
+func (_ERC721Verifiable *ERC721VerifiableSession) GetApproved(tokenId *big.Int) (common.Address, error) {
+	return _ERC721Verifiable.Contract.GetApproved(&_ERC721Verifiable.CallOpts, tokenId)
 }
 
 // GetApproved is a free data retrieval call binding the contract method 0x081812fc.
 //
 // Solidity: function getApproved(uint256 tokenId) view returns(address operator)
-func (_Smc *SmcCallerSession) GetApproved(tokenId *big.Int) (common.Address, error) {
-	return _Smc.Contract.GetApproved(&_Smc.CallOpts, tokenId)
+func (_ERC721Verifiable *ERC721VerifiableCallerSession) GetApproved(tokenId *big.Int) (common.Address, error) {
+	return _ERC721Verifiable.Contract.GetApproved(&_ERC721Verifiable.CallOpts, tokenId)
 }
 
 // IsApprovedForAll is a free data retrieval call binding the contract method 0xe985e9c5.
 //
 // Solidity: function isApprovedForAll(address owner, address operator) view returns(bool)
-func (_Smc *SmcCaller) IsApprovedForAll(opts *bind.CallOpts, owner common.Address, operator common.Address) (bool, error) {
+func (_ERC721Verifiable *ERC721VerifiableCaller) IsApprovedForAll(opts *bind.CallOpts, owner common.Address, operator common.Address) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "isApprovedForAll", owner, operator)
+	err := _ERC721Verifiable.contract.Call(opts, &out, "isApprovedForAll", owner, operator)
 
 	if err != nil {
 		return *new(bool), err
@@ -261,23 +261,23 @@ func (_Smc *SmcCaller) IsApprovedForAll(opts *bind.CallOpts, owner common.Addres
 // IsApprovedForAll is a free data retrieval call binding the contract method 0xe985e9c5.
 //
 // Solidity: function isApprovedForAll(address owner, address operator) view returns(bool)
-func (_Smc *SmcSession) IsApprovedForAll(owner common.Address, operator common.Address) (bool, error) {
-	return _Smc.Contract.IsApprovedForAll(&_Smc.CallOpts, owner, operator)
+func (_ERC721Verifiable *ERC721VerifiableSession) IsApprovedForAll(owner common.Address, operator common.Address) (bool, error) {
+	return _ERC721Verifiable.Contract.IsApprovedForAll(&_ERC721Verifiable.CallOpts, owner, operator)
 }
 
 // IsApprovedForAll is a free data retrieval call binding the contract method 0xe985e9c5.
 //
 // Solidity: function isApprovedForAll(address owner, address operator) view returns(bool)
-func (_Smc *SmcCallerSession) IsApprovedForAll(owner common.Address, operator common.Address) (bool, error) {
-	return _Smc.Contract.IsApprovedForAll(&_Smc.CallOpts, owner, operator)
+func (_ERC721Verifiable *ERC721VerifiableCallerSession) IsApprovedForAll(owner common.Address, operator common.Address) (bool, error) {
+	return _ERC721Verifiable.Contract.IsApprovedForAll(&_ERC721Verifiable.CallOpts, owner, operator)
 }
 
 // OwnerOf is a free data retrieval call binding the contract method 0x6352211e.
 //
 // Solidity: function ownerOf(uint256 tokenId) view returns(address owner)
-func (_Smc *SmcCaller) OwnerOf(opts *bind.CallOpts, tokenId *big.Int) (common.Address, error) {
+func (_ERC721Verifiable *ERC721VerifiableCaller) OwnerOf(opts *bind.CallOpts, tokenId *big.Int) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "ownerOf", tokenId)
+	err := _ERC721Verifiable.contract.Call(opts, &out, "ownerOf", tokenId)
 
 	if err != nil {
 		return *new(common.Address), err
@@ -292,23 +292,23 @@ func (_Smc *SmcCaller) OwnerOf(opts *bind.CallOpts, tokenId *big.Int) (common.Ad
 // OwnerOf is a free data retrieval call binding the contract method 0x6352211e.
 //
 // Solidity: function ownerOf(uint256 tokenId) view returns(address owner)
-func (_Smc *SmcSession) OwnerOf(tokenId *big.Int) (common.Address, error) {
-	return _Smc.Contract.OwnerOf(&_Smc.CallOpts, tokenId)
+func (_ERC721Verifiable *ERC721VerifiableSession) OwnerOf(tokenId *big.Int) (common.Address, error) {
+	return _ERC721Verifiable.Contract.OwnerOf(&_ERC721Verifiable.CallOpts, tokenId)
 }
 
 // OwnerOf is a free data retrieval call binding the contract method 0x6352211e.
 //
 // Solidity: function ownerOf(uint256 tokenId) view returns(address owner)
-func (_Smc *SmcCallerSession) OwnerOf(tokenId *big.Int) (common.Address, error) {
-	return _Smc.Contract.OwnerOf(&_Smc.CallOpts, tokenId)
+func (_ERC721Verifiable *ERC721VerifiableCallerSession) OwnerOf(tokenId *big.Int) (common.Address, error) {
+	return _ERC721Verifiable.Contract.OwnerOf(&_ERC721Verifiable.CallOpts, tokenId)
 }
 
 // SupportsInterface is a free data retrieval call binding the contract method 0x01ffc9a7.
 //
 // Solidity: function supportsInterface(bytes4 interfaceId) view returns(bool)
-func (_Smc *SmcCaller) SupportsInterface(opts *bind.CallOpts, interfaceId [4]byte) (bool, error) {
+func (_ERC721Verifiable *ERC721VerifiableCaller) SupportsInterface(opts *bind.CallOpts, interfaceId [4]byte) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "supportsInterface", interfaceId)
+	err := _ERC721Verifiable.contract.Call(opts, &out, "supportsInterface", interfaceId)
 
 	if err != nil {
 		return *new(bool), err
@@ -323,23 +323,23 @@ func (_Smc *SmcCaller) SupportsInterface(opts *bind.CallOpts, interfaceId [4]byt
 // SupportsInterface is a free data retrieval call binding the contract method 0x01ffc9a7.
 //
 // Solidity: function supportsInterface(bytes4 interfaceId) view returns(bool)
-func (_Smc *SmcSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
-	return _Smc.Contract.SupportsInterface(&_Smc.CallOpts, interfaceId)
+func (_ERC721Verifiable *ERC721VerifiableSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
+	return _ERC721Verifiable.Contract.SupportsInterface(&_ERC721Verifiable.CallOpts, interfaceId)
 }
 
 // SupportsInterface is a free data retrieval call binding the contract method 0x01ffc9a7.
 //
 // Solidity: function supportsInterface(bytes4 interfaceId) view returns(bool)
-func (_Smc *SmcCallerSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
-	return _Smc.Contract.SupportsInterface(&_Smc.CallOpts, interfaceId)
+func (_ERC721Verifiable *ERC721VerifiableCallerSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
+	return _ERC721Verifiable.Contract.SupportsInterface(&_ERC721Verifiable.CallOpts, interfaceId)
 }
 
 // VerifyFingerprint is a free data retrieval call binding the contract method 0x8f9f4b63.
 //
 // Solidity: function verifyFingerprint(uint256 , bytes ) view returns(bool)
-func (_Smc *SmcCaller) VerifyFingerprint(opts *bind.CallOpts, arg0 *big.Int, arg1 []byte) (bool, error) {
+func (_ERC721Verifiable *ERC721VerifiableCaller) VerifyFingerprint(opts *bind.CallOpts, arg0 *big.Int, arg1 []byte) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "verifyFingerprint", arg0, arg1)
+	err := _ERC721Verifiable.contract.Call(opts, &out, "verifyFingerprint", arg0, arg1)
 
 	if err != nil {
 		return *new(bool), err
@@ -354,125 +354,125 @@ func (_Smc *SmcCaller) VerifyFingerprint(opts *bind.CallOpts, arg0 *big.Int, arg
 // VerifyFingerprint is a free data retrieval call binding the contract method 0x8f9f4b63.
 //
 // Solidity: function verifyFingerprint(uint256 , bytes ) view returns(bool)
-func (_Smc *SmcSession) VerifyFingerprint(arg0 *big.Int, arg1 []byte) (bool, error) {
-	return _Smc.Contract.VerifyFingerprint(&_Smc.CallOpts, arg0, arg1)
+func (_ERC721Verifiable *ERC721VerifiableSession) VerifyFingerprint(arg0 *big.Int, arg1 []byte) (bool, error) {
+	return _ERC721Verifiable.Contract.VerifyFingerprint(&_ERC721Verifiable.CallOpts, arg0, arg1)
 }
 
 // VerifyFingerprint is a free data retrieval call binding the contract method 0x8f9f4b63.
 //
 // Solidity: function verifyFingerprint(uint256 , bytes ) view returns(bool)
-func (_Smc *SmcCallerSession) VerifyFingerprint(arg0 *big.Int, arg1 []byte) (bool, error) {
-	return _Smc.Contract.VerifyFingerprint(&_Smc.CallOpts, arg0, arg1)
+func (_ERC721Verifiable *ERC721VerifiableCallerSession) VerifyFingerprint(arg0 *big.Int, arg1 []byte) (bool, error) {
+	return _ERC721Verifiable.Contract.VerifyFingerprint(&_ERC721Verifiable.CallOpts, arg0, arg1)
 }
 
 // Approve is a paid mutator transaction binding the contract method 0x095ea7b3.
 //
 // Solidity: function approve(address to, uint256 tokenId) returns()
-func (_Smc *SmcTransactor) Approve(opts *bind.TransactOpts, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "approve", to, tokenId)
+func (_ERC721Verifiable *ERC721VerifiableTransactor) Approve(opts *bind.TransactOpts, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
+	return _ERC721Verifiable.contract.Transact(opts, "approve", to, tokenId)
 }
 
 // Approve is a paid mutator transaction binding the contract method 0x095ea7b3.
 //
 // Solidity: function approve(address to, uint256 tokenId) returns()
-func (_Smc *SmcSession) Approve(to common.Address, tokenId *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.Approve(&_Smc.TransactOpts, to, tokenId)
+func (_ERC721Verifiable *ERC721VerifiableSession) Approve(to common.Address, tokenId *big.Int) (*types.Transaction, error) {
+	return _ERC721Verifiable.Contract.Approve(&_ERC721Verifiable.TransactOpts, to, tokenId)
 }
 
 // Approve is a paid mutator transaction binding the contract method 0x095ea7b3.
 //
 // Solidity: function approve(address to, uint256 tokenId) returns()
-func (_Smc *SmcTransactorSession) Approve(to common.Address, tokenId *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.Approve(&_Smc.TransactOpts, to, tokenId)
+func (_ERC721Verifiable *ERC721VerifiableTransactorSession) Approve(to common.Address, tokenId *big.Int) (*types.Transaction, error) {
+	return _ERC721Verifiable.Contract.Approve(&_ERC721Verifiable.TransactOpts, to, tokenId)
 }
 
 // SafeTransferFrom is a paid mutator transaction binding the contract method 0x42842e0e.
 //
 // Solidity: function safeTransferFrom(address from, address to, uint256 tokenId) returns()
-func (_Smc *SmcTransactor) SafeTransferFrom(opts *bind.TransactOpts, from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "safeTransferFrom", from, to, tokenId)
+func (_ERC721Verifiable *ERC721VerifiableTransactor) SafeTransferFrom(opts *bind.TransactOpts, from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
+	return _ERC721Verifiable.contract.Transact(opts, "safeTransferFrom", from, to, tokenId)
 }
 
 // SafeTransferFrom is a paid mutator transaction binding the contract method 0x42842e0e.
 //
 // Solidity: function safeTransferFrom(address from, address to, uint256 tokenId) returns()
-func (_Smc *SmcSession) SafeTransferFrom(from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.SafeTransferFrom(&_Smc.TransactOpts, from, to, tokenId)
+func (_ERC721Verifiable *ERC721VerifiableSession) SafeTransferFrom(from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
+	return _ERC721Verifiable.Contract.SafeTransferFrom(&_ERC721Verifiable.TransactOpts, from, to, tokenId)
 }
 
 // SafeTransferFrom is a paid mutator transaction binding the contract method 0x42842e0e.
 //
 // Solidity: function safeTransferFrom(address from, address to, uint256 tokenId) returns()
-func (_Smc *SmcTransactorSession) SafeTransferFrom(from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.SafeTransferFrom(&_Smc.TransactOpts, from, to, tokenId)
+func (_ERC721Verifiable *ERC721VerifiableTransactorSession) SafeTransferFrom(from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
+	return _ERC721Verifiable.Contract.SafeTransferFrom(&_ERC721Verifiable.TransactOpts, from, to, tokenId)
 }
 
 // SafeTransferFrom0 is a paid mutator transaction binding the contract method 0xb88d4fde.
 //
 // Solidity: function safeTransferFrom(address from, address to, uint256 tokenId, bytes data) returns()
-func (_Smc *SmcTransactor) SafeTransferFrom0(opts *bind.TransactOpts, from common.Address, to common.Address, tokenId *big.Int, data []byte) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "safeTransferFrom0", from, to, tokenId, data)
+func (_ERC721Verifiable *ERC721VerifiableTransactor) SafeTransferFrom0(opts *bind.TransactOpts, from common.Address, to common.Address, tokenId *big.Int, data []byte) (*types.Transaction, error) {
+	return _ERC721Verifiable.contract.Transact(opts, "safeTransferFrom0", from, to, tokenId, data)
 }
 
 // SafeTransferFrom0 is a paid mutator transaction binding the contract method 0xb88d4fde.
 //
 // Solidity: function safeTransferFrom(address from, address to, uint256 tokenId, bytes data) returns()
-func (_Smc *SmcSession) SafeTransferFrom0(from common.Address, to common.Address, tokenId *big.Int, data []byte) (*types.Transaction, error) {
-	return _Smc.Contract.SafeTransferFrom0(&_Smc.TransactOpts, from, to, tokenId, data)
+func (_ERC721Verifiable *ERC721VerifiableSession) SafeTransferFrom0(from common.Address, to common.Address, tokenId *big.Int, data []byte) (*types.Transaction, error) {
+	return _ERC721Verifiable.Contract.SafeTransferFrom0(&_ERC721Verifiable.TransactOpts, from, to, tokenId, data)
 }
 
 // SafeTransferFrom0 is a paid mutator transaction binding the contract method 0xb88d4fde.
 //
 // Solidity: function safeTransferFrom(address from, address to, uint256 tokenId, bytes data) returns()
-func (_Smc *SmcTransactorSession) SafeTransferFrom0(from common.Address, to common.Address, tokenId *big.Int, data []byte) (*types.Transaction, error) {
-	return _Smc.Contract.SafeTransferFrom0(&_Smc.TransactOpts, from, to, tokenId, data)
+func (_ERC721Verifiable *ERC721VerifiableTransactorSession) SafeTransferFrom0(from common.Address, to common.Address, tokenId *big.Int, data []byte) (*types.Transaction, error) {
+	return _ERC721Verifiable.Contract.SafeTransferFrom0(&_ERC721Verifiable.TransactOpts, from, to, tokenId, data)
 }
 
 // SetApprovalForAll is a paid mutator transaction binding the contract method 0xa22cb465.
 //
 // Solidity: function setApprovalForAll(address operator, bool _approved) returns()
-func (_Smc *SmcTransactor) SetApprovalForAll(opts *bind.TransactOpts, operator common.Address, _approved bool) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "setApprovalForAll", operator, _approved)
+func (_ERC721Verifiable *ERC721VerifiableTransactor) SetApprovalForAll(opts *bind.TransactOpts, operator common.Address, _approved bool) (*types.Transaction, error) {
+	return _ERC721Verifiable.contract.Transact(opts, "setApprovalForAll", operator, _approved)
 }
 
 // SetApprovalForAll is a paid mutator transaction binding the contract method 0xa22cb465.
 //
 // Solidity: function setApprovalForAll(address operator, bool _approved) returns()
-func (_Smc *SmcSession) SetApprovalForAll(operator common.Address, _approved bool) (*types.Transaction, error) {
-	return _Smc.Contract.SetApprovalForAll(&_Smc.TransactOpts, operator, _approved)
+func (_ERC721Verifiable *ERC721VerifiableSession) SetApprovalForAll(operator common.Address, _approved bool) (*types.Transaction, error) {
+	return _ERC721Verifiable.Contract.SetApprovalForAll(&_ERC721Verifiable.TransactOpts, operator, _approved)
 }
 
 // SetApprovalForAll is a paid mutator transaction binding the contract method 0xa22cb465.
 //
 // Solidity: function setApprovalForAll(address operator, bool _approved) returns()
-func (_Smc *SmcTransactorSession) SetApprovalForAll(operator common.Address, _approved bool) (*types.Transaction, error) {
-	return _Smc.Contract.SetApprovalForAll(&_Smc.TransactOpts, operator, _approved)
+func (_ERC721Verifiable *ERC721VerifiableTransactorSession) SetApprovalForAll(operator common.Address, _approved bool) (*types.Transaction, error) {
+	return _ERC721Verifiable.Contract.SetApprovalForAll(&_ERC721Verifiable.TransactOpts, operator, _approved)
 }
 
 // TransferFrom is a paid mutator transaction binding the contract method 0x23b872dd.
 //
 // Solidity: function transferFrom(address from, address to, uint256 tokenId) returns()
-func (_Smc *SmcTransactor) TransferFrom(opts *bind.TransactOpts, from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "transferFrom", from, to, tokenId)
+func (_ERC721Verifiable *ERC721VerifiableTransactor) TransferFrom(opts *bind.TransactOpts, from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
+	return _ERC721Verifiable.contract.Transact(opts, "transferFrom", from, to, tokenId)
 }
 
 // TransferFrom is a paid mutator transaction binding the contract method 0x23b872dd.
 //
 // Solidity: function transferFrom(address from, address to, uint256 tokenId) returns()
-func (_Smc *SmcSession) TransferFrom(from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.TransferFrom(&_Smc.TransactOpts, from, to, tokenId)
+func (_ERC721Verifiable *ERC721VerifiableSession) TransferFrom(from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
+	return _ERC721Verifiable.Contract.TransferFrom(&_ERC721Verifiable.TransactOpts, from, to, tokenId)
 }
 
 // TransferFrom is a paid mutator transaction binding the contract method 0x23b872dd.
 //
 // Solidity: function transferFrom(address from, address to, uint256 tokenId) returns()
-func (_Smc *SmcTransactorSession) TransferFrom(from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.TransferFrom(&_Smc.TransactOpts, from, to, tokenId)
+func (_ERC721Verifiable *ERC721VerifiableTransactorSession) TransferFrom(from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
+	return _ERC721Verifiable.Contract.TransferFrom(&_ERC721Verifiable.TransactOpts, from, to, tokenId)
 }
 
-// SmcApprovalIterator is returned from FilterApproval and is used to iterate over the raw logs and unpacked data for Approval events raised by the Smc contract.
-type SmcApprovalIterator struct {
-	Event *SmcApproval // Event containing the contract specifics and raw log
+// ERC721VerifiableApprovalIterator is returned from FilterApproval and is used to iterate over the raw logs and unpacked data for Approval events raised by the ERC721Verifiable contract.
+type ERC721VerifiableApprovalIterator struct {
+	Event *ERC721VerifiableApproval // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -486,7 +486,7 @@ type SmcApprovalIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcApprovalIterator) Next() bool {
+func (it *ERC721VerifiableApprovalIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -495,7 +495,7 @@ func (it *SmcApprovalIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcApproval)
+			it.Event = new(ERC721VerifiableApproval)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -510,7 +510,7 @@ func (it *SmcApprovalIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcApproval)
+		it.Event = new(ERC721VerifiableApproval)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -526,19 +526,19 @@ func (it *SmcApprovalIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcApprovalIterator) Error() error {
+func (it *ERC721VerifiableApprovalIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcApprovalIterator) Close() error {
+func (it *ERC721VerifiableApprovalIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcApproval represents a Approval event raised by the Smc contract.
-type SmcApproval struct {
+// ERC721VerifiableApproval represents a Approval event raised by the ERC721Verifiable contract.
+type ERC721VerifiableApproval struct {
 	Owner    common.Address
 	Approved common.Address
 	TokenId  *big.Int
@@ -548,7 +548,7 @@ type SmcApproval struct {
 // FilterApproval is a free log retrieval operation binding the contract event 0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925.
 //
 // Solidity: event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId)
-func (_Smc *SmcFilterer) FilterApproval(opts *bind.FilterOpts, owner []common.Address, approved []common.Address, tokenId []*big.Int) (*SmcApprovalIterator, error) {
+func (_ERC721Verifiable *ERC721VerifiableFilterer) FilterApproval(opts *bind.FilterOpts, owner []common.Address, approved []common.Address, tokenId []*big.Int) (*ERC721VerifiableApprovalIterator, error) {
 
 	var ownerRule []interface{}
 	for _, ownerItem := range owner {
@@ -563,17 +563,17 @@ func (_Smc *SmcFilterer) FilterApproval(opts *bind.FilterOpts, owner []common.Ad
 		tokenIdRule = append(tokenIdRule, tokenIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Approval", ownerRule, approvedRule, tokenIdRule)
+	logs, sub, err := _ERC721Verifiable.contract.FilterLogs(opts, "Approval", ownerRule, approvedRule, tokenIdRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcApprovalIterator{contract: _Smc.contract, event: "Approval", logs: logs, sub: sub}, nil
+	return &ERC721VerifiableApprovalIterator{contract: _ERC721Verifiable.contract, event: "Approval", logs: logs, sub: sub}, nil
 }
 
 // WatchApproval is a free log subscription operation binding the contract event 0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925.
 //
 // Solidity: event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId)
-func (_Smc *SmcFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *SmcApproval, owner []common.Address, approved []common.Address, tokenId []*big.Int) (event.Subscription, error) {
+func (_ERC721Verifiable *ERC721VerifiableFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *ERC721VerifiableApproval, owner []common.Address, approved []common.Address, tokenId []*big.Int) (event.Subscription, error) {
 
 	var ownerRule []interface{}
 	for _, ownerItem := range owner {
@@ -588,7 +588,7 @@ func (_Smc *SmcFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *SmcApp
 		tokenIdRule = append(tokenIdRule, tokenIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Approval", ownerRule, approvedRule, tokenIdRule)
+	logs, sub, err := _ERC721Verifiable.contract.WatchLogs(opts, "Approval", ownerRule, approvedRule, tokenIdRule)
 	if err != nil {
 		return nil, err
 	}
@@ -598,8 +598,8 @@ func (_Smc *SmcFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *SmcApp
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcApproval)
-				if err := _Smc.contract.UnpackLog(event, "Approval", log); err != nil {
+				event := new(ERC721VerifiableApproval)
+				if err := _ERC721Verifiable.contract.UnpackLog(event, "Approval", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -623,18 +623,18 @@ func (_Smc *SmcFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *SmcApp
 // ParseApproval is a log parse operation binding the contract event 0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925.
 //
 // Solidity: event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId)
-func (_Smc *SmcFilterer) ParseApproval(log types.Log) (*SmcApproval, error) {
-	event := new(SmcApproval)
-	if err := _Smc.contract.UnpackLog(event, "Approval", log); err != nil {
+func (_ERC721Verifiable *ERC721VerifiableFilterer) ParseApproval(log types.Log) (*ERC721VerifiableApproval, error) {
+	event := new(ERC721VerifiableApproval)
+	if err := _ERC721Verifiable.contract.UnpackLog(event, "Approval", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcApprovalForAllIterator is returned from FilterApprovalForAll and is used to iterate over the raw logs and unpacked data for ApprovalForAll events raised by the Smc contract.
-type SmcApprovalForAllIterator struct {
-	Event *SmcApprovalForAll // Event containing the contract specifics and raw log
+// ERC721VerifiableApprovalForAllIterator is returned from FilterApprovalForAll and is used to iterate over the raw logs and unpacked data for ApprovalForAll events raised by the ERC721Verifiable contract.
+type ERC721VerifiableApprovalForAllIterator struct {
+	Event *ERC721VerifiableApprovalForAll // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -648,7 +648,7 @@ type SmcApprovalForAllIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcApprovalForAllIterator) Next() bool {
+func (it *ERC721VerifiableApprovalForAllIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -657,7 +657,7 @@ func (it *SmcApprovalForAllIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcApprovalForAll)
+			it.Event = new(ERC721VerifiableApprovalForAll)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -672,7 +672,7 @@ func (it *SmcApprovalForAllIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcApprovalForAll)
+		it.Event = new(ERC721VerifiableApprovalForAll)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -688,19 +688,19 @@ func (it *SmcApprovalForAllIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcApprovalForAllIterator) Error() error {
+func (it *ERC721VerifiableApprovalForAllIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcApprovalForAllIterator) Close() error {
+func (it *ERC721VerifiableApprovalForAllIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcApprovalForAll represents a ApprovalForAll event raised by the Smc contract.
-type SmcApprovalForAll struct {
+// ERC721VerifiableApprovalForAll represents a ApprovalForAll event raised by the ERC721Verifiable contract.
+type ERC721VerifiableApprovalForAll struct {
 	Owner    common.Address
 	Operator common.Address
 	Approved bool
@@ -710,7 +710,7 @@ type SmcApprovalForAll struct {
 // FilterApprovalForAll is a free log retrieval operation binding the contract event 0x17307eab39ab6107e8899845ad3d59bd9653f200f220920489ca2b5937696c31.
 //
 // Solidity: event ApprovalForAll(address indexed owner, address indexed operator, bool approved)
-func (_Smc *SmcFilterer) FilterApprovalForAll(opts *bind.FilterOpts, owner []common.Address, operator []common.Address) (*SmcApprovalForAllIterator, error) {
+func (_ERC721Verifiable *ERC721VerifiableFilterer) FilterApprovalForAll(opts *bind.FilterOpts, owner []common.Address, operator []common.Address) (*ERC721VerifiableApprovalForAllIterator, error) {
 
 	var ownerRule []interface{}
 	for _, ownerItem := range owner {
@@ -721,17 +721,17 @@ func (_Smc *SmcFilterer) FilterApprovalForAll(opts *bind.FilterOpts, owner []com
 		operatorRule = append(operatorRule, operatorItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "ApprovalForAll", ownerRule, operatorRule)
+	logs, sub, err := _ERC721Verifiable.contract.FilterLogs(opts, "ApprovalForAll", ownerRule, operatorRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcApprovalForAllIterator{contract: _Smc.contract, event: "ApprovalForAll", logs: logs, sub: sub}, nil
+	return &ERC721VerifiableApprovalForAllIterator{contract: _ERC721Verifiable.contract, event: "ApprovalForAll", logs: logs, sub: sub}, nil
 }
 
 // WatchApprovalForAll is a free log subscription operation binding the contract event 0x17307eab39ab6107e8899845ad3d59bd9653f200f220920489ca2b5937696c31.
 //
 // Solidity: event ApprovalForAll(address indexed owner, address indexed operator, bool approved)
-func (_Smc *SmcFilterer) WatchApprovalForAll(opts *bind.WatchOpts, sink chan<- *SmcApprovalForAll, owner []common.Address, operator []common.Address) (event.Subscription, error) {
+func (_ERC721Verifiable *ERC721VerifiableFilterer) WatchApprovalForAll(opts *bind.WatchOpts, sink chan<- *ERC721VerifiableApprovalForAll, owner []common.Address, operator []common.Address) (event.Subscription, error) {
 
 	var ownerRule []interface{}
 	for _, ownerItem := range owner {
@@ -742,7 +742,7 @@ func (_Smc *SmcFilterer) WatchApprovalForAll(opts *bind.WatchOpts, sink chan<- *
 		operatorRule = append(operatorRule, operatorItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "ApprovalForAll", ownerRule, operatorRule)
+	logs, sub, err := _ERC721Verifiable.contract.WatchLogs(opts, "ApprovalForAll", ownerRule, operatorRule)
 	if err != nil {
 		return nil, err
 	}
@@ -752,8 +752,8 @@ func (_Smc *SmcFilterer) WatchApprovalForAll(opts *bind.WatchOpts, sink chan<- *
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcApprovalForAll)
-				if err := _Smc.contract.UnpackLog(event, "ApprovalForAll", log); err != nil {
+				event := new(ERC721VerifiableApprovalForAll)
+				if err := _ERC721Verifiable.contract.UnpackLog(event, "ApprovalForAll", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -777,18 +777,18 @@ func (_Smc *SmcFilterer) WatchApprovalForAll(opts *bind.WatchOpts, sink chan<- *
 // ParseApprovalForAll is a log parse operation binding the contract event 0x17307eab39ab6107e8899845ad3d59bd9653f200f220920489ca2b5937696c31.
 //
 // Solidity: event ApprovalForAll(address indexed owner, address indexed operator, bool approved)
-func (_Smc *SmcFilterer) ParseApprovalForAll(log types.Log) (*SmcApprovalForAll, error) {
-	event := new(SmcApprovalForAll)
-	if err := _Smc.contract.UnpackLog(event, "ApprovalForAll", log); err != nil {
+func (_ERC721Verifiable *ERC721VerifiableFilterer) ParseApprovalForAll(log types.Log) (*ERC721VerifiableApprovalForAll, error) {
+	event := new(ERC721VerifiableApprovalForAll)
+	if err := _ERC721Verifiable.contract.UnpackLog(event, "ApprovalForAll", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcTransferIterator is returned from FilterTransfer and is used to iterate over the raw logs and unpacked data for Transfer events raised by the Smc contract.
-type SmcTransferIterator struct {
-	Event *SmcTransfer // Event containing the contract specifics and raw log
+// ERC721VerifiableTransferIterator is returned from FilterTransfer and is used to iterate over the raw logs and unpacked data for Transfer events raised by the ERC721Verifiable contract.
+type ERC721VerifiableTransferIterator struct {
+	Event *ERC721VerifiableTransfer // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -802,7 +802,7 @@ type SmcTransferIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcTransferIterator) Next() bool {
+func (it *ERC721VerifiableTransferIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -811,7 +811,7 @@ func (it *SmcTransferIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcTransfer)
+			it.Event = new(ERC721VerifiableTransfer)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -826,7 +826,7 @@ func (it *SmcTransferIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcTransfer)
+		it.Event = new(ERC721VerifiableTransfer)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -842,19 +842,19 @@ func (it *SmcTransferIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcTransferIterator) Error() error {
+func (it *ERC721VerifiableTransferIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcTransferIterator) Close() error {
+func (it *ERC721VerifiableTransferIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcTransfer represents a Transfer event raised by the Smc contract.
-type SmcTransfer struct {
+// ERC721VerifiableTransfer represents a Transfer event raised by the ERC721Verifiable contract.
+type ERC721VerifiableTransfer struct {
 	From    common.Address
 	To      common.Address
 	TokenId *big.Int
@@ -864,7 +864,7 @@ type SmcTransfer struct {
 // FilterTransfer is a free log retrieval operation binding the contract event 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef.
 //
 // Solidity: event Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
-func (_Smc *SmcFilterer) FilterTransfer(opts *bind.FilterOpts, from []common.Address, to []common.Address, tokenId []*big.Int) (*SmcTransferIterator, error) {
+func (_ERC721Verifiable *ERC721VerifiableFilterer) FilterTransfer(opts *bind.FilterOpts, from []common.Address, to []common.Address, tokenId []*big.Int) (*ERC721VerifiableTransferIterator, error) {
 
 	var fromRule []interface{}
 	for _, fromItem := range from {
@@ -879,17 +879,17 @@ func (_Smc *SmcFilterer) FilterTransfer(opts *bind.FilterOpts, from []common.Add
 		tokenIdRule = append(tokenIdRule, tokenIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Transfer", fromRule, toRule, tokenIdRule)
+	logs, sub, err := _ERC721Verifiable.contract.FilterLogs(opts, "Transfer", fromRule, toRule, tokenIdRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTransferIterator{contract: _Smc.contract, event: "Transfer", logs: logs, sub: sub}, nil
+	return &ERC721VerifiableTransferIterator{contract: _ERC721Verifiable.contract, event: "Transfer", logs: logs, sub: sub}, nil
 }
 
 // WatchTransfer is a free log subscription operation binding the contract event 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef.
 //
 // Solidity: event Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
-func (_Smc *SmcFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *SmcTransfer, from []common.Address, to []common.Address, tokenId []*big.Int) (event.Subscription, error) {
+func (_ERC721Verifiable *ERC721VerifiableFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *ERC721VerifiableTransfer, from []common.Address, to []common.Address, tokenId []*big.Int) (event.Subscription, error) {
 
 	var fromRule []interface{}
 	for _, fromItem := range from {
@@ -904,7 +904,7 @@ func (_Smc *SmcFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *SmcTra
 		tokenIdRule = append(tokenIdRule, tokenIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Transfer", fromRule, toRule, tokenIdRule)
+	logs, sub, err := _ERC721Verifiable.contract.WatchLogs(opts, "Transfer", fromRule, toRule, tokenIdRule)
 	if err != nil {
 		return nil, err
 	}
@@ -914,8 +914,8 @@ func (_Smc *SmcFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *SmcTra
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcTransfer)
-				if err := _Smc.contract.UnpackLog(event, "Transfer", log); err != nil {
+				event := new(ERC721VerifiableTransfer)
+				if err := _ERC721Verifiable.contract.UnpackLog(event, "Transfer", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -939,9 +939,9 @@ func (_Smc *SmcFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *SmcTra
 // ParseTransfer is a log parse operation binding the contract event 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef.
 //
 // Solidity: event Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
-func (_Smc *SmcFilterer) ParseTransfer(log types.Log) (*SmcTransfer, error) {
-	event := new(SmcTransfer)
-	if err := _Smc.contract.UnpackLog(event, "Transfer", log); err != nil {
+func (_ERC721Verifiable *ERC721VerifiableFilterer) ParseTransfer(log types.Log) (*ERC721VerifiableTransfer, error) {
+	event := new(ERC721VerifiableTransfer)
+	if err := _ERC721Verifiable.contract.UnpackLog(event, "Transfer", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log

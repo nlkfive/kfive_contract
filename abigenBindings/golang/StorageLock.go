@@ -1,7 +1,7 @@
 // Code generated - DO NOT EDIT.
 // This file is a generated binding and any manual changes will be lost.
 
-package smc
+package StorageLock
 
 import (
 	"errors"
@@ -28,113 +28,113 @@ var (
 	_ = event.NewSubscription
 )
 
-// SmcMetaData contains all meta data concerning the Smc contract.
-var SmcMetaData = &bind.MetaData{
+// StorageLockMetaData contains all meta data concerning the StorageLock contract.
+var StorageLockMetaData = &bind.MetaData{
 	ABI: "[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_marketplaceStorage\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_marketplaceStorage\",\"type\":\"address\"}],\"name\":\"MarketplaceStorageUpdated\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"IMarketplaceStorage_Interface\",\"outputs\":[{\"internalType\":\"bytes4\",\"name\":\"\",\"type\":\"bytes4\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"marketplaceStorage\",\"outputs\":[{\"internalType\":\"contractIMarketplaceStorage\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_marketplaceStorage\",\"type\":\"address\"}],\"name\":\"updateStorageAddress\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
-// SmcABI is the input ABI used to generate the binding from.
-// Deprecated: Use SmcMetaData.ABI instead.
-var SmcABI = SmcMetaData.ABI
+// StorageLockABI is the input ABI used to generate the binding from.
+// Deprecated: Use StorageLockMetaData.ABI instead.
+var StorageLockABI = StorageLockMetaData.ABI
 
-// Smc is an auto generated Go binding around an Ethereum contract.
-type Smc struct {
-	SmcCaller     // Read-only binding to the contract
-	SmcTransactor // Write-only binding to the contract
-	SmcFilterer   // Log filterer for contract events
+// StorageLock is an auto generated Go binding around an Ethereum contract.
+type StorageLock struct {
+	StorageLockCaller     // Read-only binding to the contract
+	StorageLockTransactor // Write-only binding to the contract
+	StorageLockFilterer   // Log filterer for contract events
 }
 
-// SmcCaller is an auto generated read-only Go binding around an Ethereum contract.
-type SmcCaller struct {
+// StorageLockCaller is an auto generated read-only Go binding around an Ethereum contract.
+type StorageLockCaller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcTransactor is an auto generated write-only Go binding around an Ethereum contract.
-type SmcTransactor struct {
+// StorageLockTransactor is an auto generated write-only Go binding around an Ethereum contract.
+type StorageLockTransactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
-type SmcFilterer struct {
+// StorageLockFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type StorageLockFilterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcSession is an auto generated Go binding around an Ethereum contract,
+// StorageLockSession is an auto generated Go binding around an Ethereum contract,
 // with pre-set call and transact options.
-type SmcSession struct {
-	Contract     *Smc              // Generic contract binding to set the session for
+type StorageLockSession struct {
+	Contract     *StorageLock      // Generic contract binding to set the session for
 	CallOpts     bind.CallOpts     // Call options to use throughout this session
 	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 }
 
-// SmcCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// StorageLockCallerSession is an auto generated read-only Go binding around an Ethereum contract,
 // with pre-set call options.
-type SmcCallerSession struct {
-	Contract *SmcCaller    // Generic contract caller binding to set the session for
-	CallOpts bind.CallOpts // Call options to use throughout this session
+type StorageLockCallerSession struct {
+	Contract *StorageLockCaller // Generic contract caller binding to set the session for
+	CallOpts bind.CallOpts      // Call options to use throughout this session
 }
 
-// SmcTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// StorageLockTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
 // with pre-set transact options.
-type SmcTransactorSession struct {
-	Contract     *SmcTransactor    // Generic contract transactor binding to set the session for
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type StorageLockTransactorSession struct {
+	Contract     *StorageLockTransactor // Generic contract transactor binding to set the session for
+	TransactOpts bind.TransactOpts      // Transaction auth options to use throughout this session
 }
 
-// SmcRaw is an auto generated low-level Go binding around an Ethereum contract.
-type SmcRaw struct {
-	Contract *Smc // Generic contract binding to access the raw methods on
+// StorageLockRaw is an auto generated low-level Go binding around an Ethereum contract.
+type StorageLockRaw struct {
+	Contract *StorageLock // Generic contract binding to access the raw methods on
 }
 
-// SmcCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
-type SmcCallerRaw struct {
-	Contract *SmcCaller // Generic read-only contract binding to access the raw methods on
+// StorageLockCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type StorageLockCallerRaw struct {
+	Contract *StorageLockCaller // Generic read-only contract binding to access the raw methods on
 }
 
-// SmcTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
-type SmcTransactorRaw struct {
-	Contract *SmcTransactor // Generic write-only contract binding to access the raw methods on
+// StorageLockTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type StorageLockTransactorRaw struct {
+	Contract *StorageLockTransactor // Generic write-only contract binding to access the raw methods on
 }
 
-// NewSmc creates a new instance of Smc, bound to a specific deployed contract.
-func NewSmc(address common.Address, backend bind.ContractBackend) (*Smc, error) {
-	contract, err := bindSmc(address, backend, backend, backend)
+// NewStorageLock creates a new instance of StorageLock, bound to a specific deployed contract.
+func NewStorageLock(address common.Address, backend bind.ContractBackend) (*StorageLock, error) {
+	contract, err := bindStorageLock(address, backend, backend, backend)
 	if err != nil {
 		return nil, err
 	}
-	return &Smc{SmcCaller: SmcCaller{contract: contract}, SmcTransactor: SmcTransactor{contract: contract}, SmcFilterer: SmcFilterer{contract: contract}}, nil
+	return &StorageLock{StorageLockCaller: StorageLockCaller{contract: contract}, StorageLockTransactor: StorageLockTransactor{contract: contract}, StorageLockFilterer: StorageLockFilterer{contract: contract}}, nil
 }
 
-// NewSmcCaller creates a new read-only instance of Smc, bound to a specific deployed contract.
-func NewSmcCaller(address common.Address, caller bind.ContractCaller) (*SmcCaller, error) {
-	contract, err := bindSmc(address, caller, nil, nil)
+// NewStorageLockCaller creates a new read-only instance of StorageLock, bound to a specific deployed contract.
+func NewStorageLockCaller(address common.Address, caller bind.ContractCaller) (*StorageLockCaller, error) {
+	contract, err := bindStorageLock(address, caller, nil, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcCaller{contract: contract}, nil
+	return &StorageLockCaller{contract: contract}, nil
 }
 
-// NewSmcTransactor creates a new write-only instance of Smc, bound to a specific deployed contract.
-func NewSmcTransactor(address common.Address, transactor bind.ContractTransactor) (*SmcTransactor, error) {
-	contract, err := bindSmc(address, nil, transactor, nil)
+// NewStorageLockTransactor creates a new write-only instance of StorageLock, bound to a specific deployed contract.
+func NewStorageLockTransactor(address common.Address, transactor bind.ContractTransactor) (*StorageLockTransactor, error) {
+	contract, err := bindStorageLock(address, nil, transactor, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTransactor{contract: contract}, nil
+	return &StorageLockTransactor{contract: contract}, nil
 }
 
-// NewSmcFilterer creates a new log filterer instance of Smc, bound to a specific deployed contract.
-func NewSmcFilterer(address common.Address, filterer bind.ContractFilterer) (*SmcFilterer, error) {
-	contract, err := bindSmc(address, nil, nil, filterer)
+// NewStorageLockFilterer creates a new log filterer instance of StorageLock, bound to a specific deployed contract.
+func NewStorageLockFilterer(address common.Address, filterer bind.ContractFilterer) (*StorageLockFilterer, error) {
+	contract, err := bindStorageLock(address, nil, nil, filterer)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcFilterer{contract: contract}, nil
+	return &StorageLockFilterer{contract: contract}, nil
 }
 
-// bindSmc binds a generic wrapper to an already deployed contract.
-func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-	parsed, err := abi.JSON(strings.NewReader(SmcABI))
+// bindStorageLock binds a generic wrapper to an already deployed contract.
+func bindStorageLock(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := abi.JSON(strings.NewReader(StorageLockABI))
 	if err != nil {
 		return nil, err
 	}
@@ -145,46 +145,46 @@ func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.SmcCaller.contract.Call(opts, result, method, params...)
+func (_StorageLock *StorageLockRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _StorageLock.Contract.StorageLockCaller.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transfer(opts)
+func (_StorageLock *StorageLockRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _StorageLock.Contract.StorageLockTransactor.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transact(opts, method, params...)
+func (_StorageLock *StorageLockRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _StorageLock.Contract.StorageLockTransactor.contract.Transact(opts, method, params...)
 }
 
 // Call invokes the (constant) contract method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.contract.Call(opts, result, method, params...)
+func (_StorageLock *StorageLockCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _StorageLock.Contract.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transfer(opts)
+func (_StorageLock *StorageLockTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _StorageLock.Contract.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transact(opts, method, params...)
+func (_StorageLock *StorageLockTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _StorageLock.Contract.contract.Transact(opts, method, params...)
 }
 
 // IMarketplaceStorageInterface is a free data retrieval call binding the contract method 0x8bafe559.
 //
 // Solidity: function IMarketplaceStorage_Interface() view returns(bytes4)
-func (_Smc *SmcCaller) IMarketplaceStorageInterface(opts *bind.CallOpts) ([4]byte, error) {
+func (_StorageLock *StorageLockCaller) IMarketplaceStorageInterface(opts *bind.CallOpts) ([4]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "IMarketplaceStorage_Interface")
+	err := _StorageLock.contract.Call(opts, &out, "IMarketplaceStorage_Interface")
 
 	if err != nil {
 		return *new([4]byte), err
@@ -199,23 +199,23 @@ func (_Smc *SmcCaller) IMarketplaceStorageInterface(opts *bind.CallOpts) ([4]byt
 // IMarketplaceStorageInterface is a free data retrieval call binding the contract method 0x8bafe559.
 //
 // Solidity: function IMarketplaceStorage_Interface() view returns(bytes4)
-func (_Smc *SmcSession) IMarketplaceStorageInterface() ([4]byte, error) {
-	return _Smc.Contract.IMarketplaceStorageInterface(&_Smc.CallOpts)
+func (_StorageLock *StorageLockSession) IMarketplaceStorageInterface() ([4]byte, error) {
+	return _StorageLock.Contract.IMarketplaceStorageInterface(&_StorageLock.CallOpts)
 }
 
 // IMarketplaceStorageInterface is a free data retrieval call binding the contract method 0x8bafe559.
 //
 // Solidity: function IMarketplaceStorage_Interface() view returns(bytes4)
-func (_Smc *SmcCallerSession) IMarketplaceStorageInterface() ([4]byte, error) {
-	return _Smc.Contract.IMarketplaceStorageInterface(&_Smc.CallOpts)
+func (_StorageLock *StorageLockCallerSession) IMarketplaceStorageInterface() ([4]byte, error) {
+	return _StorageLock.Contract.IMarketplaceStorageInterface(&_StorageLock.CallOpts)
 }
 
 // MarketplaceStorage is a free data retrieval call binding the contract method 0x46b3aec6.
 //
 // Solidity: function marketplaceStorage() view returns(address)
-func (_Smc *SmcCaller) MarketplaceStorage(opts *bind.CallOpts) (common.Address, error) {
+func (_StorageLock *StorageLockCaller) MarketplaceStorage(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "marketplaceStorage")
+	err := _StorageLock.contract.Call(opts, &out, "marketplaceStorage")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -230,41 +230,41 @@ func (_Smc *SmcCaller) MarketplaceStorage(opts *bind.CallOpts) (common.Address, 
 // MarketplaceStorage is a free data retrieval call binding the contract method 0x46b3aec6.
 //
 // Solidity: function marketplaceStorage() view returns(address)
-func (_Smc *SmcSession) MarketplaceStorage() (common.Address, error) {
-	return _Smc.Contract.MarketplaceStorage(&_Smc.CallOpts)
+func (_StorageLock *StorageLockSession) MarketplaceStorage() (common.Address, error) {
+	return _StorageLock.Contract.MarketplaceStorage(&_StorageLock.CallOpts)
 }
 
 // MarketplaceStorage is a free data retrieval call binding the contract method 0x46b3aec6.
 //
 // Solidity: function marketplaceStorage() view returns(address)
-func (_Smc *SmcCallerSession) MarketplaceStorage() (common.Address, error) {
-	return _Smc.Contract.MarketplaceStorage(&_Smc.CallOpts)
+func (_StorageLock *StorageLockCallerSession) MarketplaceStorage() (common.Address, error) {
+	return _StorageLock.Contract.MarketplaceStorage(&_StorageLock.CallOpts)
 }
 
 // UpdateStorageAddress is a paid mutator transaction binding the contract method 0x889e2129.
 //
 // Solidity: function updateStorageAddress(address _marketplaceStorage) returns()
-func (_Smc *SmcTransactor) UpdateStorageAddress(opts *bind.TransactOpts, _marketplaceStorage common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "updateStorageAddress", _marketplaceStorage)
+func (_StorageLock *StorageLockTransactor) UpdateStorageAddress(opts *bind.TransactOpts, _marketplaceStorage common.Address) (*types.Transaction, error) {
+	return _StorageLock.contract.Transact(opts, "updateStorageAddress", _marketplaceStorage)
 }
 
 // UpdateStorageAddress is a paid mutator transaction binding the contract method 0x889e2129.
 //
 // Solidity: function updateStorageAddress(address _marketplaceStorage) returns()
-func (_Smc *SmcSession) UpdateStorageAddress(_marketplaceStorage common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.UpdateStorageAddress(&_Smc.TransactOpts, _marketplaceStorage)
+func (_StorageLock *StorageLockSession) UpdateStorageAddress(_marketplaceStorage common.Address) (*types.Transaction, error) {
+	return _StorageLock.Contract.UpdateStorageAddress(&_StorageLock.TransactOpts, _marketplaceStorage)
 }
 
 // UpdateStorageAddress is a paid mutator transaction binding the contract method 0x889e2129.
 //
 // Solidity: function updateStorageAddress(address _marketplaceStorage) returns()
-func (_Smc *SmcTransactorSession) UpdateStorageAddress(_marketplaceStorage common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.UpdateStorageAddress(&_Smc.TransactOpts, _marketplaceStorage)
+func (_StorageLock *StorageLockTransactorSession) UpdateStorageAddress(_marketplaceStorage common.Address) (*types.Transaction, error) {
+	return _StorageLock.Contract.UpdateStorageAddress(&_StorageLock.TransactOpts, _marketplaceStorage)
 }
 
-// SmcMarketplaceStorageUpdatedIterator is returned from FilterMarketplaceStorageUpdated and is used to iterate over the raw logs and unpacked data for MarketplaceStorageUpdated events raised by the Smc contract.
-type SmcMarketplaceStorageUpdatedIterator struct {
-	Event *SmcMarketplaceStorageUpdated // Event containing the contract specifics and raw log
+// StorageLockMarketplaceStorageUpdatedIterator is returned from FilterMarketplaceStorageUpdated and is used to iterate over the raw logs and unpacked data for MarketplaceStorageUpdated events raised by the StorageLock contract.
+type StorageLockMarketplaceStorageUpdatedIterator struct {
+	Event *StorageLockMarketplaceStorageUpdated // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -278,7 +278,7 @@ type SmcMarketplaceStorageUpdatedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcMarketplaceStorageUpdatedIterator) Next() bool {
+func (it *StorageLockMarketplaceStorageUpdatedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -287,7 +287,7 @@ func (it *SmcMarketplaceStorageUpdatedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcMarketplaceStorageUpdated)
+			it.Event = new(StorageLockMarketplaceStorageUpdated)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -302,7 +302,7 @@ func (it *SmcMarketplaceStorageUpdatedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcMarketplaceStorageUpdated)
+		it.Event = new(StorageLockMarketplaceStorageUpdated)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -318,19 +318,19 @@ func (it *SmcMarketplaceStorageUpdatedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcMarketplaceStorageUpdatedIterator) Error() error {
+func (it *StorageLockMarketplaceStorageUpdatedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcMarketplaceStorageUpdatedIterator) Close() error {
+func (it *StorageLockMarketplaceStorageUpdatedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcMarketplaceStorageUpdated represents a MarketplaceStorageUpdated event raised by the Smc contract.
-type SmcMarketplaceStorageUpdated struct {
+// StorageLockMarketplaceStorageUpdated represents a MarketplaceStorageUpdated event raised by the StorageLock contract.
+type StorageLockMarketplaceStorageUpdated struct {
 	MarketplaceStorage common.Address
 	Raw                types.Log // Blockchain specific contextual infos
 }
@@ -338,21 +338,21 @@ type SmcMarketplaceStorageUpdated struct {
 // FilterMarketplaceStorageUpdated is a free log retrieval operation binding the contract event 0x19e07a962d0e1cab8b7d4be06b77a7225ca7ebb744994cb6546fdd815590dc9d.
 //
 // Solidity: event MarketplaceStorageUpdated(address _marketplaceStorage)
-func (_Smc *SmcFilterer) FilterMarketplaceStorageUpdated(opts *bind.FilterOpts) (*SmcMarketplaceStorageUpdatedIterator, error) {
+func (_StorageLock *StorageLockFilterer) FilterMarketplaceStorageUpdated(opts *bind.FilterOpts) (*StorageLockMarketplaceStorageUpdatedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "MarketplaceStorageUpdated")
+	logs, sub, err := _StorageLock.contract.FilterLogs(opts, "MarketplaceStorageUpdated")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcMarketplaceStorageUpdatedIterator{contract: _Smc.contract, event: "MarketplaceStorageUpdated", logs: logs, sub: sub}, nil
+	return &StorageLockMarketplaceStorageUpdatedIterator{contract: _StorageLock.contract, event: "MarketplaceStorageUpdated", logs: logs, sub: sub}, nil
 }
 
 // WatchMarketplaceStorageUpdated is a free log subscription operation binding the contract event 0x19e07a962d0e1cab8b7d4be06b77a7225ca7ebb744994cb6546fdd815590dc9d.
 //
 // Solidity: event MarketplaceStorageUpdated(address _marketplaceStorage)
-func (_Smc *SmcFilterer) WatchMarketplaceStorageUpdated(opts *bind.WatchOpts, sink chan<- *SmcMarketplaceStorageUpdated) (event.Subscription, error) {
+func (_StorageLock *StorageLockFilterer) WatchMarketplaceStorageUpdated(opts *bind.WatchOpts, sink chan<- *StorageLockMarketplaceStorageUpdated) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "MarketplaceStorageUpdated")
+	logs, sub, err := _StorageLock.contract.WatchLogs(opts, "MarketplaceStorageUpdated")
 	if err != nil {
 		return nil, err
 	}
@@ -362,8 +362,8 @@ func (_Smc *SmcFilterer) WatchMarketplaceStorageUpdated(opts *bind.WatchOpts, si
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcMarketplaceStorageUpdated)
-				if err := _Smc.contract.UnpackLog(event, "MarketplaceStorageUpdated", log); err != nil {
+				event := new(StorageLockMarketplaceStorageUpdated)
+				if err := _StorageLock.contract.UnpackLog(event, "MarketplaceStorageUpdated", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -387,9 +387,9 @@ func (_Smc *SmcFilterer) WatchMarketplaceStorageUpdated(opts *bind.WatchOpts, si
 // ParseMarketplaceStorageUpdated is a log parse operation binding the contract event 0x19e07a962d0e1cab8b7d4be06b77a7225ca7ebb744994cb6546fdd815590dc9d.
 //
 // Solidity: event MarketplaceStorageUpdated(address _marketplaceStorage)
-func (_Smc *SmcFilterer) ParseMarketplaceStorageUpdated(log types.Log) (*SmcMarketplaceStorageUpdated, error) {
-	event := new(SmcMarketplaceStorageUpdated)
-	if err := _Smc.contract.UnpackLog(event, "MarketplaceStorageUpdated", log); err != nil {
+func (_StorageLock *StorageLockFilterer) ParseMarketplaceStorageUpdated(log types.Log) (*StorageLockMarketplaceStorageUpdated, error) {
+	event := new(StorageLockMarketplaceStorageUpdated)
+	if err := _StorageLock.contract.UnpackLog(event, "MarketplaceStorageUpdated", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log

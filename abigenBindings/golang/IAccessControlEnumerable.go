@@ -1,7 +1,7 @@
 // Code generated - DO NOT EDIT.
 // This file is a generated binding and any manual changes will be lost.
 
-package smc
+package IAccessControlEnumerable
 
 import (
 	"errors"
@@ -28,113 +28,113 @@ var (
 	_ = event.NewSubscription
 )
 
-// SmcMetaData contains all meta data concerning the Smc contract.
-var SmcMetaData = &bind.MetaData{
+// IAccessControlEnumerableMetaData contains all meta data concerning the IAccessControlEnumerable contract.
+var IAccessControlEnumerableMetaData = &bind.MetaData{
 	ABI: "[{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getRoleMember\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleMemberCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]",
 }
 
-// SmcABI is the input ABI used to generate the binding from.
-// Deprecated: Use SmcMetaData.ABI instead.
-var SmcABI = SmcMetaData.ABI
+// IAccessControlEnumerableABI is the input ABI used to generate the binding from.
+// Deprecated: Use IAccessControlEnumerableMetaData.ABI instead.
+var IAccessControlEnumerableABI = IAccessControlEnumerableMetaData.ABI
 
-// Smc is an auto generated Go binding around an Ethereum contract.
-type Smc struct {
-	SmcCaller     // Read-only binding to the contract
-	SmcTransactor // Write-only binding to the contract
-	SmcFilterer   // Log filterer for contract events
+// IAccessControlEnumerable is an auto generated Go binding around an Ethereum contract.
+type IAccessControlEnumerable struct {
+	IAccessControlEnumerableCaller     // Read-only binding to the contract
+	IAccessControlEnumerableTransactor // Write-only binding to the contract
+	IAccessControlEnumerableFilterer   // Log filterer for contract events
 }
 
-// SmcCaller is an auto generated read-only Go binding around an Ethereum contract.
-type SmcCaller struct {
+// IAccessControlEnumerableCaller is an auto generated read-only Go binding around an Ethereum contract.
+type IAccessControlEnumerableCaller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcTransactor is an auto generated write-only Go binding around an Ethereum contract.
-type SmcTransactor struct {
+// IAccessControlEnumerableTransactor is an auto generated write-only Go binding around an Ethereum contract.
+type IAccessControlEnumerableTransactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
-type SmcFilterer struct {
+// IAccessControlEnumerableFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type IAccessControlEnumerableFilterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcSession is an auto generated Go binding around an Ethereum contract,
+// IAccessControlEnumerableSession is an auto generated Go binding around an Ethereum contract,
 // with pre-set call and transact options.
-type SmcSession struct {
-	Contract     *Smc              // Generic contract binding to set the session for
-	CallOpts     bind.CallOpts     // Call options to use throughout this session
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type IAccessControlEnumerableSession struct {
+	Contract     *IAccessControlEnumerable // Generic contract binding to set the session for
+	CallOpts     bind.CallOpts             // Call options to use throughout this session
+	TransactOpts bind.TransactOpts         // Transaction auth options to use throughout this session
 }
 
-// SmcCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// IAccessControlEnumerableCallerSession is an auto generated read-only Go binding around an Ethereum contract,
 // with pre-set call options.
-type SmcCallerSession struct {
-	Contract *SmcCaller    // Generic contract caller binding to set the session for
-	CallOpts bind.CallOpts // Call options to use throughout this session
+type IAccessControlEnumerableCallerSession struct {
+	Contract *IAccessControlEnumerableCaller // Generic contract caller binding to set the session for
+	CallOpts bind.CallOpts                   // Call options to use throughout this session
 }
 
-// SmcTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// IAccessControlEnumerableTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
 // with pre-set transact options.
-type SmcTransactorSession struct {
-	Contract     *SmcTransactor    // Generic contract transactor binding to set the session for
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type IAccessControlEnumerableTransactorSession struct {
+	Contract     *IAccessControlEnumerableTransactor // Generic contract transactor binding to set the session for
+	TransactOpts bind.TransactOpts                   // Transaction auth options to use throughout this session
 }
 
-// SmcRaw is an auto generated low-level Go binding around an Ethereum contract.
-type SmcRaw struct {
-	Contract *Smc // Generic contract binding to access the raw methods on
+// IAccessControlEnumerableRaw is an auto generated low-level Go binding around an Ethereum contract.
+type IAccessControlEnumerableRaw struct {
+	Contract *IAccessControlEnumerable // Generic contract binding to access the raw methods on
 }
 
-// SmcCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
-type SmcCallerRaw struct {
-	Contract *SmcCaller // Generic read-only contract binding to access the raw methods on
+// IAccessControlEnumerableCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type IAccessControlEnumerableCallerRaw struct {
+	Contract *IAccessControlEnumerableCaller // Generic read-only contract binding to access the raw methods on
 }
 
-// SmcTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
-type SmcTransactorRaw struct {
-	Contract *SmcTransactor // Generic write-only contract binding to access the raw methods on
+// IAccessControlEnumerableTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type IAccessControlEnumerableTransactorRaw struct {
+	Contract *IAccessControlEnumerableTransactor // Generic write-only contract binding to access the raw methods on
 }
 
-// NewSmc creates a new instance of Smc, bound to a specific deployed contract.
-func NewSmc(address common.Address, backend bind.ContractBackend) (*Smc, error) {
-	contract, err := bindSmc(address, backend, backend, backend)
+// NewIAccessControlEnumerable creates a new instance of IAccessControlEnumerable, bound to a specific deployed contract.
+func NewIAccessControlEnumerable(address common.Address, backend bind.ContractBackend) (*IAccessControlEnumerable, error) {
+	contract, err := bindIAccessControlEnumerable(address, backend, backend, backend)
 	if err != nil {
 		return nil, err
 	}
-	return &Smc{SmcCaller: SmcCaller{contract: contract}, SmcTransactor: SmcTransactor{contract: contract}, SmcFilterer: SmcFilterer{contract: contract}}, nil
+	return &IAccessControlEnumerable{IAccessControlEnumerableCaller: IAccessControlEnumerableCaller{contract: contract}, IAccessControlEnumerableTransactor: IAccessControlEnumerableTransactor{contract: contract}, IAccessControlEnumerableFilterer: IAccessControlEnumerableFilterer{contract: contract}}, nil
 }
 
-// NewSmcCaller creates a new read-only instance of Smc, bound to a specific deployed contract.
-func NewSmcCaller(address common.Address, caller bind.ContractCaller) (*SmcCaller, error) {
-	contract, err := bindSmc(address, caller, nil, nil)
+// NewIAccessControlEnumerableCaller creates a new read-only instance of IAccessControlEnumerable, bound to a specific deployed contract.
+func NewIAccessControlEnumerableCaller(address common.Address, caller bind.ContractCaller) (*IAccessControlEnumerableCaller, error) {
+	contract, err := bindIAccessControlEnumerable(address, caller, nil, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcCaller{contract: contract}, nil
+	return &IAccessControlEnumerableCaller{contract: contract}, nil
 }
 
-// NewSmcTransactor creates a new write-only instance of Smc, bound to a specific deployed contract.
-func NewSmcTransactor(address common.Address, transactor bind.ContractTransactor) (*SmcTransactor, error) {
-	contract, err := bindSmc(address, nil, transactor, nil)
+// NewIAccessControlEnumerableTransactor creates a new write-only instance of IAccessControlEnumerable, bound to a specific deployed contract.
+func NewIAccessControlEnumerableTransactor(address common.Address, transactor bind.ContractTransactor) (*IAccessControlEnumerableTransactor, error) {
+	contract, err := bindIAccessControlEnumerable(address, nil, transactor, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTransactor{contract: contract}, nil
+	return &IAccessControlEnumerableTransactor{contract: contract}, nil
 }
 
-// NewSmcFilterer creates a new log filterer instance of Smc, bound to a specific deployed contract.
-func NewSmcFilterer(address common.Address, filterer bind.ContractFilterer) (*SmcFilterer, error) {
-	contract, err := bindSmc(address, nil, nil, filterer)
+// NewIAccessControlEnumerableFilterer creates a new log filterer instance of IAccessControlEnumerable, bound to a specific deployed contract.
+func NewIAccessControlEnumerableFilterer(address common.Address, filterer bind.ContractFilterer) (*IAccessControlEnumerableFilterer, error) {
+	contract, err := bindIAccessControlEnumerable(address, nil, nil, filterer)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcFilterer{contract: contract}, nil
+	return &IAccessControlEnumerableFilterer{contract: contract}, nil
 }
 
-// bindSmc binds a generic wrapper to an already deployed contract.
-func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-	parsed, err := abi.JSON(strings.NewReader(SmcABI))
+// bindIAccessControlEnumerable binds a generic wrapper to an already deployed contract.
+func bindIAccessControlEnumerable(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := abi.JSON(strings.NewReader(IAccessControlEnumerableABI))
 	if err != nil {
 		return nil, err
 	}
@@ -145,46 +145,46 @@ func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.SmcCaller.contract.Call(opts, result, method, params...)
+func (_IAccessControlEnumerable *IAccessControlEnumerableRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _IAccessControlEnumerable.Contract.IAccessControlEnumerableCaller.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transfer(opts)
+func (_IAccessControlEnumerable *IAccessControlEnumerableRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _IAccessControlEnumerable.Contract.IAccessControlEnumerableTransactor.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transact(opts, method, params...)
+func (_IAccessControlEnumerable *IAccessControlEnumerableRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _IAccessControlEnumerable.Contract.IAccessControlEnumerableTransactor.contract.Transact(opts, method, params...)
 }
 
 // Call invokes the (constant) contract method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.contract.Call(opts, result, method, params...)
+func (_IAccessControlEnumerable *IAccessControlEnumerableCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _IAccessControlEnumerable.Contract.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transfer(opts)
+func (_IAccessControlEnumerable *IAccessControlEnumerableTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _IAccessControlEnumerable.Contract.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transact(opts, method, params...)
+func (_IAccessControlEnumerable *IAccessControlEnumerableTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _IAccessControlEnumerable.Contract.contract.Transact(opts, method, params...)
 }
 
 // GetRoleMember is a free data retrieval call binding the contract method 0x9010d07c.
 //
 // Solidity: function getRoleMember(bytes32 role, uint256 index) view returns(address)
-func (_Smc *SmcCaller) GetRoleMember(opts *bind.CallOpts, role [32]byte, index *big.Int) (common.Address, error) {
+func (_IAccessControlEnumerable *IAccessControlEnumerableCaller) GetRoleMember(opts *bind.CallOpts, role [32]byte, index *big.Int) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getRoleMember", role, index)
+	err := _IAccessControlEnumerable.contract.Call(opts, &out, "getRoleMember", role, index)
 
 	if err != nil {
 		return *new(common.Address), err
@@ -199,23 +199,23 @@ func (_Smc *SmcCaller) GetRoleMember(opts *bind.CallOpts, role [32]byte, index *
 // GetRoleMember is a free data retrieval call binding the contract method 0x9010d07c.
 //
 // Solidity: function getRoleMember(bytes32 role, uint256 index) view returns(address)
-func (_Smc *SmcSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
-	return _Smc.Contract.GetRoleMember(&_Smc.CallOpts, role, index)
+func (_IAccessControlEnumerable *IAccessControlEnumerableSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
+	return _IAccessControlEnumerable.Contract.GetRoleMember(&_IAccessControlEnumerable.CallOpts, role, index)
 }
 
 // GetRoleMember is a free data retrieval call binding the contract method 0x9010d07c.
 //
 // Solidity: function getRoleMember(bytes32 role, uint256 index) view returns(address)
-func (_Smc *SmcCallerSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
-	return _Smc.Contract.GetRoleMember(&_Smc.CallOpts, role, index)
+func (_IAccessControlEnumerable *IAccessControlEnumerableCallerSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
+	return _IAccessControlEnumerable.Contract.GetRoleMember(&_IAccessControlEnumerable.CallOpts, role, index)
 }
 
 // GetRoleMemberCount is a free data retrieval call binding the contract method 0xca15c873.
 //
 // Solidity: function getRoleMemberCount(bytes32 role) view returns(uint256)
-func (_Smc *SmcCaller) GetRoleMemberCount(opts *bind.CallOpts, role [32]byte) (*big.Int, error) {
+func (_IAccessControlEnumerable *IAccessControlEnumerableCaller) GetRoleMemberCount(opts *bind.CallOpts, role [32]byte) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getRoleMemberCount", role)
+	err := _IAccessControlEnumerable.contract.Call(opts, &out, "getRoleMemberCount", role)
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -230,13 +230,13 @@ func (_Smc *SmcCaller) GetRoleMemberCount(opts *bind.CallOpts, role [32]byte) (*
 // GetRoleMemberCount is a free data retrieval call binding the contract method 0xca15c873.
 //
 // Solidity: function getRoleMemberCount(bytes32 role) view returns(uint256)
-func (_Smc *SmcSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
-	return _Smc.Contract.GetRoleMemberCount(&_Smc.CallOpts, role)
+func (_IAccessControlEnumerable *IAccessControlEnumerableSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
+	return _IAccessControlEnumerable.Contract.GetRoleMemberCount(&_IAccessControlEnumerable.CallOpts, role)
 }
 
 // GetRoleMemberCount is a free data retrieval call binding the contract method 0xca15c873.
 //
 // Solidity: function getRoleMemberCount(bytes32 role) view returns(uint256)
-func (_Smc *SmcCallerSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
-	return _Smc.Contract.GetRoleMemberCount(&_Smc.CallOpts, role)
+func (_IAccessControlEnumerable *IAccessControlEnumerableCallerSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
+	return _IAccessControlEnumerable.Contract.GetRoleMemberCount(&_IAccessControlEnumerable.CallOpts, role)
 }

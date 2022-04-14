@@ -1,7 +1,7 @@
 // Code generated - DO NOT EDIT.
 // This file is a generated binding and any manual changes will be lost.
 
-package smc
+package OrderStorage
 
 import (
 	"errors"
@@ -28,113 +28,113 @@ var (
 	_ = event.NewSubscription
 )
 
-// SmcMetaData contains all meta data concerning the Smc contract.
-var SmcMetaData = &bind.MetaData{
+// OrderStorageMetaData contains all meta data concerning the OrderStorage contract.
+var OrderStorageMetaData = &bind.MetaData{
 	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"}],\"name\":\"OrderCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"priceInWei\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"expiresAt\",\"type\":\"uint256\"}],\"name\":\"OrderCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"totalPrice\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"}],\"name\":\"OrderSuccessful\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"orderByAssetId\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiresAt\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]",
 }
 
-// SmcABI is the input ABI used to generate the binding from.
-// Deprecated: Use SmcMetaData.ABI instead.
-var SmcABI = SmcMetaData.ABI
+// OrderStorageABI is the input ABI used to generate the binding from.
+// Deprecated: Use OrderStorageMetaData.ABI instead.
+var OrderStorageABI = OrderStorageMetaData.ABI
 
-// Smc is an auto generated Go binding around an Ethereum contract.
-type Smc struct {
-	SmcCaller     // Read-only binding to the contract
-	SmcTransactor // Write-only binding to the contract
-	SmcFilterer   // Log filterer for contract events
+// OrderStorage is an auto generated Go binding around an Ethereum contract.
+type OrderStorage struct {
+	OrderStorageCaller     // Read-only binding to the contract
+	OrderStorageTransactor // Write-only binding to the contract
+	OrderStorageFilterer   // Log filterer for contract events
 }
 
-// SmcCaller is an auto generated read-only Go binding around an Ethereum contract.
-type SmcCaller struct {
+// OrderStorageCaller is an auto generated read-only Go binding around an Ethereum contract.
+type OrderStorageCaller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcTransactor is an auto generated write-only Go binding around an Ethereum contract.
-type SmcTransactor struct {
+// OrderStorageTransactor is an auto generated write-only Go binding around an Ethereum contract.
+type OrderStorageTransactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
-type SmcFilterer struct {
+// OrderStorageFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type OrderStorageFilterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcSession is an auto generated Go binding around an Ethereum contract,
+// OrderStorageSession is an auto generated Go binding around an Ethereum contract,
 // with pre-set call and transact options.
-type SmcSession struct {
-	Contract     *Smc              // Generic contract binding to set the session for
+type OrderStorageSession struct {
+	Contract     *OrderStorage     // Generic contract binding to set the session for
 	CallOpts     bind.CallOpts     // Call options to use throughout this session
 	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 }
 
-// SmcCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// OrderStorageCallerSession is an auto generated read-only Go binding around an Ethereum contract,
 // with pre-set call options.
-type SmcCallerSession struct {
-	Contract *SmcCaller    // Generic contract caller binding to set the session for
-	CallOpts bind.CallOpts // Call options to use throughout this session
+type OrderStorageCallerSession struct {
+	Contract *OrderStorageCaller // Generic contract caller binding to set the session for
+	CallOpts bind.CallOpts       // Call options to use throughout this session
 }
 
-// SmcTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// OrderStorageTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
 // with pre-set transact options.
-type SmcTransactorSession struct {
-	Contract     *SmcTransactor    // Generic contract transactor binding to set the session for
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type OrderStorageTransactorSession struct {
+	Contract     *OrderStorageTransactor // Generic contract transactor binding to set the session for
+	TransactOpts bind.TransactOpts       // Transaction auth options to use throughout this session
 }
 
-// SmcRaw is an auto generated low-level Go binding around an Ethereum contract.
-type SmcRaw struct {
-	Contract *Smc // Generic contract binding to access the raw methods on
+// OrderStorageRaw is an auto generated low-level Go binding around an Ethereum contract.
+type OrderStorageRaw struct {
+	Contract *OrderStorage // Generic contract binding to access the raw methods on
 }
 
-// SmcCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
-type SmcCallerRaw struct {
-	Contract *SmcCaller // Generic read-only contract binding to access the raw methods on
+// OrderStorageCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type OrderStorageCallerRaw struct {
+	Contract *OrderStorageCaller // Generic read-only contract binding to access the raw methods on
 }
 
-// SmcTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
-type SmcTransactorRaw struct {
-	Contract *SmcTransactor // Generic write-only contract binding to access the raw methods on
+// OrderStorageTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type OrderStorageTransactorRaw struct {
+	Contract *OrderStorageTransactor // Generic write-only contract binding to access the raw methods on
 }
 
-// NewSmc creates a new instance of Smc, bound to a specific deployed contract.
-func NewSmc(address common.Address, backend bind.ContractBackend) (*Smc, error) {
-	contract, err := bindSmc(address, backend, backend, backend)
+// NewOrderStorage creates a new instance of OrderStorage, bound to a specific deployed contract.
+func NewOrderStorage(address common.Address, backend bind.ContractBackend) (*OrderStorage, error) {
+	contract, err := bindOrderStorage(address, backend, backend, backend)
 	if err != nil {
 		return nil, err
 	}
-	return &Smc{SmcCaller: SmcCaller{contract: contract}, SmcTransactor: SmcTransactor{contract: contract}, SmcFilterer: SmcFilterer{contract: contract}}, nil
+	return &OrderStorage{OrderStorageCaller: OrderStorageCaller{contract: contract}, OrderStorageTransactor: OrderStorageTransactor{contract: contract}, OrderStorageFilterer: OrderStorageFilterer{contract: contract}}, nil
 }
 
-// NewSmcCaller creates a new read-only instance of Smc, bound to a specific deployed contract.
-func NewSmcCaller(address common.Address, caller bind.ContractCaller) (*SmcCaller, error) {
-	contract, err := bindSmc(address, caller, nil, nil)
+// NewOrderStorageCaller creates a new read-only instance of OrderStorage, bound to a specific deployed contract.
+func NewOrderStorageCaller(address common.Address, caller bind.ContractCaller) (*OrderStorageCaller, error) {
+	contract, err := bindOrderStorage(address, caller, nil, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcCaller{contract: contract}, nil
+	return &OrderStorageCaller{contract: contract}, nil
 }
 
-// NewSmcTransactor creates a new write-only instance of Smc, bound to a specific deployed contract.
-func NewSmcTransactor(address common.Address, transactor bind.ContractTransactor) (*SmcTransactor, error) {
-	contract, err := bindSmc(address, nil, transactor, nil)
+// NewOrderStorageTransactor creates a new write-only instance of OrderStorage, bound to a specific deployed contract.
+func NewOrderStorageTransactor(address common.Address, transactor bind.ContractTransactor) (*OrderStorageTransactor, error) {
+	contract, err := bindOrderStorage(address, nil, transactor, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTransactor{contract: contract}, nil
+	return &OrderStorageTransactor{contract: contract}, nil
 }
 
-// NewSmcFilterer creates a new log filterer instance of Smc, bound to a specific deployed contract.
-func NewSmcFilterer(address common.Address, filterer bind.ContractFilterer) (*SmcFilterer, error) {
-	contract, err := bindSmc(address, nil, nil, filterer)
+// NewOrderStorageFilterer creates a new log filterer instance of OrderStorage, bound to a specific deployed contract.
+func NewOrderStorageFilterer(address common.Address, filterer bind.ContractFilterer) (*OrderStorageFilterer, error) {
+	contract, err := bindOrderStorage(address, nil, nil, filterer)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcFilterer{contract: contract}, nil
+	return &OrderStorageFilterer{contract: contract}, nil
 }
 
-// bindSmc binds a generic wrapper to an already deployed contract.
-func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-	parsed, err := abi.JSON(strings.NewReader(SmcABI))
+// bindOrderStorage binds a generic wrapper to an already deployed contract.
+func bindOrderStorage(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := abi.JSON(strings.NewReader(OrderStorageABI))
 	if err != nil {
 		return nil, err
 	}
@@ -145,44 +145,44 @@ func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.SmcCaller.contract.Call(opts, result, method, params...)
+func (_OrderStorage *OrderStorageRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _OrderStorage.Contract.OrderStorageCaller.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transfer(opts)
+func (_OrderStorage *OrderStorageRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _OrderStorage.Contract.OrderStorageTransactor.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transact(opts, method, params...)
+func (_OrderStorage *OrderStorageRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _OrderStorage.Contract.OrderStorageTransactor.contract.Transact(opts, method, params...)
 }
 
 // Call invokes the (constant) contract method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.contract.Call(opts, result, method, params...)
+func (_OrderStorage *OrderStorageCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _OrderStorage.Contract.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transfer(opts)
+func (_OrderStorage *OrderStorageTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _OrderStorage.Contract.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transact(opts, method, params...)
+func (_OrderStorage *OrderStorageTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _OrderStorage.Contract.contract.Transact(opts, method, params...)
 }
 
 // OrderByAssetId is a free data retrieval call binding the contract method 0xe61f3851.
 //
 // Solidity: function orderByAssetId(address , uint256 ) view returns(bytes32 id, address seller, address nftAddress, uint256 price, uint256 expiresAt)
-func (_Smc *SmcCaller) OrderByAssetId(opts *bind.CallOpts, arg0 common.Address, arg1 *big.Int) (struct {
+func (_OrderStorage *OrderStorageCaller) OrderByAssetId(opts *bind.CallOpts, arg0 common.Address, arg1 *big.Int) (struct {
 	Id         [32]byte
 	Seller     common.Address
 	NftAddress common.Address
@@ -190,7 +190,7 @@ func (_Smc *SmcCaller) OrderByAssetId(opts *bind.CallOpts, arg0 common.Address, 
 	ExpiresAt  *big.Int
 }, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "orderByAssetId", arg0, arg1)
+	err := _OrderStorage.contract.Call(opts, &out, "orderByAssetId", arg0, arg1)
 
 	outstruct := new(struct {
 		Id         [32]byte
@@ -216,32 +216,32 @@ func (_Smc *SmcCaller) OrderByAssetId(opts *bind.CallOpts, arg0 common.Address, 
 // OrderByAssetId is a free data retrieval call binding the contract method 0xe61f3851.
 //
 // Solidity: function orderByAssetId(address , uint256 ) view returns(bytes32 id, address seller, address nftAddress, uint256 price, uint256 expiresAt)
-func (_Smc *SmcSession) OrderByAssetId(arg0 common.Address, arg1 *big.Int) (struct {
+func (_OrderStorage *OrderStorageSession) OrderByAssetId(arg0 common.Address, arg1 *big.Int) (struct {
 	Id         [32]byte
 	Seller     common.Address
 	NftAddress common.Address
 	Price      *big.Int
 	ExpiresAt  *big.Int
 }, error) {
-	return _Smc.Contract.OrderByAssetId(&_Smc.CallOpts, arg0, arg1)
+	return _OrderStorage.Contract.OrderByAssetId(&_OrderStorage.CallOpts, arg0, arg1)
 }
 
 // OrderByAssetId is a free data retrieval call binding the contract method 0xe61f3851.
 //
 // Solidity: function orderByAssetId(address , uint256 ) view returns(bytes32 id, address seller, address nftAddress, uint256 price, uint256 expiresAt)
-func (_Smc *SmcCallerSession) OrderByAssetId(arg0 common.Address, arg1 *big.Int) (struct {
+func (_OrderStorage *OrderStorageCallerSession) OrderByAssetId(arg0 common.Address, arg1 *big.Int) (struct {
 	Id         [32]byte
 	Seller     common.Address
 	NftAddress common.Address
 	Price      *big.Int
 	ExpiresAt  *big.Int
 }, error) {
-	return _Smc.Contract.OrderByAssetId(&_Smc.CallOpts, arg0, arg1)
+	return _OrderStorage.Contract.OrderByAssetId(&_OrderStorage.CallOpts, arg0, arg1)
 }
 
-// SmcOrderCancelledIterator is returned from FilterOrderCancelled and is used to iterate over the raw logs and unpacked data for OrderCancelled events raised by the Smc contract.
-type SmcOrderCancelledIterator struct {
-	Event *SmcOrderCancelled // Event containing the contract specifics and raw log
+// OrderStorageOrderCancelledIterator is returned from FilterOrderCancelled and is used to iterate over the raw logs and unpacked data for OrderCancelled events raised by the OrderStorage contract.
+type OrderStorageOrderCancelledIterator struct {
+	Event *OrderStorageOrderCancelled // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -255,7 +255,7 @@ type SmcOrderCancelledIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcOrderCancelledIterator) Next() bool {
+func (it *OrderStorageOrderCancelledIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -264,7 +264,7 @@ func (it *SmcOrderCancelledIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcOrderCancelled)
+			it.Event = new(OrderStorageOrderCancelled)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -279,7 +279,7 @@ func (it *SmcOrderCancelledIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcOrderCancelled)
+		it.Event = new(OrderStorageOrderCancelled)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -295,19 +295,19 @@ func (it *SmcOrderCancelledIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcOrderCancelledIterator) Error() error {
+func (it *OrderStorageOrderCancelledIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcOrderCancelledIterator) Close() error {
+func (it *OrderStorageOrderCancelledIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcOrderCancelled represents a OrderCancelled event raised by the Smc contract.
-type SmcOrderCancelled struct {
+// OrderStorageOrderCancelled represents a OrderCancelled event raised by the OrderStorage contract.
+type OrderStorageOrderCancelled struct {
 	Id         [32]byte
 	AssetId    *big.Int
 	Seller     common.Address
@@ -318,7 +318,7 @@ type SmcOrderCancelled struct {
 // FilterOrderCancelled is a free log retrieval operation binding the contract event 0x0325426328de5b91ae4ad8462ad4076de4bcaf4551e81556185cacde5a425c6b.
 //
 // Solidity: event OrderCancelled(bytes32 id, uint256 indexed assetId, address indexed seller, address nftAddress)
-func (_Smc *SmcFilterer) FilterOrderCancelled(opts *bind.FilterOpts, assetId []*big.Int, seller []common.Address) (*SmcOrderCancelledIterator, error) {
+func (_OrderStorage *OrderStorageFilterer) FilterOrderCancelled(opts *bind.FilterOpts, assetId []*big.Int, seller []common.Address) (*OrderStorageOrderCancelledIterator, error) {
 
 	var assetIdRule []interface{}
 	for _, assetIdItem := range assetId {
@@ -329,17 +329,17 @@ func (_Smc *SmcFilterer) FilterOrderCancelled(opts *bind.FilterOpts, assetId []*
 		sellerRule = append(sellerRule, sellerItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "OrderCancelled", assetIdRule, sellerRule)
+	logs, sub, err := _OrderStorage.contract.FilterLogs(opts, "OrderCancelled", assetIdRule, sellerRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcOrderCancelledIterator{contract: _Smc.contract, event: "OrderCancelled", logs: logs, sub: sub}, nil
+	return &OrderStorageOrderCancelledIterator{contract: _OrderStorage.contract, event: "OrderCancelled", logs: logs, sub: sub}, nil
 }
 
 // WatchOrderCancelled is a free log subscription operation binding the contract event 0x0325426328de5b91ae4ad8462ad4076de4bcaf4551e81556185cacde5a425c6b.
 //
 // Solidity: event OrderCancelled(bytes32 id, uint256 indexed assetId, address indexed seller, address nftAddress)
-func (_Smc *SmcFilterer) WatchOrderCancelled(opts *bind.WatchOpts, sink chan<- *SmcOrderCancelled, assetId []*big.Int, seller []common.Address) (event.Subscription, error) {
+func (_OrderStorage *OrderStorageFilterer) WatchOrderCancelled(opts *bind.WatchOpts, sink chan<- *OrderStorageOrderCancelled, assetId []*big.Int, seller []common.Address) (event.Subscription, error) {
 
 	var assetIdRule []interface{}
 	for _, assetIdItem := range assetId {
@@ -350,7 +350,7 @@ func (_Smc *SmcFilterer) WatchOrderCancelled(opts *bind.WatchOpts, sink chan<- *
 		sellerRule = append(sellerRule, sellerItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "OrderCancelled", assetIdRule, sellerRule)
+	logs, sub, err := _OrderStorage.contract.WatchLogs(opts, "OrderCancelled", assetIdRule, sellerRule)
 	if err != nil {
 		return nil, err
 	}
@@ -360,8 +360,8 @@ func (_Smc *SmcFilterer) WatchOrderCancelled(opts *bind.WatchOpts, sink chan<- *
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcOrderCancelled)
-				if err := _Smc.contract.UnpackLog(event, "OrderCancelled", log); err != nil {
+				event := new(OrderStorageOrderCancelled)
+				if err := _OrderStorage.contract.UnpackLog(event, "OrderCancelled", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -385,18 +385,18 @@ func (_Smc *SmcFilterer) WatchOrderCancelled(opts *bind.WatchOpts, sink chan<- *
 // ParseOrderCancelled is a log parse operation binding the contract event 0x0325426328de5b91ae4ad8462ad4076de4bcaf4551e81556185cacde5a425c6b.
 //
 // Solidity: event OrderCancelled(bytes32 id, uint256 indexed assetId, address indexed seller, address nftAddress)
-func (_Smc *SmcFilterer) ParseOrderCancelled(log types.Log) (*SmcOrderCancelled, error) {
-	event := new(SmcOrderCancelled)
-	if err := _Smc.contract.UnpackLog(event, "OrderCancelled", log); err != nil {
+func (_OrderStorage *OrderStorageFilterer) ParseOrderCancelled(log types.Log) (*OrderStorageOrderCancelled, error) {
+	event := new(OrderStorageOrderCancelled)
+	if err := _OrderStorage.contract.UnpackLog(event, "OrderCancelled", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcOrderCreatedIterator is returned from FilterOrderCreated and is used to iterate over the raw logs and unpacked data for OrderCreated events raised by the Smc contract.
-type SmcOrderCreatedIterator struct {
-	Event *SmcOrderCreated // Event containing the contract specifics and raw log
+// OrderStorageOrderCreatedIterator is returned from FilterOrderCreated and is used to iterate over the raw logs and unpacked data for OrderCreated events raised by the OrderStorage contract.
+type OrderStorageOrderCreatedIterator struct {
+	Event *OrderStorageOrderCreated // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -410,7 +410,7 @@ type SmcOrderCreatedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcOrderCreatedIterator) Next() bool {
+func (it *OrderStorageOrderCreatedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -419,7 +419,7 @@ func (it *SmcOrderCreatedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcOrderCreated)
+			it.Event = new(OrderStorageOrderCreated)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -434,7 +434,7 @@ func (it *SmcOrderCreatedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcOrderCreated)
+		it.Event = new(OrderStorageOrderCreated)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -450,19 +450,19 @@ func (it *SmcOrderCreatedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcOrderCreatedIterator) Error() error {
+func (it *OrderStorageOrderCreatedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcOrderCreatedIterator) Close() error {
+func (it *OrderStorageOrderCreatedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcOrderCreated represents a OrderCreated event raised by the Smc contract.
-type SmcOrderCreated struct {
+// OrderStorageOrderCreated represents a OrderCreated event raised by the OrderStorage contract.
+type OrderStorageOrderCreated struct {
 	Id         [32]byte
 	AssetId    *big.Int
 	Seller     common.Address
@@ -475,7 +475,7 @@ type SmcOrderCreated struct {
 // FilterOrderCreated is a free log retrieval operation binding the contract event 0x84c66c3f7ba4b390e20e8e8233e2a516f3ce34a72749e4f12bd010dfba238039.
 //
 // Solidity: event OrderCreated(bytes32 id, uint256 indexed assetId, address indexed seller, address nftAddress, uint256 priceInWei, uint256 expiresAt)
-func (_Smc *SmcFilterer) FilterOrderCreated(opts *bind.FilterOpts, assetId []*big.Int, seller []common.Address) (*SmcOrderCreatedIterator, error) {
+func (_OrderStorage *OrderStorageFilterer) FilterOrderCreated(opts *bind.FilterOpts, assetId []*big.Int, seller []common.Address) (*OrderStorageOrderCreatedIterator, error) {
 
 	var assetIdRule []interface{}
 	for _, assetIdItem := range assetId {
@@ -486,17 +486,17 @@ func (_Smc *SmcFilterer) FilterOrderCreated(opts *bind.FilterOpts, assetId []*bi
 		sellerRule = append(sellerRule, sellerItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "OrderCreated", assetIdRule, sellerRule)
+	logs, sub, err := _OrderStorage.contract.FilterLogs(opts, "OrderCreated", assetIdRule, sellerRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcOrderCreatedIterator{contract: _Smc.contract, event: "OrderCreated", logs: logs, sub: sub}, nil
+	return &OrderStorageOrderCreatedIterator{contract: _OrderStorage.contract, event: "OrderCreated", logs: logs, sub: sub}, nil
 }
 
 // WatchOrderCreated is a free log subscription operation binding the contract event 0x84c66c3f7ba4b390e20e8e8233e2a516f3ce34a72749e4f12bd010dfba238039.
 //
 // Solidity: event OrderCreated(bytes32 id, uint256 indexed assetId, address indexed seller, address nftAddress, uint256 priceInWei, uint256 expiresAt)
-func (_Smc *SmcFilterer) WatchOrderCreated(opts *bind.WatchOpts, sink chan<- *SmcOrderCreated, assetId []*big.Int, seller []common.Address) (event.Subscription, error) {
+func (_OrderStorage *OrderStorageFilterer) WatchOrderCreated(opts *bind.WatchOpts, sink chan<- *OrderStorageOrderCreated, assetId []*big.Int, seller []common.Address) (event.Subscription, error) {
 
 	var assetIdRule []interface{}
 	for _, assetIdItem := range assetId {
@@ -507,7 +507,7 @@ func (_Smc *SmcFilterer) WatchOrderCreated(opts *bind.WatchOpts, sink chan<- *Sm
 		sellerRule = append(sellerRule, sellerItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "OrderCreated", assetIdRule, sellerRule)
+	logs, sub, err := _OrderStorage.contract.WatchLogs(opts, "OrderCreated", assetIdRule, sellerRule)
 	if err != nil {
 		return nil, err
 	}
@@ -517,8 +517,8 @@ func (_Smc *SmcFilterer) WatchOrderCreated(opts *bind.WatchOpts, sink chan<- *Sm
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcOrderCreated)
-				if err := _Smc.contract.UnpackLog(event, "OrderCreated", log); err != nil {
+				event := new(OrderStorageOrderCreated)
+				if err := _OrderStorage.contract.UnpackLog(event, "OrderCreated", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -542,18 +542,18 @@ func (_Smc *SmcFilterer) WatchOrderCreated(opts *bind.WatchOpts, sink chan<- *Sm
 // ParseOrderCreated is a log parse operation binding the contract event 0x84c66c3f7ba4b390e20e8e8233e2a516f3ce34a72749e4f12bd010dfba238039.
 //
 // Solidity: event OrderCreated(bytes32 id, uint256 indexed assetId, address indexed seller, address nftAddress, uint256 priceInWei, uint256 expiresAt)
-func (_Smc *SmcFilterer) ParseOrderCreated(log types.Log) (*SmcOrderCreated, error) {
-	event := new(SmcOrderCreated)
-	if err := _Smc.contract.UnpackLog(event, "OrderCreated", log); err != nil {
+func (_OrderStorage *OrderStorageFilterer) ParseOrderCreated(log types.Log) (*OrderStorageOrderCreated, error) {
+	event := new(OrderStorageOrderCreated)
+	if err := _OrderStorage.contract.UnpackLog(event, "OrderCreated", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcOrderSuccessfulIterator is returned from FilterOrderSuccessful and is used to iterate over the raw logs and unpacked data for OrderSuccessful events raised by the Smc contract.
-type SmcOrderSuccessfulIterator struct {
-	Event *SmcOrderSuccessful // Event containing the contract specifics and raw log
+// OrderStorageOrderSuccessfulIterator is returned from FilterOrderSuccessful and is used to iterate over the raw logs and unpacked data for OrderSuccessful events raised by the OrderStorage contract.
+type OrderStorageOrderSuccessfulIterator struct {
+	Event *OrderStorageOrderSuccessful // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -567,7 +567,7 @@ type SmcOrderSuccessfulIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcOrderSuccessfulIterator) Next() bool {
+func (it *OrderStorageOrderSuccessfulIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -576,7 +576,7 @@ func (it *SmcOrderSuccessfulIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcOrderSuccessful)
+			it.Event = new(OrderStorageOrderSuccessful)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -591,7 +591,7 @@ func (it *SmcOrderSuccessfulIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcOrderSuccessful)
+		it.Event = new(OrderStorageOrderSuccessful)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -607,19 +607,19 @@ func (it *SmcOrderSuccessfulIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcOrderSuccessfulIterator) Error() error {
+func (it *OrderStorageOrderSuccessfulIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcOrderSuccessfulIterator) Close() error {
+func (it *OrderStorageOrderSuccessfulIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcOrderSuccessful represents a OrderSuccessful event raised by the Smc contract.
-type SmcOrderSuccessful struct {
+// OrderStorageOrderSuccessful represents a OrderSuccessful event raised by the OrderStorage contract.
+type OrderStorageOrderSuccessful struct {
 	Id         [32]byte
 	AssetId    *big.Int
 	Seller     common.Address
@@ -632,7 +632,7 @@ type SmcOrderSuccessful struct {
 // FilterOrderSuccessful is a free log retrieval operation binding the contract event 0x695ec315e8a642a74d450a4505eeea53df699b47a7378c7d752e97d5b16eb9bb.
 //
 // Solidity: event OrderSuccessful(bytes32 id, uint256 indexed assetId, address indexed seller, address nftAddress, uint256 totalPrice, address indexed buyer)
-func (_Smc *SmcFilterer) FilterOrderSuccessful(opts *bind.FilterOpts, assetId []*big.Int, seller []common.Address, buyer []common.Address) (*SmcOrderSuccessfulIterator, error) {
+func (_OrderStorage *OrderStorageFilterer) FilterOrderSuccessful(opts *bind.FilterOpts, assetId []*big.Int, seller []common.Address, buyer []common.Address) (*OrderStorageOrderSuccessfulIterator, error) {
 
 	var assetIdRule []interface{}
 	for _, assetIdItem := range assetId {
@@ -648,17 +648,17 @@ func (_Smc *SmcFilterer) FilterOrderSuccessful(opts *bind.FilterOpts, assetId []
 		buyerRule = append(buyerRule, buyerItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "OrderSuccessful", assetIdRule, sellerRule, buyerRule)
+	logs, sub, err := _OrderStorage.contract.FilterLogs(opts, "OrderSuccessful", assetIdRule, sellerRule, buyerRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcOrderSuccessfulIterator{contract: _Smc.contract, event: "OrderSuccessful", logs: logs, sub: sub}, nil
+	return &OrderStorageOrderSuccessfulIterator{contract: _OrderStorage.contract, event: "OrderSuccessful", logs: logs, sub: sub}, nil
 }
 
 // WatchOrderSuccessful is a free log subscription operation binding the contract event 0x695ec315e8a642a74d450a4505eeea53df699b47a7378c7d752e97d5b16eb9bb.
 //
 // Solidity: event OrderSuccessful(bytes32 id, uint256 indexed assetId, address indexed seller, address nftAddress, uint256 totalPrice, address indexed buyer)
-func (_Smc *SmcFilterer) WatchOrderSuccessful(opts *bind.WatchOpts, sink chan<- *SmcOrderSuccessful, assetId []*big.Int, seller []common.Address, buyer []common.Address) (event.Subscription, error) {
+func (_OrderStorage *OrderStorageFilterer) WatchOrderSuccessful(opts *bind.WatchOpts, sink chan<- *OrderStorageOrderSuccessful, assetId []*big.Int, seller []common.Address, buyer []common.Address) (event.Subscription, error) {
 
 	var assetIdRule []interface{}
 	for _, assetIdItem := range assetId {
@@ -674,7 +674,7 @@ func (_Smc *SmcFilterer) WatchOrderSuccessful(opts *bind.WatchOpts, sink chan<- 
 		buyerRule = append(buyerRule, buyerItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "OrderSuccessful", assetIdRule, sellerRule, buyerRule)
+	logs, sub, err := _OrderStorage.contract.WatchLogs(opts, "OrderSuccessful", assetIdRule, sellerRule, buyerRule)
 	if err != nil {
 		return nil, err
 	}
@@ -684,8 +684,8 @@ func (_Smc *SmcFilterer) WatchOrderSuccessful(opts *bind.WatchOpts, sink chan<- 
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcOrderSuccessful)
-				if err := _Smc.contract.UnpackLog(event, "OrderSuccessful", log); err != nil {
+				event := new(OrderStorageOrderSuccessful)
+				if err := _OrderStorage.contract.UnpackLog(event, "OrderSuccessful", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -709,9 +709,9 @@ func (_Smc *SmcFilterer) WatchOrderSuccessful(opts *bind.WatchOpts, sink chan<- 
 // ParseOrderSuccessful is a log parse operation binding the contract event 0x695ec315e8a642a74d450a4505eeea53df699b47a7378c7d752e97d5b16eb9bb.
 //
 // Solidity: event OrderSuccessful(bytes32 id, uint256 indexed assetId, address indexed seller, address nftAddress, uint256 totalPrice, address indexed buyer)
-func (_Smc *SmcFilterer) ParseOrderSuccessful(log types.Log) (*SmcOrderSuccessful, error) {
-	event := new(SmcOrderSuccessful)
-	if err := _Smc.contract.UnpackLog(event, "OrderSuccessful", log); err != nil {
+func (_OrderStorage *OrderStorageFilterer) ParseOrderSuccessful(log types.Log) (*OrderStorageOrderSuccessful, error) {
+	event := new(OrderStorageOrderSuccessful)
+	if err := _OrderStorage.contract.UnpackLog(event, "OrderSuccessful", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log

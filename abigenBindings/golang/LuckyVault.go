@@ -1,7 +1,7 @@
 // Code generated - DO NOT EDIT.
 // This file is a generated binding and any manual changes will be lost.
 
-package smc
+package LuckyVault
 
 import (
 	"errors"
@@ -28,113 +28,113 @@ var (
 	_ = event.NewSubscription
 )
 
-// SmcMetaData contains all meta data concerning the Smc contract.
-var SmcMetaData = &bind.MetaData{
+// LuckyVaultMetaData contains all meta data concerning the LuckyVault contract.
+var LuckyVaultMetaData = &bind.MetaData{
 	ABI: "[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"tradeToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"depositToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"rewardToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tradeRate\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"tradeRewardRate\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"depositRewardRate\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"endedAt\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"AdminWithdrawFailed\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"DepositFailed\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InsufficientBalance\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidAmount\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidContract\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidWithdrawAmount\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NoReward\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RewardFailed\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SendDepositTokenFailed\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooEarly\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooLate\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"TradeFailed\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"WithdrawFailed\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"AdminWithdrawSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"rewardAmount\",\"type\":\"uint256\"}],\"name\":\"DepositSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tradeAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"rewardAmount\",\"type\":\"uint256\"}],\"name\":\"TradeSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"WithdrawSuccessful\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PAUSER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getRoleMember\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleMemberCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"trade\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"withdrawByAdmin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
-// SmcABI is the input ABI used to generate the binding from.
-// Deprecated: Use SmcMetaData.ABI instead.
-var SmcABI = SmcMetaData.ABI
+// LuckyVaultABI is the input ABI used to generate the binding from.
+// Deprecated: Use LuckyVaultMetaData.ABI instead.
+var LuckyVaultABI = LuckyVaultMetaData.ABI
 
-// Smc is an auto generated Go binding around an Ethereum contract.
-type Smc struct {
-	SmcCaller     // Read-only binding to the contract
-	SmcTransactor // Write-only binding to the contract
-	SmcFilterer   // Log filterer for contract events
+// LuckyVault is an auto generated Go binding around an Ethereum contract.
+type LuckyVault struct {
+	LuckyVaultCaller     // Read-only binding to the contract
+	LuckyVaultTransactor // Write-only binding to the contract
+	LuckyVaultFilterer   // Log filterer for contract events
 }
 
-// SmcCaller is an auto generated read-only Go binding around an Ethereum contract.
-type SmcCaller struct {
+// LuckyVaultCaller is an auto generated read-only Go binding around an Ethereum contract.
+type LuckyVaultCaller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcTransactor is an auto generated write-only Go binding around an Ethereum contract.
-type SmcTransactor struct {
+// LuckyVaultTransactor is an auto generated write-only Go binding around an Ethereum contract.
+type LuckyVaultTransactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
-type SmcFilterer struct {
+// LuckyVaultFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type LuckyVaultFilterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcSession is an auto generated Go binding around an Ethereum contract,
+// LuckyVaultSession is an auto generated Go binding around an Ethereum contract,
 // with pre-set call and transact options.
-type SmcSession struct {
-	Contract     *Smc              // Generic contract binding to set the session for
+type LuckyVaultSession struct {
+	Contract     *LuckyVault       // Generic contract binding to set the session for
 	CallOpts     bind.CallOpts     // Call options to use throughout this session
 	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 }
 
-// SmcCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// LuckyVaultCallerSession is an auto generated read-only Go binding around an Ethereum contract,
 // with pre-set call options.
-type SmcCallerSession struct {
-	Contract *SmcCaller    // Generic contract caller binding to set the session for
-	CallOpts bind.CallOpts // Call options to use throughout this session
+type LuckyVaultCallerSession struct {
+	Contract *LuckyVaultCaller // Generic contract caller binding to set the session for
+	CallOpts bind.CallOpts     // Call options to use throughout this session
 }
 
-// SmcTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// LuckyVaultTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
 // with pre-set transact options.
-type SmcTransactorSession struct {
-	Contract     *SmcTransactor    // Generic contract transactor binding to set the session for
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type LuckyVaultTransactorSession struct {
+	Contract     *LuckyVaultTransactor // Generic contract transactor binding to set the session for
+	TransactOpts bind.TransactOpts     // Transaction auth options to use throughout this session
 }
 
-// SmcRaw is an auto generated low-level Go binding around an Ethereum contract.
-type SmcRaw struct {
-	Contract *Smc // Generic contract binding to access the raw methods on
+// LuckyVaultRaw is an auto generated low-level Go binding around an Ethereum contract.
+type LuckyVaultRaw struct {
+	Contract *LuckyVault // Generic contract binding to access the raw methods on
 }
 
-// SmcCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
-type SmcCallerRaw struct {
-	Contract *SmcCaller // Generic read-only contract binding to access the raw methods on
+// LuckyVaultCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type LuckyVaultCallerRaw struct {
+	Contract *LuckyVaultCaller // Generic read-only contract binding to access the raw methods on
 }
 
-// SmcTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
-type SmcTransactorRaw struct {
-	Contract *SmcTransactor // Generic write-only contract binding to access the raw methods on
+// LuckyVaultTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type LuckyVaultTransactorRaw struct {
+	Contract *LuckyVaultTransactor // Generic write-only contract binding to access the raw methods on
 }
 
-// NewSmc creates a new instance of Smc, bound to a specific deployed contract.
-func NewSmc(address common.Address, backend bind.ContractBackend) (*Smc, error) {
-	contract, err := bindSmc(address, backend, backend, backend)
+// NewLuckyVault creates a new instance of LuckyVault, bound to a specific deployed contract.
+func NewLuckyVault(address common.Address, backend bind.ContractBackend) (*LuckyVault, error) {
+	contract, err := bindLuckyVault(address, backend, backend, backend)
 	if err != nil {
 		return nil, err
 	}
-	return &Smc{SmcCaller: SmcCaller{contract: contract}, SmcTransactor: SmcTransactor{contract: contract}, SmcFilterer: SmcFilterer{contract: contract}}, nil
+	return &LuckyVault{LuckyVaultCaller: LuckyVaultCaller{contract: contract}, LuckyVaultTransactor: LuckyVaultTransactor{contract: contract}, LuckyVaultFilterer: LuckyVaultFilterer{contract: contract}}, nil
 }
 
-// NewSmcCaller creates a new read-only instance of Smc, bound to a specific deployed contract.
-func NewSmcCaller(address common.Address, caller bind.ContractCaller) (*SmcCaller, error) {
-	contract, err := bindSmc(address, caller, nil, nil)
+// NewLuckyVaultCaller creates a new read-only instance of LuckyVault, bound to a specific deployed contract.
+func NewLuckyVaultCaller(address common.Address, caller bind.ContractCaller) (*LuckyVaultCaller, error) {
+	contract, err := bindLuckyVault(address, caller, nil, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcCaller{contract: contract}, nil
+	return &LuckyVaultCaller{contract: contract}, nil
 }
 
-// NewSmcTransactor creates a new write-only instance of Smc, bound to a specific deployed contract.
-func NewSmcTransactor(address common.Address, transactor bind.ContractTransactor) (*SmcTransactor, error) {
-	contract, err := bindSmc(address, nil, transactor, nil)
+// NewLuckyVaultTransactor creates a new write-only instance of LuckyVault, bound to a specific deployed contract.
+func NewLuckyVaultTransactor(address common.Address, transactor bind.ContractTransactor) (*LuckyVaultTransactor, error) {
+	contract, err := bindLuckyVault(address, nil, transactor, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTransactor{contract: contract}, nil
+	return &LuckyVaultTransactor{contract: contract}, nil
 }
 
-// NewSmcFilterer creates a new log filterer instance of Smc, bound to a specific deployed contract.
-func NewSmcFilterer(address common.Address, filterer bind.ContractFilterer) (*SmcFilterer, error) {
-	contract, err := bindSmc(address, nil, nil, filterer)
+// NewLuckyVaultFilterer creates a new log filterer instance of LuckyVault, bound to a specific deployed contract.
+func NewLuckyVaultFilterer(address common.Address, filterer bind.ContractFilterer) (*LuckyVaultFilterer, error) {
+	contract, err := bindLuckyVault(address, nil, nil, filterer)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcFilterer{contract: contract}, nil
+	return &LuckyVaultFilterer{contract: contract}, nil
 }
 
-// bindSmc binds a generic wrapper to an already deployed contract.
-func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-	parsed, err := abi.JSON(strings.NewReader(SmcABI))
+// bindLuckyVault binds a generic wrapper to an already deployed contract.
+func bindLuckyVault(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := abi.JSON(strings.NewReader(LuckyVaultABI))
 	if err != nil {
 		return nil, err
 	}
@@ -145,46 +145,46 @@ func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.SmcCaller.contract.Call(opts, result, method, params...)
+func (_LuckyVault *LuckyVaultRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _LuckyVault.Contract.LuckyVaultCaller.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transfer(opts)
+func (_LuckyVault *LuckyVaultRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _LuckyVault.Contract.LuckyVaultTransactor.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transact(opts, method, params...)
+func (_LuckyVault *LuckyVaultRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _LuckyVault.Contract.LuckyVaultTransactor.contract.Transact(opts, method, params...)
 }
 
 // Call invokes the (constant) contract method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.contract.Call(opts, result, method, params...)
+func (_LuckyVault *LuckyVaultCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _LuckyVault.Contract.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transfer(opts)
+func (_LuckyVault *LuckyVaultTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _LuckyVault.Contract.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transact(opts, method, params...)
+func (_LuckyVault *LuckyVaultTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _LuckyVault.Contract.contract.Transact(opts, method, params...)
 }
 
 // ADMINROLE is a free data retrieval call binding the contract method 0x75b238fc.
 //
 // Solidity: function ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcCaller) ADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
+func (_LuckyVault *LuckyVaultCaller) ADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "ADMIN_ROLE")
+	err := _LuckyVault.contract.Call(opts, &out, "ADMIN_ROLE")
 
 	if err != nil {
 		return *new([32]byte), err
@@ -199,23 +199,23 @@ func (_Smc *SmcCaller) ADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
 // ADMINROLE is a free data retrieval call binding the contract method 0x75b238fc.
 //
 // Solidity: function ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcSession) ADMINROLE() ([32]byte, error) {
-	return _Smc.Contract.ADMINROLE(&_Smc.CallOpts)
+func (_LuckyVault *LuckyVaultSession) ADMINROLE() ([32]byte, error) {
+	return _LuckyVault.Contract.ADMINROLE(&_LuckyVault.CallOpts)
 }
 
 // ADMINROLE is a free data retrieval call binding the contract method 0x75b238fc.
 //
 // Solidity: function ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcCallerSession) ADMINROLE() ([32]byte, error) {
-	return _Smc.Contract.ADMINROLE(&_Smc.CallOpts)
+func (_LuckyVault *LuckyVaultCallerSession) ADMINROLE() ([32]byte, error) {
+	return _LuckyVault.Contract.ADMINROLE(&_LuckyVault.CallOpts)
 }
 
 // DEFAULTADMINROLE is a free data retrieval call binding the contract method 0xa217fddf.
 //
 // Solidity: function DEFAULT_ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcCaller) DEFAULTADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
+func (_LuckyVault *LuckyVaultCaller) DEFAULTADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "DEFAULT_ADMIN_ROLE")
+	err := _LuckyVault.contract.Call(opts, &out, "DEFAULT_ADMIN_ROLE")
 
 	if err != nil {
 		return *new([32]byte), err
@@ -230,23 +230,23 @@ func (_Smc *SmcCaller) DEFAULTADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
 // DEFAULTADMINROLE is a free data retrieval call binding the contract method 0xa217fddf.
 //
 // Solidity: function DEFAULT_ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcSession) DEFAULTADMINROLE() ([32]byte, error) {
-	return _Smc.Contract.DEFAULTADMINROLE(&_Smc.CallOpts)
+func (_LuckyVault *LuckyVaultSession) DEFAULTADMINROLE() ([32]byte, error) {
+	return _LuckyVault.Contract.DEFAULTADMINROLE(&_LuckyVault.CallOpts)
 }
 
 // DEFAULTADMINROLE is a free data retrieval call binding the contract method 0xa217fddf.
 //
 // Solidity: function DEFAULT_ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcCallerSession) DEFAULTADMINROLE() ([32]byte, error) {
-	return _Smc.Contract.DEFAULTADMINROLE(&_Smc.CallOpts)
+func (_LuckyVault *LuckyVaultCallerSession) DEFAULTADMINROLE() ([32]byte, error) {
+	return _LuckyVault.Contract.DEFAULTADMINROLE(&_LuckyVault.CallOpts)
 }
 
 // PAUSERROLE is a free data retrieval call binding the contract method 0xe63ab1e9.
 //
 // Solidity: function PAUSER_ROLE() view returns(bytes32)
-func (_Smc *SmcCaller) PAUSERROLE(opts *bind.CallOpts) ([32]byte, error) {
+func (_LuckyVault *LuckyVaultCaller) PAUSERROLE(opts *bind.CallOpts) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "PAUSER_ROLE")
+	err := _LuckyVault.contract.Call(opts, &out, "PAUSER_ROLE")
 
 	if err != nil {
 		return *new([32]byte), err
@@ -261,23 +261,23 @@ func (_Smc *SmcCaller) PAUSERROLE(opts *bind.CallOpts) ([32]byte, error) {
 // PAUSERROLE is a free data retrieval call binding the contract method 0xe63ab1e9.
 //
 // Solidity: function PAUSER_ROLE() view returns(bytes32)
-func (_Smc *SmcSession) PAUSERROLE() ([32]byte, error) {
-	return _Smc.Contract.PAUSERROLE(&_Smc.CallOpts)
+func (_LuckyVault *LuckyVaultSession) PAUSERROLE() ([32]byte, error) {
+	return _LuckyVault.Contract.PAUSERROLE(&_LuckyVault.CallOpts)
 }
 
 // PAUSERROLE is a free data retrieval call binding the contract method 0xe63ab1e9.
 //
 // Solidity: function PAUSER_ROLE() view returns(bytes32)
-func (_Smc *SmcCallerSession) PAUSERROLE() ([32]byte, error) {
-	return _Smc.Contract.PAUSERROLE(&_Smc.CallOpts)
+func (_LuckyVault *LuckyVaultCallerSession) PAUSERROLE() ([32]byte, error) {
+	return _LuckyVault.Contract.PAUSERROLE(&_LuckyVault.CallOpts)
 }
 
 // GetRoleAdmin is a free data retrieval call binding the contract method 0x248a9ca3.
 //
 // Solidity: function getRoleAdmin(bytes32 role) view returns(bytes32)
-func (_Smc *SmcCaller) GetRoleAdmin(opts *bind.CallOpts, role [32]byte) ([32]byte, error) {
+func (_LuckyVault *LuckyVaultCaller) GetRoleAdmin(opts *bind.CallOpts, role [32]byte) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getRoleAdmin", role)
+	err := _LuckyVault.contract.Call(opts, &out, "getRoleAdmin", role)
 
 	if err != nil {
 		return *new([32]byte), err
@@ -292,23 +292,23 @@ func (_Smc *SmcCaller) GetRoleAdmin(opts *bind.CallOpts, role [32]byte) ([32]byt
 // GetRoleAdmin is a free data retrieval call binding the contract method 0x248a9ca3.
 //
 // Solidity: function getRoleAdmin(bytes32 role) view returns(bytes32)
-func (_Smc *SmcSession) GetRoleAdmin(role [32]byte) ([32]byte, error) {
-	return _Smc.Contract.GetRoleAdmin(&_Smc.CallOpts, role)
+func (_LuckyVault *LuckyVaultSession) GetRoleAdmin(role [32]byte) ([32]byte, error) {
+	return _LuckyVault.Contract.GetRoleAdmin(&_LuckyVault.CallOpts, role)
 }
 
 // GetRoleAdmin is a free data retrieval call binding the contract method 0x248a9ca3.
 //
 // Solidity: function getRoleAdmin(bytes32 role) view returns(bytes32)
-func (_Smc *SmcCallerSession) GetRoleAdmin(role [32]byte) ([32]byte, error) {
-	return _Smc.Contract.GetRoleAdmin(&_Smc.CallOpts, role)
+func (_LuckyVault *LuckyVaultCallerSession) GetRoleAdmin(role [32]byte) ([32]byte, error) {
+	return _LuckyVault.Contract.GetRoleAdmin(&_LuckyVault.CallOpts, role)
 }
 
 // GetRoleMember is a free data retrieval call binding the contract method 0x9010d07c.
 //
 // Solidity: function getRoleMember(bytes32 role, uint256 index) view returns(address)
-func (_Smc *SmcCaller) GetRoleMember(opts *bind.CallOpts, role [32]byte, index *big.Int) (common.Address, error) {
+func (_LuckyVault *LuckyVaultCaller) GetRoleMember(opts *bind.CallOpts, role [32]byte, index *big.Int) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getRoleMember", role, index)
+	err := _LuckyVault.contract.Call(opts, &out, "getRoleMember", role, index)
 
 	if err != nil {
 		return *new(common.Address), err
@@ -323,23 +323,23 @@ func (_Smc *SmcCaller) GetRoleMember(opts *bind.CallOpts, role [32]byte, index *
 // GetRoleMember is a free data retrieval call binding the contract method 0x9010d07c.
 //
 // Solidity: function getRoleMember(bytes32 role, uint256 index) view returns(address)
-func (_Smc *SmcSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
-	return _Smc.Contract.GetRoleMember(&_Smc.CallOpts, role, index)
+func (_LuckyVault *LuckyVaultSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
+	return _LuckyVault.Contract.GetRoleMember(&_LuckyVault.CallOpts, role, index)
 }
 
 // GetRoleMember is a free data retrieval call binding the contract method 0x9010d07c.
 //
 // Solidity: function getRoleMember(bytes32 role, uint256 index) view returns(address)
-func (_Smc *SmcCallerSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
-	return _Smc.Contract.GetRoleMember(&_Smc.CallOpts, role, index)
+func (_LuckyVault *LuckyVaultCallerSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
+	return _LuckyVault.Contract.GetRoleMember(&_LuckyVault.CallOpts, role, index)
 }
 
 // GetRoleMemberCount is a free data retrieval call binding the contract method 0xca15c873.
 //
 // Solidity: function getRoleMemberCount(bytes32 role) view returns(uint256)
-func (_Smc *SmcCaller) GetRoleMemberCount(opts *bind.CallOpts, role [32]byte) (*big.Int, error) {
+func (_LuckyVault *LuckyVaultCaller) GetRoleMemberCount(opts *bind.CallOpts, role [32]byte) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getRoleMemberCount", role)
+	err := _LuckyVault.contract.Call(opts, &out, "getRoleMemberCount", role)
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -354,23 +354,23 @@ func (_Smc *SmcCaller) GetRoleMemberCount(opts *bind.CallOpts, role [32]byte) (*
 // GetRoleMemberCount is a free data retrieval call binding the contract method 0xca15c873.
 //
 // Solidity: function getRoleMemberCount(bytes32 role) view returns(uint256)
-func (_Smc *SmcSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
-	return _Smc.Contract.GetRoleMemberCount(&_Smc.CallOpts, role)
+func (_LuckyVault *LuckyVaultSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
+	return _LuckyVault.Contract.GetRoleMemberCount(&_LuckyVault.CallOpts, role)
 }
 
 // GetRoleMemberCount is a free data retrieval call binding the contract method 0xca15c873.
 //
 // Solidity: function getRoleMemberCount(bytes32 role) view returns(uint256)
-func (_Smc *SmcCallerSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
-	return _Smc.Contract.GetRoleMemberCount(&_Smc.CallOpts, role)
+func (_LuckyVault *LuckyVaultCallerSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
+	return _LuckyVault.Contract.GetRoleMemberCount(&_LuckyVault.CallOpts, role)
 }
 
 // HasRole is a free data retrieval call binding the contract method 0x91d14854.
 //
 // Solidity: function hasRole(bytes32 role, address account) view returns(bool)
-func (_Smc *SmcCaller) HasRole(opts *bind.CallOpts, role [32]byte, account common.Address) (bool, error) {
+func (_LuckyVault *LuckyVaultCaller) HasRole(opts *bind.CallOpts, role [32]byte, account common.Address) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "hasRole", role, account)
+	err := _LuckyVault.contract.Call(opts, &out, "hasRole", role, account)
 
 	if err != nil {
 		return *new(bool), err
@@ -385,23 +385,23 @@ func (_Smc *SmcCaller) HasRole(opts *bind.CallOpts, role [32]byte, account commo
 // HasRole is a free data retrieval call binding the contract method 0x91d14854.
 //
 // Solidity: function hasRole(bytes32 role, address account) view returns(bool)
-func (_Smc *SmcSession) HasRole(role [32]byte, account common.Address) (bool, error) {
-	return _Smc.Contract.HasRole(&_Smc.CallOpts, role, account)
+func (_LuckyVault *LuckyVaultSession) HasRole(role [32]byte, account common.Address) (bool, error) {
+	return _LuckyVault.Contract.HasRole(&_LuckyVault.CallOpts, role, account)
 }
 
 // HasRole is a free data retrieval call binding the contract method 0x91d14854.
 //
 // Solidity: function hasRole(bytes32 role, address account) view returns(bool)
-func (_Smc *SmcCallerSession) HasRole(role [32]byte, account common.Address) (bool, error) {
-	return _Smc.Contract.HasRole(&_Smc.CallOpts, role, account)
+func (_LuckyVault *LuckyVaultCallerSession) HasRole(role [32]byte, account common.Address) (bool, error) {
+	return _LuckyVault.Contract.HasRole(&_LuckyVault.CallOpts, role, account)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
+func (_LuckyVault *LuckyVaultCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "owner")
+	err := _LuckyVault.contract.Call(opts, &out, "owner")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -416,23 +416,23 @@ func (_Smc *SmcCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcSession) Owner() (common.Address, error) {
-	return _Smc.Contract.Owner(&_Smc.CallOpts)
+func (_LuckyVault *LuckyVaultSession) Owner() (common.Address, error) {
+	return _LuckyVault.Contract.Owner(&_LuckyVault.CallOpts)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcCallerSession) Owner() (common.Address, error) {
-	return _Smc.Contract.Owner(&_Smc.CallOpts)
+func (_LuckyVault *LuckyVaultCallerSession) Owner() (common.Address, error) {
+	return _LuckyVault.Contract.Owner(&_LuckyVault.CallOpts)
 }
 
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcCaller) Paused(opts *bind.CallOpts) (bool, error) {
+func (_LuckyVault *LuckyVaultCaller) Paused(opts *bind.CallOpts) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "paused")
+	err := _LuckyVault.contract.Call(opts, &out, "paused")
 
 	if err != nil {
 		return *new(bool), err
@@ -447,23 +447,23 @@ func (_Smc *SmcCaller) Paused(opts *bind.CallOpts) (bool, error) {
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcSession) Paused() (bool, error) {
-	return _Smc.Contract.Paused(&_Smc.CallOpts)
+func (_LuckyVault *LuckyVaultSession) Paused() (bool, error) {
+	return _LuckyVault.Contract.Paused(&_LuckyVault.CallOpts)
 }
 
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcCallerSession) Paused() (bool, error) {
-	return _Smc.Contract.Paused(&_Smc.CallOpts)
+func (_LuckyVault *LuckyVaultCallerSession) Paused() (bool, error) {
+	return _LuckyVault.Contract.Paused(&_LuckyVault.CallOpts)
 }
 
 // SupportsInterface is a free data retrieval call binding the contract method 0x01ffc9a7.
 //
 // Solidity: function supportsInterface(bytes4 interfaceId) view returns(bool)
-func (_Smc *SmcCaller) SupportsInterface(opts *bind.CallOpts, interfaceId [4]byte) (bool, error) {
+func (_LuckyVault *LuckyVaultCaller) SupportsInterface(opts *bind.CallOpts, interfaceId [4]byte) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "supportsInterface", interfaceId)
+	err := _LuckyVault.contract.Call(opts, &out, "supportsInterface", interfaceId)
 
 	if err != nil {
 		return *new(bool), err
@@ -478,251 +478,251 @@ func (_Smc *SmcCaller) SupportsInterface(opts *bind.CallOpts, interfaceId [4]byt
 // SupportsInterface is a free data retrieval call binding the contract method 0x01ffc9a7.
 //
 // Solidity: function supportsInterface(bytes4 interfaceId) view returns(bool)
-func (_Smc *SmcSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
-	return _Smc.Contract.SupportsInterface(&_Smc.CallOpts, interfaceId)
+func (_LuckyVault *LuckyVaultSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
+	return _LuckyVault.Contract.SupportsInterface(&_LuckyVault.CallOpts, interfaceId)
 }
 
 // SupportsInterface is a free data retrieval call binding the contract method 0x01ffc9a7.
 //
 // Solidity: function supportsInterface(bytes4 interfaceId) view returns(bool)
-func (_Smc *SmcCallerSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
-	return _Smc.Contract.SupportsInterface(&_Smc.CallOpts, interfaceId)
+func (_LuckyVault *LuckyVaultCallerSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
+	return _LuckyVault.Contract.SupportsInterface(&_LuckyVault.CallOpts, interfaceId)
 }
 
 // Deposit is a paid mutator transaction binding the contract method 0xb6b55f25.
 //
 // Solidity: function deposit(uint256 amount) returns()
-func (_Smc *SmcTransactor) Deposit(opts *bind.TransactOpts, amount *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "deposit", amount)
+func (_LuckyVault *LuckyVaultTransactor) Deposit(opts *bind.TransactOpts, amount *big.Int) (*types.Transaction, error) {
+	return _LuckyVault.contract.Transact(opts, "deposit", amount)
 }
 
 // Deposit is a paid mutator transaction binding the contract method 0xb6b55f25.
 //
 // Solidity: function deposit(uint256 amount) returns()
-func (_Smc *SmcSession) Deposit(amount *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.Deposit(&_Smc.TransactOpts, amount)
+func (_LuckyVault *LuckyVaultSession) Deposit(amount *big.Int) (*types.Transaction, error) {
+	return _LuckyVault.Contract.Deposit(&_LuckyVault.TransactOpts, amount)
 }
 
 // Deposit is a paid mutator transaction binding the contract method 0xb6b55f25.
 //
 // Solidity: function deposit(uint256 amount) returns()
-func (_Smc *SmcTransactorSession) Deposit(amount *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.Deposit(&_Smc.TransactOpts, amount)
+func (_LuckyVault *LuckyVaultTransactorSession) Deposit(amount *big.Int) (*types.Transaction, error) {
+	return _LuckyVault.Contract.Deposit(&_LuckyVault.TransactOpts, amount)
 }
 
 // GrantRole is a paid mutator transaction binding the contract method 0x2f2ff15d.
 //
 // Solidity: function grantRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactor) GrantRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "grantRole", role, account)
+func (_LuckyVault *LuckyVaultTransactor) GrantRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _LuckyVault.contract.Transact(opts, "grantRole", role, account)
 }
 
 // GrantRole is a paid mutator transaction binding the contract method 0x2f2ff15d.
 //
 // Solidity: function grantRole(bytes32 role, address account) returns()
-func (_Smc *SmcSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.GrantRole(&_Smc.TransactOpts, role, account)
+func (_LuckyVault *LuckyVaultSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _LuckyVault.Contract.GrantRole(&_LuckyVault.TransactOpts, role, account)
 }
 
 // GrantRole is a paid mutator transaction binding the contract method 0x2f2ff15d.
 //
 // Solidity: function grantRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactorSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.GrantRole(&_Smc.TransactOpts, role, account)
+func (_LuckyVault *LuckyVaultTransactorSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _LuckyVault.Contract.GrantRole(&_LuckyVault.TransactOpts, role, account)
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcTransactor) Pause(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "pause")
+func (_LuckyVault *LuckyVaultTransactor) Pause(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _LuckyVault.contract.Transact(opts, "pause")
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcSession) Pause() (*types.Transaction, error) {
-	return _Smc.Contract.Pause(&_Smc.TransactOpts)
+func (_LuckyVault *LuckyVaultSession) Pause() (*types.Transaction, error) {
+	return _LuckyVault.Contract.Pause(&_LuckyVault.TransactOpts)
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcTransactorSession) Pause() (*types.Transaction, error) {
-	return _Smc.Contract.Pause(&_Smc.TransactOpts)
+func (_LuckyVault *LuckyVaultTransactorSession) Pause() (*types.Transaction, error) {
+	return _LuckyVault.Contract.Pause(&_LuckyVault.TransactOpts)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcTransactor) RenounceOwnership(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "renounceOwnership")
+func (_LuckyVault *LuckyVaultTransactor) RenounceOwnership(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _LuckyVault.contract.Transact(opts, "renounceOwnership")
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcSession) RenounceOwnership() (*types.Transaction, error) {
-	return _Smc.Contract.RenounceOwnership(&_Smc.TransactOpts)
+func (_LuckyVault *LuckyVaultSession) RenounceOwnership() (*types.Transaction, error) {
+	return _LuckyVault.Contract.RenounceOwnership(&_LuckyVault.TransactOpts)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcTransactorSession) RenounceOwnership() (*types.Transaction, error) {
-	return _Smc.Contract.RenounceOwnership(&_Smc.TransactOpts)
+func (_LuckyVault *LuckyVaultTransactorSession) RenounceOwnership() (*types.Transaction, error) {
+	return _LuckyVault.Contract.RenounceOwnership(&_LuckyVault.TransactOpts)
 }
 
 // RenounceRole is a paid mutator transaction binding the contract method 0x36568abe.
 //
 // Solidity: function renounceRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactor) RenounceRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "renounceRole", role, account)
+func (_LuckyVault *LuckyVaultTransactor) RenounceRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _LuckyVault.contract.Transact(opts, "renounceRole", role, account)
 }
 
 // RenounceRole is a paid mutator transaction binding the contract method 0x36568abe.
 //
 // Solidity: function renounceRole(bytes32 role, address account) returns()
-func (_Smc *SmcSession) RenounceRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RenounceRole(&_Smc.TransactOpts, role, account)
+func (_LuckyVault *LuckyVaultSession) RenounceRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _LuckyVault.Contract.RenounceRole(&_LuckyVault.TransactOpts, role, account)
 }
 
 // RenounceRole is a paid mutator transaction binding the contract method 0x36568abe.
 //
 // Solidity: function renounceRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactorSession) RenounceRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RenounceRole(&_Smc.TransactOpts, role, account)
+func (_LuckyVault *LuckyVaultTransactorSession) RenounceRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _LuckyVault.Contract.RenounceRole(&_LuckyVault.TransactOpts, role, account)
 }
 
 // RevokeRole is a paid mutator transaction binding the contract method 0xd547741f.
 //
 // Solidity: function revokeRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactor) RevokeRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "revokeRole", role, account)
+func (_LuckyVault *LuckyVaultTransactor) RevokeRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _LuckyVault.contract.Transact(opts, "revokeRole", role, account)
 }
 
 // RevokeRole is a paid mutator transaction binding the contract method 0xd547741f.
 //
 // Solidity: function revokeRole(bytes32 role, address account) returns()
-func (_Smc *SmcSession) RevokeRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RevokeRole(&_Smc.TransactOpts, role, account)
+func (_LuckyVault *LuckyVaultSession) RevokeRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _LuckyVault.Contract.RevokeRole(&_LuckyVault.TransactOpts, role, account)
 }
 
 // RevokeRole is a paid mutator transaction binding the contract method 0xd547741f.
 //
 // Solidity: function revokeRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactorSession) RevokeRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RevokeRole(&_Smc.TransactOpts, role, account)
+func (_LuckyVault *LuckyVaultTransactorSession) RevokeRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _LuckyVault.Contract.RevokeRole(&_LuckyVault.TransactOpts, role, account)
 }
 
 // Trade is a paid mutator transaction binding the contract method 0xdf1dd826.
 //
 // Solidity: function trade(uint256 amount) returns()
-func (_Smc *SmcTransactor) Trade(opts *bind.TransactOpts, amount *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "trade", amount)
+func (_LuckyVault *LuckyVaultTransactor) Trade(opts *bind.TransactOpts, amount *big.Int) (*types.Transaction, error) {
+	return _LuckyVault.contract.Transact(opts, "trade", amount)
 }
 
 // Trade is a paid mutator transaction binding the contract method 0xdf1dd826.
 //
 // Solidity: function trade(uint256 amount) returns()
-func (_Smc *SmcSession) Trade(amount *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.Trade(&_Smc.TransactOpts, amount)
+func (_LuckyVault *LuckyVaultSession) Trade(amount *big.Int) (*types.Transaction, error) {
+	return _LuckyVault.Contract.Trade(&_LuckyVault.TransactOpts, amount)
 }
 
 // Trade is a paid mutator transaction binding the contract method 0xdf1dd826.
 //
 // Solidity: function trade(uint256 amount) returns()
-func (_Smc *SmcTransactorSession) Trade(amount *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.Trade(&_Smc.TransactOpts, amount)
+func (_LuckyVault *LuckyVaultTransactorSession) Trade(amount *big.Int) (*types.Transaction, error) {
+	return _LuckyVault.Contract.Trade(&_LuckyVault.TransactOpts, amount)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcTransactor) TransferOwnership(opts *bind.TransactOpts, newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "transferOwnership", newOwner)
+func (_LuckyVault *LuckyVaultTransactor) TransferOwnership(opts *bind.TransactOpts, newOwner common.Address) (*types.Transaction, error) {
+	return _LuckyVault.contract.Transact(opts, "transferOwnership", newOwner)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.TransferOwnership(&_Smc.TransactOpts, newOwner)
+func (_LuckyVault *LuckyVaultSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
+	return _LuckyVault.Contract.TransferOwnership(&_LuckyVault.TransactOpts, newOwner)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcTransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.TransferOwnership(&_Smc.TransactOpts, newOwner)
+func (_LuckyVault *LuckyVaultTransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
+	return _LuckyVault.Contract.TransferOwnership(&_LuckyVault.TransactOpts, newOwner)
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcTransactor) Unpause(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "unpause")
+func (_LuckyVault *LuckyVaultTransactor) Unpause(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _LuckyVault.contract.Transact(opts, "unpause")
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcSession) Unpause() (*types.Transaction, error) {
-	return _Smc.Contract.Unpause(&_Smc.TransactOpts)
+func (_LuckyVault *LuckyVaultSession) Unpause() (*types.Transaction, error) {
+	return _LuckyVault.Contract.Unpause(&_LuckyVault.TransactOpts)
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcTransactorSession) Unpause() (*types.Transaction, error) {
-	return _Smc.Contract.Unpause(&_Smc.TransactOpts)
+func (_LuckyVault *LuckyVaultTransactorSession) Unpause() (*types.Transaction, error) {
+	return _LuckyVault.Contract.Unpause(&_LuckyVault.TransactOpts)
 }
 
 // Withdraw is a paid mutator transaction binding the contract method 0x2e1a7d4d.
 //
 // Solidity: function withdraw(uint256 amount) returns()
-func (_Smc *SmcTransactor) Withdraw(opts *bind.TransactOpts, amount *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "withdraw", amount)
+func (_LuckyVault *LuckyVaultTransactor) Withdraw(opts *bind.TransactOpts, amount *big.Int) (*types.Transaction, error) {
+	return _LuckyVault.contract.Transact(opts, "withdraw", amount)
 }
 
 // Withdraw is a paid mutator transaction binding the contract method 0x2e1a7d4d.
 //
 // Solidity: function withdraw(uint256 amount) returns()
-func (_Smc *SmcSession) Withdraw(amount *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.Withdraw(&_Smc.TransactOpts, amount)
+func (_LuckyVault *LuckyVaultSession) Withdraw(amount *big.Int) (*types.Transaction, error) {
+	return _LuckyVault.Contract.Withdraw(&_LuckyVault.TransactOpts, amount)
 }
 
 // Withdraw is a paid mutator transaction binding the contract method 0x2e1a7d4d.
 //
 // Solidity: function withdraw(uint256 amount) returns()
-func (_Smc *SmcTransactorSession) Withdraw(amount *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.Withdraw(&_Smc.TransactOpts, amount)
+func (_LuckyVault *LuckyVaultTransactorSession) Withdraw(amount *big.Int) (*types.Transaction, error) {
+	return _LuckyVault.Contract.Withdraw(&_LuckyVault.TransactOpts, amount)
 }
 
 // WithdrawByAdmin is a paid mutator transaction binding the contract method 0x487c3580.
 //
 // Solidity: function withdrawByAdmin(address receiver, uint256 amount) returns()
-func (_Smc *SmcTransactor) WithdrawByAdmin(opts *bind.TransactOpts, receiver common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "withdrawByAdmin", receiver, amount)
+func (_LuckyVault *LuckyVaultTransactor) WithdrawByAdmin(opts *bind.TransactOpts, receiver common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _LuckyVault.contract.Transact(opts, "withdrawByAdmin", receiver, amount)
 }
 
 // WithdrawByAdmin is a paid mutator transaction binding the contract method 0x487c3580.
 //
 // Solidity: function withdrawByAdmin(address receiver, uint256 amount) returns()
-func (_Smc *SmcSession) WithdrawByAdmin(receiver common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.WithdrawByAdmin(&_Smc.TransactOpts, receiver, amount)
+func (_LuckyVault *LuckyVaultSession) WithdrawByAdmin(receiver common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _LuckyVault.Contract.WithdrawByAdmin(&_LuckyVault.TransactOpts, receiver, amount)
 }
 
 // WithdrawByAdmin is a paid mutator transaction binding the contract method 0x487c3580.
 //
 // Solidity: function withdrawByAdmin(address receiver, uint256 amount) returns()
-func (_Smc *SmcTransactorSession) WithdrawByAdmin(receiver common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.WithdrawByAdmin(&_Smc.TransactOpts, receiver, amount)
+func (_LuckyVault *LuckyVaultTransactorSession) WithdrawByAdmin(receiver common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _LuckyVault.Contract.WithdrawByAdmin(&_LuckyVault.TransactOpts, receiver, amount)
 }
 
-// SmcAdminWithdrawSuccessfulIterator is returned from FilterAdminWithdrawSuccessful and is used to iterate over the raw logs and unpacked data for AdminWithdrawSuccessful events raised by the Smc contract.
-type SmcAdminWithdrawSuccessfulIterator struct {
-	Event *SmcAdminWithdrawSuccessful // Event containing the contract specifics and raw log
+// LuckyVaultAdminWithdrawSuccessfulIterator is returned from FilterAdminWithdrawSuccessful and is used to iterate over the raw logs and unpacked data for AdminWithdrawSuccessful events raised by the LuckyVault contract.
+type LuckyVaultAdminWithdrawSuccessfulIterator struct {
+	Event *LuckyVaultAdminWithdrawSuccessful // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -736,7 +736,7 @@ type SmcAdminWithdrawSuccessfulIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcAdminWithdrawSuccessfulIterator) Next() bool {
+func (it *LuckyVaultAdminWithdrawSuccessfulIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -745,7 +745,7 @@ func (it *SmcAdminWithdrawSuccessfulIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcAdminWithdrawSuccessful)
+			it.Event = new(LuckyVaultAdminWithdrawSuccessful)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -760,7 +760,7 @@ func (it *SmcAdminWithdrawSuccessfulIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcAdminWithdrawSuccessful)
+		it.Event = new(LuckyVaultAdminWithdrawSuccessful)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -776,19 +776,19 @@ func (it *SmcAdminWithdrawSuccessfulIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcAdminWithdrawSuccessfulIterator) Error() error {
+func (it *LuckyVaultAdminWithdrawSuccessfulIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcAdminWithdrawSuccessfulIterator) Close() error {
+func (it *LuckyVaultAdminWithdrawSuccessfulIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcAdminWithdrawSuccessful represents a AdminWithdrawSuccessful event raised by the Smc contract.
-type SmcAdminWithdrawSuccessful struct {
+// LuckyVaultAdminWithdrawSuccessful represents a AdminWithdrawSuccessful event raised by the LuckyVault contract.
+type LuckyVaultAdminWithdrawSuccessful struct {
 	Sender   common.Address
 	Receiver common.Address
 	Amount   *big.Int
@@ -798,21 +798,21 @@ type SmcAdminWithdrawSuccessful struct {
 // FilterAdminWithdrawSuccessful is a free log retrieval operation binding the contract event 0x5f1e6e75f939066676897a7e8731d3286ac6abab221d260194e7ea956e2e2eed.
 //
 // Solidity: event AdminWithdrawSuccessful(address sender, address receiver, uint256 amount)
-func (_Smc *SmcFilterer) FilterAdminWithdrawSuccessful(opts *bind.FilterOpts) (*SmcAdminWithdrawSuccessfulIterator, error) {
+func (_LuckyVault *LuckyVaultFilterer) FilterAdminWithdrawSuccessful(opts *bind.FilterOpts) (*LuckyVaultAdminWithdrawSuccessfulIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "AdminWithdrawSuccessful")
+	logs, sub, err := _LuckyVault.contract.FilterLogs(opts, "AdminWithdrawSuccessful")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcAdminWithdrawSuccessfulIterator{contract: _Smc.contract, event: "AdminWithdrawSuccessful", logs: logs, sub: sub}, nil
+	return &LuckyVaultAdminWithdrawSuccessfulIterator{contract: _LuckyVault.contract, event: "AdminWithdrawSuccessful", logs: logs, sub: sub}, nil
 }
 
 // WatchAdminWithdrawSuccessful is a free log subscription operation binding the contract event 0x5f1e6e75f939066676897a7e8731d3286ac6abab221d260194e7ea956e2e2eed.
 //
 // Solidity: event AdminWithdrawSuccessful(address sender, address receiver, uint256 amount)
-func (_Smc *SmcFilterer) WatchAdminWithdrawSuccessful(opts *bind.WatchOpts, sink chan<- *SmcAdminWithdrawSuccessful) (event.Subscription, error) {
+func (_LuckyVault *LuckyVaultFilterer) WatchAdminWithdrawSuccessful(opts *bind.WatchOpts, sink chan<- *LuckyVaultAdminWithdrawSuccessful) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "AdminWithdrawSuccessful")
+	logs, sub, err := _LuckyVault.contract.WatchLogs(opts, "AdminWithdrawSuccessful")
 	if err != nil {
 		return nil, err
 	}
@@ -822,8 +822,8 @@ func (_Smc *SmcFilterer) WatchAdminWithdrawSuccessful(opts *bind.WatchOpts, sink
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcAdminWithdrawSuccessful)
-				if err := _Smc.contract.UnpackLog(event, "AdminWithdrawSuccessful", log); err != nil {
+				event := new(LuckyVaultAdminWithdrawSuccessful)
+				if err := _LuckyVault.contract.UnpackLog(event, "AdminWithdrawSuccessful", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -847,18 +847,18 @@ func (_Smc *SmcFilterer) WatchAdminWithdrawSuccessful(opts *bind.WatchOpts, sink
 // ParseAdminWithdrawSuccessful is a log parse operation binding the contract event 0x5f1e6e75f939066676897a7e8731d3286ac6abab221d260194e7ea956e2e2eed.
 //
 // Solidity: event AdminWithdrawSuccessful(address sender, address receiver, uint256 amount)
-func (_Smc *SmcFilterer) ParseAdminWithdrawSuccessful(log types.Log) (*SmcAdminWithdrawSuccessful, error) {
-	event := new(SmcAdminWithdrawSuccessful)
-	if err := _Smc.contract.UnpackLog(event, "AdminWithdrawSuccessful", log); err != nil {
+func (_LuckyVault *LuckyVaultFilterer) ParseAdminWithdrawSuccessful(log types.Log) (*LuckyVaultAdminWithdrawSuccessful, error) {
+	event := new(LuckyVaultAdminWithdrawSuccessful)
+	if err := _LuckyVault.contract.UnpackLog(event, "AdminWithdrawSuccessful", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcDepositSuccessfulIterator is returned from FilterDepositSuccessful and is used to iterate over the raw logs and unpacked data for DepositSuccessful events raised by the Smc contract.
-type SmcDepositSuccessfulIterator struct {
-	Event *SmcDepositSuccessful // Event containing the contract specifics and raw log
+// LuckyVaultDepositSuccessfulIterator is returned from FilterDepositSuccessful and is used to iterate over the raw logs and unpacked data for DepositSuccessful events raised by the LuckyVault contract.
+type LuckyVaultDepositSuccessfulIterator struct {
+	Event *LuckyVaultDepositSuccessful // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -872,7 +872,7 @@ type SmcDepositSuccessfulIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcDepositSuccessfulIterator) Next() bool {
+func (it *LuckyVaultDepositSuccessfulIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -881,7 +881,7 @@ func (it *SmcDepositSuccessfulIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcDepositSuccessful)
+			it.Event = new(LuckyVaultDepositSuccessful)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -896,7 +896,7 @@ func (it *SmcDepositSuccessfulIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcDepositSuccessful)
+		it.Event = new(LuckyVaultDepositSuccessful)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -912,19 +912,19 @@ func (it *SmcDepositSuccessfulIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcDepositSuccessfulIterator) Error() error {
+func (it *LuckyVaultDepositSuccessfulIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcDepositSuccessfulIterator) Close() error {
+func (it *LuckyVaultDepositSuccessfulIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcDepositSuccessful represents a DepositSuccessful event raised by the Smc contract.
-type SmcDepositSuccessful struct {
+// LuckyVaultDepositSuccessful represents a DepositSuccessful event raised by the LuckyVault contract.
+type LuckyVaultDepositSuccessful struct {
 	Sender       common.Address
 	Amount       *big.Int
 	RewardAmount *big.Int
@@ -934,21 +934,21 @@ type SmcDepositSuccessful struct {
 // FilterDepositSuccessful is a free log retrieval operation binding the contract event 0x61bb8b82654398e0bdd4e0d489b5e9104b6840211fd89f7264264c96589051fd.
 //
 // Solidity: event DepositSuccessful(address sender, uint256 amount, uint256 rewardAmount)
-func (_Smc *SmcFilterer) FilterDepositSuccessful(opts *bind.FilterOpts) (*SmcDepositSuccessfulIterator, error) {
+func (_LuckyVault *LuckyVaultFilterer) FilterDepositSuccessful(opts *bind.FilterOpts) (*LuckyVaultDepositSuccessfulIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "DepositSuccessful")
+	logs, sub, err := _LuckyVault.contract.FilterLogs(opts, "DepositSuccessful")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcDepositSuccessfulIterator{contract: _Smc.contract, event: "DepositSuccessful", logs: logs, sub: sub}, nil
+	return &LuckyVaultDepositSuccessfulIterator{contract: _LuckyVault.contract, event: "DepositSuccessful", logs: logs, sub: sub}, nil
 }
 
 // WatchDepositSuccessful is a free log subscription operation binding the contract event 0x61bb8b82654398e0bdd4e0d489b5e9104b6840211fd89f7264264c96589051fd.
 //
 // Solidity: event DepositSuccessful(address sender, uint256 amount, uint256 rewardAmount)
-func (_Smc *SmcFilterer) WatchDepositSuccessful(opts *bind.WatchOpts, sink chan<- *SmcDepositSuccessful) (event.Subscription, error) {
+func (_LuckyVault *LuckyVaultFilterer) WatchDepositSuccessful(opts *bind.WatchOpts, sink chan<- *LuckyVaultDepositSuccessful) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "DepositSuccessful")
+	logs, sub, err := _LuckyVault.contract.WatchLogs(opts, "DepositSuccessful")
 	if err != nil {
 		return nil, err
 	}
@@ -958,8 +958,8 @@ func (_Smc *SmcFilterer) WatchDepositSuccessful(opts *bind.WatchOpts, sink chan<
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcDepositSuccessful)
-				if err := _Smc.contract.UnpackLog(event, "DepositSuccessful", log); err != nil {
+				event := new(LuckyVaultDepositSuccessful)
+				if err := _LuckyVault.contract.UnpackLog(event, "DepositSuccessful", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -983,18 +983,18 @@ func (_Smc *SmcFilterer) WatchDepositSuccessful(opts *bind.WatchOpts, sink chan<
 // ParseDepositSuccessful is a log parse operation binding the contract event 0x61bb8b82654398e0bdd4e0d489b5e9104b6840211fd89f7264264c96589051fd.
 //
 // Solidity: event DepositSuccessful(address sender, uint256 amount, uint256 rewardAmount)
-func (_Smc *SmcFilterer) ParseDepositSuccessful(log types.Log) (*SmcDepositSuccessful, error) {
-	event := new(SmcDepositSuccessful)
-	if err := _Smc.contract.UnpackLog(event, "DepositSuccessful", log); err != nil {
+func (_LuckyVault *LuckyVaultFilterer) ParseDepositSuccessful(log types.Log) (*LuckyVaultDepositSuccessful, error) {
+	event := new(LuckyVaultDepositSuccessful)
+	if err := _LuckyVault.contract.UnpackLog(event, "DepositSuccessful", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the Smc contract.
-type SmcOwnershipTransferredIterator struct {
-	Event *SmcOwnershipTransferred // Event containing the contract specifics and raw log
+// LuckyVaultOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the LuckyVault contract.
+type LuckyVaultOwnershipTransferredIterator struct {
+	Event *LuckyVaultOwnershipTransferred // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1008,7 +1008,7 @@ type SmcOwnershipTransferredIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcOwnershipTransferredIterator) Next() bool {
+func (it *LuckyVaultOwnershipTransferredIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1017,7 +1017,7 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcOwnershipTransferred)
+			it.Event = new(LuckyVaultOwnershipTransferred)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1032,7 +1032,7 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcOwnershipTransferred)
+		it.Event = new(LuckyVaultOwnershipTransferred)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1048,19 +1048,19 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcOwnershipTransferredIterator) Error() error {
+func (it *LuckyVaultOwnershipTransferredIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcOwnershipTransferredIterator) Close() error {
+func (it *LuckyVaultOwnershipTransferredIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcOwnershipTransferred represents a OwnershipTransferred event raised by the Smc contract.
-type SmcOwnershipTransferred struct {
+// LuckyVaultOwnershipTransferred represents a OwnershipTransferred event raised by the LuckyVault contract.
+type LuckyVaultOwnershipTransferred struct {
 	PreviousOwner common.Address
 	NewOwner      common.Address
 	Raw           types.Log // Blockchain specific contextual infos
@@ -1069,7 +1069,7 @@ type SmcOwnershipTransferred struct {
 // FilterOwnershipTransferred is a free log retrieval operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previousOwner []common.Address, newOwner []common.Address) (*SmcOwnershipTransferredIterator, error) {
+func (_LuckyVault *LuckyVaultFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previousOwner []common.Address, newOwner []common.Address) (*LuckyVaultOwnershipTransferredIterator, error) {
 
 	var previousOwnerRule []interface{}
 	for _, previousOwnerItem := range previousOwner {
@@ -1080,17 +1080,17 @@ func (_Smc *SmcFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previ
 		newOwnerRule = append(newOwnerRule, newOwnerItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
+	logs, sub, err := _LuckyVault.contract.FilterLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcOwnershipTransferredIterator{contract: _Smc.contract, event: "OwnershipTransferred", logs: logs, sub: sub}, nil
+	return &LuckyVaultOwnershipTransferredIterator{contract: _LuckyVault.contract, event: "OwnershipTransferred", logs: logs, sub: sub}, nil
 }
 
 // WatchOwnershipTransferred is a free log subscription operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink chan<- *SmcOwnershipTransferred, previousOwner []common.Address, newOwner []common.Address) (event.Subscription, error) {
+func (_LuckyVault *LuckyVaultFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink chan<- *LuckyVaultOwnershipTransferred, previousOwner []common.Address, newOwner []common.Address) (event.Subscription, error) {
 
 	var previousOwnerRule []interface{}
 	for _, previousOwnerItem := range previousOwner {
@@ -1101,7 +1101,7 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 		newOwnerRule = append(newOwnerRule, newOwnerItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
+	logs, sub, err := _LuckyVault.contract.WatchLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1111,8 +1111,8 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcOwnershipTransferred)
-				if err := _Smc.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
+				event := new(LuckyVaultOwnershipTransferred)
+				if err := _LuckyVault.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1136,18 +1136,18 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 // ParseOwnershipTransferred is a log parse operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) ParseOwnershipTransferred(log types.Log) (*SmcOwnershipTransferred, error) {
-	event := new(SmcOwnershipTransferred)
-	if err := _Smc.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
+func (_LuckyVault *LuckyVaultFilterer) ParseOwnershipTransferred(log types.Log) (*LuckyVaultOwnershipTransferred, error) {
+	event := new(LuckyVaultOwnershipTransferred)
+	if err := _LuckyVault.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcPausedIterator is returned from FilterPaused and is used to iterate over the raw logs and unpacked data for Paused events raised by the Smc contract.
-type SmcPausedIterator struct {
-	Event *SmcPaused // Event containing the contract specifics and raw log
+// LuckyVaultPausedIterator is returned from FilterPaused and is used to iterate over the raw logs and unpacked data for Paused events raised by the LuckyVault contract.
+type LuckyVaultPausedIterator struct {
+	Event *LuckyVaultPaused // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1161,7 +1161,7 @@ type SmcPausedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcPausedIterator) Next() bool {
+func (it *LuckyVaultPausedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1170,7 +1170,7 @@ func (it *SmcPausedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcPaused)
+			it.Event = new(LuckyVaultPaused)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1185,7 +1185,7 @@ func (it *SmcPausedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcPaused)
+		it.Event = new(LuckyVaultPaused)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1201,19 +1201,19 @@ func (it *SmcPausedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcPausedIterator) Error() error {
+func (it *LuckyVaultPausedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcPausedIterator) Close() error {
+func (it *LuckyVaultPausedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcPaused represents a Paused event raised by the Smc contract.
-type SmcPaused struct {
+// LuckyVaultPaused represents a Paused event raised by the LuckyVault contract.
+type LuckyVaultPaused struct {
 	Account common.Address
 	Raw     types.Log // Blockchain specific contextual infos
 }
@@ -1221,21 +1221,21 @@ type SmcPaused struct {
 // FilterPaused is a free log retrieval operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) FilterPaused(opts *bind.FilterOpts) (*SmcPausedIterator, error) {
+func (_LuckyVault *LuckyVaultFilterer) FilterPaused(opts *bind.FilterOpts) (*LuckyVaultPausedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Paused")
+	logs, sub, err := _LuckyVault.contract.FilterLogs(opts, "Paused")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcPausedIterator{contract: _Smc.contract, event: "Paused", logs: logs, sub: sub}, nil
+	return &LuckyVaultPausedIterator{contract: _LuckyVault.contract, event: "Paused", logs: logs, sub: sub}, nil
 }
 
 // WatchPaused is a free log subscription operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPaused) (event.Subscription, error) {
+func (_LuckyVault *LuckyVaultFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *LuckyVaultPaused) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Paused")
+	logs, sub, err := _LuckyVault.contract.WatchLogs(opts, "Paused")
 	if err != nil {
 		return nil, err
 	}
@@ -1245,8 +1245,8 @@ func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPause
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcPaused)
-				if err := _Smc.contract.UnpackLog(event, "Paused", log); err != nil {
+				event := new(LuckyVaultPaused)
+				if err := _LuckyVault.contract.UnpackLog(event, "Paused", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1270,18 +1270,18 @@ func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPause
 // ParsePaused is a log parse operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) ParsePaused(log types.Log) (*SmcPaused, error) {
-	event := new(SmcPaused)
-	if err := _Smc.contract.UnpackLog(event, "Paused", log); err != nil {
+func (_LuckyVault *LuckyVaultFilterer) ParsePaused(log types.Log) (*LuckyVaultPaused, error) {
+	event := new(LuckyVaultPaused)
+	if err := _LuckyVault.contract.UnpackLog(event, "Paused", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRoleAdminChangedIterator is returned from FilterRoleAdminChanged and is used to iterate over the raw logs and unpacked data for RoleAdminChanged events raised by the Smc contract.
-type SmcRoleAdminChangedIterator struct {
-	Event *SmcRoleAdminChanged // Event containing the contract specifics and raw log
+// LuckyVaultRoleAdminChangedIterator is returned from FilterRoleAdminChanged and is used to iterate over the raw logs and unpacked data for RoleAdminChanged events raised by the LuckyVault contract.
+type LuckyVaultRoleAdminChangedIterator struct {
+	Event *LuckyVaultRoleAdminChanged // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1295,7 +1295,7 @@ type SmcRoleAdminChangedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRoleAdminChangedIterator) Next() bool {
+func (it *LuckyVaultRoleAdminChangedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1304,7 +1304,7 @@ func (it *SmcRoleAdminChangedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRoleAdminChanged)
+			it.Event = new(LuckyVaultRoleAdminChanged)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1319,7 +1319,7 @@ func (it *SmcRoleAdminChangedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRoleAdminChanged)
+		it.Event = new(LuckyVaultRoleAdminChanged)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1335,19 +1335,19 @@ func (it *SmcRoleAdminChangedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRoleAdminChangedIterator) Error() error {
+func (it *LuckyVaultRoleAdminChangedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRoleAdminChangedIterator) Close() error {
+func (it *LuckyVaultRoleAdminChangedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRoleAdminChanged represents a RoleAdminChanged event raised by the Smc contract.
-type SmcRoleAdminChanged struct {
+// LuckyVaultRoleAdminChanged represents a RoleAdminChanged event raised by the LuckyVault contract.
+type LuckyVaultRoleAdminChanged struct {
 	Role              [32]byte
 	PreviousAdminRole [32]byte
 	NewAdminRole      [32]byte
@@ -1357,7 +1357,7 @@ type SmcRoleAdminChanged struct {
 // FilterRoleAdminChanged is a free log retrieval operation binding the contract event 0xbd79b86ffe0ab8e8776151514217cd7cacd52c909f66475c3af44e129f0b00ff.
 //
 // Solidity: event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
-func (_Smc *SmcFilterer) FilterRoleAdminChanged(opts *bind.FilterOpts, role [][32]byte, previousAdminRole [][32]byte, newAdminRole [][32]byte) (*SmcRoleAdminChangedIterator, error) {
+func (_LuckyVault *LuckyVaultFilterer) FilterRoleAdminChanged(opts *bind.FilterOpts, role [][32]byte, previousAdminRole [][32]byte, newAdminRole [][32]byte) (*LuckyVaultRoleAdminChangedIterator, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -1372,17 +1372,17 @@ func (_Smc *SmcFilterer) FilterRoleAdminChanged(opts *bind.FilterOpts, role [][3
 		newAdminRoleRule = append(newAdminRoleRule, newAdminRoleItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RoleAdminChanged", roleRule, previousAdminRoleRule, newAdminRoleRule)
+	logs, sub, err := _LuckyVault.contract.FilterLogs(opts, "RoleAdminChanged", roleRule, previousAdminRoleRule, newAdminRoleRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRoleAdminChangedIterator{contract: _Smc.contract, event: "RoleAdminChanged", logs: logs, sub: sub}, nil
+	return &LuckyVaultRoleAdminChangedIterator{contract: _LuckyVault.contract, event: "RoleAdminChanged", logs: logs, sub: sub}, nil
 }
 
 // WatchRoleAdminChanged is a free log subscription operation binding the contract event 0xbd79b86ffe0ab8e8776151514217cd7cacd52c909f66475c3af44e129f0b00ff.
 //
 // Solidity: event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
-func (_Smc *SmcFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<- *SmcRoleAdminChanged, role [][32]byte, previousAdminRole [][32]byte, newAdminRole [][32]byte) (event.Subscription, error) {
+func (_LuckyVault *LuckyVaultFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<- *LuckyVaultRoleAdminChanged, role [][32]byte, previousAdminRole [][32]byte, newAdminRole [][32]byte) (event.Subscription, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -1397,7 +1397,7 @@ func (_Smc *SmcFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<-
 		newAdminRoleRule = append(newAdminRoleRule, newAdminRoleItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RoleAdminChanged", roleRule, previousAdminRoleRule, newAdminRoleRule)
+	logs, sub, err := _LuckyVault.contract.WatchLogs(opts, "RoleAdminChanged", roleRule, previousAdminRoleRule, newAdminRoleRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1407,8 +1407,8 @@ func (_Smc *SmcFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<-
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRoleAdminChanged)
-				if err := _Smc.contract.UnpackLog(event, "RoleAdminChanged", log); err != nil {
+				event := new(LuckyVaultRoleAdminChanged)
+				if err := _LuckyVault.contract.UnpackLog(event, "RoleAdminChanged", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1432,18 +1432,18 @@ func (_Smc *SmcFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<-
 // ParseRoleAdminChanged is a log parse operation binding the contract event 0xbd79b86ffe0ab8e8776151514217cd7cacd52c909f66475c3af44e129f0b00ff.
 //
 // Solidity: event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
-func (_Smc *SmcFilterer) ParseRoleAdminChanged(log types.Log) (*SmcRoleAdminChanged, error) {
-	event := new(SmcRoleAdminChanged)
-	if err := _Smc.contract.UnpackLog(event, "RoleAdminChanged", log); err != nil {
+func (_LuckyVault *LuckyVaultFilterer) ParseRoleAdminChanged(log types.Log) (*LuckyVaultRoleAdminChanged, error) {
+	event := new(LuckyVaultRoleAdminChanged)
+	if err := _LuckyVault.contract.UnpackLog(event, "RoleAdminChanged", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRoleGrantedIterator is returned from FilterRoleGranted and is used to iterate over the raw logs and unpacked data for RoleGranted events raised by the Smc contract.
-type SmcRoleGrantedIterator struct {
-	Event *SmcRoleGranted // Event containing the contract specifics and raw log
+// LuckyVaultRoleGrantedIterator is returned from FilterRoleGranted and is used to iterate over the raw logs and unpacked data for RoleGranted events raised by the LuckyVault contract.
+type LuckyVaultRoleGrantedIterator struct {
+	Event *LuckyVaultRoleGranted // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1457,7 +1457,7 @@ type SmcRoleGrantedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRoleGrantedIterator) Next() bool {
+func (it *LuckyVaultRoleGrantedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1466,7 +1466,7 @@ func (it *SmcRoleGrantedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRoleGranted)
+			it.Event = new(LuckyVaultRoleGranted)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1481,7 +1481,7 @@ func (it *SmcRoleGrantedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRoleGranted)
+		it.Event = new(LuckyVaultRoleGranted)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1497,19 +1497,19 @@ func (it *SmcRoleGrantedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRoleGrantedIterator) Error() error {
+func (it *LuckyVaultRoleGrantedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRoleGrantedIterator) Close() error {
+func (it *LuckyVaultRoleGrantedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRoleGranted represents a RoleGranted event raised by the Smc contract.
-type SmcRoleGranted struct {
+// LuckyVaultRoleGranted represents a RoleGranted event raised by the LuckyVault contract.
+type LuckyVaultRoleGranted struct {
 	Role    [32]byte
 	Account common.Address
 	Sender  common.Address
@@ -1519,7 +1519,7 @@ type SmcRoleGranted struct {
 // FilterRoleGranted is a free log retrieval operation binding the contract event 0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d.
 //
 // Solidity: event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) FilterRoleGranted(opts *bind.FilterOpts, role [][32]byte, account []common.Address, sender []common.Address) (*SmcRoleGrantedIterator, error) {
+func (_LuckyVault *LuckyVaultFilterer) FilterRoleGranted(opts *bind.FilterOpts, role [][32]byte, account []common.Address, sender []common.Address) (*LuckyVaultRoleGrantedIterator, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -1534,17 +1534,17 @@ func (_Smc *SmcFilterer) FilterRoleGranted(opts *bind.FilterOpts, role [][32]byt
 		senderRule = append(senderRule, senderItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RoleGranted", roleRule, accountRule, senderRule)
+	logs, sub, err := _LuckyVault.contract.FilterLogs(opts, "RoleGranted", roleRule, accountRule, senderRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRoleGrantedIterator{contract: _Smc.contract, event: "RoleGranted", logs: logs, sub: sub}, nil
+	return &LuckyVaultRoleGrantedIterator{contract: _LuckyVault.contract, event: "RoleGranted", logs: logs, sub: sub}, nil
 }
 
 // WatchRoleGranted is a free log subscription operation binding the contract event 0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d.
 //
 // Solidity: event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *SmcRoleGranted, role [][32]byte, account []common.Address, sender []common.Address) (event.Subscription, error) {
+func (_LuckyVault *LuckyVaultFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *LuckyVaultRoleGranted, role [][32]byte, account []common.Address, sender []common.Address) (event.Subscription, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -1559,7 +1559,7 @@ func (_Smc *SmcFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *Smc
 		senderRule = append(senderRule, senderItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RoleGranted", roleRule, accountRule, senderRule)
+	logs, sub, err := _LuckyVault.contract.WatchLogs(opts, "RoleGranted", roleRule, accountRule, senderRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1569,8 +1569,8 @@ func (_Smc *SmcFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *Smc
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRoleGranted)
-				if err := _Smc.contract.UnpackLog(event, "RoleGranted", log); err != nil {
+				event := new(LuckyVaultRoleGranted)
+				if err := _LuckyVault.contract.UnpackLog(event, "RoleGranted", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1594,18 +1594,18 @@ func (_Smc *SmcFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *Smc
 // ParseRoleGranted is a log parse operation binding the contract event 0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d.
 //
 // Solidity: event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) ParseRoleGranted(log types.Log) (*SmcRoleGranted, error) {
-	event := new(SmcRoleGranted)
-	if err := _Smc.contract.UnpackLog(event, "RoleGranted", log); err != nil {
+func (_LuckyVault *LuckyVaultFilterer) ParseRoleGranted(log types.Log) (*LuckyVaultRoleGranted, error) {
+	event := new(LuckyVaultRoleGranted)
+	if err := _LuckyVault.contract.UnpackLog(event, "RoleGranted", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRoleRevokedIterator is returned from FilterRoleRevoked and is used to iterate over the raw logs and unpacked data for RoleRevoked events raised by the Smc contract.
-type SmcRoleRevokedIterator struct {
-	Event *SmcRoleRevoked // Event containing the contract specifics and raw log
+// LuckyVaultRoleRevokedIterator is returned from FilterRoleRevoked and is used to iterate over the raw logs and unpacked data for RoleRevoked events raised by the LuckyVault contract.
+type LuckyVaultRoleRevokedIterator struct {
+	Event *LuckyVaultRoleRevoked // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1619,7 +1619,7 @@ type SmcRoleRevokedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRoleRevokedIterator) Next() bool {
+func (it *LuckyVaultRoleRevokedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1628,7 +1628,7 @@ func (it *SmcRoleRevokedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRoleRevoked)
+			it.Event = new(LuckyVaultRoleRevoked)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1643,7 +1643,7 @@ func (it *SmcRoleRevokedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRoleRevoked)
+		it.Event = new(LuckyVaultRoleRevoked)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1659,19 +1659,19 @@ func (it *SmcRoleRevokedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRoleRevokedIterator) Error() error {
+func (it *LuckyVaultRoleRevokedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRoleRevokedIterator) Close() error {
+func (it *LuckyVaultRoleRevokedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRoleRevoked represents a RoleRevoked event raised by the Smc contract.
-type SmcRoleRevoked struct {
+// LuckyVaultRoleRevoked represents a RoleRevoked event raised by the LuckyVault contract.
+type LuckyVaultRoleRevoked struct {
 	Role    [32]byte
 	Account common.Address
 	Sender  common.Address
@@ -1681,7 +1681,7 @@ type SmcRoleRevoked struct {
 // FilterRoleRevoked is a free log retrieval operation binding the contract event 0xf6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b.
 //
 // Solidity: event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) FilterRoleRevoked(opts *bind.FilterOpts, role [][32]byte, account []common.Address, sender []common.Address) (*SmcRoleRevokedIterator, error) {
+func (_LuckyVault *LuckyVaultFilterer) FilterRoleRevoked(opts *bind.FilterOpts, role [][32]byte, account []common.Address, sender []common.Address) (*LuckyVaultRoleRevokedIterator, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -1696,17 +1696,17 @@ func (_Smc *SmcFilterer) FilterRoleRevoked(opts *bind.FilterOpts, role [][32]byt
 		senderRule = append(senderRule, senderItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RoleRevoked", roleRule, accountRule, senderRule)
+	logs, sub, err := _LuckyVault.contract.FilterLogs(opts, "RoleRevoked", roleRule, accountRule, senderRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRoleRevokedIterator{contract: _Smc.contract, event: "RoleRevoked", logs: logs, sub: sub}, nil
+	return &LuckyVaultRoleRevokedIterator{contract: _LuckyVault.contract, event: "RoleRevoked", logs: logs, sub: sub}, nil
 }
 
 // WatchRoleRevoked is a free log subscription operation binding the contract event 0xf6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b.
 //
 // Solidity: event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *SmcRoleRevoked, role [][32]byte, account []common.Address, sender []common.Address) (event.Subscription, error) {
+func (_LuckyVault *LuckyVaultFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *LuckyVaultRoleRevoked, role [][32]byte, account []common.Address, sender []common.Address) (event.Subscription, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -1721,7 +1721,7 @@ func (_Smc *SmcFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *Smc
 		senderRule = append(senderRule, senderItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RoleRevoked", roleRule, accountRule, senderRule)
+	logs, sub, err := _LuckyVault.contract.WatchLogs(opts, "RoleRevoked", roleRule, accountRule, senderRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1731,8 +1731,8 @@ func (_Smc *SmcFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *Smc
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRoleRevoked)
-				if err := _Smc.contract.UnpackLog(event, "RoleRevoked", log); err != nil {
+				event := new(LuckyVaultRoleRevoked)
+				if err := _LuckyVault.contract.UnpackLog(event, "RoleRevoked", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1756,18 +1756,18 @@ func (_Smc *SmcFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *Smc
 // ParseRoleRevoked is a log parse operation binding the contract event 0xf6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b.
 //
 // Solidity: event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) ParseRoleRevoked(log types.Log) (*SmcRoleRevoked, error) {
-	event := new(SmcRoleRevoked)
-	if err := _Smc.contract.UnpackLog(event, "RoleRevoked", log); err != nil {
+func (_LuckyVault *LuckyVaultFilterer) ParseRoleRevoked(log types.Log) (*LuckyVaultRoleRevoked, error) {
+	event := new(LuckyVaultRoleRevoked)
+	if err := _LuckyVault.contract.UnpackLog(event, "RoleRevoked", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcTradeSuccessfulIterator is returned from FilterTradeSuccessful and is used to iterate over the raw logs and unpacked data for TradeSuccessful events raised by the Smc contract.
-type SmcTradeSuccessfulIterator struct {
-	Event *SmcTradeSuccessful // Event containing the contract specifics and raw log
+// LuckyVaultTradeSuccessfulIterator is returned from FilterTradeSuccessful and is used to iterate over the raw logs and unpacked data for TradeSuccessful events raised by the LuckyVault contract.
+type LuckyVaultTradeSuccessfulIterator struct {
+	Event *LuckyVaultTradeSuccessful // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1781,7 +1781,7 @@ type SmcTradeSuccessfulIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcTradeSuccessfulIterator) Next() bool {
+func (it *LuckyVaultTradeSuccessfulIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1790,7 +1790,7 @@ func (it *SmcTradeSuccessfulIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcTradeSuccessful)
+			it.Event = new(LuckyVaultTradeSuccessful)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1805,7 +1805,7 @@ func (it *SmcTradeSuccessfulIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcTradeSuccessful)
+		it.Event = new(LuckyVaultTradeSuccessful)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1821,19 +1821,19 @@ func (it *SmcTradeSuccessfulIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcTradeSuccessfulIterator) Error() error {
+func (it *LuckyVaultTradeSuccessfulIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcTradeSuccessfulIterator) Close() error {
+func (it *LuckyVaultTradeSuccessfulIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcTradeSuccessful represents a TradeSuccessful event raised by the Smc contract.
-type SmcTradeSuccessful struct {
+// LuckyVaultTradeSuccessful represents a TradeSuccessful event raised by the LuckyVault contract.
+type LuckyVaultTradeSuccessful struct {
 	Sender       common.Address
 	Amount       *big.Int
 	TradeAmount  *big.Int
@@ -1844,21 +1844,21 @@ type SmcTradeSuccessful struct {
 // FilterTradeSuccessful is a free log retrieval operation binding the contract event 0x333d31babb882d300a2175cd3cb272cf6c099241021c22af2699242f92f4ff4f.
 //
 // Solidity: event TradeSuccessful(address sender, uint256 amount, uint256 tradeAmount, uint256 rewardAmount)
-func (_Smc *SmcFilterer) FilterTradeSuccessful(opts *bind.FilterOpts) (*SmcTradeSuccessfulIterator, error) {
+func (_LuckyVault *LuckyVaultFilterer) FilterTradeSuccessful(opts *bind.FilterOpts) (*LuckyVaultTradeSuccessfulIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "TradeSuccessful")
+	logs, sub, err := _LuckyVault.contract.FilterLogs(opts, "TradeSuccessful")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTradeSuccessfulIterator{contract: _Smc.contract, event: "TradeSuccessful", logs: logs, sub: sub}, nil
+	return &LuckyVaultTradeSuccessfulIterator{contract: _LuckyVault.contract, event: "TradeSuccessful", logs: logs, sub: sub}, nil
 }
 
 // WatchTradeSuccessful is a free log subscription operation binding the contract event 0x333d31babb882d300a2175cd3cb272cf6c099241021c22af2699242f92f4ff4f.
 //
 // Solidity: event TradeSuccessful(address sender, uint256 amount, uint256 tradeAmount, uint256 rewardAmount)
-func (_Smc *SmcFilterer) WatchTradeSuccessful(opts *bind.WatchOpts, sink chan<- *SmcTradeSuccessful) (event.Subscription, error) {
+func (_LuckyVault *LuckyVaultFilterer) WatchTradeSuccessful(opts *bind.WatchOpts, sink chan<- *LuckyVaultTradeSuccessful) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "TradeSuccessful")
+	logs, sub, err := _LuckyVault.contract.WatchLogs(opts, "TradeSuccessful")
 	if err != nil {
 		return nil, err
 	}
@@ -1868,8 +1868,8 @@ func (_Smc *SmcFilterer) WatchTradeSuccessful(opts *bind.WatchOpts, sink chan<- 
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcTradeSuccessful)
-				if err := _Smc.contract.UnpackLog(event, "TradeSuccessful", log); err != nil {
+				event := new(LuckyVaultTradeSuccessful)
+				if err := _LuckyVault.contract.UnpackLog(event, "TradeSuccessful", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1893,18 +1893,18 @@ func (_Smc *SmcFilterer) WatchTradeSuccessful(opts *bind.WatchOpts, sink chan<- 
 // ParseTradeSuccessful is a log parse operation binding the contract event 0x333d31babb882d300a2175cd3cb272cf6c099241021c22af2699242f92f4ff4f.
 //
 // Solidity: event TradeSuccessful(address sender, uint256 amount, uint256 tradeAmount, uint256 rewardAmount)
-func (_Smc *SmcFilterer) ParseTradeSuccessful(log types.Log) (*SmcTradeSuccessful, error) {
-	event := new(SmcTradeSuccessful)
-	if err := _Smc.contract.UnpackLog(event, "TradeSuccessful", log); err != nil {
+func (_LuckyVault *LuckyVaultFilterer) ParseTradeSuccessful(log types.Log) (*LuckyVaultTradeSuccessful, error) {
+	event := new(LuckyVaultTradeSuccessful)
+	if err := _LuckyVault.contract.UnpackLog(event, "TradeSuccessful", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcUnpausedIterator is returned from FilterUnpaused and is used to iterate over the raw logs and unpacked data for Unpaused events raised by the Smc contract.
-type SmcUnpausedIterator struct {
-	Event *SmcUnpaused // Event containing the contract specifics and raw log
+// LuckyVaultUnpausedIterator is returned from FilterUnpaused and is used to iterate over the raw logs and unpacked data for Unpaused events raised by the LuckyVault contract.
+type LuckyVaultUnpausedIterator struct {
+	Event *LuckyVaultUnpaused // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1918,7 +1918,7 @@ type SmcUnpausedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcUnpausedIterator) Next() bool {
+func (it *LuckyVaultUnpausedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1927,7 +1927,7 @@ func (it *SmcUnpausedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcUnpaused)
+			it.Event = new(LuckyVaultUnpaused)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1942,7 +1942,7 @@ func (it *SmcUnpausedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcUnpaused)
+		it.Event = new(LuckyVaultUnpaused)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1958,19 +1958,19 @@ func (it *SmcUnpausedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcUnpausedIterator) Error() error {
+func (it *LuckyVaultUnpausedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcUnpausedIterator) Close() error {
+func (it *LuckyVaultUnpausedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcUnpaused represents a Unpaused event raised by the Smc contract.
-type SmcUnpaused struct {
+// LuckyVaultUnpaused represents a Unpaused event raised by the LuckyVault contract.
+type LuckyVaultUnpaused struct {
 	Account common.Address
 	Raw     types.Log // Blockchain specific contextual infos
 }
@@ -1978,21 +1978,21 @@ type SmcUnpaused struct {
 // FilterUnpaused is a free log retrieval operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) FilterUnpaused(opts *bind.FilterOpts) (*SmcUnpausedIterator, error) {
+func (_LuckyVault *LuckyVaultFilterer) FilterUnpaused(opts *bind.FilterOpts) (*LuckyVaultUnpausedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Unpaused")
+	logs, sub, err := _LuckyVault.contract.FilterLogs(opts, "Unpaused")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcUnpausedIterator{contract: _Smc.contract, event: "Unpaused", logs: logs, sub: sub}, nil
+	return &LuckyVaultUnpausedIterator{contract: _LuckyVault.contract, event: "Unpaused", logs: logs, sub: sub}, nil
 }
 
 // WatchUnpaused is a free log subscription operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnpaused) (event.Subscription, error) {
+func (_LuckyVault *LuckyVaultFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *LuckyVaultUnpaused) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Unpaused")
+	logs, sub, err := _LuckyVault.contract.WatchLogs(opts, "Unpaused")
 	if err != nil {
 		return nil, err
 	}
@@ -2002,8 +2002,8 @@ func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnp
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcUnpaused)
-				if err := _Smc.contract.UnpackLog(event, "Unpaused", log); err != nil {
+				event := new(LuckyVaultUnpaused)
+				if err := _LuckyVault.contract.UnpackLog(event, "Unpaused", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2027,18 +2027,18 @@ func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnp
 // ParseUnpaused is a log parse operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) ParseUnpaused(log types.Log) (*SmcUnpaused, error) {
-	event := new(SmcUnpaused)
-	if err := _Smc.contract.UnpackLog(event, "Unpaused", log); err != nil {
+func (_LuckyVault *LuckyVaultFilterer) ParseUnpaused(log types.Log) (*LuckyVaultUnpaused, error) {
+	event := new(LuckyVaultUnpaused)
+	if err := _LuckyVault.contract.UnpackLog(event, "Unpaused", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcWithdrawSuccessfulIterator is returned from FilterWithdrawSuccessful and is used to iterate over the raw logs and unpacked data for WithdrawSuccessful events raised by the Smc contract.
-type SmcWithdrawSuccessfulIterator struct {
-	Event *SmcWithdrawSuccessful // Event containing the contract specifics and raw log
+// LuckyVaultWithdrawSuccessfulIterator is returned from FilterWithdrawSuccessful and is used to iterate over the raw logs and unpacked data for WithdrawSuccessful events raised by the LuckyVault contract.
+type LuckyVaultWithdrawSuccessfulIterator struct {
+	Event *LuckyVaultWithdrawSuccessful // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2052,7 +2052,7 @@ type SmcWithdrawSuccessfulIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcWithdrawSuccessfulIterator) Next() bool {
+func (it *LuckyVaultWithdrawSuccessfulIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2061,7 +2061,7 @@ func (it *SmcWithdrawSuccessfulIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcWithdrawSuccessful)
+			it.Event = new(LuckyVaultWithdrawSuccessful)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2076,7 +2076,7 @@ func (it *SmcWithdrawSuccessfulIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcWithdrawSuccessful)
+		it.Event = new(LuckyVaultWithdrawSuccessful)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2092,19 +2092,19 @@ func (it *SmcWithdrawSuccessfulIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcWithdrawSuccessfulIterator) Error() error {
+func (it *LuckyVaultWithdrawSuccessfulIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcWithdrawSuccessfulIterator) Close() error {
+func (it *LuckyVaultWithdrawSuccessfulIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcWithdrawSuccessful represents a WithdrawSuccessful event raised by the Smc contract.
-type SmcWithdrawSuccessful struct {
+// LuckyVaultWithdrawSuccessful represents a WithdrawSuccessful event raised by the LuckyVault contract.
+type LuckyVaultWithdrawSuccessful struct {
 	Sender common.Address
 	Amount *big.Int
 	Raw    types.Log // Blockchain specific contextual infos
@@ -2113,21 +2113,21 @@ type SmcWithdrawSuccessful struct {
 // FilterWithdrawSuccessful is a free log retrieval operation binding the contract event 0x84e742a3ea03623687a5febaa797636d728230721d4b3d1405d19fbbc16298d9.
 //
 // Solidity: event WithdrawSuccessful(address sender, uint256 amount)
-func (_Smc *SmcFilterer) FilterWithdrawSuccessful(opts *bind.FilterOpts) (*SmcWithdrawSuccessfulIterator, error) {
+func (_LuckyVault *LuckyVaultFilterer) FilterWithdrawSuccessful(opts *bind.FilterOpts) (*LuckyVaultWithdrawSuccessfulIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "WithdrawSuccessful")
+	logs, sub, err := _LuckyVault.contract.FilterLogs(opts, "WithdrawSuccessful")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcWithdrawSuccessfulIterator{contract: _Smc.contract, event: "WithdrawSuccessful", logs: logs, sub: sub}, nil
+	return &LuckyVaultWithdrawSuccessfulIterator{contract: _LuckyVault.contract, event: "WithdrawSuccessful", logs: logs, sub: sub}, nil
 }
 
 // WatchWithdrawSuccessful is a free log subscription operation binding the contract event 0x84e742a3ea03623687a5febaa797636d728230721d4b3d1405d19fbbc16298d9.
 //
 // Solidity: event WithdrawSuccessful(address sender, uint256 amount)
-func (_Smc *SmcFilterer) WatchWithdrawSuccessful(opts *bind.WatchOpts, sink chan<- *SmcWithdrawSuccessful) (event.Subscription, error) {
+func (_LuckyVault *LuckyVaultFilterer) WatchWithdrawSuccessful(opts *bind.WatchOpts, sink chan<- *LuckyVaultWithdrawSuccessful) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "WithdrawSuccessful")
+	logs, sub, err := _LuckyVault.contract.WatchLogs(opts, "WithdrawSuccessful")
 	if err != nil {
 		return nil, err
 	}
@@ -2137,8 +2137,8 @@ func (_Smc *SmcFilterer) WatchWithdrawSuccessful(opts *bind.WatchOpts, sink chan
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcWithdrawSuccessful)
-				if err := _Smc.contract.UnpackLog(event, "WithdrawSuccessful", log); err != nil {
+				event := new(LuckyVaultWithdrawSuccessful)
+				if err := _LuckyVault.contract.UnpackLog(event, "WithdrawSuccessful", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2162,9 +2162,9 @@ func (_Smc *SmcFilterer) WatchWithdrawSuccessful(opts *bind.WatchOpts, sink chan
 // ParseWithdrawSuccessful is a log parse operation binding the contract event 0x84e742a3ea03623687a5febaa797636d728230721d4b3d1405d19fbbc16298d9.
 //
 // Solidity: event WithdrawSuccessful(address sender, uint256 amount)
-func (_Smc *SmcFilterer) ParseWithdrawSuccessful(log types.Log) (*SmcWithdrawSuccessful, error) {
-	event := new(SmcWithdrawSuccessful)
-	if err := _Smc.contract.UnpackLog(event, "WithdrawSuccessful", log); err != nil {
+func (_LuckyVault *LuckyVaultFilterer) ParseWithdrawSuccessful(log types.Log) (*LuckyVaultWithdrawSuccessful, error) {
+	event := new(LuckyVaultWithdrawSuccessful)
+	if err := _LuckyVault.contract.UnpackLog(event, "WithdrawSuccessful", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log

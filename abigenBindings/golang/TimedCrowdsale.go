@@ -1,7 +1,7 @@
 // Code generated - DO NOT EDIT.
 // This file is a generated binding and any manual changes will be lost.
 
-package smc
+package TimedCrowdsale
 
 import (
 	"errors"
@@ -28,113 +28,113 @@ var (
 	_ = event.NewSubscription
 )
 
-// SmcMetaData contains all meta data concerning the Smc contract.
-var SmcMetaData = &bind.MetaData{
+// TimedCrowdsaleMetaData contains all meta data concerning the TimedCrowdsale contract.
+var TimedCrowdsaleMetaData = &bind.MetaData{
 	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"prevClosingTime\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newClosingTime\",\"type\":\"uint256\"}],\"name\":\"TimedCrowdsaleExtended\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"purchaser\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"TokensPurchased\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"}],\"name\":\"buyTokens\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"addresspayable\",\"name\":\"newReceiver\",\"type\":\"address\"}],\"name\":\"changeWallet\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"addresspayable\",\"name\":\"_to\",\"type\":\"address\"}],\"name\":\"destroySmartContract\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"rate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"token\",\"outputs\":[{\"internalType\":\"contractIBEP20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"wallet\",\"outputs\":[{\"internalType\":\"addresspayable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"weiRaised\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"},{\"inputs\":[],\"name\":\"openingTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"closingTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"isOpen\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"hasClosed\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]",
 }
 
-// SmcABI is the input ABI used to generate the binding from.
-// Deprecated: Use SmcMetaData.ABI instead.
-var SmcABI = SmcMetaData.ABI
+// TimedCrowdsaleABI is the input ABI used to generate the binding from.
+// Deprecated: Use TimedCrowdsaleMetaData.ABI instead.
+var TimedCrowdsaleABI = TimedCrowdsaleMetaData.ABI
 
-// Smc is an auto generated Go binding around an Ethereum contract.
-type Smc struct {
-	SmcCaller     // Read-only binding to the contract
-	SmcTransactor // Write-only binding to the contract
-	SmcFilterer   // Log filterer for contract events
+// TimedCrowdsale is an auto generated Go binding around an Ethereum contract.
+type TimedCrowdsale struct {
+	TimedCrowdsaleCaller     // Read-only binding to the contract
+	TimedCrowdsaleTransactor // Write-only binding to the contract
+	TimedCrowdsaleFilterer   // Log filterer for contract events
 }
 
-// SmcCaller is an auto generated read-only Go binding around an Ethereum contract.
-type SmcCaller struct {
+// TimedCrowdsaleCaller is an auto generated read-only Go binding around an Ethereum contract.
+type TimedCrowdsaleCaller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcTransactor is an auto generated write-only Go binding around an Ethereum contract.
-type SmcTransactor struct {
+// TimedCrowdsaleTransactor is an auto generated write-only Go binding around an Ethereum contract.
+type TimedCrowdsaleTransactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
-type SmcFilterer struct {
+// TimedCrowdsaleFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type TimedCrowdsaleFilterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcSession is an auto generated Go binding around an Ethereum contract,
+// TimedCrowdsaleSession is an auto generated Go binding around an Ethereum contract,
 // with pre-set call and transact options.
-type SmcSession struct {
-	Contract     *Smc              // Generic contract binding to set the session for
+type TimedCrowdsaleSession struct {
+	Contract     *TimedCrowdsale   // Generic contract binding to set the session for
 	CallOpts     bind.CallOpts     // Call options to use throughout this session
 	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 }
 
-// SmcCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// TimedCrowdsaleCallerSession is an auto generated read-only Go binding around an Ethereum contract,
 // with pre-set call options.
-type SmcCallerSession struct {
-	Contract *SmcCaller    // Generic contract caller binding to set the session for
-	CallOpts bind.CallOpts // Call options to use throughout this session
+type TimedCrowdsaleCallerSession struct {
+	Contract *TimedCrowdsaleCaller // Generic contract caller binding to set the session for
+	CallOpts bind.CallOpts         // Call options to use throughout this session
 }
 
-// SmcTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// TimedCrowdsaleTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
 // with pre-set transact options.
-type SmcTransactorSession struct {
-	Contract     *SmcTransactor    // Generic contract transactor binding to set the session for
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type TimedCrowdsaleTransactorSession struct {
+	Contract     *TimedCrowdsaleTransactor // Generic contract transactor binding to set the session for
+	TransactOpts bind.TransactOpts         // Transaction auth options to use throughout this session
 }
 
-// SmcRaw is an auto generated low-level Go binding around an Ethereum contract.
-type SmcRaw struct {
-	Contract *Smc // Generic contract binding to access the raw methods on
+// TimedCrowdsaleRaw is an auto generated low-level Go binding around an Ethereum contract.
+type TimedCrowdsaleRaw struct {
+	Contract *TimedCrowdsale // Generic contract binding to access the raw methods on
 }
 
-// SmcCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
-type SmcCallerRaw struct {
-	Contract *SmcCaller // Generic read-only contract binding to access the raw methods on
+// TimedCrowdsaleCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type TimedCrowdsaleCallerRaw struct {
+	Contract *TimedCrowdsaleCaller // Generic read-only contract binding to access the raw methods on
 }
 
-// SmcTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
-type SmcTransactorRaw struct {
-	Contract *SmcTransactor // Generic write-only contract binding to access the raw methods on
+// TimedCrowdsaleTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type TimedCrowdsaleTransactorRaw struct {
+	Contract *TimedCrowdsaleTransactor // Generic write-only contract binding to access the raw methods on
 }
 
-// NewSmc creates a new instance of Smc, bound to a specific deployed contract.
-func NewSmc(address common.Address, backend bind.ContractBackend) (*Smc, error) {
-	contract, err := bindSmc(address, backend, backend, backend)
+// NewTimedCrowdsale creates a new instance of TimedCrowdsale, bound to a specific deployed contract.
+func NewTimedCrowdsale(address common.Address, backend bind.ContractBackend) (*TimedCrowdsale, error) {
+	contract, err := bindTimedCrowdsale(address, backend, backend, backend)
 	if err != nil {
 		return nil, err
 	}
-	return &Smc{SmcCaller: SmcCaller{contract: contract}, SmcTransactor: SmcTransactor{contract: contract}, SmcFilterer: SmcFilterer{contract: contract}}, nil
+	return &TimedCrowdsale{TimedCrowdsaleCaller: TimedCrowdsaleCaller{contract: contract}, TimedCrowdsaleTransactor: TimedCrowdsaleTransactor{contract: contract}, TimedCrowdsaleFilterer: TimedCrowdsaleFilterer{contract: contract}}, nil
 }
 
-// NewSmcCaller creates a new read-only instance of Smc, bound to a specific deployed contract.
-func NewSmcCaller(address common.Address, caller bind.ContractCaller) (*SmcCaller, error) {
-	contract, err := bindSmc(address, caller, nil, nil)
+// NewTimedCrowdsaleCaller creates a new read-only instance of TimedCrowdsale, bound to a specific deployed contract.
+func NewTimedCrowdsaleCaller(address common.Address, caller bind.ContractCaller) (*TimedCrowdsaleCaller, error) {
+	contract, err := bindTimedCrowdsale(address, caller, nil, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcCaller{contract: contract}, nil
+	return &TimedCrowdsaleCaller{contract: contract}, nil
 }
 
-// NewSmcTransactor creates a new write-only instance of Smc, bound to a specific deployed contract.
-func NewSmcTransactor(address common.Address, transactor bind.ContractTransactor) (*SmcTransactor, error) {
-	contract, err := bindSmc(address, nil, transactor, nil)
+// NewTimedCrowdsaleTransactor creates a new write-only instance of TimedCrowdsale, bound to a specific deployed contract.
+func NewTimedCrowdsaleTransactor(address common.Address, transactor bind.ContractTransactor) (*TimedCrowdsaleTransactor, error) {
+	contract, err := bindTimedCrowdsale(address, nil, transactor, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTransactor{contract: contract}, nil
+	return &TimedCrowdsaleTransactor{contract: contract}, nil
 }
 
-// NewSmcFilterer creates a new log filterer instance of Smc, bound to a specific deployed contract.
-func NewSmcFilterer(address common.Address, filterer bind.ContractFilterer) (*SmcFilterer, error) {
-	contract, err := bindSmc(address, nil, nil, filterer)
+// NewTimedCrowdsaleFilterer creates a new log filterer instance of TimedCrowdsale, bound to a specific deployed contract.
+func NewTimedCrowdsaleFilterer(address common.Address, filterer bind.ContractFilterer) (*TimedCrowdsaleFilterer, error) {
+	contract, err := bindTimedCrowdsale(address, nil, nil, filterer)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcFilterer{contract: contract}, nil
+	return &TimedCrowdsaleFilterer{contract: contract}, nil
 }
 
-// bindSmc binds a generic wrapper to an already deployed contract.
-func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-	parsed, err := abi.JSON(strings.NewReader(SmcABI))
+// bindTimedCrowdsale binds a generic wrapper to an already deployed contract.
+func bindTimedCrowdsale(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := abi.JSON(strings.NewReader(TimedCrowdsaleABI))
 	if err != nil {
 		return nil, err
 	}
@@ -145,46 +145,46 @@ func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.SmcCaller.contract.Call(opts, result, method, params...)
+func (_TimedCrowdsale *TimedCrowdsaleRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _TimedCrowdsale.Contract.TimedCrowdsaleCaller.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transfer(opts)
+func (_TimedCrowdsale *TimedCrowdsaleRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _TimedCrowdsale.Contract.TimedCrowdsaleTransactor.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transact(opts, method, params...)
+func (_TimedCrowdsale *TimedCrowdsaleRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _TimedCrowdsale.Contract.TimedCrowdsaleTransactor.contract.Transact(opts, method, params...)
 }
 
 // Call invokes the (constant) contract method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.contract.Call(opts, result, method, params...)
+func (_TimedCrowdsale *TimedCrowdsaleCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _TimedCrowdsale.Contract.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transfer(opts)
+func (_TimedCrowdsale *TimedCrowdsaleTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _TimedCrowdsale.Contract.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transact(opts, method, params...)
+func (_TimedCrowdsale *TimedCrowdsaleTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _TimedCrowdsale.Contract.contract.Transact(opts, method, params...)
 }
 
 // ClosingTime is a free data retrieval call binding the contract method 0x4b6753bc.
 //
 // Solidity: function closingTime() view returns(uint256)
-func (_Smc *SmcCaller) ClosingTime(opts *bind.CallOpts) (*big.Int, error) {
+func (_TimedCrowdsale *TimedCrowdsaleCaller) ClosingTime(opts *bind.CallOpts) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "closingTime")
+	err := _TimedCrowdsale.contract.Call(opts, &out, "closingTime")
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -199,23 +199,23 @@ func (_Smc *SmcCaller) ClosingTime(opts *bind.CallOpts) (*big.Int, error) {
 // ClosingTime is a free data retrieval call binding the contract method 0x4b6753bc.
 //
 // Solidity: function closingTime() view returns(uint256)
-func (_Smc *SmcSession) ClosingTime() (*big.Int, error) {
-	return _Smc.Contract.ClosingTime(&_Smc.CallOpts)
+func (_TimedCrowdsale *TimedCrowdsaleSession) ClosingTime() (*big.Int, error) {
+	return _TimedCrowdsale.Contract.ClosingTime(&_TimedCrowdsale.CallOpts)
 }
 
 // ClosingTime is a free data retrieval call binding the contract method 0x4b6753bc.
 //
 // Solidity: function closingTime() view returns(uint256)
-func (_Smc *SmcCallerSession) ClosingTime() (*big.Int, error) {
-	return _Smc.Contract.ClosingTime(&_Smc.CallOpts)
+func (_TimedCrowdsale *TimedCrowdsaleCallerSession) ClosingTime() (*big.Int, error) {
+	return _TimedCrowdsale.Contract.ClosingTime(&_TimedCrowdsale.CallOpts)
 }
 
 // HasClosed is a free data retrieval call binding the contract method 0x1515bc2b.
 //
 // Solidity: function hasClosed() view returns(bool)
-func (_Smc *SmcCaller) HasClosed(opts *bind.CallOpts) (bool, error) {
+func (_TimedCrowdsale *TimedCrowdsaleCaller) HasClosed(opts *bind.CallOpts) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "hasClosed")
+	err := _TimedCrowdsale.contract.Call(opts, &out, "hasClosed")
 
 	if err != nil {
 		return *new(bool), err
@@ -230,23 +230,23 @@ func (_Smc *SmcCaller) HasClosed(opts *bind.CallOpts) (bool, error) {
 // HasClosed is a free data retrieval call binding the contract method 0x1515bc2b.
 //
 // Solidity: function hasClosed() view returns(bool)
-func (_Smc *SmcSession) HasClosed() (bool, error) {
-	return _Smc.Contract.HasClosed(&_Smc.CallOpts)
+func (_TimedCrowdsale *TimedCrowdsaleSession) HasClosed() (bool, error) {
+	return _TimedCrowdsale.Contract.HasClosed(&_TimedCrowdsale.CallOpts)
 }
 
 // HasClosed is a free data retrieval call binding the contract method 0x1515bc2b.
 //
 // Solidity: function hasClosed() view returns(bool)
-func (_Smc *SmcCallerSession) HasClosed() (bool, error) {
-	return _Smc.Contract.HasClosed(&_Smc.CallOpts)
+func (_TimedCrowdsale *TimedCrowdsaleCallerSession) HasClosed() (bool, error) {
+	return _TimedCrowdsale.Contract.HasClosed(&_TimedCrowdsale.CallOpts)
 }
 
 // IsOpen is a free data retrieval call binding the contract method 0x47535d7b.
 //
 // Solidity: function isOpen() view returns(bool)
-func (_Smc *SmcCaller) IsOpen(opts *bind.CallOpts) (bool, error) {
+func (_TimedCrowdsale *TimedCrowdsaleCaller) IsOpen(opts *bind.CallOpts) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "isOpen")
+	err := _TimedCrowdsale.contract.Call(opts, &out, "isOpen")
 
 	if err != nil {
 		return *new(bool), err
@@ -261,23 +261,23 @@ func (_Smc *SmcCaller) IsOpen(opts *bind.CallOpts) (bool, error) {
 // IsOpen is a free data retrieval call binding the contract method 0x47535d7b.
 //
 // Solidity: function isOpen() view returns(bool)
-func (_Smc *SmcSession) IsOpen() (bool, error) {
-	return _Smc.Contract.IsOpen(&_Smc.CallOpts)
+func (_TimedCrowdsale *TimedCrowdsaleSession) IsOpen() (bool, error) {
+	return _TimedCrowdsale.Contract.IsOpen(&_TimedCrowdsale.CallOpts)
 }
 
 // IsOpen is a free data retrieval call binding the contract method 0x47535d7b.
 //
 // Solidity: function isOpen() view returns(bool)
-func (_Smc *SmcCallerSession) IsOpen() (bool, error) {
-	return _Smc.Contract.IsOpen(&_Smc.CallOpts)
+func (_TimedCrowdsale *TimedCrowdsaleCallerSession) IsOpen() (bool, error) {
+	return _TimedCrowdsale.Contract.IsOpen(&_TimedCrowdsale.CallOpts)
 }
 
 // OpeningTime is a free data retrieval call binding the contract method 0xb7a8807c.
 //
 // Solidity: function openingTime() view returns(uint256)
-func (_Smc *SmcCaller) OpeningTime(opts *bind.CallOpts) (*big.Int, error) {
+func (_TimedCrowdsale *TimedCrowdsaleCaller) OpeningTime(opts *bind.CallOpts) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "openingTime")
+	err := _TimedCrowdsale.contract.Call(opts, &out, "openingTime")
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -292,23 +292,23 @@ func (_Smc *SmcCaller) OpeningTime(opts *bind.CallOpts) (*big.Int, error) {
 // OpeningTime is a free data retrieval call binding the contract method 0xb7a8807c.
 //
 // Solidity: function openingTime() view returns(uint256)
-func (_Smc *SmcSession) OpeningTime() (*big.Int, error) {
-	return _Smc.Contract.OpeningTime(&_Smc.CallOpts)
+func (_TimedCrowdsale *TimedCrowdsaleSession) OpeningTime() (*big.Int, error) {
+	return _TimedCrowdsale.Contract.OpeningTime(&_TimedCrowdsale.CallOpts)
 }
 
 // OpeningTime is a free data retrieval call binding the contract method 0xb7a8807c.
 //
 // Solidity: function openingTime() view returns(uint256)
-func (_Smc *SmcCallerSession) OpeningTime() (*big.Int, error) {
-	return _Smc.Contract.OpeningTime(&_Smc.CallOpts)
+func (_TimedCrowdsale *TimedCrowdsaleCallerSession) OpeningTime() (*big.Int, error) {
+	return _TimedCrowdsale.Contract.OpeningTime(&_TimedCrowdsale.CallOpts)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
+func (_TimedCrowdsale *TimedCrowdsaleCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "owner")
+	err := _TimedCrowdsale.contract.Call(opts, &out, "owner")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -323,23 +323,23 @@ func (_Smc *SmcCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcSession) Owner() (common.Address, error) {
-	return _Smc.Contract.Owner(&_Smc.CallOpts)
+func (_TimedCrowdsale *TimedCrowdsaleSession) Owner() (common.Address, error) {
+	return _TimedCrowdsale.Contract.Owner(&_TimedCrowdsale.CallOpts)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcCallerSession) Owner() (common.Address, error) {
-	return _Smc.Contract.Owner(&_Smc.CallOpts)
+func (_TimedCrowdsale *TimedCrowdsaleCallerSession) Owner() (common.Address, error) {
+	return _TimedCrowdsale.Contract.Owner(&_TimedCrowdsale.CallOpts)
 }
 
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcCaller) Paused(opts *bind.CallOpts) (bool, error) {
+func (_TimedCrowdsale *TimedCrowdsaleCaller) Paused(opts *bind.CallOpts) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "paused")
+	err := _TimedCrowdsale.contract.Call(opts, &out, "paused")
 
 	if err != nil {
 		return *new(bool), err
@@ -354,23 +354,23 @@ func (_Smc *SmcCaller) Paused(opts *bind.CallOpts) (bool, error) {
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcSession) Paused() (bool, error) {
-	return _Smc.Contract.Paused(&_Smc.CallOpts)
+func (_TimedCrowdsale *TimedCrowdsaleSession) Paused() (bool, error) {
+	return _TimedCrowdsale.Contract.Paused(&_TimedCrowdsale.CallOpts)
 }
 
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcCallerSession) Paused() (bool, error) {
-	return _Smc.Contract.Paused(&_Smc.CallOpts)
+func (_TimedCrowdsale *TimedCrowdsaleCallerSession) Paused() (bool, error) {
+	return _TimedCrowdsale.Contract.Paused(&_TimedCrowdsale.CallOpts)
 }
 
 // Rate is a free data retrieval call binding the contract method 0x2c4e722e.
 //
 // Solidity: function rate() view returns(uint256)
-func (_Smc *SmcCaller) Rate(opts *bind.CallOpts) (*big.Int, error) {
+func (_TimedCrowdsale *TimedCrowdsaleCaller) Rate(opts *bind.CallOpts) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "rate")
+	err := _TimedCrowdsale.contract.Call(opts, &out, "rate")
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -385,23 +385,23 @@ func (_Smc *SmcCaller) Rate(opts *bind.CallOpts) (*big.Int, error) {
 // Rate is a free data retrieval call binding the contract method 0x2c4e722e.
 //
 // Solidity: function rate() view returns(uint256)
-func (_Smc *SmcSession) Rate() (*big.Int, error) {
-	return _Smc.Contract.Rate(&_Smc.CallOpts)
+func (_TimedCrowdsale *TimedCrowdsaleSession) Rate() (*big.Int, error) {
+	return _TimedCrowdsale.Contract.Rate(&_TimedCrowdsale.CallOpts)
 }
 
 // Rate is a free data retrieval call binding the contract method 0x2c4e722e.
 //
 // Solidity: function rate() view returns(uint256)
-func (_Smc *SmcCallerSession) Rate() (*big.Int, error) {
-	return _Smc.Contract.Rate(&_Smc.CallOpts)
+func (_TimedCrowdsale *TimedCrowdsaleCallerSession) Rate() (*big.Int, error) {
+	return _TimedCrowdsale.Contract.Rate(&_TimedCrowdsale.CallOpts)
 }
 
 // Token is a free data retrieval call binding the contract method 0xfc0c546a.
 //
 // Solidity: function token() view returns(address)
-func (_Smc *SmcCaller) Token(opts *bind.CallOpts) (common.Address, error) {
+func (_TimedCrowdsale *TimedCrowdsaleCaller) Token(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "token")
+	err := _TimedCrowdsale.contract.Call(opts, &out, "token")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -416,23 +416,23 @@ func (_Smc *SmcCaller) Token(opts *bind.CallOpts) (common.Address, error) {
 // Token is a free data retrieval call binding the contract method 0xfc0c546a.
 //
 // Solidity: function token() view returns(address)
-func (_Smc *SmcSession) Token() (common.Address, error) {
-	return _Smc.Contract.Token(&_Smc.CallOpts)
+func (_TimedCrowdsale *TimedCrowdsaleSession) Token() (common.Address, error) {
+	return _TimedCrowdsale.Contract.Token(&_TimedCrowdsale.CallOpts)
 }
 
 // Token is a free data retrieval call binding the contract method 0xfc0c546a.
 //
 // Solidity: function token() view returns(address)
-func (_Smc *SmcCallerSession) Token() (common.Address, error) {
-	return _Smc.Contract.Token(&_Smc.CallOpts)
+func (_TimedCrowdsale *TimedCrowdsaleCallerSession) Token() (common.Address, error) {
+	return _TimedCrowdsale.Contract.Token(&_TimedCrowdsale.CallOpts)
 }
 
 // Wallet is a free data retrieval call binding the contract method 0x521eb273.
 //
 // Solidity: function wallet() view returns(address)
-func (_Smc *SmcCaller) Wallet(opts *bind.CallOpts) (common.Address, error) {
+func (_TimedCrowdsale *TimedCrowdsaleCaller) Wallet(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "wallet")
+	err := _TimedCrowdsale.contract.Call(opts, &out, "wallet")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -447,23 +447,23 @@ func (_Smc *SmcCaller) Wallet(opts *bind.CallOpts) (common.Address, error) {
 // Wallet is a free data retrieval call binding the contract method 0x521eb273.
 //
 // Solidity: function wallet() view returns(address)
-func (_Smc *SmcSession) Wallet() (common.Address, error) {
-	return _Smc.Contract.Wallet(&_Smc.CallOpts)
+func (_TimedCrowdsale *TimedCrowdsaleSession) Wallet() (common.Address, error) {
+	return _TimedCrowdsale.Contract.Wallet(&_TimedCrowdsale.CallOpts)
 }
 
 // Wallet is a free data retrieval call binding the contract method 0x521eb273.
 //
 // Solidity: function wallet() view returns(address)
-func (_Smc *SmcCallerSession) Wallet() (common.Address, error) {
-	return _Smc.Contract.Wallet(&_Smc.CallOpts)
+func (_TimedCrowdsale *TimedCrowdsaleCallerSession) Wallet() (common.Address, error) {
+	return _TimedCrowdsale.Contract.Wallet(&_TimedCrowdsale.CallOpts)
 }
 
 // WeiRaised is a free data retrieval call binding the contract method 0x4042b66f.
 //
 // Solidity: function weiRaised() view returns(uint256)
-func (_Smc *SmcCaller) WeiRaised(opts *bind.CallOpts) (*big.Int, error) {
+func (_TimedCrowdsale *TimedCrowdsaleCaller) WeiRaised(opts *bind.CallOpts) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "weiRaised")
+	err := _TimedCrowdsale.contract.Call(opts, &out, "weiRaised")
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -478,188 +478,188 @@ func (_Smc *SmcCaller) WeiRaised(opts *bind.CallOpts) (*big.Int, error) {
 // WeiRaised is a free data retrieval call binding the contract method 0x4042b66f.
 //
 // Solidity: function weiRaised() view returns(uint256)
-func (_Smc *SmcSession) WeiRaised() (*big.Int, error) {
-	return _Smc.Contract.WeiRaised(&_Smc.CallOpts)
+func (_TimedCrowdsale *TimedCrowdsaleSession) WeiRaised() (*big.Int, error) {
+	return _TimedCrowdsale.Contract.WeiRaised(&_TimedCrowdsale.CallOpts)
 }
 
 // WeiRaised is a free data retrieval call binding the contract method 0x4042b66f.
 //
 // Solidity: function weiRaised() view returns(uint256)
-func (_Smc *SmcCallerSession) WeiRaised() (*big.Int, error) {
-	return _Smc.Contract.WeiRaised(&_Smc.CallOpts)
+func (_TimedCrowdsale *TimedCrowdsaleCallerSession) WeiRaised() (*big.Int, error) {
+	return _TimedCrowdsale.Contract.WeiRaised(&_TimedCrowdsale.CallOpts)
 }
 
 // BuyTokens is a paid mutator transaction binding the contract method 0xec8ac4d8.
 //
 // Solidity: function buyTokens(address beneficiary) payable returns()
-func (_Smc *SmcTransactor) BuyTokens(opts *bind.TransactOpts, beneficiary common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "buyTokens", beneficiary)
+func (_TimedCrowdsale *TimedCrowdsaleTransactor) BuyTokens(opts *bind.TransactOpts, beneficiary common.Address) (*types.Transaction, error) {
+	return _TimedCrowdsale.contract.Transact(opts, "buyTokens", beneficiary)
 }
 
 // BuyTokens is a paid mutator transaction binding the contract method 0xec8ac4d8.
 //
 // Solidity: function buyTokens(address beneficiary) payable returns()
-func (_Smc *SmcSession) BuyTokens(beneficiary common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.BuyTokens(&_Smc.TransactOpts, beneficiary)
+func (_TimedCrowdsale *TimedCrowdsaleSession) BuyTokens(beneficiary common.Address) (*types.Transaction, error) {
+	return _TimedCrowdsale.Contract.BuyTokens(&_TimedCrowdsale.TransactOpts, beneficiary)
 }
 
 // BuyTokens is a paid mutator transaction binding the contract method 0xec8ac4d8.
 //
 // Solidity: function buyTokens(address beneficiary) payable returns()
-func (_Smc *SmcTransactorSession) BuyTokens(beneficiary common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.BuyTokens(&_Smc.TransactOpts, beneficiary)
+func (_TimedCrowdsale *TimedCrowdsaleTransactorSession) BuyTokens(beneficiary common.Address) (*types.Transaction, error) {
+	return _TimedCrowdsale.Contract.BuyTokens(&_TimedCrowdsale.TransactOpts, beneficiary)
 }
 
 // ChangeWallet is a paid mutator transaction binding the contract method 0x98b9a2dc.
 //
 // Solidity: function changeWallet(address newReceiver) returns()
-func (_Smc *SmcTransactor) ChangeWallet(opts *bind.TransactOpts, newReceiver common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "changeWallet", newReceiver)
+func (_TimedCrowdsale *TimedCrowdsaleTransactor) ChangeWallet(opts *bind.TransactOpts, newReceiver common.Address) (*types.Transaction, error) {
+	return _TimedCrowdsale.contract.Transact(opts, "changeWallet", newReceiver)
 }
 
 // ChangeWallet is a paid mutator transaction binding the contract method 0x98b9a2dc.
 //
 // Solidity: function changeWallet(address newReceiver) returns()
-func (_Smc *SmcSession) ChangeWallet(newReceiver common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.ChangeWallet(&_Smc.TransactOpts, newReceiver)
+func (_TimedCrowdsale *TimedCrowdsaleSession) ChangeWallet(newReceiver common.Address) (*types.Transaction, error) {
+	return _TimedCrowdsale.Contract.ChangeWallet(&_TimedCrowdsale.TransactOpts, newReceiver)
 }
 
 // ChangeWallet is a paid mutator transaction binding the contract method 0x98b9a2dc.
 //
 // Solidity: function changeWallet(address newReceiver) returns()
-func (_Smc *SmcTransactorSession) ChangeWallet(newReceiver common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.ChangeWallet(&_Smc.TransactOpts, newReceiver)
+func (_TimedCrowdsale *TimedCrowdsaleTransactorSession) ChangeWallet(newReceiver common.Address) (*types.Transaction, error) {
+	return _TimedCrowdsale.Contract.ChangeWallet(&_TimedCrowdsale.TransactOpts, newReceiver)
 }
 
 // DestroySmartContract is a paid mutator transaction binding the contract method 0x39df43ff.
 //
 // Solidity: function destroySmartContract(address _to) returns()
-func (_Smc *SmcTransactor) DestroySmartContract(opts *bind.TransactOpts, _to common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "destroySmartContract", _to)
+func (_TimedCrowdsale *TimedCrowdsaleTransactor) DestroySmartContract(opts *bind.TransactOpts, _to common.Address) (*types.Transaction, error) {
+	return _TimedCrowdsale.contract.Transact(opts, "destroySmartContract", _to)
 }
 
 // DestroySmartContract is a paid mutator transaction binding the contract method 0x39df43ff.
 //
 // Solidity: function destroySmartContract(address _to) returns()
-func (_Smc *SmcSession) DestroySmartContract(_to common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.DestroySmartContract(&_Smc.TransactOpts, _to)
+func (_TimedCrowdsale *TimedCrowdsaleSession) DestroySmartContract(_to common.Address) (*types.Transaction, error) {
+	return _TimedCrowdsale.Contract.DestroySmartContract(&_TimedCrowdsale.TransactOpts, _to)
 }
 
 // DestroySmartContract is a paid mutator transaction binding the contract method 0x39df43ff.
 //
 // Solidity: function destroySmartContract(address _to) returns()
-func (_Smc *SmcTransactorSession) DestroySmartContract(_to common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.DestroySmartContract(&_Smc.TransactOpts, _to)
+func (_TimedCrowdsale *TimedCrowdsaleTransactorSession) DestroySmartContract(_to common.Address) (*types.Transaction, error) {
+	return _TimedCrowdsale.Contract.DestroySmartContract(&_TimedCrowdsale.TransactOpts, _to)
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcTransactor) Pause(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "pause")
+func (_TimedCrowdsale *TimedCrowdsaleTransactor) Pause(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _TimedCrowdsale.contract.Transact(opts, "pause")
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcSession) Pause() (*types.Transaction, error) {
-	return _Smc.Contract.Pause(&_Smc.TransactOpts)
+func (_TimedCrowdsale *TimedCrowdsaleSession) Pause() (*types.Transaction, error) {
+	return _TimedCrowdsale.Contract.Pause(&_TimedCrowdsale.TransactOpts)
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcTransactorSession) Pause() (*types.Transaction, error) {
-	return _Smc.Contract.Pause(&_Smc.TransactOpts)
+func (_TimedCrowdsale *TimedCrowdsaleTransactorSession) Pause() (*types.Transaction, error) {
+	return _TimedCrowdsale.Contract.Pause(&_TimedCrowdsale.TransactOpts)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcTransactor) RenounceOwnership(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "renounceOwnership")
+func (_TimedCrowdsale *TimedCrowdsaleTransactor) RenounceOwnership(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _TimedCrowdsale.contract.Transact(opts, "renounceOwnership")
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcSession) RenounceOwnership() (*types.Transaction, error) {
-	return _Smc.Contract.RenounceOwnership(&_Smc.TransactOpts)
+func (_TimedCrowdsale *TimedCrowdsaleSession) RenounceOwnership() (*types.Transaction, error) {
+	return _TimedCrowdsale.Contract.RenounceOwnership(&_TimedCrowdsale.TransactOpts)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcTransactorSession) RenounceOwnership() (*types.Transaction, error) {
-	return _Smc.Contract.RenounceOwnership(&_Smc.TransactOpts)
+func (_TimedCrowdsale *TimedCrowdsaleTransactorSession) RenounceOwnership() (*types.Transaction, error) {
+	return _TimedCrowdsale.Contract.RenounceOwnership(&_TimedCrowdsale.TransactOpts)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcTransactor) TransferOwnership(opts *bind.TransactOpts, newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "transferOwnership", newOwner)
+func (_TimedCrowdsale *TimedCrowdsaleTransactor) TransferOwnership(opts *bind.TransactOpts, newOwner common.Address) (*types.Transaction, error) {
+	return _TimedCrowdsale.contract.Transact(opts, "transferOwnership", newOwner)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.TransferOwnership(&_Smc.TransactOpts, newOwner)
+func (_TimedCrowdsale *TimedCrowdsaleSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
+	return _TimedCrowdsale.Contract.TransferOwnership(&_TimedCrowdsale.TransactOpts, newOwner)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcTransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.TransferOwnership(&_Smc.TransactOpts, newOwner)
+func (_TimedCrowdsale *TimedCrowdsaleTransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
+	return _TimedCrowdsale.Contract.TransferOwnership(&_TimedCrowdsale.TransactOpts, newOwner)
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcTransactor) Unpause(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "unpause")
+func (_TimedCrowdsale *TimedCrowdsaleTransactor) Unpause(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _TimedCrowdsale.contract.Transact(opts, "unpause")
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcSession) Unpause() (*types.Transaction, error) {
-	return _Smc.Contract.Unpause(&_Smc.TransactOpts)
+func (_TimedCrowdsale *TimedCrowdsaleSession) Unpause() (*types.Transaction, error) {
+	return _TimedCrowdsale.Contract.Unpause(&_TimedCrowdsale.TransactOpts)
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcTransactorSession) Unpause() (*types.Transaction, error) {
-	return _Smc.Contract.Unpause(&_Smc.TransactOpts)
+func (_TimedCrowdsale *TimedCrowdsaleTransactorSession) Unpause() (*types.Transaction, error) {
+	return _TimedCrowdsale.Contract.Unpause(&_TimedCrowdsale.TransactOpts)
 }
 
 // Receive is a paid mutator transaction binding the contract receive function.
 //
 // Solidity: receive() payable returns()
-func (_Smc *SmcTransactor) Receive(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.RawTransact(opts, nil) // calldata is disallowed for receive function
+func (_TimedCrowdsale *TimedCrowdsaleTransactor) Receive(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _TimedCrowdsale.contract.RawTransact(opts, nil) // calldata is disallowed for receive function
 }
 
 // Receive is a paid mutator transaction binding the contract receive function.
 //
 // Solidity: receive() payable returns()
-func (_Smc *SmcSession) Receive() (*types.Transaction, error) {
-	return _Smc.Contract.Receive(&_Smc.TransactOpts)
+func (_TimedCrowdsale *TimedCrowdsaleSession) Receive() (*types.Transaction, error) {
+	return _TimedCrowdsale.Contract.Receive(&_TimedCrowdsale.TransactOpts)
 }
 
 // Receive is a paid mutator transaction binding the contract receive function.
 //
 // Solidity: receive() payable returns()
-func (_Smc *SmcTransactorSession) Receive() (*types.Transaction, error) {
-	return _Smc.Contract.Receive(&_Smc.TransactOpts)
+func (_TimedCrowdsale *TimedCrowdsaleTransactorSession) Receive() (*types.Transaction, error) {
+	return _TimedCrowdsale.Contract.Receive(&_TimedCrowdsale.TransactOpts)
 }
 
-// SmcOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the Smc contract.
-type SmcOwnershipTransferredIterator struct {
-	Event *SmcOwnershipTransferred // Event containing the contract specifics and raw log
+// TimedCrowdsaleOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the TimedCrowdsale contract.
+type TimedCrowdsaleOwnershipTransferredIterator struct {
+	Event *TimedCrowdsaleOwnershipTransferred // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -673,7 +673,7 @@ type SmcOwnershipTransferredIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcOwnershipTransferredIterator) Next() bool {
+func (it *TimedCrowdsaleOwnershipTransferredIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -682,7 +682,7 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcOwnershipTransferred)
+			it.Event = new(TimedCrowdsaleOwnershipTransferred)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -697,7 +697,7 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcOwnershipTransferred)
+		it.Event = new(TimedCrowdsaleOwnershipTransferred)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -713,19 +713,19 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcOwnershipTransferredIterator) Error() error {
+func (it *TimedCrowdsaleOwnershipTransferredIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcOwnershipTransferredIterator) Close() error {
+func (it *TimedCrowdsaleOwnershipTransferredIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcOwnershipTransferred represents a OwnershipTransferred event raised by the Smc contract.
-type SmcOwnershipTransferred struct {
+// TimedCrowdsaleOwnershipTransferred represents a OwnershipTransferred event raised by the TimedCrowdsale contract.
+type TimedCrowdsaleOwnershipTransferred struct {
 	PreviousOwner common.Address
 	NewOwner      common.Address
 	Raw           types.Log // Blockchain specific contextual infos
@@ -734,7 +734,7 @@ type SmcOwnershipTransferred struct {
 // FilterOwnershipTransferred is a free log retrieval operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previousOwner []common.Address, newOwner []common.Address) (*SmcOwnershipTransferredIterator, error) {
+func (_TimedCrowdsale *TimedCrowdsaleFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previousOwner []common.Address, newOwner []common.Address) (*TimedCrowdsaleOwnershipTransferredIterator, error) {
 
 	var previousOwnerRule []interface{}
 	for _, previousOwnerItem := range previousOwner {
@@ -745,17 +745,17 @@ func (_Smc *SmcFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previ
 		newOwnerRule = append(newOwnerRule, newOwnerItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
+	logs, sub, err := _TimedCrowdsale.contract.FilterLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcOwnershipTransferredIterator{contract: _Smc.contract, event: "OwnershipTransferred", logs: logs, sub: sub}, nil
+	return &TimedCrowdsaleOwnershipTransferredIterator{contract: _TimedCrowdsale.contract, event: "OwnershipTransferred", logs: logs, sub: sub}, nil
 }
 
 // WatchOwnershipTransferred is a free log subscription operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink chan<- *SmcOwnershipTransferred, previousOwner []common.Address, newOwner []common.Address) (event.Subscription, error) {
+func (_TimedCrowdsale *TimedCrowdsaleFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink chan<- *TimedCrowdsaleOwnershipTransferred, previousOwner []common.Address, newOwner []common.Address) (event.Subscription, error) {
 
 	var previousOwnerRule []interface{}
 	for _, previousOwnerItem := range previousOwner {
@@ -766,7 +766,7 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 		newOwnerRule = append(newOwnerRule, newOwnerItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
+	logs, sub, err := _TimedCrowdsale.contract.WatchLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
 	if err != nil {
 		return nil, err
 	}
@@ -776,8 +776,8 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcOwnershipTransferred)
-				if err := _Smc.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
+				event := new(TimedCrowdsaleOwnershipTransferred)
+				if err := _TimedCrowdsale.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -801,18 +801,18 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 // ParseOwnershipTransferred is a log parse operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) ParseOwnershipTransferred(log types.Log) (*SmcOwnershipTransferred, error) {
-	event := new(SmcOwnershipTransferred)
-	if err := _Smc.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
+func (_TimedCrowdsale *TimedCrowdsaleFilterer) ParseOwnershipTransferred(log types.Log) (*TimedCrowdsaleOwnershipTransferred, error) {
+	event := new(TimedCrowdsaleOwnershipTransferred)
+	if err := _TimedCrowdsale.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcPausedIterator is returned from FilterPaused and is used to iterate over the raw logs and unpacked data for Paused events raised by the Smc contract.
-type SmcPausedIterator struct {
-	Event *SmcPaused // Event containing the contract specifics and raw log
+// TimedCrowdsalePausedIterator is returned from FilterPaused and is used to iterate over the raw logs and unpacked data for Paused events raised by the TimedCrowdsale contract.
+type TimedCrowdsalePausedIterator struct {
+	Event *TimedCrowdsalePaused // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -826,7 +826,7 @@ type SmcPausedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcPausedIterator) Next() bool {
+func (it *TimedCrowdsalePausedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -835,7 +835,7 @@ func (it *SmcPausedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcPaused)
+			it.Event = new(TimedCrowdsalePaused)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -850,7 +850,7 @@ func (it *SmcPausedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcPaused)
+		it.Event = new(TimedCrowdsalePaused)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -866,19 +866,19 @@ func (it *SmcPausedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcPausedIterator) Error() error {
+func (it *TimedCrowdsalePausedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcPausedIterator) Close() error {
+func (it *TimedCrowdsalePausedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcPaused represents a Paused event raised by the Smc contract.
-type SmcPaused struct {
+// TimedCrowdsalePaused represents a Paused event raised by the TimedCrowdsale contract.
+type TimedCrowdsalePaused struct {
 	Account common.Address
 	Raw     types.Log // Blockchain specific contextual infos
 }
@@ -886,21 +886,21 @@ type SmcPaused struct {
 // FilterPaused is a free log retrieval operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) FilterPaused(opts *bind.FilterOpts) (*SmcPausedIterator, error) {
+func (_TimedCrowdsale *TimedCrowdsaleFilterer) FilterPaused(opts *bind.FilterOpts) (*TimedCrowdsalePausedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Paused")
+	logs, sub, err := _TimedCrowdsale.contract.FilterLogs(opts, "Paused")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcPausedIterator{contract: _Smc.contract, event: "Paused", logs: logs, sub: sub}, nil
+	return &TimedCrowdsalePausedIterator{contract: _TimedCrowdsale.contract, event: "Paused", logs: logs, sub: sub}, nil
 }
 
 // WatchPaused is a free log subscription operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPaused) (event.Subscription, error) {
+func (_TimedCrowdsale *TimedCrowdsaleFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *TimedCrowdsalePaused) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Paused")
+	logs, sub, err := _TimedCrowdsale.contract.WatchLogs(opts, "Paused")
 	if err != nil {
 		return nil, err
 	}
@@ -910,8 +910,8 @@ func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPause
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcPaused)
-				if err := _Smc.contract.UnpackLog(event, "Paused", log); err != nil {
+				event := new(TimedCrowdsalePaused)
+				if err := _TimedCrowdsale.contract.UnpackLog(event, "Paused", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -935,18 +935,18 @@ func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPause
 // ParsePaused is a log parse operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) ParsePaused(log types.Log) (*SmcPaused, error) {
-	event := new(SmcPaused)
-	if err := _Smc.contract.UnpackLog(event, "Paused", log); err != nil {
+func (_TimedCrowdsale *TimedCrowdsaleFilterer) ParsePaused(log types.Log) (*TimedCrowdsalePaused, error) {
+	event := new(TimedCrowdsalePaused)
+	if err := _TimedCrowdsale.contract.UnpackLog(event, "Paused", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcTimedCrowdsaleExtendedIterator is returned from FilterTimedCrowdsaleExtended and is used to iterate over the raw logs and unpacked data for TimedCrowdsaleExtended events raised by the Smc contract.
-type SmcTimedCrowdsaleExtendedIterator struct {
-	Event *SmcTimedCrowdsaleExtended // Event containing the contract specifics and raw log
+// TimedCrowdsaleTimedCrowdsaleExtendedIterator is returned from FilterTimedCrowdsaleExtended and is used to iterate over the raw logs and unpacked data for TimedCrowdsaleExtended events raised by the TimedCrowdsale contract.
+type TimedCrowdsaleTimedCrowdsaleExtendedIterator struct {
+	Event *TimedCrowdsaleTimedCrowdsaleExtended // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -960,7 +960,7 @@ type SmcTimedCrowdsaleExtendedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcTimedCrowdsaleExtendedIterator) Next() bool {
+func (it *TimedCrowdsaleTimedCrowdsaleExtendedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -969,7 +969,7 @@ func (it *SmcTimedCrowdsaleExtendedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcTimedCrowdsaleExtended)
+			it.Event = new(TimedCrowdsaleTimedCrowdsaleExtended)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -984,7 +984,7 @@ func (it *SmcTimedCrowdsaleExtendedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcTimedCrowdsaleExtended)
+		it.Event = new(TimedCrowdsaleTimedCrowdsaleExtended)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1000,19 +1000,19 @@ func (it *SmcTimedCrowdsaleExtendedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcTimedCrowdsaleExtendedIterator) Error() error {
+func (it *TimedCrowdsaleTimedCrowdsaleExtendedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcTimedCrowdsaleExtendedIterator) Close() error {
+func (it *TimedCrowdsaleTimedCrowdsaleExtendedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcTimedCrowdsaleExtended represents a TimedCrowdsaleExtended event raised by the Smc contract.
-type SmcTimedCrowdsaleExtended struct {
+// TimedCrowdsaleTimedCrowdsaleExtended represents a TimedCrowdsaleExtended event raised by the TimedCrowdsale contract.
+type TimedCrowdsaleTimedCrowdsaleExtended struct {
 	PrevClosingTime *big.Int
 	NewClosingTime  *big.Int
 	Raw             types.Log // Blockchain specific contextual infos
@@ -1021,21 +1021,21 @@ type SmcTimedCrowdsaleExtended struct {
 // FilterTimedCrowdsaleExtended is a free log retrieval operation binding the contract event 0x46711e222f558a07afd26e5e71b48ecb0a8b2cdcd40faeb1323e05e2c76a2f32.
 //
 // Solidity: event TimedCrowdsaleExtended(uint256 prevClosingTime, uint256 newClosingTime)
-func (_Smc *SmcFilterer) FilterTimedCrowdsaleExtended(opts *bind.FilterOpts) (*SmcTimedCrowdsaleExtendedIterator, error) {
+func (_TimedCrowdsale *TimedCrowdsaleFilterer) FilterTimedCrowdsaleExtended(opts *bind.FilterOpts) (*TimedCrowdsaleTimedCrowdsaleExtendedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "TimedCrowdsaleExtended")
+	logs, sub, err := _TimedCrowdsale.contract.FilterLogs(opts, "TimedCrowdsaleExtended")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTimedCrowdsaleExtendedIterator{contract: _Smc.contract, event: "TimedCrowdsaleExtended", logs: logs, sub: sub}, nil
+	return &TimedCrowdsaleTimedCrowdsaleExtendedIterator{contract: _TimedCrowdsale.contract, event: "TimedCrowdsaleExtended", logs: logs, sub: sub}, nil
 }
 
 // WatchTimedCrowdsaleExtended is a free log subscription operation binding the contract event 0x46711e222f558a07afd26e5e71b48ecb0a8b2cdcd40faeb1323e05e2c76a2f32.
 //
 // Solidity: event TimedCrowdsaleExtended(uint256 prevClosingTime, uint256 newClosingTime)
-func (_Smc *SmcFilterer) WatchTimedCrowdsaleExtended(opts *bind.WatchOpts, sink chan<- *SmcTimedCrowdsaleExtended) (event.Subscription, error) {
+func (_TimedCrowdsale *TimedCrowdsaleFilterer) WatchTimedCrowdsaleExtended(opts *bind.WatchOpts, sink chan<- *TimedCrowdsaleTimedCrowdsaleExtended) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "TimedCrowdsaleExtended")
+	logs, sub, err := _TimedCrowdsale.contract.WatchLogs(opts, "TimedCrowdsaleExtended")
 	if err != nil {
 		return nil, err
 	}
@@ -1045,8 +1045,8 @@ func (_Smc *SmcFilterer) WatchTimedCrowdsaleExtended(opts *bind.WatchOpts, sink 
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcTimedCrowdsaleExtended)
-				if err := _Smc.contract.UnpackLog(event, "TimedCrowdsaleExtended", log); err != nil {
+				event := new(TimedCrowdsaleTimedCrowdsaleExtended)
+				if err := _TimedCrowdsale.contract.UnpackLog(event, "TimedCrowdsaleExtended", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1070,18 +1070,18 @@ func (_Smc *SmcFilterer) WatchTimedCrowdsaleExtended(opts *bind.WatchOpts, sink 
 // ParseTimedCrowdsaleExtended is a log parse operation binding the contract event 0x46711e222f558a07afd26e5e71b48ecb0a8b2cdcd40faeb1323e05e2c76a2f32.
 //
 // Solidity: event TimedCrowdsaleExtended(uint256 prevClosingTime, uint256 newClosingTime)
-func (_Smc *SmcFilterer) ParseTimedCrowdsaleExtended(log types.Log) (*SmcTimedCrowdsaleExtended, error) {
-	event := new(SmcTimedCrowdsaleExtended)
-	if err := _Smc.contract.UnpackLog(event, "TimedCrowdsaleExtended", log); err != nil {
+func (_TimedCrowdsale *TimedCrowdsaleFilterer) ParseTimedCrowdsaleExtended(log types.Log) (*TimedCrowdsaleTimedCrowdsaleExtended, error) {
+	event := new(TimedCrowdsaleTimedCrowdsaleExtended)
+	if err := _TimedCrowdsale.contract.UnpackLog(event, "TimedCrowdsaleExtended", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcTokensPurchasedIterator is returned from FilterTokensPurchased and is used to iterate over the raw logs and unpacked data for TokensPurchased events raised by the Smc contract.
-type SmcTokensPurchasedIterator struct {
-	Event *SmcTokensPurchased // Event containing the contract specifics and raw log
+// TimedCrowdsaleTokensPurchasedIterator is returned from FilterTokensPurchased and is used to iterate over the raw logs and unpacked data for TokensPurchased events raised by the TimedCrowdsale contract.
+type TimedCrowdsaleTokensPurchasedIterator struct {
+	Event *TimedCrowdsaleTokensPurchased // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1095,7 +1095,7 @@ type SmcTokensPurchasedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcTokensPurchasedIterator) Next() bool {
+func (it *TimedCrowdsaleTokensPurchasedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1104,7 +1104,7 @@ func (it *SmcTokensPurchasedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcTokensPurchased)
+			it.Event = new(TimedCrowdsaleTokensPurchased)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1119,7 +1119,7 @@ func (it *SmcTokensPurchasedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcTokensPurchased)
+		it.Event = new(TimedCrowdsaleTokensPurchased)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1135,19 +1135,19 @@ func (it *SmcTokensPurchasedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcTokensPurchasedIterator) Error() error {
+func (it *TimedCrowdsaleTokensPurchasedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcTokensPurchasedIterator) Close() error {
+func (it *TimedCrowdsaleTokensPurchasedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcTokensPurchased represents a TokensPurchased event raised by the Smc contract.
-type SmcTokensPurchased struct {
+// TimedCrowdsaleTokensPurchased represents a TokensPurchased event raised by the TimedCrowdsale contract.
+type TimedCrowdsaleTokensPurchased struct {
 	Purchaser   common.Address
 	Beneficiary common.Address
 	Value       *big.Int
@@ -1158,7 +1158,7 @@ type SmcTokensPurchased struct {
 // FilterTokensPurchased is a free log retrieval operation binding the contract event 0x6faf93231a456e552dbc9961f58d9713ee4f2e69d15f1975b050ef0911053a7b.
 //
 // Solidity: event TokensPurchased(address indexed purchaser, address indexed beneficiary, uint256 value, uint256 amount)
-func (_Smc *SmcFilterer) FilterTokensPurchased(opts *bind.FilterOpts, purchaser []common.Address, beneficiary []common.Address) (*SmcTokensPurchasedIterator, error) {
+func (_TimedCrowdsale *TimedCrowdsaleFilterer) FilterTokensPurchased(opts *bind.FilterOpts, purchaser []common.Address, beneficiary []common.Address) (*TimedCrowdsaleTokensPurchasedIterator, error) {
 
 	var purchaserRule []interface{}
 	for _, purchaserItem := range purchaser {
@@ -1169,17 +1169,17 @@ func (_Smc *SmcFilterer) FilterTokensPurchased(opts *bind.FilterOpts, purchaser 
 		beneficiaryRule = append(beneficiaryRule, beneficiaryItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "TokensPurchased", purchaserRule, beneficiaryRule)
+	logs, sub, err := _TimedCrowdsale.contract.FilterLogs(opts, "TokensPurchased", purchaserRule, beneficiaryRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTokensPurchasedIterator{contract: _Smc.contract, event: "TokensPurchased", logs: logs, sub: sub}, nil
+	return &TimedCrowdsaleTokensPurchasedIterator{contract: _TimedCrowdsale.contract, event: "TokensPurchased", logs: logs, sub: sub}, nil
 }
 
 // WatchTokensPurchased is a free log subscription operation binding the contract event 0x6faf93231a456e552dbc9961f58d9713ee4f2e69d15f1975b050ef0911053a7b.
 //
 // Solidity: event TokensPurchased(address indexed purchaser, address indexed beneficiary, uint256 value, uint256 amount)
-func (_Smc *SmcFilterer) WatchTokensPurchased(opts *bind.WatchOpts, sink chan<- *SmcTokensPurchased, purchaser []common.Address, beneficiary []common.Address) (event.Subscription, error) {
+func (_TimedCrowdsale *TimedCrowdsaleFilterer) WatchTokensPurchased(opts *bind.WatchOpts, sink chan<- *TimedCrowdsaleTokensPurchased, purchaser []common.Address, beneficiary []common.Address) (event.Subscription, error) {
 
 	var purchaserRule []interface{}
 	for _, purchaserItem := range purchaser {
@@ -1190,7 +1190,7 @@ func (_Smc *SmcFilterer) WatchTokensPurchased(opts *bind.WatchOpts, sink chan<- 
 		beneficiaryRule = append(beneficiaryRule, beneficiaryItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "TokensPurchased", purchaserRule, beneficiaryRule)
+	logs, sub, err := _TimedCrowdsale.contract.WatchLogs(opts, "TokensPurchased", purchaserRule, beneficiaryRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1200,8 +1200,8 @@ func (_Smc *SmcFilterer) WatchTokensPurchased(opts *bind.WatchOpts, sink chan<- 
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcTokensPurchased)
-				if err := _Smc.contract.UnpackLog(event, "TokensPurchased", log); err != nil {
+				event := new(TimedCrowdsaleTokensPurchased)
+				if err := _TimedCrowdsale.contract.UnpackLog(event, "TokensPurchased", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1225,18 +1225,18 @@ func (_Smc *SmcFilterer) WatchTokensPurchased(opts *bind.WatchOpts, sink chan<- 
 // ParseTokensPurchased is a log parse operation binding the contract event 0x6faf93231a456e552dbc9961f58d9713ee4f2e69d15f1975b050ef0911053a7b.
 //
 // Solidity: event TokensPurchased(address indexed purchaser, address indexed beneficiary, uint256 value, uint256 amount)
-func (_Smc *SmcFilterer) ParseTokensPurchased(log types.Log) (*SmcTokensPurchased, error) {
-	event := new(SmcTokensPurchased)
-	if err := _Smc.contract.UnpackLog(event, "TokensPurchased", log); err != nil {
+func (_TimedCrowdsale *TimedCrowdsaleFilterer) ParseTokensPurchased(log types.Log) (*TimedCrowdsaleTokensPurchased, error) {
+	event := new(TimedCrowdsaleTokensPurchased)
+	if err := _TimedCrowdsale.contract.UnpackLog(event, "TokensPurchased", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcUnpausedIterator is returned from FilterUnpaused and is used to iterate over the raw logs and unpacked data for Unpaused events raised by the Smc contract.
-type SmcUnpausedIterator struct {
-	Event *SmcUnpaused // Event containing the contract specifics and raw log
+// TimedCrowdsaleUnpausedIterator is returned from FilterUnpaused and is used to iterate over the raw logs and unpacked data for Unpaused events raised by the TimedCrowdsale contract.
+type TimedCrowdsaleUnpausedIterator struct {
+	Event *TimedCrowdsaleUnpaused // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1250,7 +1250,7 @@ type SmcUnpausedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcUnpausedIterator) Next() bool {
+func (it *TimedCrowdsaleUnpausedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1259,7 +1259,7 @@ func (it *SmcUnpausedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcUnpaused)
+			it.Event = new(TimedCrowdsaleUnpaused)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1274,7 +1274,7 @@ func (it *SmcUnpausedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcUnpaused)
+		it.Event = new(TimedCrowdsaleUnpaused)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1290,19 +1290,19 @@ func (it *SmcUnpausedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcUnpausedIterator) Error() error {
+func (it *TimedCrowdsaleUnpausedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcUnpausedIterator) Close() error {
+func (it *TimedCrowdsaleUnpausedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcUnpaused represents a Unpaused event raised by the Smc contract.
-type SmcUnpaused struct {
+// TimedCrowdsaleUnpaused represents a Unpaused event raised by the TimedCrowdsale contract.
+type TimedCrowdsaleUnpaused struct {
 	Account common.Address
 	Raw     types.Log // Blockchain specific contextual infos
 }
@@ -1310,21 +1310,21 @@ type SmcUnpaused struct {
 // FilterUnpaused is a free log retrieval operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) FilterUnpaused(opts *bind.FilterOpts) (*SmcUnpausedIterator, error) {
+func (_TimedCrowdsale *TimedCrowdsaleFilterer) FilterUnpaused(opts *bind.FilterOpts) (*TimedCrowdsaleUnpausedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Unpaused")
+	logs, sub, err := _TimedCrowdsale.contract.FilterLogs(opts, "Unpaused")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcUnpausedIterator{contract: _Smc.contract, event: "Unpaused", logs: logs, sub: sub}, nil
+	return &TimedCrowdsaleUnpausedIterator{contract: _TimedCrowdsale.contract, event: "Unpaused", logs: logs, sub: sub}, nil
 }
 
 // WatchUnpaused is a free log subscription operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnpaused) (event.Subscription, error) {
+func (_TimedCrowdsale *TimedCrowdsaleFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *TimedCrowdsaleUnpaused) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Unpaused")
+	logs, sub, err := _TimedCrowdsale.contract.WatchLogs(opts, "Unpaused")
 	if err != nil {
 		return nil, err
 	}
@@ -1334,8 +1334,8 @@ func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnp
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcUnpaused)
-				if err := _Smc.contract.UnpackLog(event, "Unpaused", log); err != nil {
+				event := new(TimedCrowdsaleUnpaused)
+				if err := _TimedCrowdsale.contract.UnpackLog(event, "Unpaused", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1359,9 +1359,9 @@ func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnp
 // ParseUnpaused is a log parse operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) ParseUnpaused(log types.Log) (*SmcUnpaused, error) {
-	event := new(SmcUnpaused)
-	if err := _Smc.contract.UnpackLog(event, "Unpaused", log); err != nil {
+func (_TimedCrowdsale *TimedCrowdsaleFilterer) ParseUnpaused(log types.Log) (*TimedCrowdsaleUnpaused, error) {
+	event := new(TimedCrowdsaleUnpaused)
+	if err := _TimedCrowdsale.contract.UnpackLog(event, "Unpaused", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log

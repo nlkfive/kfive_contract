@@ -1,7 +1,7 @@
 // Code generated - DO NOT EDIT.
 // This file is a generated binding and any manual changes will be lost.
 
-package smc
+package IAuction
 
 import (
 	"errors"
@@ -28,113 +28,113 @@ var (
 	_ = event.NewSubscription
 )
 
-// SmcMetaData contains all meta data concerning the Smc contract.
-var SmcMetaData = &bind.MetaData{
+// IAuctionMetaData contains all meta data concerning the IAuction contract.
+var IAuctionMetaData = &bind.MetaData{
 	ABI: "[{\"inputs\":[],\"name\":\"NotExisted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotRunning\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooEarly\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooLate\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"AuctionCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"}],\"name\":\"AuctionCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"AuctionEnded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"deposit\",\"type\":\"uint256\"}],\"name\":\"AuctionRefund\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"totalPrice\",\"type\":\"uint256\"}],\"name\":\"AuctionSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindedBid\",\"type\":\"bytes32\"}],\"name\":\"BidSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"fake\",\"type\":\"bool\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"RevealFailed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"fake\",\"type\":\"bool\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindedBid\",\"type\":\"bytes32\"}],\"name\":\"RevealSuccessful\",\"type\":\"event\"}]",
 }
 
-// SmcABI is the input ABI used to generate the binding from.
-// Deprecated: Use SmcMetaData.ABI instead.
-var SmcABI = SmcMetaData.ABI
+// IAuctionABI is the input ABI used to generate the binding from.
+// Deprecated: Use IAuctionMetaData.ABI instead.
+var IAuctionABI = IAuctionMetaData.ABI
 
-// Smc is an auto generated Go binding around an Ethereum contract.
-type Smc struct {
-	SmcCaller     // Read-only binding to the contract
-	SmcTransactor // Write-only binding to the contract
-	SmcFilterer   // Log filterer for contract events
+// IAuction is an auto generated Go binding around an Ethereum contract.
+type IAuction struct {
+	IAuctionCaller     // Read-only binding to the contract
+	IAuctionTransactor // Write-only binding to the contract
+	IAuctionFilterer   // Log filterer for contract events
 }
 
-// SmcCaller is an auto generated read-only Go binding around an Ethereum contract.
-type SmcCaller struct {
+// IAuctionCaller is an auto generated read-only Go binding around an Ethereum contract.
+type IAuctionCaller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcTransactor is an auto generated write-only Go binding around an Ethereum contract.
-type SmcTransactor struct {
+// IAuctionTransactor is an auto generated write-only Go binding around an Ethereum contract.
+type IAuctionTransactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
-type SmcFilterer struct {
+// IAuctionFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type IAuctionFilterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcSession is an auto generated Go binding around an Ethereum contract,
+// IAuctionSession is an auto generated Go binding around an Ethereum contract,
 // with pre-set call and transact options.
-type SmcSession struct {
-	Contract     *Smc              // Generic contract binding to set the session for
+type IAuctionSession struct {
+	Contract     *IAuction         // Generic contract binding to set the session for
 	CallOpts     bind.CallOpts     // Call options to use throughout this session
 	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 }
 
-// SmcCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// IAuctionCallerSession is an auto generated read-only Go binding around an Ethereum contract,
 // with pre-set call options.
-type SmcCallerSession struct {
-	Contract *SmcCaller    // Generic contract caller binding to set the session for
-	CallOpts bind.CallOpts // Call options to use throughout this session
+type IAuctionCallerSession struct {
+	Contract *IAuctionCaller // Generic contract caller binding to set the session for
+	CallOpts bind.CallOpts   // Call options to use throughout this session
 }
 
-// SmcTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// IAuctionTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
 // with pre-set transact options.
-type SmcTransactorSession struct {
-	Contract     *SmcTransactor    // Generic contract transactor binding to set the session for
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type IAuctionTransactorSession struct {
+	Contract     *IAuctionTransactor // Generic contract transactor binding to set the session for
+	TransactOpts bind.TransactOpts   // Transaction auth options to use throughout this session
 }
 
-// SmcRaw is an auto generated low-level Go binding around an Ethereum contract.
-type SmcRaw struct {
-	Contract *Smc // Generic contract binding to access the raw methods on
+// IAuctionRaw is an auto generated low-level Go binding around an Ethereum contract.
+type IAuctionRaw struct {
+	Contract *IAuction // Generic contract binding to access the raw methods on
 }
 
-// SmcCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
-type SmcCallerRaw struct {
-	Contract *SmcCaller // Generic read-only contract binding to access the raw methods on
+// IAuctionCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type IAuctionCallerRaw struct {
+	Contract *IAuctionCaller // Generic read-only contract binding to access the raw methods on
 }
 
-// SmcTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
-type SmcTransactorRaw struct {
-	Contract *SmcTransactor // Generic write-only contract binding to access the raw methods on
+// IAuctionTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type IAuctionTransactorRaw struct {
+	Contract *IAuctionTransactor // Generic write-only contract binding to access the raw methods on
 }
 
-// NewSmc creates a new instance of Smc, bound to a specific deployed contract.
-func NewSmc(address common.Address, backend bind.ContractBackend) (*Smc, error) {
-	contract, err := bindSmc(address, backend, backend, backend)
+// NewIAuction creates a new instance of IAuction, bound to a specific deployed contract.
+func NewIAuction(address common.Address, backend bind.ContractBackend) (*IAuction, error) {
+	contract, err := bindIAuction(address, backend, backend, backend)
 	if err != nil {
 		return nil, err
 	}
-	return &Smc{SmcCaller: SmcCaller{contract: contract}, SmcTransactor: SmcTransactor{contract: contract}, SmcFilterer: SmcFilterer{contract: contract}}, nil
+	return &IAuction{IAuctionCaller: IAuctionCaller{contract: contract}, IAuctionTransactor: IAuctionTransactor{contract: contract}, IAuctionFilterer: IAuctionFilterer{contract: contract}}, nil
 }
 
-// NewSmcCaller creates a new read-only instance of Smc, bound to a specific deployed contract.
-func NewSmcCaller(address common.Address, caller bind.ContractCaller) (*SmcCaller, error) {
-	contract, err := bindSmc(address, caller, nil, nil)
+// NewIAuctionCaller creates a new read-only instance of IAuction, bound to a specific deployed contract.
+func NewIAuctionCaller(address common.Address, caller bind.ContractCaller) (*IAuctionCaller, error) {
+	contract, err := bindIAuction(address, caller, nil, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcCaller{contract: contract}, nil
+	return &IAuctionCaller{contract: contract}, nil
 }
 
-// NewSmcTransactor creates a new write-only instance of Smc, bound to a specific deployed contract.
-func NewSmcTransactor(address common.Address, transactor bind.ContractTransactor) (*SmcTransactor, error) {
-	contract, err := bindSmc(address, nil, transactor, nil)
+// NewIAuctionTransactor creates a new write-only instance of IAuction, bound to a specific deployed contract.
+func NewIAuctionTransactor(address common.Address, transactor bind.ContractTransactor) (*IAuctionTransactor, error) {
+	contract, err := bindIAuction(address, nil, transactor, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTransactor{contract: contract}, nil
+	return &IAuctionTransactor{contract: contract}, nil
 }
 
-// NewSmcFilterer creates a new log filterer instance of Smc, bound to a specific deployed contract.
-func NewSmcFilterer(address common.Address, filterer bind.ContractFilterer) (*SmcFilterer, error) {
-	contract, err := bindSmc(address, nil, nil, filterer)
+// NewIAuctionFilterer creates a new log filterer instance of IAuction, bound to a specific deployed contract.
+func NewIAuctionFilterer(address common.Address, filterer bind.ContractFilterer) (*IAuctionFilterer, error) {
+	contract, err := bindIAuction(address, nil, nil, filterer)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcFilterer{contract: contract}, nil
+	return &IAuctionFilterer{contract: contract}, nil
 }
 
-// bindSmc binds a generic wrapper to an already deployed contract.
-func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-	parsed, err := abi.JSON(strings.NewReader(SmcABI))
+// bindIAuction binds a generic wrapper to an already deployed contract.
+func bindIAuction(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := abi.JSON(strings.NewReader(IAuctionABI))
 	if err != nil {
 		return nil, err
 	}
@@ -145,43 +145,43 @@ func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.SmcCaller.contract.Call(opts, result, method, params...)
+func (_IAuction *IAuctionRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _IAuction.Contract.IAuctionCaller.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transfer(opts)
+func (_IAuction *IAuctionRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _IAuction.Contract.IAuctionTransactor.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transact(opts, method, params...)
+func (_IAuction *IAuctionRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _IAuction.Contract.IAuctionTransactor.contract.Transact(opts, method, params...)
 }
 
 // Call invokes the (constant) contract method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.contract.Call(opts, result, method, params...)
+func (_IAuction *IAuctionCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _IAuction.Contract.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transfer(opts)
+func (_IAuction *IAuctionTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _IAuction.Contract.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transact(opts, method, params...)
+func (_IAuction *IAuctionTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _IAuction.Contract.contract.Transact(opts, method, params...)
 }
 
-// SmcAuctionCancelledIterator is returned from FilterAuctionCancelled and is used to iterate over the raw logs and unpacked data for AuctionCancelled events raised by the Smc contract.
-type SmcAuctionCancelledIterator struct {
-	Event *SmcAuctionCancelled // Event containing the contract specifics and raw log
+// IAuctionAuctionCancelledIterator is returned from FilterAuctionCancelled and is used to iterate over the raw logs and unpacked data for AuctionCancelled events raised by the IAuction contract.
+type IAuctionAuctionCancelledIterator struct {
+	Event *IAuctionAuctionCancelled // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -195,7 +195,7 @@ type SmcAuctionCancelledIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcAuctionCancelledIterator) Next() bool {
+func (it *IAuctionAuctionCancelledIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -204,7 +204,7 @@ func (it *SmcAuctionCancelledIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcAuctionCancelled)
+			it.Event = new(IAuctionAuctionCancelled)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -219,7 +219,7 @@ func (it *SmcAuctionCancelledIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcAuctionCancelled)
+		it.Event = new(IAuctionAuctionCancelled)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -235,19 +235,19 @@ func (it *SmcAuctionCancelledIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcAuctionCancelledIterator) Error() error {
+func (it *IAuctionAuctionCancelledIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcAuctionCancelledIterator) Close() error {
+func (it *IAuctionAuctionCancelledIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcAuctionCancelled represents a AuctionCancelled event raised by the Smc contract.
-type SmcAuctionCancelled struct {
+// IAuctionAuctionCancelled represents a AuctionCancelled event raised by the IAuction contract.
+type IAuctionAuctionCancelled struct {
 	AuctionId [32]byte
 	Raw       types.Log // Blockchain specific contextual infos
 }
@@ -255,31 +255,31 @@ type SmcAuctionCancelled struct {
 // FilterAuctionCancelled is a free log retrieval operation binding the contract event 0xd88fab4b08bf76f15cf2d6e03e382acf1edd6790ab82967e406abac37db20288.
 //
 // Solidity: event AuctionCancelled(bytes32 indexed auctionId)
-func (_Smc *SmcFilterer) FilterAuctionCancelled(opts *bind.FilterOpts, auctionId [][32]byte) (*SmcAuctionCancelledIterator, error) {
+func (_IAuction *IAuctionFilterer) FilterAuctionCancelled(opts *bind.FilterOpts, auctionId [][32]byte) (*IAuctionAuctionCancelledIterator, error) {
 
 	var auctionIdRule []interface{}
 	for _, auctionIdItem := range auctionId {
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "AuctionCancelled", auctionIdRule)
+	logs, sub, err := _IAuction.contract.FilterLogs(opts, "AuctionCancelled", auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcAuctionCancelledIterator{contract: _Smc.contract, event: "AuctionCancelled", logs: logs, sub: sub}, nil
+	return &IAuctionAuctionCancelledIterator{contract: _IAuction.contract, event: "AuctionCancelled", logs: logs, sub: sub}, nil
 }
 
 // WatchAuctionCancelled is a free log subscription operation binding the contract event 0xd88fab4b08bf76f15cf2d6e03e382acf1edd6790ab82967e406abac37db20288.
 //
 // Solidity: event AuctionCancelled(bytes32 indexed auctionId)
-func (_Smc *SmcFilterer) WatchAuctionCancelled(opts *bind.WatchOpts, sink chan<- *SmcAuctionCancelled, auctionId [][32]byte) (event.Subscription, error) {
+func (_IAuction *IAuctionFilterer) WatchAuctionCancelled(opts *bind.WatchOpts, sink chan<- *IAuctionAuctionCancelled, auctionId [][32]byte) (event.Subscription, error) {
 
 	var auctionIdRule []interface{}
 	for _, auctionIdItem := range auctionId {
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "AuctionCancelled", auctionIdRule)
+	logs, sub, err := _IAuction.contract.WatchLogs(opts, "AuctionCancelled", auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
@@ -289,8 +289,8 @@ func (_Smc *SmcFilterer) WatchAuctionCancelled(opts *bind.WatchOpts, sink chan<-
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcAuctionCancelled)
-				if err := _Smc.contract.UnpackLog(event, "AuctionCancelled", log); err != nil {
+				event := new(IAuctionAuctionCancelled)
+				if err := _IAuction.contract.UnpackLog(event, "AuctionCancelled", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -314,18 +314,18 @@ func (_Smc *SmcFilterer) WatchAuctionCancelled(opts *bind.WatchOpts, sink chan<-
 // ParseAuctionCancelled is a log parse operation binding the contract event 0xd88fab4b08bf76f15cf2d6e03e382acf1edd6790ab82967e406abac37db20288.
 //
 // Solidity: event AuctionCancelled(bytes32 indexed auctionId)
-func (_Smc *SmcFilterer) ParseAuctionCancelled(log types.Log) (*SmcAuctionCancelled, error) {
-	event := new(SmcAuctionCancelled)
-	if err := _Smc.contract.UnpackLog(event, "AuctionCancelled", log); err != nil {
+func (_IAuction *IAuctionFilterer) ParseAuctionCancelled(log types.Log) (*IAuctionAuctionCancelled, error) {
+	event := new(IAuctionAuctionCancelled)
+	if err := _IAuction.contract.UnpackLog(event, "AuctionCancelled", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcAuctionCreatedIterator is returned from FilterAuctionCreated and is used to iterate over the raw logs and unpacked data for AuctionCreated events raised by the Smc contract.
-type SmcAuctionCreatedIterator struct {
-	Event *SmcAuctionCreated // Event containing the contract specifics and raw log
+// IAuctionAuctionCreatedIterator is returned from FilterAuctionCreated and is used to iterate over the raw logs and unpacked data for AuctionCreated events raised by the IAuction contract.
+type IAuctionAuctionCreatedIterator struct {
+	Event *IAuctionAuctionCreated // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -339,7 +339,7 @@ type SmcAuctionCreatedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcAuctionCreatedIterator) Next() bool {
+func (it *IAuctionAuctionCreatedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -348,7 +348,7 @@ func (it *SmcAuctionCreatedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcAuctionCreated)
+			it.Event = new(IAuctionAuctionCreated)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -363,7 +363,7 @@ func (it *SmcAuctionCreatedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcAuctionCreated)
+		it.Event = new(IAuctionAuctionCreated)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -379,19 +379,19 @@ func (it *SmcAuctionCreatedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcAuctionCreatedIterator) Error() error {
+func (it *IAuctionAuctionCreatedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcAuctionCreatedIterator) Close() error {
+func (it *IAuctionAuctionCreatedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcAuctionCreated represents a AuctionCreated event raised by the Smc contract.
-type SmcAuctionCreated struct {
+// IAuctionAuctionCreated represents a AuctionCreated event raised by the IAuction contract.
+type IAuctionAuctionCreated struct {
 	Seller          common.Address
 	NftAddress      common.Address
 	AuctionId       [32]byte
@@ -405,7 +405,7 @@ type SmcAuctionCreated struct {
 // FilterAuctionCreated is a free log retrieval operation binding the contract event 0xaf4bad306f14d5c908e5b871fa54296ed7d4f29b8092bf5062de6813c247e54b.
 //
 // Solidity: event AuctionCreated(address indexed seller, address nftAddress, bytes32 indexed auctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
-func (_Smc *SmcFilterer) FilterAuctionCreated(opts *bind.FilterOpts, seller []common.Address, auctionId [][32]byte) (*SmcAuctionCreatedIterator, error) {
+func (_IAuction *IAuctionFilterer) FilterAuctionCreated(opts *bind.FilterOpts, seller []common.Address, auctionId [][32]byte) (*IAuctionAuctionCreatedIterator, error) {
 
 	var sellerRule []interface{}
 	for _, sellerItem := range seller {
@@ -417,17 +417,17 @@ func (_Smc *SmcFilterer) FilterAuctionCreated(opts *bind.FilterOpts, seller []co
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "AuctionCreated", sellerRule, auctionIdRule)
+	logs, sub, err := _IAuction.contract.FilterLogs(opts, "AuctionCreated", sellerRule, auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcAuctionCreatedIterator{contract: _Smc.contract, event: "AuctionCreated", logs: logs, sub: sub}, nil
+	return &IAuctionAuctionCreatedIterator{contract: _IAuction.contract, event: "AuctionCreated", logs: logs, sub: sub}, nil
 }
 
 // WatchAuctionCreated is a free log subscription operation binding the contract event 0xaf4bad306f14d5c908e5b871fa54296ed7d4f29b8092bf5062de6813c247e54b.
 //
 // Solidity: event AuctionCreated(address indexed seller, address nftAddress, bytes32 indexed auctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
-func (_Smc *SmcFilterer) WatchAuctionCreated(opts *bind.WatchOpts, sink chan<- *SmcAuctionCreated, seller []common.Address, auctionId [][32]byte) (event.Subscription, error) {
+func (_IAuction *IAuctionFilterer) WatchAuctionCreated(opts *bind.WatchOpts, sink chan<- *IAuctionAuctionCreated, seller []common.Address, auctionId [][32]byte) (event.Subscription, error) {
 
 	var sellerRule []interface{}
 	for _, sellerItem := range seller {
@@ -439,7 +439,7 @@ func (_Smc *SmcFilterer) WatchAuctionCreated(opts *bind.WatchOpts, sink chan<- *
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "AuctionCreated", sellerRule, auctionIdRule)
+	logs, sub, err := _IAuction.contract.WatchLogs(opts, "AuctionCreated", sellerRule, auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
@@ -449,8 +449,8 @@ func (_Smc *SmcFilterer) WatchAuctionCreated(opts *bind.WatchOpts, sink chan<- *
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcAuctionCreated)
-				if err := _Smc.contract.UnpackLog(event, "AuctionCreated", log); err != nil {
+				event := new(IAuctionAuctionCreated)
+				if err := _IAuction.contract.UnpackLog(event, "AuctionCreated", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -474,18 +474,18 @@ func (_Smc *SmcFilterer) WatchAuctionCreated(opts *bind.WatchOpts, sink chan<- *
 // ParseAuctionCreated is a log parse operation binding the contract event 0xaf4bad306f14d5c908e5b871fa54296ed7d4f29b8092bf5062de6813c247e54b.
 //
 // Solidity: event AuctionCreated(address indexed seller, address nftAddress, bytes32 indexed auctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
-func (_Smc *SmcFilterer) ParseAuctionCreated(log types.Log) (*SmcAuctionCreated, error) {
-	event := new(SmcAuctionCreated)
-	if err := _Smc.contract.UnpackLog(event, "AuctionCreated", log); err != nil {
+func (_IAuction *IAuctionFilterer) ParseAuctionCreated(log types.Log) (*IAuctionAuctionCreated, error) {
+	event := new(IAuctionAuctionCreated)
+	if err := _IAuction.contract.UnpackLog(event, "AuctionCreated", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcAuctionEndedIterator is returned from FilterAuctionEnded and is used to iterate over the raw logs and unpacked data for AuctionEnded events raised by the Smc contract.
-type SmcAuctionEndedIterator struct {
-	Event *SmcAuctionEnded // Event containing the contract specifics and raw log
+// IAuctionAuctionEndedIterator is returned from FilterAuctionEnded and is used to iterate over the raw logs and unpacked data for AuctionEnded events raised by the IAuction contract.
+type IAuctionAuctionEndedIterator struct {
+	Event *IAuctionAuctionEnded // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -499,7 +499,7 @@ type SmcAuctionEndedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcAuctionEndedIterator) Next() bool {
+func (it *IAuctionAuctionEndedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -508,7 +508,7 @@ func (it *SmcAuctionEndedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcAuctionEnded)
+			it.Event = new(IAuctionAuctionEnded)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -523,7 +523,7 @@ func (it *SmcAuctionEndedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcAuctionEnded)
+		it.Event = new(IAuctionAuctionEnded)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -539,19 +539,19 @@ func (it *SmcAuctionEndedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcAuctionEndedIterator) Error() error {
+func (it *IAuctionAuctionEndedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcAuctionEndedIterator) Close() error {
+func (it *IAuctionAuctionEndedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcAuctionEnded represents a AuctionEnded event raised by the Smc contract.
-type SmcAuctionEnded struct {
+// IAuctionAuctionEnded represents a AuctionEnded event raised by the IAuction contract.
+type IAuctionAuctionEnded struct {
 	AuctionId [32]byte
 	Raw       types.Log // Blockchain specific contextual infos
 }
@@ -559,31 +559,31 @@ type SmcAuctionEnded struct {
 // FilterAuctionEnded is a free log retrieval operation binding the contract event 0x447d0298e6e2716a4343195759c35b277a60b76e628284d93262fa9869db9921.
 //
 // Solidity: event AuctionEnded(bytes32 indexed auctionId)
-func (_Smc *SmcFilterer) FilterAuctionEnded(opts *bind.FilterOpts, auctionId [][32]byte) (*SmcAuctionEndedIterator, error) {
+func (_IAuction *IAuctionFilterer) FilterAuctionEnded(opts *bind.FilterOpts, auctionId [][32]byte) (*IAuctionAuctionEndedIterator, error) {
 
 	var auctionIdRule []interface{}
 	for _, auctionIdItem := range auctionId {
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "AuctionEnded", auctionIdRule)
+	logs, sub, err := _IAuction.contract.FilterLogs(opts, "AuctionEnded", auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcAuctionEndedIterator{contract: _Smc.contract, event: "AuctionEnded", logs: logs, sub: sub}, nil
+	return &IAuctionAuctionEndedIterator{contract: _IAuction.contract, event: "AuctionEnded", logs: logs, sub: sub}, nil
 }
 
 // WatchAuctionEnded is a free log subscription operation binding the contract event 0x447d0298e6e2716a4343195759c35b277a60b76e628284d93262fa9869db9921.
 //
 // Solidity: event AuctionEnded(bytes32 indexed auctionId)
-func (_Smc *SmcFilterer) WatchAuctionEnded(opts *bind.WatchOpts, sink chan<- *SmcAuctionEnded, auctionId [][32]byte) (event.Subscription, error) {
+func (_IAuction *IAuctionFilterer) WatchAuctionEnded(opts *bind.WatchOpts, sink chan<- *IAuctionAuctionEnded, auctionId [][32]byte) (event.Subscription, error) {
 
 	var auctionIdRule []interface{}
 	for _, auctionIdItem := range auctionId {
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "AuctionEnded", auctionIdRule)
+	logs, sub, err := _IAuction.contract.WatchLogs(opts, "AuctionEnded", auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
@@ -593,8 +593,8 @@ func (_Smc *SmcFilterer) WatchAuctionEnded(opts *bind.WatchOpts, sink chan<- *Sm
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcAuctionEnded)
-				if err := _Smc.contract.UnpackLog(event, "AuctionEnded", log); err != nil {
+				event := new(IAuctionAuctionEnded)
+				if err := _IAuction.contract.UnpackLog(event, "AuctionEnded", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -618,18 +618,18 @@ func (_Smc *SmcFilterer) WatchAuctionEnded(opts *bind.WatchOpts, sink chan<- *Sm
 // ParseAuctionEnded is a log parse operation binding the contract event 0x447d0298e6e2716a4343195759c35b277a60b76e628284d93262fa9869db9921.
 //
 // Solidity: event AuctionEnded(bytes32 indexed auctionId)
-func (_Smc *SmcFilterer) ParseAuctionEnded(log types.Log) (*SmcAuctionEnded, error) {
-	event := new(SmcAuctionEnded)
-	if err := _Smc.contract.UnpackLog(event, "AuctionEnded", log); err != nil {
+func (_IAuction *IAuctionFilterer) ParseAuctionEnded(log types.Log) (*IAuctionAuctionEnded, error) {
+	event := new(IAuctionAuctionEnded)
+	if err := _IAuction.contract.UnpackLog(event, "AuctionEnded", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcAuctionRefundIterator is returned from FilterAuctionRefund and is used to iterate over the raw logs and unpacked data for AuctionRefund events raised by the Smc contract.
-type SmcAuctionRefundIterator struct {
-	Event *SmcAuctionRefund // Event containing the contract specifics and raw log
+// IAuctionAuctionRefundIterator is returned from FilterAuctionRefund and is used to iterate over the raw logs and unpacked data for AuctionRefund events raised by the IAuction contract.
+type IAuctionAuctionRefundIterator struct {
+	Event *IAuctionAuctionRefund // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -643,7 +643,7 @@ type SmcAuctionRefundIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcAuctionRefundIterator) Next() bool {
+func (it *IAuctionAuctionRefundIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -652,7 +652,7 @@ func (it *SmcAuctionRefundIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcAuctionRefund)
+			it.Event = new(IAuctionAuctionRefund)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -667,7 +667,7 @@ func (it *SmcAuctionRefundIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcAuctionRefund)
+		it.Event = new(IAuctionAuctionRefund)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -683,19 +683,19 @@ func (it *SmcAuctionRefundIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcAuctionRefundIterator) Error() error {
+func (it *IAuctionAuctionRefundIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcAuctionRefundIterator) Close() error {
+func (it *IAuctionAuctionRefundIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcAuctionRefund represents a AuctionRefund event raised by the Smc contract.
-type SmcAuctionRefund struct {
+// IAuctionAuctionRefund represents a AuctionRefund event raised by the IAuction contract.
+type IAuctionAuctionRefund struct {
 	Bidder    common.Address
 	AuctionId [32]byte
 	Deposit   *big.Int
@@ -705,31 +705,31 @@ type SmcAuctionRefund struct {
 // FilterAuctionRefund is a free log retrieval operation binding the contract event 0x6be22eb0241a0575f8b866ff176552cf71078977d6d30e501dd2d326c8d57114.
 //
 // Solidity: event AuctionRefund(address indexed bidder, bytes32 auctionId, uint256 deposit)
-func (_Smc *SmcFilterer) FilterAuctionRefund(opts *bind.FilterOpts, bidder []common.Address) (*SmcAuctionRefundIterator, error) {
+func (_IAuction *IAuctionFilterer) FilterAuctionRefund(opts *bind.FilterOpts, bidder []common.Address) (*IAuctionAuctionRefundIterator, error) {
 
 	var bidderRule []interface{}
 	for _, bidderItem := range bidder {
 		bidderRule = append(bidderRule, bidderItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "AuctionRefund", bidderRule)
+	logs, sub, err := _IAuction.contract.FilterLogs(opts, "AuctionRefund", bidderRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcAuctionRefundIterator{contract: _Smc.contract, event: "AuctionRefund", logs: logs, sub: sub}, nil
+	return &IAuctionAuctionRefundIterator{contract: _IAuction.contract, event: "AuctionRefund", logs: logs, sub: sub}, nil
 }
 
 // WatchAuctionRefund is a free log subscription operation binding the contract event 0x6be22eb0241a0575f8b866ff176552cf71078977d6d30e501dd2d326c8d57114.
 //
 // Solidity: event AuctionRefund(address indexed bidder, bytes32 auctionId, uint256 deposit)
-func (_Smc *SmcFilterer) WatchAuctionRefund(opts *bind.WatchOpts, sink chan<- *SmcAuctionRefund, bidder []common.Address) (event.Subscription, error) {
+func (_IAuction *IAuctionFilterer) WatchAuctionRefund(opts *bind.WatchOpts, sink chan<- *IAuctionAuctionRefund, bidder []common.Address) (event.Subscription, error) {
 
 	var bidderRule []interface{}
 	for _, bidderItem := range bidder {
 		bidderRule = append(bidderRule, bidderItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "AuctionRefund", bidderRule)
+	logs, sub, err := _IAuction.contract.WatchLogs(opts, "AuctionRefund", bidderRule)
 	if err != nil {
 		return nil, err
 	}
@@ -739,8 +739,8 @@ func (_Smc *SmcFilterer) WatchAuctionRefund(opts *bind.WatchOpts, sink chan<- *S
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcAuctionRefund)
-				if err := _Smc.contract.UnpackLog(event, "AuctionRefund", log); err != nil {
+				event := new(IAuctionAuctionRefund)
+				if err := _IAuction.contract.UnpackLog(event, "AuctionRefund", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -764,18 +764,18 @@ func (_Smc *SmcFilterer) WatchAuctionRefund(opts *bind.WatchOpts, sink chan<- *S
 // ParseAuctionRefund is a log parse operation binding the contract event 0x6be22eb0241a0575f8b866ff176552cf71078977d6d30e501dd2d326c8d57114.
 //
 // Solidity: event AuctionRefund(address indexed bidder, bytes32 auctionId, uint256 deposit)
-func (_Smc *SmcFilterer) ParseAuctionRefund(log types.Log) (*SmcAuctionRefund, error) {
-	event := new(SmcAuctionRefund)
-	if err := _Smc.contract.UnpackLog(event, "AuctionRefund", log); err != nil {
+func (_IAuction *IAuctionFilterer) ParseAuctionRefund(log types.Log) (*IAuctionAuctionRefund, error) {
+	event := new(IAuctionAuctionRefund)
+	if err := _IAuction.contract.UnpackLog(event, "AuctionRefund", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcAuctionSuccessfulIterator is returned from FilterAuctionSuccessful and is used to iterate over the raw logs and unpacked data for AuctionSuccessful events raised by the Smc contract.
-type SmcAuctionSuccessfulIterator struct {
-	Event *SmcAuctionSuccessful // Event containing the contract specifics and raw log
+// IAuctionAuctionSuccessfulIterator is returned from FilterAuctionSuccessful and is used to iterate over the raw logs and unpacked data for AuctionSuccessful events raised by the IAuction contract.
+type IAuctionAuctionSuccessfulIterator struct {
+	Event *IAuctionAuctionSuccessful // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -789,7 +789,7 @@ type SmcAuctionSuccessfulIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcAuctionSuccessfulIterator) Next() bool {
+func (it *IAuctionAuctionSuccessfulIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -798,7 +798,7 @@ func (it *SmcAuctionSuccessfulIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcAuctionSuccessful)
+			it.Event = new(IAuctionAuctionSuccessful)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -813,7 +813,7 @@ func (it *SmcAuctionSuccessfulIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcAuctionSuccessful)
+		it.Event = new(IAuctionAuctionSuccessful)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -829,19 +829,19 @@ func (it *SmcAuctionSuccessfulIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcAuctionSuccessfulIterator) Error() error {
+func (it *IAuctionAuctionSuccessfulIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcAuctionSuccessfulIterator) Close() error {
+func (it *IAuctionAuctionSuccessfulIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcAuctionSuccessful represents a AuctionSuccessful event raised by the Smc contract.
-type SmcAuctionSuccessful struct {
+// IAuctionAuctionSuccessful represents a AuctionSuccessful event raised by the IAuction contract.
+type IAuctionAuctionSuccessful struct {
 	Seller     common.Address
 	Buyer      common.Address
 	AuctionId  [32]byte
@@ -852,7 +852,7 @@ type SmcAuctionSuccessful struct {
 // FilterAuctionSuccessful is a free log retrieval operation binding the contract event 0x5ed769e966210f5d06d68e75831871131255cee237cb8edf78565aae170475ea.
 //
 // Solidity: event AuctionSuccessful(address indexed seller, address indexed buyer, bytes32 indexed auctionId, uint256 totalPrice)
-func (_Smc *SmcFilterer) FilterAuctionSuccessful(opts *bind.FilterOpts, seller []common.Address, buyer []common.Address, auctionId [][32]byte) (*SmcAuctionSuccessfulIterator, error) {
+func (_IAuction *IAuctionFilterer) FilterAuctionSuccessful(opts *bind.FilterOpts, seller []common.Address, buyer []common.Address, auctionId [][32]byte) (*IAuctionAuctionSuccessfulIterator, error) {
 
 	var sellerRule []interface{}
 	for _, sellerItem := range seller {
@@ -867,17 +867,17 @@ func (_Smc *SmcFilterer) FilterAuctionSuccessful(opts *bind.FilterOpts, seller [
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "AuctionSuccessful", sellerRule, buyerRule, auctionIdRule)
+	logs, sub, err := _IAuction.contract.FilterLogs(opts, "AuctionSuccessful", sellerRule, buyerRule, auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcAuctionSuccessfulIterator{contract: _Smc.contract, event: "AuctionSuccessful", logs: logs, sub: sub}, nil
+	return &IAuctionAuctionSuccessfulIterator{contract: _IAuction.contract, event: "AuctionSuccessful", logs: logs, sub: sub}, nil
 }
 
 // WatchAuctionSuccessful is a free log subscription operation binding the contract event 0x5ed769e966210f5d06d68e75831871131255cee237cb8edf78565aae170475ea.
 //
 // Solidity: event AuctionSuccessful(address indexed seller, address indexed buyer, bytes32 indexed auctionId, uint256 totalPrice)
-func (_Smc *SmcFilterer) WatchAuctionSuccessful(opts *bind.WatchOpts, sink chan<- *SmcAuctionSuccessful, seller []common.Address, buyer []common.Address, auctionId [][32]byte) (event.Subscription, error) {
+func (_IAuction *IAuctionFilterer) WatchAuctionSuccessful(opts *bind.WatchOpts, sink chan<- *IAuctionAuctionSuccessful, seller []common.Address, buyer []common.Address, auctionId [][32]byte) (event.Subscription, error) {
 
 	var sellerRule []interface{}
 	for _, sellerItem := range seller {
@@ -892,7 +892,7 @@ func (_Smc *SmcFilterer) WatchAuctionSuccessful(opts *bind.WatchOpts, sink chan<
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "AuctionSuccessful", sellerRule, buyerRule, auctionIdRule)
+	logs, sub, err := _IAuction.contract.WatchLogs(opts, "AuctionSuccessful", sellerRule, buyerRule, auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
@@ -902,8 +902,8 @@ func (_Smc *SmcFilterer) WatchAuctionSuccessful(opts *bind.WatchOpts, sink chan<
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcAuctionSuccessful)
-				if err := _Smc.contract.UnpackLog(event, "AuctionSuccessful", log); err != nil {
+				event := new(IAuctionAuctionSuccessful)
+				if err := _IAuction.contract.UnpackLog(event, "AuctionSuccessful", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -927,18 +927,18 @@ func (_Smc *SmcFilterer) WatchAuctionSuccessful(opts *bind.WatchOpts, sink chan<
 // ParseAuctionSuccessful is a log parse operation binding the contract event 0x5ed769e966210f5d06d68e75831871131255cee237cb8edf78565aae170475ea.
 //
 // Solidity: event AuctionSuccessful(address indexed seller, address indexed buyer, bytes32 indexed auctionId, uint256 totalPrice)
-func (_Smc *SmcFilterer) ParseAuctionSuccessful(log types.Log) (*SmcAuctionSuccessful, error) {
-	event := new(SmcAuctionSuccessful)
-	if err := _Smc.contract.UnpackLog(event, "AuctionSuccessful", log); err != nil {
+func (_IAuction *IAuctionFilterer) ParseAuctionSuccessful(log types.Log) (*IAuctionAuctionSuccessful, error) {
+	event := new(IAuctionAuctionSuccessful)
+	if err := _IAuction.contract.UnpackLog(event, "AuctionSuccessful", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcBidSuccessfulIterator is returned from FilterBidSuccessful and is used to iterate over the raw logs and unpacked data for BidSuccessful events raised by the Smc contract.
-type SmcBidSuccessfulIterator struct {
-	Event *SmcBidSuccessful // Event containing the contract specifics and raw log
+// IAuctionBidSuccessfulIterator is returned from FilterBidSuccessful and is used to iterate over the raw logs and unpacked data for BidSuccessful events raised by the IAuction contract.
+type IAuctionBidSuccessfulIterator struct {
+	Event *IAuctionBidSuccessful // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -952,7 +952,7 @@ type SmcBidSuccessfulIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcBidSuccessfulIterator) Next() bool {
+func (it *IAuctionBidSuccessfulIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -961,7 +961,7 @@ func (it *SmcBidSuccessfulIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcBidSuccessful)
+			it.Event = new(IAuctionBidSuccessful)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -976,7 +976,7 @@ func (it *SmcBidSuccessfulIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcBidSuccessful)
+		it.Event = new(IAuctionBidSuccessful)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -992,19 +992,19 @@ func (it *SmcBidSuccessfulIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcBidSuccessfulIterator) Error() error {
+func (it *IAuctionBidSuccessfulIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcBidSuccessfulIterator) Close() error {
+func (it *IAuctionBidSuccessfulIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcBidSuccessful represents a BidSuccessful event raised by the Smc contract.
-type SmcBidSuccessful struct {
+// IAuctionBidSuccessful represents a BidSuccessful event raised by the IAuction contract.
+type IAuctionBidSuccessful struct {
 	Bidder     common.Address
 	AuctionId  [32]byte
 	BlindedBid [32]byte
@@ -1014,7 +1014,7 @@ type SmcBidSuccessful struct {
 // FilterBidSuccessful is a free log retrieval operation binding the contract event 0x327e5a459c964bcfa4f6d71b32a04a53b0002417b0924a8057d9f12e688e0bec.
 //
 // Solidity: event BidSuccessful(address indexed bidder, bytes32 indexed auctionId, bytes32 blindedBid)
-func (_Smc *SmcFilterer) FilterBidSuccessful(opts *bind.FilterOpts, bidder []common.Address, auctionId [][32]byte) (*SmcBidSuccessfulIterator, error) {
+func (_IAuction *IAuctionFilterer) FilterBidSuccessful(opts *bind.FilterOpts, bidder []common.Address, auctionId [][32]byte) (*IAuctionBidSuccessfulIterator, error) {
 
 	var bidderRule []interface{}
 	for _, bidderItem := range bidder {
@@ -1025,17 +1025,17 @@ func (_Smc *SmcFilterer) FilterBidSuccessful(opts *bind.FilterOpts, bidder []com
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "BidSuccessful", bidderRule, auctionIdRule)
+	logs, sub, err := _IAuction.contract.FilterLogs(opts, "BidSuccessful", bidderRule, auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcBidSuccessfulIterator{contract: _Smc.contract, event: "BidSuccessful", logs: logs, sub: sub}, nil
+	return &IAuctionBidSuccessfulIterator{contract: _IAuction.contract, event: "BidSuccessful", logs: logs, sub: sub}, nil
 }
 
 // WatchBidSuccessful is a free log subscription operation binding the contract event 0x327e5a459c964bcfa4f6d71b32a04a53b0002417b0924a8057d9f12e688e0bec.
 //
 // Solidity: event BidSuccessful(address indexed bidder, bytes32 indexed auctionId, bytes32 blindedBid)
-func (_Smc *SmcFilterer) WatchBidSuccessful(opts *bind.WatchOpts, sink chan<- *SmcBidSuccessful, bidder []common.Address, auctionId [][32]byte) (event.Subscription, error) {
+func (_IAuction *IAuctionFilterer) WatchBidSuccessful(opts *bind.WatchOpts, sink chan<- *IAuctionBidSuccessful, bidder []common.Address, auctionId [][32]byte) (event.Subscription, error) {
 
 	var bidderRule []interface{}
 	for _, bidderItem := range bidder {
@@ -1046,7 +1046,7 @@ func (_Smc *SmcFilterer) WatchBidSuccessful(opts *bind.WatchOpts, sink chan<- *S
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "BidSuccessful", bidderRule, auctionIdRule)
+	logs, sub, err := _IAuction.contract.WatchLogs(opts, "BidSuccessful", bidderRule, auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1056,8 +1056,8 @@ func (_Smc *SmcFilterer) WatchBidSuccessful(opts *bind.WatchOpts, sink chan<- *S
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcBidSuccessful)
-				if err := _Smc.contract.UnpackLog(event, "BidSuccessful", log); err != nil {
+				event := new(IAuctionBidSuccessful)
+				if err := _IAuction.contract.UnpackLog(event, "BidSuccessful", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1081,18 +1081,18 @@ func (_Smc *SmcFilterer) WatchBidSuccessful(opts *bind.WatchOpts, sink chan<- *S
 // ParseBidSuccessful is a log parse operation binding the contract event 0x327e5a459c964bcfa4f6d71b32a04a53b0002417b0924a8057d9f12e688e0bec.
 //
 // Solidity: event BidSuccessful(address indexed bidder, bytes32 indexed auctionId, bytes32 blindedBid)
-func (_Smc *SmcFilterer) ParseBidSuccessful(log types.Log) (*SmcBidSuccessful, error) {
-	event := new(SmcBidSuccessful)
-	if err := _Smc.contract.UnpackLog(event, "BidSuccessful", log); err != nil {
+func (_IAuction *IAuctionFilterer) ParseBidSuccessful(log types.Log) (*IAuctionBidSuccessful, error) {
+	event := new(IAuctionBidSuccessful)
+	if err := _IAuction.contract.UnpackLog(event, "BidSuccessful", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRevealFailedIterator is returned from FilterRevealFailed and is used to iterate over the raw logs and unpacked data for RevealFailed events raised by the Smc contract.
-type SmcRevealFailedIterator struct {
-	Event *SmcRevealFailed // Event containing the contract specifics and raw log
+// IAuctionRevealFailedIterator is returned from FilterRevealFailed and is used to iterate over the raw logs and unpacked data for RevealFailed events raised by the IAuction contract.
+type IAuctionRevealFailedIterator struct {
+	Event *IAuctionRevealFailed // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1106,7 +1106,7 @@ type SmcRevealFailedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRevealFailedIterator) Next() bool {
+func (it *IAuctionRevealFailedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1115,7 +1115,7 @@ func (it *SmcRevealFailedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRevealFailed)
+			it.Event = new(IAuctionRevealFailed)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1130,7 +1130,7 @@ func (it *SmcRevealFailedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRevealFailed)
+		it.Event = new(IAuctionRevealFailed)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1146,19 +1146,19 @@ func (it *SmcRevealFailedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRevealFailedIterator) Error() error {
+func (it *IAuctionRevealFailedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRevealFailedIterator) Close() error {
+func (it *IAuctionRevealFailedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRevealFailed represents a RevealFailed event raised by the Smc contract.
-type SmcRevealFailed struct {
+// IAuctionRevealFailed represents a RevealFailed event raised by the IAuction contract.
+type IAuctionRevealFailed struct {
 	Fake      bool
 	AuctionId [32]byte
 	Value     *big.Int
@@ -1168,31 +1168,31 @@ type SmcRevealFailed struct {
 // FilterRevealFailed is a free log retrieval operation binding the contract event 0x8491bb9f45e55b89e41be77fb6f559dcedeaed2ed85a61f74d039b2f1389d4a3.
 //
 // Solidity: event RevealFailed(bool fake, bytes32 indexed auctionId, uint256 value)
-func (_Smc *SmcFilterer) FilterRevealFailed(opts *bind.FilterOpts, auctionId [][32]byte) (*SmcRevealFailedIterator, error) {
+func (_IAuction *IAuctionFilterer) FilterRevealFailed(opts *bind.FilterOpts, auctionId [][32]byte) (*IAuctionRevealFailedIterator, error) {
 
 	var auctionIdRule []interface{}
 	for _, auctionIdItem := range auctionId {
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RevealFailed", auctionIdRule)
+	logs, sub, err := _IAuction.contract.FilterLogs(opts, "RevealFailed", auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRevealFailedIterator{contract: _Smc.contract, event: "RevealFailed", logs: logs, sub: sub}, nil
+	return &IAuctionRevealFailedIterator{contract: _IAuction.contract, event: "RevealFailed", logs: logs, sub: sub}, nil
 }
 
 // WatchRevealFailed is a free log subscription operation binding the contract event 0x8491bb9f45e55b89e41be77fb6f559dcedeaed2ed85a61f74d039b2f1389d4a3.
 //
 // Solidity: event RevealFailed(bool fake, bytes32 indexed auctionId, uint256 value)
-func (_Smc *SmcFilterer) WatchRevealFailed(opts *bind.WatchOpts, sink chan<- *SmcRevealFailed, auctionId [][32]byte) (event.Subscription, error) {
+func (_IAuction *IAuctionFilterer) WatchRevealFailed(opts *bind.WatchOpts, sink chan<- *IAuctionRevealFailed, auctionId [][32]byte) (event.Subscription, error) {
 
 	var auctionIdRule []interface{}
 	for _, auctionIdItem := range auctionId {
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RevealFailed", auctionIdRule)
+	logs, sub, err := _IAuction.contract.WatchLogs(opts, "RevealFailed", auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1202,8 +1202,8 @@ func (_Smc *SmcFilterer) WatchRevealFailed(opts *bind.WatchOpts, sink chan<- *Sm
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRevealFailed)
-				if err := _Smc.contract.UnpackLog(event, "RevealFailed", log); err != nil {
+				event := new(IAuctionRevealFailed)
+				if err := _IAuction.contract.UnpackLog(event, "RevealFailed", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1227,18 +1227,18 @@ func (_Smc *SmcFilterer) WatchRevealFailed(opts *bind.WatchOpts, sink chan<- *Sm
 // ParseRevealFailed is a log parse operation binding the contract event 0x8491bb9f45e55b89e41be77fb6f559dcedeaed2ed85a61f74d039b2f1389d4a3.
 //
 // Solidity: event RevealFailed(bool fake, bytes32 indexed auctionId, uint256 value)
-func (_Smc *SmcFilterer) ParseRevealFailed(log types.Log) (*SmcRevealFailed, error) {
-	event := new(SmcRevealFailed)
-	if err := _Smc.contract.UnpackLog(event, "RevealFailed", log); err != nil {
+func (_IAuction *IAuctionFilterer) ParseRevealFailed(log types.Log) (*IAuctionRevealFailed, error) {
+	event := new(IAuctionRevealFailed)
+	if err := _IAuction.contract.UnpackLog(event, "RevealFailed", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRevealSuccessfulIterator is returned from FilterRevealSuccessful and is used to iterate over the raw logs and unpacked data for RevealSuccessful events raised by the Smc contract.
-type SmcRevealSuccessfulIterator struct {
-	Event *SmcRevealSuccessful // Event containing the contract specifics and raw log
+// IAuctionRevealSuccessfulIterator is returned from FilterRevealSuccessful and is used to iterate over the raw logs and unpacked data for RevealSuccessful events raised by the IAuction contract.
+type IAuctionRevealSuccessfulIterator struct {
+	Event *IAuctionRevealSuccessful // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1252,7 +1252,7 @@ type SmcRevealSuccessfulIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRevealSuccessfulIterator) Next() bool {
+func (it *IAuctionRevealSuccessfulIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1261,7 +1261,7 @@ func (it *SmcRevealSuccessfulIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRevealSuccessful)
+			it.Event = new(IAuctionRevealSuccessful)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1276,7 +1276,7 @@ func (it *SmcRevealSuccessfulIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRevealSuccessful)
+		it.Event = new(IAuctionRevealSuccessful)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1292,19 +1292,19 @@ func (it *SmcRevealSuccessfulIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRevealSuccessfulIterator) Error() error {
+func (it *IAuctionRevealSuccessfulIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRevealSuccessfulIterator) Close() error {
+func (it *IAuctionRevealSuccessfulIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRevealSuccessful represents a RevealSuccessful event raised by the Smc contract.
-type SmcRevealSuccessful struct {
+// IAuctionRevealSuccessful represents a RevealSuccessful event raised by the IAuction contract.
+type IAuctionRevealSuccessful struct {
 	Fake       bool
 	AuctionId  [32]byte
 	Value      *big.Int
@@ -1315,31 +1315,31 @@ type SmcRevealSuccessful struct {
 // FilterRevealSuccessful is a free log retrieval operation binding the contract event 0xc69be17b446ade79dcd9f07e13f1c8493dd4a1940caf6318d617fbd25d256d9b.
 //
 // Solidity: event RevealSuccessful(bool fake, bytes32 indexed auctionId, uint256 value, bytes32 blindedBid)
-func (_Smc *SmcFilterer) FilterRevealSuccessful(opts *bind.FilterOpts, auctionId [][32]byte) (*SmcRevealSuccessfulIterator, error) {
+func (_IAuction *IAuctionFilterer) FilterRevealSuccessful(opts *bind.FilterOpts, auctionId [][32]byte) (*IAuctionRevealSuccessfulIterator, error) {
 
 	var auctionIdRule []interface{}
 	for _, auctionIdItem := range auctionId {
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RevealSuccessful", auctionIdRule)
+	logs, sub, err := _IAuction.contract.FilterLogs(opts, "RevealSuccessful", auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRevealSuccessfulIterator{contract: _Smc.contract, event: "RevealSuccessful", logs: logs, sub: sub}, nil
+	return &IAuctionRevealSuccessfulIterator{contract: _IAuction.contract, event: "RevealSuccessful", logs: logs, sub: sub}, nil
 }
 
 // WatchRevealSuccessful is a free log subscription operation binding the contract event 0xc69be17b446ade79dcd9f07e13f1c8493dd4a1940caf6318d617fbd25d256d9b.
 //
 // Solidity: event RevealSuccessful(bool fake, bytes32 indexed auctionId, uint256 value, bytes32 blindedBid)
-func (_Smc *SmcFilterer) WatchRevealSuccessful(opts *bind.WatchOpts, sink chan<- *SmcRevealSuccessful, auctionId [][32]byte) (event.Subscription, error) {
+func (_IAuction *IAuctionFilterer) WatchRevealSuccessful(opts *bind.WatchOpts, sink chan<- *IAuctionRevealSuccessful, auctionId [][32]byte) (event.Subscription, error) {
 
 	var auctionIdRule []interface{}
 	for _, auctionIdItem := range auctionId {
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RevealSuccessful", auctionIdRule)
+	logs, sub, err := _IAuction.contract.WatchLogs(opts, "RevealSuccessful", auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1349,8 +1349,8 @@ func (_Smc *SmcFilterer) WatchRevealSuccessful(opts *bind.WatchOpts, sink chan<-
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRevealSuccessful)
-				if err := _Smc.contract.UnpackLog(event, "RevealSuccessful", log); err != nil {
+				event := new(IAuctionRevealSuccessful)
+				if err := _IAuction.contract.UnpackLog(event, "RevealSuccessful", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1374,9 +1374,9 @@ func (_Smc *SmcFilterer) WatchRevealSuccessful(opts *bind.WatchOpts, sink chan<-
 // ParseRevealSuccessful is a log parse operation binding the contract event 0xc69be17b446ade79dcd9f07e13f1c8493dd4a1940caf6318d617fbd25d256d9b.
 //
 // Solidity: event RevealSuccessful(bool fake, bytes32 indexed auctionId, uint256 value, bytes32 blindedBid)
-func (_Smc *SmcFilterer) ParseRevealSuccessful(log types.Log) (*SmcRevealSuccessful, error) {
-	event := new(SmcRevealSuccessful)
-	if err := _Smc.contract.UnpackLog(event, "RevealSuccessful", log); err != nil {
+func (_IAuction *IAuctionFilterer) ParseRevealSuccessful(log types.Log) (*IAuctionRevealSuccessful, error) {
+	event := new(IAuctionRevealSuccessful)
+	if err := _IAuction.contract.UnpackLog(event, "RevealSuccessful", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log

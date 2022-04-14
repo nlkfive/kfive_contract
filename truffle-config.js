@@ -18,12 +18,12 @@
  *
  */
 
-const HDWalletProvider = require('truffle-hdwallet-provider');
+const HDWalletProvider = require("truffle-hdwallet-provider");
 // const infuraKey = "fj4jll3k.....";
 //
-const fs = require('fs');
+const fs = require("fs");
 const config = require("./.secret.js").test;
-const jsonConfig = JSON.parse(JSON.stringify(config))
+const jsonConfig = JSON.parse(JSON.stringify(config));
 const mnemonic = jsonConfig.mnemonic;
 
 module.exports = {
@@ -52,41 +52,50 @@ module.exports = {
     },
 
     bsctest: {
-      provider: () => new HDWalletProvider(mnemonic, `https://data-seed-prebsc-1-s1.binance.org:8545`),
+      provider: () =>
+        new HDWalletProvider(
+          mnemonic,
+          `https://data-seed-prebsc-1-s1.binance.org:8545`
+        ),
       network_id: 97,
       confirmations: 10,
       timeoutBlocks: 200,
-      skipDryRun: true
+      skipDryRun: true,
     },
 
     mainnet: {
-      provider: () => new HDWalletProvider(mnemonic, `https://bsc-dataseed1.binance.org`),
+      provider: () =>
+        new HDWalletProvider(mnemonic, `https://bsc-dataseed1.binance.org`),
       network_id: 56,
       confirmations: 10,
       timeoutBlocks: 200,
-      skipDryRun: true
-    }
+      skipDryRun: true,
+    },
   },
 
   // Set default mocha options here, use special reporters etc.
   mocha: {
     // timeout: 100000
-    reporter: 'eth-gas-reporter',
+    reporter: "eth-gas-reporter",
     reporterOptions: {
-      currency: 'USD',
-      gasPrice: 100
-    }
+      currency: "USD",
+      gasPrice: 100,
+    },
   },
 
-  plugins: ["solidity-coverage", "truffle-plugin-verify", "@chainsafe/truffle-plugin-abigen"],
+  plugins: [
+    "solidity-coverage",
+    "truffle-plugin-verify",
+    "@chainsafe/truffle-plugin-abigen",
+  ],
   api_keys: {
-    bscscan: jsonConfig.bsc_api_key
+    bscscan: jsonConfig.bsc_api_key,
   },
 
   // Configure your compilers
   compilers: {
     solc: {
-      version: "0.8.4",    // Fetch exact version from solc-bin (default: truffle's version)
+      version: "0.8.4", // Fetch exact version from solc-bin (default: truffle's version)
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
       // settings: {          // See the solidity docs for advice about optimization and evmVersion
       //  optimizer: {
@@ -95,7 +104,7 @@ module.exports = {
       //  },
       //  evmVersion: "byzantium"
       // }
-    }
+    },
   },
 
   // Truffle DB is currently disabled by default; to enable it, change enabled: false to enabled: true
@@ -105,6 +114,6 @@ module.exports = {
   // $ truffle migrate --reset --compile-all
 
   db: {
-    enabled: false
-  }
+    enabled: false,
+  },
 };

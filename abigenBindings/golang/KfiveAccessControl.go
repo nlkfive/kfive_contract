@@ -1,7 +1,7 @@
 // Code generated - DO NOT EDIT.
 // This file is a generated binding and any manual changes will be lost.
 
-package smc
+package KfiveAccessControl
 
 import (
 	"errors"
@@ -28,113 +28,113 @@ var (
 	_ = event.NewSubscription
 )
 
-// SmcMetaData contains all meta data concerning the Smc contract.
-var SmcMetaData = &bind.MetaData{
+// KfiveAccessControlMetaData contains all meta data concerning the KfiveAccessControl contract.
+var KfiveAccessControlMetaData = &bind.MetaData{
 	ABI: "[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PAUSER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getRoleMember\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleMemberCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
-// SmcABI is the input ABI used to generate the binding from.
-// Deprecated: Use SmcMetaData.ABI instead.
-var SmcABI = SmcMetaData.ABI
+// KfiveAccessControlABI is the input ABI used to generate the binding from.
+// Deprecated: Use KfiveAccessControlMetaData.ABI instead.
+var KfiveAccessControlABI = KfiveAccessControlMetaData.ABI
 
-// Smc is an auto generated Go binding around an Ethereum contract.
-type Smc struct {
-	SmcCaller     // Read-only binding to the contract
-	SmcTransactor // Write-only binding to the contract
-	SmcFilterer   // Log filterer for contract events
+// KfiveAccessControl is an auto generated Go binding around an Ethereum contract.
+type KfiveAccessControl struct {
+	KfiveAccessControlCaller     // Read-only binding to the contract
+	KfiveAccessControlTransactor // Write-only binding to the contract
+	KfiveAccessControlFilterer   // Log filterer for contract events
 }
 
-// SmcCaller is an auto generated read-only Go binding around an Ethereum contract.
-type SmcCaller struct {
+// KfiveAccessControlCaller is an auto generated read-only Go binding around an Ethereum contract.
+type KfiveAccessControlCaller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcTransactor is an auto generated write-only Go binding around an Ethereum contract.
-type SmcTransactor struct {
+// KfiveAccessControlTransactor is an auto generated write-only Go binding around an Ethereum contract.
+type KfiveAccessControlTransactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
-type SmcFilterer struct {
+// KfiveAccessControlFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type KfiveAccessControlFilterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcSession is an auto generated Go binding around an Ethereum contract,
+// KfiveAccessControlSession is an auto generated Go binding around an Ethereum contract,
 // with pre-set call and transact options.
-type SmcSession struct {
-	Contract     *Smc              // Generic contract binding to set the session for
-	CallOpts     bind.CallOpts     // Call options to use throughout this session
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type KfiveAccessControlSession struct {
+	Contract     *KfiveAccessControl // Generic contract binding to set the session for
+	CallOpts     bind.CallOpts       // Call options to use throughout this session
+	TransactOpts bind.TransactOpts   // Transaction auth options to use throughout this session
 }
 
-// SmcCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// KfiveAccessControlCallerSession is an auto generated read-only Go binding around an Ethereum contract,
 // with pre-set call options.
-type SmcCallerSession struct {
-	Contract *SmcCaller    // Generic contract caller binding to set the session for
-	CallOpts bind.CallOpts // Call options to use throughout this session
+type KfiveAccessControlCallerSession struct {
+	Contract *KfiveAccessControlCaller // Generic contract caller binding to set the session for
+	CallOpts bind.CallOpts             // Call options to use throughout this session
 }
 
-// SmcTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// KfiveAccessControlTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
 // with pre-set transact options.
-type SmcTransactorSession struct {
-	Contract     *SmcTransactor    // Generic contract transactor binding to set the session for
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type KfiveAccessControlTransactorSession struct {
+	Contract     *KfiveAccessControlTransactor // Generic contract transactor binding to set the session for
+	TransactOpts bind.TransactOpts             // Transaction auth options to use throughout this session
 }
 
-// SmcRaw is an auto generated low-level Go binding around an Ethereum contract.
-type SmcRaw struct {
-	Contract *Smc // Generic contract binding to access the raw methods on
+// KfiveAccessControlRaw is an auto generated low-level Go binding around an Ethereum contract.
+type KfiveAccessControlRaw struct {
+	Contract *KfiveAccessControl // Generic contract binding to access the raw methods on
 }
 
-// SmcCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
-type SmcCallerRaw struct {
-	Contract *SmcCaller // Generic read-only contract binding to access the raw methods on
+// KfiveAccessControlCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type KfiveAccessControlCallerRaw struct {
+	Contract *KfiveAccessControlCaller // Generic read-only contract binding to access the raw methods on
 }
 
-// SmcTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
-type SmcTransactorRaw struct {
-	Contract *SmcTransactor // Generic write-only contract binding to access the raw methods on
+// KfiveAccessControlTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type KfiveAccessControlTransactorRaw struct {
+	Contract *KfiveAccessControlTransactor // Generic write-only contract binding to access the raw methods on
 }
 
-// NewSmc creates a new instance of Smc, bound to a specific deployed contract.
-func NewSmc(address common.Address, backend bind.ContractBackend) (*Smc, error) {
-	contract, err := bindSmc(address, backend, backend, backend)
+// NewKfiveAccessControl creates a new instance of KfiveAccessControl, bound to a specific deployed contract.
+func NewKfiveAccessControl(address common.Address, backend bind.ContractBackend) (*KfiveAccessControl, error) {
+	contract, err := bindKfiveAccessControl(address, backend, backend, backend)
 	if err != nil {
 		return nil, err
 	}
-	return &Smc{SmcCaller: SmcCaller{contract: contract}, SmcTransactor: SmcTransactor{contract: contract}, SmcFilterer: SmcFilterer{contract: contract}}, nil
+	return &KfiveAccessControl{KfiveAccessControlCaller: KfiveAccessControlCaller{contract: contract}, KfiveAccessControlTransactor: KfiveAccessControlTransactor{contract: contract}, KfiveAccessControlFilterer: KfiveAccessControlFilterer{contract: contract}}, nil
 }
 
-// NewSmcCaller creates a new read-only instance of Smc, bound to a specific deployed contract.
-func NewSmcCaller(address common.Address, caller bind.ContractCaller) (*SmcCaller, error) {
-	contract, err := bindSmc(address, caller, nil, nil)
+// NewKfiveAccessControlCaller creates a new read-only instance of KfiveAccessControl, bound to a specific deployed contract.
+func NewKfiveAccessControlCaller(address common.Address, caller bind.ContractCaller) (*KfiveAccessControlCaller, error) {
+	contract, err := bindKfiveAccessControl(address, caller, nil, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcCaller{contract: contract}, nil
+	return &KfiveAccessControlCaller{contract: contract}, nil
 }
 
-// NewSmcTransactor creates a new write-only instance of Smc, bound to a specific deployed contract.
-func NewSmcTransactor(address common.Address, transactor bind.ContractTransactor) (*SmcTransactor, error) {
-	contract, err := bindSmc(address, nil, transactor, nil)
+// NewKfiveAccessControlTransactor creates a new write-only instance of KfiveAccessControl, bound to a specific deployed contract.
+func NewKfiveAccessControlTransactor(address common.Address, transactor bind.ContractTransactor) (*KfiveAccessControlTransactor, error) {
+	contract, err := bindKfiveAccessControl(address, nil, transactor, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTransactor{contract: contract}, nil
+	return &KfiveAccessControlTransactor{contract: contract}, nil
 }
 
-// NewSmcFilterer creates a new log filterer instance of Smc, bound to a specific deployed contract.
-func NewSmcFilterer(address common.Address, filterer bind.ContractFilterer) (*SmcFilterer, error) {
-	contract, err := bindSmc(address, nil, nil, filterer)
+// NewKfiveAccessControlFilterer creates a new log filterer instance of KfiveAccessControl, bound to a specific deployed contract.
+func NewKfiveAccessControlFilterer(address common.Address, filterer bind.ContractFilterer) (*KfiveAccessControlFilterer, error) {
+	contract, err := bindKfiveAccessControl(address, nil, nil, filterer)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcFilterer{contract: contract}, nil
+	return &KfiveAccessControlFilterer{contract: contract}, nil
 }
 
-// bindSmc binds a generic wrapper to an already deployed contract.
-func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-	parsed, err := abi.JSON(strings.NewReader(SmcABI))
+// bindKfiveAccessControl binds a generic wrapper to an already deployed contract.
+func bindKfiveAccessControl(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := abi.JSON(strings.NewReader(KfiveAccessControlABI))
 	if err != nil {
 		return nil, err
 	}
@@ -145,46 +145,46 @@ func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.SmcCaller.contract.Call(opts, result, method, params...)
+func (_KfiveAccessControl *KfiveAccessControlRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _KfiveAccessControl.Contract.KfiveAccessControlCaller.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transfer(opts)
+func (_KfiveAccessControl *KfiveAccessControlRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _KfiveAccessControl.Contract.KfiveAccessControlTransactor.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transact(opts, method, params...)
+func (_KfiveAccessControl *KfiveAccessControlRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _KfiveAccessControl.Contract.KfiveAccessControlTransactor.contract.Transact(opts, method, params...)
 }
 
 // Call invokes the (constant) contract method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.contract.Call(opts, result, method, params...)
+func (_KfiveAccessControl *KfiveAccessControlCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _KfiveAccessControl.Contract.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transfer(opts)
+func (_KfiveAccessControl *KfiveAccessControlTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _KfiveAccessControl.Contract.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transact(opts, method, params...)
+func (_KfiveAccessControl *KfiveAccessControlTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _KfiveAccessControl.Contract.contract.Transact(opts, method, params...)
 }
 
 // ADMINROLE is a free data retrieval call binding the contract method 0x75b238fc.
 //
 // Solidity: function ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcCaller) ADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
+func (_KfiveAccessControl *KfiveAccessControlCaller) ADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "ADMIN_ROLE")
+	err := _KfiveAccessControl.contract.Call(opts, &out, "ADMIN_ROLE")
 
 	if err != nil {
 		return *new([32]byte), err
@@ -199,23 +199,23 @@ func (_Smc *SmcCaller) ADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
 // ADMINROLE is a free data retrieval call binding the contract method 0x75b238fc.
 //
 // Solidity: function ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcSession) ADMINROLE() ([32]byte, error) {
-	return _Smc.Contract.ADMINROLE(&_Smc.CallOpts)
+func (_KfiveAccessControl *KfiveAccessControlSession) ADMINROLE() ([32]byte, error) {
+	return _KfiveAccessControl.Contract.ADMINROLE(&_KfiveAccessControl.CallOpts)
 }
 
 // ADMINROLE is a free data retrieval call binding the contract method 0x75b238fc.
 //
 // Solidity: function ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcCallerSession) ADMINROLE() ([32]byte, error) {
-	return _Smc.Contract.ADMINROLE(&_Smc.CallOpts)
+func (_KfiveAccessControl *KfiveAccessControlCallerSession) ADMINROLE() ([32]byte, error) {
+	return _KfiveAccessControl.Contract.ADMINROLE(&_KfiveAccessControl.CallOpts)
 }
 
 // DEFAULTADMINROLE is a free data retrieval call binding the contract method 0xa217fddf.
 //
 // Solidity: function DEFAULT_ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcCaller) DEFAULTADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
+func (_KfiveAccessControl *KfiveAccessControlCaller) DEFAULTADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "DEFAULT_ADMIN_ROLE")
+	err := _KfiveAccessControl.contract.Call(opts, &out, "DEFAULT_ADMIN_ROLE")
 
 	if err != nil {
 		return *new([32]byte), err
@@ -230,23 +230,23 @@ func (_Smc *SmcCaller) DEFAULTADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
 // DEFAULTADMINROLE is a free data retrieval call binding the contract method 0xa217fddf.
 //
 // Solidity: function DEFAULT_ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcSession) DEFAULTADMINROLE() ([32]byte, error) {
-	return _Smc.Contract.DEFAULTADMINROLE(&_Smc.CallOpts)
+func (_KfiveAccessControl *KfiveAccessControlSession) DEFAULTADMINROLE() ([32]byte, error) {
+	return _KfiveAccessControl.Contract.DEFAULTADMINROLE(&_KfiveAccessControl.CallOpts)
 }
 
 // DEFAULTADMINROLE is a free data retrieval call binding the contract method 0xa217fddf.
 //
 // Solidity: function DEFAULT_ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcCallerSession) DEFAULTADMINROLE() ([32]byte, error) {
-	return _Smc.Contract.DEFAULTADMINROLE(&_Smc.CallOpts)
+func (_KfiveAccessControl *KfiveAccessControlCallerSession) DEFAULTADMINROLE() ([32]byte, error) {
+	return _KfiveAccessControl.Contract.DEFAULTADMINROLE(&_KfiveAccessControl.CallOpts)
 }
 
 // PAUSERROLE is a free data retrieval call binding the contract method 0xe63ab1e9.
 //
 // Solidity: function PAUSER_ROLE() view returns(bytes32)
-func (_Smc *SmcCaller) PAUSERROLE(opts *bind.CallOpts) ([32]byte, error) {
+func (_KfiveAccessControl *KfiveAccessControlCaller) PAUSERROLE(opts *bind.CallOpts) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "PAUSER_ROLE")
+	err := _KfiveAccessControl.contract.Call(opts, &out, "PAUSER_ROLE")
 
 	if err != nil {
 		return *new([32]byte), err
@@ -261,23 +261,23 @@ func (_Smc *SmcCaller) PAUSERROLE(opts *bind.CallOpts) ([32]byte, error) {
 // PAUSERROLE is a free data retrieval call binding the contract method 0xe63ab1e9.
 //
 // Solidity: function PAUSER_ROLE() view returns(bytes32)
-func (_Smc *SmcSession) PAUSERROLE() ([32]byte, error) {
-	return _Smc.Contract.PAUSERROLE(&_Smc.CallOpts)
+func (_KfiveAccessControl *KfiveAccessControlSession) PAUSERROLE() ([32]byte, error) {
+	return _KfiveAccessControl.Contract.PAUSERROLE(&_KfiveAccessControl.CallOpts)
 }
 
 // PAUSERROLE is a free data retrieval call binding the contract method 0xe63ab1e9.
 //
 // Solidity: function PAUSER_ROLE() view returns(bytes32)
-func (_Smc *SmcCallerSession) PAUSERROLE() ([32]byte, error) {
-	return _Smc.Contract.PAUSERROLE(&_Smc.CallOpts)
+func (_KfiveAccessControl *KfiveAccessControlCallerSession) PAUSERROLE() ([32]byte, error) {
+	return _KfiveAccessControl.Contract.PAUSERROLE(&_KfiveAccessControl.CallOpts)
 }
 
 // GetRoleAdmin is a free data retrieval call binding the contract method 0x248a9ca3.
 //
 // Solidity: function getRoleAdmin(bytes32 role) view returns(bytes32)
-func (_Smc *SmcCaller) GetRoleAdmin(opts *bind.CallOpts, role [32]byte) ([32]byte, error) {
+func (_KfiveAccessControl *KfiveAccessControlCaller) GetRoleAdmin(opts *bind.CallOpts, role [32]byte) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getRoleAdmin", role)
+	err := _KfiveAccessControl.contract.Call(opts, &out, "getRoleAdmin", role)
 
 	if err != nil {
 		return *new([32]byte), err
@@ -292,23 +292,23 @@ func (_Smc *SmcCaller) GetRoleAdmin(opts *bind.CallOpts, role [32]byte) ([32]byt
 // GetRoleAdmin is a free data retrieval call binding the contract method 0x248a9ca3.
 //
 // Solidity: function getRoleAdmin(bytes32 role) view returns(bytes32)
-func (_Smc *SmcSession) GetRoleAdmin(role [32]byte) ([32]byte, error) {
-	return _Smc.Contract.GetRoleAdmin(&_Smc.CallOpts, role)
+func (_KfiveAccessControl *KfiveAccessControlSession) GetRoleAdmin(role [32]byte) ([32]byte, error) {
+	return _KfiveAccessControl.Contract.GetRoleAdmin(&_KfiveAccessControl.CallOpts, role)
 }
 
 // GetRoleAdmin is a free data retrieval call binding the contract method 0x248a9ca3.
 //
 // Solidity: function getRoleAdmin(bytes32 role) view returns(bytes32)
-func (_Smc *SmcCallerSession) GetRoleAdmin(role [32]byte) ([32]byte, error) {
-	return _Smc.Contract.GetRoleAdmin(&_Smc.CallOpts, role)
+func (_KfiveAccessControl *KfiveAccessControlCallerSession) GetRoleAdmin(role [32]byte) ([32]byte, error) {
+	return _KfiveAccessControl.Contract.GetRoleAdmin(&_KfiveAccessControl.CallOpts, role)
 }
 
 // GetRoleMember is a free data retrieval call binding the contract method 0x9010d07c.
 //
 // Solidity: function getRoleMember(bytes32 role, uint256 index) view returns(address)
-func (_Smc *SmcCaller) GetRoleMember(opts *bind.CallOpts, role [32]byte, index *big.Int) (common.Address, error) {
+func (_KfiveAccessControl *KfiveAccessControlCaller) GetRoleMember(opts *bind.CallOpts, role [32]byte, index *big.Int) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getRoleMember", role, index)
+	err := _KfiveAccessControl.contract.Call(opts, &out, "getRoleMember", role, index)
 
 	if err != nil {
 		return *new(common.Address), err
@@ -323,23 +323,23 @@ func (_Smc *SmcCaller) GetRoleMember(opts *bind.CallOpts, role [32]byte, index *
 // GetRoleMember is a free data retrieval call binding the contract method 0x9010d07c.
 //
 // Solidity: function getRoleMember(bytes32 role, uint256 index) view returns(address)
-func (_Smc *SmcSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
-	return _Smc.Contract.GetRoleMember(&_Smc.CallOpts, role, index)
+func (_KfiveAccessControl *KfiveAccessControlSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
+	return _KfiveAccessControl.Contract.GetRoleMember(&_KfiveAccessControl.CallOpts, role, index)
 }
 
 // GetRoleMember is a free data retrieval call binding the contract method 0x9010d07c.
 //
 // Solidity: function getRoleMember(bytes32 role, uint256 index) view returns(address)
-func (_Smc *SmcCallerSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
-	return _Smc.Contract.GetRoleMember(&_Smc.CallOpts, role, index)
+func (_KfiveAccessControl *KfiveAccessControlCallerSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
+	return _KfiveAccessControl.Contract.GetRoleMember(&_KfiveAccessControl.CallOpts, role, index)
 }
 
 // GetRoleMemberCount is a free data retrieval call binding the contract method 0xca15c873.
 //
 // Solidity: function getRoleMemberCount(bytes32 role) view returns(uint256)
-func (_Smc *SmcCaller) GetRoleMemberCount(opts *bind.CallOpts, role [32]byte) (*big.Int, error) {
+func (_KfiveAccessControl *KfiveAccessControlCaller) GetRoleMemberCount(opts *bind.CallOpts, role [32]byte) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getRoleMemberCount", role)
+	err := _KfiveAccessControl.contract.Call(opts, &out, "getRoleMemberCount", role)
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -354,23 +354,23 @@ func (_Smc *SmcCaller) GetRoleMemberCount(opts *bind.CallOpts, role [32]byte) (*
 // GetRoleMemberCount is a free data retrieval call binding the contract method 0xca15c873.
 //
 // Solidity: function getRoleMemberCount(bytes32 role) view returns(uint256)
-func (_Smc *SmcSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
-	return _Smc.Contract.GetRoleMemberCount(&_Smc.CallOpts, role)
+func (_KfiveAccessControl *KfiveAccessControlSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
+	return _KfiveAccessControl.Contract.GetRoleMemberCount(&_KfiveAccessControl.CallOpts, role)
 }
 
 // GetRoleMemberCount is a free data retrieval call binding the contract method 0xca15c873.
 //
 // Solidity: function getRoleMemberCount(bytes32 role) view returns(uint256)
-func (_Smc *SmcCallerSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
-	return _Smc.Contract.GetRoleMemberCount(&_Smc.CallOpts, role)
+func (_KfiveAccessControl *KfiveAccessControlCallerSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
+	return _KfiveAccessControl.Contract.GetRoleMemberCount(&_KfiveAccessControl.CallOpts, role)
 }
 
 // HasRole is a free data retrieval call binding the contract method 0x91d14854.
 //
 // Solidity: function hasRole(bytes32 role, address account) view returns(bool)
-func (_Smc *SmcCaller) HasRole(opts *bind.CallOpts, role [32]byte, account common.Address) (bool, error) {
+func (_KfiveAccessControl *KfiveAccessControlCaller) HasRole(opts *bind.CallOpts, role [32]byte, account common.Address) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "hasRole", role, account)
+	err := _KfiveAccessControl.contract.Call(opts, &out, "hasRole", role, account)
 
 	if err != nil {
 		return *new(bool), err
@@ -385,23 +385,23 @@ func (_Smc *SmcCaller) HasRole(opts *bind.CallOpts, role [32]byte, account commo
 // HasRole is a free data retrieval call binding the contract method 0x91d14854.
 //
 // Solidity: function hasRole(bytes32 role, address account) view returns(bool)
-func (_Smc *SmcSession) HasRole(role [32]byte, account common.Address) (bool, error) {
-	return _Smc.Contract.HasRole(&_Smc.CallOpts, role, account)
+func (_KfiveAccessControl *KfiveAccessControlSession) HasRole(role [32]byte, account common.Address) (bool, error) {
+	return _KfiveAccessControl.Contract.HasRole(&_KfiveAccessControl.CallOpts, role, account)
 }
 
 // HasRole is a free data retrieval call binding the contract method 0x91d14854.
 //
 // Solidity: function hasRole(bytes32 role, address account) view returns(bool)
-func (_Smc *SmcCallerSession) HasRole(role [32]byte, account common.Address) (bool, error) {
-	return _Smc.Contract.HasRole(&_Smc.CallOpts, role, account)
+func (_KfiveAccessControl *KfiveAccessControlCallerSession) HasRole(role [32]byte, account common.Address) (bool, error) {
+	return _KfiveAccessControl.Contract.HasRole(&_KfiveAccessControl.CallOpts, role, account)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
+func (_KfiveAccessControl *KfiveAccessControlCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "owner")
+	err := _KfiveAccessControl.contract.Call(opts, &out, "owner")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -416,23 +416,23 @@ func (_Smc *SmcCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcSession) Owner() (common.Address, error) {
-	return _Smc.Contract.Owner(&_Smc.CallOpts)
+func (_KfiveAccessControl *KfiveAccessControlSession) Owner() (common.Address, error) {
+	return _KfiveAccessControl.Contract.Owner(&_KfiveAccessControl.CallOpts)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcCallerSession) Owner() (common.Address, error) {
-	return _Smc.Contract.Owner(&_Smc.CallOpts)
+func (_KfiveAccessControl *KfiveAccessControlCallerSession) Owner() (common.Address, error) {
+	return _KfiveAccessControl.Contract.Owner(&_KfiveAccessControl.CallOpts)
 }
 
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcCaller) Paused(opts *bind.CallOpts) (bool, error) {
+func (_KfiveAccessControl *KfiveAccessControlCaller) Paused(opts *bind.CallOpts) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "paused")
+	err := _KfiveAccessControl.contract.Call(opts, &out, "paused")
 
 	if err != nil {
 		return *new(bool), err
@@ -447,23 +447,23 @@ func (_Smc *SmcCaller) Paused(opts *bind.CallOpts) (bool, error) {
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcSession) Paused() (bool, error) {
-	return _Smc.Contract.Paused(&_Smc.CallOpts)
+func (_KfiveAccessControl *KfiveAccessControlSession) Paused() (bool, error) {
+	return _KfiveAccessControl.Contract.Paused(&_KfiveAccessControl.CallOpts)
 }
 
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcCallerSession) Paused() (bool, error) {
-	return _Smc.Contract.Paused(&_Smc.CallOpts)
+func (_KfiveAccessControl *KfiveAccessControlCallerSession) Paused() (bool, error) {
+	return _KfiveAccessControl.Contract.Paused(&_KfiveAccessControl.CallOpts)
 }
 
 // SupportsInterface is a free data retrieval call binding the contract method 0x01ffc9a7.
 //
 // Solidity: function supportsInterface(bytes4 interfaceId) view returns(bool)
-func (_Smc *SmcCaller) SupportsInterface(opts *bind.CallOpts, interfaceId [4]byte) (bool, error) {
+func (_KfiveAccessControl *KfiveAccessControlCaller) SupportsInterface(opts *bind.CallOpts, interfaceId [4]byte) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "supportsInterface", interfaceId)
+	err := _KfiveAccessControl.contract.Call(opts, &out, "supportsInterface", interfaceId)
 
 	if err != nil {
 		return *new(bool), err
@@ -478,167 +478,167 @@ func (_Smc *SmcCaller) SupportsInterface(opts *bind.CallOpts, interfaceId [4]byt
 // SupportsInterface is a free data retrieval call binding the contract method 0x01ffc9a7.
 //
 // Solidity: function supportsInterface(bytes4 interfaceId) view returns(bool)
-func (_Smc *SmcSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
-	return _Smc.Contract.SupportsInterface(&_Smc.CallOpts, interfaceId)
+func (_KfiveAccessControl *KfiveAccessControlSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
+	return _KfiveAccessControl.Contract.SupportsInterface(&_KfiveAccessControl.CallOpts, interfaceId)
 }
 
 // SupportsInterface is a free data retrieval call binding the contract method 0x01ffc9a7.
 //
 // Solidity: function supportsInterface(bytes4 interfaceId) view returns(bool)
-func (_Smc *SmcCallerSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
-	return _Smc.Contract.SupportsInterface(&_Smc.CallOpts, interfaceId)
+func (_KfiveAccessControl *KfiveAccessControlCallerSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
+	return _KfiveAccessControl.Contract.SupportsInterface(&_KfiveAccessControl.CallOpts, interfaceId)
 }
 
 // GrantRole is a paid mutator transaction binding the contract method 0x2f2ff15d.
 //
 // Solidity: function grantRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactor) GrantRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "grantRole", role, account)
+func (_KfiveAccessControl *KfiveAccessControlTransactor) GrantRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _KfiveAccessControl.contract.Transact(opts, "grantRole", role, account)
 }
 
 // GrantRole is a paid mutator transaction binding the contract method 0x2f2ff15d.
 //
 // Solidity: function grantRole(bytes32 role, address account) returns()
-func (_Smc *SmcSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.GrantRole(&_Smc.TransactOpts, role, account)
+func (_KfiveAccessControl *KfiveAccessControlSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _KfiveAccessControl.Contract.GrantRole(&_KfiveAccessControl.TransactOpts, role, account)
 }
 
 // GrantRole is a paid mutator transaction binding the contract method 0x2f2ff15d.
 //
 // Solidity: function grantRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactorSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.GrantRole(&_Smc.TransactOpts, role, account)
+func (_KfiveAccessControl *KfiveAccessControlTransactorSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _KfiveAccessControl.Contract.GrantRole(&_KfiveAccessControl.TransactOpts, role, account)
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcTransactor) Pause(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "pause")
+func (_KfiveAccessControl *KfiveAccessControlTransactor) Pause(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _KfiveAccessControl.contract.Transact(opts, "pause")
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcSession) Pause() (*types.Transaction, error) {
-	return _Smc.Contract.Pause(&_Smc.TransactOpts)
+func (_KfiveAccessControl *KfiveAccessControlSession) Pause() (*types.Transaction, error) {
+	return _KfiveAccessControl.Contract.Pause(&_KfiveAccessControl.TransactOpts)
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcTransactorSession) Pause() (*types.Transaction, error) {
-	return _Smc.Contract.Pause(&_Smc.TransactOpts)
+func (_KfiveAccessControl *KfiveAccessControlTransactorSession) Pause() (*types.Transaction, error) {
+	return _KfiveAccessControl.Contract.Pause(&_KfiveAccessControl.TransactOpts)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcTransactor) RenounceOwnership(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "renounceOwnership")
+func (_KfiveAccessControl *KfiveAccessControlTransactor) RenounceOwnership(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _KfiveAccessControl.contract.Transact(opts, "renounceOwnership")
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcSession) RenounceOwnership() (*types.Transaction, error) {
-	return _Smc.Contract.RenounceOwnership(&_Smc.TransactOpts)
+func (_KfiveAccessControl *KfiveAccessControlSession) RenounceOwnership() (*types.Transaction, error) {
+	return _KfiveAccessControl.Contract.RenounceOwnership(&_KfiveAccessControl.TransactOpts)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcTransactorSession) RenounceOwnership() (*types.Transaction, error) {
-	return _Smc.Contract.RenounceOwnership(&_Smc.TransactOpts)
+func (_KfiveAccessControl *KfiveAccessControlTransactorSession) RenounceOwnership() (*types.Transaction, error) {
+	return _KfiveAccessControl.Contract.RenounceOwnership(&_KfiveAccessControl.TransactOpts)
 }
 
 // RenounceRole is a paid mutator transaction binding the contract method 0x36568abe.
 //
 // Solidity: function renounceRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactor) RenounceRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "renounceRole", role, account)
+func (_KfiveAccessControl *KfiveAccessControlTransactor) RenounceRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _KfiveAccessControl.contract.Transact(opts, "renounceRole", role, account)
 }
 
 // RenounceRole is a paid mutator transaction binding the contract method 0x36568abe.
 //
 // Solidity: function renounceRole(bytes32 role, address account) returns()
-func (_Smc *SmcSession) RenounceRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RenounceRole(&_Smc.TransactOpts, role, account)
+func (_KfiveAccessControl *KfiveAccessControlSession) RenounceRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _KfiveAccessControl.Contract.RenounceRole(&_KfiveAccessControl.TransactOpts, role, account)
 }
 
 // RenounceRole is a paid mutator transaction binding the contract method 0x36568abe.
 //
 // Solidity: function renounceRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactorSession) RenounceRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RenounceRole(&_Smc.TransactOpts, role, account)
+func (_KfiveAccessControl *KfiveAccessControlTransactorSession) RenounceRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _KfiveAccessControl.Contract.RenounceRole(&_KfiveAccessControl.TransactOpts, role, account)
 }
 
 // RevokeRole is a paid mutator transaction binding the contract method 0xd547741f.
 //
 // Solidity: function revokeRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactor) RevokeRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "revokeRole", role, account)
+func (_KfiveAccessControl *KfiveAccessControlTransactor) RevokeRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _KfiveAccessControl.contract.Transact(opts, "revokeRole", role, account)
 }
 
 // RevokeRole is a paid mutator transaction binding the contract method 0xd547741f.
 //
 // Solidity: function revokeRole(bytes32 role, address account) returns()
-func (_Smc *SmcSession) RevokeRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RevokeRole(&_Smc.TransactOpts, role, account)
+func (_KfiveAccessControl *KfiveAccessControlSession) RevokeRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _KfiveAccessControl.Contract.RevokeRole(&_KfiveAccessControl.TransactOpts, role, account)
 }
 
 // RevokeRole is a paid mutator transaction binding the contract method 0xd547741f.
 //
 // Solidity: function revokeRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactorSession) RevokeRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RevokeRole(&_Smc.TransactOpts, role, account)
+func (_KfiveAccessControl *KfiveAccessControlTransactorSession) RevokeRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _KfiveAccessControl.Contract.RevokeRole(&_KfiveAccessControl.TransactOpts, role, account)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcTransactor) TransferOwnership(opts *bind.TransactOpts, newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "transferOwnership", newOwner)
+func (_KfiveAccessControl *KfiveAccessControlTransactor) TransferOwnership(opts *bind.TransactOpts, newOwner common.Address) (*types.Transaction, error) {
+	return _KfiveAccessControl.contract.Transact(opts, "transferOwnership", newOwner)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.TransferOwnership(&_Smc.TransactOpts, newOwner)
+func (_KfiveAccessControl *KfiveAccessControlSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
+	return _KfiveAccessControl.Contract.TransferOwnership(&_KfiveAccessControl.TransactOpts, newOwner)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcTransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.TransferOwnership(&_Smc.TransactOpts, newOwner)
+func (_KfiveAccessControl *KfiveAccessControlTransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
+	return _KfiveAccessControl.Contract.TransferOwnership(&_KfiveAccessControl.TransactOpts, newOwner)
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcTransactor) Unpause(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "unpause")
+func (_KfiveAccessControl *KfiveAccessControlTransactor) Unpause(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _KfiveAccessControl.contract.Transact(opts, "unpause")
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcSession) Unpause() (*types.Transaction, error) {
-	return _Smc.Contract.Unpause(&_Smc.TransactOpts)
+func (_KfiveAccessControl *KfiveAccessControlSession) Unpause() (*types.Transaction, error) {
+	return _KfiveAccessControl.Contract.Unpause(&_KfiveAccessControl.TransactOpts)
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcTransactorSession) Unpause() (*types.Transaction, error) {
-	return _Smc.Contract.Unpause(&_Smc.TransactOpts)
+func (_KfiveAccessControl *KfiveAccessControlTransactorSession) Unpause() (*types.Transaction, error) {
+	return _KfiveAccessControl.Contract.Unpause(&_KfiveAccessControl.TransactOpts)
 }
 
-// SmcOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the Smc contract.
-type SmcOwnershipTransferredIterator struct {
-	Event *SmcOwnershipTransferred // Event containing the contract specifics and raw log
+// KfiveAccessControlOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the KfiveAccessControl contract.
+type KfiveAccessControlOwnershipTransferredIterator struct {
+	Event *KfiveAccessControlOwnershipTransferred // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -652,7 +652,7 @@ type SmcOwnershipTransferredIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcOwnershipTransferredIterator) Next() bool {
+func (it *KfiveAccessControlOwnershipTransferredIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -661,7 +661,7 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcOwnershipTransferred)
+			it.Event = new(KfiveAccessControlOwnershipTransferred)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -676,7 +676,7 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcOwnershipTransferred)
+		it.Event = new(KfiveAccessControlOwnershipTransferred)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -692,19 +692,19 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcOwnershipTransferredIterator) Error() error {
+func (it *KfiveAccessControlOwnershipTransferredIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcOwnershipTransferredIterator) Close() error {
+func (it *KfiveAccessControlOwnershipTransferredIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcOwnershipTransferred represents a OwnershipTransferred event raised by the Smc contract.
-type SmcOwnershipTransferred struct {
+// KfiveAccessControlOwnershipTransferred represents a OwnershipTransferred event raised by the KfiveAccessControl contract.
+type KfiveAccessControlOwnershipTransferred struct {
 	PreviousOwner common.Address
 	NewOwner      common.Address
 	Raw           types.Log // Blockchain specific contextual infos
@@ -713,7 +713,7 @@ type SmcOwnershipTransferred struct {
 // FilterOwnershipTransferred is a free log retrieval operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previousOwner []common.Address, newOwner []common.Address) (*SmcOwnershipTransferredIterator, error) {
+func (_KfiveAccessControl *KfiveAccessControlFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previousOwner []common.Address, newOwner []common.Address) (*KfiveAccessControlOwnershipTransferredIterator, error) {
 
 	var previousOwnerRule []interface{}
 	for _, previousOwnerItem := range previousOwner {
@@ -724,17 +724,17 @@ func (_Smc *SmcFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previ
 		newOwnerRule = append(newOwnerRule, newOwnerItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
+	logs, sub, err := _KfiveAccessControl.contract.FilterLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcOwnershipTransferredIterator{contract: _Smc.contract, event: "OwnershipTransferred", logs: logs, sub: sub}, nil
+	return &KfiveAccessControlOwnershipTransferredIterator{contract: _KfiveAccessControl.contract, event: "OwnershipTransferred", logs: logs, sub: sub}, nil
 }
 
 // WatchOwnershipTransferred is a free log subscription operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink chan<- *SmcOwnershipTransferred, previousOwner []common.Address, newOwner []common.Address) (event.Subscription, error) {
+func (_KfiveAccessControl *KfiveAccessControlFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink chan<- *KfiveAccessControlOwnershipTransferred, previousOwner []common.Address, newOwner []common.Address) (event.Subscription, error) {
 
 	var previousOwnerRule []interface{}
 	for _, previousOwnerItem := range previousOwner {
@@ -745,7 +745,7 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 		newOwnerRule = append(newOwnerRule, newOwnerItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
+	logs, sub, err := _KfiveAccessControl.contract.WatchLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
 	if err != nil {
 		return nil, err
 	}
@@ -755,8 +755,8 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcOwnershipTransferred)
-				if err := _Smc.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
+				event := new(KfiveAccessControlOwnershipTransferred)
+				if err := _KfiveAccessControl.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -780,18 +780,18 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 // ParseOwnershipTransferred is a log parse operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) ParseOwnershipTransferred(log types.Log) (*SmcOwnershipTransferred, error) {
-	event := new(SmcOwnershipTransferred)
-	if err := _Smc.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
+func (_KfiveAccessControl *KfiveAccessControlFilterer) ParseOwnershipTransferred(log types.Log) (*KfiveAccessControlOwnershipTransferred, error) {
+	event := new(KfiveAccessControlOwnershipTransferred)
+	if err := _KfiveAccessControl.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcPausedIterator is returned from FilterPaused and is used to iterate over the raw logs and unpacked data for Paused events raised by the Smc contract.
-type SmcPausedIterator struct {
-	Event *SmcPaused // Event containing the contract specifics and raw log
+// KfiveAccessControlPausedIterator is returned from FilterPaused and is used to iterate over the raw logs and unpacked data for Paused events raised by the KfiveAccessControl contract.
+type KfiveAccessControlPausedIterator struct {
+	Event *KfiveAccessControlPaused // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -805,7 +805,7 @@ type SmcPausedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcPausedIterator) Next() bool {
+func (it *KfiveAccessControlPausedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -814,7 +814,7 @@ func (it *SmcPausedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcPaused)
+			it.Event = new(KfiveAccessControlPaused)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -829,7 +829,7 @@ func (it *SmcPausedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcPaused)
+		it.Event = new(KfiveAccessControlPaused)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -845,19 +845,19 @@ func (it *SmcPausedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcPausedIterator) Error() error {
+func (it *KfiveAccessControlPausedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcPausedIterator) Close() error {
+func (it *KfiveAccessControlPausedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcPaused represents a Paused event raised by the Smc contract.
-type SmcPaused struct {
+// KfiveAccessControlPaused represents a Paused event raised by the KfiveAccessControl contract.
+type KfiveAccessControlPaused struct {
 	Account common.Address
 	Raw     types.Log // Blockchain specific contextual infos
 }
@@ -865,21 +865,21 @@ type SmcPaused struct {
 // FilterPaused is a free log retrieval operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) FilterPaused(opts *bind.FilterOpts) (*SmcPausedIterator, error) {
+func (_KfiveAccessControl *KfiveAccessControlFilterer) FilterPaused(opts *bind.FilterOpts) (*KfiveAccessControlPausedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Paused")
+	logs, sub, err := _KfiveAccessControl.contract.FilterLogs(opts, "Paused")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcPausedIterator{contract: _Smc.contract, event: "Paused", logs: logs, sub: sub}, nil
+	return &KfiveAccessControlPausedIterator{contract: _KfiveAccessControl.contract, event: "Paused", logs: logs, sub: sub}, nil
 }
 
 // WatchPaused is a free log subscription operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPaused) (event.Subscription, error) {
+func (_KfiveAccessControl *KfiveAccessControlFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *KfiveAccessControlPaused) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Paused")
+	logs, sub, err := _KfiveAccessControl.contract.WatchLogs(opts, "Paused")
 	if err != nil {
 		return nil, err
 	}
@@ -889,8 +889,8 @@ func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPause
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcPaused)
-				if err := _Smc.contract.UnpackLog(event, "Paused", log); err != nil {
+				event := new(KfiveAccessControlPaused)
+				if err := _KfiveAccessControl.contract.UnpackLog(event, "Paused", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -914,18 +914,18 @@ func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPause
 // ParsePaused is a log parse operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) ParsePaused(log types.Log) (*SmcPaused, error) {
-	event := new(SmcPaused)
-	if err := _Smc.contract.UnpackLog(event, "Paused", log); err != nil {
+func (_KfiveAccessControl *KfiveAccessControlFilterer) ParsePaused(log types.Log) (*KfiveAccessControlPaused, error) {
+	event := new(KfiveAccessControlPaused)
+	if err := _KfiveAccessControl.contract.UnpackLog(event, "Paused", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRoleAdminChangedIterator is returned from FilterRoleAdminChanged and is used to iterate over the raw logs and unpacked data for RoleAdminChanged events raised by the Smc contract.
-type SmcRoleAdminChangedIterator struct {
-	Event *SmcRoleAdminChanged // Event containing the contract specifics and raw log
+// KfiveAccessControlRoleAdminChangedIterator is returned from FilterRoleAdminChanged and is used to iterate over the raw logs and unpacked data for RoleAdminChanged events raised by the KfiveAccessControl contract.
+type KfiveAccessControlRoleAdminChangedIterator struct {
+	Event *KfiveAccessControlRoleAdminChanged // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -939,7 +939,7 @@ type SmcRoleAdminChangedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRoleAdminChangedIterator) Next() bool {
+func (it *KfiveAccessControlRoleAdminChangedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -948,7 +948,7 @@ func (it *SmcRoleAdminChangedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRoleAdminChanged)
+			it.Event = new(KfiveAccessControlRoleAdminChanged)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -963,7 +963,7 @@ func (it *SmcRoleAdminChangedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRoleAdminChanged)
+		it.Event = new(KfiveAccessControlRoleAdminChanged)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -979,19 +979,19 @@ func (it *SmcRoleAdminChangedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRoleAdminChangedIterator) Error() error {
+func (it *KfiveAccessControlRoleAdminChangedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRoleAdminChangedIterator) Close() error {
+func (it *KfiveAccessControlRoleAdminChangedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRoleAdminChanged represents a RoleAdminChanged event raised by the Smc contract.
-type SmcRoleAdminChanged struct {
+// KfiveAccessControlRoleAdminChanged represents a RoleAdminChanged event raised by the KfiveAccessControl contract.
+type KfiveAccessControlRoleAdminChanged struct {
 	Role              [32]byte
 	PreviousAdminRole [32]byte
 	NewAdminRole      [32]byte
@@ -1001,7 +1001,7 @@ type SmcRoleAdminChanged struct {
 // FilterRoleAdminChanged is a free log retrieval operation binding the contract event 0xbd79b86ffe0ab8e8776151514217cd7cacd52c909f66475c3af44e129f0b00ff.
 //
 // Solidity: event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
-func (_Smc *SmcFilterer) FilterRoleAdminChanged(opts *bind.FilterOpts, role [][32]byte, previousAdminRole [][32]byte, newAdminRole [][32]byte) (*SmcRoleAdminChangedIterator, error) {
+func (_KfiveAccessControl *KfiveAccessControlFilterer) FilterRoleAdminChanged(opts *bind.FilterOpts, role [][32]byte, previousAdminRole [][32]byte, newAdminRole [][32]byte) (*KfiveAccessControlRoleAdminChangedIterator, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -1016,17 +1016,17 @@ func (_Smc *SmcFilterer) FilterRoleAdminChanged(opts *bind.FilterOpts, role [][3
 		newAdminRoleRule = append(newAdminRoleRule, newAdminRoleItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RoleAdminChanged", roleRule, previousAdminRoleRule, newAdminRoleRule)
+	logs, sub, err := _KfiveAccessControl.contract.FilterLogs(opts, "RoleAdminChanged", roleRule, previousAdminRoleRule, newAdminRoleRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRoleAdminChangedIterator{contract: _Smc.contract, event: "RoleAdminChanged", logs: logs, sub: sub}, nil
+	return &KfiveAccessControlRoleAdminChangedIterator{contract: _KfiveAccessControl.contract, event: "RoleAdminChanged", logs: logs, sub: sub}, nil
 }
 
 // WatchRoleAdminChanged is a free log subscription operation binding the contract event 0xbd79b86ffe0ab8e8776151514217cd7cacd52c909f66475c3af44e129f0b00ff.
 //
 // Solidity: event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
-func (_Smc *SmcFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<- *SmcRoleAdminChanged, role [][32]byte, previousAdminRole [][32]byte, newAdminRole [][32]byte) (event.Subscription, error) {
+func (_KfiveAccessControl *KfiveAccessControlFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<- *KfiveAccessControlRoleAdminChanged, role [][32]byte, previousAdminRole [][32]byte, newAdminRole [][32]byte) (event.Subscription, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -1041,7 +1041,7 @@ func (_Smc *SmcFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<-
 		newAdminRoleRule = append(newAdminRoleRule, newAdminRoleItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RoleAdminChanged", roleRule, previousAdminRoleRule, newAdminRoleRule)
+	logs, sub, err := _KfiveAccessControl.contract.WatchLogs(opts, "RoleAdminChanged", roleRule, previousAdminRoleRule, newAdminRoleRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1051,8 +1051,8 @@ func (_Smc *SmcFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<-
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRoleAdminChanged)
-				if err := _Smc.contract.UnpackLog(event, "RoleAdminChanged", log); err != nil {
+				event := new(KfiveAccessControlRoleAdminChanged)
+				if err := _KfiveAccessControl.contract.UnpackLog(event, "RoleAdminChanged", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1076,18 +1076,18 @@ func (_Smc *SmcFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<-
 // ParseRoleAdminChanged is a log parse operation binding the contract event 0xbd79b86ffe0ab8e8776151514217cd7cacd52c909f66475c3af44e129f0b00ff.
 //
 // Solidity: event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
-func (_Smc *SmcFilterer) ParseRoleAdminChanged(log types.Log) (*SmcRoleAdminChanged, error) {
-	event := new(SmcRoleAdminChanged)
-	if err := _Smc.contract.UnpackLog(event, "RoleAdminChanged", log); err != nil {
+func (_KfiveAccessControl *KfiveAccessControlFilterer) ParseRoleAdminChanged(log types.Log) (*KfiveAccessControlRoleAdminChanged, error) {
+	event := new(KfiveAccessControlRoleAdminChanged)
+	if err := _KfiveAccessControl.contract.UnpackLog(event, "RoleAdminChanged", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRoleGrantedIterator is returned from FilterRoleGranted and is used to iterate over the raw logs and unpacked data for RoleGranted events raised by the Smc contract.
-type SmcRoleGrantedIterator struct {
-	Event *SmcRoleGranted // Event containing the contract specifics and raw log
+// KfiveAccessControlRoleGrantedIterator is returned from FilterRoleGranted and is used to iterate over the raw logs and unpacked data for RoleGranted events raised by the KfiveAccessControl contract.
+type KfiveAccessControlRoleGrantedIterator struct {
+	Event *KfiveAccessControlRoleGranted // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1101,7 +1101,7 @@ type SmcRoleGrantedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRoleGrantedIterator) Next() bool {
+func (it *KfiveAccessControlRoleGrantedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1110,7 +1110,7 @@ func (it *SmcRoleGrantedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRoleGranted)
+			it.Event = new(KfiveAccessControlRoleGranted)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1125,7 +1125,7 @@ func (it *SmcRoleGrantedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRoleGranted)
+		it.Event = new(KfiveAccessControlRoleGranted)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1141,19 +1141,19 @@ func (it *SmcRoleGrantedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRoleGrantedIterator) Error() error {
+func (it *KfiveAccessControlRoleGrantedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRoleGrantedIterator) Close() error {
+func (it *KfiveAccessControlRoleGrantedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRoleGranted represents a RoleGranted event raised by the Smc contract.
-type SmcRoleGranted struct {
+// KfiveAccessControlRoleGranted represents a RoleGranted event raised by the KfiveAccessControl contract.
+type KfiveAccessControlRoleGranted struct {
 	Role    [32]byte
 	Account common.Address
 	Sender  common.Address
@@ -1163,7 +1163,7 @@ type SmcRoleGranted struct {
 // FilterRoleGranted is a free log retrieval operation binding the contract event 0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d.
 //
 // Solidity: event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) FilterRoleGranted(opts *bind.FilterOpts, role [][32]byte, account []common.Address, sender []common.Address) (*SmcRoleGrantedIterator, error) {
+func (_KfiveAccessControl *KfiveAccessControlFilterer) FilterRoleGranted(opts *bind.FilterOpts, role [][32]byte, account []common.Address, sender []common.Address) (*KfiveAccessControlRoleGrantedIterator, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -1178,17 +1178,17 @@ func (_Smc *SmcFilterer) FilterRoleGranted(opts *bind.FilterOpts, role [][32]byt
 		senderRule = append(senderRule, senderItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RoleGranted", roleRule, accountRule, senderRule)
+	logs, sub, err := _KfiveAccessControl.contract.FilterLogs(opts, "RoleGranted", roleRule, accountRule, senderRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRoleGrantedIterator{contract: _Smc.contract, event: "RoleGranted", logs: logs, sub: sub}, nil
+	return &KfiveAccessControlRoleGrantedIterator{contract: _KfiveAccessControl.contract, event: "RoleGranted", logs: logs, sub: sub}, nil
 }
 
 // WatchRoleGranted is a free log subscription operation binding the contract event 0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d.
 //
 // Solidity: event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *SmcRoleGranted, role [][32]byte, account []common.Address, sender []common.Address) (event.Subscription, error) {
+func (_KfiveAccessControl *KfiveAccessControlFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *KfiveAccessControlRoleGranted, role [][32]byte, account []common.Address, sender []common.Address) (event.Subscription, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -1203,7 +1203,7 @@ func (_Smc *SmcFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *Smc
 		senderRule = append(senderRule, senderItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RoleGranted", roleRule, accountRule, senderRule)
+	logs, sub, err := _KfiveAccessControl.contract.WatchLogs(opts, "RoleGranted", roleRule, accountRule, senderRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1213,8 +1213,8 @@ func (_Smc *SmcFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *Smc
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRoleGranted)
-				if err := _Smc.contract.UnpackLog(event, "RoleGranted", log); err != nil {
+				event := new(KfiveAccessControlRoleGranted)
+				if err := _KfiveAccessControl.contract.UnpackLog(event, "RoleGranted", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1238,18 +1238,18 @@ func (_Smc *SmcFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *Smc
 // ParseRoleGranted is a log parse operation binding the contract event 0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d.
 //
 // Solidity: event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) ParseRoleGranted(log types.Log) (*SmcRoleGranted, error) {
-	event := new(SmcRoleGranted)
-	if err := _Smc.contract.UnpackLog(event, "RoleGranted", log); err != nil {
+func (_KfiveAccessControl *KfiveAccessControlFilterer) ParseRoleGranted(log types.Log) (*KfiveAccessControlRoleGranted, error) {
+	event := new(KfiveAccessControlRoleGranted)
+	if err := _KfiveAccessControl.contract.UnpackLog(event, "RoleGranted", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRoleRevokedIterator is returned from FilterRoleRevoked and is used to iterate over the raw logs and unpacked data for RoleRevoked events raised by the Smc contract.
-type SmcRoleRevokedIterator struct {
-	Event *SmcRoleRevoked // Event containing the contract specifics and raw log
+// KfiveAccessControlRoleRevokedIterator is returned from FilterRoleRevoked and is used to iterate over the raw logs and unpacked data for RoleRevoked events raised by the KfiveAccessControl contract.
+type KfiveAccessControlRoleRevokedIterator struct {
+	Event *KfiveAccessControlRoleRevoked // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1263,7 +1263,7 @@ type SmcRoleRevokedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRoleRevokedIterator) Next() bool {
+func (it *KfiveAccessControlRoleRevokedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1272,7 +1272,7 @@ func (it *SmcRoleRevokedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRoleRevoked)
+			it.Event = new(KfiveAccessControlRoleRevoked)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1287,7 +1287,7 @@ func (it *SmcRoleRevokedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRoleRevoked)
+		it.Event = new(KfiveAccessControlRoleRevoked)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1303,19 +1303,19 @@ func (it *SmcRoleRevokedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRoleRevokedIterator) Error() error {
+func (it *KfiveAccessControlRoleRevokedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRoleRevokedIterator) Close() error {
+func (it *KfiveAccessControlRoleRevokedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRoleRevoked represents a RoleRevoked event raised by the Smc contract.
-type SmcRoleRevoked struct {
+// KfiveAccessControlRoleRevoked represents a RoleRevoked event raised by the KfiveAccessControl contract.
+type KfiveAccessControlRoleRevoked struct {
 	Role    [32]byte
 	Account common.Address
 	Sender  common.Address
@@ -1325,7 +1325,7 @@ type SmcRoleRevoked struct {
 // FilterRoleRevoked is a free log retrieval operation binding the contract event 0xf6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b.
 //
 // Solidity: event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) FilterRoleRevoked(opts *bind.FilterOpts, role [][32]byte, account []common.Address, sender []common.Address) (*SmcRoleRevokedIterator, error) {
+func (_KfiveAccessControl *KfiveAccessControlFilterer) FilterRoleRevoked(opts *bind.FilterOpts, role [][32]byte, account []common.Address, sender []common.Address) (*KfiveAccessControlRoleRevokedIterator, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -1340,17 +1340,17 @@ func (_Smc *SmcFilterer) FilterRoleRevoked(opts *bind.FilterOpts, role [][32]byt
 		senderRule = append(senderRule, senderItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RoleRevoked", roleRule, accountRule, senderRule)
+	logs, sub, err := _KfiveAccessControl.contract.FilterLogs(opts, "RoleRevoked", roleRule, accountRule, senderRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRoleRevokedIterator{contract: _Smc.contract, event: "RoleRevoked", logs: logs, sub: sub}, nil
+	return &KfiveAccessControlRoleRevokedIterator{contract: _KfiveAccessControl.contract, event: "RoleRevoked", logs: logs, sub: sub}, nil
 }
 
 // WatchRoleRevoked is a free log subscription operation binding the contract event 0xf6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b.
 //
 // Solidity: event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *SmcRoleRevoked, role [][32]byte, account []common.Address, sender []common.Address) (event.Subscription, error) {
+func (_KfiveAccessControl *KfiveAccessControlFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *KfiveAccessControlRoleRevoked, role [][32]byte, account []common.Address, sender []common.Address) (event.Subscription, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -1365,7 +1365,7 @@ func (_Smc *SmcFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *Smc
 		senderRule = append(senderRule, senderItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RoleRevoked", roleRule, accountRule, senderRule)
+	logs, sub, err := _KfiveAccessControl.contract.WatchLogs(opts, "RoleRevoked", roleRule, accountRule, senderRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1375,8 +1375,8 @@ func (_Smc *SmcFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *Smc
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRoleRevoked)
-				if err := _Smc.contract.UnpackLog(event, "RoleRevoked", log); err != nil {
+				event := new(KfiveAccessControlRoleRevoked)
+				if err := _KfiveAccessControl.contract.UnpackLog(event, "RoleRevoked", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1400,18 +1400,18 @@ func (_Smc *SmcFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *Smc
 // ParseRoleRevoked is a log parse operation binding the contract event 0xf6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b.
 //
 // Solidity: event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) ParseRoleRevoked(log types.Log) (*SmcRoleRevoked, error) {
-	event := new(SmcRoleRevoked)
-	if err := _Smc.contract.UnpackLog(event, "RoleRevoked", log); err != nil {
+func (_KfiveAccessControl *KfiveAccessControlFilterer) ParseRoleRevoked(log types.Log) (*KfiveAccessControlRoleRevoked, error) {
+	event := new(KfiveAccessControlRoleRevoked)
+	if err := _KfiveAccessControl.contract.UnpackLog(event, "RoleRevoked", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcUnpausedIterator is returned from FilterUnpaused and is used to iterate over the raw logs and unpacked data for Unpaused events raised by the Smc contract.
-type SmcUnpausedIterator struct {
-	Event *SmcUnpaused // Event containing the contract specifics and raw log
+// KfiveAccessControlUnpausedIterator is returned from FilterUnpaused and is used to iterate over the raw logs and unpacked data for Unpaused events raised by the KfiveAccessControl contract.
+type KfiveAccessControlUnpausedIterator struct {
+	Event *KfiveAccessControlUnpaused // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1425,7 +1425,7 @@ type SmcUnpausedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcUnpausedIterator) Next() bool {
+func (it *KfiveAccessControlUnpausedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1434,7 +1434,7 @@ func (it *SmcUnpausedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcUnpaused)
+			it.Event = new(KfiveAccessControlUnpaused)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1449,7 +1449,7 @@ func (it *SmcUnpausedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcUnpaused)
+		it.Event = new(KfiveAccessControlUnpaused)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1465,19 +1465,19 @@ func (it *SmcUnpausedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcUnpausedIterator) Error() error {
+func (it *KfiveAccessControlUnpausedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcUnpausedIterator) Close() error {
+func (it *KfiveAccessControlUnpausedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcUnpaused represents a Unpaused event raised by the Smc contract.
-type SmcUnpaused struct {
+// KfiveAccessControlUnpaused represents a Unpaused event raised by the KfiveAccessControl contract.
+type KfiveAccessControlUnpaused struct {
 	Account common.Address
 	Raw     types.Log // Blockchain specific contextual infos
 }
@@ -1485,21 +1485,21 @@ type SmcUnpaused struct {
 // FilterUnpaused is a free log retrieval operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) FilterUnpaused(opts *bind.FilterOpts) (*SmcUnpausedIterator, error) {
+func (_KfiveAccessControl *KfiveAccessControlFilterer) FilterUnpaused(opts *bind.FilterOpts) (*KfiveAccessControlUnpausedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Unpaused")
+	logs, sub, err := _KfiveAccessControl.contract.FilterLogs(opts, "Unpaused")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcUnpausedIterator{contract: _Smc.contract, event: "Unpaused", logs: logs, sub: sub}, nil
+	return &KfiveAccessControlUnpausedIterator{contract: _KfiveAccessControl.contract, event: "Unpaused", logs: logs, sub: sub}, nil
 }
 
 // WatchUnpaused is a free log subscription operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnpaused) (event.Subscription, error) {
+func (_KfiveAccessControl *KfiveAccessControlFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *KfiveAccessControlUnpaused) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Unpaused")
+	logs, sub, err := _KfiveAccessControl.contract.WatchLogs(opts, "Unpaused")
 	if err != nil {
 		return nil, err
 	}
@@ -1509,8 +1509,8 @@ func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnp
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcUnpaused)
-				if err := _Smc.contract.UnpackLog(event, "Unpaused", log); err != nil {
+				event := new(KfiveAccessControlUnpaused)
+				if err := _KfiveAccessControl.contract.UnpackLog(event, "Unpaused", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1534,9 +1534,9 @@ func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnp
 // ParseUnpaused is a log parse operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) ParseUnpaused(log types.Log) (*SmcUnpaused, error) {
-	event := new(SmcUnpaused)
-	if err := _Smc.contract.UnpackLog(event, "Unpaused", log); err != nil {
+func (_KfiveAccessControl *KfiveAccessControlFilterer) ParseUnpaused(log types.Log) (*KfiveAccessControlUnpaused, error) {
+	event := new(KfiveAccessControlUnpaused)
+	if err := _KfiveAccessControl.contract.UnpackLog(event, "Unpaused", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log

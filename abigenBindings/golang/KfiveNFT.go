@@ -1,7 +1,7 @@
 // Code generated - DO NOT EDIT.
 // This file is a generated binding and any manual changes will be lost.
 
-package smc
+package KfiveNFT
 
 import (
 	"errors"
@@ -28,113 +28,113 @@ var (
 	_ = event.NewSubscription
 )
 
-// SmcMetaData contains all meta data concerning the Smc contract.
-var SmcMetaData = &bind.MetaData{
+// KfiveNFTMetaData contains all meta data concerning the KfiveNFT contract.
+var KfiveNFTMetaData = &bind.MetaData{
 	ABI: "[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_marketplaceStorage\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"tokenName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"tokenSymbol\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"baseTokenURI\",\"type\":\"string\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_user\",\"type\":\"address\"}],\"name\":\"AddedBlackList\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"approved\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"ApprovalForAll\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_marketplaceStorage\",\"type\":\"address\"}],\"name\":\"MarketplaceStorageUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_user\",\"type\":\"address\"}],\"name\":\"RemovedBlackList\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"IMarketplaceStorage_Interface\",\"outputs\":[{\"internalType\":\"bytes4\",\"name\":\"\",\"type\":\"bytes4\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MINTER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PAUSER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_evilUser\",\"type\":\"address\"}],\"name\":\"addBlackList\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getApproved\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_maker\",\"type\":\"address\"}],\"name\":\"getBlackListStatus\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getRoleMember\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleMemberCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"name\":\"isApprovedForAll\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"isBlackListed\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"marketplaceStorage\",\"outputs\":[{\"internalType\":\"contractIMarketplaceStorage\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"ownerOf\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_clearedUser\",\"type\":\"address\"}],\"name\":\"removeBlackList\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"setApprovalForAll\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"tokenByIndex\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"tokenOfOwnerByIndex\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"gtokenURI\",\"type\":\"string\"}],\"name\":\"mint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"burn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"tokenURI\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_marketplaceStorage\",\"type\":\"address\"}],\"name\":\"updateStorageAddress\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
-// SmcABI is the input ABI used to generate the binding from.
-// Deprecated: Use SmcMetaData.ABI instead.
-var SmcABI = SmcMetaData.ABI
+// KfiveNFTABI is the input ABI used to generate the binding from.
+// Deprecated: Use KfiveNFTMetaData.ABI instead.
+var KfiveNFTABI = KfiveNFTMetaData.ABI
 
-// Smc is an auto generated Go binding around an Ethereum contract.
-type Smc struct {
-	SmcCaller     // Read-only binding to the contract
-	SmcTransactor // Write-only binding to the contract
-	SmcFilterer   // Log filterer for contract events
+// KfiveNFT is an auto generated Go binding around an Ethereum contract.
+type KfiveNFT struct {
+	KfiveNFTCaller     // Read-only binding to the contract
+	KfiveNFTTransactor // Write-only binding to the contract
+	KfiveNFTFilterer   // Log filterer for contract events
 }
 
-// SmcCaller is an auto generated read-only Go binding around an Ethereum contract.
-type SmcCaller struct {
+// KfiveNFTCaller is an auto generated read-only Go binding around an Ethereum contract.
+type KfiveNFTCaller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcTransactor is an auto generated write-only Go binding around an Ethereum contract.
-type SmcTransactor struct {
+// KfiveNFTTransactor is an auto generated write-only Go binding around an Ethereum contract.
+type KfiveNFTTransactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
-type SmcFilterer struct {
+// KfiveNFTFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type KfiveNFTFilterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcSession is an auto generated Go binding around an Ethereum contract,
+// KfiveNFTSession is an auto generated Go binding around an Ethereum contract,
 // with pre-set call and transact options.
-type SmcSession struct {
-	Contract     *Smc              // Generic contract binding to set the session for
+type KfiveNFTSession struct {
+	Contract     *KfiveNFT         // Generic contract binding to set the session for
 	CallOpts     bind.CallOpts     // Call options to use throughout this session
 	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 }
 
-// SmcCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// KfiveNFTCallerSession is an auto generated read-only Go binding around an Ethereum contract,
 // with pre-set call options.
-type SmcCallerSession struct {
-	Contract *SmcCaller    // Generic contract caller binding to set the session for
-	CallOpts bind.CallOpts // Call options to use throughout this session
+type KfiveNFTCallerSession struct {
+	Contract *KfiveNFTCaller // Generic contract caller binding to set the session for
+	CallOpts bind.CallOpts   // Call options to use throughout this session
 }
 
-// SmcTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// KfiveNFTTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
 // with pre-set transact options.
-type SmcTransactorSession struct {
-	Contract     *SmcTransactor    // Generic contract transactor binding to set the session for
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type KfiveNFTTransactorSession struct {
+	Contract     *KfiveNFTTransactor // Generic contract transactor binding to set the session for
+	TransactOpts bind.TransactOpts   // Transaction auth options to use throughout this session
 }
 
-// SmcRaw is an auto generated low-level Go binding around an Ethereum contract.
-type SmcRaw struct {
-	Contract *Smc // Generic contract binding to access the raw methods on
+// KfiveNFTRaw is an auto generated low-level Go binding around an Ethereum contract.
+type KfiveNFTRaw struct {
+	Contract *KfiveNFT // Generic contract binding to access the raw methods on
 }
 
-// SmcCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
-type SmcCallerRaw struct {
-	Contract *SmcCaller // Generic read-only contract binding to access the raw methods on
+// KfiveNFTCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type KfiveNFTCallerRaw struct {
+	Contract *KfiveNFTCaller // Generic read-only contract binding to access the raw methods on
 }
 
-// SmcTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
-type SmcTransactorRaw struct {
-	Contract *SmcTransactor // Generic write-only contract binding to access the raw methods on
+// KfiveNFTTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type KfiveNFTTransactorRaw struct {
+	Contract *KfiveNFTTransactor // Generic write-only contract binding to access the raw methods on
 }
 
-// NewSmc creates a new instance of Smc, bound to a specific deployed contract.
-func NewSmc(address common.Address, backend bind.ContractBackend) (*Smc, error) {
-	contract, err := bindSmc(address, backend, backend, backend)
+// NewKfiveNFT creates a new instance of KfiveNFT, bound to a specific deployed contract.
+func NewKfiveNFT(address common.Address, backend bind.ContractBackend) (*KfiveNFT, error) {
+	contract, err := bindKfiveNFT(address, backend, backend, backend)
 	if err != nil {
 		return nil, err
 	}
-	return &Smc{SmcCaller: SmcCaller{contract: contract}, SmcTransactor: SmcTransactor{contract: contract}, SmcFilterer: SmcFilterer{contract: contract}}, nil
+	return &KfiveNFT{KfiveNFTCaller: KfiveNFTCaller{contract: contract}, KfiveNFTTransactor: KfiveNFTTransactor{contract: contract}, KfiveNFTFilterer: KfiveNFTFilterer{contract: contract}}, nil
 }
 
-// NewSmcCaller creates a new read-only instance of Smc, bound to a specific deployed contract.
-func NewSmcCaller(address common.Address, caller bind.ContractCaller) (*SmcCaller, error) {
-	contract, err := bindSmc(address, caller, nil, nil)
+// NewKfiveNFTCaller creates a new read-only instance of KfiveNFT, bound to a specific deployed contract.
+func NewKfiveNFTCaller(address common.Address, caller bind.ContractCaller) (*KfiveNFTCaller, error) {
+	contract, err := bindKfiveNFT(address, caller, nil, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcCaller{contract: contract}, nil
+	return &KfiveNFTCaller{contract: contract}, nil
 }
 
-// NewSmcTransactor creates a new write-only instance of Smc, bound to a specific deployed contract.
-func NewSmcTransactor(address common.Address, transactor bind.ContractTransactor) (*SmcTransactor, error) {
-	contract, err := bindSmc(address, nil, transactor, nil)
+// NewKfiveNFTTransactor creates a new write-only instance of KfiveNFT, bound to a specific deployed contract.
+func NewKfiveNFTTransactor(address common.Address, transactor bind.ContractTransactor) (*KfiveNFTTransactor, error) {
+	contract, err := bindKfiveNFT(address, nil, transactor, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTransactor{contract: contract}, nil
+	return &KfiveNFTTransactor{contract: contract}, nil
 }
 
-// NewSmcFilterer creates a new log filterer instance of Smc, bound to a specific deployed contract.
-func NewSmcFilterer(address common.Address, filterer bind.ContractFilterer) (*SmcFilterer, error) {
-	contract, err := bindSmc(address, nil, nil, filterer)
+// NewKfiveNFTFilterer creates a new log filterer instance of KfiveNFT, bound to a specific deployed contract.
+func NewKfiveNFTFilterer(address common.Address, filterer bind.ContractFilterer) (*KfiveNFTFilterer, error) {
+	contract, err := bindKfiveNFT(address, nil, nil, filterer)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcFilterer{contract: contract}, nil
+	return &KfiveNFTFilterer{contract: contract}, nil
 }
 
-// bindSmc binds a generic wrapper to an already deployed contract.
-func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-	parsed, err := abi.JSON(strings.NewReader(SmcABI))
+// bindKfiveNFT binds a generic wrapper to an already deployed contract.
+func bindKfiveNFT(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := abi.JSON(strings.NewReader(KfiveNFTABI))
 	if err != nil {
 		return nil, err
 	}
@@ -145,46 +145,46 @@ func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.SmcCaller.contract.Call(opts, result, method, params...)
+func (_KfiveNFT *KfiveNFTRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _KfiveNFT.Contract.KfiveNFTCaller.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transfer(opts)
+func (_KfiveNFT *KfiveNFTRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.KfiveNFTTransactor.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transact(opts, method, params...)
+func (_KfiveNFT *KfiveNFTRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.KfiveNFTTransactor.contract.Transact(opts, method, params...)
 }
 
 // Call invokes the (constant) contract method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.contract.Call(opts, result, method, params...)
+func (_KfiveNFT *KfiveNFTCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _KfiveNFT.Contract.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transfer(opts)
+func (_KfiveNFT *KfiveNFTTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transact(opts, method, params...)
+func (_KfiveNFT *KfiveNFTTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.contract.Transact(opts, method, params...)
 }
 
 // ADMINROLE is a free data retrieval call binding the contract method 0x75b238fc.
 //
 // Solidity: function ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcCaller) ADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
+func (_KfiveNFT *KfiveNFTCaller) ADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "ADMIN_ROLE")
+	err := _KfiveNFT.contract.Call(opts, &out, "ADMIN_ROLE")
 
 	if err != nil {
 		return *new([32]byte), err
@@ -199,23 +199,23 @@ func (_Smc *SmcCaller) ADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
 // ADMINROLE is a free data retrieval call binding the contract method 0x75b238fc.
 //
 // Solidity: function ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcSession) ADMINROLE() ([32]byte, error) {
-	return _Smc.Contract.ADMINROLE(&_Smc.CallOpts)
+func (_KfiveNFT *KfiveNFTSession) ADMINROLE() ([32]byte, error) {
+	return _KfiveNFT.Contract.ADMINROLE(&_KfiveNFT.CallOpts)
 }
 
 // ADMINROLE is a free data retrieval call binding the contract method 0x75b238fc.
 //
 // Solidity: function ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcCallerSession) ADMINROLE() ([32]byte, error) {
-	return _Smc.Contract.ADMINROLE(&_Smc.CallOpts)
+func (_KfiveNFT *KfiveNFTCallerSession) ADMINROLE() ([32]byte, error) {
+	return _KfiveNFT.Contract.ADMINROLE(&_KfiveNFT.CallOpts)
 }
 
 // DEFAULTADMINROLE is a free data retrieval call binding the contract method 0xa217fddf.
 //
 // Solidity: function DEFAULT_ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcCaller) DEFAULTADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
+func (_KfiveNFT *KfiveNFTCaller) DEFAULTADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "DEFAULT_ADMIN_ROLE")
+	err := _KfiveNFT.contract.Call(opts, &out, "DEFAULT_ADMIN_ROLE")
 
 	if err != nil {
 		return *new([32]byte), err
@@ -230,23 +230,23 @@ func (_Smc *SmcCaller) DEFAULTADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
 // DEFAULTADMINROLE is a free data retrieval call binding the contract method 0xa217fddf.
 //
 // Solidity: function DEFAULT_ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcSession) DEFAULTADMINROLE() ([32]byte, error) {
-	return _Smc.Contract.DEFAULTADMINROLE(&_Smc.CallOpts)
+func (_KfiveNFT *KfiveNFTSession) DEFAULTADMINROLE() ([32]byte, error) {
+	return _KfiveNFT.Contract.DEFAULTADMINROLE(&_KfiveNFT.CallOpts)
 }
 
 // DEFAULTADMINROLE is a free data retrieval call binding the contract method 0xa217fddf.
 //
 // Solidity: function DEFAULT_ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcCallerSession) DEFAULTADMINROLE() ([32]byte, error) {
-	return _Smc.Contract.DEFAULTADMINROLE(&_Smc.CallOpts)
+func (_KfiveNFT *KfiveNFTCallerSession) DEFAULTADMINROLE() ([32]byte, error) {
+	return _KfiveNFT.Contract.DEFAULTADMINROLE(&_KfiveNFT.CallOpts)
 }
 
 // IMarketplaceStorageInterface is a free data retrieval call binding the contract method 0x8bafe559.
 //
 // Solidity: function IMarketplaceStorage_Interface() view returns(bytes4)
-func (_Smc *SmcCaller) IMarketplaceStorageInterface(opts *bind.CallOpts) ([4]byte, error) {
+func (_KfiveNFT *KfiveNFTCaller) IMarketplaceStorageInterface(opts *bind.CallOpts) ([4]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "IMarketplaceStorage_Interface")
+	err := _KfiveNFT.contract.Call(opts, &out, "IMarketplaceStorage_Interface")
 
 	if err != nil {
 		return *new([4]byte), err
@@ -261,23 +261,23 @@ func (_Smc *SmcCaller) IMarketplaceStorageInterface(opts *bind.CallOpts) ([4]byt
 // IMarketplaceStorageInterface is a free data retrieval call binding the contract method 0x8bafe559.
 //
 // Solidity: function IMarketplaceStorage_Interface() view returns(bytes4)
-func (_Smc *SmcSession) IMarketplaceStorageInterface() ([4]byte, error) {
-	return _Smc.Contract.IMarketplaceStorageInterface(&_Smc.CallOpts)
+func (_KfiveNFT *KfiveNFTSession) IMarketplaceStorageInterface() ([4]byte, error) {
+	return _KfiveNFT.Contract.IMarketplaceStorageInterface(&_KfiveNFT.CallOpts)
 }
 
 // IMarketplaceStorageInterface is a free data retrieval call binding the contract method 0x8bafe559.
 //
 // Solidity: function IMarketplaceStorage_Interface() view returns(bytes4)
-func (_Smc *SmcCallerSession) IMarketplaceStorageInterface() ([4]byte, error) {
-	return _Smc.Contract.IMarketplaceStorageInterface(&_Smc.CallOpts)
+func (_KfiveNFT *KfiveNFTCallerSession) IMarketplaceStorageInterface() ([4]byte, error) {
+	return _KfiveNFT.Contract.IMarketplaceStorageInterface(&_KfiveNFT.CallOpts)
 }
 
 // MINTERROLE is a free data retrieval call binding the contract method 0xd5391393.
 //
 // Solidity: function MINTER_ROLE() view returns(bytes32)
-func (_Smc *SmcCaller) MINTERROLE(opts *bind.CallOpts) ([32]byte, error) {
+func (_KfiveNFT *KfiveNFTCaller) MINTERROLE(opts *bind.CallOpts) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "MINTER_ROLE")
+	err := _KfiveNFT.contract.Call(opts, &out, "MINTER_ROLE")
 
 	if err != nil {
 		return *new([32]byte), err
@@ -292,23 +292,23 @@ func (_Smc *SmcCaller) MINTERROLE(opts *bind.CallOpts) ([32]byte, error) {
 // MINTERROLE is a free data retrieval call binding the contract method 0xd5391393.
 //
 // Solidity: function MINTER_ROLE() view returns(bytes32)
-func (_Smc *SmcSession) MINTERROLE() ([32]byte, error) {
-	return _Smc.Contract.MINTERROLE(&_Smc.CallOpts)
+func (_KfiveNFT *KfiveNFTSession) MINTERROLE() ([32]byte, error) {
+	return _KfiveNFT.Contract.MINTERROLE(&_KfiveNFT.CallOpts)
 }
 
 // MINTERROLE is a free data retrieval call binding the contract method 0xd5391393.
 //
 // Solidity: function MINTER_ROLE() view returns(bytes32)
-func (_Smc *SmcCallerSession) MINTERROLE() ([32]byte, error) {
-	return _Smc.Contract.MINTERROLE(&_Smc.CallOpts)
+func (_KfiveNFT *KfiveNFTCallerSession) MINTERROLE() ([32]byte, error) {
+	return _KfiveNFT.Contract.MINTERROLE(&_KfiveNFT.CallOpts)
 }
 
 // PAUSERROLE is a free data retrieval call binding the contract method 0xe63ab1e9.
 //
 // Solidity: function PAUSER_ROLE() view returns(bytes32)
-func (_Smc *SmcCaller) PAUSERROLE(opts *bind.CallOpts) ([32]byte, error) {
+func (_KfiveNFT *KfiveNFTCaller) PAUSERROLE(opts *bind.CallOpts) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "PAUSER_ROLE")
+	err := _KfiveNFT.contract.Call(opts, &out, "PAUSER_ROLE")
 
 	if err != nil {
 		return *new([32]byte), err
@@ -323,23 +323,23 @@ func (_Smc *SmcCaller) PAUSERROLE(opts *bind.CallOpts) ([32]byte, error) {
 // PAUSERROLE is a free data retrieval call binding the contract method 0xe63ab1e9.
 //
 // Solidity: function PAUSER_ROLE() view returns(bytes32)
-func (_Smc *SmcSession) PAUSERROLE() ([32]byte, error) {
-	return _Smc.Contract.PAUSERROLE(&_Smc.CallOpts)
+func (_KfiveNFT *KfiveNFTSession) PAUSERROLE() ([32]byte, error) {
+	return _KfiveNFT.Contract.PAUSERROLE(&_KfiveNFT.CallOpts)
 }
 
 // PAUSERROLE is a free data retrieval call binding the contract method 0xe63ab1e9.
 //
 // Solidity: function PAUSER_ROLE() view returns(bytes32)
-func (_Smc *SmcCallerSession) PAUSERROLE() ([32]byte, error) {
-	return _Smc.Contract.PAUSERROLE(&_Smc.CallOpts)
+func (_KfiveNFT *KfiveNFTCallerSession) PAUSERROLE() ([32]byte, error) {
+	return _KfiveNFT.Contract.PAUSERROLE(&_KfiveNFT.CallOpts)
 }
 
 // BalanceOf is a free data retrieval call binding the contract method 0x70a08231.
 //
 // Solidity: function balanceOf(address owner) view returns(uint256)
-func (_Smc *SmcCaller) BalanceOf(opts *bind.CallOpts, owner common.Address) (*big.Int, error) {
+func (_KfiveNFT *KfiveNFTCaller) BalanceOf(opts *bind.CallOpts, owner common.Address) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "balanceOf", owner)
+	err := _KfiveNFT.contract.Call(opts, &out, "balanceOf", owner)
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -354,23 +354,23 @@ func (_Smc *SmcCaller) BalanceOf(opts *bind.CallOpts, owner common.Address) (*bi
 // BalanceOf is a free data retrieval call binding the contract method 0x70a08231.
 //
 // Solidity: function balanceOf(address owner) view returns(uint256)
-func (_Smc *SmcSession) BalanceOf(owner common.Address) (*big.Int, error) {
-	return _Smc.Contract.BalanceOf(&_Smc.CallOpts, owner)
+func (_KfiveNFT *KfiveNFTSession) BalanceOf(owner common.Address) (*big.Int, error) {
+	return _KfiveNFT.Contract.BalanceOf(&_KfiveNFT.CallOpts, owner)
 }
 
 // BalanceOf is a free data retrieval call binding the contract method 0x70a08231.
 //
 // Solidity: function balanceOf(address owner) view returns(uint256)
-func (_Smc *SmcCallerSession) BalanceOf(owner common.Address) (*big.Int, error) {
-	return _Smc.Contract.BalanceOf(&_Smc.CallOpts, owner)
+func (_KfiveNFT *KfiveNFTCallerSession) BalanceOf(owner common.Address) (*big.Int, error) {
+	return _KfiveNFT.Contract.BalanceOf(&_KfiveNFT.CallOpts, owner)
 }
 
 // GetApproved is a free data retrieval call binding the contract method 0x081812fc.
 //
 // Solidity: function getApproved(uint256 tokenId) view returns(address)
-func (_Smc *SmcCaller) GetApproved(opts *bind.CallOpts, tokenId *big.Int) (common.Address, error) {
+func (_KfiveNFT *KfiveNFTCaller) GetApproved(opts *bind.CallOpts, tokenId *big.Int) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getApproved", tokenId)
+	err := _KfiveNFT.contract.Call(opts, &out, "getApproved", tokenId)
 
 	if err != nil {
 		return *new(common.Address), err
@@ -385,23 +385,23 @@ func (_Smc *SmcCaller) GetApproved(opts *bind.CallOpts, tokenId *big.Int) (commo
 // GetApproved is a free data retrieval call binding the contract method 0x081812fc.
 //
 // Solidity: function getApproved(uint256 tokenId) view returns(address)
-func (_Smc *SmcSession) GetApproved(tokenId *big.Int) (common.Address, error) {
-	return _Smc.Contract.GetApproved(&_Smc.CallOpts, tokenId)
+func (_KfiveNFT *KfiveNFTSession) GetApproved(tokenId *big.Int) (common.Address, error) {
+	return _KfiveNFT.Contract.GetApproved(&_KfiveNFT.CallOpts, tokenId)
 }
 
 // GetApproved is a free data retrieval call binding the contract method 0x081812fc.
 //
 // Solidity: function getApproved(uint256 tokenId) view returns(address)
-func (_Smc *SmcCallerSession) GetApproved(tokenId *big.Int) (common.Address, error) {
-	return _Smc.Contract.GetApproved(&_Smc.CallOpts, tokenId)
+func (_KfiveNFT *KfiveNFTCallerSession) GetApproved(tokenId *big.Int) (common.Address, error) {
+	return _KfiveNFT.Contract.GetApproved(&_KfiveNFT.CallOpts, tokenId)
 }
 
 // GetBlackListStatus is a free data retrieval call binding the contract method 0x59bf1abe.
 //
 // Solidity: function getBlackListStatus(address _maker) view returns(bool)
-func (_Smc *SmcCaller) GetBlackListStatus(opts *bind.CallOpts, _maker common.Address) (bool, error) {
+func (_KfiveNFT *KfiveNFTCaller) GetBlackListStatus(opts *bind.CallOpts, _maker common.Address) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getBlackListStatus", _maker)
+	err := _KfiveNFT.contract.Call(opts, &out, "getBlackListStatus", _maker)
 
 	if err != nil {
 		return *new(bool), err
@@ -416,23 +416,23 @@ func (_Smc *SmcCaller) GetBlackListStatus(opts *bind.CallOpts, _maker common.Add
 // GetBlackListStatus is a free data retrieval call binding the contract method 0x59bf1abe.
 //
 // Solidity: function getBlackListStatus(address _maker) view returns(bool)
-func (_Smc *SmcSession) GetBlackListStatus(_maker common.Address) (bool, error) {
-	return _Smc.Contract.GetBlackListStatus(&_Smc.CallOpts, _maker)
+func (_KfiveNFT *KfiveNFTSession) GetBlackListStatus(_maker common.Address) (bool, error) {
+	return _KfiveNFT.Contract.GetBlackListStatus(&_KfiveNFT.CallOpts, _maker)
 }
 
 // GetBlackListStatus is a free data retrieval call binding the contract method 0x59bf1abe.
 //
 // Solidity: function getBlackListStatus(address _maker) view returns(bool)
-func (_Smc *SmcCallerSession) GetBlackListStatus(_maker common.Address) (bool, error) {
-	return _Smc.Contract.GetBlackListStatus(&_Smc.CallOpts, _maker)
+func (_KfiveNFT *KfiveNFTCallerSession) GetBlackListStatus(_maker common.Address) (bool, error) {
+	return _KfiveNFT.Contract.GetBlackListStatus(&_KfiveNFT.CallOpts, _maker)
 }
 
 // GetRoleAdmin is a free data retrieval call binding the contract method 0x248a9ca3.
 //
 // Solidity: function getRoleAdmin(bytes32 role) view returns(bytes32)
-func (_Smc *SmcCaller) GetRoleAdmin(opts *bind.CallOpts, role [32]byte) ([32]byte, error) {
+func (_KfiveNFT *KfiveNFTCaller) GetRoleAdmin(opts *bind.CallOpts, role [32]byte) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getRoleAdmin", role)
+	err := _KfiveNFT.contract.Call(opts, &out, "getRoleAdmin", role)
 
 	if err != nil {
 		return *new([32]byte), err
@@ -447,23 +447,23 @@ func (_Smc *SmcCaller) GetRoleAdmin(opts *bind.CallOpts, role [32]byte) ([32]byt
 // GetRoleAdmin is a free data retrieval call binding the contract method 0x248a9ca3.
 //
 // Solidity: function getRoleAdmin(bytes32 role) view returns(bytes32)
-func (_Smc *SmcSession) GetRoleAdmin(role [32]byte) ([32]byte, error) {
-	return _Smc.Contract.GetRoleAdmin(&_Smc.CallOpts, role)
+func (_KfiveNFT *KfiveNFTSession) GetRoleAdmin(role [32]byte) ([32]byte, error) {
+	return _KfiveNFT.Contract.GetRoleAdmin(&_KfiveNFT.CallOpts, role)
 }
 
 // GetRoleAdmin is a free data retrieval call binding the contract method 0x248a9ca3.
 //
 // Solidity: function getRoleAdmin(bytes32 role) view returns(bytes32)
-func (_Smc *SmcCallerSession) GetRoleAdmin(role [32]byte) ([32]byte, error) {
-	return _Smc.Contract.GetRoleAdmin(&_Smc.CallOpts, role)
+func (_KfiveNFT *KfiveNFTCallerSession) GetRoleAdmin(role [32]byte) ([32]byte, error) {
+	return _KfiveNFT.Contract.GetRoleAdmin(&_KfiveNFT.CallOpts, role)
 }
 
 // GetRoleMember is a free data retrieval call binding the contract method 0x9010d07c.
 //
 // Solidity: function getRoleMember(bytes32 role, uint256 index) view returns(address)
-func (_Smc *SmcCaller) GetRoleMember(opts *bind.CallOpts, role [32]byte, index *big.Int) (common.Address, error) {
+func (_KfiveNFT *KfiveNFTCaller) GetRoleMember(opts *bind.CallOpts, role [32]byte, index *big.Int) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getRoleMember", role, index)
+	err := _KfiveNFT.contract.Call(opts, &out, "getRoleMember", role, index)
 
 	if err != nil {
 		return *new(common.Address), err
@@ -478,23 +478,23 @@ func (_Smc *SmcCaller) GetRoleMember(opts *bind.CallOpts, role [32]byte, index *
 // GetRoleMember is a free data retrieval call binding the contract method 0x9010d07c.
 //
 // Solidity: function getRoleMember(bytes32 role, uint256 index) view returns(address)
-func (_Smc *SmcSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
-	return _Smc.Contract.GetRoleMember(&_Smc.CallOpts, role, index)
+func (_KfiveNFT *KfiveNFTSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
+	return _KfiveNFT.Contract.GetRoleMember(&_KfiveNFT.CallOpts, role, index)
 }
 
 // GetRoleMember is a free data retrieval call binding the contract method 0x9010d07c.
 //
 // Solidity: function getRoleMember(bytes32 role, uint256 index) view returns(address)
-func (_Smc *SmcCallerSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
-	return _Smc.Contract.GetRoleMember(&_Smc.CallOpts, role, index)
+func (_KfiveNFT *KfiveNFTCallerSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
+	return _KfiveNFT.Contract.GetRoleMember(&_KfiveNFT.CallOpts, role, index)
 }
 
 // GetRoleMemberCount is a free data retrieval call binding the contract method 0xca15c873.
 //
 // Solidity: function getRoleMemberCount(bytes32 role) view returns(uint256)
-func (_Smc *SmcCaller) GetRoleMemberCount(opts *bind.CallOpts, role [32]byte) (*big.Int, error) {
+func (_KfiveNFT *KfiveNFTCaller) GetRoleMemberCount(opts *bind.CallOpts, role [32]byte) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getRoleMemberCount", role)
+	err := _KfiveNFT.contract.Call(opts, &out, "getRoleMemberCount", role)
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -509,23 +509,23 @@ func (_Smc *SmcCaller) GetRoleMemberCount(opts *bind.CallOpts, role [32]byte) (*
 // GetRoleMemberCount is a free data retrieval call binding the contract method 0xca15c873.
 //
 // Solidity: function getRoleMemberCount(bytes32 role) view returns(uint256)
-func (_Smc *SmcSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
-	return _Smc.Contract.GetRoleMemberCount(&_Smc.CallOpts, role)
+func (_KfiveNFT *KfiveNFTSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
+	return _KfiveNFT.Contract.GetRoleMemberCount(&_KfiveNFT.CallOpts, role)
 }
 
 // GetRoleMemberCount is a free data retrieval call binding the contract method 0xca15c873.
 //
 // Solidity: function getRoleMemberCount(bytes32 role) view returns(uint256)
-func (_Smc *SmcCallerSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
-	return _Smc.Contract.GetRoleMemberCount(&_Smc.CallOpts, role)
+func (_KfiveNFT *KfiveNFTCallerSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
+	return _KfiveNFT.Contract.GetRoleMemberCount(&_KfiveNFT.CallOpts, role)
 }
 
 // HasRole is a free data retrieval call binding the contract method 0x91d14854.
 //
 // Solidity: function hasRole(bytes32 role, address account) view returns(bool)
-func (_Smc *SmcCaller) HasRole(opts *bind.CallOpts, role [32]byte, account common.Address) (bool, error) {
+func (_KfiveNFT *KfiveNFTCaller) HasRole(opts *bind.CallOpts, role [32]byte, account common.Address) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "hasRole", role, account)
+	err := _KfiveNFT.contract.Call(opts, &out, "hasRole", role, account)
 
 	if err != nil {
 		return *new(bool), err
@@ -540,23 +540,23 @@ func (_Smc *SmcCaller) HasRole(opts *bind.CallOpts, role [32]byte, account commo
 // HasRole is a free data retrieval call binding the contract method 0x91d14854.
 //
 // Solidity: function hasRole(bytes32 role, address account) view returns(bool)
-func (_Smc *SmcSession) HasRole(role [32]byte, account common.Address) (bool, error) {
-	return _Smc.Contract.HasRole(&_Smc.CallOpts, role, account)
+func (_KfiveNFT *KfiveNFTSession) HasRole(role [32]byte, account common.Address) (bool, error) {
+	return _KfiveNFT.Contract.HasRole(&_KfiveNFT.CallOpts, role, account)
 }
 
 // HasRole is a free data retrieval call binding the contract method 0x91d14854.
 //
 // Solidity: function hasRole(bytes32 role, address account) view returns(bool)
-func (_Smc *SmcCallerSession) HasRole(role [32]byte, account common.Address) (bool, error) {
-	return _Smc.Contract.HasRole(&_Smc.CallOpts, role, account)
+func (_KfiveNFT *KfiveNFTCallerSession) HasRole(role [32]byte, account common.Address) (bool, error) {
+	return _KfiveNFT.Contract.HasRole(&_KfiveNFT.CallOpts, role, account)
 }
 
 // IsApprovedForAll is a free data retrieval call binding the contract method 0xe985e9c5.
 //
 // Solidity: function isApprovedForAll(address owner, address operator) view returns(bool)
-func (_Smc *SmcCaller) IsApprovedForAll(opts *bind.CallOpts, owner common.Address, operator common.Address) (bool, error) {
+func (_KfiveNFT *KfiveNFTCaller) IsApprovedForAll(opts *bind.CallOpts, owner common.Address, operator common.Address) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "isApprovedForAll", owner, operator)
+	err := _KfiveNFT.contract.Call(opts, &out, "isApprovedForAll", owner, operator)
 
 	if err != nil {
 		return *new(bool), err
@@ -571,23 +571,23 @@ func (_Smc *SmcCaller) IsApprovedForAll(opts *bind.CallOpts, owner common.Addres
 // IsApprovedForAll is a free data retrieval call binding the contract method 0xe985e9c5.
 //
 // Solidity: function isApprovedForAll(address owner, address operator) view returns(bool)
-func (_Smc *SmcSession) IsApprovedForAll(owner common.Address, operator common.Address) (bool, error) {
-	return _Smc.Contract.IsApprovedForAll(&_Smc.CallOpts, owner, operator)
+func (_KfiveNFT *KfiveNFTSession) IsApprovedForAll(owner common.Address, operator common.Address) (bool, error) {
+	return _KfiveNFT.Contract.IsApprovedForAll(&_KfiveNFT.CallOpts, owner, operator)
 }
 
 // IsApprovedForAll is a free data retrieval call binding the contract method 0xe985e9c5.
 //
 // Solidity: function isApprovedForAll(address owner, address operator) view returns(bool)
-func (_Smc *SmcCallerSession) IsApprovedForAll(owner common.Address, operator common.Address) (bool, error) {
-	return _Smc.Contract.IsApprovedForAll(&_Smc.CallOpts, owner, operator)
+func (_KfiveNFT *KfiveNFTCallerSession) IsApprovedForAll(owner common.Address, operator common.Address) (bool, error) {
+	return _KfiveNFT.Contract.IsApprovedForAll(&_KfiveNFT.CallOpts, owner, operator)
 }
 
 // IsBlackListed is a free data retrieval call binding the contract method 0xe47d6060.
 //
 // Solidity: function isBlackListed(address ) view returns(bool)
-func (_Smc *SmcCaller) IsBlackListed(opts *bind.CallOpts, arg0 common.Address) (bool, error) {
+func (_KfiveNFT *KfiveNFTCaller) IsBlackListed(opts *bind.CallOpts, arg0 common.Address) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "isBlackListed", arg0)
+	err := _KfiveNFT.contract.Call(opts, &out, "isBlackListed", arg0)
 
 	if err != nil {
 		return *new(bool), err
@@ -602,23 +602,23 @@ func (_Smc *SmcCaller) IsBlackListed(opts *bind.CallOpts, arg0 common.Address) (
 // IsBlackListed is a free data retrieval call binding the contract method 0xe47d6060.
 //
 // Solidity: function isBlackListed(address ) view returns(bool)
-func (_Smc *SmcSession) IsBlackListed(arg0 common.Address) (bool, error) {
-	return _Smc.Contract.IsBlackListed(&_Smc.CallOpts, arg0)
+func (_KfiveNFT *KfiveNFTSession) IsBlackListed(arg0 common.Address) (bool, error) {
+	return _KfiveNFT.Contract.IsBlackListed(&_KfiveNFT.CallOpts, arg0)
 }
 
 // IsBlackListed is a free data retrieval call binding the contract method 0xe47d6060.
 //
 // Solidity: function isBlackListed(address ) view returns(bool)
-func (_Smc *SmcCallerSession) IsBlackListed(arg0 common.Address) (bool, error) {
-	return _Smc.Contract.IsBlackListed(&_Smc.CallOpts, arg0)
+func (_KfiveNFT *KfiveNFTCallerSession) IsBlackListed(arg0 common.Address) (bool, error) {
+	return _KfiveNFT.Contract.IsBlackListed(&_KfiveNFT.CallOpts, arg0)
 }
 
 // MarketplaceStorage is a free data retrieval call binding the contract method 0x46b3aec6.
 //
 // Solidity: function marketplaceStorage() view returns(address)
-func (_Smc *SmcCaller) MarketplaceStorage(opts *bind.CallOpts) (common.Address, error) {
+func (_KfiveNFT *KfiveNFTCaller) MarketplaceStorage(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "marketplaceStorage")
+	err := _KfiveNFT.contract.Call(opts, &out, "marketplaceStorage")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -633,23 +633,23 @@ func (_Smc *SmcCaller) MarketplaceStorage(opts *bind.CallOpts) (common.Address, 
 // MarketplaceStorage is a free data retrieval call binding the contract method 0x46b3aec6.
 //
 // Solidity: function marketplaceStorage() view returns(address)
-func (_Smc *SmcSession) MarketplaceStorage() (common.Address, error) {
-	return _Smc.Contract.MarketplaceStorage(&_Smc.CallOpts)
+func (_KfiveNFT *KfiveNFTSession) MarketplaceStorage() (common.Address, error) {
+	return _KfiveNFT.Contract.MarketplaceStorage(&_KfiveNFT.CallOpts)
 }
 
 // MarketplaceStorage is a free data retrieval call binding the contract method 0x46b3aec6.
 //
 // Solidity: function marketplaceStorage() view returns(address)
-func (_Smc *SmcCallerSession) MarketplaceStorage() (common.Address, error) {
-	return _Smc.Contract.MarketplaceStorage(&_Smc.CallOpts)
+func (_KfiveNFT *KfiveNFTCallerSession) MarketplaceStorage() (common.Address, error) {
+	return _KfiveNFT.Contract.MarketplaceStorage(&_KfiveNFT.CallOpts)
 }
 
 // Name is a free data retrieval call binding the contract method 0x06fdde03.
 //
 // Solidity: function name() view returns(string)
-func (_Smc *SmcCaller) Name(opts *bind.CallOpts) (string, error) {
+func (_KfiveNFT *KfiveNFTCaller) Name(opts *bind.CallOpts) (string, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "name")
+	err := _KfiveNFT.contract.Call(opts, &out, "name")
 
 	if err != nil {
 		return *new(string), err
@@ -664,23 +664,23 @@ func (_Smc *SmcCaller) Name(opts *bind.CallOpts) (string, error) {
 // Name is a free data retrieval call binding the contract method 0x06fdde03.
 //
 // Solidity: function name() view returns(string)
-func (_Smc *SmcSession) Name() (string, error) {
-	return _Smc.Contract.Name(&_Smc.CallOpts)
+func (_KfiveNFT *KfiveNFTSession) Name() (string, error) {
+	return _KfiveNFT.Contract.Name(&_KfiveNFT.CallOpts)
 }
 
 // Name is a free data retrieval call binding the contract method 0x06fdde03.
 //
 // Solidity: function name() view returns(string)
-func (_Smc *SmcCallerSession) Name() (string, error) {
-	return _Smc.Contract.Name(&_Smc.CallOpts)
+func (_KfiveNFT *KfiveNFTCallerSession) Name() (string, error) {
+	return _KfiveNFT.Contract.Name(&_KfiveNFT.CallOpts)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
+func (_KfiveNFT *KfiveNFTCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "owner")
+	err := _KfiveNFT.contract.Call(opts, &out, "owner")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -695,23 +695,23 @@ func (_Smc *SmcCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcSession) Owner() (common.Address, error) {
-	return _Smc.Contract.Owner(&_Smc.CallOpts)
+func (_KfiveNFT *KfiveNFTSession) Owner() (common.Address, error) {
+	return _KfiveNFT.Contract.Owner(&_KfiveNFT.CallOpts)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcCallerSession) Owner() (common.Address, error) {
-	return _Smc.Contract.Owner(&_Smc.CallOpts)
+func (_KfiveNFT *KfiveNFTCallerSession) Owner() (common.Address, error) {
+	return _KfiveNFT.Contract.Owner(&_KfiveNFT.CallOpts)
 }
 
 // OwnerOf is a free data retrieval call binding the contract method 0x6352211e.
 //
 // Solidity: function ownerOf(uint256 tokenId) view returns(address)
-func (_Smc *SmcCaller) OwnerOf(opts *bind.CallOpts, tokenId *big.Int) (common.Address, error) {
+func (_KfiveNFT *KfiveNFTCaller) OwnerOf(opts *bind.CallOpts, tokenId *big.Int) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "ownerOf", tokenId)
+	err := _KfiveNFT.contract.Call(opts, &out, "ownerOf", tokenId)
 
 	if err != nil {
 		return *new(common.Address), err
@@ -726,23 +726,23 @@ func (_Smc *SmcCaller) OwnerOf(opts *bind.CallOpts, tokenId *big.Int) (common.Ad
 // OwnerOf is a free data retrieval call binding the contract method 0x6352211e.
 //
 // Solidity: function ownerOf(uint256 tokenId) view returns(address)
-func (_Smc *SmcSession) OwnerOf(tokenId *big.Int) (common.Address, error) {
-	return _Smc.Contract.OwnerOf(&_Smc.CallOpts, tokenId)
+func (_KfiveNFT *KfiveNFTSession) OwnerOf(tokenId *big.Int) (common.Address, error) {
+	return _KfiveNFT.Contract.OwnerOf(&_KfiveNFT.CallOpts, tokenId)
 }
 
 // OwnerOf is a free data retrieval call binding the contract method 0x6352211e.
 //
 // Solidity: function ownerOf(uint256 tokenId) view returns(address)
-func (_Smc *SmcCallerSession) OwnerOf(tokenId *big.Int) (common.Address, error) {
-	return _Smc.Contract.OwnerOf(&_Smc.CallOpts, tokenId)
+func (_KfiveNFT *KfiveNFTCallerSession) OwnerOf(tokenId *big.Int) (common.Address, error) {
+	return _KfiveNFT.Contract.OwnerOf(&_KfiveNFT.CallOpts, tokenId)
 }
 
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcCaller) Paused(opts *bind.CallOpts) (bool, error) {
+func (_KfiveNFT *KfiveNFTCaller) Paused(opts *bind.CallOpts) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "paused")
+	err := _KfiveNFT.contract.Call(opts, &out, "paused")
 
 	if err != nil {
 		return *new(bool), err
@@ -757,23 +757,23 @@ func (_Smc *SmcCaller) Paused(opts *bind.CallOpts) (bool, error) {
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcSession) Paused() (bool, error) {
-	return _Smc.Contract.Paused(&_Smc.CallOpts)
+func (_KfiveNFT *KfiveNFTSession) Paused() (bool, error) {
+	return _KfiveNFT.Contract.Paused(&_KfiveNFT.CallOpts)
 }
 
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcCallerSession) Paused() (bool, error) {
-	return _Smc.Contract.Paused(&_Smc.CallOpts)
+func (_KfiveNFT *KfiveNFTCallerSession) Paused() (bool, error) {
+	return _KfiveNFT.Contract.Paused(&_KfiveNFT.CallOpts)
 }
 
 // SupportsInterface is a free data retrieval call binding the contract method 0x01ffc9a7.
 //
 // Solidity: function supportsInterface(bytes4 interfaceId) view returns(bool)
-func (_Smc *SmcCaller) SupportsInterface(opts *bind.CallOpts, interfaceId [4]byte) (bool, error) {
+func (_KfiveNFT *KfiveNFTCaller) SupportsInterface(opts *bind.CallOpts, interfaceId [4]byte) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "supportsInterface", interfaceId)
+	err := _KfiveNFT.contract.Call(opts, &out, "supportsInterface", interfaceId)
 
 	if err != nil {
 		return *new(bool), err
@@ -788,23 +788,23 @@ func (_Smc *SmcCaller) SupportsInterface(opts *bind.CallOpts, interfaceId [4]byt
 // SupportsInterface is a free data retrieval call binding the contract method 0x01ffc9a7.
 //
 // Solidity: function supportsInterface(bytes4 interfaceId) view returns(bool)
-func (_Smc *SmcSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
-	return _Smc.Contract.SupportsInterface(&_Smc.CallOpts, interfaceId)
+func (_KfiveNFT *KfiveNFTSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
+	return _KfiveNFT.Contract.SupportsInterface(&_KfiveNFT.CallOpts, interfaceId)
 }
 
 // SupportsInterface is a free data retrieval call binding the contract method 0x01ffc9a7.
 //
 // Solidity: function supportsInterface(bytes4 interfaceId) view returns(bool)
-func (_Smc *SmcCallerSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
-	return _Smc.Contract.SupportsInterface(&_Smc.CallOpts, interfaceId)
+func (_KfiveNFT *KfiveNFTCallerSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
+	return _KfiveNFT.Contract.SupportsInterface(&_KfiveNFT.CallOpts, interfaceId)
 }
 
 // Symbol is a free data retrieval call binding the contract method 0x95d89b41.
 //
 // Solidity: function symbol() view returns(string)
-func (_Smc *SmcCaller) Symbol(opts *bind.CallOpts) (string, error) {
+func (_KfiveNFT *KfiveNFTCaller) Symbol(opts *bind.CallOpts) (string, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "symbol")
+	err := _KfiveNFT.contract.Call(opts, &out, "symbol")
 
 	if err != nil {
 		return *new(string), err
@@ -819,23 +819,23 @@ func (_Smc *SmcCaller) Symbol(opts *bind.CallOpts) (string, error) {
 // Symbol is a free data retrieval call binding the contract method 0x95d89b41.
 //
 // Solidity: function symbol() view returns(string)
-func (_Smc *SmcSession) Symbol() (string, error) {
-	return _Smc.Contract.Symbol(&_Smc.CallOpts)
+func (_KfiveNFT *KfiveNFTSession) Symbol() (string, error) {
+	return _KfiveNFT.Contract.Symbol(&_KfiveNFT.CallOpts)
 }
 
 // Symbol is a free data retrieval call binding the contract method 0x95d89b41.
 //
 // Solidity: function symbol() view returns(string)
-func (_Smc *SmcCallerSession) Symbol() (string, error) {
-	return _Smc.Contract.Symbol(&_Smc.CallOpts)
+func (_KfiveNFT *KfiveNFTCallerSession) Symbol() (string, error) {
+	return _KfiveNFT.Contract.Symbol(&_KfiveNFT.CallOpts)
 }
 
 // TokenByIndex is a free data retrieval call binding the contract method 0x4f6ccce7.
 //
 // Solidity: function tokenByIndex(uint256 index) view returns(uint256)
-func (_Smc *SmcCaller) TokenByIndex(opts *bind.CallOpts, index *big.Int) (*big.Int, error) {
+func (_KfiveNFT *KfiveNFTCaller) TokenByIndex(opts *bind.CallOpts, index *big.Int) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "tokenByIndex", index)
+	err := _KfiveNFT.contract.Call(opts, &out, "tokenByIndex", index)
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -850,23 +850,23 @@ func (_Smc *SmcCaller) TokenByIndex(opts *bind.CallOpts, index *big.Int) (*big.I
 // TokenByIndex is a free data retrieval call binding the contract method 0x4f6ccce7.
 //
 // Solidity: function tokenByIndex(uint256 index) view returns(uint256)
-func (_Smc *SmcSession) TokenByIndex(index *big.Int) (*big.Int, error) {
-	return _Smc.Contract.TokenByIndex(&_Smc.CallOpts, index)
+func (_KfiveNFT *KfiveNFTSession) TokenByIndex(index *big.Int) (*big.Int, error) {
+	return _KfiveNFT.Contract.TokenByIndex(&_KfiveNFT.CallOpts, index)
 }
 
 // TokenByIndex is a free data retrieval call binding the contract method 0x4f6ccce7.
 //
 // Solidity: function tokenByIndex(uint256 index) view returns(uint256)
-func (_Smc *SmcCallerSession) TokenByIndex(index *big.Int) (*big.Int, error) {
-	return _Smc.Contract.TokenByIndex(&_Smc.CallOpts, index)
+func (_KfiveNFT *KfiveNFTCallerSession) TokenByIndex(index *big.Int) (*big.Int, error) {
+	return _KfiveNFT.Contract.TokenByIndex(&_KfiveNFT.CallOpts, index)
 }
 
 // TokenOfOwnerByIndex is a free data retrieval call binding the contract method 0x2f745c59.
 //
 // Solidity: function tokenOfOwnerByIndex(address owner, uint256 index) view returns(uint256)
-func (_Smc *SmcCaller) TokenOfOwnerByIndex(opts *bind.CallOpts, owner common.Address, index *big.Int) (*big.Int, error) {
+func (_KfiveNFT *KfiveNFTCaller) TokenOfOwnerByIndex(opts *bind.CallOpts, owner common.Address, index *big.Int) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "tokenOfOwnerByIndex", owner, index)
+	err := _KfiveNFT.contract.Call(opts, &out, "tokenOfOwnerByIndex", owner, index)
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -881,23 +881,23 @@ func (_Smc *SmcCaller) TokenOfOwnerByIndex(opts *bind.CallOpts, owner common.Add
 // TokenOfOwnerByIndex is a free data retrieval call binding the contract method 0x2f745c59.
 //
 // Solidity: function tokenOfOwnerByIndex(address owner, uint256 index) view returns(uint256)
-func (_Smc *SmcSession) TokenOfOwnerByIndex(owner common.Address, index *big.Int) (*big.Int, error) {
-	return _Smc.Contract.TokenOfOwnerByIndex(&_Smc.CallOpts, owner, index)
+func (_KfiveNFT *KfiveNFTSession) TokenOfOwnerByIndex(owner common.Address, index *big.Int) (*big.Int, error) {
+	return _KfiveNFT.Contract.TokenOfOwnerByIndex(&_KfiveNFT.CallOpts, owner, index)
 }
 
 // TokenOfOwnerByIndex is a free data retrieval call binding the contract method 0x2f745c59.
 //
 // Solidity: function tokenOfOwnerByIndex(address owner, uint256 index) view returns(uint256)
-func (_Smc *SmcCallerSession) TokenOfOwnerByIndex(owner common.Address, index *big.Int) (*big.Int, error) {
-	return _Smc.Contract.TokenOfOwnerByIndex(&_Smc.CallOpts, owner, index)
+func (_KfiveNFT *KfiveNFTCallerSession) TokenOfOwnerByIndex(owner common.Address, index *big.Int) (*big.Int, error) {
+	return _KfiveNFT.Contract.TokenOfOwnerByIndex(&_KfiveNFT.CallOpts, owner, index)
 }
 
 // TokenURI is a free data retrieval call binding the contract method 0xc87b56dd.
 //
 // Solidity: function tokenURI(uint256 tokenId) view returns(string)
-func (_Smc *SmcCaller) TokenURI(opts *bind.CallOpts, tokenId *big.Int) (string, error) {
+func (_KfiveNFT *KfiveNFTCaller) TokenURI(opts *bind.CallOpts, tokenId *big.Int) (string, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "tokenURI", tokenId)
+	err := _KfiveNFT.contract.Call(opts, &out, "tokenURI", tokenId)
 
 	if err != nil {
 		return *new(string), err
@@ -912,23 +912,23 @@ func (_Smc *SmcCaller) TokenURI(opts *bind.CallOpts, tokenId *big.Int) (string, 
 // TokenURI is a free data retrieval call binding the contract method 0xc87b56dd.
 //
 // Solidity: function tokenURI(uint256 tokenId) view returns(string)
-func (_Smc *SmcSession) TokenURI(tokenId *big.Int) (string, error) {
-	return _Smc.Contract.TokenURI(&_Smc.CallOpts, tokenId)
+func (_KfiveNFT *KfiveNFTSession) TokenURI(tokenId *big.Int) (string, error) {
+	return _KfiveNFT.Contract.TokenURI(&_KfiveNFT.CallOpts, tokenId)
 }
 
 // TokenURI is a free data retrieval call binding the contract method 0xc87b56dd.
 //
 // Solidity: function tokenURI(uint256 tokenId) view returns(string)
-func (_Smc *SmcCallerSession) TokenURI(tokenId *big.Int) (string, error) {
-	return _Smc.Contract.TokenURI(&_Smc.CallOpts, tokenId)
+func (_KfiveNFT *KfiveNFTCallerSession) TokenURI(tokenId *big.Int) (string, error) {
+	return _KfiveNFT.Contract.TokenURI(&_KfiveNFT.CallOpts, tokenId)
 }
 
 // TotalSupply is a free data retrieval call binding the contract method 0x18160ddd.
 //
 // Solidity: function totalSupply() view returns(uint256)
-func (_Smc *SmcCaller) TotalSupply(opts *bind.CallOpts) (*big.Int, error) {
+func (_KfiveNFT *KfiveNFTCaller) TotalSupply(opts *bind.CallOpts) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "totalSupply")
+	err := _KfiveNFT.contract.Call(opts, &out, "totalSupply")
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -943,377 +943,377 @@ func (_Smc *SmcCaller) TotalSupply(opts *bind.CallOpts) (*big.Int, error) {
 // TotalSupply is a free data retrieval call binding the contract method 0x18160ddd.
 //
 // Solidity: function totalSupply() view returns(uint256)
-func (_Smc *SmcSession) TotalSupply() (*big.Int, error) {
-	return _Smc.Contract.TotalSupply(&_Smc.CallOpts)
+func (_KfiveNFT *KfiveNFTSession) TotalSupply() (*big.Int, error) {
+	return _KfiveNFT.Contract.TotalSupply(&_KfiveNFT.CallOpts)
 }
 
 // TotalSupply is a free data retrieval call binding the contract method 0x18160ddd.
 //
 // Solidity: function totalSupply() view returns(uint256)
-func (_Smc *SmcCallerSession) TotalSupply() (*big.Int, error) {
-	return _Smc.Contract.TotalSupply(&_Smc.CallOpts)
+func (_KfiveNFT *KfiveNFTCallerSession) TotalSupply() (*big.Int, error) {
+	return _KfiveNFT.Contract.TotalSupply(&_KfiveNFT.CallOpts)
 }
 
 // AddBlackList is a paid mutator transaction binding the contract method 0x0ecb93c0.
 //
 // Solidity: function addBlackList(address _evilUser) returns()
-func (_Smc *SmcTransactor) AddBlackList(opts *bind.TransactOpts, _evilUser common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "addBlackList", _evilUser)
+func (_KfiveNFT *KfiveNFTTransactor) AddBlackList(opts *bind.TransactOpts, _evilUser common.Address) (*types.Transaction, error) {
+	return _KfiveNFT.contract.Transact(opts, "addBlackList", _evilUser)
 }
 
 // AddBlackList is a paid mutator transaction binding the contract method 0x0ecb93c0.
 //
 // Solidity: function addBlackList(address _evilUser) returns()
-func (_Smc *SmcSession) AddBlackList(_evilUser common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.AddBlackList(&_Smc.TransactOpts, _evilUser)
+func (_KfiveNFT *KfiveNFTSession) AddBlackList(_evilUser common.Address) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.AddBlackList(&_KfiveNFT.TransactOpts, _evilUser)
 }
 
 // AddBlackList is a paid mutator transaction binding the contract method 0x0ecb93c0.
 //
 // Solidity: function addBlackList(address _evilUser) returns()
-func (_Smc *SmcTransactorSession) AddBlackList(_evilUser common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.AddBlackList(&_Smc.TransactOpts, _evilUser)
+func (_KfiveNFT *KfiveNFTTransactorSession) AddBlackList(_evilUser common.Address) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.AddBlackList(&_KfiveNFT.TransactOpts, _evilUser)
 }
 
 // Approve is a paid mutator transaction binding the contract method 0x095ea7b3.
 //
 // Solidity: function approve(address to, uint256 tokenId) returns()
-func (_Smc *SmcTransactor) Approve(opts *bind.TransactOpts, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "approve", to, tokenId)
+func (_KfiveNFT *KfiveNFTTransactor) Approve(opts *bind.TransactOpts, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
+	return _KfiveNFT.contract.Transact(opts, "approve", to, tokenId)
 }
 
 // Approve is a paid mutator transaction binding the contract method 0x095ea7b3.
 //
 // Solidity: function approve(address to, uint256 tokenId) returns()
-func (_Smc *SmcSession) Approve(to common.Address, tokenId *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.Approve(&_Smc.TransactOpts, to, tokenId)
+func (_KfiveNFT *KfiveNFTSession) Approve(to common.Address, tokenId *big.Int) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.Approve(&_KfiveNFT.TransactOpts, to, tokenId)
 }
 
 // Approve is a paid mutator transaction binding the contract method 0x095ea7b3.
 //
 // Solidity: function approve(address to, uint256 tokenId) returns()
-func (_Smc *SmcTransactorSession) Approve(to common.Address, tokenId *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.Approve(&_Smc.TransactOpts, to, tokenId)
+func (_KfiveNFT *KfiveNFTTransactorSession) Approve(to common.Address, tokenId *big.Int) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.Approve(&_KfiveNFT.TransactOpts, to, tokenId)
 }
 
 // Burn is a paid mutator transaction binding the contract method 0x42966c68.
 //
 // Solidity: function burn(uint256 tokenId) returns()
-func (_Smc *SmcTransactor) Burn(opts *bind.TransactOpts, tokenId *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "burn", tokenId)
+func (_KfiveNFT *KfiveNFTTransactor) Burn(opts *bind.TransactOpts, tokenId *big.Int) (*types.Transaction, error) {
+	return _KfiveNFT.contract.Transact(opts, "burn", tokenId)
 }
 
 // Burn is a paid mutator transaction binding the contract method 0x42966c68.
 //
 // Solidity: function burn(uint256 tokenId) returns()
-func (_Smc *SmcSession) Burn(tokenId *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.Burn(&_Smc.TransactOpts, tokenId)
+func (_KfiveNFT *KfiveNFTSession) Burn(tokenId *big.Int) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.Burn(&_KfiveNFT.TransactOpts, tokenId)
 }
 
 // Burn is a paid mutator transaction binding the contract method 0x42966c68.
 //
 // Solidity: function burn(uint256 tokenId) returns()
-func (_Smc *SmcTransactorSession) Burn(tokenId *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.Burn(&_Smc.TransactOpts, tokenId)
+func (_KfiveNFT *KfiveNFTTransactorSession) Burn(tokenId *big.Int) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.Burn(&_KfiveNFT.TransactOpts, tokenId)
 }
 
 // GrantRole is a paid mutator transaction binding the contract method 0x2f2ff15d.
 //
 // Solidity: function grantRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactor) GrantRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "grantRole", role, account)
+func (_KfiveNFT *KfiveNFTTransactor) GrantRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _KfiveNFT.contract.Transact(opts, "grantRole", role, account)
 }
 
 // GrantRole is a paid mutator transaction binding the contract method 0x2f2ff15d.
 //
 // Solidity: function grantRole(bytes32 role, address account) returns()
-func (_Smc *SmcSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.GrantRole(&_Smc.TransactOpts, role, account)
+func (_KfiveNFT *KfiveNFTSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.GrantRole(&_KfiveNFT.TransactOpts, role, account)
 }
 
 // GrantRole is a paid mutator transaction binding the contract method 0x2f2ff15d.
 //
 // Solidity: function grantRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactorSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.GrantRole(&_Smc.TransactOpts, role, account)
+func (_KfiveNFT *KfiveNFTTransactorSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.GrantRole(&_KfiveNFT.TransactOpts, role, account)
 }
 
 // Mint is a paid mutator transaction binding the contract method 0xd3fc9864.
 //
 // Solidity: function mint(address to, uint256 tokenId, string gtokenURI) returns()
-func (_Smc *SmcTransactor) Mint(opts *bind.TransactOpts, to common.Address, tokenId *big.Int, gtokenURI string) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "mint", to, tokenId, gtokenURI)
+func (_KfiveNFT *KfiveNFTTransactor) Mint(opts *bind.TransactOpts, to common.Address, tokenId *big.Int, gtokenURI string) (*types.Transaction, error) {
+	return _KfiveNFT.contract.Transact(opts, "mint", to, tokenId, gtokenURI)
 }
 
 // Mint is a paid mutator transaction binding the contract method 0xd3fc9864.
 //
 // Solidity: function mint(address to, uint256 tokenId, string gtokenURI) returns()
-func (_Smc *SmcSession) Mint(to common.Address, tokenId *big.Int, gtokenURI string) (*types.Transaction, error) {
-	return _Smc.Contract.Mint(&_Smc.TransactOpts, to, tokenId, gtokenURI)
+func (_KfiveNFT *KfiveNFTSession) Mint(to common.Address, tokenId *big.Int, gtokenURI string) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.Mint(&_KfiveNFT.TransactOpts, to, tokenId, gtokenURI)
 }
 
 // Mint is a paid mutator transaction binding the contract method 0xd3fc9864.
 //
 // Solidity: function mint(address to, uint256 tokenId, string gtokenURI) returns()
-func (_Smc *SmcTransactorSession) Mint(to common.Address, tokenId *big.Int, gtokenURI string) (*types.Transaction, error) {
-	return _Smc.Contract.Mint(&_Smc.TransactOpts, to, tokenId, gtokenURI)
+func (_KfiveNFT *KfiveNFTTransactorSession) Mint(to common.Address, tokenId *big.Int, gtokenURI string) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.Mint(&_KfiveNFT.TransactOpts, to, tokenId, gtokenURI)
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcTransactor) Pause(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "pause")
+func (_KfiveNFT *KfiveNFTTransactor) Pause(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _KfiveNFT.contract.Transact(opts, "pause")
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcSession) Pause() (*types.Transaction, error) {
-	return _Smc.Contract.Pause(&_Smc.TransactOpts)
+func (_KfiveNFT *KfiveNFTSession) Pause() (*types.Transaction, error) {
+	return _KfiveNFT.Contract.Pause(&_KfiveNFT.TransactOpts)
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcTransactorSession) Pause() (*types.Transaction, error) {
-	return _Smc.Contract.Pause(&_Smc.TransactOpts)
+func (_KfiveNFT *KfiveNFTTransactorSession) Pause() (*types.Transaction, error) {
+	return _KfiveNFT.Contract.Pause(&_KfiveNFT.TransactOpts)
 }
 
 // RemoveBlackList is a paid mutator transaction binding the contract method 0xe4997dc5.
 //
 // Solidity: function removeBlackList(address _clearedUser) returns()
-func (_Smc *SmcTransactor) RemoveBlackList(opts *bind.TransactOpts, _clearedUser common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "removeBlackList", _clearedUser)
+func (_KfiveNFT *KfiveNFTTransactor) RemoveBlackList(opts *bind.TransactOpts, _clearedUser common.Address) (*types.Transaction, error) {
+	return _KfiveNFT.contract.Transact(opts, "removeBlackList", _clearedUser)
 }
 
 // RemoveBlackList is a paid mutator transaction binding the contract method 0xe4997dc5.
 //
 // Solidity: function removeBlackList(address _clearedUser) returns()
-func (_Smc *SmcSession) RemoveBlackList(_clearedUser common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RemoveBlackList(&_Smc.TransactOpts, _clearedUser)
+func (_KfiveNFT *KfiveNFTSession) RemoveBlackList(_clearedUser common.Address) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.RemoveBlackList(&_KfiveNFT.TransactOpts, _clearedUser)
 }
 
 // RemoveBlackList is a paid mutator transaction binding the contract method 0xe4997dc5.
 //
 // Solidity: function removeBlackList(address _clearedUser) returns()
-func (_Smc *SmcTransactorSession) RemoveBlackList(_clearedUser common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RemoveBlackList(&_Smc.TransactOpts, _clearedUser)
+func (_KfiveNFT *KfiveNFTTransactorSession) RemoveBlackList(_clearedUser common.Address) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.RemoveBlackList(&_KfiveNFT.TransactOpts, _clearedUser)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcTransactor) RenounceOwnership(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "renounceOwnership")
+func (_KfiveNFT *KfiveNFTTransactor) RenounceOwnership(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _KfiveNFT.contract.Transact(opts, "renounceOwnership")
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcSession) RenounceOwnership() (*types.Transaction, error) {
-	return _Smc.Contract.RenounceOwnership(&_Smc.TransactOpts)
+func (_KfiveNFT *KfiveNFTSession) RenounceOwnership() (*types.Transaction, error) {
+	return _KfiveNFT.Contract.RenounceOwnership(&_KfiveNFT.TransactOpts)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcTransactorSession) RenounceOwnership() (*types.Transaction, error) {
-	return _Smc.Contract.RenounceOwnership(&_Smc.TransactOpts)
+func (_KfiveNFT *KfiveNFTTransactorSession) RenounceOwnership() (*types.Transaction, error) {
+	return _KfiveNFT.Contract.RenounceOwnership(&_KfiveNFT.TransactOpts)
 }
 
 // RenounceRole is a paid mutator transaction binding the contract method 0x36568abe.
 //
 // Solidity: function renounceRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactor) RenounceRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "renounceRole", role, account)
+func (_KfiveNFT *KfiveNFTTransactor) RenounceRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _KfiveNFT.contract.Transact(opts, "renounceRole", role, account)
 }
 
 // RenounceRole is a paid mutator transaction binding the contract method 0x36568abe.
 //
 // Solidity: function renounceRole(bytes32 role, address account) returns()
-func (_Smc *SmcSession) RenounceRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RenounceRole(&_Smc.TransactOpts, role, account)
+func (_KfiveNFT *KfiveNFTSession) RenounceRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.RenounceRole(&_KfiveNFT.TransactOpts, role, account)
 }
 
 // RenounceRole is a paid mutator transaction binding the contract method 0x36568abe.
 //
 // Solidity: function renounceRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactorSession) RenounceRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RenounceRole(&_Smc.TransactOpts, role, account)
+func (_KfiveNFT *KfiveNFTTransactorSession) RenounceRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.RenounceRole(&_KfiveNFT.TransactOpts, role, account)
 }
 
 // RevokeRole is a paid mutator transaction binding the contract method 0xd547741f.
 //
 // Solidity: function revokeRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactor) RevokeRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "revokeRole", role, account)
+func (_KfiveNFT *KfiveNFTTransactor) RevokeRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _KfiveNFT.contract.Transact(opts, "revokeRole", role, account)
 }
 
 // RevokeRole is a paid mutator transaction binding the contract method 0xd547741f.
 //
 // Solidity: function revokeRole(bytes32 role, address account) returns()
-func (_Smc *SmcSession) RevokeRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RevokeRole(&_Smc.TransactOpts, role, account)
+func (_KfiveNFT *KfiveNFTSession) RevokeRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.RevokeRole(&_KfiveNFT.TransactOpts, role, account)
 }
 
 // RevokeRole is a paid mutator transaction binding the contract method 0xd547741f.
 //
 // Solidity: function revokeRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactorSession) RevokeRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RevokeRole(&_Smc.TransactOpts, role, account)
+func (_KfiveNFT *KfiveNFTTransactorSession) RevokeRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.RevokeRole(&_KfiveNFT.TransactOpts, role, account)
 }
 
 // SafeTransferFrom is a paid mutator transaction binding the contract method 0x42842e0e.
 //
 // Solidity: function safeTransferFrom(address from, address to, uint256 tokenId) returns()
-func (_Smc *SmcTransactor) SafeTransferFrom(opts *bind.TransactOpts, from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "safeTransferFrom", from, to, tokenId)
+func (_KfiveNFT *KfiveNFTTransactor) SafeTransferFrom(opts *bind.TransactOpts, from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
+	return _KfiveNFT.contract.Transact(opts, "safeTransferFrom", from, to, tokenId)
 }
 
 // SafeTransferFrom is a paid mutator transaction binding the contract method 0x42842e0e.
 //
 // Solidity: function safeTransferFrom(address from, address to, uint256 tokenId) returns()
-func (_Smc *SmcSession) SafeTransferFrom(from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.SafeTransferFrom(&_Smc.TransactOpts, from, to, tokenId)
+func (_KfiveNFT *KfiveNFTSession) SafeTransferFrom(from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.SafeTransferFrom(&_KfiveNFT.TransactOpts, from, to, tokenId)
 }
 
 // SafeTransferFrom is a paid mutator transaction binding the contract method 0x42842e0e.
 //
 // Solidity: function safeTransferFrom(address from, address to, uint256 tokenId) returns()
-func (_Smc *SmcTransactorSession) SafeTransferFrom(from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.SafeTransferFrom(&_Smc.TransactOpts, from, to, tokenId)
+func (_KfiveNFT *KfiveNFTTransactorSession) SafeTransferFrom(from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.SafeTransferFrom(&_KfiveNFT.TransactOpts, from, to, tokenId)
 }
 
 // SafeTransferFrom0 is a paid mutator transaction binding the contract method 0xb88d4fde.
 //
 // Solidity: function safeTransferFrom(address from, address to, uint256 tokenId, bytes _data) returns()
-func (_Smc *SmcTransactor) SafeTransferFrom0(opts *bind.TransactOpts, from common.Address, to common.Address, tokenId *big.Int, _data []byte) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "safeTransferFrom0", from, to, tokenId, _data)
+func (_KfiveNFT *KfiveNFTTransactor) SafeTransferFrom0(opts *bind.TransactOpts, from common.Address, to common.Address, tokenId *big.Int, _data []byte) (*types.Transaction, error) {
+	return _KfiveNFT.contract.Transact(opts, "safeTransferFrom0", from, to, tokenId, _data)
 }
 
 // SafeTransferFrom0 is a paid mutator transaction binding the contract method 0xb88d4fde.
 //
 // Solidity: function safeTransferFrom(address from, address to, uint256 tokenId, bytes _data) returns()
-func (_Smc *SmcSession) SafeTransferFrom0(from common.Address, to common.Address, tokenId *big.Int, _data []byte) (*types.Transaction, error) {
-	return _Smc.Contract.SafeTransferFrom0(&_Smc.TransactOpts, from, to, tokenId, _data)
+func (_KfiveNFT *KfiveNFTSession) SafeTransferFrom0(from common.Address, to common.Address, tokenId *big.Int, _data []byte) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.SafeTransferFrom0(&_KfiveNFT.TransactOpts, from, to, tokenId, _data)
 }
 
 // SafeTransferFrom0 is a paid mutator transaction binding the contract method 0xb88d4fde.
 //
 // Solidity: function safeTransferFrom(address from, address to, uint256 tokenId, bytes _data) returns()
-func (_Smc *SmcTransactorSession) SafeTransferFrom0(from common.Address, to common.Address, tokenId *big.Int, _data []byte) (*types.Transaction, error) {
-	return _Smc.Contract.SafeTransferFrom0(&_Smc.TransactOpts, from, to, tokenId, _data)
+func (_KfiveNFT *KfiveNFTTransactorSession) SafeTransferFrom0(from common.Address, to common.Address, tokenId *big.Int, _data []byte) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.SafeTransferFrom0(&_KfiveNFT.TransactOpts, from, to, tokenId, _data)
 }
 
 // SetApprovalForAll is a paid mutator transaction binding the contract method 0xa22cb465.
 //
 // Solidity: function setApprovalForAll(address operator, bool approved) returns()
-func (_Smc *SmcTransactor) SetApprovalForAll(opts *bind.TransactOpts, operator common.Address, approved bool) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "setApprovalForAll", operator, approved)
+func (_KfiveNFT *KfiveNFTTransactor) SetApprovalForAll(opts *bind.TransactOpts, operator common.Address, approved bool) (*types.Transaction, error) {
+	return _KfiveNFT.contract.Transact(opts, "setApprovalForAll", operator, approved)
 }
 
 // SetApprovalForAll is a paid mutator transaction binding the contract method 0xa22cb465.
 //
 // Solidity: function setApprovalForAll(address operator, bool approved) returns()
-func (_Smc *SmcSession) SetApprovalForAll(operator common.Address, approved bool) (*types.Transaction, error) {
-	return _Smc.Contract.SetApprovalForAll(&_Smc.TransactOpts, operator, approved)
+func (_KfiveNFT *KfiveNFTSession) SetApprovalForAll(operator common.Address, approved bool) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.SetApprovalForAll(&_KfiveNFT.TransactOpts, operator, approved)
 }
 
 // SetApprovalForAll is a paid mutator transaction binding the contract method 0xa22cb465.
 //
 // Solidity: function setApprovalForAll(address operator, bool approved) returns()
-func (_Smc *SmcTransactorSession) SetApprovalForAll(operator common.Address, approved bool) (*types.Transaction, error) {
-	return _Smc.Contract.SetApprovalForAll(&_Smc.TransactOpts, operator, approved)
+func (_KfiveNFT *KfiveNFTTransactorSession) SetApprovalForAll(operator common.Address, approved bool) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.SetApprovalForAll(&_KfiveNFT.TransactOpts, operator, approved)
 }
 
 // TransferFrom is a paid mutator transaction binding the contract method 0x23b872dd.
 //
 // Solidity: function transferFrom(address from, address to, uint256 tokenId) returns()
-func (_Smc *SmcTransactor) TransferFrom(opts *bind.TransactOpts, from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "transferFrom", from, to, tokenId)
+func (_KfiveNFT *KfiveNFTTransactor) TransferFrom(opts *bind.TransactOpts, from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
+	return _KfiveNFT.contract.Transact(opts, "transferFrom", from, to, tokenId)
 }
 
 // TransferFrom is a paid mutator transaction binding the contract method 0x23b872dd.
 //
 // Solidity: function transferFrom(address from, address to, uint256 tokenId) returns()
-func (_Smc *SmcSession) TransferFrom(from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.TransferFrom(&_Smc.TransactOpts, from, to, tokenId)
+func (_KfiveNFT *KfiveNFTSession) TransferFrom(from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.TransferFrom(&_KfiveNFT.TransactOpts, from, to, tokenId)
 }
 
 // TransferFrom is a paid mutator transaction binding the contract method 0x23b872dd.
 //
 // Solidity: function transferFrom(address from, address to, uint256 tokenId) returns()
-func (_Smc *SmcTransactorSession) TransferFrom(from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.TransferFrom(&_Smc.TransactOpts, from, to, tokenId)
+func (_KfiveNFT *KfiveNFTTransactorSession) TransferFrom(from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.TransferFrom(&_KfiveNFT.TransactOpts, from, to, tokenId)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcTransactor) TransferOwnership(opts *bind.TransactOpts, newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "transferOwnership", newOwner)
+func (_KfiveNFT *KfiveNFTTransactor) TransferOwnership(opts *bind.TransactOpts, newOwner common.Address) (*types.Transaction, error) {
+	return _KfiveNFT.contract.Transact(opts, "transferOwnership", newOwner)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.TransferOwnership(&_Smc.TransactOpts, newOwner)
+func (_KfiveNFT *KfiveNFTSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.TransferOwnership(&_KfiveNFT.TransactOpts, newOwner)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcTransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.TransferOwnership(&_Smc.TransactOpts, newOwner)
+func (_KfiveNFT *KfiveNFTTransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.TransferOwnership(&_KfiveNFT.TransactOpts, newOwner)
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcTransactor) Unpause(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "unpause")
+func (_KfiveNFT *KfiveNFTTransactor) Unpause(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _KfiveNFT.contract.Transact(opts, "unpause")
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcSession) Unpause() (*types.Transaction, error) {
-	return _Smc.Contract.Unpause(&_Smc.TransactOpts)
+func (_KfiveNFT *KfiveNFTSession) Unpause() (*types.Transaction, error) {
+	return _KfiveNFT.Contract.Unpause(&_KfiveNFT.TransactOpts)
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcTransactorSession) Unpause() (*types.Transaction, error) {
-	return _Smc.Contract.Unpause(&_Smc.TransactOpts)
+func (_KfiveNFT *KfiveNFTTransactorSession) Unpause() (*types.Transaction, error) {
+	return _KfiveNFT.Contract.Unpause(&_KfiveNFT.TransactOpts)
 }
 
 // UpdateStorageAddress is a paid mutator transaction binding the contract method 0x889e2129.
 //
 // Solidity: function updateStorageAddress(address _marketplaceStorage) returns()
-func (_Smc *SmcTransactor) UpdateStorageAddress(opts *bind.TransactOpts, _marketplaceStorage common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "updateStorageAddress", _marketplaceStorage)
+func (_KfiveNFT *KfiveNFTTransactor) UpdateStorageAddress(opts *bind.TransactOpts, _marketplaceStorage common.Address) (*types.Transaction, error) {
+	return _KfiveNFT.contract.Transact(opts, "updateStorageAddress", _marketplaceStorage)
 }
 
 // UpdateStorageAddress is a paid mutator transaction binding the contract method 0x889e2129.
 //
 // Solidity: function updateStorageAddress(address _marketplaceStorage) returns()
-func (_Smc *SmcSession) UpdateStorageAddress(_marketplaceStorage common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.UpdateStorageAddress(&_Smc.TransactOpts, _marketplaceStorage)
+func (_KfiveNFT *KfiveNFTSession) UpdateStorageAddress(_marketplaceStorage common.Address) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.UpdateStorageAddress(&_KfiveNFT.TransactOpts, _marketplaceStorage)
 }
 
 // UpdateStorageAddress is a paid mutator transaction binding the contract method 0x889e2129.
 //
 // Solidity: function updateStorageAddress(address _marketplaceStorage) returns()
-func (_Smc *SmcTransactorSession) UpdateStorageAddress(_marketplaceStorage common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.UpdateStorageAddress(&_Smc.TransactOpts, _marketplaceStorage)
+func (_KfiveNFT *KfiveNFTTransactorSession) UpdateStorageAddress(_marketplaceStorage common.Address) (*types.Transaction, error) {
+	return _KfiveNFT.Contract.UpdateStorageAddress(&_KfiveNFT.TransactOpts, _marketplaceStorage)
 }
 
-// SmcAddedBlackListIterator is returned from FilterAddedBlackList and is used to iterate over the raw logs and unpacked data for AddedBlackList events raised by the Smc contract.
-type SmcAddedBlackListIterator struct {
-	Event *SmcAddedBlackList // Event containing the contract specifics and raw log
+// KfiveNFTAddedBlackListIterator is returned from FilterAddedBlackList and is used to iterate over the raw logs and unpacked data for AddedBlackList events raised by the KfiveNFT contract.
+type KfiveNFTAddedBlackListIterator struct {
+	Event *KfiveNFTAddedBlackList // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1327,7 +1327,7 @@ type SmcAddedBlackListIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcAddedBlackListIterator) Next() bool {
+func (it *KfiveNFTAddedBlackListIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1336,7 +1336,7 @@ func (it *SmcAddedBlackListIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcAddedBlackList)
+			it.Event = new(KfiveNFTAddedBlackList)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1351,7 +1351,7 @@ func (it *SmcAddedBlackListIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcAddedBlackList)
+		it.Event = new(KfiveNFTAddedBlackList)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1367,19 +1367,19 @@ func (it *SmcAddedBlackListIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcAddedBlackListIterator) Error() error {
+func (it *KfiveNFTAddedBlackListIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcAddedBlackListIterator) Close() error {
+func (it *KfiveNFTAddedBlackListIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcAddedBlackList represents a AddedBlackList event raised by the Smc contract.
-type SmcAddedBlackList struct {
+// KfiveNFTAddedBlackList represents a AddedBlackList event raised by the KfiveNFT contract.
+type KfiveNFTAddedBlackList struct {
 	User common.Address
 	Raw  types.Log // Blockchain specific contextual infos
 }
@@ -1387,21 +1387,21 @@ type SmcAddedBlackList struct {
 // FilterAddedBlackList is a free log retrieval operation binding the contract event 0x42e160154868087d6bfdc0ca23d96a1c1cfa32f1b72ba9ba27b69b98a0d819dc.
 //
 // Solidity: event AddedBlackList(address _user)
-func (_Smc *SmcFilterer) FilterAddedBlackList(opts *bind.FilterOpts) (*SmcAddedBlackListIterator, error) {
+func (_KfiveNFT *KfiveNFTFilterer) FilterAddedBlackList(opts *bind.FilterOpts) (*KfiveNFTAddedBlackListIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "AddedBlackList")
+	logs, sub, err := _KfiveNFT.contract.FilterLogs(opts, "AddedBlackList")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcAddedBlackListIterator{contract: _Smc.contract, event: "AddedBlackList", logs: logs, sub: sub}, nil
+	return &KfiveNFTAddedBlackListIterator{contract: _KfiveNFT.contract, event: "AddedBlackList", logs: logs, sub: sub}, nil
 }
 
 // WatchAddedBlackList is a free log subscription operation binding the contract event 0x42e160154868087d6bfdc0ca23d96a1c1cfa32f1b72ba9ba27b69b98a0d819dc.
 //
 // Solidity: event AddedBlackList(address _user)
-func (_Smc *SmcFilterer) WatchAddedBlackList(opts *bind.WatchOpts, sink chan<- *SmcAddedBlackList) (event.Subscription, error) {
+func (_KfiveNFT *KfiveNFTFilterer) WatchAddedBlackList(opts *bind.WatchOpts, sink chan<- *KfiveNFTAddedBlackList) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "AddedBlackList")
+	logs, sub, err := _KfiveNFT.contract.WatchLogs(opts, "AddedBlackList")
 	if err != nil {
 		return nil, err
 	}
@@ -1411,8 +1411,8 @@ func (_Smc *SmcFilterer) WatchAddedBlackList(opts *bind.WatchOpts, sink chan<- *
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcAddedBlackList)
-				if err := _Smc.contract.UnpackLog(event, "AddedBlackList", log); err != nil {
+				event := new(KfiveNFTAddedBlackList)
+				if err := _KfiveNFT.contract.UnpackLog(event, "AddedBlackList", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1436,18 +1436,18 @@ func (_Smc *SmcFilterer) WatchAddedBlackList(opts *bind.WatchOpts, sink chan<- *
 // ParseAddedBlackList is a log parse operation binding the contract event 0x42e160154868087d6bfdc0ca23d96a1c1cfa32f1b72ba9ba27b69b98a0d819dc.
 //
 // Solidity: event AddedBlackList(address _user)
-func (_Smc *SmcFilterer) ParseAddedBlackList(log types.Log) (*SmcAddedBlackList, error) {
-	event := new(SmcAddedBlackList)
-	if err := _Smc.contract.UnpackLog(event, "AddedBlackList", log); err != nil {
+func (_KfiveNFT *KfiveNFTFilterer) ParseAddedBlackList(log types.Log) (*KfiveNFTAddedBlackList, error) {
+	event := new(KfiveNFTAddedBlackList)
+	if err := _KfiveNFT.contract.UnpackLog(event, "AddedBlackList", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcApprovalIterator is returned from FilterApproval and is used to iterate over the raw logs and unpacked data for Approval events raised by the Smc contract.
-type SmcApprovalIterator struct {
-	Event *SmcApproval // Event containing the contract specifics and raw log
+// KfiveNFTApprovalIterator is returned from FilterApproval and is used to iterate over the raw logs and unpacked data for Approval events raised by the KfiveNFT contract.
+type KfiveNFTApprovalIterator struct {
+	Event *KfiveNFTApproval // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1461,7 +1461,7 @@ type SmcApprovalIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcApprovalIterator) Next() bool {
+func (it *KfiveNFTApprovalIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1470,7 +1470,7 @@ func (it *SmcApprovalIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcApproval)
+			it.Event = new(KfiveNFTApproval)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1485,7 +1485,7 @@ func (it *SmcApprovalIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcApproval)
+		it.Event = new(KfiveNFTApproval)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1501,19 +1501,19 @@ func (it *SmcApprovalIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcApprovalIterator) Error() error {
+func (it *KfiveNFTApprovalIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcApprovalIterator) Close() error {
+func (it *KfiveNFTApprovalIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcApproval represents a Approval event raised by the Smc contract.
-type SmcApproval struct {
+// KfiveNFTApproval represents a Approval event raised by the KfiveNFT contract.
+type KfiveNFTApproval struct {
 	Owner    common.Address
 	Approved common.Address
 	TokenId  *big.Int
@@ -1523,7 +1523,7 @@ type SmcApproval struct {
 // FilterApproval is a free log retrieval operation binding the contract event 0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925.
 //
 // Solidity: event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId)
-func (_Smc *SmcFilterer) FilterApproval(opts *bind.FilterOpts, owner []common.Address, approved []common.Address, tokenId []*big.Int) (*SmcApprovalIterator, error) {
+func (_KfiveNFT *KfiveNFTFilterer) FilterApproval(opts *bind.FilterOpts, owner []common.Address, approved []common.Address, tokenId []*big.Int) (*KfiveNFTApprovalIterator, error) {
 
 	var ownerRule []interface{}
 	for _, ownerItem := range owner {
@@ -1538,17 +1538,17 @@ func (_Smc *SmcFilterer) FilterApproval(opts *bind.FilterOpts, owner []common.Ad
 		tokenIdRule = append(tokenIdRule, tokenIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Approval", ownerRule, approvedRule, tokenIdRule)
+	logs, sub, err := _KfiveNFT.contract.FilterLogs(opts, "Approval", ownerRule, approvedRule, tokenIdRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcApprovalIterator{contract: _Smc.contract, event: "Approval", logs: logs, sub: sub}, nil
+	return &KfiveNFTApprovalIterator{contract: _KfiveNFT.contract, event: "Approval", logs: logs, sub: sub}, nil
 }
 
 // WatchApproval is a free log subscription operation binding the contract event 0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925.
 //
 // Solidity: event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId)
-func (_Smc *SmcFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *SmcApproval, owner []common.Address, approved []common.Address, tokenId []*big.Int) (event.Subscription, error) {
+func (_KfiveNFT *KfiveNFTFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *KfiveNFTApproval, owner []common.Address, approved []common.Address, tokenId []*big.Int) (event.Subscription, error) {
 
 	var ownerRule []interface{}
 	for _, ownerItem := range owner {
@@ -1563,7 +1563,7 @@ func (_Smc *SmcFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *SmcApp
 		tokenIdRule = append(tokenIdRule, tokenIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Approval", ownerRule, approvedRule, tokenIdRule)
+	logs, sub, err := _KfiveNFT.contract.WatchLogs(opts, "Approval", ownerRule, approvedRule, tokenIdRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1573,8 +1573,8 @@ func (_Smc *SmcFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *SmcApp
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcApproval)
-				if err := _Smc.contract.UnpackLog(event, "Approval", log); err != nil {
+				event := new(KfiveNFTApproval)
+				if err := _KfiveNFT.contract.UnpackLog(event, "Approval", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1598,18 +1598,18 @@ func (_Smc *SmcFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *SmcApp
 // ParseApproval is a log parse operation binding the contract event 0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925.
 //
 // Solidity: event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId)
-func (_Smc *SmcFilterer) ParseApproval(log types.Log) (*SmcApproval, error) {
-	event := new(SmcApproval)
-	if err := _Smc.contract.UnpackLog(event, "Approval", log); err != nil {
+func (_KfiveNFT *KfiveNFTFilterer) ParseApproval(log types.Log) (*KfiveNFTApproval, error) {
+	event := new(KfiveNFTApproval)
+	if err := _KfiveNFT.contract.UnpackLog(event, "Approval", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcApprovalForAllIterator is returned from FilterApprovalForAll and is used to iterate over the raw logs and unpacked data for ApprovalForAll events raised by the Smc contract.
-type SmcApprovalForAllIterator struct {
-	Event *SmcApprovalForAll // Event containing the contract specifics and raw log
+// KfiveNFTApprovalForAllIterator is returned from FilterApprovalForAll and is used to iterate over the raw logs and unpacked data for ApprovalForAll events raised by the KfiveNFT contract.
+type KfiveNFTApprovalForAllIterator struct {
+	Event *KfiveNFTApprovalForAll // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1623,7 +1623,7 @@ type SmcApprovalForAllIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcApprovalForAllIterator) Next() bool {
+func (it *KfiveNFTApprovalForAllIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1632,7 +1632,7 @@ func (it *SmcApprovalForAllIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcApprovalForAll)
+			it.Event = new(KfiveNFTApprovalForAll)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1647,7 +1647,7 @@ func (it *SmcApprovalForAllIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcApprovalForAll)
+		it.Event = new(KfiveNFTApprovalForAll)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1663,19 +1663,19 @@ func (it *SmcApprovalForAllIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcApprovalForAllIterator) Error() error {
+func (it *KfiveNFTApprovalForAllIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcApprovalForAllIterator) Close() error {
+func (it *KfiveNFTApprovalForAllIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcApprovalForAll represents a ApprovalForAll event raised by the Smc contract.
-type SmcApprovalForAll struct {
+// KfiveNFTApprovalForAll represents a ApprovalForAll event raised by the KfiveNFT contract.
+type KfiveNFTApprovalForAll struct {
 	Owner    common.Address
 	Operator common.Address
 	Approved bool
@@ -1685,7 +1685,7 @@ type SmcApprovalForAll struct {
 // FilterApprovalForAll is a free log retrieval operation binding the contract event 0x17307eab39ab6107e8899845ad3d59bd9653f200f220920489ca2b5937696c31.
 //
 // Solidity: event ApprovalForAll(address indexed owner, address indexed operator, bool approved)
-func (_Smc *SmcFilterer) FilterApprovalForAll(opts *bind.FilterOpts, owner []common.Address, operator []common.Address) (*SmcApprovalForAllIterator, error) {
+func (_KfiveNFT *KfiveNFTFilterer) FilterApprovalForAll(opts *bind.FilterOpts, owner []common.Address, operator []common.Address) (*KfiveNFTApprovalForAllIterator, error) {
 
 	var ownerRule []interface{}
 	for _, ownerItem := range owner {
@@ -1696,17 +1696,17 @@ func (_Smc *SmcFilterer) FilterApprovalForAll(opts *bind.FilterOpts, owner []com
 		operatorRule = append(operatorRule, operatorItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "ApprovalForAll", ownerRule, operatorRule)
+	logs, sub, err := _KfiveNFT.contract.FilterLogs(opts, "ApprovalForAll", ownerRule, operatorRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcApprovalForAllIterator{contract: _Smc.contract, event: "ApprovalForAll", logs: logs, sub: sub}, nil
+	return &KfiveNFTApprovalForAllIterator{contract: _KfiveNFT.contract, event: "ApprovalForAll", logs: logs, sub: sub}, nil
 }
 
 // WatchApprovalForAll is a free log subscription operation binding the contract event 0x17307eab39ab6107e8899845ad3d59bd9653f200f220920489ca2b5937696c31.
 //
 // Solidity: event ApprovalForAll(address indexed owner, address indexed operator, bool approved)
-func (_Smc *SmcFilterer) WatchApprovalForAll(opts *bind.WatchOpts, sink chan<- *SmcApprovalForAll, owner []common.Address, operator []common.Address) (event.Subscription, error) {
+func (_KfiveNFT *KfiveNFTFilterer) WatchApprovalForAll(opts *bind.WatchOpts, sink chan<- *KfiveNFTApprovalForAll, owner []common.Address, operator []common.Address) (event.Subscription, error) {
 
 	var ownerRule []interface{}
 	for _, ownerItem := range owner {
@@ -1717,7 +1717,7 @@ func (_Smc *SmcFilterer) WatchApprovalForAll(opts *bind.WatchOpts, sink chan<- *
 		operatorRule = append(operatorRule, operatorItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "ApprovalForAll", ownerRule, operatorRule)
+	logs, sub, err := _KfiveNFT.contract.WatchLogs(opts, "ApprovalForAll", ownerRule, operatorRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1727,8 +1727,8 @@ func (_Smc *SmcFilterer) WatchApprovalForAll(opts *bind.WatchOpts, sink chan<- *
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcApprovalForAll)
-				if err := _Smc.contract.UnpackLog(event, "ApprovalForAll", log); err != nil {
+				event := new(KfiveNFTApprovalForAll)
+				if err := _KfiveNFT.contract.UnpackLog(event, "ApprovalForAll", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1752,18 +1752,18 @@ func (_Smc *SmcFilterer) WatchApprovalForAll(opts *bind.WatchOpts, sink chan<- *
 // ParseApprovalForAll is a log parse operation binding the contract event 0x17307eab39ab6107e8899845ad3d59bd9653f200f220920489ca2b5937696c31.
 //
 // Solidity: event ApprovalForAll(address indexed owner, address indexed operator, bool approved)
-func (_Smc *SmcFilterer) ParseApprovalForAll(log types.Log) (*SmcApprovalForAll, error) {
-	event := new(SmcApprovalForAll)
-	if err := _Smc.contract.UnpackLog(event, "ApprovalForAll", log); err != nil {
+func (_KfiveNFT *KfiveNFTFilterer) ParseApprovalForAll(log types.Log) (*KfiveNFTApprovalForAll, error) {
+	event := new(KfiveNFTApprovalForAll)
+	if err := _KfiveNFT.contract.UnpackLog(event, "ApprovalForAll", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcMarketplaceStorageUpdatedIterator is returned from FilterMarketplaceStorageUpdated and is used to iterate over the raw logs and unpacked data for MarketplaceStorageUpdated events raised by the Smc contract.
-type SmcMarketplaceStorageUpdatedIterator struct {
-	Event *SmcMarketplaceStorageUpdated // Event containing the contract specifics and raw log
+// KfiveNFTMarketplaceStorageUpdatedIterator is returned from FilterMarketplaceStorageUpdated and is used to iterate over the raw logs and unpacked data for MarketplaceStorageUpdated events raised by the KfiveNFT contract.
+type KfiveNFTMarketplaceStorageUpdatedIterator struct {
+	Event *KfiveNFTMarketplaceStorageUpdated // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1777,7 +1777,7 @@ type SmcMarketplaceStorageUpdatedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcMarketplaceStorageUpdatedIterator) Next() bool {
+func (it *KfiveNFTMarketplaceStorageUpdatedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1786,7 +1786,7 @@ func (it *SmcMarketplaceStorageUpdatedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcMarketplaceStorageUpdated)
+			it.Event = new(KfiveNFTMarketplaceStorageUpdated)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1801,7 +1801,7 @@ func (it *SmcMarketplaceStorageUpdatedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcMarketplaceStorageUpdated)
+		it.Event = new(KfiveNFTMarketplaceStorageUpdated)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1817,19 +1817,19 @@ func (it *SmcMarketplaceStorageUpdatedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcMarketplaceStorageUpdatedIterator) Error() error {
+func (it *KfiveNFTMarketplaceStorageUpdatedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcMarketplaceStorageUpdatedIterator) Close() error {
+func (it *KfiveNFTMarketplaceStorageUpdatedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcMarketplaceStorageUpdated represents a MarketplaceStorageUpdated event raised by the Smc contract.
-type SmcMarketplaceStorageUpdated struct {
+// KfiveNFTMarketplaceStorageUpdated represents a MarketplaceStorageUpdated event raised by the KfiveNFT contract.
+type KfiveNFTMarketplaceStorageUpdated struct {
 	MarketplaceStorage common.Address
 	Raw                types.Log // Blockchain specific contextual infos
 }
@@ -1837,21 +1837,21 @@ type SmcMarketplaceStorageUpdated struct {
 // FilterMarketplaceStorageUpdated is a free log retrieval operation binding the contract event 0x19e07a962d0e1cab8b7d4be06b77a7225ca7ebb744994cb6546fdd815590dc9d.
 //
 // Solidity: event MarketplaceStorageUpdated(address _marketplaceStorage)
-func (_Smc *SmcFilterer) FilterMarketplaceStorageUpdated(opts *bind.FilterOpts) (*SmcMarketplaceStorageUpdatedIterator, error) {
+func (_KfiveNFT *KfiveNFTFilterer) FilterMarketplaceStorageUpdated(opts *bind.FilterOpts) (*KfiveNFTMarketplaceStorageUpdatedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "MarketplaceStorageUpdated")
+	logs, sub, err := _KfiveNFT.contract.FilterLogs(opts, "MarketplaceStorageUpdated")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcMarketplaceStorageUpdatedIterator{contract: _Smc.contract, event: "MarketplaceStorageUpdated", logs: logs, sub: sub}, nil
+	return &KfiveNFTMarketplaceStorageUpdatedIterator{contract: _KfiveNFT.contract, event: "MarketplaceStorageUpdated", logs: logs, sub: sub}, nil
 }
 
 // WatchMarketplaceStorageUpdated is a free log subscription operation binding the contract event 0x19e07a962d0e1cab8b7d4be06b77a7225ca7ebb744994cb6546fdd815590dc9d.
 //
 // Solidity: event MarketplaceStorageUpdated(address _marketplaceStorage)
-func (_Smc *SmcFilterer) WatchMarketplaceStorageUpdated(opts *bind.WatchOpts, sink chan<- *SmcMarketplaceStorageUpdated) (event.Subscription, error) {
+func (_KfiveNFT *KfiveNFTFilterer) WatchMarketplaceStorageUpdated(opts *bind.WatchOpts, sink chan<- *KfiveNFTMarketplaceStorageUpdated) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "MarketplaceStorageUpdated")
+	logs, sub, err := _KfiveNFT.contract.WatchLogs(opts, "MarketplaceStorageUpdated")
 	if err != nil {
 		return nil, err
 	}
@@ -1861,8 +1861,8 @@ func (_Smc *SmcFilterer) WatchMarketplaceStorageUpdated(opts *bind.WatchOpts, si
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcMarketplaceStorageUpdated)
-				if err := _Smc.contract.UnpackLog(event, "MarketplaceStorageUpdated", log); err != nil {
+				event := new(KfiveNFTMarketplaceStorageUpdated)
+				if err := _KfiveNFT.contract.UnpackLog(event, "MarketplaceStorageUpdated", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1886,18 +1886,18 @@ func (_Smc *SmcFilterer) WatchMarketplaceStorageUpdated(opts *bind.WatchOpts, si
 // ParseMarketplaceStorageUpdated is a log parse operation binding the contract event 0x19e07a962d0e1cab8b7d4be06b77a7225ca7ebb744994cb6546fdd815590dc9d.
 //
 // Solidity: event MarketplaceStorageUpdated(address _marketplaceStorage)
-func (_Smc *SmcFilterer) ParseMarketplaceStorageUpdated(log types.Log) (*SmcMarketplaceStorageUpdated, error) {
-	event := new(SmcMarketplaceStorageUpdated)
-	if err := _Smc.contract.UnpackLog(event, "MarketplaceStorageUpdated", log); err != nil {
+func (_KfiveNFT *KfiveNFTFilterer) ParseMarketplaceStorageUpdated(log types.Log) (*KfiveNFTMarketplaceStorageUpdated, error) {
+	event := new(KfiveNFTMarketplaceStorageUpdated)
+	if err := _KfiveNFT.contract.UnpackLog(event, "MarketplaceStorageUpdated", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the Smc contract.
-type SmcOwnershipTransferredIterator struct {
-	Event *SmcOwnershipTransferred // Event containing the contract specifics and raw log
+// KfiveNFTOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the KfiveNFT contract.
+type KfiveNFTOwnershipTransferredIterator struct {
+	Event *KfiveNFTOwnershipTransferred // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1911,7 +1911,7 @@ type SmcOwnershipTransferredIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcOwnershipTransferredIterator) Next() bool {
+func (it *KfiveNFTOwnershipTransferredIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1920,7 +1920,7 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcOwnershipTransferred)
+			it.Event = new(KfiveNFTOwnershipTransferred)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1935,7 +1935,7 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcOwnershipTransferred)
+		it.Event = new(KfiveNFTOwnershipTransferred)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1951,19 +1951,19 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcOwnershipTransferredIterator) Error() error {
+func (it *KfiveNFTOwnershipTransferredIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcOwnershipTransferredIterator) Close() error {
+func (it *KfiveNFTOwnershipTransferredIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcOwnershipTransferred represents a OwnershipTransferred event raised by the Smc contract.
-type SmcOwnershipTransferred struct {
+// KfiveNFTOwnershipTransferred represents a OwnershipTransferred event raised by the KfiveNFT contract.
+type KfiveNFTOwnershipTransferred struct {
 	PreviousOwner common.Address
 	NewOwner      common.Address
 	Raw           types.Log // Blockchain specific contextual infos
@@ -1972,7 +1972,7 @@ type SmcOwnershipTransferred struct {
 // FilterOwnershipTransferred is a free log retrieval operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previousOwner []common.Address, newOwner []common.Address) (*SmcOwnershipTransferredIterator, error) {
+func (_KfiveNFT *KfiveNFTFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previousOwner []common.Address, newOwner []common.Address) (*KfiveNFTOwnershipTransferredIterator, error) {
 
 	var previousOwnerRule []interface{}
 	for _, previousOwnerItem := range previousOwner {
@@ -1983,17 +1983,17 @@ func (_Smc *SmcFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previ
 		newOwnerRule = append(newOwnerRule, newOwnerItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
+	logs, sub, err := _KfiveNFT.contract.FilterLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcOwnershipTransferredIterator{contract: _Smc.contract, event: "OwnershipTransferred", logs: logs, sub: sub}, nil
+	return &KfiveNFTOwnershipTransferredIterator{contract: _KfiveNFT.contract, event: "OwnershipTransferred", logs: logs, sub: sub}, nil
 }
 
 // WatchOwnershipTransferred is a free log subscription operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink chan<- *SmcOwnershipTransferred, previousOwner []common.Address, newOwner []common.Address) (event.Subscription, error) {
+func (_KfiveNFT *KfiveNFTFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink chan<- *KfiveNFTOwnershipTransferred, previousOwner []common.Address, newOwner []common.Address) (event.Subscription, error) {
 
 	var previousOwnerRule []interface{}
 	for _, previousOwnerItem := range previousOwner {
@@ -2004,7 +2004,7 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 		newOwnerRule = append(newOwnerRule, newOwnerItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
+	logs, sub, err := _KfiveNFT.contract.WatchLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
 	if err != nil {
 		return nil, err
 	}
@@ -2014,8 +2014,8 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcOwnershipTransferred)
-				if err := _Smc.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
+				event := new(KfiveNFTOwnershipTransferred)
+				if err := _KfiveNFT.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2039,18 +2039,18 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 // ParseOwnershipTransferred is a log parse operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) ParseOwnershipTransferred(log types.Log) (*SmcOwnershipTransferred, error) {
-	event := new(SmcOwnershipTransferred)
-	if err := _Smc.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
+func (_KfiveNFT *KfiveNFTFilterer) ParseOwnershipTransferred(log types.Log) (*KfiveNFTOwnershipTransferred, error) {
+	event := new(KfiveNFTOwnershipTransferred)
+	if err := _KfiveNFT.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcPausedIterator is returned from FilterPaused and is used to iterate over the raw logs and unpacked data for Paused events raised by the Smc contract.
-type SmcPausedIterator struct {
-	Event *SmcPaused // Event containing the contract specifics and raw log
+// KfiveNFTPausedIterator is returned from FilterPaused and is used to iterate over the raw logs and unpacked data for Paused events raised by the KfiveNFT contract.
+type KfiveNFTPausedIterator struct {
+	Event *KfiveNFTPaused // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2064,7 +2064,7 @@ type SmcPausedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcPausedIterator) Next() bool {
+func (it *KfiveNFTPausedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2073,7 +2073,7 @@ func (it *SmcPausedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcPaused)
+			it.Event = new(KfiveNFTPaused)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2088,7 +2088,7 @@ func (it *SmcPausedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcPaused)
+		it.Event = new(KfiveNFTPaused)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2104,19 +2104,19 @@ func (it *SmcPausedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcPausedIterator) Error() error {
+func (it *KfiveNFTPausedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcPausedIterator) Close() error {
+func (it *KfiveNFTPausedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcPaused represents a Paused event raised by the Smc contract.
-type SmcPaused struct {
+// KfiveNFTPaused represents a Paused event raised by the KfiveNFT contract.
+type KfiveNFTPaused struct {
 	Account common.Address
 	Raw     types.Log // Blockchain specific contextual infos
 }
@@ -2124,21 +2124,21 @@ type SmcPaused struct {
 // FilterPaused is a free log retrieval operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) FilterPaused(opts *bind.FilterOpts) (*SmcPausedIterator, error) {
+func (_KfiveNFT *KfiveNFTFilterer) FilterPaused(opts *bind.FilterOpts) (*KfiveNFTPausedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Paused")
+	logs, sub, err := _KfiveNFT.contract.FilterLogs(opts, "Paused")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcPausedIterator{contract: _Smc.contract, event: "Paused", logs: logs, sub: sub}, nil
+	return &KfiveNFTPausedIterator{contract: _KfiveNFT.contract, event: "Paused", logs: logs, sub: sub}, nil
 }
 
 // WatchPaused is a free log subscription operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPaused) (event.Subscription, error) {
+func (_KfiveNFT *KfiveNFTFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *KfiveNFTPaused) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Paused")
+	logs, sub, err := _KfiveNFT.contract.WatchLogs(opts, "Paused")
 	if err != nil {
 		return nil, err
 	}
@@ -2148,8 +2148,8 @@ func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPause
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcPaused)
-				if err := _Smc.contract.UnpackLog(event, "Paused", log); err != nil {
+				event := new(KfiveNFTPaused)
+				if err := _KfiveNFT.contract.UnpackLog(event, "Paused", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2173,18 +2173,18 @@ func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPause
 // ParsePaused is a log parse operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) ParsePaused(log types.Log) (*SmcPaused, error) {
-	event := new(SmcPaused)
-	if err := _Smc.contract.UnpackLog(event, "Paused", log); err != nil {
+func (_KfiveNFT *KfiveNFTFilterer) ParsePaused(log types.Log) (*KfiveNFTPaused, error) {
+	event := new(KfiveNFTPaused)
+	if err := _KfiveNFT.contract.UnpackLog(event, "Paused", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRemovedBlackListIterator is returned from FilterRemovedBlackList and is used to iterate over the raw logs and unpacked data for RemovedBlackList events raised by the Smc contract.
-type SmcRemovedBlackListIterator struct {
-	Event *SmcRemovedBlackList // Event containing the contract specifics and raw log
+// KfiveNFTRemovedBlackListIterator is returned from FilterRemovedBlackList and is used to iterate over the raw logs and unpacked data for RemovedBlackList events raised by the KfiveNFT contract.
+type KfiveNFTRemovedBlackListIterator struct {
+	Event *KfiveNFTRemovedBlackList // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2198,7 +2198,7 @@ type SmcRemovedBlackListIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRemovedBlackListIterator) Next() bool {
+func (it *KfiveNFTRemovedBlackListIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2207,7 +2207,7 @@ func (it *SmcRemovedBlackListIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRemovedBlackList)
+			it.Event = new(KfiveNFTRemovedBlackList)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2222,7 +2222,7 @@ func (it *SmcRemovedBlackListIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRemovedBlackList)
+		it.Event = new(KfiveNFTRemovedBlackList)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2238,19 +2238,19 @@ func (it *SmcRemovedBlackListIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRemovedBlackListIterator) Error() error {
+func (it *KfiveNFTRemovedBlackListIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRemovedBlackListIterator) Close() error {
+func (it *KfiveNFTRemovedBlackListIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRemovedBlackList represents a RemovedBlackList event raised by the Smc contract.
-type SmcRemovedBlackList struct {
+// KfiveNFTRemovedBlackList represents a RemovedBlackList event raised by the KfiveNFT contract.
+type KfiveNFTRemovedBlackList struct {
 	User common.Address
 	Raw  types.Log // Blockchain specific contextual infos
 }
@@ -2258,21 +2258,21 @@ type SmcRemovedBlackList struct {
 // FilterRemovedBlackList is a free log retrieval operation binding the contract event 0xd7e9ec6e6ecd65492dce6bf513cd6867560d49544421d0783ddf06e76c24470c.
 //
 // Solidity: event RemovedBlackList(address _user)
-func (_Smc *SmcFilterer) FilterRemovedBlackList(opts *bind.FilterOpts) (*SmcRemovedBlackListIterator, error) {
+func (_KfiveNFT *KfiveNFTFilterer) FilterRemovedBlackList(opts *bind.FilterOpts) (*KfiveNFTRemovedBlackListIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RemovedBlackList")
+	logs, sub, err := _KfiveNFT.contract.FilterLogs(opts, "RemovedBlackList")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRemovedBlackListIterator{contract: _Smc.contract, event: "RemovedBlackList", logs: logs, sub: sub}, nil
+	return &KfiveNFTRemovedBlackListIterator{contract: _KfiveNFT.contract, event: "RemovedBlackList", logs: logs, sub: sub}, nil
 }
 
 // WatchRemovedBlackList is a free log subscription operation binding the contract event 0xd7e9ec6e6ecd65492dce6bf513cd6867560d49544421d0783ddf06e76c24470c.
 //
 // Solidity: event RemovedBlackList(address _user)
-func (_Smc *SmcFilterer) WatchRemovedBlackList(opts *bind.WatchOpts, sink chan<- *SmcRemovedBlackList) (event.Subscription, error) {
+func (_KfiveNFT *KfiveNFTFilterer) WatchRemovedBlackList(opts *bind.WatchOpts, sink chan<- *KfiveNFTRemovedBlackList) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RemovedBlackList")
+	logs, sub, err := _KfiveNFT.contract.WatchLogs(opts, "RemovedBlackList")
 	if err != nil {
 		return nil, err
 	}
@@ -2282,8 +2282,8 @@ func (_Smc *SmcFilterer) WatchRemovedBlackList(opts *bind.WatchOpts, sink chan<-
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRemovedBlackList)
-				if err := _Smc.contract.UnpackLog(event, "RemovedBlackList", log); err != nil {
+				event := new(KfiveNFTRemovedBlackList)
+				if err := _KfiveNFT.contract.UnpackLog(event, "RemovedBlackList", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2307,18 +2307,18 @@ func (_Smc *SmcFilterer) WatchRemovedBlackList(opts *bind.WatchOpts, sink chan<-
 // ParseRemovedBlackList is a log parse operation binding the contract event 0xd7e9ec6e6ecd65492dce6bf513cd6867560d49544421d0783ddf06e76c24470c.
 //
 // Solidity: event RemovedBlackList(address _user)
-func (_Smc *SmcFilterer) ParseRemovedBlackList(log types.Log) (*SmcRemovedBlackList, error) {
-	event := new(SmcRemovedBlackList)
-	if err := _Smc.contract.UnpackLog(event, "RemovedBlackList", log); err != nil {
+func (_KfiveNFT *KfiveNFTFilterer) ParseRemovedBlackList(log types.Log) (*KfiveNFTRemovedBlackList, error) {
+	event := new(KfiveNFTRemovedBlackList)
+	if err := _KfiveNFT.contract.UnpackLog(event, "RemovedBlackList", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRoleAdminChangedIterator is returned from FilterRoleAdminChanged and is used to iterate over the raw logs and unpacked data for RoleAdminChanged events raised by the Smc contract.
-type SmcRoleAdminChangedIterator struct {
-	Event *SmcRoleAdminChanged // Event containing the contract specifics and raw log
+// KfiveNFTRoleAdminChangedIterator is returned from FilterRoleAdminChanged and is used to iterate over the raw logs and unpacked data for RoleAdminChanged events raised by the KfiveNFT contract.
+type KfiveNFTRoleAdminChangedIterator struct {
+	Event *KfiveNFTRoleAdminChanged // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2332,7 +2332,7 @@ type SmcRoleAdminChangedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRoleAdminChangedIterator) Next() bool {
+func (it *KfiveNFTRoleAdminChangedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2341,7 +2341,7 @@ func (it *SmcRoleAdminChangedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRoleAdminChanged)
+			it.Event = new(KfiveNFTRoleAdminChanged)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2356,7 +2356,7 @@ func (it *SmcRoleAdminChangedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRoleAdminChanged)
+		it.Event = new(KfiveNFTRoleAdminChanged)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2372,19 +2372,19 @@ func (it *SmcRoleAdminChangedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRoleAdminChangedIterator) Error() error {
+func (it *KfiveNFTRoleAdminChangedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRoleAdminChangedIterator) Close() error {
+func (it *KfiveNFTRoleAdminChangedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRoleAdminChanged represents a RoleAdminChanged event raised by the Smc contract.
-type SmcRoleAdminChanged struct {
+// KfiveNFTRoleAdminChanged represents a RoleAdminChanged event raised by the KfiveNFT contract.
+type KfiveNFTRoleAdminChanged struct {
 	Role              [32]byte
 	PreviousAdminRole [32]byte
 	NewAdminRole      [32]byte
@@ -2394,7 +2394,7 @@ type SmcRoleAdminChanged struct {
 // FilterRoleAdminChanged is a free log retrieval operation binding the contract event 0xbd79b86ffe0ab8e8776151514217cd7cacd52c909f66475c3af44e129f0b00ff.
 //
 // Solidity: event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
-func (_Smc *SmcFilterer) FilterRoleAdminChanged(opts *bind.FilterOpts, role [][32]byte, previousAdminRole [][32]byte, newAdminRole [][32]byte) (*SmcRoleAdminChangedIterator, error) {
+func (_KfiveNFT *KfiveNFTFilterer) FilterRoleAdminChanged(opts *bind.FilterOpts, role [][32]byte, previousAdminRole [][32]byte, newAdminRole [][32]byte) (*KfiveNFTRoleAdminChangedIterator, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -2409,17 +2409,17 @@ func (_Smc *SmcFilterer) FilterRoleAdminChanged(opts *bind.FilterOpts, role [][3
 		newAdminRoleRule = append(newAdminRoleRule, newAdminRoleItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RoleAdminChanged", roleRule, previousAdminRoleRule, newAdminRoleRule)
+	logs, sub, err := _KfiveNFT.contract.FilterLogs(opts, "RoleAdminChanged", roleRule, previousAdminRoleRule, newAdminRoleRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRoleAdminChangedIterator{contract: _Smc.contract, event: "RoleAdminChanged", logs: logs, sub: sub}, nil
+	return &KfiveNFTRoleAdminChangedIterator{contract: _KfiveNFT.contract, event: "RoleAdminChanged", logs: logs, sub: sub}, nil
 }
 
 // WatchRoleAdminChanged is a free log subscription operation binding the contract event 0xbd79b86ffe0ab8e8776151514217cd7cacd52c909f66475c3af44e129f0b00ff.
 //
 // Solidity: event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
-func (_Smc *SmcFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<- *SmcRoleAdminChanged, role [][32]byte, previousAdminRole [][32]byte, newAdminRole [][32]byte) (event.Subscription, error) {
+func (_KfiveNFT *KfiveNFTFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<- *KfiveNFTRoleAdminChanged, role [][32]byte, previousAdminRole [][32]byte, newAdminRole [][32]byte) (event.Subscription, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -2434,7 +2434,7 @@ func (_Smc *SmcFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<-
 		newAdminRoleRule = append(newAdminRoleRule, newAdminRoleItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RoleAdminChanged", roleRule, previousAdminRoleRule, newAdminRoleRule)
+	logs, sub, err := _KfiveNFT.contract.WatchLogs(opts, "RoleAdminChanged", roleRule, previousAdminRoleRule, newAdminRoleRule)
 	if err != nil {
 		return nil, err
 	}
@@ -2444,8 +2444,8 @@ func (_Smc *SmcFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<-
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRoleAdminChanged)
-				if err := _Smc.contract.UnpackLog(event, "RoleAdminChanged", log); err != nil {
+				event := new(KfiveNFTRoleAdminChanged)
+				if err := _KfiveNFT.contract.UnpackLog(event, "RoleAdminChanged", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2469,18 +2469,18 @@ func (_Smc *SmcFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<-
 // ParseRoleAdminChanged is a log parse operation binding the contract event 0xbd79b86ffe0ab8e8776151514217cd7cacd52c909f66475c3af44e129f0b00ff.
 //
 // Solidity: event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
-func (_Smc *SmcFilterer) ParseRoleAdminChanged(log types.Log) (*SmcRoleAdminChanged, error) {
-	event := new(SmcRoleAdminChanged)
-	if err := _Smc.contract.UnpackLog(event, "RoleAdminChanged", log); err != nil {
+func (_KfiveNFT *KfiveNFTFilterer) ParseRoleAdminChanged(log types.Log) (*KfiveNFTRoleAdminChanged, error) {
+	event := new(KfiveNFTRoleAdminChanged)
+	if err := _KfiveNFT.contract.UnpackLog(event, "RoleAdminChanged", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRoleGrantedIterator is returned from FilterRoleGranted and is used to iterate over the raw logs and unpacked data for RoleGranted events raised by the Smc contract.
-type SmcRoleGrantedIterator struct {
-	Event *SmcRoleGranted // Event containing the contract specifics and raw log
+// KfiveNFTRoleGrantedIterator is returned from FilterRoleGranted and is used to iterate over the raw logs and unpacked data for RoleGranted events raised by the KfiveNFT contract.
+type KfiveNFTRoleGrantedIterator struct {
+	Event *KfiveNFTRoleGranted // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2494,7 +2494,7 @@ type SmcRoleGrantedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRoleGrantedIterator) Next() bool {
+func (it *KfiveNFTRoleGrantedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2503,7 +2503,7 @@ func (it *SmcRoleGrantedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRoleGranted)
+			it.Event = new(KfiveNFTRoleGranted)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2518,7 +2518,7 @@ func (it *SmcRoleGrantedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRoleGranted)
+		it.Event = new(KfiveNFTRoleGranted)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2534,19 +2534,19 @@ func (it *SmcRoleGrantedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRoleGrantedIterator) Error() error {
+func (it *KfiveNFTRoleGrantedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRoleGrantedIterator) Close() error {
+func (it *KfiveNFTRoleGrantedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRoleGranted represents a RoleGranted event raised by the Smc contract.
-type SmcRoleGranted struct {
+// KfiveNFTRoleGranted represents a RoleGranted event raised by the KfiveNFT contract.
+type KfiveNFTRoleGranted struct {
 	Role    [32]byte
 	Account common.Address
 	Sender  common.Address
@@ -2556,7 +2556,7 @@ type SmcRoleGranted struct {
 // FilterRoleGranted is a free log retrieval operation binding the contract event 0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d.
 //
 // Solidity: event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) FilterRoleGranted(opts *bind.FilterOpts, role [][32]byte, account []common.Address, sender []common.Address) (*SmcRoleGrantedIterator, error) {
+func (_KfiveNFT *KfiveNFTFilterer) FilterRoleGranted(opts *bind.FilterOpts, role [][32]byte, account []common.Address, sender []common.Address) (*KfiveNFTRoleGrantedIterator, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -2571,17 +2571,17 @@ func (_Smc *SmcFilterer) FilterRoleGranted(opts *bind.FilterOpts, role [][32]byt
 		senderRule = append(senderRule, senderItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RoleGranted", roleRule, accountRule, senderRule)
+	logs, sub, err := _KfiveNFT.contract.FilterLogs(opts, "RoleGranted", roleRule, accountRule, senderRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRoleGrantedIterator{contract: _Smc.contract, event: "RoleGranted", logs: logs, sub: sub}, nil
+	return &KfiveNFTRoleGrantedIterator{contract: _KfiveNFT.contract, event: "RoleGranted", logs: logs, sub: sub}, nil
 }
 
 // WatchRoleGranted is a free log subscription operation binding the contract event 0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d.
 //
 // Solidity: event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *SmcRoleGranted, role [][32]byte, account []common.Address, sender []common.Address) (event.Subscription, error) {
+func (_KfiveNFT *KfiveNFTFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *KfiveNFTRoleGranted, role [][32]byte, account []common.Address, sender []common.Address) (event.Subscription, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -2596,7 +2596,7 @@ func (_Smc *SmcFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *Smc
 		senderRule = append(senderRule, senderItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RoleGranted", roleRule, accountRule, senderRule)
+	logs, sub, err := _KfiveNFT.contract.WatchLogs(opts, "RoleGranted", roleRule, accountRule, senderRule)
 	if err != nil {
 		return nil, err
 	}
@@ -2606,8 +2606,8 @@ func (_Smc *SmcFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *Smc
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRoleGranted)
-				if err := _Smc.contract.UnpackLog(event, "RoleGranted", log); err != nil {
+				event := new(KfiveNFTRoleGranted)
+				if err := _KfiveNFT.contract.UnpackLog(event, "RoleGranted", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2631,18 +2631,18 @@ func (_Smc *SmcFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *Smc
 // ParseRoleGranted is a log parse operation binding the contract event 0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d.
 //
 // Solidity: event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) ParseRoleGranted(log types.Log) (*SmcRoleGranted, error) {
-	event := new(SmcRoleGranted)
-	if err := _Smc.contract.UnpackLog(event, "RoleGranted", log); err != nil {
+func (_KfiveNFT *KfiveNFTFilterer) ParseRoleGranted(log types.Log) (*KfiveNFTRoleGranted, error) {
+	event := new(KfiveNFTRoleGranted)
+	if err := _KfiveNFT.contract.UnpackLog(event, "RoleGranted", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRoleRevokedIterator is returned from FilterRoleRevoked and is used to iterate over the raw logs and unpacked data for RoleRevoked events raised by the Smc contract.
-type SmcRoleRevokedIterator struct {
-	Event *SmcRoleRevoked // Event containing the contract specifics and raw log
+// KfiveNFTRoleRevokedIterator is returned from FilterRoleRevoked and is used to iterate over the raw logs and unpacked data for RoleRevoked events raised by the KfiveNFT contract.
+type KfiveNFTRoleRevokedIterator struct {
+	Event *KfiveNFTRoleRevoked // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2656,7 +2656,7 @@ type SmcRoleRevokedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRoleRevokedIterator) Next() bool {
+func (it *KfiveNFTRoleRevokedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2665,7 +2665,7 @@ func (it *SmcRoleRevokedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRoleRevoked)
+			it.Event = new(KfiveNFTRoleRevoked)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2680,7 +2680,7 @@ func (it *SmcRoleRevokedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRoleRevoked)
+		it.Event = new(KfiveNFTRoleRevoked)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2696,19 +2696,19 @@ func (it *SmcRoleRevokedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRoleRevokedIterator) Error() error {
+func (it *KfiveNFTRoleRevokedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRoleRevokedIterator) Close() error {
+func (it *KfiveNFTRoleRevokedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRoleRevoked represents a RoleRevoked event raised by the Smc contract.
-type SmcRoleRevoked struct {
+// KfiveNFTRoleRevoked represents a RoleRevoked event raised by the KfiveNFT contract.
+type KfiveNFTRoleRevoked struct {
 	Role    [32]byte
 	Account common.Address
 	Sender  common.Address
@@ -2718,7 +2718,7 @@ type SmcRoleRevoked struct {
 // FilterRoleRevoked is a free log retrieval operation binding the contract event 0xf6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b.
 //
 // Solidity: event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) FilterRoleRevoked(opts *bind.FilterOpts, role [][32]byte, account []common.Address, sender []common.Address) (*SmcRoleRevokedIterator, error) {
+func (_KfiveNFT *KfiveNFTFilterer) FilterRoleRevoked(opts *bind.FilterOpts, role [][32]byte, account []common.Address, sender []common.Address) (*KfiveNFTRoleRevokedIterator, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -2733,17 +2733,17 @@ func (_Smc *SmcFilterer) FilterRoleRevoked(opts *bind.FilterOpts, role [][32]byt
 		senderRule = append(senderRule, senderItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RoleRevoked", roleRule, accountRule, senderRule)
+	logs, sub, err := _KfiveNFT.contract.FilterLogs(opts, "RoleRevoked", roleRule, accountRule, senderRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRoleRevokedIterator{contract: _Smc.contract, event: "RoleRevoked", logs: logs, sub: sub}, nil
+	return &KfiveNFTRoleRevokedIterator{contract: _KfiveNFT.contract, event: "RoleRevoked", logs: logs, sub: sub}, nil
 }
 
 // WatchRoleRevoked is a free log subscription operation binding the contract event 0xf6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b.
 //
 // Solidity: event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *SmcRoleRevoked, role [][32]byte, account []common.Address, sender []common.Address) (event.Subscription, error) {
+func (_KfiveNFT *KfiveNFTFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *KfiveNFTRoleRevoked, role [][32]byte, account []common.Address, sender []common.Address) (event.Subscription, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -2758,7 +2758,7 @@ func (_Smc *SmcFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *Smc
 		senderRule = append(senderRule, senderItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RoleRevoked", roleRule, accountRule, senderRule)
+	logs, sub, err := _KfiveNFT.contract.WatchLogs(opts, "RoleRevoked", roleRule, accountRule, senderRule)
 	if err != nil {
 		return nil, err
 	}
@@ -2768,8 +2768,8 @@ func (_Smc *SmcFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *Smc
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRoleRevoked)
-				if err := _Smc.contract.UnpackLog(event, "RoleRevoked", log); err != nil {
+				event := new(KfiveNFTRoleRevoked)
+				if err := _KfiveNFT.contract.UnpackLog(event, "RoleRevoked", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2793,18 +2793,18 @@ func (_Smc *SmcFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *Smc
 // ParseRoleRevoked is a log parse operation binding the contract event 0xf6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b.
 //
 // Solidity: event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) ParseRoleRevoked(log types.Log) (*SmcRoleRevoked, error) {
-	event := new(SmcRoleRevoked)
-	if err := _Smc.contract.UnpackLog(event, "RoleRevoked", log); err != nil {
+func (_KfiveNFT *KfiveNFTFilterer) ParseRoleRevoked(log types.Log) (*KfiveNFTRoleRevoked, error) {
+	event := new(KfiveNFTRoleRevoked)
+	if err := _KfiveNFT.contract.UnpackLog(event, "RoleRevoked", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcTransferIterator is returned from FilterTransfer and is used to iterate over the raw logs and unpacked data for Transfer events raised by the Smc contract.
-type SmcTransferIterator struct {
-	Event *SmcTransfer // Event containing the contract specifics and raw log
+// KfiveNFTTransferIterator is returned from FilterTransfer and is used to iterate over the raw logs and unpacked data for Transfer events raised by the KfiveNFT contract.
+type KfiveNFTTransferIterator struct {
+	Event *KfiveNFTTransfer // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2818,7 +2818,7 @@ type SmcTransferIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcTransferIterator) Next() bool {
+func (it *KfiveNFTTransferIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2827,7 +2827,7 @@ func (it *SmcTransferIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcTransfer)
+			it.Event = new(KfiveNFTTransfer)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2842,7 +2842,7 @@ func (it *SmcTransferIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcTransfer)
+		it.Event = new(KfiveNFTTransfer)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2858,19 +2858,19 @@ func (it *SmcTransferIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcTransferIterator) Error() error {
+func (it *KfiveNFTTransferIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcTransferIterator) Close() error {
+func (it *KfiveNFTTransferIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcTransfer represents a Transfer event raised by the Smc contract.
-type SmcTransfer struct {
+// KfiveNFTTransfer represents a Transfer event raised by the KfiveNFT contract.
+type KfiveNFTTransfer struct {
 	From    common.Address
 	To      common.Address
 	TokenId *big.Int
@@ -2880,7 +2880,7 @@ type SmcTransfer struct {
 // FilterTransfer is a free log retrieval operation binding the contract event 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef.
 //
 // Solidity: event Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
-func (_Smc *SmcFilterer) FilterTransfer(opts *bind.FilterOpts, from []common.Address, to []common.Address, tokenId []*big.Int) (*SmcTransferIterator, error) {
+func (_KfiveNFT *KfiveNFTFilterer) FilterTransfer(opts *bind.FilterOpts, from []common.Address, to []common.Address, tokenId []*big.Int) (*KfiveNFTTransferIterator, error) {
 
 	var fromRule []interface{}
 	for _, fromItem := range from {
@@ -2895,17 +2895,17 @@ func (_Smc *SmcFilterer) FilterTransfer(opts *bind.FilterOpts, from []common.Add
 		tokenIdRule = append(tokenIdRule, tokenIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Transfer", fromRule, toRule, tokenIdRule)
+	logs, sub, err := _KfiveNFT.contract.FilterLogs(opts, "Transfer", fromRule, toRule, tokenIdRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTransferIterator{contract: _Smc.contract, event: "Transfer", logs: logs, sub: sub}, nil
+	return &KfiveNFTTransferIterator{contract: _KfiveNFT.contract, event: "Transfer", logs: logs, sub: sub}, nil
 }
 
 // WatchTransfer is a free log subscription operation binding the contract event 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef.
 //
 // Solidity: event Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
-func (_Smc *SmcFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *SmcTransfer, from []common.Address, to []common.Address, tokenId []*big.Int) (event.Subscription, error) {
+func (_KfiveNFT *KfiveNFTFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *KfiveNFTTransfer, from []common.Address, to []common.Address, tokenId []*big.Int) (event.Subscription, error) {
 
 	var fromRule []interface{}
 	for _, fromItem := range from {
@@ -2920,7 +2920,7 @@ func (_Smc *SmcFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *SmcTra
 		tokenIdRule = append(tokenIdRule, tokenIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Transfer", fromRule, toRule, tokenIdRule)
+	logs, sub, err := _KfiveNFT.contract.WatchLogs(opts, "Transfer", fromRule, toRule, tokenIdRule)
 	if err != nil {
 		return nil, err
 	}
@@ -2930,8 +2930,8 @@ func (_Smc *SmcFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *SmcTra
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcTransfer)
-				if err := _Smc.contract.UnpackLog(event, "Transfer", log); err != nil {
+				event := new(KfiveNFTTransfer)
+				if err := _KfiveNFT.contract.UnpackLog(event, "Transfer", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2955,18 +2955,18 @@ func (_Smc *SmcFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *SmcTra
 // ParseTransfer is a log parse operation binding the contract event 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef.
 //
 // Solidity: event Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
-func (_Smc *SmcFilterer) ParseTransfer(log types.Log) (*SmcTransfer, error) {
-	event := new(SmcTransfer)
-	if err := _Smc.contract.UnpackLog(event, "Transfer", log); err != nil {
+func (_KfiveNFT *KfiveNFTFilterer) ParseTransfer(log types.Log) (*KfiveNFTTransfer, error) {
+	event := new(KfiveNFTTransfer)
+	if err := _KfiveNFT.contract.UnpackLog(event, "Transfer", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcUnpausedIterator is returned from FilterUnpaused and is used to iterate over the raw logs and unpacked data for Unpaused events raised by the Smc contract.
-type SmcUnpausedIterator struct {
-	Event *SmcUnpaused // Event containing the contract specifics and raw log
+// KfiveNFTUnpausedIterator is returned from FilterUnpaused and is used to iterate over the raw logs and unpacked data for Unpaused events raised by the KfiveNFT contract.
+type KfiveNFTUnpausedIterator struct {
+	Event *KfiveNFTUnpaused // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2980,7 +2980,7 @@ type SmcUnpausedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcUnpausedIterator) Next() bool {
+func (it *KfiveNFTUnpausedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2989,7 +2989,7 @@ func (it *SmcUnpausedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcUnpaused)
+			it.Event = new(KfiveNFTUnpaused)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -3004,7 +3004,7 @@ func (it *SmcUnpausedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcUnpaused)
+		it.Event = new(KfiveNFTUnpaused)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -3020,19 +3020,19 @@ func (it *SmcUnpausedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcUnpausedIterator) Error() error {
+func (it *KfiveNFTUnpausedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcUnpausedIterator) Close() error {
+func (it *KfiveNFTUnpausedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcUnpaused represents a Unpaused event raised by the Smc contract.
-type SmcUnpaused struct {
+// KfiveNFTUnpaused represents a Unpaused event raised by the KfiveNFT contract.
+type KfiveNFTUnpaused struct {
 	Account common.Address
 	Raw     types.Log // Blockchain specific contextual infos
 }
@@ -3040,21 +3040,21 @@ type SmcUnpaused struct {
 // FilterUnpaused is a free log retrieval operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) FilterUnpaused(opts *bind.FilterOpts) (*SmcUnpausedIterator, error) {
+func (_KfiveNFT *KfiveNFTFilterer) FilterUnpaused(opts *bind.FilterOpts) (*KfiveNFTUnpausedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Unpaused")
+	logs, sub, err := _KfiveNFT.contract.FilterLogs(opts, "Unpaused")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcUnpausedIterator{contract: _Smc.contract, event: "Unpaused", logs: logs, sub: sub}, nil
+	return &KfiveNFTUnpausedIterator{contract: _KfiveNFT.contract, event: "Unpaused", logs: logs, sub: sub}, nil
 }
 
 // WatchUnpaused is a free log subscription operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnpaused) (event.Subscription, error) {
+func (_KfiveNFT *KfiveNFTFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *KfiveNFTUnpaused) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Unpaused")
+	logs, sub, err := _KfiveNFT.contract.WatchLogs(opts, "Unpaused")
 	if err != nil {
 		return nil, err
 	}
@@ -3064,8 +3064,8 @@ func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnp
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcUnpaused)
-				if err := _Smc.contract.UnpackLog(event, "Unpaused", log); err != nil {
+				event := new(KfiveNFTUnpaused)
+				if err := _KfiveNFT.contract.UnpackLog(event, "Unpaused", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -3089,9 +3089,9 @@ func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnp
 // ParseUnpaused is a log parse operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) ParseUnpaused(log types.Log) (*SmcUnpaused, error) {
-	event := new(SmcUnpaused)
-	if err := _Smc.contract.UnpackLog(event, "Unpaused", log); err != nil {
+func (_KfiveNFT *KfiveNFTFilterer) ParseUnpaused(log types.Log) (*KfiveNFTUnpaused, error) {
+	event := new(KfiveNFTUnpaused)
+	if err := _KfiveNFT.contract.UnpackLog(event, "Unpaused", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log

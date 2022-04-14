@@ -1,7 +1,7 @@
 // Code generated - DO NOT EDIT.
 // This file is a generated binding and any manual changes will be lost.
 
-package smc
+package RegistrationList
 
 import (
 	"errors"
@@ -28,113 +28,113 @@ var (
 	_ = event.NewSubscription
 )
 
-// SmcMetaData contains all meta data concerning the Smc contract.
-var SmcMetaData = &bind.MetaData{
+// RegistrationListMetaData contains all meta data concerning the RegistrationList contract.
+var RegistrationListMetaData = &bind.MetaData{
 	ABI: "[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"vrfCoordinator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nlggt\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"raceReward\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"raceList\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"subscriptionId\",\"type\":\"uint64\"},{\"internalType\":\"bytes32\",\"name\":\"keyHash\",\"type\":\"bytes32\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"AlreadyRegistered\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AlreadySelected\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidContract\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidSender\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidSlot\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"MaximumReached\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotNLGGTHolder\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"have\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"want\",\"type\":\"address\"}],\"name\":\"OnlyCoordinatorCanFulfill\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RaceNotExisted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RewardIsExisted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RewardNotExistedOrReceived\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooEarly\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooLate\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nlggt\",\"type\":\"address\"}],\"name\":\"NlggtUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"randomness\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"selected\",\"type\":\"bytes32\"}],\"name\":\"ParticipantsSelected\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"race\",\"type\":\"address\"}],\"name\":\"RaceListUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"RandomInProgress\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"participant\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"Registered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes1\",\"name\":\"resultIndex\",\"type\":\"bytes1\"}],\"name\":\"RewardAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"}],\"name\":\"RewardReceived\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PAUSER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getRoleMember\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleMemberCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"},{\"internalType\":\"uint256[]\",\"name\":\"randomWords\",\"type\":\"uint256[]\"}],\"name\":\"rawFulfillRandomWords\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"register\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"selectParticipant\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"},{\"internalType\":\"bytes1\",\"name\":\"resultIndex\",\"type\":\"bytes1\"}],\"name\":\"addReward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"}],\"name\":\"receiveReward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"raceList\",\"type\":\"address\"}],\"name\":\"updateRaceAddress\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"nlggt\",\"type\":\"address\"}],\"name\":\"updateNlggtAddress\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"selectedParticipants\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"result\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"}],\"name\":\"selectedParticipant\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"totalRegister\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"onERC721Received\",\"outputs\":[{\"internalType\":\"bytes4\",\"name\":\"\",\"type\":\"bytes4\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}]",
 }
 
-// SmcABI is the input ABI used to generate the binding from.
-// Deprecated: Use SmcMetaData.ABI instead.
-var SmcABI = SmcMetaData.ABI
+// RegistrationListABI is the input ABI used to generate the binding from.
+// Deprecated: Use RegistrationListMetaData.ABI instead.
+var RegistrationListABI = RegistrationListMetaData.ABI
 
-// Smc is an auto generated Go binding around an Ethereum contract.
-type Smc struct {
-	SmcCaller     // Read-only binding to the contract
-	SmcTransactor // Write-only binding to the contract
-	SmcFilterer   // Log filterer for contract events
+// RegistrationList is an auto generated Go binding around an Ethereum contract.
+type RegistrationList struct {
+	RegistrationListCaller     // Read-only binding to the contract
+	RegistrationListTransactor // Write-only binding to the contract
+	RegistrationListFilterer   // Log filterer for contract events
 }
 
-// SmcCaller is an auto generated read-only Go binding around an Ethereum contract.
-type SmcCaller struct {
+// RegistrationListCaller is an auto generated read-only Go binding around an Ethereum contract.
+type RegistrationListCaller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcTransactor is an auto generated write-only Go binding around an Ethereum contract.
-type SmcTransactor struct {
+// RegistrationListTransactor is an auto generated write-only Go binding around an Ethereum contract.
+type RegistrationListTransactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
-type SmcFilterer struct {
+// RegistrationListFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type RegistrationListFilterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcSession is an auto generated Go binding around an Ethereum contract,
+// RegistrationListSession is an auto generated Go binding around an Ethereum contract,
 // with pre-set call and transact options.
-type SmcSession struct {
-	Contract     *Smc              // Generic contract binding to set the session for
+type RegistrationListSession struct {
+	Contract     *RegistrationList // Generic contract binding to set the session for
 	CallOpts     bind.CallOpts     // Call options to use throughout this session
 	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 }
 
-// SmcCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// RegistrationListCallerSession is an auto generated read-only Go binding around an Ethereum contract,
 // with pre-set call options.
-type SmcCallerSession struct {
-	Contract *SmcCaller    // Generic contract caller binding to set the session for
-	CallOpts bind.CallOpts // Call options to use throughout this session
+type RegistrationListCallerSession struct {
+	Contract *RegistrationListCaller // Generic contract caller binding to set the session for
+	CallOpts bind.CallOpts           // Call options to use throughout this session
 }
 
-// SmcTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// RegistrationListTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
 // with pre-set transact options.
-type SmcTransactorSession struct {
-	Contract     *SmcTransactor    // Generic contract transactor binding to set the session for
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type RegistrationListTransactorSession struct {
+	Contract     *RegistrationListTransactor // Generic contract transactor binding to set the session for
+	TransactOpts bind.TransactOpts           // Transaction auth options to use throughout this session
 }
 
-// SmcRaw is an auto generated low-level Go binding around an Ethereum contract.
-type SmcRaw struct {
-	Contract *Smc // Generic contract binding to access the raw methods on
+// RegistrationListRaw is an auto generated low-level Go binding around an Ethereum contract.
+type RegistrationListRaw struct {
+	Contract *RegistrationList // Generic contract binding to access the raw methods on
 }
 
-// SmcCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
-type SmcCallerRaw struct {
-	Contract *SmcCaller // Generic read-only contract binding to access the raw methods on
+// RegistrationListCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type RegistrationListCallerRaw struct {
+	Contract *RegistrationListCaller // Generic read-only contract binding to access the raw methods on
 }
 
-// SmcTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
-type SmcTransactorRaw struct {
-	Contract *SmcTransactor // Generic write-only contract binding to access the raw methods on
+// RegistrationListTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type RegistrationListTransactorRaw struct {
+	Contract *RegistrationListTransactor // Generic write-only contract binding to access the raw methods on
 }
 
-// NewSmc creates a new instance of Smc, bound to a specific deployed contract.
-func NewSmc(address common.Address, backend bind.ContractBackend) (*Smc, error) {
-	contract, err := bindSmc(address, backend, backend, backend)
+// NewRegistrationList creates a new instance of RegistrationList, bound to a specific deployed contract.
+func NewRegistrationList(address common.Address, backend bind.ContractBackend) (*RegistrationList, error) {
+	contract, err := bindRegistrationList(address, backend, backend, backend)
 	if err != nil {
 		return nil, err
 	}
-	return &Smc{SmcCaller: SmcCaller{contract: contract}, SmcTransactor: SmcTransactor{contract: contract}, SmcFilterer: SmcFilterer{contract: contract}}, nil
+	return &RegistrationList{RegistrationListCaller: RegistrationListCaller{contract: contract}, RegistrationListTransactor: RegistrationListTransactor{contract: contract}, RegistrationListFilterer: RegistrationListFilterer{contract: contract}}, nil
 }
 
-// NewSmcCaller creates a new read-only instance of Smc, bound to a specific deployed contract.
-func NewSmcCaller(address common.Address, caller bind.ContractCaller) (*SmcCaller, error) {
-	contract, err := bindSmc(address, caller, nil, nil)
+// NewRegistrationListCaller creates a new read-only instance of RegistrationList, bound to a specific deployed contract.
+func NewRegistrationListCaller(address common.Address, caller bind.ContractCaller) (*RegistrationListCaller, error) {
+	contract, err := bindRegistrationList(address, caller, nil, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcCaller{contract: contract}, nil
+	return &RegistrationListCaller{contract: contract}, nil
 }
 
-// NewSmcTransactor creates a new write-only instance of Smc, bound to a specific deployed contract.
-func NewSmcTransactor(address common.Address, transactor bind.ContractTransactor) (*SmcTransactor, error) {
-	contract, err := bindSmc(address, nil, transactor, nil)
+// NewRegistrationListTransactor creates a new write-only instance of RegistrationList, bound to a specific deployed contract.
+func NewRegistrationListTransactor(address common.Address, transactor bind.ContractTransactor) (*RegistrationListTransactor, error) {
+	contract, err := bindRegistrationList(address, nil, transactor, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTransactor{contract: contract}, nil
+	return &RegistrationListTransactor{contract: contract}, nil
 }
 
-// NewSmcFilterer creates a new log filterer instance of Smc, bound to a specific deployed contract.
-func NewSmcFilterer(address common.Address, filterer bind.ContractFilterer) (*SmcFilterer, error) {
-	contract, err := bindSmc(address, nil, nil, filterer)
+// NewRegistrationListFilterer creates a new log filterer instance of RegistrationList, bound to a specific deployed contract.
+func NewRegistrationListFilterer(address common.Address, filterer bind.ContractFilterer) (*RegistrationListFilterer, error) {
+	contract, err := bindRegistrationList(address, nil, nil, filterer)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcFilterer{contract: contract}, nil
+	return &RegistrationListFilterer{contract: contract}, nil
 }
 
-// bindSmc binds a generic wrapper to an already deployed contract.
-func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-	parsed, err := abi.JSON(strings.NewReader(SmcABI))
+// bindRegistrationList binds a generic wrapper to an already deployed contract.
+func bindRegistrationList(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := abi.JSON(strings.NewReader(RegistrationListABI))
 	if err != nil {
 		return nil, err
 	}
@@ -145,46 +145,46 @@ func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.SmcCaller.contract.Call(opts, result, method, params...)
+func (_RegistrationList *RegistrationListRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _RegistrationList.Contract.RegistrationListCaller.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transfer(opts)
+func (_RegistrationList *RegistrationListRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _RegistrationList.Contract.RegistrationListTransactor.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transact(opts, method, params...)
+func (_RegistrationList *RegistrationListRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _RegistrationList.Contract.RegistrationListTransactor.contract.Transact(opts, method, params...)
 }
 
 // Call invokes the (constant) contract method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.contract.Call(opts, result, method, params...)
+func (_RegistrationList *RegistrationListCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _RegistrationList.Contract.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transfer(opts)
+func (_RegistrationList *RegistrationListTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _RegistrationList.Contract.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transact(opts, method, params...)
+func (_RegistrationList *RegistrationListTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _RegistrationList.Contract.contract.Transact(opts, method, params...)
 }
 
 // ADMINROLE is a free data retrieval call binding the contract method 0x75b238fc.
 //
 // Solidity: function ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcCaller) ADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
+func (_RegistrationList *RegistrationListCaller) ADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "ADMIN_ROLE")
+	err := _RegistrationList.contract.Call(opts, &out, "ADMIN_ROLE")
 
 	if err != nil {
 		return *new([32]byte), err
@@ -199,23 +199,23 @@ func (_Smc *SmcCaller) ADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
 // ADMINROLE is a free data retrieval call binding the contract method 0x75b238fc.
 //
 // Solidity: function ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcSession) ADMINROLE() ([32]byte, error) {
-	return _Smc.Contract.ADMINROLE(&_Smc.CallOpts)
+func (_RegistrationList *RegistrationListSession) ADMINROLE() ([32]byte, error) {
+	return _RegistrationList.Contract.ADMINROLE(&_RegistrationList.CallOpts)
 }
 
 // ADMINROLE is a free data retrieval call binding the contract method 0x75b238fc.
 //
 // Solidity: function ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcCallerSession) ADMINROLE() ([32]byte, error) {
-	return _Smc.Contract.ADMINROLE(&_Smc.CallOpts)
+func (_RegistrationList *RegistrationListCallerSession) ADMINROLE() ([32]byte, error) {
+	return _RegistrationList.Contract.ADMINROLE(&_RegistrationList.CallOpts)
 }
 
 // DEFAULTADMINROLE is a free data retrieval call binding the contract method 0xa217fddf.
 //
 // Solidity: function DEFAULT_ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcCaller) DEFAULTADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
+func (_RegistrationList *RegistrationListCaller) DEFAULTADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "DEFAULT_ADMIN_ROLE")
+	err := _RegistrationList.contract.Call(opts, &out, "DEFAULT_ADMIN_ROLE")
 
 	if err != nil {
 		return *new([32]byte), err
@@ -230,23 +230,23 @@ func (_Smc *SmcCaller) DEFAULTADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
 // DEFAULTADMINROLE is a free data retrieval call binding the contract method 0xa217fddf.
 //
 // Solidity: function DEFAULT_ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcSession) DEFAULTADMINROLE() ([32]byte, error) {
-	return _Smc.Contract.DEFAULTADMINROLE(&_Smc.CallOpts)
+func (_RegistrationList *RegistrationListSession) DEFAULTADMINROLE() ([32]byte, error) {
+	return _RegistrationList.Contract.DEFAULTADMINROLE(&_RegistrationList.CallOpts)
 }
 
 // DEFAULTADMINROLE is a free data retrieval call binding the contract method 0xa217fddf.
 //
 // Solidity: function DEFAULT_ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcCallerSession) DEFAULTADMINROLE() ([32]byte, error) {
-	return _Smc.Contract.DEFAULTADMINROLE(&_Smc.CallOpts)
+func (_RegistrationList *RegistrationListCallerSession) DEFAULTADMINROLE() ([32]byte, error) {
+	return _RegistrationList.Contract.DEFAULTADMINROLE(&_RegistrationList.CallOpts)
 }
 
 // PAUSERROLE is a free data retrieval call binding the contract method 0xe63ab1e9.
 //
 // Solidity: function PAUSER_ROLE() view returns(bytes32)
-func (_Smc *SmcCaller) PAUSERROLE(opts *bind.CallOpts) ([32]byte, error) {
+func (_RegistrationList *RegistrationListCaller) PAUSERROLE(opts *bind.CallOpts) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "PAUSER_ROLE")
+	err := _RegistrationList.contract.Call(opts, &out, "PAUSER_ROLE")
 
 	if err != nil {
 		return *new([32]byte), err
@@ -261,23 +261,23 @@ func (_Smc *SmcCaller) PAUSERROLE(opts *bind.CallOpts) ([32]byte, error) {
 // PAUSERROLE is a free data retrieval call binding the contract method 0xe63ab1e9.
 //
 // Solidity: function PAUSER_ROLE() view returns(bytes32)
-func (_Smc *SmcSession) PAUSERROLE() ([32]byte, error) {
-	return _Smc.Contract.PAUSERROLE(&_Smc.CallOpts)
+func (_RegistrationList *RegistrationListSession) PAUSERROLE() ([32]byte, error) {
+	return _RegistrationList.Contract.PAUSERROLE(&_RegistrationList.CallOpts)
 }
 
 // PAUSERROLE is a free data retrieval call binding the contract method 0xe63ab1e9.
 //
 // Solidity: function PAUSER_ROLE() view returns(bytes32)
-func (_Smc *SmcCallerSession) PAUSERROLE() ([32]byte, error) {
-	return _Smc.Contract.PAUSERROLE(&_Smc.CallOpts)
+func (_RegistrationList *RegistrationListCallerSession) PAUSERROLE() ([32]byte, error) {
+	return _RegistrationList.Contract.PAUSERROLE(&_RegistrationList.CallOpts)
 }
 
 // GetRoleAdmin is a free data retrieval call binding the contract method 0x248a9ca3.
 //
 // Solidity: function getRoleAdmin(bytes32 role) view returns(bytes32)
-func (_Smc *SmcCaller) GetRoleAdmin(opts *bind.CallOpts, role [32]byte) ([32]byte, error) {
+func (_RegistrationList *RegistrationListCaller) GetRoleAdmin(opts *bind.CallOpts, role [32]byte) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getRoleAdmin", role)
+	err := _RegistrationList.contract.Call(opts, &out, "getRoleAdmin", role)
 
 	if err != nil {
 		return *new([32]byte), err
@@ -292,23 +292,23 @@ func (_Smc *SmcCaller) GetRoleAdmin(opts *bind.CallOpts, role [32]byte) ([32]byt
 // GetRoleAdmin is a free data retrieval call binding the contract method 0x248a9ca3.
 //
 // Solidity: function getRoleAdmin(bytes32 role) view returns(bytes32)
-func (_Smc *SmcSession) GetRoleAdmin(role [32]byte) ([32]byte, error) {
-	return _Smc.Contract.GetRoleAdmin(&_Smc.CallOpts, role)
+func (_RegistrationList *RegistrationListSession) GetRoleAdmin(role [32]byte) ([32]byte, error) {
+	return _RegistrationList.Contract.GetRoleAdmin(&_RegistrationList.CallOpts, role)
 }
 
 // GetRoleAdmin is a free data retrieval call binding the contract method 0x248a9ca3.
 //
 // Solidity: function getRoleAdmin(bytes32 role) view returns(bytes32)
-func (_Smc *SmcCallerSession) GetRoleAdmin(role [32]byte) ([32]byte, error) {
-	return _Smc.Contract.GetRoleAdmin(&_Smc.CallOpts, role)
+func (_RegistrationList *RegistrationListCallerSession) GetRoleAdmin(role [32]byte) ([32]byte, error) {
+	return _RegistrationList.Contract.GetRoleAdmin(&_RegistrationList.CallOpts, role)
 }
 
 // GetRoleMember is a free data retrieval call binding the contract method 0x9010d07c.
 //
 // Solidity: function getRoleMember(bytes32 role, uint256 index) view returns(address)
-func (_Smc *SmcCaller) GetRoleMember(opts *bind.CallOpts, role [32]byte, index *big.Int) (common.Address, error) {
+func (_RegistrationList *RegistrationListCaller) GetRoleMember(opts *bind.CallOpts, role [32]byte, index *big.Int) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getRoleMember", role, index)
+	err := _RegistrationList.contract.Call(opts, &out, "getRoleMember", role, index)
 
 	if err != nil {
 		return *new(common.Address), err
@@ -323,23 +323,23 @@ func (_Smc *SmcCaller) GetRoleMember(opts *bind.CallOpts, role [32]byte, index *
 // GetRoleMember is a free data retrieval call binding the contract method 0x9010d07c.
 //
 // Solidity: function getRoleMember(bytes32 role, uint256 index) view returns(address)
-func (_Smc *SmcSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
-	return _Smc.Contract.GetRoleMember(&_Smc.CallOpts, role, index)
+func (_RegistrationList *RegistrationListSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
+	return _RegistrationList.Contract.GetRoleMember(&_RegistrationList.CallOpts, role, index)
 }
 
 // GetRoleMember is a free data retrieval call binding the contract method 0x9010d07c.
 //
 // Solidity: function getRoleMember(bytes32 role, uint256 index) view returns(address)
-func (_Smc *SmcCallerSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
-	return _Smc.Contract.GetRoleMember(&_Smc.CallOpts, role, index)
+func (_RegistrationList *RegistrationListCallerSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
+	return _RegistrationList.Contract.GetRoleMember(&_RegistrationList.CallOpts, role, index)
 }
 
 // GetRoleMemberCount is a free data retrieval call binding the contract method 0xca15c873.
 //
 // Solidity: function getRoleMemberCount(bytes32 role) view returns(uint256)
-func (_Smc *SmcCaller) GetRoleMemberCount(opts *bind.CallOpts, role [32]byte) (*big.Int, error) {
+func (_RegistrationList *RegistrationListCaller) GetRoleMemberCount(opts *bind.CallOpts, role [32]byte) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getRoleMemberCount", role)
+	err := _RegistrationList.contract.Call(opts, &out, "getRoleMemberCount", role)
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -354,23 +354,23 @@ func (_Smc *SmcCaller) GetRoleMemberCount(opts *bind.CallOpts, role [32]byte) (*
 // GetRoleMemberCount is a free data retrieval call binding the contract method 0xca15c873.
 //
 // Solidity: function getRoleMemberCount(bytes32 role) view returns(uint256)
-func (_Smc *SmcSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
-	return _Smc.Contract.GetRoleMemberCount(&_Smc.CallOpts, role)
+func (_RegistrationList *RegistrationListSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
+	return _RegistrationList.Contract.GetRoleMemberCount(&_RegistrationList.CallOpts, role)
 }
 
 // GetRoleMemberCount is a free data retrieval call binding the contract method 0xca15c873.
 //
 // Solidity: function getRoleMemberCount(bytes32 role) view returns(uint256)
-func (_Smc *SmcCallerSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
-	return _Smc.Contract.GetRoleMemberCount(&_Smc.CallOpts, role)
+func (_RegistrationList *RegistrationListCallerSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
+	return _RegistrationList.Contract.GetRoleMemberCount(&_RegistrationList.CallOpts, role)
 }
 
 // HasRole is a free data retrieval call binding the contract method 0x91d14854.
 //
 // Solidity: function hasRole(bytes32 role, address account) view returns(bool)
-func (_Smc *SmcCaller) HasRole(opts *bind.CallOpts, role [32]byte, account common.Address) (bool, error) {
+func (_RegistrationList *RegistrationListCaller) HasRole(opts *bind.CallOpts, role [32]byte, account common.Address) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "hasRole", role, account)
+	err := _RegistrationList.contract.Call(opts, &out, "hasRole", role, account)
 
 	if err != nil {
 		return *new(bool), err
@@ -385,23 +385,23 @@ func (_Smc *SmcCaller) HasRole(opts *bind.CallOpts, role [32]byte, account commo
 // HasRole is a free data retrieval call binding the contract method 0x91d14854.
 //
 // Solidity: function hasRole(bytes32 role, address account) view returns(bool)
-func (_Smc *SmcSession) HasRole(role [32]byte, account common.Address) (bool, error) {
-	return _Smc.Contract.HasRole(&_Smc.CallOpts, role, account)
+func (_RegistrationList *RegistrationListSession) HasRole(role [32]byte, account common.Address) (bool, error) {
+	return _RegistrationList.Contract.HasRole(&_RegistrationList.CallOpts, role, account)
 }
 
 // HasRole is a free data retrieval call binding the contract method 0x91d14854.
 //
 // Solidity: function hasRole(bytes32 role, address account) view returns(bool)
-func (_Smc *SmcCallerSession) HasRole(role [32]byte, account common.Address) (bool, error) {
-	return _Smc.Contract.HasRole(&_Smc.CallOpts, role, account)
+func (_RegistrationList *RegistrationListCallerSession) HasRole(role [32]byte, account common.Address) (bool, error) {
+	return _RegistrationList.Contract.HasRole(&_RegistrationList.CallOpts, role, account)
 }
 
 // OnERC721Received is a free data retrieval call binding the contract method 0x150b7a02.
 //
 // Solidity: function onERC721Received(address , address , uint256 , bytes ) pure returns(bytes4)
-func (_Smc *SmcCaller) OnERC721Received(opts *bind.CallOpts, arg0 common.Address, arg1 common.Address, arg2 *big.Int, arg3 []byte) ([4]byte, error) {
+func (_RegistrationList *RegistrationListCaller) OnERC721Received(opts *bind.CallOpts, arg0 common.Address, arg1 common.Address, arg2 *big.Int, arg3 []byte) ([4]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "onERC721Received", arg0, arg1, arg2, arg3)
+	err := _RegistrationList.contract.Call(opts, &out, "onERC721Received", arg0, arg1, arg2, arg3)
 
 	if err != nil {
 		return *new([4]byte), err
@@ -416,23 +416,23 @@ func (_Smc *SmcCaller) OnERC721Received(opts *bind.CallOpts, arg0 common.Address
 // OnERC721Received is a free data retrieval call binding the contract method 0x150b7a02.
 //
 // Solidity: function onERC721Received(address , address , uint256 , bytes ) pure returns(bytes4)
-func (_Smc *SmcSession) OnERC721Received(arg0 common.Address, arg1 common.Address, arg2 *big.Int, arg3 []byte) ([4]byte, error) {
-	return _Smc.Contract.OnERC721Received(&_Smc.CallOpts, arg0, arg1, arg2, arg3)
+func (_RegistrationList *RegistrationListSession) OnERC721Received(arg0 common.Address, arg1 common.Address, arg2 *big.Int, arg3 []byte) ([4]byte, error) {
+	return _RegistrationList.Contract.OnERC721Received(&_RegistrationList.CallOpts, arg0, arg1, arg2, arg3)
 }
 
 // OnERC721Received is a free data retrieval call binding the contract method 0x150b7a02.
 //
 // Solidity: function onERC721Received(address , address , uint256 , bytes ) pure returns(bytes4)
-func (_Smc *SmcCallerSession) OnERC721Received(arg0 common.Address, arg1 common.Address, arg2 *big.Int, arg3 []byte) ([4]byte, error) {
-	return _Smc.Contract.OnERC721Received(&_Smc.CallOpts, arg0, arg1, arg2, arg3)
+func (_RegistrationList *RegistrationListCallerSession) OnERC721Received(arg0 common.Address, arg1 common.Address, arg2 *big.Int, arg3 []byte) ([4]byte, error) {
+	return _RegistrationList.Contract.OnERC721Received(&_RegistrationList.CallOpts, arg0, arg1, arg2, arg3)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
+func (_RegistrationList *RegistrationListCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "owner")
+	err := _RegistrationList.contract.Call(opts, &out, "owner")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -447,23 +447,23 @@ func (_Smc *SmcCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcSession) Owner() (common.Address, error) {
-	return _Smc.Contract.Owner(&_Smc.CallOpts)
+func (_RegistrationList *RegistrationListSession) Owner() (common.Address, error) {
+	return _RegistrationList.Contract.Owner(&_RegistrationList.CallOpts)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcCallerSession) Owner() (common.Address, error) {
-	return _Smc.Contract.Owner(&_Smc.CallOpts)
+func (_RegistrationList *RegistrationListCallerSession) Owner() (common.Address, error) {
+	return _RegistrationList.Contract.Owner(&_RegistrationList.CallOpts)
 }
 
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcCaller) Paused(opts *bind.CallOpts) (bool, error) {
+func (_RegistrationList *RegistrationListCaller) Paused(opts *bind.CallOpts) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "paused")
+	err := _RegistrationList.contract.Call(opts, &out, "paused")
 
 	if err != nil {
 		return *new(bool), err
@@ -478,23 +478,23 @@ func (_Smc *SmcCaller) Paused(opts *bind.CallOpts) (bool, error) {
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcSession) Paused() (bool, error) {
-	return _Smc.Contract.Paused(&_Smc.CallOpts)
+func (_RegistrationList *RegistrationListSession) Paused() (bool, error) {
+	return _RegistrationList.Contract.Paused(&_RegistrationList.CallOpts)
 }
 
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcCallerSession) Paused() (bool, error) {
-	return _Smc.Contract.Paused(&_Smc.CallOpts)
+func (_RegistrationList *RegistrationListCallerSession) Paused() (bool, error) {
+	return _RegistrationList.Contract.Paused(&_RegistrationList.CallOpts)
 }
 
 // SelectedParticipant is a free data retrieval call binding the contract method 0x81a2deb4.
 //
 // Solidity: function selectedParticipant(bytes32 raceId, uint256 slotId) view returns(address)
-func (_Smc *SmcCaller) SelectedParticipant(opts *bind.CallOpts, raceId [32]byte, slotId *big.Int) (common.Address, error) {
+func (_RegistrationList *RegistrationListCaller) SelectedParticipant(opts *bind.CallOpts, raceId [32]byte, slotId *big.Int) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "selectedParticipant", raceId, slotId)
+	err := _RegistrationList.contract.Call(opts, &out, "selectedParticipant", raceId, slotId)
 
 	if err != nil {
 		return *new(common.Address), err
@@ -509,23 +509,23 @@ func (_Smc *SmcCaller) SelectedParticipant(opts *bind.CallOpts, raceId [32]byte,
 // SelectedParticipant is a free data retrieval call binding the contract method 0x81a2deb4.
 //
 // Solidity: function selectedParticipant(bytes32 raceId, uint256 slotId) view returns(address)
-func (_Smc *SmcSession) SelectedParticipant(raceId [32]byte, slotId *big.Int) (common.Address, error) {
-	return _Smc.Contract.SelectedParticipant(&_Smc.CallOpts, raceId, slotId)
+func (_RegistrationList *RegistrationListSession) SelectedParticipant(raceId [32]byte, slotId *big.Int) (common.Address, error) {
+	return _RegistrationList.Contract.SelectedParticipant(&_RegistrationList.CallOpts, raceId, slotId)
 }
 
 // SelectedParticipant is a free data retrieval call binding the contract method 0x81a2deb4.
 //
 // Solidity: function selectedParticipant(bytes32 raceId, uint256 slotId) view returns(address)
-func (_Smc *SmcCallerSession) SelectedParticipant(raceId [32]byte, slotId *big.Int) (common.Address, error) {
-	return _Smc.Contract.SelectedParticipant(&_Smc.CallOpts, raceId, slotId)
+func (_RegistrationList *RegistrationListCallerSession) SelectedParticipant(raceId [32]byte, slotId *big.Int) (common.Address, error) {
+	return _RegistrationList.Contract.SelectedParticipant(&_RegistrationList.CallOpts, raceId, slotId)
 }
 
 // SelectedParticipants is a free data retrieval call binding the contract method 0x0506f9ef.
 //
 // Solidity: function selectedParticipants(bytes32 raceId) view returns(bytes32 result)
-func (_Smc *SmcCaller) SelectedParticipants(opts *bind.CallOpts, raceId [32]byte) ([32]byte, error) {
+func (_RegistrationList *RegistrationListCaller) SelectedParticipants(opts *bind.CallOpts, raceId [32]byte) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "selectedParticipants", raceId)
+	err := _RegistrationList.contract.Call(opts, &out, "selectedParticipants", raceId)
 
 	if err != nil {
 		return *new([32]byte), err
@@ -540,23 +540,23 @@ func (_Smc *SmcCaller) SelectedParticipants(opts *bind.CallOpts, raceId [32]byte
 // SelectedParticipants is a free data retrieval call binding the contract method 0x0506f9ef.
 //
 // Solidity: function selectedParticipants(bytes32 raceId) view returns(bytes32 result)
-func (_Smc *SmcSession) SelectedParticipants(raceId [32]byte) ([32]byte, error) {
-	return _Smc.Contract.SelectedParticipants(&_Smc.CallOpts, raceId)
+func (_RegistrationList *RegistrationListSession) SelectedParticipants(raceId [32]byte) ([32]byte, error) {
+	return _RegistrationList.Contract.SelectedParticipants(&_RegistrationList.CallOpts, raceId)
 }
 
 // SelectedParticipants is a free data retrieval call binding the contract method 0x0506f9ef.
 //
 // Solidity: function selectedParticipants(bytes32 raceId) view returns(bytes32 result)
-func (_Smc *SmcCallerSession) SelectedParticipants(raceId [32]byte) ([32]byte, error) {
-	return _Smc.Contract.SelectedParticipants(&_Smc.CallOpts, raceId)
+func (_RegistrationList *RegistrationListCallerSession) SelectedParticipants(raceId [32]byte) ([32]byte, error) {
+	return _RegistrationList.Contract.SelectedParticipants(&_RegistrationList.CallOpts, raceId)
 }
 
 // SupportsInterface is a free data retrieval call binding the contract method 0x01ffc9a7.
 //
 // Solidity: function supportsInterface(bytes4 interfaceId) view returns(bool)
-func (_Smc *SmcCaller) SupportsInterface(opts *bind.CallOpts, interfaceId [4]byte) (bool, error) {
+func (_RegistrationList *RegistrationListCaller) SupportsInterface(opts *bind.CallOpts, interfaceId [4]byte) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "supportsInterface", interfaceId)
+	err := _RegistrationList.contract.Call(opts, &out, "supportsInterface", interfaceId)
 
 	if err != nil {
 		return *new(bool), err
@@ -571,23 +571,23 @@ func (_Smc *SmcCaller) SupportsInterface(opts *bind.CallOpts, interfaceId [4]byt
 // SupportsInterface is a free data retrieval call binding the contract method 0x01ffc9a7.
 //
 // Solidity: function supportsInterface(bytes4 interfaceId) view returns(bool)
-func (_Smc *SmcSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
-	return _Smc.Contract.SupportsInterface(&_Smc.CallOpts, interfaceId)
+func (_RegistrationList *RegistrationListSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
+	return _RegistrationList.Contract.SupportsInterface(&_RegistrationList.CallOpts, interfaceId)
 }
 
 // SupportsInterface is a free data retrieval call binding the contract method 0x01ffc9a7.
 //
 // Solidity: function supportsInterface(bytes4 interfaceId) view returns(bool)
-func (_Smc *SmcCallerSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
-	return _Smc.Contract.SupportsInterface(&_Smc.CallOpts, interfaceId)
+func (_RegistrationList *RegistrationListCallerSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
+	return _RegistrationList.Contract.SupportsInterface(&_RegistrationList.CallOpts, interfaceId)
 }
 
 // TotalRegister is a free data retrieval call binding the contract method 0xbe7cb219.
 //
 // Solidity: function totalRegister(bytes32 raceId) view returns(bytes32)
-func (_Smc *SmcCaller) TotalRegister(opts *bind.CallOpts, raceId [32]byte) ([32]byte, error) {
+func (_RegistrationList *RegistrationListCaller) TotalRegister(opts *bind.CallOpts, raceId [32]byte) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "totalRegister", raceId)
+	err := _RegistrationList.contract.Call(opts, &out, "totalRegister", raceId)
 
 	if err != nil {
 		return *new([32]byte), err
@@ -602,314 +602,314 @@ func (_Smc *SmcCaller) TotalRegister(opts *bind.CallOpts, raceId [32]byte) ([32]
 // TotalRegister is a free data retrieval call binding the contract method 0xbe7cb219.
 //
 // Solidity: function totalRegister(bytes32 raceId) view returns(bytes32)
-func (_Smc *SmcSession) TotalRegister(raceId [32]byte) ([32]byte, error) {
-	return _Smc.Contract.TotalRegister(&_Smc.CallOpts, raceId)
+func (_RegistrationList *RegistrationListSession) TotalRegister(raceId [32]byte) ([32]byte, error) {
+	return _RegistrationList.Contract.TotalRegister(&_RegistrationList.CallOpts, raceId)
 }
 
 // TotalRegister is a free data retrieval call binding the contract method 0xbe7cb219.
 //
 // Solidity: function totalRegister(bytes32 raceId) view returns(bytes32)
-func (_Smc *SmcCallerSession) TotalRegister(raceId [32]byte) ([32]byte, error) {
-	return _Smc.Contract.TotalRegister(&_Smc.CallOpts, raceId)
+func (_RegistrationList *RegistrationListCallerSession) TotalRegister(raceId [32]byte) ([32]byte, error) {
+	return _RegistrationList.Contract.TotalRegister(&_RegistrationList.CallOpts, raceId)
 }
 
 // AddReward is a paid mutator transaction binding the contract method 0x9a789d92.
 //
 // Solidity: function addReward(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex) returns()
-func (_Smc *SmcTransactor) AddReward(opts *bind.TransactOpts, raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "addReward", raceId, nftRewardId, resultIndex)
+func (_RegistrationList *RegistrationListTransactor) AddReward(opts *bind.TransactOpts, raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte) (*types.Transaction, error) {
+	return _RegistrationList.contract.Transact(opts, "addReward", raceId, nftRewardId, resultIndex)
 }
 
 // AddReward is a paid mutator transaction binding the contract method 0x9a789d92.
 //
 // Solidity: function addReward(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex) returns()
-func (_Smc *SmcSession) AddReward(raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte) (*types.Transaction, error) {
-	return _Smc.Contract.AddReward(&_Smc.TransactOpts, raceId, nftRewardId, resultIndex)
+func (_RegistrationList *RegistrationListSession) AddReward(raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte) (*types.Transaction, error) {
+	return _RegistrationList.Contract.AddReward(&_RegistrationList.TransactOpts, raceId, nftRewardId, resultIndex)
 }
 
 // AddReward is a paid mutator transaction binding the contract method 0x9a789d92.
 //
 // Solidity: function addReward(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex) returns()
-func (_Smc *SmcTransactorSession) AddReward(raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte) (*types.Transaction, error) {
-	return _Smc.Contract.AddReward(&_Smc.TransactOpts, raceId, nftRewardId, resultIndex)
+func (_RegistrationList *RegistrationListTransactorSession) AddReward(raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte) (*types.Transaction, error) {
+	return _RegistrationList.Contract.AddReward(&_RegistrationList.TransactOpts, raceId, nftRewardId, resultIndex)
 }
 
 // GrantRole is a paid mutator transaction binding the contract method 0x2f2ff15d.
 //
 // Solidity: function grantRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactor) GrantRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "grantRole", role, account)
+func (_RegistrationList *RegistrationListTransactor) GrantRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _RegistrationList.contract.Transact(opts, "grantRole", role, account)
 }
 
 // GrantRole is a paid mutator transaction binding the contract method 0x2f2ff15d.
 //
 // Solidity: function grantRole(bytes32 role, address account) returns()
-func (_Smc *SmcSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.GrantRole(&_Smc.TransactOpts, role, account)
+func (_RegistrationList *RegistrationListSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _RegistrationList.Contract.GrantRole(&_RegistrationList.TransactOpts, role, account)
 }
 
 // GrantRole is a paid mutator transaction binding the contract method 0x2f2ff15d.
 //
 // Solidity: function grantRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactorSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.GrantRole(&_Smc.TransactOpts, role, account)
+func (_RegistrationList *RegistrationListTransactorSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _RegistrationList.Contract.GrantRole(&_RegistrationList.TransactOpts, role, account)
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcTransactor) Pause(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "pause")
+func (_RegistrationList *RegistrationListTransactor) Pause(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _RegistrationList.contract.Transact(opts, "pause")
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcSession) Pause() (*types.Transaction, error) {
-	return _Smc.Contract.Pause(&_Smc.TransactOpts)
+func (_RegistrationList *RegistrationListSession) Pause() (*types.Transaction, error) {
+	return _RegistrationList.Contract.Pause(&_RegistrationList.TransactOpts)
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcTransactorSession) Pause() (*types.Transaction, error) {
-	return _Smc.Contract.Pause(&_Smc.TransactOpts)
+func (_RegistrationList *RegistrationListTransactorSession) Pause() (*types.Transaction, error) {
+	return _RegistrationList.Contract.Pause(&_RegistrationList.TransactOpts)
 }
 
 // RawFulfillRandomWords is a paid mutator transaction binding the contract method 0x1fe543e3.
 //
 // Solidity: function rawFulfillRandomWords(uint256 requestId, uint256[] randomWords) returns()
-func (_Smc *SmcTransactor) RawFulfillRandomWords(opts *bind.TransactOpts, requestId *big.Int, randomWords []*big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "rawFulfillRandomWords", requestId, randomWords)
+func (_RegistrationList *RegistrationListTransactor) RawFulfillRandomWords(opts *bind.TransactOpts, requestId *big.Int, randomWords []*big.Int) (*types.Transaction, error) {
+	return _RegistrationList.contract.Transact(opts, "rawFulfillRandomWords", requestId, randomWords)
 }
 
 // RawFulfillRandomWords is a paid mutator transaction binding the contract method 0x1fe543e3.
 //
 // Solidity: function rawFulfillRandomWords(uint256 requestId, uint256[] randomWords) returns()
-func (_Smc *SmcSession) RawFulfillRandomWords(requestId *big.Int, randomWords []*big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.RawFulfillRandomWords(&_Smc.TransactOpts, requestId, randomWords)
+func (_RegistrationList *RegistrationListSession) RawFulfillRandomWords(requestId *big.Int, randomWords []*big.Int) (*types.Transaction, error) {
+	return _RegistrationList.Contract.RawFulfillRandomWords(&_RegistrationList.TransactOpts, requestId, randomWords)
 }
 
 // RawFulfillRandomWords is a paid mutator transaction binding the contract method 0x1fe543e3.
 //
 // Solidity: function rawFulfillRandomWords(uint256 requestId, uint256[] randomWords) returns()
-func (_Smc *SmcTransactorSession) RawFulfillRandomWords(requestId *big.Int, randomWords []*big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.RawFulfillRandomWords(&_Smc.TransactOpts, requestId, randomWords)
+func (_RegistrationList *RegistrationListTransactorSession) RawFulfillRandomWords(requestId *big.Int, randomWords []*big.Int) (*types.Transaction, error) {
+	return _RegistrationList.Contract.RawFulfillRandomWords(&_RegistrationList.TransactOpts, requestId, randomWords)
 }
 
 // ReceiveReward is a paid mutator transaction binding the contract method 0x1a0fc715.
 //
 // Solidity: function receiveReward(bytes32 raceId, uint256 slotId) returns()
-func (_Smc *SmcTransactor) ReceiveReward(opts *bind.TransactOpts, raceId [32]byte, slotId *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "receiveReward", raceId, slotId)
+func (_RegistrationList *RegistrationListTransactor) ReceiveReward(opts *bind.TransactOpts, raceId [32]byte, slotId *big.Int) (*types.Transaction, error) {
+	return _RegistrationList.contract.Transact(opts, "receiveReward", raceId, slotId)
 }
 
 // ReceiveReward is a paid mutator transaction binding the contract method 0x1a0fc715.
 //
 // Solidity: function receiveReward(bytes32 raceId, uint256 slotId) returns()
-func (_Smc *SmcSession) ReceiveReward(raceId [32]byte, slotId *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.ReceiveReward(&_Smc.TransactOpts, raceId, slotId)
+func (_RegistrationList *RegistrationListSession) ReceiveReward(raceId [32]byte, slotId *big.Int) (*types.Transaction, error) {
+	return _RegistrationList.Contract.ReceiveReward(&_RegistrationList.TransactOpts, raceId, slotId)
 }
 
 // ReceiveReward is a paid mutator transaction binding the contract method 0x1a0fc715.
 //
 // Solidity: function receiveReward(bytes32 raceId, uint256 slotId) returns()
-func (_Smc *SmcTransactorSession) ReceiveReward(raceId [32]byte, slotId *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.ReceiveReward(&_Smc.TransactOpts, raceId, slotId)
+func (_RegistrationList *RegistrationListTransactorSession) ReceiveReward(raceId [32]byte, slotId *big.Int) (*types.Transaction, error) {
+	return _RegistrationList.Contract.ReceiveReward(&_RegistrationList.TransactOpts, raceId, slotId)
 }
 
 // Register is a paid mutator transaction binding the contract method 0x2965d809.
 //
 // Solidity: function register(uint256 slotId, bytes32 raceId) returns()
-func (_Smc *SmcTransactor) Register(opts *bind.TransactOpts, slotId *big.Int, raceId [32]byte) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "register", slotId, raceId)
+func (_RegistrationList *RegistrationListTransactor) Register(opts *bind.TransactOpts, slotId *big.Int, raceId [32]byte) (*types.Transaction, error) {
+	return _RegistrationList.contract.Transact(opts, "register", slotId, raceId)
 }
 
 // Register is a paid mutator transaction binding the contract method 0x2965d809.
 //
 // Solidity: function register(uint256 slotId, bytes32 raceId) returns()
-func (_Smc *SmcSession) Register(slotId *big.Int, raceId [32]byte) (*types.Transaction, error) {
-	return _Smc.Contract.Register(&_Smc.TransactOpts, slotId, raceId)
+func (_RegistrationList *RegistrationListSession) Register(slotId *big.Int, raceId [32]byte) (*types.Transaction, error) {
+	return _RegistrationList.Contract.Register(&_RegistrationList.TransactOpts, slotId, raceId)
 }
 
 // Register is a paid mutator transaction binding the contract method 0x2965d809.
 //
 // Solidity: function register(uint256 slotId, bytes32 raceId) returns()
-func (_Smc *SmcTransactorSession) Register(slotId *big.Int, raceId [32]byte) (*types.Transaction, error) {
-	return _Smc.Contract.Register(&_Smc.TransactOpts, slotId, raceId)
+func (_RegistrationList *RegistrationListTransactorSession) Register(slotId *big.Int, raceId [32]byte) (*types.Transaction, error) {
+	return _RegistrationList.Contract.Register(&_RegistrationList.TransactOpts, slotId, raceId)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcTransactor) RenounceOwnership(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "renounceOwnership")
+func (_RegistrationList *RegistrationListTransactor) RenounceOwnership(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _RegistrationList.contract.Transact(opts, "renounceOwnership")
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcSession) RenounceOwnership() (*types.Transaction, error) {
-	return _Smc.Contract.RenounceOwnership(&_Smc.TransactOpts)
+func (_RegistrationList *RegistrationListSession) RenounceOwnership() (*types.Transaction, error) {
+	return _RegistrationList.Contract.RenounceOwnership(&_RegistrationList.TransactOpts)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcTransactorSession) RenounceOwnership() (*types.Transaction, error) {
-	return _Smc.Contract.RenounceOwnership(&_Smc.TransactOpts)
+func (_RegistrationList *RegistrationListTransactorSession) RenounceOwnership() (*types.Transaction, error) {
+	return _RegistrationList.Contract.RenounceOwnership(&_RegistrationList.TransactOpts)
 }
 
 // RenounceRole is a paid mutator transaction binding the contract method 0x36568abe.
 //
 // Solidity: function renounceRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactor) RenounceRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "renounceRole", role, account)
+func (_RegistrationList *RegistrationListTransactor) RenounceRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _RegistrationList.contract.Transact(opts, "renounceRole", role, account)
 }
 
 // RenounceRole is a paid mutator transaction binding the contract method 0x36568abe.
 //
 // Solidity: function renounceRole(bytes32 role, address account) returns()
-func (_Smc *SmcSession) RenounceRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RenounceRole(&_Smc.TransactOpts, role, account)
+func (_RegistrationList *RegistrationListSession) RenounceRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _RegistrationList.Contract.RenounceRole(&_RegistrationList.TransactOpts, role, account)
 }
 
 // RenounceRole is a paid mutator transaction binding the contract method 0x36568abe.
 //
 // Solidity: function renounceRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactorSession) RenounceRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RenounceRole(&_Smc.TransactOpts, role, account)
+func (_RegistrationList *RegistrationListTransactorSession) RenounceRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _RegistrationList.Contract.RenounceRole(&_RegistrationList.TransactOpts, role, account)
 }
 
 // RevokeRole is a paid mutator transaction binding the contract method 0xd547741f.
 //
 // Solidity: function revokeRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactor) RevokeRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "revokeRole", role, account)
+func (_RegistrationList *RegistrationListTransactor) RevokeRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _RegistrationList.contract.Transact(opts, "revokeRole", role, account)
 }
 
 // RevokeRole is a paid mutator transaction binding the contract method 0xd547741f.
 //
 // Solidity: function revokeRole(bytes32 role, address account) returns()
-func (_Smc *SmcSession) RevokeRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RevokeRole(&_Smc.TransactOpts, role, account)
+func (_RegistrationList *RegistrationListSession) RevokeRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _RegistrationList.Contract.RevokeRole(&_RegistrationList.TransactOpts, role, account)
 }
 
 // RevokeRole is a paid mutator transaction binding the contract method 0xd547741f.
 //
 // Solidity: function revokeRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactorSession) RevokeRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RevokeRole(&_Smc.TransactOpts, role, account)
+func (_RegistrationList *RegistrationListTransactorSession) RevokeRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _RegistrationList.Contract.RevokeRole(&_RegistrationList.TransactOpts, role, account)
 }
 
 // SelectParticipant is a paid mutator transaction binding the contract method 0x7d0f79b7.
 //
 // Solidity: function selectParticipant(bytes32 raceId) returns(uint256 requestId)
-func (_Smc *SmcTransactor) SelectParticipant(opts *bind.TransactOpts, raceId [32]byte) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "selectParticipant", raceId)
+func (_RegistrationList *RegistrationListTransactor) SelectParticipant(opts *bind.TransactOpts, raceId [32]byte) (*types.Transaction, error) {
+	return _RegistrationList.contract.Transact(opts, "selectParticipant", raceId)
 }
 
 // SelectParticipant is a paid mutator transaction binding the contract method 0x7d0f79b7.
 //
 // Solidity: function selectParticipant(bytes32 raceId) returns(uint256 requestId)
-func (_Smc *SmcSession) SelectParticipant(raceId [32]byte) (*types.Transaction, error) {
-	return _Smc.Contract.SelectParticipant(&_Smc.TransactOpts, raceId)
+func (_RegistrationList *RegistrationListSession) SelectParticipant(raceId [32]byte) (*types.Transaction, error) {
+	return _RegistrationList.Contract.SelectParticipant(&_RegistrationList.TransactOpts, raceId)
 }
 
 // SelectParticipant is a paid mutator transaction binding the contract method 0x7d0f79b7.
 //
 // Solidity: function selectParticipant(bytes32 raceId) returns(uint256 requestId)
-func (_Smc *SmcTransactorSession) SelectParticipant(raceId [32]byte) (*types.Transaction, error) {
-	return _Smc.Contract.SelectParticipant(&_Smc.TransactOpts, raceId)
+func (_RegistrationList *RegistrationListTransactorSession) SelectParticipant(raceId [32]byte) (*types.Transaction, error) {
+	return _RegistrationList.Contract.SelectParticipant(&_RegistrationList.TransactOpts, raceId)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcTransactor) TransferOwnership(opts *bind.TransactOpts, newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "transferOwnership", newOwner)
+func (_RegistrationList *RegistrationListTransactor) TransferOwnership(opts *bind.TransactOpts, newOwner common.Address) (*types.Transaction, error) {
+	return _RegistrationList.contract.Transact(opts, "transferOwnership", newOwner)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.TransferOwnership(&_Smc.TransactOpts, newOwner)
+func (_RegistrationList *RegistrationListSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
+	return _RegistrationList.Contract.TransferOwnership(&_RegistrationList.TransactOpts, newOwner)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcTransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.TransferOwnership(&_Smc.TransactOpts, newOwner)
+func (_RegistrationList *RegistrationListTransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
+	return _RegistrationList.Contract.TransferOwnership(&_RegistrationList.TransactOpts, newOwner)
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcTransactor) Unpause(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "unpause")
+func (_RegistrationList *RegistrationListTransactor) Unpause(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _RegistrationList.contract.Transact(opts, "unpause")
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcSession) Unpause() (*types.Transaction, error) {
-	return _Smc.Contract.Unpause(&_Smc.TransactOpts)
+func (_RegistrationList *RegistrationListSession) Unpause() (*types.Transaction, error) {
+	return _RegistrationList.Contract.Unpause(&_RegistrationList.TransactOpts)
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcTransactorSession) Unpause() (*types.Transaction, error) {
-	return _Smc.Contract.Unpause(&_Smc.TransactOpts)
+func (_RegistrationList *RegistrationListTransactorSession) Unpause() (*types.Transaction, error) {
+	return _RegistrationList.Contract.Unpause(&_RegistrationList.TransactOpts)
 }
 
 // UpdateNlggtAddress is a paid mutator transaction binding the contract method 0xd6641f06.
 //
 // Solidity: function updateNlggtAddress(address nlggt) returns()
-func (_Smc *SmcTransactor) UpdateNlggtAddress(opts *bind.TransactOpts, nlggt common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "updateNlggtAddress", nlggt)
+func (_RegistrationList *RegistrationListTransactor) UpdateNlggtAddress(opts *bind.TransactOpts, nlggt common.Address) (*types.Transaction, error) {
+	return _RegistrationList.contract.Transact(opts, "updateNlggtAddress", nlggt)
 }
 
 // UpdateNlggtAddress is a paid mutator transaction binding the contract method 0xd6641f06.
 //
 // Solidity: function updateNlggtAddress(address nlggt) returns()
-func (_Smc *SmcSession) UpdateNlggtAddress(nlggt common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.UpdateNlggtAddress(&_Smc.TransactOpts, nlggt)
+func (_RegistrationList *RegistrationListSession) UpdateNlggtAddress(nlggt common.Address) (*types.Transaction, error) {
+	return _RegistrationList.Contract.UpdateNlggtAddress(&_RegistrationList.TransactOpts, nlggt)
 }
 
 // UpdateNlggtAddress is a paid mutator transaction binding the contract method 0xd6641f06.
 //
 // Solidity: function updateNlggtAddress(address nlggt) returns()
-func (_Smc *SmcTransactorSession) UpdateNlggtAddress(nlggt common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.UpdateNlggtAddress(&_Smc.TransactOpts, nlggt)
+func (_RegistrationList *RegistrationListTransactorSession) UpdateNlggtAddress(nlggt common.Address) (*types.Transaction, error) {
+	return _RegistrationList.Contract.UpdateNlggtAddress(&_RegistrationList.TransactOpts, nlggt)
 }
 
 // UpdateRaceAddress is a paid mutator transaction binding the contract method 0xd7c49938.
 //
 // Solidity: function updateRaceAddress(address raceList) returns()
-func (_Smc *SmcTransactor) UpdateRaceAddress(opts *bind.TransactOpts, raceList common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "updateRaceAddress", raceList)
+func (_RegistrationList *RegistrationListTransactor) UpdateRaceAddress(opts *bind.TransactOpts, raceList common.Address) (*types.Transaction, error) {
+	return _RegistrationList.contract.Transact(opts, "updateRaceAddress", raceList)
 }
 
 // UpdateRaceAddress is a paid mutator transaction binding the contract method 0xd7c49938.
 //
 // Solidity: function updateRaceAddress(address raceList) returns()
-func (_Smc *SmcSession) UpdateRaceAddress(raceList common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.UpdateRaceAddress(&_Smc.TransactOpts, raceList)
+func (_RegistrationList *RegistrationListSession) UpdateRaceAddress(raceList common.Address) (*types.Transaction, error) {
+	return _RegistrationList.Contract.UpdateRaceAddress(&_RegistrationList.TransactOpts, raceList)
 }
 
 // UpdateRaceAddress is a paid mutator transaction binding the contract method 0xd7c49938.
 //
 // Solidity: function updateRaceAddress(address raceList) returns()
-func (_Smc *SmcTransactorSession) UpdateRaceAddress(raceList common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.UpdateRaceAddress(&_Smc.TransactOpts, raceList)
+func (_RegistrationList *RegistrationListTransactorSession) UpdateRaceAddress(raceList common.Address) (*types.Transaction, error) {
+	return _RegistrationList.Contract.UpdateRaceAddress(&_RegistrationList.TransactOpts, raceList)
 }
 
-// SmcNlggtUpdatedIterator is returned from FilterNlggtUpdated and is used to iterate over the raw logs and unpacked data for NlggtUpdated events raised by the Smc contract.
-type SmcNlggtUpdatedIterator struct {
-	Event *SmcNlggtUpdated // Event containing the contract specifics and raw log
+// RegistrationListNlggtUpdatedIterator is returned from FilterNlggtUpdated and is used to iterate over the raw logs and unpacked data for NlggtUpdated events raised by the RegistrationList contract.
+type RegistrationListNlggtUpdatedIterator struct {
+	Event *RegistrationListNlggtUpdated // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -923,7 +923,7 @@ type SmcNlggtUpdatedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcNlggtUpdatedIterator) Next() bool {
+func (it *RegistrationListNlggtUpdatedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -932,7 +932,7 @@ func (it *SmcNlggtUpdatedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcNlggtUpdated)
+			it.Event = new(RegistrationListNlggtUpdated)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -947,7 +947,7 @@ func (it *SmcNlggtUpdatedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcNlggtUpdated)
+		it.Event = new(RegistrationListNlggtUpdated)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -963,19 +963,19 @@ func (it *SmcNlggtUpdatedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcNlggtUpdatedIterator) Error() error {
+func (it *RegistrationListNlggtUpdatedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcNlggtUpdatedIterator) Close() error {
+func (it *RegistrationListNlggtUpdatedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcNlggtUpdated represents a NlggtUpdated event raised by the Smc contract.
-type SmcNlggtUpdated struct {
+// RegistrationListNlggtUpdated represents a NlggtUpdated event raised by the RegistrationList contract.
+type RegistrationListNlggtUpdated struct {
 	Nlggt common.Address
 	Raw   types.Log // Blockchain specific contextual infos
 }
@@ -983,21 +983,21 @@ type SmcNlggtUpdated struct {
 // FilterNlggtUpdated is a free log retrieval operation binding the contract event 0x5660a1e6d6115d84caa3bc631133061cbc77b46ff3be76d65178ae3243446b98.
 //
 // Solidity: event NlggtUpdated(address nlggt)
-func (_Smc *SmcFilterer) FilterNlggtUpdated(opts *bind.FilterOpts) (*SmcNlggtUpdatedIterator, error) {
+func (_RegistrationList *RegistrationListFilterer) FilterNlggtUpdated(opts *bind.FilterOpts) (*RegistrationListNlggtUpdatedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "NlggtUpdated")
+	logs, sub, err := _RegistrationList.contract.FilterLogs(opts, "NlggtUpdated")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcNlggtUpdatedIterator{contract: _Smc.contract, event: "NlggtUpdated", logs: logs, sub: sub}, nil
+	return &RegistrationListNlggtUpdatedIterator{contract: _RegistrationList.contract, event: "NlggtUpdated", logs: logs, sub: sub}, nil
 }
 
 // WatchNlggtUpdated is a free log subscription operation binding the contract event 0x5660a1e6d6115d84caa3bc631133061cbc77b46ff3be76d65178ae3243446b98.
 //
 // Solidity: event NlggtUpdated(address nlggt)
-func (_Smc *SmcFilterer) WatchNlggtUpdated(opts *bind.WatchOpts, sink chan<- *SmcNlggtUpdated) (event.Subscription, error) {
+func (_RegistrationList *RegistrationListFilterer) WatchNlggtUpdated(opts *bind.WatchOpts, sink chan<- *RegistrationListNlggtUpdated) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "NlggtUpdated")
+	logs, sub, err := _RegistrationList.contract.WatchLogs(opts, "NlggtUpdated")
 	if err != nil {
 		return nil, err
 	}
@@ -1007,8 +1007,8 @@ func (_Smc *SmcFilterer) WatchNlggtUpdated(opts *bind.WatchOpts, sink chan<- *Sm
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcNlggtUpdated)
-				if err := _Smc.contract.UnpackLog(event, "NlggtUpdated", log); err != nil {
+				event := new(RegistrationListNlggtUpdated)
+				if err := _RegistrationList.contract.UnpackLog(event, "NlggtUpdated", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1032,18 +1032,18 @@ func (_Smc *SmcFilterer) WatchNlggtUpdated(opts *bind.WatchOpts, sink chan<- *Sm
 // ParseNlggtUpdated is a log parse operation binding the contract event 0x5660a1e6d6115d84caa3bc631133061cbc77b46ff3be76d65178ae3243446b98.
 //
 // Solidity: event NlggtUpdated(address nlggt)
-func (_Smc *SmcFilterer) ParseNlggtUpdated(log types.Log) (*SmcNlggtUpdated, error) {
-	event := new(SmcNlggtUpdated)
-	if err := _Smc.contract.UnpackLog(event, "NlggtUpdated", log); err != nil {
+func (_RegistrationList *RegistrationListFilterer) ParseNlggtUpdated(log types.Log) (*RegistrationListNlggtUpdated, error) {
+	event := new(RegistrationListNlggtUpdated)
+	if err := _RegistrationList.contract.UnpackLog(event, "NlggtUpdated", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the Smc contract.
-type SmcOwnershipTransferredIterator struct {
-	Event *SmcOwnershipTransferred // Event containing the contract specifics and raw log
+// RegistrationListOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the RegistrationList contract.
+type RegistrationListOwnershipTransferredIterator struct {
+	Event *RegistrationListOwnershipTransferred // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1057,7 +1057,7 @@ type SmcOwnershipTransferredIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcOwnershipTransferredIterator) Next() bool {
+func (it *RegistrationListOwnershipTransferredIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1066,7 +1066,7 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcOwnershipTransferred)
+			it.Event = new(RegistrationListOwnershipTransferred)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1081,7 +1081,7 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcOwnershipTransferred)
+		it.Event = new(RegistrationListOwnershipTransferred)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1097,19 +1097,19 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcOwnershipTransferredIterator) Error() error {
+func (it *RegistrationListOwnershipTransferredIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcOwnershipTransferredIterator) Close() error {
+func (it *RegistrationListOwnershipTransferredIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcOwnershipTransferred represents a OwnershipTransferred event raised by the Smc contract.
-type SmcOwnershipTransferred struct {
+// RegistrationListOwnershipTransferred represents a OwnershipTransferred event raised by the RegistrationList contract.
+type RegistrationListOwnershipTransferred struct {
 	PreviousOwner common.Address
 	NewOwner      common.Address
 	Raw           types.Log // Blockchain specific contextual infos
@@ -1118,7 +1118,7 @@ type SmcOwnershipTransferred struct {
 // FilterOwnershipTransferred is a free log retrieval operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previousOwner []common.Address, newOwner []common.Address) (*SmcOwnershipTransferredIterator, error) {
+func (_RegistrationList *RegistrationListFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previousOwner []common.Address, newOwner []common.Address) (*RegistrationListOwnershipTransferredIterator, error) {
 
 	var previousOwnerRule []interface{}
 	for _, previousOwnerItem := range previousOwner {
@@ -1129,17 +1129,17 @@ func (_Smc *SmcFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previ
 		newOwnerRule = append(newOwnerRule, newOwnerItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
+	logs, sub, err := _RegistrationList.contract.FilterLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcOwnershipTransferredIterator{contract: _Smc.contract, event: "OwnershipTransferred", logs: logs, sub: sub}, nil
+	return &RegistrationListOwnershipTransferredIterator{contract: _RegistrationList.contract, event: "OwnershipTransferred", logs: logs, sub: sub}, nil
 }
 
 // WatchOwnershipTransferred is a free log subscription operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink chan<- *SmcOwnershipTransferred, previousOwner []common.Address, newOwner []common.Address) (event.Subscription, error) {
+func (_RegistrationList *RegistrationListFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink chan<- *RegistrationListOwnershipTransferred, previousOwner []common.Address, newOwner []common.Address) (event.Subscription, error) {
 
 	var previousOwnerRule []interface{}
 	for _, previousOwnerItem := range previousOwner {
@@ -1150,7 +1150,7 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 		newOwnerRule = append(newOwnerRule, newOwnerItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
+	logs, sub, err := _RegistrationList.contract.WatchLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1160,8 +1160,8 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcOwnershipTransferred)
-				if err := _Smc.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
+				event := new(RegistrationListOwnershipTransferred)
+				if err := _RegistrationList.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1185,18 +1185,18 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 // ParseOwnershipTransferred is a log parse operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) ParseOwnershipTransferred(log types.Log) (*SmcOwnershipTransferred, error) {
-	event := new(SmcOwnershipTransferred)
-	if err := _Smc.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
+func (_RegistrationList *RegistrationListFilterer) ParseOwnershipTransferred(log types.Log) (*RegistrationListOwnershipTransferred, error) {
+	event := new(RegistrationListOwnershipTransferred)
+	if err := _RegistrationList.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcParticipantsSelectedIterator is returned from FilterParticipantsSelected and is used to iterate over the raw logs and unpacked data for ParticipantsSelected events raised by the Smc contract.
-type SmcParticipantsSelectedIterator struct {
-	Event *SmcParticipantsSelected // Event containing the contract specifics and raw log
+// RegistrationListParticipantsSelectedIterator is returned from FilterParticipantsSelected and is used to iterate over the raw logs and unpacked data for ParticipantsSelected events raised by the RegistrationList contract.
+type RegistrationListParticipantsSelectedIterator struct {
+	Event *RegistrationListParticipantsSelected // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1210,7 +1210,7 @@ type SmcParticipantsSelectedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcParticipantsSelectedIterator) Next() bool {
+func (it *RegistrationListParticipantsSelectedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1219,7 +1219,7 @@ func (it *SmcParticipantsSelectedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcParticipantsSelected)
+			it.Event = new(RegistrationListParticipantsSelected)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1234,7 +1234,7 @@ func (it *SmcParticipantsSelectedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcParticipantsSelected)
+		it.Event = new(RegistrationListParticipantsSelected)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1250,19 +1250,19 @@ func (it *SmcParticipantsSelectedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcParticipantsSelectedIterator) Error() error {
+func (it *RegistrationListParticipantsSelectedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcParticipantsSelectedIterator) Close() error {
+func (it *RegistrationListParticipantsSelectedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcParticipantsSelected represents a ParticipantsSelected event raised by the Smc contract.
-type SmcParticipantsSelected struct {
+// RegistrationListParticipantsSelected represents a ParticipantsSelected event raised by the RegistrationList contract.
+type RegistrationListParticipantsSelected struct {
 	RequestId  *big.Int
 	RaceId     [32]byte
 	Randomness [32]byte
@@ -1273,21 +1273,21 @@ type SmcParticipantsSelected struct {
 // FilterParticipantsSelected is a free log retrieval operation binding the contract event 0xf67ae7b61862fbe089bafd38aea69def4c64db49c4bff6d29f038cfd13fdd4c2.
 //
 // Solidity: event ParticipantsSelected(uint256 requestId, bytes32 raceId, bytes32 randomness, bytes32 selected)
-func (_Smc *SmcFilterer) FilterParticipantsSelected(opts *bind.FilterOpts) (*SmcParticipantsSelectedIterator, error) {
+func (_RegistrationList *RegistrationListFilterer) FilterParticipantsSelected(opts *bind.FilterOpts) (*RegistrationListParticipantsSelectedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "ParticipantsSelected")
+	logs, sub, err := _RegistrationList.contract.FilterLogs(opts, "ParticipantsSelected")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcParticipantsSelectedIterator{contract: _Smc.contract, event: "ParticipantsSelected", logs: logs, sub: sub}, nil
+	return &RegistrationListParticipantsSelectedIterator{contract: _RegistrationList.contract, event: "ParticipantsSelected", logs: logs, sub: sub}, nil
 }
 
 // WatchParticipantsSelected is a free log subscription operation binding the contract event 0xf67ae7b61862fbe089bafd38aea69def4c64db49c4bff6d29f038cfd13fdd4c2.
 //
 // Solidity: event ParticipantsSelected(uint256 requestId, bytes32 raceId, bytes32 randomness, bytes32 selected)
-func (_Smc *SmcFilterer) WatchParticipantsSelected(opts *bind.WatchOpts, sink chan<- *SmcParticipantsSelected) (event.Subscription, error) {
+func (_RegistrationList *RegistrationListFilterer) WatchParticipantsSelected(opts *bind.WatchOpts, sink chan<- *RegistrationListParticipantsSelected) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "ParticipantsSelected")
+	logs, sub, err := _RegistrationList.contract.WatchLogs(opts, "ParticipantsSelected")
 	if err != nil {
 		return nil, err
 	}
@@ -1297,8 +1297,8 @@ func (_Smc *SmcFilterer) WatchParticipantsSelected(opts *bind.WatchOpts, sink ch
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcParticipantsSelected)
-				if err := _Smc.contract.UnpackLog(event, "ParticipantsSelected", log); err != nil {
+				event := new(RegistrationListParticipantsSelected)
+				if err := _RegistrationList.contract.UnpackLog(event, "ParticipantsSelected", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1322,18 +1322,18 @@ func (_Smc *SmcFilterer) WatchParticipantsSelected(opts *bind.WatchOpts, sink ch
 // ParseParticipantsSelected is a log parse operation binding the contract event 0xf67ae7b61862fbe089bafd38aea69def4c64db49c4bff6d29f038cfd13fdd4c2.
 //
 // Solidity: event ParticipantsSelected(uint256 requestId, bytes32 raceId, bytes32 randomness, bytes32 selected)
-func (_Smc *SmcFilterer) ParseParticipantsSelected(log types.Log) (*SmcParticipantsSelected, error) {
-	event := new(SmcParticipantsSelected)
-	if err := _Smc.contract.UnpackLog(event, "ParticipantsSelected", log); err != nil {
+func (_RegistrationList *RegistrationListFilterer) ParseParticipantsSelected(log types.Log) (*RegistrationListParticipantsSelected, error) {
+	event := new(RegistrationListParticipantsSelected)
+	if err := _RegistrationList.contract.UnpackLog(event, "ParticipantsSelected", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcPausedIterator is returned from FilterPaused and is used to iterate over the raw logs and unpacked data for Paused events raised by the Smc contract.
-type SmcPausedIterator struct {
-	Event *SmcPaused // Event containing the contract specifics and raw log
+// RegistrationListPausedIterator is returned from FilterPaused and is used to iterate over the raw logs and unpacked data for Paused events raised by the RegistrationList contract.
+type RegistrationListPausedIterator struct {
+	Event *RegistrationListPaused // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1347,7 +1347,7 @@ type SmcPausedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcPausedIterator) Next() bool {
+func (it *RegistrationListPausedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1356,7 +1356,7 @@ func (it *SmcPausedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcPaused)
+			it.Event = new(RegistrationListPaused)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1371,7 +1371,7 @@ func (it *SmcPausedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcPaused)
+		it.Event = new(RegistrationListPaused)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1387,19 +1387,19 @@ func (it *SmcPausedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcPausedIterator) Error() error {
+func (it *RegistrationListPausedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcPausedIterator) Close() error {
+func (it *RegistrationListPausedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcPaused represents a Paused event raised by the Smc contract.
-type SmcPaused struct {
+// RegistrationListPaused represents a Paused event raised by the RegistrationList contract.
+type RegistrationListPaused struct {
 	Account common.Address
 	Raw     types.Log // Blockchain specific contextual infos
 }
@@ -1407,21 +1407,21 @@ type SmcPaused struct {
 // FilterPaused is a free log retrieval operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) FilterPaused(opts *bind.FilterOpts) (*SmcPausedIterator, error) {
+func (_RegistrationList *RegistrationListFilterer) FilterPaused(opts *bind.FilterOpts) (*RegistrationListPausedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Paused")
+	logs, sub, err := _RegistrationList.contract.FilterLogs(opts, "Paused")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcPausedIterator{contract: _Smc.contract, event: "Paused", logs: logs, sub: sub}, nil
+	return &RegistrationListPausedIterator{contract: _RegistrationList.contract, event: "Paused", logs: logs, sub: sub}, nil
 }
 
 // WatchPaused is a free log subscription operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPaused) (event.Subscription, error) {
+func (_RegistrationList *RegistrationListFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *RegistrationListPaused) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Paused")
+	logs, sub, err := _RegistrationList.contract.WatchLogs(opts, "Paused")
 	if err != nil {
 		return nil, err
 	}
@@ -1431,8 +1431,8 @@ func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPause
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcPaused)
-				if err := _Smc.contract.UnpackLog(event, "Paused", log); err != nil {
+				event := new(RegistrationListPaused)
+				if err := _RegistrationList.contract.UnpackLog(event, "Paused", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1456,18 +1456,18 @@ func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPause
 // ParsePaused is a log parse operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) ParsePaused(log types.Log) (*SmcPaused, error) {
-	event := new(SmcPaused)
-	if err := _Smc.contract.UnpackLog(event, "Paused", log); err != nil {
+func (_RegistrationList *RegistrationListFilterer) ParsePaused(log types.Log) (*RegistrationListPaused, error) {
+	event := new(RegistrationListPaused)
+	if err := _RegistrationList.contract.UnpackLog(event, "Paused", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRaceListUpdatedIterator is returned from FilterRaceListUpdated and is used to iterate over the raw logs and unpacked data for RaceListUpdated events raised by the Smc contract.
-type SmcRaceListUpdatedIterator struct {
-	Event *SmcRaceListUpdated // Event containing the contract specifics and raw log
+// RegistrationListRaceListUpdatedIterator is returned from FilterRaceListUpdated and is used to iterate over the raw logs and unpacked data for RaceListUpdated events raised by the RegistrationList contract.
+type RegistrationListRaceListUpdatedIterator struct {
+	Event *RegistrationListRaceListUpdated // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1481,7 +1481,7 @@ type SmcRaceListUpdatedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRaceListUpdatedIterator) Next() bool {
+func (it *RegistrationListRaceListUpdatedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1490,7 +1490,7 @@ func (it *SmcRaceListUpdatedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRaceListUpdated)
+			it.Event = new(RegistrationListRaceListUpdated)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1505,7 +1505,7 @@ func (it *SmcRaceListUpdatedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRaceListUpdated)
+		it.Event = new(RegistrationListRaceListUpdated)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1521,19 +1521,19 @@ func (it *SmcRaceListUpdatedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRaceListUpdatedIterator) Error() error {
+func (it *RegistrationListRaceListUpdatedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRaceListUpdatedIterator) Close() error {
+func (it *RegistrationListRaceListUpdatedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRaceListUpdated represents a RaceListUpdated event raised by the Smc contract.
-type SmcRaceListUpdated struct {
+// RegistrationListRaceListUpdated represents a RaceListUpdated event raised by the RegistrationList contract.
+type RegistrationListRaceListUpdated struct {
 	Race common.Address
 	Raw  types.Log // Blockchain specific contextual infos
 }
@@ -1541,21 +1541,21 @@ type SmcRaceListUpdated struct {
 // FilterRaceListUpdated is a free log retrieval operation binding the contract event 0x7a659342c2b03e1c14729e3f1c86f414756d13bd8ff0636713cc22246182b42d.
 //
 // Solidity: event RaceListUpdated(address race)
-func (_Smc *SmcFilterer) FilterRaceListUpdated(opts *bind.FilterOpts) (*SmcRaceListUpdatedIterator, error) {
+func (_RegistrationList *RegistrationListFilterer) FilterRaceListUpdated(opts *bind.FilterOpts) (*RegistrationListRaceListUpdatedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RaceListUpdated")
+	logs, sub, err := _RegistrationList.contract.FilterLogs(opts, "RaceListUpdated")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRaceListUpdatedIterator{contract: _Smc.contract, event: "RaceListUpdated", logs: logs, sub: sub}, nil
+	return &RegistrationListRaceListUpdatedIterator{contract: _RegistrationList.contract, event: "RaceListUpdated", logs: logs, sub: sub}, nil
 }
 
 // WatchRaceListUpdated is a free log subscription operation binding the contract event 0x7a659342c2b03e1c14729e3f1c86f414756d13bd8ff0636713cc22246182b42d.
 //
 // Solidity: event RaceListUpdated(address race)
-func (_Smc *SmcFilterer) WatchRaceListUpdated(opts *bind.WatchOpts, sink chan<- *SmcRaceListUpdated) (event.Subscription, error) {
+func (_RegistrationList *RegistrationListFilterer) WatchRaceListUpdated(opts *bind.WatchOpts, sink chan<- *RegistrationListRaceListUpdated) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RaceListUpdated")
+	logs, sub, err := _RegistrationList.contract.WatchLogs(opts, "RaceListUpdated")
 	if err != nil {
 		return nil, err
 	}
@@ -1565,8 +1565,8 @@ func (_Smc *SmcFilterer) WatchRaceListUpdated(opts *bind.WatchOpts, sink chan<- 
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRaceListUpdated)
-				if err := _Smc.contract.UnpackLog(event, "RaceListUpdated", log); err != nil {
+				event := new(RegistrationListRaceListUpdated)
+				if err := _RegistrationList.contract.UnpackLog(event, "RaceListUpdated", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1590,18 +1590,18 @@ func (_Smc *SmcFilterer) WatchRaceListUpdated(opts *bind.WatchOpts, sink chan<- 
 // ParseRaceListUpdated is a log parse operation binding the contract event 0x7a659342c2b03e1c14729e3f1c86f414756d13bd8ff0636713cc22246182b42d.
 //
 // Solidity: event RaceListUpdated(address race)
-func (_Smc *SmcFilterer) ParseRaceListUpdated(log types.Log) (*SmcRaceListUpdated, error) {
-	event := new(SmcRaceListUpdated)
-	if err := _Smc.contract.UnpackLog(event, "RaceListUpdated", log); err != nil {
+func (_RegistrationList *RegistrationListFilterer) ParseRaceListUpdated(log types.Log) (*RegistrationListRaceListUpdated, error) {
+	event := new(RegistrationListRaceListUpdated)
+	if err := _RegistrationList.contract.UnpackLog(event, "RaceListUpdated", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRandomInProgressIterator is returned from FilterRandomInProgress and is used to iterate over the raw logs and unpacked data for RandomInProgress events raised by the Smc contract.
-type SmcRandomInProgressIterator struct {
-	Event *SmcRandomInProgress // Event containing the contract specifics and raw log
+// RegistrationListRandomInProgressIterator is returned from FilterRandomInProgress and is used to iterate over the raw logs and unpacked data for RandomInProgress events raised by the RegistrationList contract.
+type RegistrationListRandomInProgressIterator struct {
+	Event *RegistrationListRandomInProgress // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1615,7 +1615,7 @@ type SmcRandomInProgressIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRandomInProgressIterator) Next() bool {
+func (it *RegistrationListRandomInProgressIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1624,7 +1624,7 @@ func (it *SmcRandomInProgressIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRandomInProgress)
+			it.Event = new(RegistrationListRandomInProgress)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1639,7 +1639,7 @@ func (it *SmcRandomInProgressIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRandomInProgress)
+		it.Event = new(RegistrationListRandomInProgress)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1655,19 +1655,19 @@ func (it *SmcRandomInProgressIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRandomInProgressIterator) Error() error {
+func (it *RegistrationListRandomInProgressIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRandomInProgressIterator) Close() error {
+func (it *RegistrationListRandomInProgressIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRandomInProgress represents a RandomInProgress event raised by the Smc contract.
-type SmcRandomInProgress struct {
+// RegistrationListRandomInProgress represents a RandomInProgress event raised by the RegistrationList contract.
+type RegistrationListRandomInProgress struct {
 	RaceId [32]byte
 	Raw    types.Log // Blockchain specific contextual infos
 }
@@ -1675,21 +1675,21 @@ type SmcRandomInProgress struct {
 // FilterRandomInProgress is a free log retrieval operation binding the contract event 0x018dc112e9dad7765a03056b4091d237454ee37ae27aab3c3abd16d428900a13.
 //
 // Solidity: event RandomInProgress(bytes32 raceId)
-func (_Smc *SmcFilterer) FilterRandomInProgress(opts *bind.FilterOpts) (*SmcRandomInProgressIterator, error) {
+func (_RegistrationList *RegistrationListFilterer) FilterRandomInProgress(opts *bind.FilterOpts) (*RegistrationListRandomInProgressIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RandomInProgress")
+	logs, sub, err := _RegistrationList.contract.FilterLogs(opts, "RandomInProgress")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRandomInProgressIterator{contract: _Smc.contract, event: "RandomInProgress", logs: logs, sub: sub}, nil
+	return &RegistrationListRandomInProgressIterator{contract: _RegistrationList.contract, event: "RandomInProgress", logs: logs, sub: sub}, nil
 }
 
 // WatchRandomInProgress is a free log subscription operation binding the contract event 0x018dc112e9dad7765a03056b4091d237454ee37ae27aab3c3abd16d428900a13.
 //
 // Solidity: event RandomInProgress(bytes32 raceId)
-func (_Smc *SmcFilterer) WatchRandomInProgress(opts *bind.WatchOpts, sink chan<- *SmcRandomInProgress) (event.Subscription, error) {
+func (_RegistrationList *RegistrationListFilterer) WatchRandomInProgress(opts *bind.WatchOpts, sink chan<- *RegistrationListRandomInProgress) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RandomInProgress")
+	logs, sub, err := _RegistrationList.contract.WatchLogs(opts, "RandomInProgress")
 	if err != nil {
 		return nil, err
 	}
@@ -1699,8 +1699,8 @@ func (_Smc *SmcFilterer) WatchRandomInProgress(opts *bind.WatchOpts, sink chan<-
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRandomInProgress)
-				if err := _Smc.contract.UnpackLog(event, "RandomInProgress", log); err != nil {
+				event := new(RegistrationListRandomInProgress)
+				if err := _RegistrationList.contract.UnpackLog(event, "RandomInProgress", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1724,18 +1724,18 @@ func (_Smc *SmcFilterer) WatchRandomInProgress(opts *bind.WatchOpts, sink chan<-
 // ParseRandomInProgress is a log parse operation binding the contract event 0x018dc112e9dad7765a03056b4091d237454ee37ae27aab3c3abd16d428900a13.
 //
 // Solidity: event RandomInProgress(bytes32 raceId)
-func (_Smc *SmcFilterer) ParseRandomInProgress(log types.Log) (*SmcRandomInProgress, error) {
-	event := new(SmcRandomInProgress)
-	if err := _Smc.contract.UnpackLog(event, "RandomInProgress", log); err != nil {
+func (_RegistrationList *RegistrationListFilterer) ParseRandomInProgress(log types.Log) (*RegistrationListRandomInProgress, error) {
+	event := new(RegistrationListRandomInProgress)
+	if err := _RegistrationList.contract.UnpackLog(event, "RandomInProgress", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRegisteredIterator is returned from FilterRegistered and is used to iterate over the raw logs and unpacked data for Registered events raised by the Smc contract.
-type SmcRegisteredIterator struct {
-	Event *SmcRegistered // Event containing the contract specifics and raw log
+// RegistrationListRegisteredIterator is returned from FilterRegistered and is used to iterate over the raw logs and unpacked data for Registered events raised by the RegistrationList contract.
+type RegistrationListRegisteredIterator struct {
+	Event *RegistrationListRegistered // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1749,7 +1749,7 @@ type SmcRegisteredIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRegisteredIterator) Next() bool {
+func (it *RegistrationListRegisteredIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1758,7 +1758,7 @@ func (it *SmcRegisteredIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRegistered)
+			it.Event = new(RegistrationListRegistered)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1773,7 +1773,7 @@ func (it *SmcRegisteredIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRegistered)
+		it.Event = new(RegistrationListRegistered)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1789,19 +1789,19 @@ func (it *SmcRegisteredIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRegisteredIterator) Error() error {
+func (it *RegistrationListRegisteredIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRegisteredIterator) Close() error {
+func (it *RegistrationListRegisteredIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRegistered represents a Registered event raised by the Smc contract.
-type SmcRegistered struct {
+// RegistrationListRegistered represents a Registered event raised by the RegistrationList contract.
+type RegistrationListRegistered struct {
 	SlotId      *big.Int
 	Participant common.Address
 	RaceId      [32]byte
@@ -1811,21 +1811,21 @@ type SmcRegistered struct {
 // FilterRegistered is a free log retrieval operation binding the contract event 0xd62c7bd2779dc6ebe426bed623399b1fc1d190c063eadefcffffb1efe6f253ef.
 //
 // Solidity: event Registered(uint256 slotId, address participant, bytes32 raceId)
-func (_Smc *SmcFilterer) FilterRegistered(opts *bind.FilterOpts) (*SmcRegisteredIterator, error) {
+func (_RegistrationList *RegistrationListFilterer) FilterRegistered(opts *bind.FilterOpts) (*RegistrationListRegisteredIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Registered")
+	logs, sub, err := _RegistrationList.contract.FilterLogs(opts, "Registered")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRegisteredIterator{contract: _Smc.contract, event: "Registered", logs: logs, sub: sub}, nil
+	return &RegistrationListRegisteredIterator{contract: _RegistrationList.contract, event: "Registered", logs: logs, sub: sub}, nil
 }
 
 // WatchRegistered is a free log subscription operation binding the contract event 0xd62c7bd2779dc6ebe426bed623399b1fc1d190c063eadefcffffb1efe6f253ef.
 //
 // Solidity: event Registered(uint256 slotId, address participant, bytes32 raceId)
-func (_Smc *SmcFilterer) WatchRegistered(opts *bind.WatchOpts, sink chan<- *SmcRegistered) (event.Subscription, error) {
+func (_RegistrationList *RegistrationListFilterer) WatchRegistered(opts *bind.WatchOpts, sink chan<- *RegistrationListRegistered) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Registered")
+	logs, sub, err := _RegistrationList.contract.WatchLogs(opts, "Registered")
 	if err != nil {
 		return nil, err
 	}
@@ -1835,8 +1835,8 @@ func (_Smc *SmcFilterer) WatchRegistered(opts *bind.WatchOpts, sink chan<- *SmcR
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRegistered)
-				if err := _Smc.contract.UnpackLog(event, "Registered", log); err != nil {
+				event := new(RegistrationListRegistered)
+				if err := _RegistrationList.contract.UnpackLog(event, "Registered", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1860,18 +1860,18 @@ func (_Smc *SmcFilterer) WatchRegistered(opts *bind.WatchOpts, sink chan<- *SmcR
 // ParseRegistered is a log parse operation binding the contract event 0xd62c7bd2779dc6ebe426bed623399b1fc1d190c063eadefcffffb1efe6f253ef.
 //
 // Solidity: event Registered(uint256 slotId, address participant, bytes32 raceId)
-func (_Smc *SmcFilterer) ParseRegistered(log types.Log) (*SmcRegistered, error) {
-	event := new(SmcRegistered)
-	if err := _Smc.contract.UnpackLog(event, "Registered", log); err != nil {
+func (_RegistrationList *RegistrationListFilterer) ParseRegistered(log types.Log) (*RegistrationListRegistered, error) {
+	event := new(RegistrationListRegistered)
+	if err := _RegistrationList.contract.UnpackLog(event, "Registered", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRewardAddedIterator is returned from FilterRewardAdded and is used to iterate over the raw logs and unpacked data for RewardAdded events raised by the Smc contract.
-type SmcRewardAddedIterator struct {
-	Event *SmcRewardAdded // Event containing the contract specifics and raw log
+// RegistrationListRewardAddedIterator is returned from FilterRewardAdded and is used to iterate over the raw logs and unpacked data for RewardAdded events raised by the RegistrationList contract.
+type RegistrationListRewardAddedIterator struct {
+	Event *RegistrationListRewardAdded // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1885,7 +1885,7 @@ type SmcRewardAddedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRewardAddedIterator) Next() bool {
+func (it *RegistrationListRewardAddedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1894,7 +1894,7 @@ func (it *SmcRewardAddedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRewardAdded)
+			it.Event = new(RegistrationListRewardAdded)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1909,7 +1909,7 @@ func (it *SmcRewardAddedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRewardAdded)
+		it.Event = new(RegistrationListRewardAdded)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1925,19 +1925,19 @@ func (it *SmcRewardAddedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRewardAddedIterator) Error() error {
+func (it *RegistrationListRewardAddedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRewardAddedIterator) Close() error {
+func (it *RegistrationListRewardAddedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRewardAdded represents a RewardAdded event raised by the Smc contract.
-type SmcRewardAdded struct {
+// RegistrationListRewardAdded represents a RewardAdded event raised by the RegistrationList contract.
+type RegistrationListRewardAdded struct {
 	RaceId      [32]byte
 	NftRewardId *big.Int
 	ResultIndex [1]byte
@@ -1947,21 +1947,21 @@ type SmcRewardAdded struct {
 // FilterRewardAdded is a free log retrieval operation binding the contract event 0x2b942e265bd6d4ca5617a327f9a60e1a85f4351aaa0be2a84cda1cf9d32c8c04.
 //
 // Solidity: event RewardAdded(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex)
-func (_Smc *SmcFilterer) FilterRewardAdded(opts *bind.FilterOpts) (*SmcRewardAddedIterator, error) {
+func (_RegistrationList *RegistrationListFilterer) FilterRewardAdded(opts *bind.FilterOpts) (*RegistrationListRewardAddedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RewardAdded")
+	logs, sub, err := _RegistrationList.contract.FilterLogs(opts, "RewardAdded")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRewardAddedIterator{contract: _Smc.contract, event: "RewardAdded", logs: logs, sub: sub}, nil
+	return &RegistrationListRewardAddedIterator{contract: _RegistrationList.contract, event: "RewardAdded", logs: logs, sub: sub}, nil
 }
 
 // WatchRewardAdded is a free log subscription operation binding the contract event 0x2b942e265bd6d4ca5617a327f9a60e1a85f4351aaa0be2a84cda1cf9d32c8c04.
 //
 // Solidity: event RewardAdded(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex)
-func (_Smc *SmcFilterer) WatchRewardAdded(opts *bind.WatchOpts, sink chan<- *SmcRewardAdded) (event.Subscription, error) {
+func (_RegistrationList *RegistrationListFilterer) WatchRewardAdded(opts *bind.WatchOpts, sink chan<- *RegistrationListRewardAdded) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RewardAdded")
+	logs, sub, err := _RegistrationList.contract.WatchLogs(opts, "RewardAdded")
 	if err != nil {
 		return nil, err
 	}
@@ -1971,8 +1971,8 @@ func (_Smc *SmcFilterer) WatchRewardAdded(opts *bind.WatchOpts, sink chan<- *Smc
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRewardAdded)
-				if err := _Smc.contract.UnpackLog(event, "RewardAdded", log); err != nil {
+				event := new(RegistrationListRewardAdded)
+				if err := _RegistrationList.contract.UnpackLog(event, "RewardAdded", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1996,18 +1996,18 @@ func (_Smc *SmcFilterer) WatchRewardAdded(opts *bind.WatchOpts, sink chan<- *Smc
 // ParseRewardAdded is a log parse operation binding the contract event 0x2b942e265bd6d4ca5617a327f9a60e1a85f4351aaa0be2a84cda1cf9d32c8c04.
 //
 // Solidity: event RewardAdded(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex)
-func (_Smc *SmcFilterer) ParseRewardAdded(log types.Log) (*SmcRewardAdded, error) {
-	event := new(SmcRewardAdded)
-	if err := _Smc.contract.UnpackLog(event, "RewardAdded", log); err != nil {
+func (_RegistrationList *RegistrationListFilterer) ParseRewardAdded(log types.Log) (*RegistrationListRewardAdded, error) {
+	event := new(RegistrationListRewardAdded)
+	if err := _RegistrationList.contract.UnpackLog(event, "RewardAdded", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRewardReceivedIterator is returned from FilterRewardReceived and is used to iterate over the raw logs and unpacked data for RewardReceived events raised by the Smc contract.
-type SmcRewardReceivedIterator struct {
-	Event *SmcRewardReceived // Event containing the contract specifics and raw log
+// RegistrationListRewardReceivedIterator is returned from FilterRewardReceived and is used to iterate over the raw logs and unpacked data for RewardReceived events raised by the RegistrationList contract.
+type RegistrationListRewardReceivedIterator struct {
+	Event *RegistrationListRewardReceived // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2021,7 +2021,7 @@ type SmcRewardReceivedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRewardReceivedIterator) Next() bool {
+func (it *RegistrationListRewardReceivedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2030,7 +2030,7 @@ func (it *SmcRewardReceivedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRewardReceived)
+			it.Event = new(RegistrationListRewardReceived)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2045,7 +2045,7 @@ func (it *SmcRewardReceivedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRewardReceived)
+		it.Event = new(RegistrationListRewardReceived)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2061,19 +2061,19 @@ func (it *SmcRewardReceivedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRewardReceivedIterator) Error() error {
+func (it *RegistrationListRewardReceivedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRewardReceivedIterator) Close() error {
+func (it *RegistrationListRewardReceivedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRewardReceived represents a RewardReceived event raised by the Smc contract.
-type SmcRewardReceived struct {
+// RegistrationListRewardReceived represents a RewardReceived event raised by the RegistrationList contract.
+type RegistrationListRewardReceived struct {
 	RaceId      [32]byte
 	SlotId      *big.Int
 	NftRewardId *big.Int
@@ -2083,21 +2083,21 @@ type SmcRewardReceived struct {
 // FilterRewardReceived is a free log retrieval operation binding the contract event 0xe2ece170b35ae79cbe45ffdaf4931b8bc45056da5d3e9aa4aea67fcdf307929a.
 //
 // Solidity: event RewardReceived(bytes32 raceId, uint256 slotId, uint256 nftRewardId)
-func (_Smc *SmcFilterer) FilterRewardReceived(opts *bind.FilterOpts) (*SmcRewardReceivedIterator, error) {
+func (_RegistrationList *RegistrationListFilterer) FilterRewardReceived(opts *bind.FilterOpts) (*RegistrationListRewardReceivedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RewardReceived")
+	logs, sub, err := _RegistrationList.contract.FilterLogs(opts, "RewardReceived")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRewardReceivedIterator{contract: _Smc.contract, event: "RewardReceived", logs: logs, sub: sub}, nil
+	return &RegistrationListRewardReceivedIterator{contract: _RegistrationList.contract, event: "RewardReceived", logs: logs, sub: sub}, nil
 }
 
 // WatchRewardReceived is a free log subscription operation binding the contract event 0xe2ece170b35ae79cbe45ffdaf4931b8bc45056da5d3e9aa4aea67fcdf307929a.
 //
 // Solidity: event RewardReceived(bytes32 raceId, uint256 slotId, uint256 nftRewardId)
-func (_Smc *SmcFilterer) WatchRewardReceived(opts *bind.WatchOpts, sink chan<- *SmcRewardReceived) (event.Subscription, error) {
+func (_RegistrationList *RegistrationListFilterer) WatchRewardReceived(opts *bind.WatchOpts, sink chan<- *RegistrationListRewardReceived) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RewardReceived")
+	logs, sub, err := _RegistrationList.contract.WatchLogs(opts, "RewardReceived")
 	if err != nil {
 		return nil, err
 	}
@@ -2107,8 +2107,8 @@ func (_Smc *SmcFilterer) WatchRewardReceived(opts *bind.WatchOpts, sink chan<- *
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRewardReceived)
-				if err := _Smc.contract.UnpackLog(event, "RewardReceived", log); err != nil {
+				event := new(RegistrationListRewardReceived)
+				if err := _RegistrationList.contract.UnpackLog(event, "RewardReceived", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2132,18 +2132,18 @@ func (_Smc *SmcFilterer) WatchRewardReceived(opts *bind.WatchOpts, sink chan<- *
 // ParseRewardReceived is a log parse operation binding the contract event 0xe2ece170b35ae79cbe45ffdaf4931b8bc45056da5d3e9aa4aea67fcdf307929a.
 //
 // Solidity: event RewardReceived(bytes32 raceId, uint256 slotId, uint256 nftRewardId)
-func (_Smc *SmcFilterer) ParseRewardReceived(log types.Log) (*SmcRewardReceived, error) {
-	event := new(SmcRewardReceived)
-	if err := _Smc.contract.UnpackLog(event, "RewardReceived", log); err != nil {
+func (_RegistrationList *RegistrationListFilterer) ParseRewardReceived(log types.Log) (*RegistrationListRewardReceived, error) {
+	event := new(RegistrationListRewardReceived)
+	if err := _RegistrationList.contract.UnpackLog(event, "RewardReceived", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRoleAdminChangedIterator is returned from FilterRoleAdminChanged and is used to iterate over the raw logs and unpacked data for RoleAdminChanged events raised by the Smc contract.
-type SmcRoleAdminChangedIterator struct {
-	Event *SmcRoleAdminChanged // Event containing the contract specifics and raw log
+// RegistrationListRoleAdminChangedIterator is returned from FilterRoleAdminChanged and is used to iterate over the raw logs and unpacked data for RoleAdminChanged events raised by the RegistrationList contract.
+type RegistrationListRoleAdminChangedIterator struct {
+	Event *RegistrationListRoleAdminChanged // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2157,7 +2157,7 @@ type SmcRoleAdminChangedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRoleAdminChangedIterator) Next() bool {
+func (it *RegistrationListRoleAdminChangedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2166,7 +2166,7 @@ func (it *SmcRoleAdminChangedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRoleAdminChanged)
+			it.Event = new(RegistrationListRoleAdminChanged)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2181,7 +2181,7 @@ func (it *SmcRoleAdminChangedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRoleAdminChanged)
+		it.Event = new(RegistrationListRoleAdminChanged)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2197,19 +2197,19 @@ func (it *SmcRoleAdminChangedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRoleAdminChangedIterator) Error() error {
+func (it *RegistrationListRoleAdminChangedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRoleAdminChangedIterator) Close() error {
+func (it *RegistrationListRoleAdminChangedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRoleAdminChanged represents a RoleAdminChanged event raised by the Smc contract.
-type SmcRoleAdminChanged struct {
+// RegistrationListRoleAdminChanged represents a RoleAdminChanged event raised by the RegistrationList contract.
+type RegistrationListRoleAdminChanged struct {
 	Role              [32]byte
 	PreviousAdminRole [32]byte
 	NewAdminRole      [32]byte
@@ -2219,7 +2219,7 @@ type SmcRoleAdminChanged struct {
 // FilterRoleAdminChanged is a free log retrieval operation binding the contract event 0xbd79b86ffe0ab8e8776151514217cd7cacd52c909f66475c3af44e129f0b00ff.
 //
 // Solidity: event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
-func (_Smc *SmcFilterer) FilterRoleAdminChanged(opts *bind.FilterOpts, role [][32]byte, previousAdminRole [][32]byte, newAdminRole [][32]byte) (*SmcRoleAdminChangedIterator, error) {
+func (_RegistrationList *RegistrationListFilterer) FilterRoleAdminChanged(opts *bind.FilterOpts, role [][32]byte, previousAdminRole [][32]byte, newAdminRole [][32]byte) (*RegistrationListRoleAdminChangedIterator, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -2234,17 +2234,17 @@ func (_Smc *SmcFilterer) FilterRoleAdminChanged(opts *bind.FilterOpts, role [][3
 		newAdminRoleRule = append(newAdminRoleRule, newAdminRoleItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RoleAdminChanged", roleRule, previousAdminRoleRule, newAdminRoleRule)
+	logs, sub, err := _RegistrationList.contract.FilterLogs(opts, "RoleAdminChanged", roleRule, previousAdminRoleRule, newAdminRoleRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRoleAdminChangedIterator{contract: _Smc.contract, event: "RoleAdminChanged", logs: logs, sub: sub}, nil
+	return &RegistrationListRoleAdminChangedIterator{contract: _RegistrationList.contract, event: "RoleAdminChanged", logs: logs, sub: sub}, nil
 }
 
 // WatchRoleAdminChanged is a free log subscription operation binding the contract event 0xbd79b86ffe0ab8e8776151514217cd7cacd52c909f66475c3af44e129f0b00ff.
 //
 // Solidity: event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
-func (_Smc *SmcFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<- *SmcRoleAdminChanged, role [][32]byte, previousAdminRole [][32]byte, newAdminRole [][32]byte) (event.Subscription, error) {
+func (_RegistrationList *RegistrationListFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<- *RegistrationListRoleAdminChanged, role [][32]byte, previousAdminRole [][32]byte, newAdminRole [][32]byte) (event.Subscription, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -2259,7 +2259,7 @@ func (_Smc *SmcFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<-
 		newAdminRoleRule = append(newAdminRoleRule, newAdminRoleItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RoleAdminChanged", roleRule, previousAdminRoleRule, newAdminRoleRule)
+	logs, sub, err := _RegistrationList.contract.WatchLogs(opts, "RoleAdminChanged", roleRule, previousAdminRoleRule, newAdminRoleRule)
 	if err != nil {
 		return nil, err
 	}
@@ -2269,8 +2269,8 @@ func (_Smc *SmcFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<-
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRoleAdminChanged)
-				if err := _Smc.contract.UnpackLog(event, "RoleAdminChanged", log); err != nil {
+				event := new(RegistrationListRoleAdminChanged)
+				if err := _RegistrationList.contract.UnpackLog(event, "RoleAdminChanged", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2294,18 +2294,18 @@ func (_Smc *SmcFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<-
 // ParseRoleAdminChanged is a log parse operation binding the contract event 0xbd79b86ffe0ab8e8776151514217cd7cacd52c909f66475c3af44e129f0b00ff.
 //
 // Solidity: event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
-func (_Smc *SmcFilterer) ParseRoleAdminChanged(log types.Log) (*SmcRoleAdminChanged, error) {
-	event := new(SmcRoleAdminChanged)
-	if err := _Smc.contract.UnpackLog(event, "RoleAdminChanged", log); err != nil {
+func (_RegistrationList *RegistrationListFilterer) ParseRoleAdminChanged(log types.Log) (*RegistrationListRoleAdminChanged, error) {
+	event := new(RegistrationListRoleAdminChanged)
+	if err := _RegistrationList.contract.UnpackLog(event, "RoleAdminChanged", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRoleGrantedIterator is returned from FilterRoleGranted and is used to iterate over the raw logs and unpacked data for RoleGranted events raised by the Smc contract.
-type SmcRoleGrantedIterator struct {
-	Event *SmcRoleGranted // Event containing the contract specifics and raw log
+// RegistrationListRoleGrantedIterator is returned from FilterRoleGranted and is used to iterate over the raw logs and unpacked data for RoleGranted events raised by the RegistrationList contract.
+type RegistrationListRoleGrantedIterator struct {
+	Event *RegistrationListRoleGranted // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2319,7 +2319,7 @@ type SmcRoleGrantedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRoleGrantedIterator) Next() bool {
+func (it *RegistrationListRoleGrantedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2328,7 +2328,7 @@ func (it *SmcRoleGrantedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRoleGranted)
+			it.Event = new(RegistrationListRoleGranted)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2343,7 +2343,7 @@ func (it *SmcRoleGrantedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRoleGranted)
+		it.Event = new(RegistrationListRoleGranted)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2359,19 +2359,19 @@ func (it *SmcRoleGrantedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRoleGrantedIterator) Error() error {
+func (it *RegistrationListRoleGrantedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRoleGrantedIterator) Close() error {
+func (it *RegistrationListRoleGrantedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRoleGranted represents a RoleGranted event raised by the Smc contract.
-type SmcRoleGranted struct {
+// RegistrationListRoleGranted represents a RoleGranted event raised by the RegistrationList contract.
+type RegistrationListRoleGranted struct {
 	Role    [32]byte
 	Account common.Address
 	Sender  common.Address
@@ -2381,7 +2381,7 @@ type SmcRoleGranted struct {
 // FilterRoleGranted is a free log retrieval operation binding the contract event 0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d.
 //
 // Solidity: event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) FilterRoleGranted(opts *bind.FilterOpts, role [][32]byte, account []common.Address, sender []common.Address) (*SmcRoleGrantedIterator, error) {
+func (_RegistrationList *RegistrationListFilterer) FilterRoleGranted(opts *bind.FilterOpts, role [][32]byte, account []common.Address, sender []common.Address) (*RegistrationListRoleGrantedIterator, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -2396,17 +2396,17 @@ func (_Smc *SmcFilterer) FilterRoleGranted(opts *bind.FilterOpts, role [][32]byt
 		senderRule = append(senderRule, senderItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RoleGranted", roleRule, accountRule, senderRule)
+	logs, sub, err := _RegistrationList.contract.FilterLogs(opts, "RoleGranted", roleRule, accountRule, senderRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRoleGrantedIterator{contract: _Smc.contract, event: "RoleGranted", logs: logs, sub: sub}, nil
+	return &RegistrationListRoleGrantedIterator{contract: _RegistrationList.contract, event: "RoleGranted", logs: logs, sub: sub}, nil
 }
 
 // WatchRoleGranted is a free log subscription operation binding the contract event 0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d.
 //
 // Solidity: event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *SmcRoleGranted, role [][32]byte, account []common.Address, sender []common.Address) (event.Subscription, error) {
+func (_RegistrationList *RegistrationListFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *RegistrationListRoleGranted, role [][32]byte, account []common.Address, sender []common.Address) (event.Subscription, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -2421,7 +2421,7 @@ func (_Smc *SmcFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *Smc
 		senderRule = append(senderRule, senderItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RoleGranted", roleRule, accountRule, senderRule)
+	logs, sub, err := _RegistrationList.contract.WatchLogs(opts, "RoleGranted", roleRule, accountRule, senderRule)
 	if err != nil {
 		return nil, err
 	}
@@ -2431,8 +2431,8 @@ func (_Smc *SmcFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *Smc
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRoleGranted)
-				if err := _Smc.contract.UnpackLog(event, "RoleGranted", log); err != nil {
+				event := new(RegistrationListRoleGranted)
+				if err := _RegistrationList.contract.UnpackLog(event, "RoleGranted", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2456,18 +2456,18 @@ func (_Smc *SmcFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *Smc
 // ParseRoleGranted is a log parse operation binding the contract event 0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d.
 //
 // Solidity: event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) ParseRoleGranted(log types.Log) (*SmcRoleGranted, error) {
-	event := new(SmcRoleGranted)
-	if err := _Smc.contract.UnpackLog(event, "RoleGranted", log); err != nil {
+func (_RegistrationList *RegistrationListFilterer) ParseRoleGranted(log types.Log) (*RegistrationListRoleGranted, error) {
+	event := new(RegistrationListRoleGranted)
+	if err := _RegistrationList.contract.UnpackLog(event, "RoleGranted", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRoleRevokedIterator is returned from FilterRoleRevoked and is used to iterate over the raw logs and unpacked data for RoleRevoked events raised by the Smc contract.
-type SmcRoleRevokedIterator struct {
-	Event *SmcRoleRevoked // Event containing the contract specifics and raw log
+// RegistrationListRoleRevokedIterator is returned from FilterRoleRevoked and is used to iterate over the raw logs and unpacked data for RoleRevoked events raised by the RegistrationList contract.
+type RegistrationListRoleRevokedIterator struct {
+	Event *RegistrationListRoleRevoked // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2481,7 +2481,7 @@ type SmcRoleRevokedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRoleRevokedIterator) Next() bool {
+func (it *RegistrationListRoleRevokedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2490,7 +2490,7 @@ func (it *SmcRoleRevokedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRoleRevoked)
+			it.Event = new(RegistrationListRoleRevoked)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2505,7 +2505,7 @@ func (it *SmcRoleRevokedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRoleRevoked)
+		it.Event = new(RegistrationListRoleRevoked)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2521,19 +2521,19 @@ func (it *SmcRoleRevokedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRoleRevokedIterator) Error() error {
+func (it *RegistrationListRoleRevokedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRoleRevokedIterator) Close() error {
+func (it *RegistrationListRoleRevokedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRoleRevoked represents a RoleRevoked event raised by the Smc contract.
-type SmcRoleRevoked struct {
+// RegistrationListRoleRevoked represents a RoleRevoked event raised by the RegistrationList contract.
+type RegistrationListRoleRevoked struct {
 	Role    [32]byte
 	Account common.Address
 	Sender  common.Address
@@ -2543,7 +2543,7 @@ type SmcRoleRevoked struct {
 // FilterRoleRevoked is a free log retrieval operation binding the contract event 0xf6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b.
 //
 // Solidity: event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) FilterRoleRevoked(opts *bind.FilterOpts, role [][32]byte, account []common.Address, sender []common.Address) (*SmcRoleRevokedIterator, error) {
+func (_RegistrationList *RegistrationListFilterer) FilterRoleRevoked(opts *bind.FilterOpts, role [][32]byte, account []common.Address, sender []common.Address) (*RegistrationListRoleRevokedIterator, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -2558,17 +2558,17 @@ func (_Smc *SmcFilterer) FilterRoleRevoked(opts *bind.FilterOpts, role [][32]byt
 		senderRule = append(senderRule, senderItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RoleRevoked", roleRule, accountRule, senderRule)
+	logs, sub, err := _RegistrationList.contract.FilterLogs(opts, "RoleRevoked", roleRule, accountRule, senderRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRoleRevokedIterator{contract: _Smc.contract, event: "RoleRevoked", logs: logs, sub: sub}, nil
+	return &RegistrationListRoleRevokedIterator{contract: _RegistrationList.contract, event: "RoleRevoked", logs: logs, sub: sub}, nil
 }
 
 // WatchRoleRevoked is a free log subscription operation binding the contract event 0xf6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b.
 //
 // Solidity: event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *SmcRoleRevoked, role [][32]byte, account []common.Address, sender []common.Address) (event.Subscription, error) {
+func (_RegistrationList *RegistrationListFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *RegistrationListRoleRevoked, role [][32]byte, account []common.Address, sender []common.Address) (event.Subscription, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -2583,7 +2583,7 @@ func (_Smc *SmcFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *Smc
 		senderRule = append(senderRule, senderItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RoleRevoked", roleRule, accountRule, senderRule)
+	logs, sub, err := _RegistrationList.contract.WatchLogs(opts, "RoleRevoked", roleRule, accountRule, senderRule)
 	if err != nil {
 		return nil, err
 	}
@@ -2593,8 +2593,8 @@ func (_Smc *SmcFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *Smc
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRoleRevoked)
-				if err := _Smc.contract.UnpackLog(event, "RoleRevoked", log); err != nil {
+				event := new(RegistrationListRoleRevoked)
+				if err := _RegistrationList.contract.UnpackLog(event, "RoleRevoked", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2618,18 +2618,18 @@ func (_Smc *SmcFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *Smc
 // ParseRoleRevoked is a log parse operation binding the contract event 0xf6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b.
 //
 // Solidity: event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) ParseRoleRevoked(log types.Log) (*SmcRoleRevoked, error) {
-	event := new(SmcRoleRevoked)
-	if err := _Smc.contract.UnpackLog(event, "RoleRevoked", log); err != nil {
+func (_RegistrationList *RegistrationListFilterer) ParseRoleRevoked(log types.Log) (*RegistrationListRoleRevoked, error) {
+	event := new(RegistrationListRoleRevoked)
+	if err := _RegistrationList.contract.UnpackLog(event, "RoleRevoked", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcUnpausedIterator is returned from FilterUnpaused and is used to iterate over the raw logs and unpacked data for Unpaused events raised by the Smc contract.
-type SmcUnpausedIterator struct {
-	Event *SmcUnpaused // Event containing the contract specifics and raw log
+// RegistrationListUnpausedIterator is returned from FilterUnpaused and is used to iterate over the raw logs and unpacked data for Unpaused events raised by the RegistrationList contract.
+type RegistrationListUnpausedIterator struct {
+	Event *RegistrationListUnpaused // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2643,7 +2643,7 @@ type SmcUnpausedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcUnpausedIterator) Next() bool {
+func (it *RegistrationListUnpausedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2652,7 +2652,7 @@ func (it *SmcUnpausedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcUnpaused)
+			it.Event = new(RegistrationListUnpaused)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2667,7 +2667,7 @@ func (it *SmcUnpausedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcUnpaused)
+		it.Event = new(RegistrationListUnpaused)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2683,19 +2683,19 @@ func (it *SmcUnpausedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcUnpausedIterator) Error() error {
+func (it *RegistrationListUnpausedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcUnpausedIterator) Close() error {
+func (it *RegistrationListUnpausedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcUnpaused represents a Unpaused event raised by the Smc contract.
-type SmcUnpaused struct {
+// RegistrationListUnpaused represents a Unpaused event raised by the RegistrationList contract.
+type RegistrationListUnpaused struct {
 	Account common.Address
 	Raw     types.Log // Blockchain specific contextual infos
 }
@@ -2703,21 +2703,21 @@ type SmcUnpaused struct {
 // FilterUnpaused is a free log retrieval operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) FilterUnpaused(opts *bind.FilterOpts) (*SmcUnpausedIterator, error) {
+func (_RegistrationList *RegistrationListFilterer) FilterUnpaused(opts *bind.FilterOpts) (*RegistrationListUnpausedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Unpaused")
+	logs, sub, err := _RegistrationList.contract.FilterLogs(opts, "Unpaused")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcUnpausedIterator{contract: _Smc.contract, event: "Unpaused", logs: logs, sub: sub}, nil
+	return &RegistrationListUnpausedIterator{contract: _RegistrationList.contract, event: "Unpaused", logs: logs, sub: sub}, nil
 }
 
 // WatchUnpaused is a free log subscription operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnpaused) (event.Subscription, error) {
+func (_RegistrationList *RegistrationListFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *RegistrationListUnpaused) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Unpaused")
+	logs, sub, err := _RegistrationList.contract.WatchLogs(opts, "Unpaused")
 	if err != nil {
 		return nil, err
 	}
@@ -2727,8 +2727,8 @@ func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnp
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcUnpaused)
-				if err := _Smc.contract.UnpackLog(event, "Unpaused", log); err != nil {
+				event := new(RegistrationListUnpaused)
+				if err := _RegistrationList.contract.UnpackLog(event, "Unpaused", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2752,9 +2752,9 @@ func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnp
 // ParseUnpaused is a log parse operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) ParseUnpaused(log types.Log) (*SmcUnpaused, error) {
-	event := new(SmcUnpaused)
-	if err := _Smc.contract.UnpackLog(event, "Unpaused", log); err != nil {
+func (_RegistrationList *RegistrationListFilterer) ParseUnpaused(log types.Log) (*RegistrationListUnpaused, error) {
+	event := new(RegistrationListUnpaused)
+	if err := _RegistrationList.contract.UnpackLog(event, "Unpaused", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log

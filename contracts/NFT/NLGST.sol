@@ -15,4 +15,3 @@ contract NLGST is KfiveNFT {
         _requireMarketplaceStorage(_marketplaceStorage)
     {}
 }
-

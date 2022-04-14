@@ -1,7 +1,7 @@
 // Code generated - DO NOT EDIT.
 // This file is a generated binding and any manual changes will be lost.
 
-package smc
+package KFIVECrowdsale
 
 import (
 	"errors"
@@ -28,113 +28,113 @@ var (
 	_ = event.NewSubscription
 )
 
-// SmcMetaData contains all meta data concerning the Smc contract.
-var SmcMetaData = &bind.MetaData{
+// KFIVECrowdsaleMetaData contains all meta data concerning the KFIVECrowdsale contract.
+var KFIVECrowdsaleMetaData = &bind.MetaData{
 	ABI: "[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"rate\",\"type\":\"uint256\"},{\"internalType\":\"addresspayable\",\"name\":\"wallet\",\"type\":\"address\"},{\"internalType\":\"contractIBEP20\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"cap\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"openingTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"closingTime\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"prevClosingTime\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newClosingTime\",\"type\":\"uint256\"}],\"name\":\"TimedCrowdsaleExtended\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"purchaser\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"TokensPurchased\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"}],\"name\":\"buyTokens\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"cap\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"capReached\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"addresspayable\",\"name\":\"newReceiver\",\"type\":\"address\"}],\"name\":\"changeWallet\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"closingTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"addresspayable\",\"name\":\"_to\",\"type\":\"address\"}],\"name\":\"destroySmartContract\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"hasClosed\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"isOpen\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"openingTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"rate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"token\",\"outputs\":[{\"internalType\":\"contractIBEP20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"wallet\",\"outputs\":[{\"internalType\":\"addresspayable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"weiRaised\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}]",
 }
 
-// SmcABI is the input ABI used to generate the binding from.
-// Deprecated: Use SmcMetaData.ABI instead.
-var SmcABI = SmcMetaData.ABI
+// KFIVECrowdsaleABI is the input ABI used to generate the binding from.
+// Deprecated: Use KFIVECrowdsaleMetaData.ABI instead.
+var KFIVECrowdsaleABI = KFIVECrowdsaleMetaData.ABI
 
-// Smc is an auto generated Go binding around an Ethereum contract.
-type Smc struct {
-	SmcCaller     // Read-only binding to the contract
-	SmcTransactor // Write-only binding to the contract
-	SmcFilterer   // Log filterer for contract events
+// KFIVECrowdsale is an auto generated Go binding around an Ethereum contract.
+type KFIVECrowdsale struct {
+	KFIVECrowdsaleCaller     // Read-only binding to the contract
+	KFIVECrowdsaleTransactor // Write-only binding to the contract
+	KFIVECrowdsaleFilterer   // Log filterer for contract events
 }
 
-// SmcCaller is an auto generated read-only Go binding around an Ethereum contract.
-type SmcCaller struct {
+// KFIVECrowdsaleCaller is an auto generated read-only Go binding around an Ethereum contract.
+type KFIVECrowdsaleCaller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcTransactor is an auto generated write-only Go binding around an Ethereum contract.
-type SmcTransactor struct {
+// KFIVECrowdsaleTransactor is an auto generated write-only Go binding around an Ethereum contract.
+type KFIVECrowdsaleTransactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
-type SmcFilterer struct {
+// KFIVECrowdsaleFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type KFIVECrowdsaleFilterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcSession is an auto generated Go binding around an Ethereum contract,
+// KFIVECrowdsaleSession is an auto generated Go binding around an Ethereum contract,
 // with pre-set call and transact options.
-type SmcSession struct {
-	Contract     *Smc              // Generic contract binding to set the session for
+type KFIVECrowdsaleSession struct {
+	Contract     *KFIVECrowdsale   // Generic contract binding to set the session for
 	CallOpts     bind.CallOpts     // Call options to use throughout this session
 	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 }
 
-// SmcCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// KFIVECrowdsaleCallerSession is an auto generated read-only Go binding around an Ethereum contract,
 // with pre-set call options.
-type SmcCallerSession struct {
-	Contract *SmcCaller    // Generic contract caller binding to set the session for
-	CallOpts bind.CallOpts // Call options to use throughout this session
+type KFIVECrowdsaleCallerSession struct {
+	Contract *KFIVECrowdsaleCaller // Generic contract caller binding to set the session for
+	CallOpts bind.CallOpts         // Call options to use throughout this session
 }
 
-// SmcTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// KFIVECrowdsaleTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
 // with pre-set transact options.
-type SmcTransactorSession struct {
-	Contract     *SmcTransactor    // Generic contract transactor binding to set the session for
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type KFIVECrowdsaleTransactorSession struct {
+	Contract     *KFIVECrowdsaleTransactor // Generic contract transactor binding to set the session for
+	TransactOpts bind.TransactOpts         // Transaction auth options to use throughout this session
 }
 
-// SmcRaw is an auto generated low-level Go binding around an Ethereum contract.
-type SmcRaw struct {
-	Contract *Smc // Generic contract binding to access the raw methods on
+// KFIVECrowdsaleRaw is an auto generated low-level Go binding around an Ethereum contract.
+type KFIVECrowdsaleRaw struct {
+	Contract *KFIVECrowdsale // Generic contract binding to access the raw methods on
 }
 
-// SmcCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
-type SmcCallerRaw struct {
-	Contract *SmcCaller // Generic read-only contract binding to access the raw methods on
+// KFIVECrowdsaleCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type KFIVECrowdsaleCallerRaw struct {
+	Contract *KFIVECrowdsaleCaller // Generic read-only contract binding to access the raw methods on
 }
 
-// SmcTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
-type SmcTransactorRaw struct {
-	Contract *SmcTransactor // Generic write-only contract binding to access the raw methods on
+// KFIVECrowdsaleTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type KFIVECrowdsaleTransactorRaw struct {
+	Contract *KFIVECrowdsaleTransactor // Generic write-only contract binding to access the raw methods on
 }
 
-// NewSmc creates a new instance of Smc, bound to a specific deployed contract.
-func NewSmc(address common.Address, backend bind.ContractBackend) (*Smc, error) {
-	contract, err := bindSmc(address, backend, backend, backend)
+// NewKFIVECrowdsale creates a new instance of KFIVECrowdsale, bound to a specific deployed contract.
+func NewKFIVECrowdsale(address common.Address, backend bind.ContractBackend) (*KFIVECrowdsale, error) {
+	contract, err := bindKFIVECrowdsale(address, backend, backend, backend)
 	if err != nil {
 		return nil, err
 	}
-	return &Smc{SmcCaller: SmcCaller{contract: contract}, SmcTransactor: SmcTransactor{contract: contract}, SmcFilterer: SmcFilterer{contract: contract}}, nil
+	return &KFIVECrowdsale{KFIVECrowdsaleCaller: KFIVECrowdsaleCaller{contract: contract}, KFIVECrowdsaleTransactor: KFIVECrowdsaleTransactor{contract: contract}, KFIVECrowdsaleFilterer: KFIVECrowdsaleFilterer{contract: contract}}, nil
 }
 
-// NewSmcCaller creates a new read-only instance of Smc, bound to a specific deployed contract.
-func NewSmcCaller(address common.Address, caller bind.ContractCaller) (*SmcCaller, error) {
-	contract, err := bindSmc(address, caller, nil, nil)
+// NewKFIVECrowdsaleCaller creates a new read-only instance of KFIVECrowdsale, bound to a specific deployed contract.
+func NewKFIVECrowdsaleCaller(address common.Address, caller bind.ContractCaller) (*KFIVECrowdsaleCaller, error) {
+	contract, err := bindKFIVECrowdsale(address, caller, nil, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcCaller{contract: contract}, nil
+	return &KFIVECrowdsaleCaller{contract: contract}, nil
 }
 
-// NewSmcTransactor creates a new write-only instance of Smc, bound to a specific deployed contract.
-func NewSmcTransactor(address common.Address, transactor bind.ContractTransactor) (*SmcTransactor, error) {
-	contract, err := bindSmc(address, nil, transactor, nil)
+// NewKFIVECrowdsaleTransactor creates a new write-only instance of KFIVECrowdsale, bound to a specific deployed contract.
+func NewKFIVECrowdsaleTransactor(address common.Address, transactor bind.ContractTransactor) (*KFIVECrowdsaleTransactor, error) {
+	contract, err := bindKFIVECrowdsale(address, nil, transactor, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTransactor{contract: contract}, nil
+	return &KFIVECrowdsaleTransactor{contract: contract}, nil
 }
 
-// NewSmcFilterer creates a new log filterer instance of Smc, bound to a specific deployed contract.
-func NewSmcFilterer(address common.Address, filterer bind.ContractFilterer) (*SmcFilterer, error) {
-	contract, err := bindSmc(address, nil, nil, filterer)
+// NewKFIVECrowdsaleFilterer creates a new log filterer instance of KFIVECrowdsale, bound to a specific deployed contract.
+func NewKFIVECrowdsaleFilterer(address common.Address, filterer bind.ContractFilterer) (*KFIVECrowdsaleFilterer, error) {
+	contract, err := bindKFIVECrowdsale(address, nil, nil, filterer)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcFilterer{contract: contract}, nil
+	return &KFIVECrowdsaleFilterer{contract: contract}, nil
 }
 
-// bindSmc binds a generic wrapper to an already deployed contract.
-func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-	parsed, err := abi.JSON(strings.NewReader(SmcABI))
+// bindKFIVECrowdsale binds a generic wrapper to an already deployed contract.
+func bindKFIVECrowdsale(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := abi.JSON(strings.NewReader(KFIVECrowdsaleABI))
 	if err != nil {
 		return nil, err
 	}
@@ -145,46 +145,46 @@ func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.SmcCaller.contract.Call(opts, result, method, params...)
+func (_KFIVECrowdsale *KFIVECrowdsaleRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _KFIVECrowdsale.Contract.KFIVECrowdsaleCaller.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transfer(opts)
+func (_KFIVECrowdsale *KFIVECrowdsaleRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _KFIVECrowdsale.Contract.KFIVECrowdsaleTransactor.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transact(opts, method, params...)
+func (_KFIVECrowdsale *KFIVECrowdsaleRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _KFIVECrowdsale.Contract.KFIVECrowdsaleTransactor.contract.Transact(opts, method, params...)
 }
 
 // Call invokes the (constant) contract method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.contract.Call(opts, result, method, params...)
+func (_KFIVECrowdsale *KFIVECrowdsaleCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _KFIVECrowdsale.Contract.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transfer(opts)
+func (_KFIVECrowdsale *KFIVECrowdsaleTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _KFIVECrowdsale.Contract.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transact(opts, method, params...)
+func (_KFIVECrowdsale *KFIVECrowdsaleTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _KFIVECrowdsale.Contract.contract.Transact(opts, method, params...)
 }
 
 // Cap is a free data retrieval call binding the contract method 0x355274ea.
 //
 // Solidity: function cap() view returns(uint256)
-func (_Smc *SmcCaller) Cap(opts *bind.CallOpts) (*big.Int, error) {
+func (_KFIVECrowdsale *KFIVECrowdsaleCaller) Cap(opts *bind.CallOpts) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "cap")
+	err := _KFIVECrowdsale.contract.Call(opts, &out, "cap")
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -199,23 +199,23 @@ func (_Smc *SmcCaller) Cap(opts *bind.CallOpts) (*big.Int, error) {
 // Cap is a free data retrieval call binding the contract method 0x355274ea.
 //
 // Solidity: function cap() view returns(uint256)
-func (_Smc *SmcSession) Cap() (*big.Int, error) {
-	return _Smc.Contract.Cap(&_Smc.CallOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleSession) Cap() (*big.Int, error) {
+	return _KFIVECrowdsale.Contract.Cap(&_KFIVECrowdsale.CallOpts)
 }
 
 // Cap is a free data retrieval call binding the contract method 0x355274ea.
 //
 // Solidity: function cap() view returns(uint256)
-func (_Smc *SmcCallerSession) Cap() (*big.Int, error) {
-	return _Smc.Contract.Cap(&_Smc.CallOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleCallerSession) Cap() (*big.Int, error) {
+	return _KFIVECrowdsale.Contract.Cap(&_KFIVECrowdsale.CallOpts)
 }
 
 // CapReached is a free data retrieval call binding the contract method 0x4f935945.
 //
 // Solidity: function capReached() view returns(bool)
-func (_Smc *SmcCaller) CapReached(opts *bind.CallOpts) (bool, error) {
+func (_KFIVECrowdsale *KFIVECrowdsaleCaller) CapReached(opts *bind.CallOpts) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "capReached")
+	err := _KFIVECrowdsale.contract.Call(opts, &out, "capReached")
 
 	if err != nil {
 		return *new(bool), err
@@ -230,23 +230,23 @@ func (_Smc *SmcCaller) CapReached(opts *bind.CallOpts) (bool, error) {
 // CapReached is a free data retrieval call binding the contract method 0x4f935945.
 //
 // Solidity: function capReached() view returns(bool)
-func (_Smc *SmcSession) CapReached() (bool, error) {
-	return _Smc.Contract.CapReached(&_Smc.CallOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleSession) CapReached() (bool, error) {
+	return _KFIVECrowdsale.Contract.CapReached(&_KFIVECrowdsale.CallOpts)
 }
 
 // CapReached is a free data retrieval call binding the contract method 0x4f935945.
 //
 // Solidity: function capReached() view returns(bool)
-func (_Smc *SmcCallerSession) CapReached() (bool, error) {
-	return _Smc.Contract.CapReached(&_Smc.CallOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleCallerSession) CapReached() (bool, error) {
+	return _KFIVECrowdsale.Contract.CapReached(&_KFIVECrowdsale.CallOpts)
 }
 
 // ClosingTime is a free data retrieval call binding the contract method 0x4b6753bc.
 //
 // Solidity: function closingTime() view returns(uint256)
-func (_Smc *SmcCaller) ClosingTime(opts *bind.CallOpts) (*big.Int, error) {
+func (_KFIVECrowdsale *KFIVECrowdsaleCaller) ClosingTime(opts *bind.CallOpts) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "closingTime")
+	err := _KFIVECrowdsale.contract.Call(opts, &out, "closingTime")
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -261,23 +261,23 @@ func (_Smc *SmcCaller) ClosingTime(opts *bind.CallOpts) (*big.Int, error) {
 // ClosingTime is a free data retrieval call binding the contract method 0x4b6753bc.
 //
 // Solidity: function closingTime() view returns(uint256)
-func (_Smc *SmcSession) ClosingTime() (*big.Int, error) {
-	return _Smc.Contract.ClosingTime(&_Smc.CallOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleSession) ClosingTime() (*big.Int, error) {
+	return _KFIVECrowdsale.Contract.ClosingTime(&_KFIVECrowdsale.CallOpts)
 }
 
 // ClosingTime is a free data retrieval call binding the contract method 0x4b6753bc.
 //
 // Solidity: function closingTime() view returns(uint256)
-func (_Smc *SmcCallerSession) ClosingTime() (*big.Int, error) {
-	return _Smc.Contract.ClosingTime(&_Smc.CallOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleCallerSession) ClosingTime() (*big.Int, error) {
+	return _KFIVECrowdsale.Contract.ClosingTime(&_KFIVECrowdsale.CallOpts)
 }
 
 // HasClosed is a free data retrieval call binding the contract method 0x1515bc2b.
 //
 // Solidity: function hasClosed() view returns(bool)
-func (_Smc *SmcCaller) HasClosed(opts *bind.CallOpts) (bool, error) {
+func (_KFIVECrowdsale *KFIVECrowdsaleCaller) HasClosed(opts *bind.CallOpts) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "hasClosed")
+	err := _KFIVECrowdsale.contract.Call(opts, &out, "hasClosed")
 
 	if err != nil {
 		return *new(bool), err
@@ -292,23 +292,23 @@ func (_Smc *SmcCaller) HasClosed(opts *bind.CallOpts) (bool, error) {
 // HasClosed is a free data retrieval call binding the contract method 0x1515bc2b.
 //
 // Solidity: function hasClosed() view returns(bool)
-func (_Smc *SmcSession) HasClosed() (bool, error) {
-	return _Smc.Contract.HasClosed(&_Smc.CallOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleSession) HasClosed() (bool, error) {
+	return _KFIVECrowdsale.Contract.HasClosed(&_KFIVECrowdsale.CallOpts)
 }
 
 // HasClosed is a free data retrieval call binding the contract method 0x1515bc2b.
 //
 // Solidity: function hasClosed() view returns(bool)
-func (_Smc *SmcCallerSession) HasClosed() (bool, error) {
-	return _Smc.Contract.HasClosed(&_Smc.CallOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleCallerSession) HasClosed() (bool, error) {
+	return _KFIVECrowdsale.Contract.HasClosed(&_KFIVECrowdsale.CallOpts)
 }
 
 // IsOpen is a free data retrieval call binding the contract method 0x47535d7b.
 //
 // Solidity: function isOpen() view returns(bool)
-func (_Smc *SmcCaller) IsOpen(opts *bind.CallOpts) (bool, error) {
+func (_KFIVECrowdsale *KFIVECrowdsaleCaller) IsOpen(opts *bind.CallOpts) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "isOpen")
+	err := _KFIVECrowdsale.contract.Call(opts, &out, "isOpen")
 
 	if err != nil {
 		return *new(bool), err
@@ -323,23 +323,23 @@ func (_Smc *SmcCaller) IsOpen(opts *bind.CallOpts) (bool, error) {
 // IsOpen is a free data retrieval call binding the contract method 0x47535d7b.
 //
 // Solidity: function isOpen() view returns(bool)
-func (_Smc *SmcSession) IsOpen() (bool, error) {
-	return _Smc.Contract.IsOpen(&_Smc.CallOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleSession) IsOpen() (bool, error) {
+	return _KFIVECrowdsale.Contract.IsOpen(&_KFIVECrowdsale.CallOpts)
 }
 
 // IsOpen is a free data retrieval call binding the contract method 0x47535d7b.
 //
 // Solidity: function isOpen() view returns(bool)
-func (_Smc *SmcCallerSession) IsOpen() (bool, error) {
-	return _Smc.Contract.IsOpen(&_Smc.CallOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleCallerSession) IsOpen() (bool, error) {
+	return _KFIVECrowdsale.Contract.IsOpen(&_KFIVECrowdsale.CallOpts)
 }
 
 // OpeningTime is a free data retrieval call binding the contract method 0xb7a8807c.
 //
 // Solidity: function openingTime() view returns(uint256)
-func (_Smc *SmcCaller) OpeningTime(opts *bind.CallOpts) (*big.Int, error) {
+func (_KFIVECrowdsale *KFIVECrowdsaleCaller) OpeningTime(opts *bind.CallOpts) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "openingTime")
+	err := _KFIVECrowdsale.contract.Call(opts, &out, "openingTime")
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -354,23 +354,23 @@ func (_Smc *SmcCaller) OpeningTime(opts *bind.CallOpts) (*big.Int, error) {
 // OpeningTime is a free data retrieval call binding the contract method 0xb7a8807c.
 //
 // Solidity: function openingTime() view returns(uint256)
-func (_Smc *SmcSession) OpeningTime() (*big.Int, error) {
-	return _Smc.Contract.OpeningTime(&_Smc.CallOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleSession) OpeningTime() (*big.Int, error) {
+	return _KFIVECrowdsale.Contract.OpeningTime(&_KFIVECrowdsale.CallOpts)
 }
 
 // OpeningTime is a free data retrieval call binding the contract method 0xb7a8807c.
 //
 // Solidity: function openingTime() view returns(uint256)
-func (_Smc *SmcCallerSession) OpeningTime() (*big.Int, error) {
-	return _Smc.Contract.OpeningTime(&_Smc.CallOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleCallerSession) OpeningTime() (*big.Int, error) {
+	return _KFIVECrowdsale.Contract.OpeningTime(&_KFIVECrowdsale.CallOpts)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
+func (_KFIVECrowdsale *KFIVECrowdsaleCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "owner")
+	err := _KFIVECrowdsale.contract.Call(opts, &out, "owner")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -385,23 +385,23 @@ func (_Smc *SmcCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcSession) Owner() (common.Address, error) {
-	return _Smc.Contract.Owner(&_Smc.CallOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleSession) Owner() (common.Address, error) {
+	return _KFIVECrowdsale.Contract.Owner(&_KFIVECrowdsale.CallOpts)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcCallerSession) Owner() (common.Address, error) {
-	return _Smc.Contract.Owner(&_Smc.CallOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleCallerSession) Owner() (common.Address, error) {
+	return _KFIVECrowdsale.Contract.Owner(&_KFIVECrowdsale.CallOpts)
 }
 
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcCaller) Paused(opts *bind.CallOpts) (bool, error) {
+func (_KFIVECrowdsale *KFIVECrowdsaleCaller) Paused(opts *bind.CallOpts) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "paused")
+	err := _KFIVECrowdsale.contract.Call(opts, &out, "paused")
 
 	if err != nil {
 		return *new(bool), err
@@ -416,23 +416,23 @@ func (_Smc *SmcCaller) Paused(opts *bind.CallOpts) (bool, error) {
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcSession) Paused() (bool, error) {
-	return _Smc.Contract.Paused(&_Smc.CallOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleSession) Paused() (bool, error) {
+	return _KFIVECrowdsale.Contract.Paused(&_KFIVECrowdsale.CallOpts)
 }
 
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcCallerSession) Paused() (bool, error) {
-	return _Smc.Contract.Paused(&_Smc.CallOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleCallerSession) Paused() (bool, error) {
+	return _KFIVECrowdsale.Contract.Paused(&_KFIVECrowdsale.CallOpts)
 }
 
 // Rate is a free data retrieval call binding the contract method 0x2c4e722e.
 //
 // Solidity: function rate() view returns(uint256)
-func (_Smc *SmcCaller) Rate(opts *bind.CallOpts) (*big.Int, error) {
+func (_KFIVECrowdsale *KFIVECrowdsaleCaller) Rate(opts *bind.CallOpts) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "rate")
+	err := _KFIVECrowdsale.contract.Call(opts, &out, "rate")
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -447,23 +447,23 @@ func (_Smc *SmcCaller) Rate(opts *bind.CallOpts) (*big.Int, error) {
 // Rate is a free data retrieval call binding the contract method 0x2c4e722e.
 //
 // Solidity: function rate() view returns(uint256)
-func (_Smc *SmcSession) Rate() (*big.Int, error) {
-	return _Smc.Contract.Rate(&_Smc.CallOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleSession) Rate() (*big.Int, error) {
+	return _KFIVECrowdsale.Contract.Rate(&_KFIVECrowdsale.CallOpts)
 }
 
 // Rate is a free data retrieval call binding the contract method 0x2c4e722e.
 //
 // Solidity: function rate() view returns(uint256)
-func (_Smc *SmcCallerSession) Rate() (*big.Int, error) {
-	return _Smc.Contract.Rate(&_Smc.CallOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleCallerSession) Rate() (*big.Int, error) {
+	return _KFIVECrowdsale.Contract.Rate(&_KFIVECrowdsale.CallOpts)
 }
 
 // Token is a free data retrieval call binding the contract method 0xfc0c546a.
 //
 // Solidity: function token() view returns(address)
-func (_Smc *SmcCaller) Token(opts *bind.CallOpts) (common.Address, error) {
+func (_KFIVECrowdsale *KFIVECrowdsaleCaller) Token(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "token")
+	err := _KFIVECrowdsale.contract.Call(opts, &out, "token")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -478,23 +478,23 @@ func (_Smc *SmcCaller) Token(opts *bind.CallOpts) (common.Address, error) {
 // Token is a free data retrieval call binding the contract method 0xfc0c546a.
 //
 // Solidity: function token() view returns(address)
-func (_Smc *SmcSession) Token() (common.Address, error) {
-	return _Smc.Contract.Token(&_Smc.CallOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleSession) Token() (common.Address, error) {
+	return _KFIVECrowdsale.Contract.Token(&_KFIVECrowdsale.CallOpts)
 }
 
 // Token is a free data retrieval call binding the contract method 0xfc0c546a.
 //
 // Solidity: function token() view returns(address)
-func (_Smc *SmcCallerSession) Token() (common.Address, error) {
-	return _Smc.Contract.Token(&_Smc.CallOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleCallerSession) Token() (common.Address, error) {
+	return _KFIVECrowdsale.Contract.Token(&_KFIVECrowdsale.CallOpts)
 }
 
 // Wallet is a free data retrieval call binding the contract method 0x521eb273.
 //
 // Solidity: function wallet() view returns(address)
-func (_Smc *SmcCaller) Wallet(opts *bind.CallOpts) (common.Address, error) {
+func (_KFIVECrowdsale *KFIVECrowdsaleCaller) Wallet(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "wallet")
+	err := _KFIVECrowdsale.contract.Call(opts, &out, "wallet")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -509,23 +509,23 @@ func (_Smc *SmcCaller) Wallet(opts *bind.CallOpts) (common.Address, error) {
 // Wallet is a free data retrieval call binding the contract method 0x521eb273.
 //
 // Solidity: function wallet() view returns(address)
-func (_Smc *SmcSession) Wallet() (common.Address, error) {
-	return _Smc.Contract.Wallet(&_Smc.CallOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleSession) Wallet() (common.Address, error) {
+	return _KFIVECrowdsale.Contract.Wallet(&_KFIVECrowdsale.CallOpts)
 }
 
 // Wallet is a free data retrieval call binding the contract method 0x521eb273.
 //
 // Solidity: function wallet() view returns(address)
-func (_Smc *SmcCallerSession) Wallet() (common.Address, error) {
-	return _Smc.Contract.Wallet(&_Smc.CallOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleCallerSession) Wallet() (common.Address, error) {
+	return _KFIVECrowdsale.Contract.Wallet(&_KFIVECrowdsale.CallOpts)
 }
 
 // WeiRaised is a free data retrieval call binding the contract method 0x4042b66f.
 //
 // Solidity: function weiRaised() view returns(uint256)
-func (_Smc *SmcCaller) WeiRaised(opts *bind.CallOpts) (*big.Int, error) {
+func (_KFIVECrowdsale *KFIVECrowdsaleCaller) WeiRaised(opts *bind.CallOpts) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "weiRaised")
+	err := _KFIVECrowdsale.contract.Call(opts, &out, "weiRaised")
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -540,188 +540,188 @@ func (_Smc *SmcCaller) WeiRaised(opts *bind.CallOpts) (*big.Int, error) {
 // WeiRaised is a free data retrieval call binding the contract method 0x4042b66f.
 //
 // Solidity: function weiRaised() view returns(uint256)
-func (_Smc *SmcSession) WeiRaised() (*big.Int, error) {
-	return _Smc.Contract.WeiRaised(&_Smc.CallOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleSession) WeiRaised() (*big.Int, error) {
+	return _KFIVECrowdsale.Contract.WeiRaised(&_KFIVECrowdsale.CallOpts)
 }
 
 // WeiRaised is a free data retrieval call binding the contract method 0x4042b66f.
 //
 // Solidity: function weiRaised() view returns(uint256)
-func (_Smc *SmcCallerSession) WeiRaised() (*big.Int, error) {
-	return _Smc.Contract.WeiRaised(&_Smc.CallOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleCallerSession) WeiRaised() (*big.Int, error) {
+	return _KFIVECrowdsale.Contract.WeiRaised(&_KFIVECrowdsale.CallOpts)
 }
 
 // BuyTokens is a paid mutator transaction binding the contract method 0xec8ac4d8.
 //
 // Solidity: function buyTokens(address beneficiary) payable returns()
-func (_Smc *SmcTransactor) BuyTokens(opts *bind.TransactOpts, beneficiary common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "buyTokens", beneficiary)
+func (_KFIVECrowdsale *KFIVECrowdsaleTransactor) BuyTokens(opts *bind.TransactOpts, beneficiary common.Address) (*types.Transaction, error) {
+	return _KFIVECrowdsale.contract.Transact(opts, "buyTokens", beneficiary)
 }
 
 // BuyTokens is a paid mutator transaction binding the contract method 0xec8ac4d8.
 //
 // Solidity: function buyTokens(address beneficiary) payable returns()
-func (_Smc *SmcSession) BuyTokens(beneficiary common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.BuyTokens(&_Smc.TransactOpts, beneficiary)
+func (_KFIVECrowdsale *KFIVECrowdsaleSession) BuyTokens(beneficiary common.Address) (*types.Transaction, error) {
+	return _KFIVECrowdsale.Contract.BuyTokens(&_KFIVECrowdsale.TransactOpts, beneficiary)
 }
 
 // BuyTokens is a paid mutator transaction binding the contract method 0xec8ac4d8.
 //
 // Solidity: function buyTokens(address beneficiary) payable returns()
-func (_Smc *SmcTransactorSession) BuyTokens(beneficiary common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.BuyTokens(&_Smc.TransactOpts, beneficiary)
+func (_KFIVECrowdsale *KFIVECrowdsaleTransactorSession) BuyTokens(beneficiary common.Address) (*types.Transaction, error) {
+	return _KFIVECrowdsale.Contract.BuyTokens(&_KFIVECrowdsale.TransactOpts, beneficiary)
 }
 
 // ChangeWallet is a paid mutator transaction binding the contract method 0x98b9a2dc.
 //
 // Solidity: function changeWallet(address newReceiver) returns()
-func (_Smc *SmcTransactor) ChangeWallet(opts *bind.TransactOpts, newReceiver common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "changeWallet", newReceiver)
+func (_KFIVECrowdsale *KFIVECrowdsaleTransactor) ChangeWallet(opts *bind.TransactOpts, newReceiver common.Address) (*types.Transaction, error) {
+	return _KFIVECrowdsale.contract.Transact(opts, "changeWallet", newReceiver)
 }
 
 // ChangeWallet is a paid mutator transaction binding the contract method 0x98b9a2dc.
 //
 // Solidity: function changeWallet(address newReceiver) returns()
-func (_Smc *SmcSession) ChangeWallet(newReceiver common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.ChangeWallet(&_Smc.TransactOpts, newReceiver)
+func (_KFIVECrowdsale *KFIVECrowdsaleSession) ChangeWallet(newReceiver common.Address) (*types.Transaction, error) {
+	return _KFIVECrowdsale.Contract.ChangeWallet(&_KFIVECrowdsale.TransactOpts, newReceiver)
 }
 
 // ChangeWallet is a paid mutator transaction binding the contract method 0x98b9a2dc.
 //
 // Solidity: function changeWallet(address newReceiver) returns()
-func (_Smc *SmcTransactorSession) ChangeWallet(newReceiver common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.ChangeWallet(&_Smc.TransactOpts, newReceiver)
+func (_KFIVECrowdsale *KFIVECrowdsaleTransactorSession) ChangeWallet(newReceiver common.Address) (*types.Transaction, error) {
+	return _KFIVECrowdsale.Contract.ChangeWallet(&_KFIVECrowdsale.TransactOpts, newReceiver)
 }
 
 // DestroySmartContract is a paid mutator transaction binding the contract method 0x39df43ff.
 //
 // Solidity: function destroySmartContract(address _to) returns()
-func (_Smc *SmcTransactor) DestroySmartContract(opts *bind.TransactOpts, _to common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "destroySmartContract", _to)
+func (_KFIVECrowdsale *KFIVECrowdsaleTransactor) DestroySmartContract(opts *bind.TransactOpts, _to common.Address) (*types.Transaction, error) {
+	return _KFIVECrowdsale.contract.Transact(opts, "destroySmartContract", _to)
 }
 
 // DestroySmartContract is a paid mutator transaction binding the contract method 0x39df43ff.
 //
 // Solidity: function destroySmartContract(address _to) returns()
-func (_Smc *SmcSession) DestroySmartContract(_to common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.DestroySmartContract(&_Smc.TransactOpts, _to)
+func (_KFIVECrowdsale *KFIVECrowdsaleSession) DestroySmartContract(_to common.Address) (*types.Transaction, error) {
+	return _KFIVECrowdsale.Contract.DestroySmartContract(&_KFIVECrowdsale.TransactOpts, _to)
 }
 
 // DestroySmartContract is a paid mutator transaction binding the contract method 0x39df43ff.
 //
 // Solidity: function destroySmartContract(address _to) returns()
-func (_Smc *SmcTransactorSession) DestroySmartContract(_to common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.DestroySmartContract(&_Smc.TransactOpts, _to)
+func (_KFIVECrowdsale *KFIVECrowdsaleTransactorSession) DestroySmartContract(_to common.Address) (*types.Transaction, error) {
+	return _KFIVECrowdsale.Contract.DestroySmartContract(&_KFIVECrowdsale.TransactOpts, _to)
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcTransactor) Pause(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "pause")
+func (_KFIVECrowdsale *KFIVECrowdsaleTransactor) Pause(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _KFIVECrowdsale.contract.Transact(opts, "pause")
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcSession) Pause() (*types.Transaction, error) {
-	return _Smc.Contract.Pause(&_Smc.TransactOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleSession) Pause() (*types.Transaction, error) {
+	return _KFIVECrowdsale.Contract.Pause(&_KFIVECrowdsale.TransactOpts)
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcTransactorSession) Pause() (*types.Transaction, error) {
-	return _Smc.Contract.Pause(&_Smc.TransactOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleTransactorSession) Pause() (*types.Transaction, error) {
+	return _KFIVECrowdsale.Contract.Pause(&_KFIVECrowdsale.TransactOpts)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcTransactor) RenounceOwnership(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "renounceOwnership")
+func (_KFIVECrowdsale *KFIVECrowdsaleTransactor) RenounceOwnership(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _KFIVECrowdsale.contract.Transact(opts, "renounceOwnership")
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcSession) RenounceOwnership() (*types.Transaction, error) {
-	return _Smc.Contract.RenounceOwnership(&_Smc.TransactOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleSession) RenounceOwnership() (*types.Transaction, error) {
+	return _KFIVECrowdsale.Contract.RenounceOwnership(&_KFIVECrowdsale.TransactOpts)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcTransactorSession) RenounceOwnership() (*types.Transaction, error) {
-	return _Smc.Contract.RenounceOwnership(&_Smc.TransactOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleTransactorSession) RenounceOwnership() (*types.Transaction, error) {
+	return _KFIVECrowdsale.Contract.RenounceOwnership(&_KFIVECrowdsale.TransactOpts)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcTransactor) TransferOwnership(opts *bind.TransactOpts, newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "transferOwnership", newOwner)
+func (_KFIVECrowdsale *KFIVECrowdsaleTransactor) TransferOwnership(opts *bind.TransactOpts, newOwner common.Address) (*types.Transaction, error) {
+	return _KFIVECrowdsale.contract.Transact(opts, "transferOwnership", newOwner)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.TransferOwnership(&_Smc.TransactOpts, newOwner)
+func (_KFIVECrowdsale *KFIVECrowdsaleSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
+	return _KFIVECrowdsale.Contract.TransferOwnership(&_KFIVECrowdsale.TransactOpts, newOwner)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcTransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.TransferOwnership(&_Smc.TransactOpts, newOwner)
+func (_KFIVECrowdsale *KFIVECrowdsaleTransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
+	return _KFIVECrowdsale.Contract.TransferOwnership(&_KFIVECrowdsale.TransactOpts, newOwner)
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcTransactor) Unpause(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "unpause")
+func (_KFIVECrowdsale *KFIVECrowdsaleTransactor) Unpause(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _KFIVECrowdsale.contract.Transact(opts, "unpause")
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcSession) Unpause() (*types.Transaction, error) {
-	return _Smc.Contract.Unpause(&_Smc.TransactOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleSession) Unpause() (*types.Transaction, error) {
+	return _KFIVECrowdsale.Contract.Unpause(&_KFIVECrowdsale.TransactOpts)
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcTransactorSession) Unpause() (*types.Transaction, error) {
-	return _Smc.Contract.Unpause(&_Smc.TransactOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleTransactorSession) Unpause() (*types.Transaction, error) {
+	return _KFIVECrowdsale.Contract.Unpause(&_KFIVECrowdsale.TransactOpts)
 }
 
 // Receive is a paid mutator transaction binding the contract receive function.
 //
 // Solidity: receive() payable returns()
-func (_Smc *SmcTransactor) Receive(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.RawTransact(opts, nil) // calldata is disallowed for receive function
+func (_KFIVECrowdsale *KFIVECrowdsaleTransactor) Receive(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _KFIVECrowdsale.contract.RawTransact(opts, nil) // calldata is disallowed for receive function
 }
 
 // Receive is a paid mutator transaction binding the contract receive function.
 //
 // Solidity: receive() payable returns()
-func (_Smc *SmcSession) Receive() (*types.Transaction, error) {
-	return _Smc.Contract.Receive(&_Smc.TransactOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleSession) Receive() (*types.Transaction, error) {
+	return _KFIVECrowdsale.Contract.Receive(&_KFIVECrowdsale.TransactOpts)
 }
 
 // Receive is a paid mutator transaction binding the contract receive function.
 //
 // Solidity: receive() payable returns()
-func (_Smc *SmcTransactorSession) Receive() (*types.Transaction, error) {
-	return _Smc.Contract.Receive(&_Smc.TransactOpts)
+func (_KFIVECrowdsale *KFIVECrowdsaleTransactorSession) Receive() (*types.Transaction, error) {
+	return _KFIVECrowdsale.Contract.Receive(&_KFIVECrowdsale.TransactOpts)
 }
 
-// SmcOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the Smc contract.
-type SmcOwnershipTransferredIterator struct {
-	Event *SmcOwnershipTransferred // Event containing the contract specifics and raw log
+// KFIVECrowdsaleOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the KFIVECrowdsale contract.
+type KFIVECrowdsaleOwnershipTransferredIterator struct {
+	Event *KFIVECrowdsaleOwnershipTransferred // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -735,7 +735,7 @@ type SmcOwnershipTransferredIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcOwnershipTransferredIterator) Next() bool {
+func (it *KFIVECrowdsaleOwnershipTransferredIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -744,7 +744,7 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcOwnershipTransferred)
+			it.Event = new(KFIVECrowdsaleOwnershipTransferred)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -759,7 +759,7 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcOwnershipTransferred)
+		it.Event = new(KFIVECrowdsaleOwnershipTransferred)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -775,19 +775,19 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcOwnershipTransferredIterator) Error() error {
+func (it *KFIVECrowdsaleOwnershipTransferredIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcOwnershipTransferredIterator) Close() error {
+func (it *KFIVECrowdsaleOwnershipTransferredIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcOwnershipTransferred represents a OwnershipTransferred event raised by the Smc contract.
-type SmcOwnershipTransferred struct {
+// KFIVECrowdsaleOwnershipTransferred represents a OwnershipTransferred event raised by the KFIVECrowdsale contract.
+type KFIVECrowdsaleOwnershipTransferred struct {
 	PreviousOwner common.Address
 	NewOwner      common.Address
 	Raw           types.Log // Blockchain specific contextual infos
@@ -796,7 +796,7 @@ type SmcOwnershipTransferred struct {
 // FilterOwnershipTransferred is a free log retrieval operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previousOwner []common.Address, newOwner []common.Address) (*SmcOwnershipTransferredIterator, error) {
+func (_KFIVECrowdsale *KFIVECrowdsaleFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previousOwner []common.Address, newOwner []common.Address) (*KFIVECrowdsaleOwnershipTransferredIterator, error) {
 
 	var previousOwnerRule []interface{}
 	for _, previousOwnerItem := range previousOwner {
@@ -807,17 +807,17 @@ func (_Smc *SmcFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previ
 		newOwnerRule = append(newOwnerRule, newOwnerItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
+	logs, sub, err := _KFIVECrowdsale.contract.FilterLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcOwnershipTransferredIterator{contract: _Smc.contract, event: "OwnershipTransferred", logs: logs, sub: sub}, nil
+	return &KFIVECrowdsaleOwnershipTransferredIterator{contract: _KFIVECrowdsale.contract, event: "OwnershipTransferred", logs: logs, sub: sub}, nil
 }
 
 // WatchOwnershipTransferred is a free log subscription operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink chan<- *SmcOwnershipTransferred, previousOwner []common.Address, newOwner []common.Address) (event.Subscription, error) {
+func (_KFIVECrowdsale *KFIVECrowdsaleFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink chan<- *KFIVECrowdsaleOwnershipTransferred, previousOwner []common.Address, newOwner []common.Address) (event.Subscription, error) {
 
 	var previousOwnerRule []interface{}
 	for _, previousOwnerItem := range previousOwner {
@@ -828,7 +828,7 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 		newOwnerRule = append(newOwnerRule, newOwnerItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
+	logs, sub, err := _KFIVECrowdsale.contract.WatchLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
 	if err != nil {
 		return nil, err
 	}
@@ -838,8 +838,8 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcOwnershipTransferred)
-				if err := _Smc.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
+				event := new(KFIVECrowdsaleOwnershipTransferred)
+				if err := _KFIVECrowdsale.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -863,18 +863,18 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 // ParseOwnershipTransferred is a log parse operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) ParseOwnershipTransferred(log types.Log) (*SmcOwnershipTransferred, error) {
-	event := new(SmcOwnershipTransferred)
-	if err := _Smc.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
+func (_KFIVECrowdsale *KFIVECrowdsaleFilterer) ParseOwnershipTransferred(log types.Log) (*KFIVECrowdsaleOwnershipTransferred, error) {
+	event := new(KFIVECrowdsaleOwnershipTransferred)
+	if err := _KFIVECrowdsale.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcPausedIterator is returned from FilterPaused and is used to iterate over the raw logs and unpacked data for Paused events raised by the Smc contract.
-type SmcPausedIterator struct {
-	Event *SmcPaused // Event containing the contract specifics and raw log
+// KFIVECrowdsalePausedIterator is returned from FilterPaused and is used to iterate over the raw logs and unpacked data for Paused events raised by the KFIVECrowdsale contract.
+type KFIVECrowdsalePausedIterator struct {
+	Event *KFIVECrowdsalePaused // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -888,7 +888,7 @@ type SmcPausedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcPausedIterator) Next() bool {
+func (it *KFIVECrowdsalePausedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -897,7 +897,7 @@ func (it *SmcPausedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcPaused)
+			it.Event = new(KFIVECrowdsalePaused)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -912,7 +912,7 @@ func (it *SmcPausedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcPaused)
+		it.Event = new(KFIVECrowdsalePaused)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -928,19 +928,19 @@ func (it *SmcPausedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcPausedIterator) Error() error {
+func (it *KFIVECrowdsalePausedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcPausedIterator) Close() error {
+func (it *KFIVECrowdsalePausedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcPaused represents a Paused event raised by the Smc contract.
-type SmcPaused struct {
+// KFIVECrowdsalePaused represents a Paused event raised by the KFIVECrowdsale contract.
+type KFIVECrowdsalePaused struct {
 	Account common.Address
 	Raw     types.Log // Blockchain specific contextual infos
 }
@@ -948,21 +948,21 @@ type SmcPaused struct {
 // FilterPaused is a free log retrieval operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) FilterPaused(opts *bind.FilterOpts) (*SmcPausedIterator, error) {
+func (_KFIVECrowdsale *KFIVECrowdsaleFilterer) FilterPaused(opts *bind.FilterOpts) (*KFIVECrowdsalePausedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Paused")
+	logs, sub, err := _KFIVECrowdsale.contract.FilterLogs(opts, "Paused")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcPausedIterator{contract: _Smc.contract, event: "Paused", logs: logs, sub: sub}, nil
+	return &KFIVECrowdsalePausedIterator{contract: _KFIVECrowdsale.contract, event: "Paused", logs: logs, sub: sub}, nil
 }
 
 // WatchPaused is a free log subscription operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPaused) (event.Subscription, error) {
+func (_KFIVECrowdsale *KFIVECrowdsaleFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *KFIVECrowdsalePaused) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Paused")
+	logs, sub, err := _KFIVECrowdsale.contract.WatchLogs(opts, "Paused")
 	if err != nil {
 		return nil, err
 	}
@@ -972,8 +972,8 @@ func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPause
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcPaused)
-				if err := _Smc.contract.UnpackLog(event, "Paused", log); err != nil {
+				event := new(KFIVECrowdsalePaused)
+				if err := _KFIVECrowdsale.contract.UnpackLog(event, "Paused", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -997,18 +997,18 @@ func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPause
 // ParsePaused is a log parse operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) ParsePaused(log types.Log) (*SmcPaused, error) {
-	event := new(SmcPaused)
-	if err := _Smc.contract.UnpackLog(event, "Paused", log); err != nil {
+func (_KFIVECrowdsale *KFIVECrowdsaleFilterer) ParsePaused(log types.Log) (*KFIVECrowdsalePaused, error) {
+	event := new(KFIVECrowdsalePaused)
+	if err := _KFIVECrowdsale.contract.UnpackLog(event, "Paused", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcTimedCrowdsaleExtendedIterator is returned from FilterTimedCrowdsaleExtended and is used to iterate over the raw logs and unpacked data for TimedCrowdsaleExtended events raised by the Smc contract.
-type SmcTimedCrowdsaleExtendedIterator struct {
-	Event *SmcTimedCrowdsaleExtended // Event containing the contract specifics and raw log
+// KFIVECrowdsaleTimedCrowdsaleExtendedIterator is returned from FilterTimedCrowdsaleExtended and is used to iterate over the raw logs and unpacked data for TimedCrowdsaleExtended events raised by the KFIVECrowdsale contract.
+type KFIVECrowdsaleTimedCrowdsaleExtendedIterator struct {
+	Event *KFIVECrowdsaleTimedCrowdsaleExtended // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1022,7 +1022,7 @@ type SmcTimedCrowdsaleExtendedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcTimedCrowdsaleExtendedIterator) Next() bool {
+func (it *KFIVECrowdsaleTimedCrowdsaleExtendedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1031,7 +1031,7 @@ func (it *SmcTimedCrowdsaleExtendedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcTimedCrowdsaleExtended)
+			it.Event = new(KFIVECrowdsaleTimedCrowdsaleExtended)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1046,7 +1046,7 @@ func (it *SmcTimedCrowdsaleExtendedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcTimedCrowdsaleExtended)
+		it.Event = new(KFIVECrowdsaleTimedCrowdsaleExtended)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1062,19 +1062,19 @@ func (it *SmcTimedCrowdsaleExtendedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcTimedCrowdsaleExtendedIterator) Error() error {
+func (it *KFIVECrowdsaleTimedCrowdsaleExtendedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcTimedCrowdsaleExtendedIterator) Close() error {
+func (it *KFIVECrowdsaleTimedCrowdsaleExtendedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcTimedCrowdsaleExtended represents a TimedCrowdsaleExtended event raised by the Smc contract.
-type SmcTimedCrowdsaleExtended struct {
+// KFIVECrowdsaleTimedCrowdsaleExtended represents a TimedCrowdsaleExtended event raised by the KFIVECrowdsale contract.
+type KFIVECrowdsaleTimedCrowdsaleExtended struct {
 	PrevClosingTime *big.Int
 	NewClosingTime  *big.Int
 	Raw             types.Log // Blockchain specific contextual infos
@@ -1083,21 +1083,21 @@ type SmcTimedCrowdsaleExtended struct {
 // FilterTimedCrowdsaleExtended is a free log retrieval operation binding the contract event 0x46711e222f558a07afd26e5e71b48ecb0a8b2cdcd40faeb1323e05e2c76a2f32.
 //
 // Solidity: event TimedCrowdsaleExtended(uint256 prevClosingTime, uint256 newClosingTime)
-func (_Smc *SmcFilterer) FilterTimedCrowdsaleExtended(opts *bind.FilterOpts) (*SmcTimedCrowdsaleExtendedIterator, error) {
+func (_KFIVECrowdsale *KFIVECrowdsaleFilterer) FilterTimedCrowdsaleExtended(opts *bind.FilterOpts) (*KFIVECrowdsaleTimedCrowdsaleExtendedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "TimedCrowdsaleExtended")
+	logs, sub, err := _KFIVECrowdsale.contract.FilterLogs(opts, "TimedCrowdsaleExtended")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTimedCrowdsaleExtendedIterator{contract: _Smc.contract, event: "TimedCrowdsaleExtended", logs: logs, sub: sub}, nil
+	return &KFIVECrowdsaleTimedCrowdsaleExtendedIterator{contract: _KFIVECrowdsale.contract, event: "TimedCrowdsaleExtended", logs: logs, sub: sub}, nil
 }
 
 // WatchTimedCrowdsaleExtended is a free log subscription operation binding the contract event 0x46711e222f558a07afd26e5e71b48ecb0a8b2cdcd40faeb1323e05e2c76a2f32.
 //
 // Solidity: event TimedCrowdsaleExtended(uint256 prevClosingTime, uint256 newClosingTime)
-func (_Smc *SmcFilterer) WatchTimedCrowdsaleExtended(opts *bind.WatchOpts, sink chan<- *SmcTimedCrowdsaleExtended) (event.Subscription, error) {
+func (_KFIVECrowdsale *KFIVECrowdsaleFilterer) WatchTimedCrowdsaleExtended(opts *bind.WatchOpts, sink chan<- *KFIVECrowdsaleTimedCrowdsaleExtended) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "TimedCrowdsaleExtended")
+	logs, sub, err := _KFIVECrowdsale.contract.WatchLogs(opts, "TimedCrowdsaleExtended")
 	if err != nil {
 		return nil, err
 	}
@@ -1107,8 +1107,8 @@ func (_Smc *SmcFilterer) WatchTimedCrowdsaleExtended(opts *bind.WatchOpts, sink 
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcTimedCrowdsaleExtended)
-				if err := _Smc.contract.UnpackLog(event, "TimedCrowdsaleExtended", log); err != nil {
+				event := new(KFIVECrowdsaleTimedCrowdsaleExtended)
+				if err := _KFIVECrowdsale.contract.UnpackLog(event, "TimedCrowdsaleExtended", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1132,18 +1132,18 @@ func (_Smc *SmcFilterer) WatchTimedCrowdsaleExtended(opts *bind.WatchOpts, sink 
 // ParseTimedCrowdsaleExtended is a log parse operation binding the contract event 0x46711e222f558a07afd26e5e71b48ecb0a8b2cdcd40faeb1323e05e2c76a2f32.
 //
 // Solidity: event TimedCrowdsaleExtended(uint256 prevClosingTime, uint256 newClosingTime)
-func (_Smc *SmcFilterer) ParseTimedCrowdsaleExtended(log types.Log) (*SmcTimedCrowdsaleExtended, error) {
-	event := new(SmcTimedCrowdsaleExtended)
-	if err := _Smc.contract.UnpackLog(event, "TimedCrowdsaleExtended", log); err != nil {
+func (_KFIVECrowdsale *KFIVECrowdsaleFilterer) ParseTimedCrowdsaleExtended(log types.Log) (*KFIVECrowdsaleTimedCrowdsaleExtended, error) {
+	event := new(KFIVECrowdsaleTimedCrowdsaleExtended)
+	if err := _KFIVECrowdsale.contract.UnpackLog(event, "TimedCrowdsaleExtended", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcTokensPurchasedIterator is returned from FilterTokensPurchased and is used to iterate over the raw logs and unpacked data for TokensPurchased events raised by the Smc contract.
-type SmcTokensPurchasedIterator struct {
-	Event *SmcTokensPurchased // Event containing the contract specifics and raw log
+// KFIVECrowdsaleTokensPurchasedIterator is returned from FilterTokensPurchased and is used to iterate over the raw logs and unpacked data for TokensPurchased events raised by the KFIVECrowdsale contract.
+type KFIVECrowdsaleTokensPurchasedIterator struct {
+	Event *KFIVECrowdsaleTokensPurchased // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1157,7 +1157,7 @@ type SmcTokensPurchasedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcTokensPurchasedIterator) Next() bool {
+func (it *KFIVECrowdsaleTokensPurchasedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1166,7 +1166,7 @@ func (it *SmcTokensPurchasedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcTokensPurchased)
+			it.Event = new(KFIVECrowdsaleTokensPurchased)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1181,7 +1181,7 @@ func (it *SmcTokensPurchasedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcTokensPurchased)
+		it.Event = new(KFIVECrowdsaleTokensPurchased)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1197,19 +1197,19 @@ func (it *SmcTokensPurchasedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcTokensPurchasedIterator) Error() error {
+func (it *KFIVECrowdsaleTokensPurchasedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcTokensPurchasedIterator) Close() error {
+func (it *KFIVECrowdsaleTokensPurchasedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcTokensPurchased represents a TokensPurchased event raised by the Smc contract.
-type SmcTokensPurchased struct {
+// KFIVECrowdsaleTokensPurchased represents a TokensPurchased event raised by the KFIVECrowdsale contract.
+type KFIVECrowdsaleTokensPurchased struct {
 	Purchaser   common.Address
 	Beneficiary common.Address
 	Value       *big.Int
@@ -1220,7 +1220,7 @@ type SmcTokensPurchased struct {
 // FilterTokensPurchased is a free log retrieval operation binding the contract event 0x6faf93231a456e552dbc9961f58d9713ee4f2e69d15f1975b050ef0911053a7b.
 //
 // Solidity: event TokensPurchased(address indexed purchaser, address indexed beneficiary, uint256 value, uint256 amount)
-func (_Smc *SmcFilterer) FilterTokensPurchased(opts *bind.FilterOpts, purchaser []common.Address, beneficiary []common.Address) (*SmcTokensPurchasedIterator, error) {
+func (_KFIVECrowdsale *KFIVECrowdsaleFilterer) FilterTokensPurchased(opts *bind.FilterOpts, purchaser []common.Address, beneficiary []common.Address) (*KFIVECrowdsaleTokensPurchasedIterator, error) {
 
 	var purchaserRule []interface{}
 	for _, purchaserItem := range purchaser {
@@ -1231,17 +1231,17 @@ func (_Smc *SmcFilterer) FilterTokensPurchased(opts *bind.FilterOpts, purchaser 
 		beneficiaryRule = append(beneficiaryRule, beneficiaryItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "TokensPurchased", purchaserRule, beneficiaryRule)
+	logs, sub, err := _KFIVECrowdsale.contract.FilterLogs(opts, "TokensPurchased", purchaserRule, beneficiaryRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTokensPurchasedIterator{contract: _Smc.contract, event: "TokensPurchased", logs: logs, sub: sub}, nil
+	return &KFIVECrowdsaleTokensPurchasedIterator{contract: _KFIVECrowdsale.contract, event: "TokensPurchased", logs: logs, sub: sub}, nil
 }
 
 // WatchTokensPurchased is a free log subscription operation binding the contract event 0x6faf93231a456e552dbc9961f58d9713ee4f2e69d15f1975b050ef0911053a7b.
 //
 // Solidity: event TokensPurchased(address indexed purchaser, address indexed beneficiary, uint256 value, uint256 amount)
-func (_Smc *SmcFilterer) WatchTokensPurchased(opts *bind.WatchOpts, sink chan<- *SmcTokensPurchased, purchaser []common.Address, beneficiary []common.Address) (event.Subscription, error) {
+func (_KFIVECrowdsale *KFIVECrowdsaleFilterer) WatchTokensPurchased(opts *bind.WatchOpts, sink chan<- *KFIVECrowdsaleTokensPurchased, purchaser []common.Address, beneficiary []common.Address) (event.Subscription, error) {
 
 	var purchaserRule []interface{}
 	for _, purchaserItem := range purchaser {
@@ -1252,7 +1252,7 @@ func (_Smc *SmcFilterer) WatchTokensPurchased(opts *bind.WatchOpts, sink chan<- 
 		beneficiaryRule = append(beneficiaryRule, beneficiaryItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "TokensPurchased", purchaserRule, beneficiaryRule)
+	logs, sub, err := _KFIVECrowdsale.contract.WatchLogs(opts, "TokensPurchased", purchaserRule, beneficiaryRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1262,8 +1262,8 @@ func (_Smc *SmcFilterer) WatchTokensPurchased(opts *bind.WatchOpts, sink chan<- 
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcTokensPurchased)
-				if err := _Smc.contract.UnpackLog(event, "TokensPurchased", log); err != nil {
+				event := new(KFIVECrowdsaleTokensPurchased)
+				if err := _KFIVECrowdsale.contract.UnpackLog(event, "TokensPurchased", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1287,18 +1287,18 @@ func (_Smc *SmcFilterer) WatchTokensPurchased(opts *bind.WatchOpts, sink chan<- 
 // ParseTokensPurchased is a log parse operation binding the contract event 0x6faf93231a456e552dbc9961f58d9713ee4f2e69d15f1975b050ef0911053a7b.
 //
 // Solidity: event TokensPurchased(address indexed purchaser, address indexed beneficiary, uint256 value, uint256 amount)
-func (_Smc *SmcFilterer) ParseTokensPurchased(log types.Log) (*SmcTokensPurchased, error) {
-	event := new(SmcTokensPurchased)
-	if err := _Smc.contract.UnpackLog(event, "TokensPurchased", log); err != nil {
+func (_KFIVECrowdsale *KFIVECrowdsaleFilterer) ParseTokensPurchased(log types.Log) (*KFIVECrowdsaleTokensPurchased, error) {
+	event := new(KFIVECrowdsaleTokensPurchased)
+	if err := _KFIVECrowdsale.contract.UnpackLog(event, "TokensPurchased", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcUnpausedIterator is returned from FilterUnpaused and is used to iterate over the raw logs and unpacked data for Unpaused events raised by the Smc contract.
-type SmcUnpausedIterator struct {
-	Event *SmcUnpaused // Event containing the contract specifics and raw log
+// KFIVECrowdsaleUnpausedIterator is returned from FilterUnpaused and is used to iterate over the raw logs and unpacked data for Unpaused events raised by the KFIVECrowdsale contract.
+type KFIVECrowdsaleUnpausedIterator struct {
+	Event *KFIVECrowdsaleUnpaused // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1312,7 +1312,7 @@ type SmcUnpausedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcUnpausedIterator) Next() bool {
+func (it *KFIVECrowdsaleUnpausedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1321,7 +1321,7 @@ func (it *SmcUnpausedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcUnpaused)
+			it.Event = new(KFIVECrowdsaleUnpaused)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1336,7 +1336,7 @@ func (it *SmcUnpausedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcUnpaused)
+		it.Event = new(KFIVECrowdsaleUnpaused)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1352,19 +1352,19 @@ func (it *SmcUnpausedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcUnpausedIterator) Error() error {
+func (it *KFIVECrowdsaleUnpausedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcUnpausedIterator) Close() error {
+func (it *KFIVECrowdsaleUnpausedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcUnpaused represents a Unpaused event raised by the Smc contract.
-type SmcUnpaused struct {
+// KFIVECrowdsaleUnpaused represents a Unpaused event raised by the KFIVECrowdsale contract.
+type KFIVECrowdsaleUnpaused struct {
 	Account common.Address
 	Raw     types.Log // Blockchain specific contextual infos
 }
@@ -1372,21 +1372,21 @@ type SmcUnpaused struct {
 // FilterUnpaused is a free log retrieval operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) FilterUnpaused(opts *bind.FilterOpts) (*SmcUnpausedIterator, error) {
+func (_KFIVECrowdsale *KFIVECrowdsaleFilterer) FilterUnpaused(opts *bind.FilterOpts) (*KFIVECrowdsaleUnpausedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Unpaused")
+	logs, sub, err := _KFIVECrowdsale.contract.FilterLogs(opts, "Unpaused")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcUnpausedIterator{contract: _Smc.contract, event: "Unpaused", logs: logs, sub: sub}, nil
+	return &KFIVECrowdsaleUnpausedIterator{contract: _KFIVECrowdsale.contract, event: "Unpaused", logs: logs, sub: sub}, nil
 }
 
 // WatchUnpaused is a free log subscription operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnpaused) (event.Subscription, error) {
+func (_KFIVECrowdsale *KFIVECrowdsaleFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *KFIVECrowdsaleUnpaused) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Unpaused")
+	logs, sub, err := _KFIVECrowdsale.contract.WatchLogs(opts, "Unpaused")
 	if err != nil {
 		return nil, err
 	}
@@ -1396,8 +1396,8 @@ func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnp
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcUnpaused)
-				if err := _Smc.contract.UnpackLog(event, "Unpaused", log); err != nil {
+				event := new(KFIVECrowdsaleUnpaused)
+				if err := _KFIVECrowdsale.contract.UnpackLog(event, "Unpaused", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1421,9 +1421,9 @@ func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnp
 // ParseUnpaused is a log parse operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) ParseUnpaused(log types.Log) (*SmcUnpaused, error) {
-	event := new(SmcUnpaused)
-	if err := _Smc.contract.UnpackLog(event, "Unpaused", log); err != nil {
+func (_KFIVECrowdsale *KFIVECrowdsaleFilterer) ParseUnpaused(log types.Log) (*KFIVECrowdsaleUnpaused, error) {
+	event := new(KFIVECrowdsaleUnpaused)
+	if err := _KFIVECrowdsale.contract.UnpackLog(event, "Unpaused", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log

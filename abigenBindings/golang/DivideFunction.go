@@ -1,7 +1,7 @@
 // Code generated - DO NOT EDIT.
 // This file is a generated binding and any manual changes will be lost.
 
-package smc
+package DivideFunction
 
 import (
 	"errors"
@@ -28,113 +28,113 @@ var (
 	_ = event.NewSubscription
 )
 
-// SmcMetaData contains all meta data concerning the Smc contract.
-var SmcMetaData = &bind.MetaData{
+// DivideFunctionMetaData contains all meta data concerning the DivideFunction contract.
+var DivideFunctionMetaData = &bind.MetaData{
 	ABI: "[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"weiValue\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"rate\",\"type\":\"uint256\"}],\"name\":\"weiToKfive\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}]",
 }
 
-// SmcABI is the input ABI used to generate the binding from.
-// Deprecated: Use SmcMetaData.ABI instead.
-var SmcABI = SmcMetaData.ABI
+// DivideFunctionABI is the input ABI used to generate the binding from.
+// Deprecated: Use DivideFunctionMetaData.ABI instead.
+var DivideFunctionABI = DivideFunctionMetaData.ABI
 
-// Smc is an auto generated Go binding around an Ethereum contract.
-type Smc struct {
-	SmcCaller     // Read-only binding to the contract
-	SmcTransactor // Write-only binding to the contract
-	SmcFilterer   // Log filterer for contract events
+// DivideFunction is an auto generated Go binding around an Ethereum contract.
+type DivideFunction struct {
+	DivideFunctionCaller     // Read-only binding to the contract
+	DivideFunctionTransactor // Write-only binding to the contract
+	DivideFunctionFilterer   // Log filterer for contract events
 }
 
-// SmcCaller is an auto generated read-only Go binding around an Ethereum contract.
-type SmcCaller struct {
+// DivideFunctionCaller is an auto generated read-only Go binding around an Ethereum contract.
+type DivideFunctionCaller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcTransactor is an auto generated write-only Go binding around an Ethereum contract.
-type SmcTransactor struct {
+// DivideFunctionTransactor is an auto generated write-only Go binding around an Ethereum contract.
+type DivideFunctionTransactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
-type SmcFilterer struct {
+// DivideFunctionFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type DivideFunctionFilterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcSession is an auto generated Go binding around an Ethereum contract,
+// DivideFunctionSession is an auto generated Go binding around an Ethereum contract,
 // with pre-set call and transact options.
-type SmcSession struct {
-	Contract     *Smc              // Generic contract binding to set the session for
+type DivideFunctionSession struct {
+	Contract     *DivideFunction   // Generic contract binding to set the session for
 	CallOpts     bind.CallOpts     // Call options to use throughout this session
 	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 }
 
-// SmcCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// DivideFunctionCallerSession is an auto generated read-only Go binding around an Ethereum contract,
 // with pre-set call options.
-type SmcCallerSession struct {
-	Contract *SmcCaller    // Generic contract caller binding to set the session for
-	CallOpts bind.CallOpts // Call options to use throughout this session
+type DivideFunctionCallerSession struct {
+	Contract *DivideFunctionCaller // Generic contract caller binding to set the session for
+	CallOpts bind.CallOpts         // Call options to use throughout this session
 }
 
-// SmcTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// DivideFunctionTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
 // with pre-set transact options.
-type SmcTransactorSession struct {
-	Contract     *SmcTransactor    // Generic contract transactor binding to set the session for
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type DivideFunctionTransactorSession struct {
+	Contract     *DivideFunctionTransactor // Generic contract transactor binding to set the session for
+	TransactOpts bind.TransactOpts         // Transaction auth options to use throughout this session
 }
 
-// SmcRaw is an auto generated low-level Go binding around an Ethereum contract.
-type SmcRaw struct {
-	Contract *Smc // Generic contract binding to access the raw methods on
+// DivideFunctionRaw is an auto generated low-level Go binding around an Ethereum contract.
+type DivideFunctionRaw struct {
+	Contract *DivideFunction // Generic contract binding to access the raw methods on
 }
 
-// SmcCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
-type SmcCallerRaw struct {
-	Contract *SmcCaller // Generic read-only contract binding to access the raw methods on
+// DivideFunctionCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type DivideFunctionCallerRaw struct {
+	Contract *DivideFunctionCaller // Generic read-only contract binding to access the raw methods on
 }
 
-// SmcTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
-type SmcTransactorRaw struct {
-	Contract *SmcTransactor // Generic write-only contract binding to access the raw methods on
+// DivideFunctionTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type DivideFunctionTransactorRaw struct {
+	Contract *DivideFunctionTransactor // Generic write-only contract binding to access the raw methods on
 }
 
-// NewSmc creates a new instance of Smc, bound to a specific deployed contract.
-func NewSmc(address common.Address, backend bind.ContractBackend) (*Smc, error) {
-	contract, err := bindSmc(address, backend, backend, backend)
+// NewDivideFunction creates a new instance of DivideFunction, bound to a specific deployed contract.
+func NewDivideFunction(address common.Address, backend bind.ContractBackend) (*DivideFunction, error) {
+	contract, err := bindDivideFunction(address, backend, backend, backend)
 	if err != nil {
 		return nil, err
 	}
-	return &Smc{SmcCaller: SmcCaller{contract: contract}, SmcTransactor: SmcTransactor{contract: contract}, SmcFilterer: SmcFilterer{contract: contract}}, nil
+	return &DivideFunction{DivideFunctionCaller: DivideFunctionCaller{contract: contract}, DivideFunctionTransactor: DivideFunctionTransactor{contract: contract}, DivideFunctionFilterer: DivideFunctionFilterer{contract: contract}}, nil
 }
 
-// NewSmcCaller creates a new read-only instance of Smc, bound to a specific deployed contract.
-func NewSmcCaller(address common.Address, caller bind.ContractCaller) (*SmcCaller, error) {
-	contract, err := bindSmc(address, caller, nil, nil)
+// NewDivideFunctionCaller creates a new read-only instance of DivideFunction, bound to a specific deployed contract.
+func NewDivideFunctionCaller(address common.Address, caller bind.ContractCaller) (*DivideFunctionCaller, error) {
+	contract, err := bindDivideFunction(address, caller, nil, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcCaller{contract: contract}, nil
+	return &DivideFunctionCaller{contract: contract}, nil
 }
 
-// NewSmcTransactor creates a new write-only instance of Smc, bound to a specific deployed contract.
-func NewSmcTransactor(address common.Address, transactor bind.ContractTransactor) (*SmcTransactor, error) {
-	contract, err := bindSmc(address, nil, transactor, nil)
+// NewDivideFunctionTransactor creates a new write-only instance of DivideFunction, bound to a specific deployed contract.
+func NewDivideFunctionTransactor(address common.Address, transactor bind.ContractTransactor) (*DivideFunctionTransactor, error) {
+	contract, err := bindDivideFunction(address, nil, transactor, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTransactor{contract: contract}, nil
+	return &DivideFunctionTransactor{contract: contract}, nil
 }
 
-// NewSmcFilterer creates a new log filterer instance of Smc, bound to a specific deployed contract.
-func NewSmcFilterer(address common.Address, filterer bind.ContractFilterer) (*SmcFilterer, error) {
-	contract, err := bindSmc(address, nil, nil, filterer)
+// NewDivideFunctionFilterer creates a new log filterer instance of DivideFunction, bound to a specific deployed contract.
+func NewDivideFunctionFilterer(address common.Address, filterer bind.ContractFilterer) (*DivideFunctionFilterer, error) {
+	contract, err := bindDivideFunction(address, nil, nil, filterer)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcFilterer{contract: contract}, nil
+	return &DivideFunctionFilterer{contract: contract}, nil
 }
 
-// bindSmc binds a generic wrapper to an already deployed contract.
-func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-	parsed, err := abi.JSON(strings.NewReader(SmcABI))
+// bindDivideFunction binds a generic wrapper to an already deployed contract.
+func bindDivideFunction(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := abi.JSON(strings.NewReader(DivideFunctionABI))
 	if err != nil {
 		return nil, err
 	}
@@ -145,46 +145,46 @@ func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.SmcCaller.contract.Call(opts, result, method, params...)
+func (_DivideFunction *DivideFunctionRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _DivideFunction.Contract.DivideFunctionCaller.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transfer(opts)
+func (_DivideFunction *DivideFunctionRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _DivideFunction.Contract.DivideFunctionTransactor.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transact(opts, method, params...)
+func (_DivideFunction *DivideFunctionRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _DivideFunction.Contract.DivideFunctionTransactor.contract.Transact(opts, method, params...)
 }
 
 // Call invokes the (constant) contract method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.contract.Call(opts, result, method, params...)
+func (_DivideFunction *DivideFunctionCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _DivideFunction.Contract.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transfer(opts)
+func (_DivideFunction *DivideFunctionTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _DivideFunction.Contract.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transact(opts, method, params...)
+func (_DivideFunction *DivideFunctionTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _DivideFunction.Contract.contract.Transact(opts, method, params...)
 }
 
 // WeiToKfive is a free data retrieval call binding the contract method 0xd7a65f0b.
 //
 // Solidity: function weiToKfive(uint256 weiValue, uint256 rate) pure returns(uint256)
-func (_Smc *SmcCaller) WeiToKfive(opts *bind.CallOpts, weiValue *big.Int, rate *big.Int) (*big.Int, error) {
+func (_DivideFunction *DivideFunctionCaller) WeiToKfive(opts *bind.CallOpts, weiValue *big.Int, rate *big.Int) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "weiToKfive", weiValue, rate)
+	err := _DivideFunction.contract.Call(opts, &out, "weiToKfive", weiValue, rate)
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -199,13 +199,13 @@ func (_Smc *SmcCaller) WeiToKfive(opts *bind.CallOpts, weiValue *big.Int, rate *
 // WeiToKfive is a free data retrieval call binding the contract method 0xd7a65f0b.
 //
 // Solidity: function weiToKfive(uint256 weiValue, uint256 rate) pure returns(uint256)
-func (_Smc *SmcSession) WeiToKfive(weiValue *big.Int, rate *big.Int) (*big.Int, error) {
-	return _Smc.Contract.WeiToKfive(&_Smc.CallOpts, weiValue, rate)
+func (_DivideFunction *DivideFunctionSession) WeiToKfive(weiValue *big.Int, rate *big.Int) (*big.Int, error) {
+	return _DivideFunction.Contract.WeiToKfive(&_DivideFunction.CallOpts, weiValue, rate)
 }
 
 // WeiToKfive is a free data retrieval call binding the contract method 0xd7a65f0b.
 //
 // Solidity: function weiToKfive(uint256 weiValue, uint256 rate) pure returns(uint256)
-func (_Smc *SmcCallerSession) WeiToKfive(weiValue *big.Int, rate *big.Int) (*big.Int, error) {
-	return _Smc.Contract.WeiToKfive(&_Smc.CallOpts, weiValue, rate)
+func (_DivideFunction *DivideFunctionCallerSession) WeiToKfive(weiValue *big.Int, rate *big.Int) (*big.Int, error) {
+	return _DivideFunction.Contract.WeiToKfive(&_DivideFunction.CallOpts, weiValue, rate)
 }

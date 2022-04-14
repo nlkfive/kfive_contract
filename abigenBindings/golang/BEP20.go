@@ -1,7 +1,7 @@
 // Code generated - DO NOT EDIT.
 // This file is a generated binding and any manual changes will be lost.
 
-package smc
+package BEP20
 
 import (
 	"errors"
@@ -28,113 +28,113 @@ var (
 	_ = event.NewSubscription
 )
 
-// SmcMetaData contains all meta data concerning the Smc contract.
-var SmcMetaData = &bind.MetaData{
+// BEP20MetaData contains all meta data concerning the BEP20 contract.
+var BEP20MetaData = &bind.MetaData{
 	ABI: "[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"tokenName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"tokenSymbol\",\"type\":\"string\"},{\"internalType\":\"uint8\",\"name\":\"tokenDecimals\",\"type\":\"uint8\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOwner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"}],\"name\":\"allowance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"addedValue\",\"type\":\"uint256\"}],\"name\":\"increaseAllowance\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"subtractedValue\",\"type\":\"uint256\"}],\"name\":\"decreaseAllowance\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
-// SmcABI is the input ABI used to generate the binding from.
-// Deprecated: Use SmcMetaData.ABI instead.
-var SmcABI = SmcMetaData.ABI
+// BEP20ABI is the input ABI used to generate the binding from.
+// Deprecated: Use BEP20MetaData.ABI instead.
+var BEP20ABI = BEP20MetaData.ABI
 
-// Smc is an auto generated Go binding around an Ethereum contract.
-type Smc struct {
-	SmcCaller     // Read-only binding to the contract
-	SmcTransactor // Write-only binding to the contract
-	SmcFilterer   // Log filterer for contract events
+// BEP20 is an auto generated Go binding around an Ethereum contract.
+type BEP20 struct {
+	BEP20Caller     // Read-only binding to the contract
+	BEP20Transactor // Write-only binding to the contract
+	BEP20Filterer   // Log filterer for contract events
 }
 
-// SmcCaller is an auto generated read-only Go binding around an Ethereum contract.
-type SmcCaller struct {
+// BEP20Caller is an auto generated read-only Go binding around an Ethereum contract.
+type BEP20Caller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcTransactor is an auto generated write-only Go binding around an Ethereum contract.
-type SmcTransactor struct {
+// BEP20Transactor is an auto generated write-only Go binding around an Ethereum contract.
+type BEP20Transactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
-type SmcFilterer struct {
+// BEP20Filterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type BEP20Filterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcSession is an auto generated Go binding around an Ethereum contract,
+// BEP20Session is an auto generated Go binding around an Ethereum contract,
 // with pre-set call and transact options.
-type SmcSession struct {
-	Contract     *Smc              // Generic contract binding to set the session for
+type BEP20Session struct {
+	Contract     *BEP20            // Generic contract binding to set the session for
 	CallOpts     bind.CallOpts     // Call options to use throughout this session
 	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 }
 
-// SmcCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// BEP20CallerSession is an auto generated read-only Go binding around an Ethereum contract,
 // with pre-set call options.
-type SmcCallerSession struct {
-	Contract *SmcCaller    // Generic contract caller binding to set the session for
+type BEP20CallerSession struct {
+	Contract *BEP20Caller  // Generic contract caller binding to set the session for
 	CallOpts bind.CallOpts // Call options to use throughout this session
 }
 
-// SmcTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// BEP20TransactorSession is an auto generated write-only Go binding around an Ethereum contract,
 // with pre-set transact options.
-type SmcTransactorSession struct {
-	Contract     *SmcTransactor    // Generic contract transactor binding to set the session for
+type BEP20TransactorSession struct {
+	Contract     *BEP20Transactor  // Generic contract transactor binding to set the session for
 	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 }
 
-// SmcRaw is an auto generated low-level Go binding around an Ethereum contract.
-type SmcRaw struct {
-	Contract *Smc // Generic contract binding to access the raw methods on
+// BEP20Raw is an auto generated low-level Go binding around an Ethereum contract.
+type BEP20Raw struct {
+	Contract *BEP20 // Generic contract binding to access the raw methods on
 }
 
-// SmcCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
-type SmcCallerRaw struct {
-	Contract *SmcCaller // Generic read-only contract binding to access the raw methods on
+// BEP20CallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type BEP20CallerRaw struct {
+	Contract *BEP20Caller // Generic read-only contract binding to access the raw methods on
 }
 
-// SmcTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
-type SmcTransactorRaw struct {
-	Contract *SmcTransactor // Generic write-only contract binding to access the raw methods on
+// BEP20TransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type BEP20TransactorRaw struct {
+	Contract *BEP20Transactor // Generic write-only contract binding to access the raw methods on
 }
 
-// NewSmc creates a new instance of Smc, bound to a specific deployed contract.
-func NewSmc(address common.Address, backend bind.ContractBackend) (*Smc, error) {
-	contract, err := bindSmc(address, backend, backend, backend)
+// NewBEP20 creates a new instance of BEP20, bound to a specific deployed contract.
+func NewBEP20(address common.Address, backend bind.ContractBackend) (*BEP20, error) {
+	contract, err := bindBEP20(address, backend, backend, backend)
 	if err != nil {
 		return nil, err
 	}
-	return &Smc{SmcCaller: SmcCaller{contract: contract}, SmcTransactor: SmcTransactor{contract: contract}, SmcFilterer: SmcFilterer{contract: contract}}, nil
+	return &BEP20{BEP20Caller: BEP20Caller{contract: contract}, BEP20Transactor: BEP20Transactor{contract: contract}, BEP20Filterer: BEP20Filterer{contract: contract}}, nil
 }
 
-// NewSmcCaller creates a new read-only instance of Smc, bound to a specific deployed contract.
-func NewSmcCaller(address common.Address, caller bind.ContractCaller) (*SmcCaller, error) {
-	contract, err := bindSmc(address, caller, nil, nil)
+// NewBEP20Caller creates a new read-only instance of BEP20, bound to a specific deployed contract.
+func NewBEP20Caller(address common.Address, caller bind.ContractCaller) (*BEP20Caller, error) {
+	contract, err := bindBEP20(address, caller, nil, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcCaller{contract: contract}, nil
+	return &BEP20Caller{contract: contract}, nil
 }
 
-// NewSmcTransactor creates a new write-only instance of Smc, bound to a specific deployed contract.
-func NewSmcTransactor(address common.Address, transactor bind.ContractTransactor) (*SmcTransactor, error) {
-	contract, err := bindSmc(address, nil, transactor, nil)
+// NewBEP20Transactor creates a new write-only instance of BEP20, bound to a specific deployed contract.
+func NewBEP20Transactor(address common.Address, transactor bind.ContractTransactor) (*BEP20Transactor, error) {
+	contract, err := bindBEP20(address, nil, transactor, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTransactor{contract: contract}, nil
+	return &BEP20Transactor{contract: contract}, nil
 }
 
-// NewSmcFilterer creates a new log filterer instance of Smc, bound to a specific deployed contract.
-func NewSmcFilterer(address common.Address, filterer bind.ContractFilterer) (*SmcFilterer, error) {
-	contract, err := bindSmc(address, nil, nil, filterer)
+// NewBEP20Filterer creates a new log filterer instance of BEP20, bound to a specific deployed contract.
+func NewBEP20Filterer(address common.Address, filterer bind.ContractFilterer) (*BEP20Filterer, error) {
+	contract, err := bindBEP20(address, nil, nil, filterer)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcFilterer{contract: contract}, nil
+	return &BEP20Filterer{contract: contract}, nil
 }
 
-// bindSmc binds a generic wrapper to an already deployed contract.
-func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-	parsed, err := abi.JSON(strings.NewReader(SmcABI))
+// bindBEP20 binds a generic wrapper to an already deployed contract.
+func bindBEP20(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := abi.JSON(strings.NewReader(BEP20ABI))
 	if err != nil {
 		return nil, err
 	}
@@ -145,46 +145,46 @@ func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.SmcCaller.contract.Call(opts, result, method, params...)
+func (_BEP20 *BEP20Raw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _BEP20.Contract.BEP20Caller.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transfer(opts)
+func (_BEP20 *BEP20Raw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _BEP20.Contract.BEP20Transactor.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transact(opts, method, params...)
+func (_BEP20 *BEP20Raw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _BEP20.Contract.BEP20Transactor.contract.Transact(opts, method, params...)
 }
 
 // Call invokes the (constant) contract method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.contract.Call(opts, result, method, params...)
+func (_BEP20 *BEP20CallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _BEP20.Contract.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transfer(opts)
+func (_BEP20 *BEP20TransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _BEP20.Contract.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transact(opts, method, params...)
+func (_BEP20 *BEP20TransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _BEP20.Contract.contract.Transact(opts, method, params...)
 }
 
 // Allowance is a free data retrieval call binding the contract method 0xdd62ed3e.
 //
 // Solidity: function allowance(address owner, address spender) view returns(uint256)
-func (_Smc *SmcCaller) Allowance(opts *bind.CallOpts, owner common.Address, spender common.Address) (*big.Int, error) {
+func (_BEP20 *BEP20Caller) Allowance(opts *bind.CallOpts, owner common.Address, spender common.Address) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "allowance", owner, spender)
+	err := _BEP20.contract.Call(opts, &out, "allowance", owner, spender)
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -199,23 +199,23 @@ func (_Smc *SmcCaller) Allowance(opts *bind.CallOpts, owner common.Address, spen
 // Allowance is a free data retrieval call binding the contract method 0xdd62ed3e.
 //
 // Solidity: function allowance(address owner, address spender) view returns(uint256)
-func (_Smc *SmcSession) Allowance(owner common.Address, spender common.Address) (*big.Int, error) {
-	return _Smc.Contract.Allowance(&_Smc.CallOpts, owner, spender)
+func (_BEP20 *BEP20Session) Allowance(owner common.Address, spender common.Address) (*big.Int, error) {
+	return _BEP20.Contract.Allowance(&_BEP20.CallOpts, owner, spender)
 }
 
 // Allowance is a free data retrieval call binding the contract method 0xdd62ed3e.
 //
 // Solidity: function allowance(address owner, address spender) view returns(uint256)
-func (_Smc *SmcCallerSession) Allowance(owner common.Address, spender common.Address) (*big.Int, error) {
-	return _Smc.Contract.Allowance(&_Smc.CallOpts, owner, spender)
+func (_BEP20 *BEP20CallerSession) Allowance(owner common.Address, spender common.Address) (*big.Int, error) {
+	return _BEP20.Contract.Allowance(&_BEP20.CallOpts, owner, spender)
 }
 
 // BalanceOf is a free data retrieval call binding the contract method 0x70a08231.
 //
 // Solidity: function balanceOf(address account) view returns(uint256)
-func (_Smc *SmcCaller) BalanceOf(opts *bind.CallOpts, account common.Address) (*big.Int, error) {
+func (_BEP20 *BEP20Caller) BalanceOf(opts *bind.CallOpts, account common.Address) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "balanceOf", account)
+	err := _BEP20.contract.Call(opts, &out, "balanceOf", account)
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -230,23 +230,23 @@ func (_Smc *SmcCaller) BalanceOf(opts *bind.CallOpts, account common.Address) (*
 // BalanceOf is a free data retrieval call binding the contract method 0x70a08231.
 //
 // Solidity: function balanceOf(address account) view returns(uint256)
-func (_Smc *SmcSession) BalanceOf(account common.Address) (*big.Int, error) {
-	return _Smc.Contract.BalanceOf(&_Smc.CallOpts, account)
+func (_BEP20 *BEP20Session) BalanceOf(account common.Address) (*big.Int, error) {
+	return _BEP20.Contract.BalanceOf(&_BEP20.CallOpts, account)
 }
 
 // BalanceOf is a free data retrieval call binding the contract method 0x70a08231.
 //
 // Solidity: function balanceOf(address account) view returns(uint256)
-func (_Smc *SmcCallerSession) BalanceOf(account common.Address) (*big.Int, error) {
-	return _Smc.Contract.BalanceOf(&_Smc.CallOpts, account)
+func (_BEP20 *BEP20CallerSession) BalanceOf(account common.Address) (*big.Int, error) {
+	return _BEP20.Contract.BalanceOf(&_BEP20.CallOpts, account)
 }
 
 // Decimals is a free data retrieval call binding the contract method 0x313ce567.
 //
 // Solidity: function decimals() view returns(uint8)
-func (_Smc *SmcCaller) Decimals(opts *bind.CallOpts) (uint8, error) {
+func (_BEP20 *BEP20Caller) Decimals(opts *bind.CallOpts) (uint8, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "decimals")
+	err := _BEP20.contract.Call(opts, &out, "decimals")
 
 	if err != nil {
 		return *new(uint8), err
@@ -261,23 +261,23 @@ func (_Smc *SmcCaller) Decimals(opts *bind.CallOpts) (uint8, error) {
 // Decimals is a free data retrieval call binding the contract method 0x313ce567.
 //
 // Solidity: function decimals() view returns(uint8)
-func (_Smc *SmcSession) Decimals() (uint8, error) {
-	return _Smc.Contract.Decimals(&_Smc.CallOpts)
+func (_BEP20 *BEP20Session) Decimals() (uint8, error) {
+	return _BEP20.Contract.Decimals(&_BEP20.CallOpts)
 }
 
 // Decimals is a free data retrieval call binding the contract method 0x313ce567.
 //
 // Solidity: function decimals() view returns(uint8)
-func (_Smc *SmcCallerSession) Decimals() (uint8, error) {
-	return _Smc.Contract.Decimals(&_Smc.CallOpts)
+func (_BEP20 *BEP20CallerSession) Decimals() (uint8, error) {
+	return _BEP20.Contract.Decimals(&_BEP20.CallOpts)
 }
 
 // GetOwner is a free data retrieval call binding the contract method 0x893d20e8.
 //
 // Solidity: function getOwner() view returns(address)
-func (_Smc *SmcCaller) GetOwner(opts *bind.CallOpts) (common.Address, error) {
+func (_BEP20 *BEP20Caller) GetOwner(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getOwner")
+	err := _BEP20.contract.Call(opts, &out, "getOwner")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -292,23 +292,23 @@ func (_Smc *SmcCaller) GetOwner(opts *bind.CallOpts) (common.Address, error) {
 // GetOwner is a free data retrieval call binding the contract method 0x893d20e8.
 //
 // Solidity: function getOwner() view returns(address)
-func (_Smc *SmcSession) GetOwner() (common.Address, error) {
-	return _Smc.Contract.GetOwner(&_Smc.CallOpts)
+func (_BEP20 *BEP20Session) GetOwner() (common.Address, error) {
+	return _BEP20.Contract.GetOwner(&_BEP20.CallOpts)
 }
 
 // GetOwner is a free data retrieval call binding the contract method 0x893d20e8.
 //
 // Solidity: function getOwner() view returns(address)
-func (_Smc *SmcCallerSession) GetOwner() (common.Address, error) {
-	return _Smc.Contract.GetOwner(&_Smc.CallOpts)
+func (_BEP20 *BEP20CallerSession) GetOwner() (common.Address, error) {
+	return _BEP20.Contract.GetOwner(&_BEP20.CallOpts)
 }
 
 // Name is a free data retrieval call binding the contract method 0x06fdde03.
 //
 // Solidity: function name() view returns(string)
-func (_Smc *SmcCaller) Name(opts *bind.CallOpts) (string, error) {
+func (_BEP20 *BEP20Caller) Name(opts *bind.CallOpts) (string, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "name")
+	err := _BEP20.contract.Call(opts, &out, "name")
 
 	if err != nil {
 		return *new(string), err
@@ -323,23 +323,23 @@ func (_Smc *SmcCaller) Name(opts *bind.CallOpts) (string, error) {
 // Name is a free data retrieval call binding the contract method 0x06fdde03.
 //
 // Solidity: function name() view returns(string)
-func (_Smc *SmcSession) Name() (string, error) {
-	return _Smc.Contract.Name(&_Smc.CallOpts)
+func (_BEP20 *BEP20Session) Name() (string, error) {
+	return _BEP20.Contract.Name(&_BEP20.CallOpts)
 }
 
 // Name is a free data retrieval call binding the contract method 0x06fdde03.
 //
 // Solidity: function name() view returns(string)
-func (_Smc *SmcCallerSession) Name() (string, error) {
-	return _Smc.Contract.Name(&_Smc.CallOpts)
+func (_BEP20 *BEP20CallerSession) Name() (string, error) {
+	return _BEP20.Contract.Name(&_BEP20.CallOpts)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
+func (_BEP20 *BEP20Caller) Owner(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "owner")
+	err := _BEP20.contract.Call(opts, &out, "owner")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -354,23 +354,23 @@ func (_Smc *SmcCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcSession) Owner() (common.Address, error) {
-	return _Smc.Contract.Owner(&_Smc.CallOpts)
+func (_BEP20 *BEP20Session) Owner() (common.Address, error) {
+	return _BEP20.Contract.Owner(&_BEP20.CallOpts)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcCallerSession) Owner() (common.Address, error) {
-	return _Smc.Contract.Owner(&_Smc.CallOpts)
+func (_BEP20 *BEP20CallerSession) Owner() (common.Address, error) {
+	return _BEP20.Contract.Owner(&_BEP20.CallOpts)
 }
 
 // Symbol is a free data retrieval call binding the contract method 0x95d89b41.
 //
 // Solidity: function symbol() view returns(string)
-func (_Smc *SmcCaller) Symbol(opts *bind.CallOpts) (string, error) {
+func (_BEP20 *BEP20Caller) Symbol(opts *bind.CallOpts) (string, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "symbol")
+	err := _BEP20.contract.Call(opts, &out, "symbol")
 
 	if err != nil {
 		return *new(string), err
@@ -385,23 +385,23 @@ func (_Smc *SmcCaller) Symbol(opts *bind.CallOpts) (string, error) {
 // Symbol is a free data retrieval call binding the contract method 0x95d89b41.
 //
 // Solidity: function symbol() view returns(string)
-func (_Smc *SmcSession) Symbol() (string, error) {
-	return _Smc.Contract.Symbol(&_Smc.CallOpts)
+func (_BEP20 *BEP20Session) Symbol() (string, error) {
+	return _BEP20.Contract.Symbol(&_BEP20.CallOpts)
 }
 
 // Symbol is a free data retrieval call binding the contract method 0x95d89b41.
 //
 // Solidity: function symbol() view returns(string)
-func (_Smc *SmcCallerSession) Symbol() (string, error) {
-	return _Smc.Contract.Symbol(&_Smc.CallOpts)
+func (_BEP20 *BEP20CallerSession) Symbol() (string, error) {
+	return _BEP20.Contract.Symbol(&_BEP20.CallOpts)
 }
 
 // TotalSupply is a free data retrieval call binding the contract method 0x18160ddd.
 //
 // Solidity: function totalSupply() view returns(uint256)
-func (_Smc *SmcCaller) TotalSupply(opts *bind.CallOpts) (*big.Int, error) {
+func (_BEP20 *BEP20Caller) TotalSupply(opts *bind.CallOpts) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "totalSupply")
+	err := _BEP20.contract.Call(opts, &out, "totalSupply")
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -416,188 +416,188 @@ func (_Smc *SmcCaller) TotalSupply(opts *bind.CallOpts) (*big.Int, error) {
 // TotalSupply is a free data retrieval call binding the contract method 0x18160ddd.
 //
 // Solidity: function totalSupply() view returns(uint256)
-func (_Smc *SmcSession) TotalSupply() (*big.Int, error) {
-	return _Smc.Contract.TotalSupply(&_Smc.CallOpts)
+func (_BEP20 *BEP20Session) TotalSupply() (*big.Int, error) {
+	return _BEP20.Contract.TotalSupply(&_BEP20.CallOpts)
 }
 
 // TotalSupply is a free data retrieval call binding the contract method 0x18160ddd.
 //
 // Solidity: function totalSupply() view returns(uint256)
-func (_Smc *SmcCallerSession) TotalSupply() (*big.Int, error) {
-	return _Smc.Contract.TotalSupply(&_Smc.CallOpts)
+func (_BEP20 *BEP20CallerSession) TotalSupply() (*big.Int, error) {
+	return _BEP20.Contract.TotalSupply(&_BEP20.CallOpts)
 }
 
 // Approve is a paid mutator transaction binding the contract method 0x095ea7b3.
 //
 // Solidity: function approve(address spender, uint256 amount) returns(bool)
-func (_Smc *SmcTransactor) Approve(opts *bind.TransactOpts, spender common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "approve", spender, amount)
+func (_BEP20 *BEP20Transactor) Approve(opts *bind.TransactOpts, spender common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _BEP20.contract.Transact(opts, "approve", spender, amount)
 }
 
 // Approve is a paid mutator transaction binding the contract method 0x095ea7b3.
 //
 // Solidity: function approve(address spender, uint256 amount) returns(bool)
-func (_Smc *SmcSession) Approve(spender common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.Approve(&_Smc.TransactOpts, spender, amount)
+func (_BEP20 *BEP20Session) Approve(spender common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _BEP20.Contract.Approve(&_BEP20.TransactOpts, spender, amount)
 }
 
 // Approve is a paid mutator transaction binding the contract method 0x095ea7b3.
 //
 // Solidity: function approve(address spender, uint256 amount) returns(bool)
-func (_Smc *SmcTransactorSession) Approve(spender common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.Approve(&_Smc.TransactOpts, spender, amount)
+func (_BEP20 *BEP20TransactorSession) Approve(spender common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _BEP20.Contract.Approve(&_BEP20.TransactOpts, spender, amount)
 }
 
 // DecreaseAllowance is a paid mutator transaction binding the contract method 0xa457c2d7.
 //
 // Solidity: function decreaseAllowance(address spender, uint256 subtractedValue) returns(bool)
-func (_Smc *SmcTransactor) DecreaseAllowance(opts *bind.TransactOpts, spender common.Address, subtractedValue *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "decreaseAllowance", spender, subtractedValue)
+func (_BEP20 *BEP20Transactor) DecreaseAllowance(opts *bind.TransactOpts, spender common.Address, subtractedValue *big.Int) (*types.Transaction, error) {
+	return _BEP20.contract.Transact(opts, "decreaseAllowance", spender, subtractedValue)
 }
 
 // DecreaseAllowance is a paid mutator transaction binding the contract method 0xa457c2d7.
 //
 // Solidity: function decreaseAllowance(address spender, uint256 subtractedValue) returns(bool)
-func (_Smc *SmcSession) DecreaseAllowance(spender common.Address, subtractedValue *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.DecreaseAllowance(&_Smc.TransactOpts, spender, subtractedValue)
+func (_BEP20 *BEP20Session) DecreaseAllowance(spender common.Address, subtractedValue *big.Int) (*types.Transaction, error) {
+	return _BEP20.Contract.DecreaseAllowance(&_BEP20.TransactOpts, spender, subtractedValue)
 }
 
 // DecreaseAllowance is a paid mutator transaction binding the contract method 0xa457c2d7.
 //
 // Solidity: function decreaseAllowance(address spender, uint256 subtractedValue) returns(bool)
-func (_Smc *SmcTransactorSession) DecreaseAllowance(spender common.Address, subtractedValue *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.DecreaseAllowance(&_Smc.TransactOpts, spender, subtractedValue)
+func (_BEP20 *BEP20TransactorSession) DecreaseAllowance(spender common.Address, subtractedValue *big.Int) (*types.Transaction, error) {
+	return _BEP20.Contract.DecreaseAllowance(&_BEP20.TransactOpts, spender, subtractedValue)
 }
 
 // IncreaseAllowance is a paid mutator transaction binding the contract method 0x39509351.
 //
 // Solidity: function increaseAllowance(address spender, uint256 addedValue) returns(bool)
-func (_Smc *SmcTransactor) IncreaseAllowance(opts *bind.TransactOpts, spender common.Address, addedValue *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "increaseAllowance", spender, addedValue)
+func (_BEP20 *BEP20Transactor) IncreaseAllowance(opts *bind.TransactOpts, spender common.Address, addedValue *big.Int) (*types.Transaction, error) {
+	return _BEP20.contract.Transact(opts, "increaseAllowance", spender, addedValue)
 }
 
 // IncreaseAllowance is a paid mutator transaction binding the contract method 0x39509351.
 //
 // Solidity: function increaseAllowance(address spender, uint256 addedValue) returns(bool)
-func (_Smc *SmcSession) IncreaseAllowance(spender common.Address, addedValue *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.IncreaseAllowance(&_Smc.TransactOpts, spender, addedValue)
+func (_BEP20 *BEP20Session) IncreaseAllowance(spender common.Address, addedValue *big.Int) (*types.Transaction, error) {
+	return _BEP20.Contract.IncreaseAllowance(&_BEP20.TransactOpts, spender, addedValue)
 }
 
 // IncreaseAllowance is a paid mutator transaction binding the contract method 0x39509351.
 //
 // Solidity: function increaseAllowance(address spender, uint256 addedValue) returns(bool)
-func (_Smc *SmcTransactorSession) IncreaseAllowance(spender common.Address, addedValue *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.IncreaseAllowance(&_Smc.TransactOpts, spender, addedValue)
+func (_BEP20 *BEP20TransactorSession) IncreaseAllowance(spender common.Address, addedValue *big.Int) (*types.Transaction, error) {
+	return _BEP20.Contract.IncreaseAllowance(&_BEP20.TransactOpts, spender, addedValue)
 }
 
 // Mint is a paid mutator transaction binding the contract method 0xa0712d68.
 //
 // Solidity: function mint(uint256 amount) returns(bool)
-func (_Smc *SmcTransactor) Mint(opts *bind.TransactOpts, amount *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "mint", amount)
+func (_BEP20 *BEP20Transactor) Mint(opts *bind.TransactOpts, amount *big.Int) (*types.Transaction, error) {
+	return _BEP20.contract.Transact(opts, "mint", amount)
 }
 
 // Mint is a paid mutator transaction binding the contract method 0xa0712d68.
 //
 // Solidity: function mint(uint256 amount) returns(bool)
-func (_Smc *SmcSession) Mint(amount *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.Mint(&_Smc.TransactOpts, amount)
+func (_BEP20 *BEP20Session) Mint(amount *big.Int) (*types.Transaction, error) {
+	return _BEP20.Contract.Mint(&_BEP20.TransactOpts, amount)
 }
 
 // Mint is a paid mutator transaction binding the contract method 0xa0712d68.
 //
 // Solidity: function mint(uint256 amount) returns(bool)
-func (_Smc *SmcTransactorSession) Mint(amount *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.Mint(&_Smc.TransactOpts, amount)
+func (_BEP20 *BEP20TransactorSession) Mint(amount *big.Int) (*types.Transaction, error) {
+	return _BEP20.Contract.Mint(&_BEP20.TransactOpts, amount)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcTransactor) RenounceOwnership(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "renounceOwnership")
+func (_BEP20 *BEP20Transactor) RenounceOwnership(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _BEP20.contract.Transact(opts, "renounceOwnership")
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcSession) RenounceOwnership() (*types.Transaction, error) {
-	return _Smc.Contract.RenounceOwnership(&_Smc.TransactOpts)
+func (_BEP20 *BEP20Session) RenounceOwnership() (*types.Transaction, error) {
+	return _BEP20.Contract.RenounceOwnership(&_BEP20.TransactOpts)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcTransactorSession) RenounceOwnership() (*types.Transaction, error) {
-	return _Smc.Contract.RenounceOwnership(&_Smc.TransactOpts)
+func (_BEP20 *BEP20TransactorSession) RenounceOwnership() (*types.Transaction, error) {
+	return _BEP20.Contract.RenounceOwnership(&_BEP20.TransactOpts)
 }
 
 // Transfer is a paid mutator transaction binding the contract method 0xa9059cbb.
 //
 // Solidity: function transfer(address recipient, uint256 amount) returns(bool)
-func (_Smc *SmcTransactor) Transfer(opts *bind.TransactOpts, recipient common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "transfer", recipient, amount)
+func (_BEP20 *BEP20Transactor) Transfer(opts *bind.TransactOpts, recipient common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _BEP20.contract.Transact(opts, "transfer", recipient, amount)
 }
 
 // Transfer is a paid mutator transaction binding the contract method 0xa9059cbb.
 //
 // Solidity: function transfer(address recipient, uint256 amount) returns(bool)
-func (_Smc *SmcSession) Transfer(recipient common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.Transfer(&_Smc.TransactOpts, recipient, amount)
+func (_BEP20 *BEP20Session) Transfer(recipient common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _BEP20.Contract.Transfer(&_BEP20.TransactOpts, recipient, amount)
 }
 
 // Transfer is a paid mutator transaction binding the contract method 0xa9059cbb.
 //
 // Solidity: function transfer(address recipient, uint256 amount) returns(bool)
-func (_Smc *SmcTransactorSession) Transfer(recipient common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.Transfer(&_Smc.TransactOpts, recipient, amount)
+func (_BEP20 *BEP20TransactorSession) Transfer(recipient common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _BEP20.Contract.Transfer(&_BEP20.TransactOpts, recipient, amount)
 }
 
 // TransferFrom is a paid mutator transaction binding the contract method 0x23b872dd.
 //
 // Solidity: function transferFrom(address sender, address recipient, uint256 amount) returns(bool)
-func (_Smc *SmcTransactor) TransferFrom(opts *bind.TransactOpts, sender common.Address, recipient common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "transferFrom", sender, recipient, amount)
+func (_BEP20 *BEP20Transactor) TransferFrom(opts *bind.TransactOpts, sender common.Address, recipient common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _BEP20.contract.Transact(opts, "transferFrom", sender, recipient, amount)
 }
 
 // TransferFrom is a paid mutator transaction binding the contract method 0x23b872dd.
 //
 // Solidity: function transferFrom(address sender, address recipient, uint256 amount) returns(bool)
-func (_Smc *SmcSession) TransferFrom(sender common.Address, recipient common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.TransferFrom(&_Smc.TransactOpts, sender, recipient, amount)
+func (_BEP20 *BEP20Session) TransferFrom(sender common.Address, recipient common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _BEP20.Contract.TransferFrom(&_BEP20.TransactOpts, sender, recipient, amount)
 }
 
 // TransferFrom is a paid mutator transaction binding the contract method 0x23b872dd.
 //
 // Solidity: function transferFrom(address sender, address recipient, uint256 amount) returns(bool)
-func (_Smc *SmcTransactorSession) TransferFrom(sender common.Address, recipient common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.TransferFrom(&_Smc.TransactOpts, sender, recipient, amount)
+func (_BEP20 *BEP20TransactorSession) TransferFrom(sender common.Address, recipient common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _BEP20.Contract.TransferFrom(&_BEP20.TransactOpts, sender, recipient, amount)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcTransactor) TransferOwnership(opts *bind.TransactOpts, newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "transferOwnership", newOwner)
+func (_BEP20 *BEP20Transactor) TransferOwnership(opts *bind.TransactOpts, newOwner common.Address) (*types.Transaction, error) {
+	return _BEP20.contract.Transact(opts, "transferOwnership", newOwner)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.TransferOwnership(&_Smc.TransactOpts, newOwner)
+func (_BEP20 *BEP20Session) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
+	return _BEP20.Contract.TransferOwnership(&_BEP20.TransactOpts, newOwner)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcTransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.TransferOwnership(&_Smc.TransactOpts, newOwner)
+func (_BEP20 *BEP20TransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
+	return _BEP20.Contract.TransferOwnership(&_BEP20.TransactOpts, newOwner)
 }
 
-// SmcApprovalIterator is returned from FilterApproval and is used to iterate over the raw logs and unpacked data for Approval events raised by the Smc contract.
-type SmcApprovalIterator struct {
-	Event *SmcApproval // Event containing the contract specifics and raw log
+// BEP20ApprovalIterator is returned from FilterApproval and is used to iterate over the raw logs and unpacked data for Approval events raised by the BEP20 contract.
+type BEP20ApprovalIterator struct {
+	Event *BEP20Approval // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -611,7 +611,7 @@ type SmcApprovalIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcApprovalIterator) Next() bool {
+func (it *BEP20ApprovalIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -620,7 +620,7 @@ func (it *SmcApprovalIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcApproval)
+			it.Event = new(BEP20Approval)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -635,7 +635,7 @@ func (it *SmcApprovalIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcApproval)
+		it.Event = new(BEP20Approval)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -651,19 +651,19 @@ func (it *SmcApprovalIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcApprovalIterator) Error() error {
+func (it *BEP20ApprovalIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcApprovalIterator) Close() error {
+func (it *BEP20ApprovalIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcApproval represents a Approval event raised by the Smc contract.
-type SmcApproval struct {
+// BEP20Approval represents a Approval event raised by the BEP20 contract.
+type BEP20Approval struct {
 	Owner   common.Address
 	Spender common.Address
 	Value   *big.Int
@@ -673,7 +673,7 @@ type SmcApproval struct {
 // FilterApproval is a free log retrieval operation binding the contract event 0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925.
 //
 // Solidity: event Approval(address indexed owner, address indexed spender, uint256 value)
-func (_Smc *SmcFilterer) FilterApproval(opts *bind.FilterOpts, owner []common.Address, spender []common.Address) (*SmcApprovalIterator, error) {
+func (_BEP20 *BEP20Filterer) FilterApproval(opts *bind.FilterOpts, owner []common.Address, spender []common.Address) (*BEP20ApprovalIterator, error) {
 
 	var ownerRule []interface{}
 	for _, ownerItem := range owner {
@@ -684,17 +684,17 @@ func (_Smc *SmcFilterer) FilterApproval(opts *bind.FilterOpts, owner []common.Ad
 		spenderRule = append(spenderRule, spenderItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Approval", ownerRule, spenderRule)
+	logs, sub, err := _BEP20.contract.FilterLogs(opts, "Approval", ownerRule, spenderRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcApprovalIterator{contract: _Smc.contract, event: "Approval", logs: logs, sub: sub}, nil
+	return &BEP20ApprovalIterator{contract: _BEP20.contract, event: "Approval", logs: logs, sub: sub}, nil
 }
 
 // WatchApproval is a free log subscription operation binding the contract event 0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925.
 //
 // Solidity: event Approval(address indexed owner, address indexed spender, uint256 value)
-func (_Smc *SmcFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *SmcApproval, owner []common.Address, spender []common.Address) (event.Subscription, error) {
+func (_BEP20 *BEP20Filterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *BEP20Approval, owner []common.Address, spender []common.Address) (event.Subscription, error) {
 
 	var ownerRule []interface{}
 	for _, ownerItem := range owner {
@@ -705,7 +705,7 @@ func (_Smc *SmcFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *SmcApp
 		spenderRule = append(spenderRule, spenderItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Approval", ownerRule, spenderRule)
+	logs, sub, err := _BEP20.contract.WatchLogs(opts, "Approval", ownerRule, spenderRule)
 	if err != nil {
 		return nil, err
 	}
@@ -715,8 +715,8 @@ func (_Smc *SmcFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *SmcApp
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcApproval)
-				if err := _Smc.contract.UnpackLog(event, "Approval", log); err != nil {
+				event := new(BEP20Approval)
+				if err := _BEP20.contract.UnpackLog(event, "Approval", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -740,18 +740,18 @@ func (_Smc *SmcFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *SmcApp
 // ParseApproval is a log parse operation binding the contract event 0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925.
 //
 // Solidity: event Approval(address indexed owner, address indexed spender, uint256 value)
-func (_Smc *SmcFilterer) ParseApproval(log types.Log) (*SmcApproval, error) {
-	event := new(SmcApproval)
-	if err := _Smc.contract.UnpackLog(event, "Approval", log); err != nil {
+func (_BEP20 *BEP20Filterer) ParseApproval(log types.Log) (*BEP20Approval, error) {
+	event := new(BEP20Approval)
+	if err := _BEP20.contract.UnpackLog(event, "Approval", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the Smc contract.
-type SmcOwnershipTransferredIterator struct {
-	Event *SmcOwnershipTransferred // Event containing the contract specifics and raw log
+// BEP20OwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the BEP20 contract.
+type BEP20OwnershipTransferredIterator struct {
+	Event *BEP20OwnershipTransferred // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -765,7 +765,7 @@ type SmcOwnershipTransferredIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcOwnershipTransferredIterator) Next() bool {
+func (it *BEP20OwnershipTransferredIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -774,7 +774,7 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcOwnershipTransferred)
+			it.Event = new(BEP20OwnershipTransferred)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -789,7 +789,7 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcOwnershipTransferred)
+		it.Event = new(BEP20OwnershipTransferred)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -805,19 +805,19 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcOwnershipTransferredIterator) Error() error {
+func (it *BEP20OwnershipTransferredIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcOwnershipTransferredIterator) Close() error {
+func (it *BEP20OwnershipTransferredIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcOwnershipTransferred represents a OwnershipTransferred event raised by the Smc contract.
-type SmcOwnershipTransferred struct {
+// BEP20OwnershipTransferred represents a OwnershipTransferred event raised by the BEP20 contract.
+type BEP20OwnershipTransferred struct {
 	PreviousOwner common.Address
 	NewOwner      common.Address
 	Raw           types.Log // Blockchain specific contextual infos
@@ -826,7 +826,7 @@ type SmcOwnershipTransferred struct {
 // FilterOwnershipTransferred is a free log retrieval operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previousOwner []common.Address, newOwner []common.Address) (*SmcOwnershipTransferredIterator, error) {
+func (_BEP20 *BEP20Filterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previousOwner []common.Address, newOwner []common.Address) (*BEP20OwnershipTransferredIterator, error) {
 
 	var previousOwnerRule []interface{}
 	for _, previousOwnerItem := range previousOwner {
@@ -837,17 +837,17 @@ func (_Smc *SmcFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previ
 		newOwnerRule = append(newOwnerRule, newOwnerItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
+	logs, sub, err := _BEP20.contract.FilterLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcOwnershipTransferredIterator{contract: _Smc.contract, event: "OwnershipTransferred", logs: logs, sub: sub}, nil
+	return &BEP20OwnershipTransferredIterator{contract: _BEP20.contract, event: "OwnershipTransferred", logs: logs, sub: sub}, nil
 }
 
 // WatchOwnershipTransferred is a free log subscription operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink chan<- *SmcOwnershipTransferred, previousOwner []common.Address, newOwner []common.Address) (event.Subscription, error) {
+func (_BEP20 *BEP20Filterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink chan<- *BEP20OwnershipTransferred, previousOwner []common.Address, newOwner []common.Address) (event.Subscription, error) {
 
 	var previousOwnerRule []interface{}
 	for _, previousOwnerItem := range previousOwner {
@@ -858,7 +858,7 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 		newOwnerRule = append(newOwnerRule, newOwnerItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
+	logs, sub, err := _BEP20.contract.WatchLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
 	if err != nil {
 		return nil, err
 	}
@@ -868,8 +868,8 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcOwnershipTransferred)
-				if err := _Smc.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
+				event := new(BEP20OwnershipTransferred)
+				if err := _BEP20.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -893,18 +893,18 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 // ParseOwnershipTransferred is a log parse operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) ParseOwnershipTransferred(log types.Log) (*SmcOwnershipTransferred, error) {
-	event := new(SmcOwnershipTransferred)
-	if err := _Smc.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
+func (_BEP20 *BEP20Filterer) ParseOwnershipTransferred(log types.Log) (*BEP20OwnershipTransferred, error) {
+	event := new(BEP20OwnershipTransferred)
+	if err := _BEP20.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcTransferIterator is returned from FilterTransfer and is used to iterate over the raw logs and unpacked data for Transfer events raised by the Smc contract.
-type SmcTransferIterator struct {
-	Event *SmcTransfer // Event containing the contract specifics and raw log
+// BEP20TransferIterator is returned from FilterTransfer and is used to iterate over the raw logs and unpacked data for Transfer events raised by the BEP20 contract.
+type BEP20TransferIterator struct {
+	Event *BEP20Transfer // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -918,7 +918,7 @@ type SmcTransferIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcTransferIterator) Next() bool {
+func (it *BEP20TransferIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -927,7 +927,7 @@ func (it *SmcTransferIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcTransfer)
+			it.Event = new(BEP20Transfer)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -942,7 +942,7 @@ func (it *SmcTransferIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcTransfer)
+		it.Event = new(BEP20Transfer)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -958,19 +958,19 @@ func (it *SmcTransferIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcTransferIterator) Error() error {
+func (it *BEP20TransferIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcTransferIterator) Close() error {
+func (it *BEP20TransferIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcTransfer represents a Transfer event raised by the Smc contract.
-type SmcTransfer struct {
+// BEP20Transfer represents a Transfer event raised by the BEP20 contract.
+type BEP20Transfer struct {
 	From  common.Address
 	To    common.Address
 	Value *big.Int
@@ -980,7 +980,7 @@ type SmcTransfer struct {
 // FilterTransfer is a free log retrieval operation binding the contract event 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef.
 //
 // Solidity: event Transfer(address indexed from, address indexed to, uint256 value)
-func (_Smc *SmcFilterer) FilterTransfer(opts *bind.FilterOpts, from []common.Address, to []common.Address) (*SmcTransferIterator, error) {
+func (_BEP20 *BEP20Filterer) FilterTransfer(opts *bind.FilterOpts, from []common.Address, to []common.Address) (*BEP20TransferIterator, error) {
 
 	var fromRule []interface{}
 	for _, fromItem := range from {
@@ -991,17 +991,17 @@ func (_Smc *SmcFilterer) FilterTransfer(opts *bind.FilterOpts, from []common.Add
 		toRule = append(toRule, toItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Transfer", fromRule, toRule)
+	logs, sub, err := _BEP20.contract.FilterLogs(opts, "Transfer", fromRule, toRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTransferIterator{contract: _Smc.contract, event: "Transfer", logs: logs, sub: sub}, nil
+	return &BEP20TransferIterator{contract: _BEP20.contract, event: "Transfer", logs: logs, sub: sub}, nil
 }
 
 // WatchTransfer is a free log subscription operation binding the contract event 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef.
 //
 // Solidity: event Transfer(address indexed from, address indexed to, uint256 value)
-func (_Smc *SmcFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *SmcTransfer, from []common.Address, to []common.Address) (event.Subscription, error) {
+func (_BEP20 *BEP20Filterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *BEP20Transfer, from []common.Address, to []common.Address) (event.Subscription, error) {
 
 	var fromRule []interface{}
 	for _, fromItem := range from {
@@ -1012,7 +1012,7 @@ func (_Smc *SmcFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *SmcTra
 		toRule = append(toRule, toItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Transfer", fromRule, toRule)
+	logs, sub, err := _BEP20.contract.WatchLogs(opts, "Transfer", fromRule, toRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1022,8 +1022,8 @@ func (_Smc *SmcFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *SmcTra
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcTransfer)
-				if err := _Smc.contract.UnpackLog(event, "Transfer", log); err != nil {
+				event := new(BEP20Transfer)
+				if err := _BEP20.contract.UnpackLog(event, "Transfer", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1047,9 +1047,9 @@ func (_Smc *SmcFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *SmcTra
 // ParseTransfer is a log parse operation binding the contract event 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef.
 //
 // Solidity: event Transfer(address indexed from, address indexed to, uint256 value)
-func (_Smc *SmcFilterer) ParseTransfer(log types.Log) (*SmcTransfer, error) {
-	event := new(SmcTransfer)
-	if err := _Smc.contract.UnpackLog(event, "Transfer", log); err != nil {
+func (_BEP20 *BEP20Filterer) ParseTransfer(log types.Log) (*BEP20Transfer, error) {
+	event := new(BEP20Transfer)
+	if err := _BEP20.contract.UnpackLog(event, "Transfer", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log

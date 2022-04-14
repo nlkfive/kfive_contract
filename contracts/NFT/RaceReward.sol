@@ -15,4 +15,3 @@ contract RaceReward is KfiveNFT {
         _requireMarketplaceStorage(_marketplaceStorage)
     {}
 }
-

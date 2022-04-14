@@ -1,5 +1,5 @@
-var BUSD = artifacts.require('BUSD');
+var BUSD = artifacts.require("BUSD");
 
 module.exports = function (deployer) {
-    deployer.deploy(BUSD);
+  deployer.deploy(BUSD);
 };

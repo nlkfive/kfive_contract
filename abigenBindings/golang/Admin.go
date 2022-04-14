@@ -1,7 +1,7 @@
 // Code generated - DO NOT EDIT.
 // This file is a generated binding and any manual changes will be lost.
 
-package smc
+package Admin
 
 import (
 	"errors"
@@ -28,113 +28,113 @@ var (
 	_ = event.NewSubscription
 )
 
-// SmcMetaData contains all meta data concerning the Smc contract.
-var SmcMetaData = &bind.MetaData{
+// AdminMetaData contains all meta data concerning the Admin contract.
+var AdminMetaData = &bind.MetaData{
 	ABI: "[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"admin\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"a\",\"type\":\"address\"}],\"name\":\"addAdmin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"a\",\"type\":\"address\"}],\"name\":\"removeAdmin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
-// SmcABI is the input ABI used to generate the binding from.
-// Deprecated: Use SmcMetaData.ABI instead.
-var SmcABI = SmcMetaData.ABI
+// AdminABI is the input ABI used to generate the binding from.
+// Deprecated: Use AdminMetaData.ABI instead.
+var AdminABI = AdminMetaData.ABI
 
-// Smc is an auto generated Go binding around an Ethereum contract.
-type Smc struct {
-	SmcCaller     // Read-only binding to the contract
-	SmcTransactor // Write-only binding to the contract
-	SmcFilterer   // Log filterer for contract events
+// Admin is an auto generated Go binding around an Ethereum contract.
+type Admin struct {
+	AdminCaller     // Read-only binding to the contract
+	AdminTransactor // Write-only binding to the contract
+	AdminFilterer   // Log filterer for contract events
 }
 
-// SmcCaller is an auto generated read-only Go binding around an Ethereum contract.
-type SmcCaller struct {
+// AdminCaller is an auto generated read-only Go binding around an Ethereum contract.
+type AdminCaller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcTransactor is an auto generated write-only Go binding around an Ethereum contract.
-type SmcTransactor struct {
+// AdminTransactor is an auto generated write-only Go binding around an Ethereum contract.
+type AdminTransactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
-type SmcFilterer struct {
+// AdminFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type AdminFilterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcSession is an auto generated Go binding around an Ethereum contract,
+// AdminSession is an auto generated Go binding around an Ethereum contract,
 // with pre-set call and transact options.
-type SmcSession struct {
-	Contract     *Smc              // Generic contract binding to set the session for
+type AdminSession struct {
+	Contract     *Admin            // Generic contract binding to set the session for
 	CallOpts     bind.CallOpts     // Call options to use throughout this session
 	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 }
 
-// SmcCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// AdminCallerSession is an auto generated read-only Go binding around an Ethereum contract,
 // with pre-set call options.
-type SmcCallerSession struct {
-	Contract *SmcCaller    // Generic contract caller binding to set the session for
+type AdminCallerSession struct {
+	Contract *AdminCaller  // Generic contract caller binding to set the session for
 	CallOpts bind.CallOpts // Call options to use throughout this session
 }
 
-// SmcTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// AdminTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
 // with pre-set transact options.
-type SmcTransactorSession struct {
-	Contract     *SmcTransactor    // Generic contract transactor binding to set the session for
+type AdminTransactorSession struct {
+	Contract     *AdminTransactor  // Generic contract transactor binding to set the session for
 	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 }
 
-// SmcRaw is an auto generated low-level Go binding around an Ethereum contract.
-type SmcRaw struct {
-	Contract *Smc // Generic contract binding to access the raw methods on
+// AdminRaw is an auto generated low-level Go binding around an Ethereum contract.
+type AdminRaw struct {
+	Contract *Admin // Generic contract binding to access the raw methods on
 }
 
-// SmcCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
-type SmcCallerRaw struct {
-	Contract *SmcCaller // Generic read-only contract binding to access the raw methods on
+// AdminCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type AdminCallerRaw struct {
+	Contract *AdminCaller // Generic read-only contract binding to access the raw methods on
 }
 
-// SmcTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
-type SmcTransactorRaw struct {
-	Contract *SmcTransactor // Generic write-only contract binding to access the raw methods on
+// AdminTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type AdminTransactorRaw struct {
+	Contract *AdminTransactor // Generic write-only contract binding to access the raw methods on
 }
 
-// NewSmc creates a new instance of Smc, bound to a specific deployed contract.
-func NewSmc(address common.Address, backend bind.ContractBackend) (*Smc, error) {
-	contract, err := bindSmc(address, backend, backend, backend)
+// NewAdmin creates a new instance of Admin, bound to a specific deployed contract.
+func NewAdmin(address common.Address, backend bind.ContractBackend) (*Admin, error) {
+	contract, err := bindAdmin(address, backend, backend, backend)
 	if err != nil {
 		return nil, err
 	}
-	return &Smc{SmcCaller: SmcCaller{contract: contract}, SmcTransactor: SmcTransactor{contract: contract}, SmcFilterer: SmcFilterer{contract: contract}}, nil
+	return &Admin{AdminCaller: AdminCaller{contract: contract}, AdminTransactor: AdminTransactor{contract: contract}, AdminFilterer: AdminFilterer{contract: contract}}, nil
 }
 
-// NewSmcCaller creates a new read-only instance of Smc, bound to a specific deployed contract.
-func NewSmcCaller(address common.Address, caller bind.ContractCaller) (*SmcCaller, error) {
-	contract, err := bindSmc(address, caller, nil, nil)
+// NewAdminCaller creates a new read-only instance of Admin, bound to a specific deployed contract.
+func NewAdminCaller(address common.Address, caller bind.ContractCaller) (*AdminCaller, error) {
+	contract, err := bindAdmin(address, caller, nil, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcCaller{contract: contract}, nil
+	return &AdminCaller{contract: contract}, nil
 }
 
-// NewSmcTransactor creates a new write-only instance of Smc, bound to a specific deployed contract.
-func NewSmcTransactor(address common.Address, transactor bind.ContractTransactor) (*SmcTransactor, error) {
-	contract, err := bindSmc(address, nil, transactor, nil)
+// NewAdminTransactor creates a new write-only instance of Admin, bound to a specific deployed contract.
+func NewAdminTransactor(address common.Address, transactor bind.ContractTransactor) (*AdminTransactor, error) {
+	contract, err := bindAdmin(address, nil, transactor, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTransactor{contract: contract}, nil
+	return &AdminTransactor{contract: contract}, nil
 }
 
-// NewSmcFilterer creates a new log filterer instance of Smc, bound to a specific deployed contract.
-func NewSmcFilterer(address common.Address, filterer bind.ContractFilterer) (*SmcFilterer, error) {
-	contract, err := bindSmc(address, nil, nil, filterer)
+// NewAdminFilterer creates a new log filterer instance of Admin, bound to a specific deployed contract.
+func NewAdminFilterer(address common.Address, filterer bind.ContractFilterer) (*AdminFilterer, error) {
+	contract, err := bindAdmin(address, nil, nil, filterer)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcFilterer{contract: contract}, nil
+	return &AdminFilterer{contract: contract}, nil
 }
 
-// bindSmc binds a generic wrapper to an already deployed contract.
-func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-	parsed, err := abi.JSON(strings.NewReader(SmcABI))
+// bindAdmin binds a generic wrapper to an already deployed contract.
+func bindAdmin(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := abi.JSON(strings.NewReader(AdminABI))
 	if err != nil {
 		return nil, err
 	}
@@ -145,46 +145,46 @@ func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.SmcCaller.contract.Call(opts, result, method, params...)
+func (_Admin *AdminRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _Admin.Contract.AdminCaller.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transfer(opts)
+func (_Admin *AdminRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _Admin.Contract.AdminTransactor.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transact(opts, method, params...)
+func (_Admin *AdminRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _Admin.Contract.AdminTransactor.contract.Transact(opts, method, params...)
 }
 
 // Call invokes the (constant) contract method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.contract.Call(opts, result, method, params...)
+func (_Admin *AdminCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _Admin.Contract.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transfer(opts)
+func (_Admin *AdminTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _Admin.Contract.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transact(opts, method, params...)
+func (_Admin *AdminTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _Admin.Contract.contract.Transact(opts, method, params...)
 }
 
 // Admin is a free data retrieval call binding the contract method 0x63a846f8.
 //
 // Solidity: function admin(address ) view returns(bool)
-func (_Smc *SmcCaller) Admin(opts *bind.CallOpts, arg0 common.Address) (bool, error) {
+func (_Admin *AdminCaller) Admin(opts *bind.CallOpts, arg0 common.Address) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "admin", arg0)
+	err := _Admin.contract.Call(opts, &out, "admin", arg0)
 
 	if err != nil {
 		return *new(bool), err
@@ -199,55 +199,55 @@ func (_Smc *SmcCaller) Admin(opts *bind.CallOpts, arg0 common.Address) (bool, er
 // Admin is a free data retrieval call binding the contract method 0x63a846f8.
 //
 // Solidity: function admin(address ) view returns(bool)
-func (_Smc *SmcSession) Admin(arg0 common.Address) (bool, error) {
-	return _Smc.Contract.Admin(&_Smc.CallOpts, arg0)
+func (_Admin *AdminSession) Admin(arg0 common.Address) (bool, error) {
+	return _Admin.Contract.Admin(&_Admin.CallOpts, arg0)
 }
 
 // Admin is a free data retrieval call binding the contract method 0x63a846f8.
 //
 // Solidity: function admin(address ) view returns(bool)
-func (_Smc *SmcCallerSession) Admin(arg0 common.Address) (bool, error) {
-	return _Smc.Contract.Admin(&_Smc.CallOpts, arg0)
+func (_Admin *AdminCallerSession) Admin(arg0 common.Address) (bool, error) {
+	return _Admin.Contract.Admin(&_Admin.CallOpts, arg0)
 }
 
 // AddAdmin is a paid mutator transaction binding the contract method 0x70480275.
 //
 // Solidity: function addAdmin(address a) returns()
-func (_Smc *SmcTransactor) AddAdmin(opts *bind.TransactOpts, a common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "addAdmin", a)
+func (_Admin *AdminTransactor) AddAdmin(opts *bind.TransactOpts, a common.Address) (*types.Transaction, error) {
+	return _Admin.contract.Transact(opts, "addAdmin", a)
 }
 
 // AddAdmin is a paid mutator transaction binding the contract method 0x70480275.
 //
 // Solidity: function addAdmin(address a) returns()
-func (_Smc *SmcSession) AddAdmin(a common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.AddAdmin(&_Smc.TransactOpts, a)
+func (_Admin *AdminSession) AddAdmin(a common.Address) (*types.Transaction, error) {
+	return _Admin.Contract.AddAdmin(&_Admin.TransactOpts, a)
 }
 
 // AddAdmin is a paid mutator transaction binding the contract method 0x70480275.
 //
 // Solidity: function addAdmin(address a) returns()
-func (_Smc *SmcTransactorSession) AddAdmin(a common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.AddAdmin(&_Smc.TransactOpts, a)
+func (_Admin *AdminTransactorSession) AddAdmin(a common.Address) (*types.Transaction, error) {
+	return _Admin.Contract.AddAdmin(&_Admin.TransactOpts, a)
 }
 
 // RemoveAdmin is a paid mutator transaction binding the contract method 0x1785f53c.
 //
 // Solidity: function removeAdmin(address a) returns()
-func (_Smc *SmcTransactor) RemoveAdmin(opts *bind.TransactOpts, a common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "removeAdmin", a)
+func (_Admin *AdminTransactor) RemoveAdmin(opts *bind.TransactOpts, a common.Address) (*types.Transaction, error) {
+	return _Admin.contract.Transact(opts, "removeAdmin", a)
 }
 
 // RemoveAdmin is a paid mutator transaction binding the contract method 0x1785f53c.
 //
 // Solidity: function removeAdmin(address a) returns()
-func (_Smc *SmcSession) RemoveAdmin(a common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RemoveAdmin(&_Smc.TransactOpts, a)
+func (_Admin *AdminSession) RemoveAdmin(a common.Address) (*types.Transaction, error) {
+	return _Admin.Contract.RemoveAdmin(&_Admin.TransactOpts, a)
 }
 
 // RemoveAdmin is a paid mutator transaction binding the contract method 0x1785f53c.
 //
 // Solidity: function removeAdmin(address a) returns()
-func (_Smc *SmcTransactorSession) RemoveAdmin(a common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RemoveAdmin(&_Smc.TransactOpts, a)
+func (_Admin *AdminTransactorSession) RemoveAdmin(a common.Address) (*types.Transaction, error) {
+	return _Admin.Contract.RemoveAdmin(&_Admin.TransactOpts, a)
 }

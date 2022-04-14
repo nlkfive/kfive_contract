@@ -1,7 +1,7 @@
 // Code generated - DO NOT EDIT.
 // This file is a generated binding and any manual changes will be lost.
 
-package smc
+package OrderMarketplace
 
 import (
 	"errors"
@@ -28,113 +28,113 @@ var (
 	_ = event.NewSubscription
 )
 
-// SmcMetaData contains all meta data concerning the Smc contract.
-var SmcMetaData = &bind.MetaData{
+// OrderMarketplaceMetaData contains all meta data concerning the OrderMarketplace contract.
+var OrderMarketplaceMetaData = &bind.MetaData{
 	ABI: "[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_acceptedToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_marketplaceStorage\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_ownerCutPerMillion\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_user\",\"type\":\"address\"}],\"name\":\"AddedBlackList\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"ownerCutPerMillion\",\"type\":\"uint256\"}],\"name\":\"ChangedOwnerCutPerMillion\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"publicationFee\",\"type\":\"uint256\"}],\"name\":\"ChangedPublicationFee\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_marketplaceStorage\",\"type\":\"address\"}],\"name\":\"MarketplaceStorageUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"}],\"name\":\"OrderCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"priceInWei\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"name\":\"OrderCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"}],\"name\":\"OrderSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_user\",\"type\":\"address\"}],\"name\":\"RemovedBlackList\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"CANCEL_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ERC721_Interface\",\"outputs\":[{\"internalType\":\"bytes4\",\"name\":\"\",\"type\":\"bytes4\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"IMarketplaceStorage_Interface\",\"outputs\":[{\"internalType\":\"bytes4\",\"name\":\"\",\"type\":\"bytes4\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PAUSER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"acceptedToken\",\"outputs\":[{\"internalType\":\"contractIBEP20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_evilUser\",\"type\":\"address\"}],\"name\":\"addBlackList\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_maker\",\"type\":\"address\"}],\"name\":\"getBlackListStatus\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getRoleMember\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleMemberCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"isBlackListed\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"marketplaceStorage\",\"outputs\":[{\"internalType\":\"contractIMarketplaceStorage\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ownerCutPerMillion\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"publicationFeeInWei\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_clearedUser\",\"type\":\"address\"}],\"name\":\"removeBlackList\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_ownerCutPerMillion\",\"type\":\"uint256\"}],\"name\":\"setOwnerCutPerMillion\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_publicationFee\",\"type\":\"uint256\"}],\"name\":\"setPublicationFee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_marketplaceStorage\",\"type\":\"address\"}],\"name\":\"updateStorageAddress\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"priceInWei\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"name\":\"createOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"cancelOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"name\":\"executeOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
-// SmcABI is the input ABI used to generate the binding from.
-// Deprecated: Use SmcMetaData.ABI instead.
-var SmcABI = SmcMetaData.ABI
+// OrderMarketplaceABI is the input ABI used to generate the binding from.
+// Deprecated: Use OrderMarketplaceMetaData.ABI instead.
+var OrderMarketplaceABI = OrderMarketplaceMetaData.ABI
 
-// Smc is an auto generated Go binding around an Ethereum contract.
-type Smc struct {
-	SmcCaller     // Read-only binding to the contract
-	SmcTransactor // Write-only binding to the contract
-	SmcFilterer   // Log filterer for contract events
+// OrderMarketplace is an auto generated Go binding around an Ethereum contract.
+type OrderMarketplace struct {
+	OrderMarketplaceCaller     // Read-only binding to the contract
+	OrderMarketplaceTransactor // Write-only binding to the contract
+	OrderMarketplaceFilterer   // Log filterer for contract events
 }
 
-// SmcCaller is an auto generated read-only Go binding around an Ethereum contract.
-type SmcCaller struct {
+// OrderMarketplaceCaller is an auto generated read-only Go binding around an Ethereum contract.
+type OrderMarketplaceCaller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcTransactor is an auto generated write-only Go binding around an Ethereum contract.
-type SmcTransactor struct {
+// OrderMarketplaceTransactor is an auto generated write-only Go binding around an Ethereum contract.
+type OrderMarketplaceTransactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
-type SmcFilterer struct {
+// OrderMarketplaceFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type OrderMarketplaceFilterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcSession is an auto generated Go binding around an Ethereum contract,
+// OrderMarketplaceSession is an auto generated Go binding around an Ethereum contract,
 // with pre-set call and transact options.
-type SmcSession struct {
-	Contract     *Smc              // Generic contract binding to set the session for
+type OrderMarketplaceSession struct {
+	Contract     *OrderMarketplace // Generic contract binding to set the session for
 	CallOpts     bind.CallOpts     // Call options to use throughout this session
 	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 }
 
-// SmcCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// OrderMarketplaceCallerSession is an auto generated read-only Go binding around an Ethereum contract,
 // with pre-set call options.
-type SmcCallerSession struct {
-	Contract *SmcCaller    // Generic contract caller binding to set the session for
-	CallOpts bind.CallOpts // Call options to use throughout this session
+type OrderMarketplaceCallerSession struct {
+	Contract *OrderMarketplaceCaller // Generic contract caller binding to set the session for
+	CallOpts bind.CallOpts           // Call options to use throughout this session
 }
 
-// SmcTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// OrderMarketplaceTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
 // with pre-set transact options.
-type SmcTransactorSession struct {
-	Contract     *SmcTransactor    // Generic contract transactor binding to set the session for
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type OrderMarketplaceTransactorSession struct {
+	Contract     *OrderMarketplaceTransactor // Generic contract transactor binding to set the session for
+	TransactOpts bind.TransactOpts           // Transaction auth options to use throughout this session
 }
 
-// SmcRaw is an auto generated low-level Go binding around an Ethereum contract.
-type SmcRaw struct {
-	Contract *Smc // Generic contract binding to access the raw methods on
+// OrderMarketplaceRaw is an auto generated low-level Go binding around an Ethereum contract.
+type OrderMarketplaceRaw struct {
+	Contract *OrderMarketplace // Generic contract binding to access the raw methods on
 }
 
-// SmcCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
-type SmcCallerRaw struct {
-	Contract *SmcCaller // Generic read-only contract binding to access the raw methods on
+// OrderMarketplaceCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type OrderMarketplaceCallerRaw struct {
+	Contract *OrderMarketplaceCaller // Generic read-only contract binding to access the raw methods on
 }
 
-// SmcTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
-type SmcTransactorRaw struct {
-	Contract *SmcTransactor // Generic write-only contract binding to access the raw methods on
+// OrderMarketplaceTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type OrderMarketplaceTransactorRaw struct {
+	Contract *OrderMarketplaceTransactor // Generic write-only contract binding to access the raw methods on
 }
 
-// NewSmc creates a new instance of Smc, bound to a specific deployed contract.
-func NewSmc(address common.Address, backend bind.ContractBackend) (*Smc, error) {
-	contract, err := bindSmc(address, backend, backend, backend)
+// NewOrderMarketplace creates a new instance of OrderMarketplace, bound to a specific deployed contract.
+func NewOrderMarketplace(address common.Address, backend bind.ContractBackend) (*OrderMarketplace, error) {
+	contract, err := bindOrderMarketplace(address, backend, backend, backend)
 	if err != nil {
 		return nil, err
 	}
-	return &Smc{SmcCaller: SmcCaller{contract: contract}, SmcTransactor: SmcTransactor{contract: contract}, SmcFilterer: SmcFilterer{contract: contract}}, nil
+	return &OrderMarketplace{OrderMarketplaceCaller: OrderMarketplaceCaller{contract: contract}, OrderMarketplaceTransactor: OrderMarketplaceTransactor{contract: contract}, OrderMarketplaceFilterer: OrderMarketplaceFilterer{contract: contract}}, nil
 }
 
-// NewSmcCaller creates a new read-only instance of Smc, bound to a specific deployed contract.
-func NewSmcCaller(address common.Address, caller bind.ContractCaller) (*SmcCaller, error) {
-	contract, err := bindSmc(address, caller, nil, nil)
+// NewOrderMarketplaceCaller creates a new read-only instance of OrderMarketplace, bound to a specific deployed contract.
+func NewOrderMarketplaceCaller(address common.Address, caller bind.ContractCaller) (*OrderMarketplaceCaller, error) {
+	contract, err := bindOrderMarketplace(address, caller, nil, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcCaller{contract: contract}, nil
+	return &OrderMarketplaceCaller{contract: contract}, nil
 }
 
-// NewSmcTransactor creates a new write-only instance of Smc, bound to a specific deployed contract.
-func NewSmcTransactor(address common.Address, transactor bind.ContractTransactor) (*SmcTransactor, error) {
-	contract, err := bindSmc(address, nil, transactor, nil)
+// NewOrderMarketplaceTransactor creates a new write-only instance of OrderMarketplace, bound to a specific deployed contract.
+func NewOrderMarketplaceTransactor(address common.Address, transactor bind.ContractTransactor) (*OrderMarketplaceTransactor, error) {
+	contract, err := bindOrderMarketplace(address, nil, transactor, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTransactor{contract: contract}, nil
+	return &OrderMarketplaceTransactor{contract: contract}, nil
 }
 
-// NewSmcFilterer creates a new log filterer instance of Smc, bound to a specific deployed contract.
-func NewSmcFilterer(address common.Address, filterer bind.ContractFilterer) (*SmcFilterer, error) {
-	contract, err := bindSmc(address, nil, nil, filterer)
+// NewOrderMarketplaceFilterer creates a new log filterer instance of OrderMarketplace, bound to a specific deployed contract.
+func NewOrderMarketplaceFilterer(address common.Address, filterer bind.ContractFilterer) (*OrderMarketplaceFilterer, error) {
+	contract, err := bindOrderMarketplace(address, nil, nil, filterer)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcFilterer{contract: contract}, nil
+	return &OrderMarketplaceFilterer{contract: contract}, nil
 }
 
-// bindSmc binds a generic wrapper to an already deployed contract.
-func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-	parsed, err := abi.JSON(strings.NewReader(SmcABI))
+// bindOrderMarketplace binds a generic wrapper to an already deployed contract.
+func bindOrderMarketplace(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := abi.JSON(strings.NewReader(OrderMarketplaceABI))
 	if err != nil {
 		return nil, err
 	}
@@ -145,46 +145,46 @@ func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.SmcCaller.contract.Call(opts, result, method, params...)
+func (_OrderMarketplace *OrderMarketplaceRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _OrderMarketplace.Contract.OrderMarketplaceCaller.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transfer(opts)
+func (_OrderMarketplace *OrderMarketplaceRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.OrderMarketplaceTransactor.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transact(opts, method, params...)
+func (_OrderMarketplace *OrderMarketplaceRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.OrderMarketplaceTransactor.contract.Transact(opts, method, params...)
 }
 
 // Call invokes the (constant) contract method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.contract.Call(opts, result, method, params...)
+func (_OrderMarketplace *OrderMarketplaceCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _OrderMarketplace.Contract.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transfer(opts)
+func (_OrderMarketplace *OrderMarketplaceTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transact(opts, method, params...)
+func (_OrderMarketplace *OrderMarketplaceTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.contract.Transact(opts, method, params...)
 }
 
 // ADMINROLE is a free data retrieval call binding the contract method 0x75b238fc.
 //
 // Solidity: function ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcCaller) ADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
+func (_OrderMarketplace *OrderMarketplaceCaller) ADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "ADMIN_ROLE")
+	err := _OrderMarketplace.contract.Call(opts, &out, "ADMIN_ROLE")
 
 	if err != nil {
 		return *new([32]byte), err
@@ -199,23 +199,23 @@ func (_Smc *SmcCaller) ADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
 // ADMINROLE is a free data retrieval call binding the contract method 0x75b238fc.
 //
 // Solidity: function ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcSession) ADMINROLE() ([32]byte, error) {
-	return _Smc.Contract.ADMINROLE(&_Smc.CallOpts)
+func (_OrderMarketplace *OrderMarketplaceSession) ADMINROLE() ([32]byte, error) {
+	return _OrderMarketplace.Contract.ADMINROLE(&_OrderMarketplace.CallOpts)
 }
 
 // ADMINROLE is a free data retrieval call binding the contract method 0x75b238fc.
 //
 // Solidity: function ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcCallerSession) ADMINROLE() ([32]byte, error) {
-	return _Smc.Contract.ADMINROLE(&_Smc.CallOpts)
+func (_OrderMarketplace *OrderMarketplaceCallerSession) ADMINROLE() ([32]byte, error) {
+	return _OrderMarketplace.Contract.ADMINROLE(&_OrderMarketplace.CallOpts)
 }
 
 // CANCELROLE is a free data retrieval call binding the contract method 0x13c27ca7.
 //
 // Solidity: function CANCEL_ROLE() view returns(bytes32)
-func (_Smc *SmcCaller) CANCELROLE(opts *bind.CallOpts) ([32]byte, error) {
+func (_OrderMarketplace *OrderMarketplaceCaller) CANCELROLE(opts *bind.CallOpts) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "CANCEL_ROLE")
+	err := _OrderMarketplace.contract.Call(opts, &out, "CANCEL_ROLE")
 
 	if err != nil {
 		return *new([32]byte), err
@@ -230,23 +230,23 @@ func (_Smc *SmcCaller) CANCELROLE(opts *bind.CallOpts) ([32]byte, error) {
 // CANCELROLE is a free data retrieval call binding the contract method 0x13c27ca7.
 //
 // Solidity: function CANCEL_ROLE() view returns(bytes32)
-func (_Smc *SmcSession) CANCELROLE() ([32]byte, error) {
-	return _Smc.Contract.CANCELROLE(&_Smc.CallOpts)
+func (_OrderMarketplace *OrderMarketplaceSession) CANCELROLE() ([32]byte, error) {
+	return _OrderMarketplace.Contract.CANCELROLE(&_OrderMarketplace.CallOpts)
 }
 
 // CANCELROLE is a free data retrieval call binding the contract method 0x13c27ca7.
 //
 // Solidity: function CANCEL_ROLE() view returns(bytes32)
-func (_Smc *SmcCallerSession) CANCELROLE() ([32]byte, error) {
-	return _Smc.Contract.CANCELROLE(&_Smc.CallOpts)
+func (_OrderMarketplace *OrderMarketplaceCallerSession) CANCELROLE() ([32]byte, error) {
+	return _OrderMarketplace.Contract.CANCELROLE(&_OrderMarketplace.CallOpts)
 }
 
 // DEFAULTADMINROLE is a free data retrieval call binding the contract method 0xa217fddf.
 //
 // Solidity: function DEFAULT_ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcCaller) DEFAULTADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
+func (_OrderMarketplace *OrderMarketplaceCaller) DEFAULTADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "DEFAULT_ADMIN_ROLE")
+	err := _OrderMarketplace.contract.Call(opts, &out, "DEFAULT_ADMIN_ROLE")
 
 	if err != nil {
 		return *new([32]byte), err
@@ -261,23 +261,23 @@ func (_Smc *SmcCaller) DEFAULTADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
 // DEFAULTADMINROLE is a free data retrieval call binding the contract method 0xa217fddf.
 //
 // Solidity: function DEFAULT_ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcSession) DEFAULTADMINROLE() ([32]byte, error) {
-	return _Smc.Contract.DEFAULTADMINROLE(&_Smc.CallOpts)
+func (_OrderMarketplace *OrderMarketplaceSession) DEFAULTADMINROLE() ([32]byte, error) {
+	return _OrderMarketplace.Contract.DEFAULTADMINROLE(&_OrderMarketplace.CallOpts)
 }
 
 // DEFAULTADMINROLE is a free data retrieval call binding the contract method 0xa217fddf.
 //
 // Solidity: function DEFAULT_ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcCallerSession) DEFAULTADMINROLE() ([32]byte, error) {
-	return _Smc.Contract.DEFAULTADMINROLE(&_Smc.CallOpts)
+func (_OrderMarketplace *OrderMarketplaceCallerSession) DEFAULTADMINROLE() ([32]byte, error) {
+	return _OrderMarketplace.Contract.DEFAULTADMINROLE(&_OrderMarketplace.CallOpts)
 }
 
 // ERC721Interface is a free data retrieval call binding the contract method 0x2b4c32be.
 //
 // Solidity: function ERC721_Interface() view returns(bytes4)
-func (_Smc *SmcCaller) ERC721Interface(opts *bind.CallOpts) ([4]byte, error) {
+func (_OrderMarketplace *OrderMarketplaceCaller) ERC721Interface(opts *bind.CallOpts) ([4]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "ERC721_Interface")
+	err := _OrderMarketplace.contract.Call(opts, &out, "ERC721_Interface")
 
 	if err != nil {
 		return *new([4]byte), err
@@ -292,23 +292,23 @@ func (_Smc *SmcCaller) ERC721Interface(opts *bind.CallOpts) ([4]byte, error) {
 // ERC721Interface is a free data retrieval call binding the contract method 0x2b4c32be.
 //
 // Solidity: function ERC721_Interface() view returns(bytes4)
-func (_Smc *SmcSession) ERC721Interface() ([4]byte, error) {
-	return _Smc.Contract.ERC721Interface(&_Smc.CallOpts)
+func (_OrderMarketplace *OrderMarketplaceSession) ERC721Interface() ([4]byte, error) {
+	return _OrderMarketplace.Contract.ERC721Interface(&_OrderMarketplace.CallOpts)
 }
 
 // ERC721Interface is a free data retrieval call binding the contract method 0x2b4c32be.
 //
 // Solidity: function ERC721_Interface() view returns(bytes4)
-func (_Smc *SmcCallerSession) ERC721Interface() ([4]byte, error) {
-	return _Smc.Contract.ERC721Interface(&_Smc.CallOpts)
+func (_OrderMarketplace *OrderMarketplaceCallerSession) ERC721Interface() ([4]byte, error) {
+	return _OrderMarketplace.Contract.ERC721Interface(&_OrderMarketplace.CallOpts)
 }
 
 // IMarketplaceStorageInterface is a free data retrieval call binding the contract method 0x8bafe559.
 //
 // Solidity: function IMarketplaceStorage_Interface() view returns(bytes4)
-func (_Smc *SmcCaller) IMarketplaceStorageInterface(opts *bind.CallOpts) ([4]byte, error) {
+func (_OrderMarketplace *OrderMarketplaceCaller) IMarketplaceStorageInterface(opts *bind.CallOpts) ([4]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "IMarketplaceStorage_Interface")
+	err := _OrderMarketplace.contract.Call(opts, &out, "IMarketplaceStorage_Interface")
 
 	if err != nil {
 		return *new([4]byte), err
@@ -323,23 +323,23 @@ func (_Smc *SmcCaller) IMarketplaceStorageInterface(opts *bind.CallOpts) ([4]byt
 // IMarketplaceStorageInterface is a free data retrieval call binding the contract method 0x8bafe559.
 //
 // Solidity: function IMarketplaceStorage_Interface() view returns(bytes4)
-func (_Smc *SmcSession) IMarketplaceStorageInterface() ([4]byte, error) {
-	return _Smc.Contract.IMarketplaceStorageInterface(&_Smc.CallOpts)
+func (_OrderMarketplace *OrderMarketplaceSession) IMarketplaceStorageInterface() ([4]byte, error) {
+	return _OrderMarketplace.Contract.IMarketplaceStorageInterface(&_OrderMarketplace.CallOpts)
 }
 
 // IMarketplaceStorageInterface is a free data retrieval call binding the contract method 0x8bafe559.
 //
 // Solidity: function IMarketplaceStorage_Interface() view returns(bytes4)
-func (_Smc *SmcCallerSession) IMarketplaceStorageInterface() ([4]byte, error) {
-	return _Smc.Contract.IMarketplaceStorageInterface(&_Smc.CallOpts)
+func (_OrderMarketplace *OrderMarketplaceCallerSession) IMarketplaceStorageInterface() ([4]byte, error) {
+	return _OrderMarketplace.Contract.IMarketplaceStorageInterface(&_OrderMarketplace.CallOpts)
 }
 
 // PAUSERROLE is a free data retrieval call binding the contract method 0xe63ab1e9.
 //
 // Solidity: function PAUSER_ROLE() view returns(bytes32)
-func (_Smc *SmcCaller) PAUSERROLE(opts *bind.CallOpts) ([32]byte, error) {
+func (_OrderMarketplace *OrderMarketplaceCaller) PAUSERROLE(opts *bind.CallOpts) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "PAUSER_ROLE")
+	err := _OrderMarketplace.contract.Call(opts, &out, "PAUSER_ROLE")
 
 	if err != nil {
 		return *new([32]byte), err
@@ -354,23 +354,23 @@ func (_Smc *SmcCaller) PAUSERROLE(opts *bind.CallOpts) ([32]byte, error) {
 // PAUSERROLE is a free data retrieval call binding the contract method 0xe63ab1e9.
 //
 // Solidity: function PAUSER_ROLE() view returns(bytes32)
-func (_Smc *SmcSession) PAUSERROLE() ([32]byte, error) {
-	return _Smc.Contract.PAUSERROLE(&_Smc.CallOpts)
+func (_OrderMarketplace *OrderMarketplaceSession) PAUSERROLE() ([32]byte, error) {
+	return _OrderMarketplace.Contract.PAUSERROLE(&_OrderMarketplace.CallOpts)
 }
 
 // PAUSERROLE is a free data retrieval call binding the contract method 0xe63ab1e9.
 //
 // Solidity: function PAUSER_ROLE() view returns(bytes32)
-func (_Smc *SmcCallerSession) PAUSERROLE() ([32]byte, error) {
-	return _Smc.Contract.PAUSERROLE(&_Smc.CallOpts)
+func (_OrderMarketplace *OrderMarketplaceCallerSession) PAUSERROLE() ([32]byte, error) {
+	return _OrderMarketplace.Contract.PAUSERROLE(&_OrderMarketplace.CallOpts)
 }
 
 // AcceptedToken is a free data retrieval call binding the contract method 0x451c3d80.
 //
 // Solidity: function acceptedToken() view returns(address)
-func (_Smc *SmcCaller) AcceptedToken(opts *bind.CallOpts) (common.Address, error) {
+func (_OrderMarketplace *OrderMarketplaceCaller) AcceptedToken(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "acceptedToken")
+	err := _OrderMarketplace.contract.Call(opts, &out, "acceptedToken")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -385,23 +385,23 @@ func (_Smc *SmcCaller) AcceptedToken(opts *bind.CallOpts) (common.Address, error
 // AcceptedToken is a free data retrieval call binding the contract method 0x451c3d80.
 //
 // Solidity: function acceptedToken() view returns(address)
-func (_Smc *SmcSession) AcceptedToken() (common.Address, error) {
-	return _Smc.Contract.AcceptedToken(&_Smc.CallOpts)
+func (_OrderMarketplace *OrderMarketplaceSession) AcceptedToken() (common.Address, error) {
+	return _OrderMarketplace.Contract.AcceptedToken(&_OrderMarketplace.CallOpts)
 }
 
 // AcceptedToken is a free data retrieval call binding the contract method 0x451c3d80.
 //
 // Solidity: function acceptedToken() view returns(address)
-func (_Smc *SmcCallerSession) AcceptedToken() (common.Address, error) {
-	return _Smc.Contract.AcceptedToken(&_Smc.CallOpts)
+func (_OrderMarketplace *OrderMarketplaceCallerSession) AcceptedToken() (common.Address, error) {
+	return _OrderMarketplace.Contract.AcceptedToken(&_OrderMarketplace.CallOpts)
 }
 
 // GetBlackListStatus is a free data retrieval call binding the contract method 0x59bf1abe.
 //
 // Solidity: function getBlackListStatus(address _maker) view returns(bool)
-func (_Smc *SmcCaller) GetBlackListStatus(opts *bind.CallOpts, _maker common.Address) (bool, error) {
+func (_OrderMarketplace *OrderMarketplaceCaller) GetBlackListStatus(opts *bind.CallOpts, _maker common.Address) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getBlackListStatus", _maker)
+	err := _OrderMarketplace.contract.Call(opts, &out, "getBlackListStatus", _maker)
 
 	if err != nil {
 		return *new(bool), err
@@ -416,23 +416,23 @@ func (_Smc *SmcCaller) GetBlackListStatus(opts *bind.CallOpts, _maker common.Add
 // GetBlackListStatus is a free data retrieval call binding the contract method 0x59bf1abe.
 //
 // Solidity: function getBlackListStatus(address _maker) view returns(bool)
-func (_Smc *SmcSession) GetBlackListStatus(_maker common.Address) (bool, error) {
-	return _Smc.Contract.GetBlackListStatus(&_Smc.CallOpts, _maker)
+func (_OrderMarketplace *OrderMarketplaceSession) GetBlackListStatus(_maker common.Address) (bool, error) {
+	return _OrderMarketplace.Contract.GetBlackListStatus(&_OrderMarketplace.CallOpts, _maker)
 }
 
 // GetBlackListStatus is a free data retrieval call binding the contract method 0x59bf1abe.
 //
 // Solidity: function getBlackListStatus(address _maker) view returns(bool)
-func (_Smc *SmcCallerSession) GetBlackListStatus(_maker common.Address) (bool, error) {
-	return _Smc.Contract.GetBlackListStatus(&_Smc.CallOpts, _maker)
+func (_OrderMarketplace *OrderMarketplaceCallerSession) GetBlackListStatus(_maker common.Address) (bool, error) {
+	return _OrderMarketplace.Contract.GetBlackListStatus(&_OrderMarketplace.CallOpts, _maker)
 }
 
 // GetRoleAdmin is a free data retrieval call binding the contract method 0x248a9ca3.
 //
 // Solidity: function getRoleAdmin(bytes32 role) view returns(bytes32)
-func (_Smc *SmcCaller) GetRoleAdmin(opts *bind.CallOpts, role [32]byte) ([32]byte, error) {
+func (_OrderMarketplace *OrderMarketplaceCaller) GetRoleAdmin(opts *bind.CallOpts, role [32]byte) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getRoleAdmin", role)
+	err := _OrderMarketplace.contract.Call(opts, &out, "getRoleAdmin", role)
 
 	if err != nil {
 		return *new([32]byte), err
@@ -447,23 +447,23 @@ func (_Smc *SmcCaller) GetRoleAdmin(opts *bind.CallOpts, role [32]byte) ([32]byt
 // GetRoleAdmin is a free data retrieval call binding the contract method 0x248a9ca3.
 //
 // Solidity: function getRoleAdmin(bytes32 role) view returns(bytes32)
-func (_Smc *SmcSession) GetRoleAdmin(role [32]byte) ([32]byte, error) {
-	return _Smc.Contract.GetRoleAdmin(&_Smc.CallOpts, role)
+func (_OrderMarketplace *OrderMarketplaceSession) GetRoleAdmin(role [32]byte) ([32]byte, error) {
+	return _OrderMarketplace.Contract.GetRoleAdmin(&_OrderMarketplace.CallOpts, role)
 }
 
 // GetRoleAdmin is a free data retrieval call binding the contract method 0x248a9ca3.
 //
 // Solidity: function getRoleAdmin(bytes32 role) view returns(bytes32)
-func (_Smc *SmcCallerSession) GetRoleAdmin(role [32]byte) ([32]byte, error) {
-	return _Smc.Contract.GetRoleAdmin(&_Smc.CallOpts, role)
+func (_OrderMarketplace *OrderMarketplaceCallerSession) GetRoleAdmin(role [32]byte) ([32]byte, error) {
+	return _OrderMarketplace.Contract.GetRoleAdmin(&_OrderMarketplace.CallOpts, role)
 }
 
 // GetRoleMember is a free data retrieval call binding the contract method 0x9010d07c.
 //
 // Solidity: function getRoleMember(bytes32 role, uint256 index) view returns(address)
-func (_Smc *SmcCaller) GetRoleMember(opts *bind.CallOpts, role [32]byte, index *big.Int) (common.Address, error) {
+func (_OrderMarketplace *OrderMarketplaceCaller) GetRoleMember(opts *bind.CallOpts, role [32]byte, index *big.Int) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getRoleMember", role, index)
+	err := _OrderMarketplace.contract.Call(opts, &out, "getRoleMember", role, index)
 
 	if err != nil {
 		return *new(common.Address), err
@@ -478,23 +478,23 @@ func (_Smc *SmcCaller) GetRoleMember(opts *bind.CallOpts, role [32]byte, index *
 // GetRoleMember is a free data retrieval call binding the contract method 0x9010d07c.
 //
 // Solidity: function getRoleMember(bytes32 role, uint256 index) view returns(address)
-func (_Smc *SmcSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
-	return _Smc.Contract.GetRoleMember(&_Smc.CallOpts, role, index)
+func (_OrderMarketplace *OrderMarketplaceSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
+	return _OrderMarketplace.Contract.GetRoleMember(&_OrderMarketplace.CallOpts, role, index)
 }
 
 // GetRoleMember is a free data retrieval call binding the contract method 0x9010d07c.
 //
 // Solidity: function getRoleMember(bytes32 role, uint256 index) view returns(address)
-func (_Smc *SmcCallerSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
-	return _Smc.Contract.GetRoleMember(&_Smc.CallOpts, role, index)
+func (_OrderMarketplace *OrderMarketplaceCallerSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
+	return _OrderMarketplace.Contract.GetRoleMember(&_OrderMarketplace.CallOpts, role, index)
 }
 
 // GetRoleMemberCount is a free data retrieval call binding the contract method 0xca15c873.
 //
 // Solidity: function getRoleMemberCount(bytes32 role) view returns(uint256)
-func (_Smc *SmcCaller) GetRoleMemberCount(opts *bind.CallOpts, role [32]byte) (*big.Int, error) {
+func (_OrderMarketplace *OrderMarketplaceCaller) GetRoleMemberCount(opts *bind.CallOpts, role [32]byte) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getRoleMemberCount", role)
+	err := _OrderMarketplace.contract.Call(opts, &out, "getRoleMemberCount", role)
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -509,23 +509,23 @@ func (_Smc *SmcCaller) GetRoleMemberCount(opts *bind.CallOpts, role [32]byte) (*
 // GetRoleMemberCount is a free data retrieval call binding the contract method 0xca15c873.
 //
 // Solidity: function getRoleMemberCount(bytes32 role) view returns(uint256)
-func (_Smc *SmcSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
-	return _Smc.Contract.GetRoleMemberCount(&_Smc.CallOpts, role)
+func (_OrderMarketplace *OrderMarketplaceSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
+	return _OrderMarketplace.Contract.GetRoleMemberCount(&_OrderMarketplace.CallOpts, role)
 }
 
 // GetRoleMemberCount is a free data retrieval call binding the contract method 0xca15c873.
 //
 // Solidity: function getRoleMemberCount(bytes32 role) view returns(uint256)
-func (_Smc *SmcCallerSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
-	return _Smc.Contract.GetRoleMemberCount(&_Smc.CallOpts, role)
+func (_OrderMarketplace *OrderMarketplaceCallerSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
+	return _OrderMarketplace.Contract.GetRoleMemberCount(&_OrderMarketplace.CallOpts, role)
 }
 
 // HasRole is a free data retrieval call binding the contract method 0x91d14854.
 //
 // Solidity: function hasRole(bytes32 role, address account) view returns(bool)
-func (_Smc *SmcCaller) HasRole(opts *bind.CallOpts, role [32]byte, account common.Address) (bool, error) {
+func (_OrderMarketplace *OrderMarketplaceCaller) HasRole(opts *bind.CallOpts, role [32]byte, account common.Address) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "hasRole", role, account)
+	err := _OrderMarketplace.contract.Call(opts, &out, "hasRole", role, account)
 
 	if err != nil {
 		return *new(bool), err
@@ -540,23 +540,23 @@ func (_Smc *SmcCaller) HasRole(opts *bind.CallOpts, role [32]byte, account commo
 // HasRole is a free data retrieval call binding the contract method 0x91d14854.
 //
 // Solidity: function hasRole(bytes32 role, address account) view returns(bool)
-func (_Smc *SmcSession) HasRole(role [32]byte, account common.Address) (bool, error) {
-	return _Smc.Contract.HasRole(&_Smc.CallOpts, role, account)
+func (_OrderMarketplace *OrderMarketplaceSession) HasRole(role [32]byte, account common.Address) (bool, error) {
+	return _OrderMarketplace.Contract.HasRole(&_OrderMarketplace.CallOpts, role, account)
 }
 
 // HasRole is a free data retrieval call binding the contract method 0x91d14854.
 //
 // Solidity: function hasRole(bytes32 role, address account) view returns(bool)
-func (_Smc *SmcCallerSession) HasRole(role [32]byte, account common.Address) (bool, error) {
-	return _Smc.Contract.HasRole(&_Smc.CallOpts, role, account)
+func (_OrderMarketplace *OrderMarketplaceCallerSession) HasRole(role [32]byte, account common.Address) (bool, error) {
+	return _OrderMarketplace.Contract.HasRole(&_OrderMarketplace.CallOpts, role, account)
 }
 
 // IsBlackListed is a free data retrieval call binding the contract method 0xe47d6060.
 //
 // Solidity: function isBlackListed(address ) view returns(bool)
-func (_Smc *SmcCaller) IsBlackListed(opts *bind.CallOpts, arg0 common.Address) (bool, error) {
+func (_OrderMarketplace *OrderMarketplaceCaller) IsBlackListed(opts *bind.CallOpts, arg0 common.Address) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "isBlackListed", arg0)
+	err := _OrderMarketplace.contract.Call(opts, &out, "isBlackListed", arg0)
 
 	if err != nil {
 		return *new(bool), err
@@ -571,23 +571,23 @@ func (_Smc *SmcCaller) IsBlackListed(opts *bind.CallOpts, arg0 common.Address) (
 // IsBlackListed is a free data retrieval call binding the contract method 0xe47d6060.
 //
 // Solidity: function isBlackListed(address ) view returns(bool)
-func (_Smc *SmcSession) IsBlackListed(arg0 common.Address) (bool, error) {
-	return _Smc.Contract.IsBlackListed(&_Smc.CallOpts, arg0)
+func (_OrderMarketplace *OrderMarketplaceSession) IsBlackListed(arg0 common.Address) (bool, error) {
+	return _OrderMarketplace.Contract.IsBlackListed(&_OrderMarketplace.CallOpts, arg0)
 }
 
 // IsBlackListed is a free data retrieval call binding the contract method 0xe47d6060.
 //
 // Solidity: function isBlackListed(address ) view returns(bool)
-func (_Smc *SmcCallerSession) IsBlackListed(arg0 common.Address) (bool, error) {
-	return _Smc.Contract.IsBlackListed(&_Smc.CallOpts, arg0)
+func (_OrderMarketplace *OrderMarketplaceCallerSession) IsBlackListed(arg0 common.Address) (bool, error) {
+	return _OrderMarketplace.Contract.IsBlackListed(&_OrderMarketplace.CallOpts, arg0)
 }
 
 // MarketplaceStorage is a free data retrieval call binding the contract method 0x46b3aec6.
 //
 // Solidity: function marketplaceStorage() view returns(address)
-func (_Smc *SmcCaller) MarketplaceStorage(opts *bind.CallOpts) (common.Address, error) {
+func (_OrderMarketplace *OrderMarketplaceCaller) MarketplaceStorage(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "marketplaceStorage")
+	err := _OrderMarketplace.contract.Call(opts, &out, "marketplaceStorage")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -602,23 +602,23 @@ func (_Smc *SmcCaller) MarketplaceStorage(opts *bind.CallOpts) (common.Address, 
 // MarketplaceStorage is a free data retrieval call binding the contract method 0x46b3aec6.
 //
 // Solidity: function marketplaceStorage() view returns(address)
-func (_Smc *SmcSession) MarketplaceStorage() (common.Address, error) {
-	return _Smc.Contract.MarketplaceStorage(&_Smc.CallOpts)
+func (_OrderMarketplace *OrderMarketplaceSession) MarketplaceStorage() (common.Address, error) {
+	return _OrderMarketplace.Contract.MarketplaceStorage(&_OrderMarketplace.CallOpts)
 }
 
 // MarketplaceStorage is a free data retrieval call binding the contract method 0x46b3aec6.
 //
 // Solidity: function marketplaceStorage() view returns(address)
-func (_Smc *SmcCallerSession) MarketplaceStorage() (common.Address, error) {
-	return _Smc.Contract.MarketplaceStorage(&_Smc.CallOpts)
+func (_OrderMarketplace *OrderMarketplaceCallerSession) MarketplaceStorage() (common.Address, error) {
+	return _OrderMarketplace.Contract.MarketplaceStorage(&_OrderMarketplace.CallOpts)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
+func (_OrderMarketplace *OrderMarketplaceCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "owner")
+	err := _OrderMarketplace.contract.Call(opts, &out, "owner")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -633,23 +633,23 @@ func (_Smc *SmcCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcSession) Owner() (common.Address, error) {
-	return _Smc.Contract.Owner(&_Smc.CallOpts)
+func (_OrderMarketplace *OrderMarketplaceSession) Owner() (common.Address, error) {
+	return _OrderMarketplace.Contract.Owner(&_OrderMarketplace.CallOpts)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcCallerSession) Owner() (common.Address, error) {
-	return _Smc.Contract.Owner(&_Smc.CallOpts)
+func (_OrderMarketplace *OrderMarketplaceCallerSession) Owner() (common.Address, error) {
+	return _OrderMarketplace.Contract.Owner(&_OrderMarketplace.CallOpts)
 }
 
 // OwnerCutPerMillion is a free data retrieval call binding the contract method 0xa01f79d4.
 //
 // Solidity: function ownerCutPerMillion() view returns(uint256)
-func (_Smc *SmcCaller) OwnerCutPerMillion(opts *bind.CallOpts) (*big.Int, error) {
+func (_OrderMarketplace *OrderMarketplaceCaller) OwnerCutPerMillion(opts *bind.CallOpts) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "ownerCutPerMillion")
+	err := _OrderMarketplace.contract.Call(opts, &out, "ownerCutPerMillion")
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -664,23 +664,23 @@ func (_Smc *SmcCaller) OwnerCutPerMillion(opts *bind.CallOpts) (*big.Int, error)
 // OwnerCutPerMillion is a free data retrieval call binding the contract method 0xa01f79d4.
 //
 // Solidity: function ownerCutPerMillion() view returns(uint256)
-func (_Smc *SmcSession) OwnerCutPerMillion() (*big.Int, error) {
-	return _Smc.Contract.OwnerCutPerMillion(&_Smc.CallOpts)
+func (_OrderMarketplace *OrderMarketplaceSession) OwnerCutPerMillion() (*big.Int, error) {
+	return _OrderMarketplace.Contract.OwnerCutPerMillion(&_OrderMarketplace.CallOpts)
 }
 
 // OwnerCutPerMillion is a free data retrieval call binding the contract method 0xa01f79d4.
 //
 // Solidity: function ownerCutPerMillion() view returns(uint256)
-func (_Smc *SmcCallerSession) OwnerCutPerMillion() (*big.Int, error) {
-	return _Smc.Contract.OwnerCutPerMillion(&_Smc.CallOpts)
+func (_OrderMarketplace *OrderMarketplaceCallerSession) OwnerCutPerMillion() (*big.Int, error) {
+	return _OrderMarketplace.Contract.OwnerCutPerMillion(&_OrderMarketplace.CallOpts)
 }
 
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcCaller) Paused(opts *bind.CallOpts) (bool, error) {
+func (_OrderMarketplace *OrderMarketplaceCaller) Paused(opts *bind.CallOpts) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "paused")
+	err := _OrderMarketplace.contract.Call(opts, &out, "paused")
 
 	if err != nil {
 		return *new(bool), err
@@ -695,23 +695,23 @@ func (_Smc *SmcCaller) Paused(opts *bind.CallOpts) (bool, error) {
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcSession) Paused() (bool, error) {
-	return _Smc.Contract.Paused(&_Smc.CallOpts)
+func (_OrderMarketplace *OrderMarketplaceSession) Paused() (bool, error) {
+	return _OrderMarketplace.Contract.Paused(&_OrderMarketplace.CallOpts)
 }
 
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcCallerSession) Paused() (bool, error) {
-	return _Smc.Contract.Paused(&_Smc.CallOpts)
+func (_OrderMarketplace *OrderMarketplaceCallerSession) Paused() (bool, error) {
+	return _OrderMarketplace.Contract.Paused(&_OrderMarketplace.CallOpts)
 }
 
 // PublicationFeeInWei is a free data retrieval call binding the contract method 0xae4f1198.
 //
 // Solidity: function publicationFeeInWei() view returns(uint256)
-func (_Smc *SmcCaller) PublicationFeeInWei(opts *bind.CallOpts) (*big.Int, error) {
+func (_OrderMarketplace *OrderMarketplaceCaller) PublicationFeeInWei(opts *bind.CallOpts) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "publicationFeeInWei")
+	err := _OrderMarketplace.contract.Call(opts, &out, "publicationFeeInWei")
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -726,23 +726,23 @@ func (_Smc *SmcCaller) PublicationFeeInWei(opts *bind.CallOpts) (*big.Int, error
 // PublicationFeeInWei is a free data retrieval call binding the contract method 0xae4f1198.
 //
 // Solidity: function publicationFeeInWei() view returns(uint256)
-func (_Smc *SmcSession) PublicationFeeInWei() (*big.Int, error) {
-	return _Smc.Contract.PublicationFeeInWei(&_Smc.CallOpts)
+func (_OrderMarketplace *OrderMarketplaceSession) PublicationFeeInWei() (*big.Int, error) {
+	return _OrderMarketplace.Contract.PublicationFeeInWei(&_OrderMarketplace.CallOpts)
 }
 
 // PublicationFeeInWei is a free data retrieval call binding the contract method 0xae4f1198.
 //
 // Solidity: function publicationFeeInWei() view returns(uint256)
-func (_Smc *SmcCallerSession) PublicationFeeInWei() (*big.Int, error) {
-	return _Smc.Contract.PublicationFeeInWei(&_Smc.CallOpts)
+func (_OrderMarketplace *OrderMarketplaceCallerSession) PublicationFeeInWei() (*big.Int, error) {
+	return _OrderMarketplace.Contract.PublicationFeeInWei(&_OrderMarketplace.CallOpts)
 }
 
 // SupportsInterface is a free data retrieval call binding the contract method 0x01ffc9a7.
 //
 // Solidity: function supportsInterface(bytes4 interfaceId) view returns(bool)
-func (_Smc *SmcCaller) SupportsInterface(opts *bind.CallOpts, interfaceId [4]byte) (bool, error) {
+func (_OrderMarketplace *OrderMarketplaceCaller) SupportsInterface(opts *bind.CallOpts, interfaceId [4]byte) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "supportsInterface", interfaceId)
+	err := _OrderMarketplace.contract.Call(opts, &out, "supportsInterface", interfaceId)
 
 	if err != nil {
 		return *new(bool), err
@@ -757,335 +757,335 @@ func (_Smc *SmcCaller) SupportsInterface(opts *bind.CallOpts, interfaceId [4]byt
 // SupportsInterface is a free data retrieval call binding the contract method 0x01ffc9a7.
 //
 // Solidity: function supportsInterface(bytes4 interfaceId) view returns(bool)
-func (_Smc *SmcSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
-	return _Smc.Contract.SupportsInterface(&_Smc.CallOpts, interfaceId)
+func (_OrderMarketplace *OrderMarketplaceSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
+	return _OrderMarketplace.Contract.SupportsInterface(&_OrderMarketplace.CallOpts, interfaceId)
 }
 
 // SupportsInterface is a free data retrieval call binding the contract method 0x01ffc9a7.
 //
 // Solidity: function supportsInterface(bytes4 interfaceId) view returns(bool)
-func (_Smc *SmcCallerSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
-	return _Smc.Contract.SupportsInterface(&_Smc.CallOpts, interfaceId)
+func (_OrderMarketplace *OrderMarketplaceCallerSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
+	return _OrderMarketplace.Contract.SupportsInterface(&_OrderMarketplace.CallOpts, interfaceId)
 }
 
 // AddBlackList is a paid mutator transaction binding the contract method 0x0ecb93c0.
 //
 // Solidity: function addBlackList(address _evilUser) returns()
-func (_Smc *SmcTransactor) AddBlackList(opts *bind.TransactOpts, _evilUser common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "addBlackList", _evilUser)
+func (_OrderMarketplace *OrderMarketplaceTransactor) AddBlackList(opts *bind.TransactOpts, _evilUser common.Address) (*types.Transaction, error) {
+	return _OrderMarketplace.contract.Transact(opts, "addBlackList", _evilUser)
 }
 
 // AddBlackList is a paid mutator transaction binding the contract method 0x0ecb93c0.
 //
 // Solidity: function addBlackList(address _evilUser) returns()
-func (_Smc *SmcSession) AddBlackList(_evilUser common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.AddBlackList(&_Smc.TransactOpts, _evilUser)
+func (_OrderMarketplace *OrderMarketplaceSession) AddBlackList(_evilUser common.Address) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.AddBlackList(&_OrderMarketplace.TransactOpts, _evilUser)
 }
 
 // AddBlackList is a paid mutator transaction binding the contract method 0x0ecb93c0.
 //
 // Solidity: function addBlackList(address _evilUser) returns()
-func (_Smc *SmcTransactorSession) AddBlackList(_evilUser common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.AddBlackList(&_Smc.TransactOpts, _evilUser)
+func (_OrderMarketplace *OrderMarketplaceTransactorSession) AddBlackList(_evilUser common.Address) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.AddBlackList(&_OrderMarketplace.TransactOpts, _evilUser)
 }
 
 // CancelOrder is a paid mutator transaction binding the contract method 0x7489ec23.
 //
 // Solidity: function cancelOrder(bytes32 nftAsset) returns()
-func (_Smc *SmcTransactor) CancelOrder(opts *bind.TransactOpts, nftAsset [32]byte) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "cancelOrder", nftAsset)
+func (_OrderMarketplace *OrderMarketplaceTransactor) CancelOrder(opts *bind.TransactOpts, nftAsset [32]byte) (*types.Transaction, error) {
+	return _OrderMarketplace.contract.Transact(opts, "cancelOrder", nftAsset)
 }
 
 // CancelOrder is a paid mutator transaction binding the contract method 0x7489ec23.
 //
 // Solidity: function cancelOrder(bytes32 nftAsset) returns()
-func (_Smc *SmcSession) CancelOrder(nftAsset [32]byte) (*types.Transaction, error) {
-	return _Smc.Contract.CancelOrder(&_Smc.TransactOpts, nftAsset)
+func (_OrderMarketplace *OrderMarketplaceSession) CancelOrder(nftAsset [32]byte) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.CancelOrder(&_OrderMarketplace.TransactOpts, nftAsset)
 }
 
 // CancelOrder is a paid mutator transaction binding the contract method 0x7489ec23.
 //
 // Solidity: function cancelOrder(bytes32 nftAsset) returns()
-func (_Smc *SmcTransactorSession) CancelOrder(nftAsset [32]byte) (*types.Transaction, error) {
-	return _Smc.Contract.CancelOrder(&_Smc.TransactOpts, nftAsset)
+func (_OrderMarketplace *OrderMarketplaceTransactorSession) CancelOrder(nftAsset [32]byte) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.CancelOrder(&_OrderMarketplace.TransactOpts, nftAsset)
 }
 
 // CreateOrder is a paid mutator transaction binding the contract method 0x6f652e1a.
 //
 // Solidity: function createOrder(address nftAddress, uint256 assetId, uint256 priceInWei, uint256 expiredAt) returns()
-func (_Smc *SmcTransactor) CreateOrder(opts *bind.TransactOpts, nftAddress common.Address, assetId *big.Int, priceInWei *big.Int, expiredAt *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "createOrder", nftAddress, assetId, priceInWei, expiredAt)
+func (_OrderMarketplace *OrderMarketplaceTransactor) CreateOrder(opts *bind.TransactOpts, nftAddress common.Address, assetId *big.Int, priceInWei *big.Int, expiredAt *big.Int) (*types.Transaction, error) {
+	return _OrderMarketplace.contract.Transact(opts, "createOrder", nftAddress, assetId, priceInWei, expiredAt)
 }
 
 // CreateOrder is a paid mutator transaction binding the contract method 0x6f652e1a.
 //
 // Solidity: function createOrder(address nftAddress, uint256 assetId, uint256 priceInWei, uint256 expiredAt) returns()
-func (_Smc *SmcSession) CreateOrder(nftAddress common.Address, assetId *big.Int, priceInWei *big.Int, expiredAt *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.CreateOrder(&_Smc.TransactOpts, nftAddress, assetId, priceInWei, expiredAt)
+func (_OrderMarketplace *OrderMarketplaceSession) CreateOrder(nftAddress common.Address, assetId *big.Int, priceInWei *big.Int, expiredAt *big.Int) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.CreateOrder(&_OrderMarketplace.TransactOpts, nftAddress, assetId, priceInWei, expiredAt)
 }
 
 // CreateOrder is a paid mutator transaction binding the contract method 0x6f652e1a.
 //
 // Solidity: function createOrder(address nftAddress, uint256 assetId, uint256 priceInWei, uint256 expiredAt) returns()
-func (_Smc *SmcTransactorSession) CreateOrder(nftAddress common.Address, assetId *big.Int, priceInWei *big.Int, expiredAt *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.CreateOrder(&_Smc.TransactOpts, nftAddress, assetId, priceInWei, expiredAt)
+func (_OrderMarketplace *OrderMarketplaceTransactorSession) CreateOrder(nftAddress common.Address, assetId *big.Int, priceInWei *big.Int, expiredAt *big.Int) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.CreateOrder(&_OrderMarketplace.TransactOpts, nftAddress, assetId, priceInWei, expiredAt)
 }
 
 // ExecuteOrder is a paid mutator transaction binding the contract method 0xae7b0333.
 //
 // Solidity: function executeOrder(address nftAddress, uint256 assetId, uint256 price) returns()
-func (_Smc *SmcTransactor) ExecuteOrder(opts *bind.TransactOpts, nftAddress common.Address, assetId *big.Int, price *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "executeOrder", nftAddress, assetId, price)
+func (_OrderMarketplace *OrderMarketplaceTransactor) ExecuteOrder(opts *bind.TransactOpts, nftAddress common.Address, assetId *big.Int, price *big.Int) (*types.Transaction, error) {
+	return _OrderMarketplace.contract.Transact(opts, "executeOrder", nftAddress, assetId, price)
 }
 
 // ExecuteOrder is a paid mutator transaction binding the contract method 0xae7b0333.
 //
 // Solidity: function executeOrder(address nftAddress, uint256 assetId, uint256 price) returns()
-func (_Smc *SmcSession) ExecuteOrder(nftAddress common.Address, assetId *big.Int, price *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.ExecuteOrder(&_Smc.TransactOpts, nftAddress, assetId, price)
+func (_OrderMarketplace *OrderMarketplaceSession) ExecuteOrder(nftAddress common.Address, assetId *big.Int, price *big.Int) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.ExecuteOrder(&_OrderMarketplace.TransactOpts, nftAddress, assetId, price)
 }
 
 // ExecuteOrder is a paid mutator transaction binding the contract method 0xae7b0333.
 //
 // Solidity: function executeOrder(address nftAddress, uint256 assetId, uint256 price) returns()
-func (_Smc *SmcTransactorSession) ExecuteOrder(nftAddress common.Address, assetId *big.Int, price *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.ExecuteOrder(&_Smc.TransactOpts, nftAddress, assetId, price)
+func (_OrderMarketplace *OrderMarketplaceTransactorSession) ExecuteOrder(nftAddress common.Address, assetId *big.Int, price *big.Int) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.ExecuteOrder(&_OrderMarketplace.TransactOpts, nftAddress, assetId, price)
 }
 
 // GrantRole is a paid mutator transaction binding the contract method 0x2f2ff15d.
 //
 // Solidity: function grantRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactor) GrantRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "grantRole", role, account)
+func (_OrderMarketplace *OrderMarketplaceTransactor) GrantRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _OrderMarketplace.contract.Transact(opts, "grantRole", role, account)
 }
 
 // GrantRole is a paid mutator transaction binding the contract method 0x2f2ff15d.
 //
 // Solidity: function grantRole(bytes32 role, address account) returns()
-func (_Smc *SmcSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.GrantRole(&_Smc.TransactOpts, role, account)
+func (_OrderMarketplace *OrderMarketplaceSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.GrantRole(&_OrderMarketplace.TransactOpts, role, account)
 }
 
 // GrantRole is a paid mutator transaction binding the contract method 0x2f2ff15d.
 //
 // Solidity: function grantRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactorSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.GrantRole(&_Smc.TransactOpts, role, account)
+func (_OrderMarketplace *OrderMarketplaceTransactorSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.GrantRole(&_OrderMarketplace.TransactOpts, role, account)
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcTransactor) Pause(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "pause")
+func (_OrderMarketplace *OrderMarketplaceTransactor) Pause(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _OrderMarketplace.contract.Transact(opts, "pause")
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcSession) Pause() (*types.Transaction, error) {
-	return _Smc.Contract.Pause(&_Smc.TransactOpts)
+func (_OrderMarketplace *OrderMarketplaceSession) Pause() (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.Pause(&_OrderMarketplace.TransactOpts)
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcTransactorSession) Pause() (*types.Transaction, error) {
-	return _Smc.Contract.Pause(&_Smc.TransactOpts)
+func (_OrderMarketplace *OrderMarketplaceTransactorSession) Pause() (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.Pause(&_OrderMarketplace.TransactOpts)
 }
 
 // RemoveBlackList is a paid mutator transaction binding the contract method 0xe4997dc5.
 //
 // Solidity: function removeBlackList(address _clearedUser) returns()
-func (_Smc *SmcTransactor) RemoveBlackList(opts *bind.TransactOpts, _clearedUser common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "removeBlackList", _clearedUser)
+func (_OrderMarketplace *OrderMarketplaceTransactor) RemoveBlackList(opts *bind.TransactOpts, _clearedUser common.Address) (*types.Transaction, error) {
+	return _OrderMarketplace.contract.Transact(opts, "removeBlackList", _clearedUser)
 }
 
 // RemoveBlackList is a paid mutator transaction binding the contract method 0xe4997dc5.
 //
 // Solidity: function removeBlackList(address _clearedUser) returns()
-func (_Smc *SmcSession) RemoveBlackList(_clearedUser common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RemoveBlackList(&_Smc.TransactOpts, _clearedUser)
+func (_OrderMarketplace *OrderMarketplaceSession) RemoveBlackList(_clearedUser common.Address) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.RemoveBlackList(&_OrderMarketplace.TransactOpts, _clearedUser)
 }
 
 // RemoveBlackList is a paid mutator transaction binding the contract method 0xe4997dc5.
 //
 // Solidity: function removeBlackList(address _clearedUser) returns()
-func (_Smc *SmcTransactorSession) RemoveBlackList(_clearedUser common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RemoveBlackList(&_Smc.TransactOpts, _clearedUser)
+func (_OrderMarketplace *OrderMarketplaceTransactorSession) RemoveBlackList(_clearedUser common.Address) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.RemoveBlackList(&_OrderMarketplace.TransactOpts, _clearedUser)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcTransactor) RenounceOwnership(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "renounceOwnership")
+func (_OrderMarketplace *OrderMarketplaceTransactor) RenounceOwnership(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _OrderMarketplace.contract.Transact(opts, "renounceOwnership")
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcSession) RenounceOwnership() (*types.Transaction, error) {
-	return _Smc.Contract.RenounceOwnership(&_Smc.TransactOpts)
+func (_OrderMarketplace *OrderMarketplaceSession) RenounceOwnership() (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.RenounceOwnership(&_OrderMarketplace.TransactOpts)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcTransactorSession) RenounceOwnership() (*types.Transaction, error) {
-	return _Smc.Contract.RenounceOwnership(&_Smc.TransactOpts)
+func (_OrderMarketplace *OrderMarketplaceTransactorSession) RenounceOwnership() (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.RenounceOwnership(&_OrderMarketplace.TransactOpts)
 }
 
 // RenounceRole is a paid mutator transaction binding the contract method 0x36568abe.
 //
 // Solidity: function renounceRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactor) RenounceRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "renounceRole", role, account)
+func (_OrderMarketplace *OrderMarketplaceTransactor) RenounceRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _OrderMarketplace.contract.Transact(opts, "renounceRole", role, account)
 }
 
 // RenounceRole is a paid mutator transaction binding the contract method 0x36568abe.
 //
 // Solidity: function renounceRole(bytes32 role, address account) returns()
-func (_Smc *SmcSession) RenounceRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RenounceRole(&_Smc.TransactOpts, role, account)
+func (_OrderMarketplace *OrderMarketplaceSession) RenounceRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.RenounceRole(&_OrderMarketplace.TransactOpts, role, account)
 }
 
 // RenounceRole is a paid mutator transaction binding the contract method 0x36568abe.
 //
 // Solidity: function renounceRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactorSession) RenounceRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RenounceRole(&_Smc.TransactOpts, role, account)
+func (_OrderMarketplace *OrderMarketplaceTransactorSession) RenounceRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.RenounceRole(&_OrderMarketplace.TransactOpts, role, account)
 }
 
 // RevokeRole is a paid mutator transaction binding the contract method 0xd547741f.
 //
 // Solidity: function revokeRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactor) RevokeRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "revokeRole", role, account)
+func (_OrderMarketplace *OrderMarketplaceTransactor) RevokeRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _OrderMarketplace.contract.Transact(opts, "revokeRole", role, account)
 }
 
 // RevokeRole is a paid mutator transaction binding the contract method 0xd547741f.
 //
 // Solidity: function revokeRole(bytes32 role, address account) returns()
-func (_Smc *SmcSession) RevokeRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RevokeRole(&_Smc.TransactOpts, role, account)
+func (_OrderMarketplace *OrderMarketplaceSession) RevokeRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.RevokeRole(&_OrderMarketplace.TransactOpts, role, account)
 }
 
 // RevokeRole is a paid mutator transaction binding the contract method 0xd547741f.
 //
 // Solidity: function revokeRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactorSession) RevokeRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RevokeRole(&_Smc.TransactOpts, role, account)
+func (_OrderMarketplace *OrderMarketplaceTransactorSession) RevokeRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.RevokeRole(&_OrderMarketplace.TransactOpts, role, account)
 }
 
 // SetOwnerCutPerMillion is a paid mutator transaction binding the contract method 0x19dad16d.
 //
 // Solidity: function setOwnerCutPerMillion(uint256 _ownerCutPerMillion) returns()
-func (_Smc *SmcTransactor) SetOwnerCutPerMillion(opts *bind.TransactOpts, _ownerCutPerMillion *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "setOwnerCutPerMillion", _ownerCutPerMillion)
+func (_OrderMarketplace *OrderMarketplaceTransactor) SetOwnerCutPerMillion(opts *bind.TransactOpts, _ownerCutPerMillion *big.Int) (*types.Transaction, error) {
+	return _OrderMarketplace.contract.Transact(opts, "setOwnerCutPerMillion", _ownerCutPerMillion)
 }
 
 // SetOwnerCutPerMillion is a paid mutator transaction binding the contract method 0x19dad16d.
 //
 // Solidity: function setOwnerCutPerMillion(uint256 _ownerCutPerMillion) returns()
-func (_Smc *SmcSession) SetOwnerCutPerMillion(_ownerCutPerMillion *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.SetOwnerCutPerMillion(&_Smc.TransactOpts, _ownerCutPerMillion)
+func (_OrderMarketplace *OrderMarketplaceSession) SetOwnerCutPerMillion(_ownerCutPerMillion *big.Int) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.SetOwnerCutPerMillion(&_OrderMarketplace.TransactOpts, _ownerCutPerMillion)
 }
 
 // SetOwnerCutPerMillion is a paid mutator transaction binding the contract method 0x19dad16d.
 //
 // Solidity: function setOwnerCutPerMillion(uint256 _ownerCutPerMillion) returns()
-func (_Smc *SmcTransactorSession) SetOwnerCutPerMillion(_ownerCutPerMillion *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.SetOwnerCutPerMillion(&_Smc.TransactOpts, _ownerCutPerMillion)
+func (_OrderMarketplace *OrderMarketplaceTransactorSession) SetOwnerCutPerMillion(_ownerCutPerMillion *big.Int) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.SetOwnerCutPerMillion(&_OrderMarketplace.TransactOpts, _ownerCutPerMillion)
 }
 
 // SetPublicationFee is a paid mutator transaction binding the contract method 0xaf8996f1.
 //
 // Solidity: function setPublicationFee(uint256 _publicationFee) returns()
-func (_Smc *SmcTransactor) SetPublicationFee(opts *bind.TransactOpts, _publicationFee *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "setPublicationFee", _publicationFee)
+func (_OrderMarketplace *OrderMarketplaceTransactor) SetPublicationFee(opts *bind.TransactOpts, _publicationFee *big.Int) (*types.Transaction, error) {
+	return _OrderMarketplace.contract.Transact(opts, "setPublicationFee", _publicationFee)
 }
 
 // SetPublicationFee is a paid mutator transaction binding the contract method 0xaf8996f1.
 //
 // Solidity: function setPublicationFee(uint256 _publicationFee) returns()
-func (_Smc *SmcSession) SetPublicationFee(_publicationFee *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.SetPublicationFee(&_Smc.TransactOpts, _publicationFee)
+func (_OrderMarketplace *OrderMarketplaceSession) SetPublicationFee(_publicationFee *big.Int) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.SetPublicationFee(&_OrderMarketplace.TransactOpts, _publicationFee)
 }
 
 // SetPublicationFee is a paid mutator transaction binding the contract method 0xaf8996f1.
 //
 // Solidity: function setPublicationFee(uint256 _publicationFee) returns()
-func (_Smc *SmcTransactorSession) SetPublicationFee(_publicationFee *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.SetPublicationFee(&_Smc.TransactOpts, _publicationFee)
+func (_OrderMarketplace *OrderMarketplaceTransactorSession) SetPublicationFee(_publicationFee *big.Int) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.SetPublicationFee(&_OrderMarketplace.TransactOpts, _publicationFee)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcTransactor) TransferOwnership(opts *bind.TransactOpts, newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "transferOwnership", newOwner)
+func (_OrderMarketplace *OrderMarketplaceTransactor) TransferOwnership(opts *bind.TransactOpts, newOwner common.Address) (*types.Transaction, error) {
+	return _OrderMarketplace.contract.Transact(opts, "transferOwnership", newOwner)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.TransferOwnership(&_Smc.TransactOpts, newOwner)
+func (_OrderMarketplace *OrderMarketplaceSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.TransferOwnership(&_OrderMarketplace.TransactOpts, newOwner)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcTransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.TransferOwnership(&_Smc.TransactOpts, newOwner)
+func (_OrderMarketplace *OrderMarketplaceTransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.TransferOwnership(&_OrderMarketplace.TransactOpts, newOwner)
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcTransactor) Unpause(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "unpause")
+func (_OrderMarketplace *OrderMarketplaceTransactor) Unpause(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _OrderMarketplace.contract.Transact(opts, "unpause")
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcSession) Unpause() (*types.Transaction, error) {
-	return _Smc.Contract.Unpause(&_Smc.TransactOpts)
+func (_OrderMarketplace *OrderMarketplaceSession) Unpause() (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.Unpause(&_OrderMarketplace.TransactOpts)
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcTransactorSession) Unpause() (*types.Transaction, error) {
-	return _Smc.Contract.Unpause(&_Smc.TransactOpts)
+func (_OrderMarketplace *OrderMarketplaceTransactorSession) Unpause() (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.Unpause(&_OrderMarketplace.TransactOpts)
 }
 
 // UpdateStorageAddress is a paid mutator transaction binding the contract method 0x889e2129.
 //
 // Solidity: function updateStorageAddress(address _marketplaceStorage) returns()
-func (_Smc *SmcTransactor) UpdateStorageAddress(opts *bind.TransactOpts, _marketplaceStorage common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "updateStorageAddress", _marketplaceStorage)
+func (_OrderMarketplace *OrderMarketplaceTransactor) UpdateStorageAddress(opts *bind.TransactOpts, _marketplaceStorage common.Address) (*types.Transaction, error) {
+	return _OrderMarketplace.contract.Transact(opts, "updateStorageAddress", _marketplaceStorage)
 }
 
 // UpdateStorageAddress is a paid mutator transaction binding the contract method 0x889e2129.
 //
 // Solidity: function updateStorageAddress(address _marketplaceStorage) returns()
-func (_Smc *SmcSession) UpdateStorageAddress(_marketplaceStorage common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.UpdateStorageAddress(&_Smc.TransactOpts, _marketplaceStorage)
+func (_OrderMarketplace *OrderMarketplaceSession) UpdateStorageAddress(_marketplaceStorage common.Address) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.UpdateStorageAddress(&_OrderMarketplace.TransactOpts, _marketplaceStorage)
 }
 
 // UpdateStorageAddress is a paid mutator transaction binding the contract method 0x889e2129.
 //
 // Solidity: function updateStorageAddress(address _marketplaceStorage) returns()
-func (_Smc *SmcTransactorSession) UpdateStorageAddress(_marketplaceStorage common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.UpdateStorageAddress(&_Smc.TransactOpts, _marketplaceStorage)
+func (_OrderMarketplace *OrderMarketplaceTransactorSession) UpdateStorageAddress(_marketplaceStorage common.Address) (*types.Transaction, error) {
+	return _OrderMarketplace.Contract.UpdateStorageAddress(&_OrderMarketplace.TransactOpts, _marketplaceStorage)
 }
 
-// SmcAddedBlackListIterator is returned from FilterAddedBlackList and is used to iterate over the raw logs and unpacked data for AddedBlackList events raised by the Smc contract.
-type SmcAddedBlackListIterator struct {
-	Event *SmcAddedBlackList // Event containing the contract specifics and raw log
+// OrderMarketplaceAddedBlackListIterator is returned from FilterAddedBlackList and is used to iterate over the raw logs and unpacked data for AddedBlackList events raised by the OrderMarketplace contract.
+type OrderMarketplaceAddedBlackListIterator struct {
+	Event *OrderMarketplaceAddedBlackList // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1099,7 +1099,7 @@ type SmcAddedBlackListIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcAddedBlackListIterator) Next() bool {
+func (it *OrderMarketplaceAddedBlackListIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1108,7 +1108,7 @@ func (it *SmcAddedBlackListIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcAddedBlackList)
+			it.Event = new(OrderMarketplaceAddedBlackList)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1123,7 +1123,7 @@ func (it *SmcAddedBlackListIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcAddedBlackList)
+		it.Event = new(OrderMarketplaceAddedBlackList)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1139,19 +1139,19 @@ func (it *SmcAddedBlackListIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcAddedBlackListIterator) Error() error {
+func (it *OrderMarketplaceAddedBlackListIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcAddedBlackListIterator) Close() error {
+func (it *OrderMarketplaceAddedBlackListIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcAddedBlackList represents a AddedBlackList event raised by the Smc contract.
-type SmcAddedBlackList struct {
+// OrderMarketplaceAddedBlackList represents a AddedBlackList event raised by the OrderMarketplace contract.
+type OrderMarketplaceAddedBlackList struct {
 	User common.Address
 	Raw  types.Log // Blockchain specific contextual infos
 }
@@ -1159,21 +1159,21 @@ type SmcAddedBlackList struct {
 // FilterAddedBlackList is a free log retrieval operation binding the contract event 0x42e160154868087d6bfdc0ca23d96a1c1cfa32f1b72ba9ba27b69b98a0d819dc.
 //
 // Solidity: event AddedBlackList(address _user)
-func (_Smc *SmcFilterer) FilterAddedBlackList(opts *bind.FilterOpts) (*SmcAddedBlackListIterator, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) FilterAddedBlackList(opts *bind.FilterOpts) (*OrderMarketplaceAddedBlackListIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "AddedBlackList")
+	logs, sub, err := _OrderMarketplace.contract.FilterLogs(opts, "AddedBlackList")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcAddedBlackListIterator{contract: _Smc.contract, event: "AddedBlackList", logs: logs, sub: sub}, nil
+	return &OrderMarketplaceAddedBlackListIterator{contract: _OrderMarketplace.contract, event: "AddedBlackList", logs: logs, sub: sub}, nil
 }
 
 // WatchAddedBlackList is a free log subscription operation binding the contract event 0x42e160154868087d6bfdc0ca23d96a1c1cfa32f1b72ba9ba27b69b98a0d819dc.
 //
 // Solidity: event AddedBlackList(address _user)
-func (_Smc *SmcFilterer) WatchAddedBlackList(opts *bind.WatchOpts, sink chan<- *SmcAddedBlackList) (event.Subscription, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) WatchAddedBlackList(opts *bind.WatchOpts, sink chan<- *OrderMarketplaceAddedBlackList) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "AddedBlackList")
+	logs, sub, err := _OrderMarketplace.contract.WatchLogs(opts, "AddedBlackList")
 	if err != nil {
 		return nil, err
 	}
@@ -1183,8 +1183,8 @@ func (_Smc *SmcFilterer) WatchAddedBlackList(opts *bind.WatchOpts, sink chan<- *
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcAddedBlackList)
-				if err := _Smc.contract.UnpackLog(event, "AddedBlackList", log); err != nil {
+				event := new(OrderMarketplaceAddedBlackList)
+				if err := _OrderMarketplace.contract.UnpackLog(event, "AddedBlackList", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1208,18 +1208,18 @@ func (_Smc *SmcFilterer) WatchAddedBlackList(opts *bind.WatchOpts, sink chan<- *
 // ParseAddedBlackList is a log parse operation binding the contract event 0x42e160154868087d6bfdc0ca23d96a1c1cfa32f1b72ba9ba27b69b98a0d819dc.
 //
 // Solidity: event AddedBlackList(address _user)
-func (_Smc *SmcFilterer) ParseAddedBlackList(log types.Log) (*SmcAddedBlackList, error) {
-	event := new(SmcAddedBlackList)
-	if err := _Smc.contract.UnpackLog(event, "AddedBlackList", log); err != nil {
+func (_OrderMarketplace *OrderMarketplaceFilterer) ParseAddedBlackList(log types.Log) (*OrderMarketplaceAddedBlackList, error) {
+	event := new(OrderMarketplaceAddedBlackList)
+	if err := _OrderMarketplace.contract.UnpackLog(event, "AddedBlackList", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcChangedOwnerCutPerMillionIterator is returned from FilterChangedOwnerCutPerMillion and is used to iterate over the raw logs and unpacked data for ChangedOwnerCutPerMillion events raised by the Smc contract.
-type SmcChangedOwnerCutPerMillionIterator struct {
-	Event *SmcChangedOwnerCutPerMillion // Event containing the contract specifics and raw log
+// OrderMarketplaceChangedOwnerCutPerMillionIterator is returned from FilterChangedOwnerCutPerMillion and is used to iterate over the raw logs and unpacked data for ChangedOwnerCutPerMillion events raised by the OrderMarketplace contract.
+type OrderMarketplaceChangedOwnerCutPerMillionIterator struct {
+	Event *OrderMarketplaceChangedOwnerCutPerMillion // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1233,7 +1233,7 @@ type SmcChangedOwnerCutPerMillionIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcChangedOwnerCutPerMillionIterator) Next() bool {
+func (it *OrderMarketplaceChangedOwnerCutPerMillionIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1242,7 +1242,7 @@ func (it *SmcChangedOwnerCutPerMillionIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcChangedOwnerCutPerMillion)
+			it.Event = new(OrderMarketplaceChangedOwnerCutPerMillion)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1257,7 +1257,7 @@ func (it *SmcChangedOwnerCutPerMillionIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcChangedOwnerCutPerMillion)
+		it.Event = new(OrderMarketplaceChangedOwnerCutPerMillion)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1273,19 +1273,19 @@ func (it *SmcChangedOwnerCutPerMillionIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcChangedOwnerCutPerMillionIterator) Error() error {
+func (it *OrderMarketplaceChangedOwnerCutPerMillionIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcChangedOwnerCutPerMillionIterator) Close() error {
+func (it *OrderMarketplaceChangedOwnerCutPerMillionIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcChangedOwnerCutPerMillion represents a ChangedOwnerCutPerMillion event raised by the Smc contract.
-type SmcChangedOwnerCutPerMillion struct {
+// OrderMarketplaceChangedOwnerCutPerMillion represents a ChangedOwnerCutPerMillion event raised by the OrderMarketplace contract.
+type OrderMarketplaceChangedOwnerCutPerMillion struct {
 	OwnerCutPerMillion *big.Int
 	Raw                types.Log // Blockchain specific contextual infos
 }
@@ -1293,21 +1293,21 @@ type SmcChangedOwnerCutPerMillion struct {
 // FilterChangedOwnerCutPerMillion is a free log retrieval operation binding the contract event 0xfa406a120a9e7f2b332bfb7a43d3bf1c3f079262202907a6b69c94b2821a02c6.
 //
 // Solidity: event ChangedOwnerCutPerMillion(uint256 ownerCutPerMillion)
-func (_Smc *SmcFilterer) FilterChangedOwnerCutPerMillion(opts *bind.FilterOpts) (*SmcChangedOwnerCutPerMillionIterator, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) FilterChangedOwnerCutPerMillion(opts *bind.FilterOpts) (*OrderMarketplaceChangedOwnerCutPerMillionIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "ChangedOwnerCutPerMillion")
+	logs, sub, err := _OrderMarketplace.contract.FilterLogs(opts, "ChangedOwnerCutPerMillion")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcChangedOwnerCutPerMillionIterator{contract: _Smc.contract, event: "ChangedOwnerCutPerMillion", logs: logs, sub: sub}, nil
+	return &OrderMarketplaceChangedOwnerCutPerMillionIterator{contract: _OrderMarketplace.contract, event: "ChangedOwnerCutPerMillion", logs: logs, sub: sub}, nil
 }
 
 // WatchChangedOwnerCutPerMillion is a free log subscription operation binding the contract event 0xfa406a120a9e7f2b332bfb7a43d3bf1c3f079262202907a6b69c94b2821a02c6.
 //
 // Solidity: event ChangedOwnerCutPerMillion(uint256 ownerCutPerMillion)
-func (_Smc *SmcFilterer) WatchChangedOwnerCutPerMillion(opts *bind.WatchOpts, sink chan<- *SmcChangedOwnerCutPerMillion) (event.Subscription, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) WatchChangedOwnerCutPerMillion(opts *bind.WatchOpts, sink chan<- *OrderMarketplaceChangedOwnerCutPerMillion) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "ChangedOwnerCutPerMillion")
+	logs, sub, err := _OrderMarketplace.contract.WatchLogs(opts, "ChangedOwnerCutPerMillion")
 	if err != nil {
 		return nil, err
 	}
@@ -1317,8 +1317,8 @@ func (_Smc *SmcFilterer) WatchChangedOwnerCutPerMillion(opts *bind.WatchOpts, si
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcChangedOwnerCutPerMillion)
-				if err := _Smc.contract.UnpackLog(event, "ChangedOwnerCutPerMillion", log); err != nil {
+				event := new(OrderMarketplaceChangedOwnerCutPerMillion)
+				if err := _OrderMarketplace.contract.UnpackLog(event, "ChangedOwnerCutPerMillion", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1342,18 +1342,18 @@ func (_Smc *SmcFilterer) WatchChangedOwnerCutPerMillion(opts *bind.WatchOpts, si
 // ParseChangedOwnerCutPerMillion is a log parse operation binding the contract event 0xfa406a120a9e7f2b332bfb7a43d3bf1c3f079262202907a6b69c94b2821a02c6.
 //
 // Solidity: event ChangedOwnerCutPerMillion(uint256 ownerCutPerMillion)
-func (_Smc *SmcFilterer) ParseChangedOwnerCutPerMillion(log types.Log) (*SmcChangedOwnerCutPerMillion, error) {
-	event := new(SmcChangedOwnerCutPerMillion)
-	if err := _Smc.contract.UnpackLog(event, "ChangedOwnerCutPerMillion", log); err != nil {
+func (_OrderMarketplace *OrderMarketplaceFilterer) ParseChangedOwnerCutPerMillion(log types.Log) (*OrderMarketplaceChangedOwnerCutPerMillion, error) {
+	event := new(OrderMarketplaceChangedOwnerCutPerMillion)
+	if err := _OrderMarketplace.contract.UnpackLog(event, "ChangedOwnerCutPerMillion", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcChangedPublicationFeeIterator is returned from FilterChangedPublicationFee and is used to iterate over the raw logs and unpacked data for ChangedPublicationFee events raised by the Smc contract.
-type SmcChangedPublicationFeeIterator struct {
-	Event *SmcChangedPublicationFee // Event containing the contract specifics and raw log
+// OrderMarketplaceChangedPublicationFeeIterator is returned from FilterChangedPublicationFee and is used to iterate over the raw logs and unpacked data for ChangedPublicationFee events raised by the OrderMarketplace contract.
+type OrderMarketplaceChangedPublicationFeeIterator struct {
+	Event *OrderMarketplaceChangedPublicationFee // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1367,7 +1367,7 @@ type SmcChangedPublicationFeeIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcChangedPublicationFeeIterator) Next() bool {
+func (it *OrderMarketplaceChangedPublicationFeeIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1376,7 +1376,7 @@ func (it *SmcChangedPublicationFeeIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcChangedPublicationFee)
+			it.Event = new(OrderMarketplaceChangedPublicationFee)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1391,7 +1391,7 @@ func (it *SmcChangedPublicationFeeIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcChangedPublicationFee)
+		it.Event = new(OrderMarketplaceChangedPublicationFee)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1407,19 +1407,19 @@ func (it *SmcChangedPublicationFeeIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcChangedPublicationFeeIterator) Error() error {
+func (it *OrderMarketplaceChangedPublicationFeeIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcChangedPublicationFeeIterator) Close() error {
+func (it *OrderMarketplaceChangedPublicationFeeIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcChangedPublicationFee represents a ChangedPublicationFee event raised by the Smc contract.
-type SmcChangedPublicationFee struct {
+// OrderMarketplaceChangedPublicationFee represents a ChangedPublicationFee event raised by the OrderMarketplace contract.
+type OrderMarketplaceChangedPublicationFee struct {
 	PublicationFee *big.Int
 	Raw            types.Log // Blockchain specific contextual infos
 }
@@ -1427,21 +1427,21 @@ type SmcChangedPublicationFee struct {
 // FilterChangedPublicationFee is a free log retrieval operation binding the contract event 0xe7fa8737293f41b5dfa0d5c3e552860a06275bed7015581b083c7be7003308ba.
 //
 // Solidity: event ChangedPublicationFee(uint256 publicationFee)
-func (_Smc *SmcFilterer) FilterChangedPublicationFee(opts *bind.FilterOpts) (*SmcChangedPublicationFeeIterator, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) FilterChangedPublicationFee(opts *bind.FilterOpts) (*OrderMarketplaceChangedPublicationFeeIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "ChangedPublicationFee")
+	logs, sub, err := _OrderMarketplace.contract.FilterLogs(opts, "ChangedPublicationFee")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcChangedPublicationFeeIterator{contract: _Smc.contract, event: "ChangedPublicationFee", logs: logs, sub: sub}, nil
+	return &OrderMarketplaceChangedPublicationFeeIterator{contract: _OrderMarketplace.contract, event: "ChangedPublicationFee", logs: logs, sub: sub}, nil
 }
 
 // WatchChangedPublicationFee is a free log subscription operation binding the contract event 0xe7fa8737293f41b5dfa0d5c3e552860a06275bed7015581b083c7be7003308ba.
 //
 // Solidity: event ChangedPublicationFee(uint256 publicationFee)
-func (_Smc *SmcFilterer) WatchChangedPublicationFee(opts *bind.WatchOpts, sink chan<- *SmcChangedPublicationFee) (event.Subscription, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) WatchChangedPublicationFee(opts *bind.WatchOpts, sink chan<- *OrderMarketplaceChangedPublicationFee) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "ChangedPublicationFee")
+	logs, sub, err := _OrderMarketplace.contract.WatchLogs(opts, "ChangedPublicationFee")
 	if err != nil {
 		return nil, err
 	}
@@ -1451,8 +1451,8 @@ func (_Smc *SmcFilterer) WatchChangedPublicationFee(opts *bind.WatchOpts, sink c
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcChangedPublicationFee)
-				if err := _Smc.contract.UnpackLog(event, "ChangedPublicationFee", log); err != nil {
+				event := new(OrderMarketplaceChangedPublicationFee)
+				if err := _OrderMarketplace.contract.UnpackLog(event, "ChangedPublicationFee", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1476,18 +1476,18 @@ func (_Smc *SmcFilterer) WatchChangedPublicationFee(opts *bind.WatchOpts, sink c
 // ParseChangedPublicationFee is a log parse operation binding the contract event 0xe7fa8737293f41b5dfa0d5c3e552860a06275bed7015581b083c7be7003308ba.
 //
 // Solidity: event ChangedPublicationFee(uint256 publicationFee)
-func (_Smc *SmcFilterer) ParseChangedPublicationFee(log types.Log) (*SmcChangedPublicationFee, error) {
-	event := new(SmcChangedPublicationFee)
-	if err := _Smc.contract.UnpackLog(event, "ChangedPublicationFee", log); err != nil {
+func (_OrderMarketplace *OrderMarketplaceFilterer) ParseChangedPublicationFee(log types.Log) (*OrderMarketplaceChangedPublicationFee, error) {
+	event := new(OrderMarketplaceChangedPublicationFee)
+	if err := _OrderMarketplace.contract.UnpackLog(event, "ChangedPublicationFee", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcMarketplaceStorageUpdatedIterator is returned from FilterMarketplaceStorageUpdated and is used to iterate over the raw logs and unpacked data for MarketplaceStorageUpdated events raised by the Smc contract.
-type SmcMarketplaceStorageUpdatedIterator struct {
-	Event *SmcMarketplaceStorageUpdated // Event containing the contract specifics and raw log
+// OrderMarketplaceMarketplaceStorageUpdatedIterator is returned from FilterMarketplaceStorageUpdated and is used to iterate over the raw logs and unpacked data for MarketplaceStorageUpdated events raised by the OrderMarketplace contract.
+type OrderMarketplaceMarketplaceStorageUpdatedIterator struct {
+	Event *OrderMarketplaceMarketplaceStorageUpdated // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1501,7 +1501,7 @@ type SmcMarketplaceStorageUpdatedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcMarketplaceStorageUpdatedIterator) Next() bool {
+func (it *OrderMarketplaceMarketplaceStorageUpdatedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1510,7 +1510,7 @@ func (it *SmcMarketplaceStorageUpdatedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcMarketplaceStorageUpdated)
+			it.Event = new(OrderMarketplaceMarketplaceStorageUpdated)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1525,7 +1525,7 @@ func (it *SmcMarketplaceStorageUpdatedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcMarketplaceStorageUpdated)
+		it.Event = new(OrderMarketplaceMarketplaceStorageUpdated)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1541,19 +1541,19 @@ func (it *SmcMarketplaceStorageUpdatedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcMarketplaceStorageUpdatedIterator) Error() error {
+func (it *OrderMarketplaceMarketplaceStorageUpdatedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcMarketplaceStorageUpdatedIterator) Close() error {
+func (it *OrderMarketplaceMarketplaceStorageUpdatedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcMarketplaceStorageUpdated represents a MarketplaceStorageUpdated event raised by the Smc contract.
-type SmcMarketplaceStorageUpdated struct {
+// OrderMarketplaceMarketplaceStorageUpdated represents a MarketplaceStorageUpdated event raised by the OrderMarketplace contract.
+type OrderMarketplaceMarketplaceStorageUpdated struct {
 	MarketplaceStorage common.Address
 	Raw                types.Log // Blockchain specific contextual infos
 }
@@ -1561,21 +1561,21 @@ type SmcMarketplaceStorageUpdated struct {
 // FilterMarketplaceStorageUpdated is a free log retrieval operation binding the contract event 0x19e07a962d0e1cab8b7d4be06b77a7225ca7ebb744994cb6546fdd815590dc9d.
 //
 // Solidity: event MarketplaceStorageUpdated(address _marketplaceStorage)
-func (_Smc *SmcFilterer) FilterMarketplaceStorageUpdated(opts *bind.FilterOpts) (*SmcMarketplaceStorageUpdatedIterator, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) FilterMarketplaceStorageUpdated(opts *bind.FilterOpts) (*OrderMarketplaceMarketplaceStorageUpdatedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "MarketplaceStorageUpdated")
+	logs, sub, err := _OrderMarketplace.contract.FilterLogs(opts, "MarketplaceStorageUpdated")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcMarketplaceStorageUpdatedIterator{contract: _Smc.contract, event: "MarketplaceStorageUpdated", logs: logs, sub: sub}, nil
+	return &OrderMarketplaceMarketplaceStorageUpdatedIterator{contract: _OrderMarketplace.contract, event: "MarketplaceStorageUpdated", logs: logs, sub: sub}, nil
 }
 
 // WatchMarketplaceStorageUpdated is a free log subscription operation binding the contract event 0x19e07a962d0e1cab8b7d4be06b77a7225ca7ebb744994cb6546fdd815590dc9d.
 //
 // Solidity: event MarketplaceStorageUpdated(address _marketplaceStorage)
-func (_Smc *SmcFilterer) WatchMarketplaceStorageUpdated(opts *bind.WatchOpts, sink chan<- *SmcMarketplaceStorageUpdated) (event.Subscription, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) WatchMarketplaceStorageUpdated(opts *bind.WatchOpts, sink chan<- *OrderMarketplaceMarketplaceStorageUpdated) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "MarketplaceStorageUpdated")
+	logs, sub, err := _OrderMarketplace.contract.WatchLogs(opts, "MarketplaceStorageUpdated")
 	if err != nil {
 		return nil, err
 	}
@@ -1585,8 +1585,8 @@ func (_Smc *SmcFilterer) WatchMarketplaceStorageUpdated(opts *bind.WatchOpts, si
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcMarketplaceStorageUpdated)
-				if err := _Smc.contract.UnpackLog(event, "MarketplaceStorageUpdated", log); err != nil {
+				event := new(OrderMarketplaceMarketplaceStorageUpdated)
+				if err := _OrderMarketplace.contract.UnpackLog(event, "MarketplaceStorageUpdated", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1610,18 +1610,18 @@ func (_Smc *SmcFilterer) WatchMarketplaceStorageUpdated(opts *bind.WatchOpts, si
 // ParseMarketplaceStorageUpdated is a log parse operation binding the contract event 0x19e07a962d0e1cab8b7d4be06b77a7225ca7ebb744994cb6546fdd815590dc9d.
 //
 // Solidity: event MarketplaceStorageUpdated(address _marketplaceStorage)
-func (_Smc *SmcFilterer) ParseMarketplaceStorageUpdated(log types.Log) (*SmcMarketplaceStorageUpdated, error) {
-	event := new(SmcMarketplaceStorageUpdated)
-	if err := _Smc.contract.UnpackLog(event, "MarketplaceStorageUpdated", log); err != nil {
+func (_OrderMarketplace *OrderMarketplaceFilterer) ParseMarketplaceStorageUpdated(log types.Log) (*OrderMarketplaceMarketplaceStorageUpdated, error) {
+	event := new(OrderMarketplaceMarketplaceStorageUpdated)
+	if err := _OrderMarketplace.contract.UnpackLog(event, "MarketplaceStorageUpdated", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcOrderCancelledIterator is returned from FilterOrderCancelled and is used to iterate over the raw logs and unpacked data for OrderCancelled events raised by the Smc contract.
-type SmcOrderCancelledIterator struct {
-	Event *SmcOrderCancelled // Event containing the contract specifics and raw log
+// OrderMarketplaceOrderCancelledIterator is returned from FilterOrderCancelled and is used to iterate over the raw logs and unpacked data for OrderCancelled events raised by the OrderMarketplace contract.
+type OrderMarketplaceOrderCancelledIterator struct {
+	Event *OrderMarketplaceOrderCancelled // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1635,7 +1635,7 @@ type SmcOrderCancelledIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcOrderCancelledIterator) Next() bool {
+func (it *OrderMarketplaceOrderCancelledIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1644,7 +1644,7 @@ func (it *SmcOrderCancelledIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcOrderCancelled)
+			it.Event = new(OrderMarketplaceOrderCancelled)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1659,7 +1659,7 @@ func (it *SmcOrderCancelledIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcOrderCancelled)
+		it.Event = new(OrderMarketplaceOrderCancelled)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1675,19 +1675,19 @@ func (it *SmcOrderCancelledIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcOrderCancelledIterator) Error() error {
+func (it *OrderMarketplaceOrderCancelledIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcOrderCancelledIterator) Close() error {
+func (it *OrderMarketplaceOrderCancelledIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcOrderCancelled represents a OrderCancelled event raised by the Smc contract.
-type SmcOrderCancelled struct {
+// OrderMarketplaceOrderCancelled represents a OrderCancelled event raised by the OrderMarketplace contract.
+type OrderMarketplaceOrderCancelled struct {
 	Id  [32]byte
 	Raw types.Log // Blockchain specific contextual infos
 }
@@ -1695,31 +1695,31 @@ type SmcOrderCancelled struct {
 // FilterOrderCancelled is a free log retrieval operation binding the contract event 0x5152abf959f6564662358c2e52b702259b78bac5ee7842a0f01937e670efcc7d.
 //
 // Solidity: event OrderCancelled(bytes32 indexed id)
-func (_Smc *SmcFilterer) FilterOrderCancelled(opts *bind.FilterOpts, id [][32]byte) (*SmcOrderCancelledIterator, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) FilterOrderCancelled(opts *bind.FilterOpts, id [][32]byte) (*OrderMarketplaceOrderCancelledIterator, error) {
 
 	var idRule []interface{}
 	for _, idItem := range id {
 		idRule = append(idRule, idItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "OrderCancelled", idRule)
+	logs, sub, err := _OrderMarketplace.contract.FilterLogs(opts, "OrderCancelled", idRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcOrderCancelledIterator{contract: _Smc.contract, event: "OrderCancelled", logs: logs, sub: sub}, nil
+	return &OrderMarketplaceOrderCancelledIterator{contract: _OrderMarketplace.contract, event: "OrderCancelled", logs: logs, sub: sub}, nil
 }
 
 // WatchOrderCancelled is a free log subscription operation binding the contract event 0x5152abf959f6564662358c2e52b702259b78bac5ee7842a0f01937e670efcc7d.
 //
 // Solidity: event OrderCancelled(bytes32 indexed id)
-func (_Smc *SmcFilterer) WatchOrderCancelled(opts *bind.WatchOpts, sink chan<- *SmcOrderCancelled, id [][32]byte) (event.Subscription, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) WatchOrderCancelled(opts *bind.WatchOpts, sink chan<- *OrderMarketplaceOrderCancelled, id [][32]byte) (event.Subscription, error) {
 
 	var idRule []interface{}
 	for _, idItem := range id {
 		idRule = append(idRule, idItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "OrderCancelled", idRule)
+	logs, sub, err := _OrderMarketplace.contract.WatchLogs(opts, "OrderCancelled", idRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1729,8 +1729,8 @@ func (_Smc *SmcFilterer) WatchOrderCancelled(opts *bind.WatchOpts, sink chan<- *
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcOrderCancelled)
-				if err := _Smc.contract.UnpackLog(event, "OrderCancelled", log); err != nil {
+				event := new(OrderMarketplaceOrderCancelled)
+				if err := _OrderMarketplace.contract.UnpackLog(event, "OrderCancelled", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1754,18 +1754,18 @@ func (_Smc *SmcFilterer) WatchOrderCancelled(opts *bind.WatchOpts, sink chan<- *
 // ParseOrderCancelled is a log parse operation binding the contract event 0x5152abf959f6564662358c2e52b702259b78bac5ee7842a0f01937e670efcc7d.
 //
 // Solidity: event OrderCancelled(bytes32 indexed id)
-func (_Smc *SmcFilterer) ParseOrderCancelled(log types.Log) (*SmcOrderCancelled, error) {
-	event := new(SmcOrderCancelled)
-	if err := _Smc.contract.UnpackLog(event, "OrderCancelled", log); err != nil {
+func (_OrderMarketplace *OrderMarketplaceFilterer) ParseOrderCancelled(log types.Log) (*OrderMarketplaceOrderCancelled, error) {
+	event := new(OrderMarketplaceOrderCancelled)
+	if err := _OrderMarketplace.contract.UnpackLog(event, "OrderCancelled", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcOrderCreatedIterator is returned from FilterOrderCreated and is used to iterate over the raw logs and unpacked data for OrderCreated events raised by the Smc contract.
-type SmcOrderCreatedIterator struct {
-	Event *SmcOrderCreated // Event containing the contract specifics and raw log
+// OrderMarketplaceOrderCreatedIterator is returned from FilterOrderCreated and is used to iterate over the raw logs and unpacked data for OrderCreated events raised by the OrderMarketplace contract.
+type OrderMarketplaceOrderCreatedIterator struct {
+	Event *OrderMarketplaceOrderCreated // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1779,7 +1779,7 @@ type SmcOrderCreatedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcOrderCreatedIterator) Next() bool {
+func (it *OrderMarketplaceOrderCreatedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1788,7 +1788,7 @@ func (it *SmcOrderCreatedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcOrderCreated)
+			it.Event = new(OrderMarketplaceOrderCreated)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1803,7 +1803,7 @@ func (it *SmcOrderCreatedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcOrderCreated)
+		it.Event = new(OrderMarketplaceOrderCreated)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1819,19 +1819,19 @@ func (it *SmcOrderCreatedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcOrderCreatedIterator) Error() error {
+func (it *OrderMarketplaceOrderCreatedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcOrderCreatedIterator) Close() error {
+func (it *OrderMarketplaceOrderCreatedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcOrderCreated represents a OrderCreated event raised by the Smc contract.
-type SmcOrderCreated struct {
+// OrderMarketplaceOrderCreated represents a OrderCreated event raised by the OrderMarketplace contract.
+type OrderMarketplaceOrderCreated struct {
 	OrderId    [32]byte
 	AssetId    *big.Int
 	Seller     common.Address
@@ -1844,7 +1844,7 @@ type SmcOrderCreated struct {
 // FilterOrderCreated is a free log retrieval operation binding the contract event 0x84c66c3f7ba4b390e20e8e8233e2a516f3ce34a72749e4f12bd010dfba238039.
 //
 // Solidity: event OrderCreated(bytes32 indexed orderId, uint256 indexed assetId, address indexed seller, address nftAddress, uint256 priceInWei, uint256 expiredAt)
-func (_Smc *SmcFilterer) FilterOrderCreated(opts *bind.FilterOpts, orderId [][32]byte, assetId []*big.Int, seller []common.Address) (*SmcOrderCreatedIterator, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) FilterOrderCreated(opts *bind.FilterOpts, orderId [][32]byte, assetId []*big.Int, seller []common.Address) (*OrderMarketplaceOrderCreatedIterator, error) {
 
 	var orderIdRule []interface{}
 	for _, orderIdItem := range orderId {
@@ -1859,17 +1859,17 @@ func (_Smc *SmcFilterer) FilterOrderCreated(opts *bind.FilterOpts, orderId [][32
 		sellerRule = append(sellerRule, sellerItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "OrderCreated", orderIdRule, assetIdRule, sellerRule)
+	logs, sub, err := _OrderMarketplace.contract.FilterLogs(opts, "OrderCreated", orderIdRule, assetIdRule, sellerRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcOrderCreatedIterator{contract: _Smc.contract, event: "OrderCreated", logs: logs, sub: sub}, nil
+	return &OrderMarketplaceOrderCreatedIterator{contract: _OrderMarketplace.contract, event: "OrderCreated", logs: logs, sub: sub}, nil
 }
 
 // WatchOrderCreated is a free log subscription operation binding the contract event 0x84c66c3f7ba4b390e20e8e8233e2a516f3ce34a72749e4f12bd010dfba238039.
 //
 // Solidity: event OrderCreated(bytes32 indexed orderId, uint256 indexed assetId, address indexed seller, address nftAddress, uint256 priceInWei, uint256 expiredAt)
-func (_Smc *SmcFilterer) WatchOrderCreated(opts *bind.WatchOpts, sink chan<- *SmcOrderCreated, orderId [][32]byte, assetId []*big.Int, seller []common.Address) (event.Subscription, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) WatchOrderCreated(opts *bind.WatchOpts, sink chan<- *OrderMarketplaceOrderCreated, orderId [][32]byte, assetId []*big.Int, seller []common.Address) (event.Subscription, error) {
 
 	var orderIdRule []interface{}
 	for _, orderIdItem := range orderId {
@@ -1884,7 +1884,7 @@ func (_Smc *SmcFilterer) WatchOrderCreated(opts *bind.WatchOpts, sink chan<- *Sm
 		sellerRule = append(sellerRule, sellerItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "OrderCreated", orderIdRule, assetIdRule, sellerRule)
+	logs, sub, err := _OrderMarketplace.contract.WatchLogs(opts, "OrderCreated", orderIdRule, assetIdRule, sellerRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1894,8 +1894,8 @@ func (_Smc *SmcFilterer) WatchOrderCreated(opts *bind.WatchOpts, sink chan<- *Sm
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcOrderCreated)
-				if err := _Smc.contract.UnpackLog(event, "OrderCreated", log); err != nil {
+				event := new(OrderMarketplaceOrderCreated)
+				if err := _OrderMarketplace.contract.UnpackLog(event, "OrderCreated", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1919,18 +1919,18 @@ func (_Smc *SmcFilterer) WatchOrderCreated(opts *bind.WatchOpts, sink chan<- *Sm
 // ParseOrderCreated is a log parse operation binding the contract event 0x84c66c3f7ba4b390e20e8e8233e2a516f3ce34a72749e4f12bd010dfba238039.
 //
 // Solidity: event OrderCreated(bytes32 indexed orderId, uint256 indexed assetId, address indexed seller, address nftAddress, uint256 priceInWei, uint256 expiredAt)
-func (_Smc *SmcFilterer) ParseOrderCreated(log types.Log) (*SmcOrderCreated, error) {
-	event := new(SmcOrderCreated)
-	if err := _Smc.contract.UnpackLog(event, "OrderCreated", log); err != nil {
+func (_OrderMarketplace *OrderMarketplaceFilterer) ParseOrderCreated(log types.Log) (*OrderMarketplaceOrderCreated, error) {
+	event := new(OrderMarketplaceOrderCreated)
+	if err := _OrderMarketplace.contract.UnpackLog(event, "OrderCreated", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcOrderSuccessfulIterator is returned from FilterOrderSuccessful and is used to iterate over the raw logs and unpacked data for OrderSuccessful events raised by the Smc contract.
-type SmcOrderSuccessfulIterator struct {
-	Event *SmcOrderSuccessful // Event containing the contract specifics and raw log
+// OrderMarketplaceOrderSuccessfulIterator is returned from FilterOrderSuccessful and is used to iterate over the raw logs and unpacked data for OrderSuccessful events raised by the OrderMarketplace contract.
+type OrderMarketplaceOrderSuccessfulIterator struct {
+	Event *OrderMarketplaceOrderSuccessful // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1944,7 +1944,7 @@ type SmcOrderSuccessfulIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcOrderSuccessfulIterator) Next() bool {
+func (it *OrderMarketplaceOrderSuccessfulIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1953,7 +1953,7 @@ func (it *SmcOrderSuccessfulIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcOrderSuccessful)
+			it.Event = new(OrderMarketplaceOrderSuccessful)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1968,7 +1968,7 @@ func (it *SmcOrderSuccessfulIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcOrderSuccessful)
+		it.Event = new(OrderMarketplaceOrderSuccessful)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1984,19 +1984,19 @@ func (it *SmcOrderSuccessfulIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcOrderSuccessfulIterator) Error() error {
+func (it *OrderMarketplaceOrderSuccessfulIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcOrderSuccessfulIterator) Close() error {
+func (it *OrderMarketplaceOrderSuccessfulIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcOrderSuccessful represents a OrderSuccessful event raised by the Smc contract.
-type SmcOrderSuccessful struct {
+// OrderMarketplaceOrderSuccessful represents a OrderSuccessful event raised by the OrderMarketplace contract.
+type OrderMarketplaceOrderSuccessful struct {
 	Id    [32]byte
 	Buyer common.Address
 	Raw   types.Log // Blockchain specific contextual infos
@@ -2005,7 +2005,7 @@ type SmcOrderSuccessful struct {
 // FilterOrderSuccessful is a free log retrieval operation binding the contract event 0x56e5f4ff73854a4423571427b069b47d6509b44bb78145207a634f2dd720916b.
 //
 // Solidity: event OrderSuccessful(bytes32 indexed id, address indexed buyer)
-func (_Smc *SmcFilterer) FilterOrderSuccessful(opts *bind.FilterOpts, id [][32]byte, buyer []common.Address) (*SmcOrderSuccessfulIterator, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) FilterOrderSuccessful(opts *bind.FilterOpts, id [][32]byte, buyer []common.Address) (*OrderMarketplaceOrderSuccessfulIterator, error) {
 
 	var idRule []interface{}
 	for _, idItem := range id {
@@ -2016,17 +2016,17 @@ func (_Smc *SmcFilterer) FilterOrderSuccessful(opts *bind.FilterOpts, id [][32]b
 		buyerRule = append(buyerRule, buyerItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "OrderSuccessful", idRule, buyerRule)
+	logs, sub, err := _OrderMarketplace.contract.FilterLogs(opts, "OrderSuccessful", idRule, buyerRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcOrderSuccessfulIterator{contract: _Smc.contract, event: "OrderSuccessful", logs: logs, sub: sub}, nil
+	return &OrderMarketplaceOrderSuccessfulIterator{contract: _OrderMarketplace.contract, event: "OrderSuccessful", logs: logs, sub: sub}, nil
 }
 
 // WatchOrderSuccessful is a free log subscription operation binding the contract event 0x56e5f4ff73854a4423571427b069b47d6509b44bb78145207a634f2dd720916b.
 //
 // Solidity: event OrderSuccessful(bytes32 indexed id, address indexed buyer)
-func (_Smc *SmcFilterer) WatchOrderSuccessful(opts *bind.WatchOpts, sink chan<- *SmcOrderSuccessful, id [][32]byte, buyer []common.Address) (event.Subscription, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) WatchOrderSuccessful(opts *bind.WatchOpts, sink chan<- *OrderMarketplaceOrderSuccessful, id [][32]byte, buyer []common.Address) (event.Subscription, error) {
 
 	var idRule []interface{}
 	for _, idItem := range id {
@@ -2037,7 +2037,7 @@ func (_Smc *SmcFilterer) WatchOrderSuccessful(opts *bind.WatchOpts, sink chan<- 
 		buyerRule = append(buyerRule, buyerItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "OrderSuccessful", idRule, buyerRule)
+	logs, sub, err := _OrderMarketplace.contract.WatchLogs(opts, "OrderSuccessful", idRule, buyerRule)
 	if err != nil {
 		return nil, err
 	}
@@ -2047,8 +2047,8 @@ func (_Smc *SmcFilterer) WatchOrderSuccessful(opts *bind.WatchOpts, sink chan<- 
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcOrderSuccessful)
-				if err := _Smc.contract.UnpackLog(event, "OrderSuccessful", log); err != nil {
+				event := new(OrderMarketplaceOrderSuccessful)
+				if err := _OrderMarketplace.contract.UnpackLog(event, "OrderSuccessful", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2072,18 +2072,18 @@ func (_Smc *SmcFilterer) WatchOrderSuccessful(opts *bind.WatchOpts, sink chan<- 
 // ParseOrderSuccessful is a log parse operation binding the contract event 0x56e5f4ff73854a4423571427b069b47d6509b44bb78145207a634f2dd720916b.
 //
 // Solidity: event OrderSuccessful(bytes32 indexed id, address indexed buyer)
-func (_Smc *SmcFilterer) ParseOrderSuccessful(log types.Log) (*SmcOrderSuccessful, error) {
-	event := new(SmcOrderSuccessful)
-	if err := _Smc.contract.UnpackLog(event, "OrderSuccessful", log); err != nil {
+func (_OrderMarketplace *OrderMarketplaceFilterer) ParseOrderSuccessful(log types.Log) (*OrderMarketplaceOrderSuccessful, error) {
+	event := new(OrderMarketplaceOrderSuccessful)
+	if err := _OrderMarketplace.contract.UnpackLog(event, "OrderSuccessful", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the Smc contract.
-type SmcOwnershipTransferredIterator struct {
-	Event *SmcOwnershipTransferred // Event containing the contract specifics and raw log
+// OrderMarketplaceOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the OrderMarketplace contract.
+type OrderMarketplaceOwnershipTransferredIterator struct {
+	Event *OrderMarketplaceOwnershipTransferred // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2097,7 +2097,7 @@ type SmcOwnershipTransferredIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcOwnershipTransferredIterator) Next() bool {
+func (it *OrderMarketplaceOwnershipTransferredIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2106,7 +2106,7 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcOwnershipTransferred)
+			it.Event = new(OrderMarketplaceOwnershipTransferred)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2121,7 +2121,7 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcOwnershipTransferred)
+		it.Event = new(OrderMarketplaceOwnershipTransferred)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2137,19 +2137,19 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcOwnershipTransferredIterator) Error() error {
+func (it *OrderMarketplaceOwnershipTransferredIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcOwnershipTransferredIterator) Close() error {
+func (it *OrderMarketplaceOwnershipTransferredIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcOwnershipTransferred represents a OwnershipTransferred event raised by the Smc contract.
-type SmcOwnershipTransferred struct {
+// OrderMarketplaceOwnershipTransferred represents a OwnershipTransferred event raised by the OrderMarketplace contract.
+type OrderMarketplaceOwnershipTransferred struct {
 	PreviousOwner common.Address
 	NewOwner      common.Address
 	Raw           types.Log // Blockchain specific contextual infos
@@ -2158,7 +2158,7 @@ type SmcOwnershipTransferred struct {
 // FilterOwnershipTransferred is a free log retrieval operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previousOwner []common.Address, newOwner []common.Address) (*SmcOwnershipTransferredIterator, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previousOwner []common.Address, newOwner []common.Address) (*OrderMarketplaceOwnershipTransferredIterator, error) {
 
 	var previousOwnerRule []interface{}
 	for _, previousOwnerItem := range previousOwner {
@@ -2169,17 +2169,17 @@ func (_Smc *SmcFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previ
 		newOwnerRule = append(newOwnerRule, newOwnerItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
+	logs, sub, err := _OrderMarketplace.contract.FilterLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcOwnershipTransferredIterator{contract: _Smc.contract, event: "OwnershipTransferred", logs: logs, sub: sub}, nil
+	return &OrderMarketplaceOwnershipTransferredIterator{contract: _OrderMarketplace.contract, event: "OwnershipTransferred", logs: logs, sub: sub}, nil
 }
 
 // WatchOwnershipTransferred is a free log subscription operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink chan<- *SmcOwnershipTransferred, previousOwner []common.Address, newOwner []common.Address) (event.Subscription, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink chan<- *OrderMarketplaceOwnershipTransferred, previousOwner []common.Address, newOwner []common.Address) (event.Subscription, error) {
 
 	var previousOwnerRule []interface{}
 	for _, previousOwnerItem := range previousOwner {
@@ -2190,7 +2190,7 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 		newOwnerRule = append(newOwnerRule, newOwnerItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
+	logs, sub, err := _OrderMarketplace.contract.WatchLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
 	if err != nil {
 		return nil, err
 	}
@@ -2200,8 +2200,8 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcOwnershipTransferred)
-				if err := _Smc.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
+				event := new(OrderMarketplaceOwnershipTransferred)
+				if err := _OrderMarketplace.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2225,18 +2225,18 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 // ParseOwnershipTransferred is a log parse operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) ParseOwnershipTransferred(log types.Log) (*SmcOwnershipTransferred, error) {
-	event := new(SmcOwnershipTransferred)
-	if err := _Smc.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
+func (_OrderMarketplace *OrderMarketplaceFilterer) ParseOwnershipTransferred(log types.Log) (*OrderMarketplaceOwnershipTransferred, error) {
+	event := new(OrderMarketplaceOwnershipTransferred)
+	if err := _OrderMarketplace.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcPausedIterator is returned from FilterPaused and is used to iterate over the raw logs and unpacked data for Paused events raised by the Smc contract.
-type SmcPausedIterator struct {
-	Event *SmcPaused // Event containing the contract specifics and raw log
+// OrderMarketplacePausedIterator is returned from FilterPaused and is used to iterate over the raw logs and unpacked data for Paused events raised by the OrderMarketplace contract.
+type OrderMarketplacePausedIterator struct {
+	Event *OrderMarketplacePaused // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2250,7 +2250,7 @@ type SmcPausedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcPausedIterator) Next() bool {
+func (it *OrderMarketplacePausedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2259,7 +2259,7 @@ func (it *SmcPausedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcPaused)
+			it.Event = new(OrderMarketplacePaused)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2274,7 +2274,7 @@ func (it *SmcPausedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcPaused)
+		it.Event = new(OrderMarketplacePaused)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2290,19 +2290,19 @@ func (it *SmcPausedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcPausedIterator) Error() error {
+func (it *OrderMarketplacePausedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcPausedIterator) Close() error {
+func (it *OrderMarketplacePausedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcPaused represents a Paused event raised by the Smc contract.
-type SmcPaused struct {
+// OrderMarketplacePaused represents a Paused event raised by the OrderMarketplace contract.
+type OrderMarketplacePaused struct {
 	Account common.Address
 	Raw     types.Log // Blockchain specific contextual infos
 }
@@ -2310,21 +2310,21 @@ type SmcPaused struct {
 // FilterPaused is a free log retrieval operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) FilterPaused(opts *bind.FilterOpts) (*SmcPausedIterator, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) FilterPaused(opts *bind.FilterOpts) (*OrderMarketplacePausedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Paused")
+	logs, sub, err := _OrderMarketplace.contract.FilterLogs(opts, "Paused")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcPausedIterator{contract: _Smc.contract, event: "Paused", logs: logs, sub: sub}, nil
+	return &OrderMarketplacePausedIterator{contract: _OrderMarketplace.contract, event: "Paused", logs: logs, sub: sub}, nil
 }
 
 // WatchPaused is a free log subscription operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPaused) (event.Subscription, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *OrderMarketplacePaused) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Paused")
+	logs, sub, err := _OrderMarketplace.contract.WatchLogs(opts, "Paused")
 	if err != nil {
 		return nil, err
 	}
@@ -2334,8 +2334,8 @@ func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPause
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcPaused)
-				if err := _Smc.contract.UnpackLog(event, "Paused", log); err != nil {
+				event := new(OrderMarketplacePaused)
+				if err := _OrderMarketplace.contract.UnpackLog(event, "Paused", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2359,18 +2359,18 @@ func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPause
 // ParsePaused is a log parse operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) ParsePaused(log types.Log) (*SmcPaused, error) {
-	event := new(SmcPaused)
-	if err := _Smc.contract.UnpackLog(event, "Paused", log); err != nil {
+func (_OrderMarketplace *OrderMarketplaceFilterer) ParsePaused(log types.Log) (*OrderMarketplacePaused, error) {
+	event := new(OrderMarketplacePaused)
+	if err := _OrderMarketplace.contract.UnpackLog(event, "Paused", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRemovedBlackListIterator is returned from FilterRemovedBlackList and is used to iterate over the raw logs and unpacked data for RemovedBlackList events raised by the Smc contract.
-type SmcRemovedBlackListIterator struct {
-	Event *SmcRemovedBlackList // Event containing the contract specifics and raw log
+// OrderMarketplaceRemovedBlackListIterator is returned from FilterRemovedBlackList and is used to iterate over the raw logs and unpacked data for RemovedBlackList events raised by the OrderMarketplace contract.
+type OrderMarketplaceRemovedBlackListIterator struct {
+	Event *OrderMarketplaceRemovedBlackList // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2384,7 +2384,7 @@ type SmcRemovedBlackListIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRemovedBlackListIterator) Next() bool {
+func (it *OrderMarketplaceRemovedBlackListIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2393,7 +2393,7 @@ func (it *SmcRemovedBlackListIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRemovedBlackList)
+			it.Event = new(OrderMarketplaceRemovedBlackList)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2408,7 +2408,7 @@ func (it *SmcRemovedBlackListIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRemovedBlackList)
+		it.Event = new(OrderMarketplaceRemovedBlackList)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2424,19 +2424,19 @@ func (it *SmcRemovedBlackListIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRemovedBlackListIterator) Error() error {
+func (it *OrderMarketplaceRemovedBlackListIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRemovedBlackListIterator) Close() error {
+func (it *OrderMarketplaceRemovedBlackListIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRemovedBlackList represents a RemovedBlackList event raised by the Smc contract.
-type SmcRemovedBlackList struct {
+// OrderMarketplaceRemovedBlackList represents a RemovedBlackList event raised by the OrderMarketplace contract.
+type OrderMarketplaceRemovedBlackList struct {
 	User common.Address
 	Raw  types.Log // Blockchain specific contextual infos
 }
@@ -2444,21 +2444,21 @@ type SmcRemovedBlackList struct {
 // FilterRemovedBlackList is a free log retrieval operation binding the contract event 0xd7e9ec6e6ecd65492dce6bf513cd6867560d49544421d0783ddf06e76c24470c.
 //
 // Solidity: event RemovedBlackList(address _user)
-func (_Smc *SmcFilterer) FilterRemovedBlackList(opts *bind.FilterOpts) (*SmcRemovedBlackListIterator, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) FilterRemovedBlackList(opts *bind.FilterOpts) (*OrderMarketplaceRemovedBlackListIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RemovedBlackList")
+	logs, sub, err := _OrderMarketplace.contract.FilterLogs(opts, "RemovedBlackList")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRemovedBlackListIterator{contract: _Smc.contract, event: "RemovedBlackList", logs: logs, sub: sub}, nil
+	return &OrderMarketplaceRemovedBlackListIterator{contract: _OrderMarketplace.contract, event: "RemovedBlackList", logs: logs, sub: sub}, nil
 }
 
 // WatchRemovedBlackList is a free log subscription operation binding the contract event 0xd7e9ec6e6ecd65492dce6bf513cd6867560d49544421d0783ddf06e76c24470c.
 //
 // Solidity: event RemovedBlackList(address _user)
-func (_Smc *SmcFilterer) WatchRemovedBlackList(opts *bind.WatchOpts, sink chan<- *SmcRemovedBlackList) (event.Subscription, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) WatchRemovedBlackList(opts *bind.WatchOpts, sink chan<- *OrderMarketplaceRemovedBlackList) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RemovedBlackList")
+	logs, sub, err := _OrderMarketplace.contract.WatchLogs(opts, "RemovedBlackList")
 	if err != nil {
 		return nil, err
 	}
@@ -2468,8 +2468,8 @@ func (_Smc *SmcFilterer) WatchRemovedBlackList(opts *bind.WatchOpts, sink chan<-
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRemovedBlackList)
-				if err := _Smc.contract.UnpackLog(event, "RemovedBlackList", log); err != nil {
+				event := new(OrderMarketplaceRemovedBlackList)
+				if err := _OrderMarketplace.contract.UnpackLog(event, "RemovedBlackList", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2493,18 +2493,18 @@ func (_Smc *SmcFilterer) WatchRemovedBlackList(opts *bind.WatchOpts, sink chan<-
 // ParseRemovedBlackList is a log parse operation binding the contract event 0xd7e9ec6e6ecd65492dce6bf513cd6867560d49544421d0783ddf06e76c24470c.
 //
 // Solidity: event RemovedBlackList(address _user)
-func (_Smc *SmcFilterer) ParseRemovedBlackList(log types.Log) (*SmcRemovedBlackList, error) {
-	event := new(SmcRemovedBlackList)
-	if err := _Smc.contract.UnpackLog(event, "RemovedBlackList", log); err != nil {
+func (_OrderMarketplace *OrderMarketplaceFilterer) ParseRemovedBlackList(log types.Log) (*OrderMarketplaceRemovedBlackList, error) {
+	event := new(OrderMarketplaceRemovedBlackList)
+	if err := _OrderMarketplace.contract.UnpackLog(event, "RemovedBlackList", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRoleAdminChangedIterator is returned from FilterRoleAdminChanged and is used to iterate over the raw logs and unpacked data for RoleAdminChanged events raised by the Smc contract.
-type SmcRoleAdminChangedIterator struct {
-	Event *SmcRoleAdminChanged // Event containing the contract specifics and raw log
+// OrderMarketplaceRoleAdminChangedIterator is returned from FilterRoleAdminChanged and is used to iterate over the raw logs and unpacked data for RoleAdminChanged events raised by the OrderMarketplace contract.
+type OrderMarketplaceRoleAdminChangedIterator struct {
+	Event *OrderMarketplaceRoleAdminChanged // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2518,7 +2518,7 @@ type SmcRoleAdminChangedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRoleAdminChangedIterator) Next() bool {
+func (it *OrderMarketplaceRoleAdminChangedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2527,7 +2527,7 @@ func (it *SmcRoleAdminChangedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRoleAdminChanged)
+			it.Event = new(OrderMarketplaceRoleAdminChanged)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2542,7 +2542,7 @@ func (it *SmcRoleAdminChangedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRoleAdminChanged)
+		it.Event = new(OrderMarketplaceRoleAdminChanged)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2558,19 +2558,19 @@ func (it *SmcRoleAdminChangedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRoleAdminChangedIterator) Error() error {
+func (it *OrderMarketplaceRoleAdminChangedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRoleAdminChangedIterator) Close() error {
+func (it *OrderMarketplaceRoleAdminChangedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRoleAdminChanged represents a RoleAdminChanged event raised by the Smc contract.
-type SmcRoleAdminChanged struct {
+// OrderMarketplaceRoleAdminChanged represents a RoleAdminChanged event raised by the OrderMarketplace contract.
+type OrderMarketplaceRoleAdminChanged struct {
 	Role              [32]byte
 	PreviousAdminRole [32]byte
 	NewAdminRole      [32]byte
@@ -2580,7 +2580,7 @@ type SmcRoleAdminChanged struct {
 // FilterRoleAdminChanged is a free log retrieval operation binding the contract event 0xbd79b86ffe0ab8e8776151514217cd7cacd52c909f66475c3af44e129f0b00ff.
 //
 // Solidity: event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
-func (_Smc *SmcFilterer) FilterRoleAdminChanged(opts *bind.FilterOpts, role [][32]byte, previousAdminRole [][32]byte, newAdminRole [][32]byte) (*SmcRoleAdminChangedIterator, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) FilterRoleAdminChanged(opts *bind.FilterOpts, role [][32]byte, previousAdminRole [][32]byte, newAdminRole [][32]byte) (*OrderMarketplaceRoleAdminChangedIterator, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -2595,17 +2595,17 @@ func (_Smc *SmcFilterer) FilterRoleAdminChanged(opts *bind.FilterOpts, role [][3
 		newAdminRoleRule = append(newAdminRoleRule, newAdminRoleItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RoleAdminChanged", roleRule, previousAdminRoleRule, newAdminRoleRule)
+	logs, sub, err := _OrderMarketplace.contract.FilterLogs(opts, "RoleAdminChanged", roleRule, previousAdminRoleRule, newAdminRoleRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRoleAdminChangedIterator{contract: _Smc.contract, event: "RoleAdminChanged", logs: logs, sub: sub}, nil
+	return &OrderMarketplaceRoleAdminChangedIterator{contract: _OrderMarketplace.contract, event: "RoleAdminChanged", logs: logs, sub: sub}, nil
 }
 
 // WatchRoleAdminChanged is a free log subscription operation binding the contract event 0xbd79b86ffe0ab8e8776151514217cd7cacd52c909f66475c3af44e129f0b00ff.
 //
 // Solidity: event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
-func (_Smc *SmcFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<- *SmcRoleAdminChanged, role [][32]byte, previousAdminRole [][32]byte, newAdminRole [][32]byte) (event.Subscription, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<- *OrderMarketplaceRoleAdminChanged, role [][32]byte, previousAdminRole [][32]byte, newAdminRole [][32]byte) (event.Subscription, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -2620,7 +2620,7 @@ func (_Smc *SmcFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<-
 		newAdminRoleRule = append(newAdminRoleRule, newAdminRoleItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RoleAdminChanged", roleRule, previousAdminRoleRule, newAdminRoleRule)
+	logs, sub, err := _OrderMarketplace.contract.WatchLogs(opts, "RoleAdminChanged", roleRule, previousAdminRoleRule, newAdminRoleRule)
 	if err != nil {
 		return nil, err
 	}
@@ -2630,8 +2630,8 @@ func (_Smc *SmcFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<-
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRoleAdminChanged)
-				if err := _Smc.contract.UnpackLog(event, "RoleAdminChanged", log); err != nil {
+				event := new(OrderMarketplaceRoleAdminChanged)
+				if err := _OrderMarketplace.contract.UnpackLog(event, "RoleAdminChanged", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2655,18 +2655,18 @@ func (_Smc *SmcFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<-
 // ParseRoleAdminChanged is a log parse operation binding the contract event 0xbd79b86ffe0ab8e8776151514217cd7cacd52c909f66475c3af44e129f0b00ff.
 //
 // Solidity: event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
-func (_Smc *SmcFilterer) ParseRoleAdminChanged(log types.Log) (*SmcRoleAdminChanged, error) {
-	event := new(SmcRoleAdminChanged)
-	if err := _Smc.contract.UnpackLog(event, "RoleAdminChanged", log); err != nil {
+func (_OrderMarketplace *OrderMarketplaceFilterer) ParseRoleAdminChanged(log types.Log) (*OrderMarketplaceRoleAdminChanged, error) {
+	event := new(OrderMarketplaceRoleAdminChanged)
+	if err := _OrderMarketplace.contract.UnpackLog(event, "RoleAdminChanged", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRoleGrantedIterator is returned from FilterRoleGranted and is used to iterate over the raw logs and unpacked data for RoleGranted events raised by the Smc contract.
-type SmcRoleGrantedIterator struct {
-	Event *SmcRoleGranted // Event containing the contract specifics and raw log
+// OrderMarketplaceRoleGrantedIterator is returned from FilterRoleGranted and is used to iterate over the raw logs and unpacked data for RoleGranted events raised by the OrderMarketplace contract.
+type OrderMarketplaceRoleGrantedIterator struct {
+	Event *OrderMarketplaceRoleGranted // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2680,7 +2680,7 @@ type SmcRoleGrantedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRoleGrantedIterator) Next() bool {
+func (it *OrderMarketplaceRoleGrantedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2689,7 +2689,7 @@ func (it *SmcRoleGrantedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRoleGranted)
+			it.Event = new(OrderMarketplaceRoleGranted)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2704,7 +2704,7 @@ func (it *SmcRoleGrantedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRoleGranted)
+		it.Event = new(OrderMarketplaceRoleGranted)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2720,19 +2720,19 @@ func (it *SmcRoleGrantedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRoleGrantedIterator) Error() error {
+func (it *OrderMarketplaceRoleGrantedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRoleGrantedIterator) Close() error {
+func (it *OrderMarketplaceRoleGrantedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRoleGranted represents a RoleGranted event raised by the Smc contract.
-type SmcRoleGranted struct {
+// OrderMarketplaceRoleGranted represents a RoleGranted event raised by the OrderMarketplace contract.
+type OrderMarketplaceRoleGranted struct {
 	Role    [32]byte
 	Account common.Address
 	Sender  common.Address
@@ -2742,7 +2742,7 @@ type SmcRoleGranted struct {
 // FilterRoleGranted is a free log retrieval operation binding the contract event 0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d.
 //
 // Solidity: event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) FilterRoleGranted(opts *bind.FilterOpts, role [][32]byte, account []common.Address, sender []common.Address) (*SmcRoleGrantedIterator, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) FilterRoleGranted(opts *bind.FilterOpts, role [][32]byte, account []common.Address, sender []common.Address) (*OrderMarketplaceRoleGrantedIterator, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -2757,17 +2757,17 @@ func (_Smc *SmcFilterer) FilterRoleGranted(opts *bind.FilterOpts, role [][32]byt
 		senderRule = append(senderRule, senderItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RoleGranted", roleRule, accountRule, senderRule)
+	logs, sub, err := _OrderMarketplace.contract.FilterLogs(opts, "RoleGranted", roleRule, accountRule, senderRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRoleGrantedIterator{contract: _Smc.contract, event: "RoleGranted", logs: logs, sub: sub}, nil
+	return &OrderMarketplaceRoleGrantedIterator{contract: _OrderMarketplace.contract, event: "RoleGranted", logs: logs, sub: sub}, nil
 }
 
 // WatchRoleGranted is a free log subscription operation binding the contract event 0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d.
 //
 // Solidity: event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *SmcRoleGranted, role [][32]byte, account []common.Address, sender []common.Address) (event.Subscription, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *OrderMarketplaceRoleGranted, role [][32]byte, account []common.Address, sender []common.Address) (event.Subscription, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -2782,7 +2782,7 @@ func (_Smc *SmcFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *Smc
 		senderRule = append(senderRule, senderItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RoleGranted", roleRule, accountRule, senderRule)
+	logs, sub, err := _OrderMarketplace.contract.WatchLogs(opts, "RoleGranted", roleRule, accountRule, senderRule)
 	if err != nil {
 		return nil, err
 	}
@@ -2792,8 +2792,8 @@ func (_Smc *SmcFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *Smc
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRoleGranted)
-				if err := _Smc.contract.UnpackLog(event, "RoleGranted", log); err != nil {
+				event := new(OrderMarketplaceRoleGranted)
+				if err := _OrderMarketplace.contract.UnpackLog(event, "RoleGranted", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2817,18 +2817,18 @@ func (_Smc *SmcFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *Smc
 // ParseRoleGranted is a log parse operation binding the contract event 0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d.
 //
 // Solidity: event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) ParseRoleGranted(log types.Log) (*SmcRoleGranted, error) {
-	event := new(SmcRoleGranted)
-	if err := _Smc.contract.UnpackLog(event, "RoleGranted", log); err != nil {
+func (_OrderMarketplace *OrderMarketplaceFilterer) ParseRoleGranted(log types.Log) (*OrderMarketplaceRoleGranted, error) {
+	event := new(OrderMarketplaceRoleGranted)
+	if err := _OrderMarketplace.contract.UnpackLog(event, "RoleGranted", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRoleRevokedIterator is returned from FilterRoleRevoked and is used to iterate over the raw logs and unpacked data for RoleRevoked events raised by the Smc contract.
-type SmcRoleRevokedIterator struct {
-	Event *SmcRoleRevoked // Event containing the contract specifics and raw log
+// OrderMarketplaceRoleRevokedIterator is returned from FilterRoleRevoked and is used to iterate over the raw logs and unpacked data for RoleRevoked events raised by the OrderMarketplace contract.
+type OrderMarketplaceRoleRevokedIterator struct {
+	Event *OrderMarketplaceRoleRevoked // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2842,7 +2842,7 @@ type SmcRoleRevokedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRoleRevokedIterator) Next() bool {
+func (it *OrderMarketplaceRoleRevokedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2851,7 +2851,7 @@ func (it *SmcRoleRevokedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRoleRevoked)
+			it.Event = new(OrderMarketplaceRoleRevoked)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2866,7 +2866,7 @@ func (it *SmcRoleRevokedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRoleRevoked)
+		it.Event = new(OrderMarketplaceRoleRevoked)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2882,19 +2882,19 @@ func (it *SmcRoleRevokedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRoleRevokedIterator) Error() error {
+func (it *OrderMarketplaceRoleRevokedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRoleRevokedIterator) Close() error {
+func (it *OrderMarketplaceRoleRevokedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRoleRevoked represents a RoleRevoked event raised by the Smc contract.
-type SmcRoleRevoked struct {
+// OrderMarketplaceRoleRevoked represents a RoleRevoked event raised by the OrderMarketplace contract.
+type OrderMarketplaceRoleRevoked struct {
 	Role    [32]byte
 	Account common.Address
 	Sender  common.Address
@@ -2904,7 +2904,7 @@ type SmcRoleRevoked struct {
 // FilterRoleRevoked is a free log retrieval operation binding the contract event 0xf6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b.
 //
 // Solidity: event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) FilterRoleRevoked(opts *bind.FilterOpts, role [][32]byte, account []common.Address, sender []common.Address) (*SmcRoleRevokedIterator, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) FilterRoleRevoked(opts *bind.FilterOpts, role [][32]byte, account []common.Address, sender []common.Address) (*OrderMarketplaceRoleRevokedIterator, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -2919,17 +2919,17 @@ func (_Smc *SmcFilterer) FilterRoleRevoked(opts *bind.FilterOpts, role [][32]byt
 		senderRule = append(senderRule, senderItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RoleRevoked", roleRule, accountRule, senderRule)
+	logs, sub, err := _OrderMarketplace.contract.FilterLogs(opts, "RoleRevoked", roleRule, accountRule, senderRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRoleRevokedIterator{contract: _Smc.contract, event: "RoleRevoked", logs: logs, sub: sub}, nil
+	return &OrderMarketplaceRoleRevokedIterator{contract: _OrderMarketplace.contract, event: "RoleRevoked", logs: logs, sub: sub}, nil
 }
 
 // WatchRoleRevoked is a free log subscription operation binding the contract event 0xf6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b.
 //
 // Solidity: event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *SmcRoleRevoked, role [][32]byte, account []common.Address, sender []common.Address) (event.Subscription, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *OrderMarketplaceRoleRevoked, role [][32]byte, account []common.Address, sender []common.Address) (event.Subscription, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -2944,7 +2944,7 @@ func (_Smc *SmcFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *Smc
 		senderRule = append(senderRule, senderItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RoleRevoked", roleRule, accountRule, senderRule)
+	logs, sub, err := _OrderMarketplace.contract.WatchLogs(opts, "RoleRevoked", roleRule, accountRule, senderRule)
 	if err != nil {
 		return nil, err
 	}
@@ -2954,8 +2954,8 @@ func (_Smc *SmcFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *Smc
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRoleRevoked)
-				if err := _Smc.contract.UnpackLog(event, "RoleRevoked", log); err != nil {
+				event := new(OrderMarketplaceRoleRevoked)
+				if err := _OrderMarketplace.contract.UnpackLog(event, "RoleRevoked", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2979,18 +2979,18 @@ func (_Smc *SmcFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *Smc
 // ParseRoleRevoked is a log parse operation binding the contract event 0xf6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b.
 //
 // Solidity: event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) ParseRoleRevoked(log types.Log) (*SmcRoleRevoked, error) {
-	event := new(SmcRoleRevoked)
-	if err := _Smc.contract.UnpackLog(event, "RoleRevoked", log); err != nil {
+func (_OrderMarketplace *OrderMarketplaceFilterer) ParseRoleRevoked(log types.Log) (*OrderMarketplaceRoleRevoked, error) {
+	event := new(OrderMarketplaceRoleRevoked)
+	if err := _OrderMarketplace.contract.UnpackLog(event, "RoleRevoked", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcUnpausedIterator is returned from FilterUnpaused and is used to iterate over the raw logs and unpacked data for Unpaused events raised by the Smc contract.
-type SmcUnpausedIterator struct {
-	Event *SmcUnpaused // Event containing the contract specifics and raw log
+// OrderMarketplaceUnpausedIterator is returned from FilterUnpaused and is used to iterate over the raw logs and unpacked data for Unpaused events raised by the OrderMarketplace contract.
+type OrderMarketplaceUnpausedIterator struct {
+	Event *OrderMarketplaceUnpaused // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -3004,7 +3004,7 @@ type SmcUnpausedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcUnpausedIterator) Next() bool {
+func (it *OrderMarketplaceUnpausedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -3013,7 +3013,7 @@ func (it *SmcUnpausedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcUnpaused)
+			it.Event = new(OrderMarketplaceUnpaused)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -3028,7 +3028,7 @@ func (it *SmcUnpausedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcUnpaused)
+		it.Event = new(OrderMarketplaceUnpaused)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -3044,19 +3044,19 @@ func (it *SmcUnpausedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcUnpausedIterator) Error() error {
+func (it *OrderMarketplaceUnpausedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcUnpausedIterator) Close() error {
+func (it *OrderMarketplaceUnpausedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcUnpaused represents a Unpaused event raised by the Smc contract.
-type SmcUnpaused struct {
+// OrderMarketplaceUnpaused represents a Unpaused event raised by the OrderMarketplace contract.
+type OrderMarketplaceUnpaused struct {
 	Account common.Address
 	Raw     types.Log // Blockchain specific contextual infos
 }
@@ -3064,21 +3064,21 @@ type SmcUnpaused struct {
 // FilterUnpaused is a free log retrieval operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) FilterUnpaused(opts *bind.FilterOpts) (*SmcUnpausedIterator, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) FilterUnpaused(opts *bind.FilterOpts) (*OrderMarketplaceUnpausedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Unpaused")
+	logs, sub, err := _OrderMarketplace.contract.FilterLogs(opts, "Unpaused")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcUnpausedIterator{contract: _Smc.contract, event: "Unpaused", logs: logs, sub: sub}, nil
+	return &OrderMarketplaceUnpausedIterator{contract: _OrderMarketplace.contract, event: "Unpaused", logs: logs, sub: sub}, nil
 }
 
 // WatchUnpaused is a free log subscription operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnpaused) (event.Subscription, error) {
+func (_OrderMarketplace *OrderMarketplaceFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *OrderMarketplaceUnpaused) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Unpaused")
+	logs, sub, err := _OrderMarketplace.contract.WatchLogs(opts, "Unpaused")
 	if err != nil {
 		return nil, err
 	}
@@ -3088,8 +3088,8 @@ func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnp
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcUnpaused)
-				if err := _Smc.contract.UnpackLog(event, "Unpaused", log); err != nil {
+				event := new(OrderMarketplaceUnpaused)
+				if err := _OrderMarketplace.contract.UnpackLog(event, "Unpaused", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -3113,9 +3113,9 @@ func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnp
 // ParseUnpaused is a log parse operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) ParseUnpaused(log types.Log) (*SmcUnpaused, error) {
-	event := new(SmcUnpaused)
-	if err := _Smc.contract.UnpackLog(event, "Unpaused", log); err != nil {
+func (_OrderMarketplace *OrderMarketplaceFilterer) ParseUnpaused(log types.Log) (*OrderMarketplaceUnpaused, error) {
+	event := new(OrderMarketplaceUnpaused)
+	if err := _OrderMarketplace.contract.UnpackLog(event, "Unpaused", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log

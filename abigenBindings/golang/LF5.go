@@ -1,7 +1,7 @@
 // Code generated - DO NOT EDIT.
 // This file is a generated binding and any manual changes will be lost.
 
-package smc
+package LF5
 
 import (
 	"errors"
@@ -28,113 +28,113 @@ var (
 	_ = event.NewSubscription
 )
 
-// SmcMetaData contains all meta data concerning the Smc contract.
-var SmcMetaData = &bind.MetaData{
+// LF5MetaData contains all meta data concerning the LF5 contract.
+var LF5MetaData = &bind.MetaData{
 	ABI: "[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_user\",\"type\":\"address\"}],\"name\":\"AddedBlackList\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_blackListedUser\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_balance\",\"type\":\"uint256\"}],\"name\":\"DestroyedBlackFunds\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_user\",\"type\":\"address\"}],\"name\":\"RemovedBlackList\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"offchain\",\"type\":\"bytes32\"}],\"name\":\"__issue\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"offchain\",\"type\":\"bytes32\"}],\"name\":\"__redeem\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"offchain\",\"type\":\"bytes32\"}],\"name\":\"__transferByAdmin\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"a\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"maxIssuingTokenPerTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"maxTotalIssuingToken\",\"type\":\"uint256\"}],\"name\":\"addAdmin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_evilUser\",\"type\":\"address\"}],\"name\":\"addBlackList\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"admin\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"status\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"maxIssuingTokenPerTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"maxTotalIssuingToken\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"remainingIssuingToken\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"}],\"name\":\"allowance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"subtractedValue\",\"type\":\"uint256\"}],\"name\":\"decreaseAllowance\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_maker\",\"type\":\"address\"}],\"name\":\"getBlackListStatus\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOwner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"addedValue\",\"type\":\"uint256\"}],\"name\":\"increaseAllowance\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"isBlackListed\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"a\",\"type\":\"address\"}],\"name\":\"removeAdmin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_clearedUser\",\"type\":\"address\"}],\"name\":\"removeBlackList\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"offchain\",\"type\":\"bytes32\"}],\"name\":\"transferByAdmin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"issuer\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"offchain\",\"type\":\"bytes32\"}],\"name\":\"issue\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"issuer\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"offchain\",\"type\":\"bytes32\"}],\"name\":\"issueByAdmin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_blackListedUser\",\"type\":\"address\"}],\"name\":\"destroyBlackFunds\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"redeemer\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"offchain\",\"type\":\"bytes32\"}],\"name\":\"redeem\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_value\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_value\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
-// SmcABI is the input ABI used to generate the binding from.
-// Deprecated: Use SmcMetaData.ABI instead.
-var SmcABI = SmcMetaData.ABI
+// LF5ABI is the input ABI used to generate the binding from.
+// Deprecated: Use LF5MetaData.ABI instead.
+var LF5ABI = LF5MetaData.ABI
 
-// Smc is an auto generated Go binding around an Ethereum contract.
-type Smc struct {
-	SmcCaller     // Read-only binding to the contract
-	SmcTransactor // Write-only binding to the contract
-	SmcFilterer   // Log filterer for contract events
+// LF5 is an auto generated Go binding around an Ethereum contract.
+type LF5 struct {
+	LF5Caller     // Read-only binding to the contract
+	LF5Transactor // Write-only binding to the contract
+	LF5Filterer   // Log filterer for contract events
 }
 
-// SmcCaller is an auto generated read-only Go binding around an Ethereum contract.
-type SmcCaller struct {
+// LF5Caller is an auto generated read-only Go binding around an Ethereum contract.
+type LF5Caller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcTransactor is an auto generated write-only Go binding around an Ethereum contract.
-type SmcTransactor struct {
+// LF5Transactor is an auto generated write-only Go binding around an Ethereum contract.
+type LF5Transactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
-type SmcFilterer struct {
+// LF5Filterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type LF5Filterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcSession is an auto generated Go binding around an Ethereum contract,
+// LF5Session is an auto generated Go binding around an Ethereum contract,
 // with pre-set call and transact options.
-type SmcSession struct {
-	Contract     *Smc              // Generic contract binding to set the session for
+type LF5Session struct {
+	Contract     *LF5              // Generic contract binding to set the session for
 	CallOpts     bind.CallOpts     // Call options to use throughout this session
 	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 }
 
-// SmcCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// LF5CallerSession is an auto generated read-only Go binding around an Ethereum contract,
 // with pre-set call options.
-type SmcCallerSession struct {
-	Contract *SmcCaller    // Generic contract caller binding to set the session for
+type LF5CallerSession struct {
+	Contract *LF5Caller    // Generic contract caller binding to set the session for
 	CallOpts bind.CallOpts // Call options to use throughout this session
 }
 
-// SmcTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// LF5TransactorSession is an auto generated write-only Go binding around an Ethereum contract,
 // with pre-set transact options.
-type SmcTransactorSession struct {
-	Contract     *SmcTransactor    // Generic contract transactor binding to set the session for
+type LF5TransactorSession struct {
+	Contract     *LF5Transactor    // Generic contract transactor binding to set the session for
 	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 }
 
-// SmcRaw is an auto generated low-level Go binding around an Ethereum contract.
-type SmcRaw struct {
-	Contract *Smc // Generic contract binding to access the raw methods on
+// LF5Raw is an auto generated low-level Go binding around an Ethereum contract.
+type LF5Raw struct {
+	Contract *LF5 // Generic contract binding to access the raw methods on
 }
 
-// SmcCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
-type SmcCallerRaw struct {
-	Contract *SmcCaller // Generic read-only contract binding to access the raw methods on
+// LF5CallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type LF5CallerRaw struct {
+	Contract *LF5Caller // Generic read-only contract binding to access the raw methods on
 }
 
-// SmcTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
-type SmcTransactorRaw struct {
-	Contract *SmcTransactor // Generic write-only contract binding to access the raw methods on
+// LF5TransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type LF5TransactorRaw struct {
+	Contract *LF5Transactor // Generic write-only contract binding to access the raw methods on
 }
 
-// NewSmc creates a new instance of Smc, bound to a specific deployed contract.
-func NewSmc(address common.Address, backend bind.ContractBackend) (*Smc, error) {
-	contract, err := bindSmc(address, backend, backend, backend)
+// NewLF5 creates a new instance of LF5, bound to a specific deployed contract.
+func NewLF5(address common.Address, backend bind.ContractBackend) (*LF5, error) {
+	contract, err := bindLF5(address, backend, backend, backend)
 	if err != nil {
 		return nil, err
 	}
-	return &Smc{SmcCaller: SmcCaller{contract: contract}, SmcTransactor: SmcTransactor{contract: contract}, SmcFilterer: SmcFilterer{contract: contract}}, nil
+	return &LF5{LF5Caller: LF5Caller{contract: contract}, LF5Transactor: LF5Transactor{contract: contract}, LF5Filterer: LF5Filterer{contract: contract}}, nil
 }
 
-// NewSmcCaller creates a new read-only instance of Smc, bound to a specific deployed contract.
-func NewSmcCaller(address common.Address, caller bind.ContractCaller) (*SmcCaller, error) {
-	contract, err := bindSmc(address, caller, nil, nil)
+// NewLF5Caller creates a new read-only instance of LF5, bound to a specific deployed contract.
+func NewLF5Caller(address common.Address, caller bind.ContractCaller) (*LF5Caller, error) {
+	contract, err := bindLF5(address, caller, nil, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcCaller{contract: contract}, nil
+	return &LF5Caller{contract: contract}, nil
 }
 
-// NewSmcTransactor creates a new write-only instance of Smc, bound to a specific deployed contract.
-func NewSmcTransactor(address common.Address, transactor bind.ContractTransactor) (*SmcTransactor, error) {
-	contract, err := bindSmc(address, nil, transactor, nil)
+// NewLF5Transactor creates a new write-only instance of LF5, bound to a specific deployed contract.
+func NewLF5Transactor(address common.Address, transactor bind.ContractTransactor) (*LF5Transactor, error) {
+	contract, err := bindLF5(address, nil, transactor, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTransactor{contract: contract}, nil
+	return &LF5Transactor{contract: contract}, nil
 }
 
-// NewSmcFilterer creates a new log filterer instance of Smc, bound to a specific deployed contract.
-func NewSmcFilterer(address common.Address, filterer bind.ContractFilterer) (*SmcFilterer, error) {
-	contract, err := bindSmc(address, nil, nil, filterer)
+// NewLF5Filterer creates a new log filterer instance of LF5, bound to a specific deployed contract.
+func NewLF5Filterer(address common.Address, filterer bind.ContractFilterer) (*LF5Filterer, error) {
+	contract, err := bindLF5(address, nil, nil, filterer)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcFilterer{contract: contract}, nil
+	return &LF5Filterer{contract: contract}, nil
 }
 
-// bindSmc binds a generic wrapper to an already deployed contract.
-func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-	parsed, err := abi.JSON(strings.NewReader(SmcABI))
+// bindLF5 binds a generic wrapper to an already deployed contract.
+func bindLF5(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := abi.JSON(strings.NewReader(LF5ABI))
 	if err != nil {
 		return nil, err
 	}
@@ -145,51 +145,51 @@ func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.SmcCaller.contract.Call(opts, result, method, params...)
+func (_LF5 *LF5Raw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _LF5.Contract.LF5Caller.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transfer(opts)
+func (_LF5 *LF5Raw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _LF5.Contract.LF5Transactor.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transact(opts, method, params...)
+func (_LF5 *LF5Raw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _LF5.Contract.LF5Transactor.contract.Transact(opts, method, params...)
 }
 
 // Call invokes the (constant) contract method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.contract.Call(opts, result, method, params...)
+func (_LF5 *LF5CallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _LF5.Contract.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transfer(opts)
+func (_LF5 *LF5TransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _LF5.Contract.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transact(opts, method, params...)
+func (_LF5 *LF5TransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _LF5.Contract.contract.Transact(opts, method, params...)
 }
 
 // Admin is a free data retrieval call binding the contract method 0x63a846f8.
 //
 // Solidity: function admin(address ) view returns(bool status, uint256 maxIssuingTokenPerTime, uint256 maxTotalIssuingToken, uint256 remainingIssuingToken)
-func (_Smc *SmcCaller) Admin(opts *bind.CallOpts, arg0 common.Address) (struct {
+func (_LF5 *LF5Caller) Admin(opts *bind.CallOpts, arg0 common.Address) (struct {
 	Status                 bool
 	MaxIssuingTokenPerTime *big.Int
 	MaxTotalIssuingToken   *big.Int
 	RemainingIssuingToken  *big.Int
 }, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "admin", arg0)
+	err := _LF5.contract.Call(opts, &out, "admin", arg0)
 
 	outstruct := new(struct {
 		Status                 bool
@@ -213,33 +213,33 @@ func (_Smc *SmcCaller) Admin(opts *bind.CallOpts, arg0 common.Address) (struct {
 // Admin is a free data retrieval call binding the contract method 0x63a846f8.
 //
 // Solidity: function admin(address ) view returns(bool status, uint256 maxIssuingTokenPerTime, uint256 maxTotalIssuingToken, uint256 remainingIssuingToken)
-func (_Smc *SmcSession) Admin(arg0 common.Address) (struct {
+func (_LF5 *LF5Session) Admin(arg0 common.Address) (struct {
 	Status                 bool
 	MaxIssuingTokenPerTime *big.Int
 	MaxTotalIssuingToken   *big.Int
 	RemainingIssuingToken  *big.Int
 }, error) {
-	return _Smc.Contract.Admin(&_Smc.CallOpts, arg0)
+	return _LF5.Contract.Admin(&_LF5.CallOpts, arg0)
 }
 
 // Admin is a free data retrieval call binding the contract method 0x63a846f8.
 //
 // Solidity: function admin(address ) view returns(bool status, uint256 maxIssuingTokenPerTime, uint256 maxTotalIssuingToken, uint256 remainingIssuingToken)
-func (_Smc *SmcCallerSession) Admin(arg0 common.Address) (struct {
+func (_LF5 *LF5CallerSession) Admin(arg0 common.Address) (struct {
 	Status                 bool
 	MaxIssuingTokenPerTime *big.Int
 	MaxTotalIssuingToken   *big.Int
 	RemainingIssuingToken  *big.Int
 }, error) {
-	return _Smc.Contract.Admin(&_Smc.CallOpts, arg0)
+	return _LF5.Contract.Admin(&_LF5.CallOpts, arg0)
 }
 
 // Allowance is a free data retrieval call binding the contract method 0xdd62ed3e.
 //
 // Solidity: function allowance(address owner, address spender) view returns(uint256)
-func (_Smc *SmcCaller) Allowance(opts *bind.CallOpts, owner common.Address, spender common.Address) (*big.Int, error) {
+func (_LF5 *LF5Caller) Allowance(opts *bind.CallOpts, owner common.Address, spender common.Address) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "allowance", owner, spender)
+	err := _LF5.contract.Call(opts, &out, "allowance", owner, spender)
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -254,23 +254,23 @@ func (_Smc *SmcCaller) Allowance(opts *bind.CallOpts, owner common.Address, spen
 // Allowance is a free data retrieval call binding the contract method 0xdd62ed3e.
 //
 // Solidity: function allowance(address owner, address spender) view returns(uint256)
-func (_Smc *SmcSession) Allowance(owner common.Address, spender common.Address) (*big.Int, error) {
-	return _Smc.Contract.Allowance(&_Smc.CallOpts, owner, spender)
+func (_LF5 *LF5Session) Allowance(owner common.Address, spender common.Address) (*big.Int, error) {
+	return _LF5.Contract.Allowance(&_LF5.CallOpts, owner, spender)
 }
 
 // Allowance is a free data retrieval call binding the contract method 0xdd62ed3e.
 //
 // Solidity: function allowance(address owner, address spender) view returns(uint256)
-func (_Smc *SmcCallerSession) Allowance(owner common.Address, spender common.Address) (*big.Int, error) {
-	return _Smc.Contract.Allowance(&_Smc.CallOpts, owner, spender)
+func (_LF5 *LF5CallerSession) Allowance(owner common.Address, spender common.Address) (*big.Int, error) {
+	return _LF5.Contract.Allowance(&_LF5.CallOpts, owner, spender)
 }
 
 // BalanceOf is a free data retrieval call binding the contract method 0x70a08231.
 //
 // Solidity: function balanceOf(address account) view returns(uint256)
-func (_Smc *SmcCaller) BalanceOf(opts *bind.CallOpts, account common.Address) (*big.Int, error) {
+func (_LF5 *LF5Caller) BalanceOf(opts *bind.CallOpts, account common.Address) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "balanceOf", account)
+	err := _LF5.contract.Call(opts, &out, "balanceOf", account)
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -285,23 +285,23 @@ func (_Smc *SmcCaller) BalanceOf(opts *bind.CallOpts, account common.Address) (*
 // BalanceOf is a free data retrieval call binding the contract method 0x70a08231.
 //
 // Solidity: function balanceOf(address account) view returns(uint256)
-func (_Smc *SmcSession) BalanceOf(account common.Address) (*big.Int, error) {
-	return _Smc.Contract.BalanceOf(&_Smc.CallOpts, account)
+func (_LF5 *LF5Session) BalanceOf(account common.Address) (*big.Int, error) {
+	return _LF5.Contract.BalanceOf(&_LF5.CallOpts, account)
 }
 
 // BalanceOf is a free data retrieval call binding the contract method 0x70a08231.
 //
 // Solidity: function balanceOf(address account) view returns(uint256)
-func (_Smc *SmcCallerSession) BalanceOf(account common.Address) (*big.Int, error) {
-	return _Smc.Contract.BalanceOf(&_Smc.CallOpts, account)
+func (_LF5 *LF5CallerSession) BalanceOf(account common.Address) (*big.Int, error) {
+	return _LF5.Contract.BalanceOf(&_LF5.CallOpts, account)
 }
 
 // Decimals is a free data retrieval call binding the contract method 0x313ce567.
 //
 // Solidity: function decimals() view returns(uint8)
-func (_Smc *SmcCaller) Decimals(opts *bind.CallOpts) (uint8, error) {
+func (_LF5 *LF5Caller) Decimals(opts *bind.CallOpts) (uint8, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "decimals")
+	err := _LF5.contract.Call(opts, &out, "decimals")
 
 	if err != nil {
 		return *new(uint8), err
@@ -316,23 +316,23 @@ func (_Smc *SmcCaller) Decimals(opts *bind.CallOpts) (uint8, error) {
 // Decimals is a free data retrieval call binding the contract method 0x313ce567.
 //
 // Solidity: function decimals() view returns(uint8)
-func (_Smc *SmcSession) Decimals() (uint8, error) {
-	return _Smc.Contract.Decimals(&_Smc.CallOpts)
+func (_LF5 *LF5Session) Decimals() (uint8, error) {
+	return _LF5.Contract.Decimals(&_LF5.CallOpts)
 }
 
 // Decimals is a free data retrieval call binding the contract method 0x313ce567.
 //
 // Solidity: function decimals() view returns(uint8)
-func (_Smc *SmcCallerSession) Decimals() (uint8, error) {
-	return _Smc.Contract.Decimals(&_Smc.CallOpts)
+func (_LF5 *LF5CallerSession) Decimals() (uint8, error) {
+	return _LF5.Contract.Decimals(&_LF5.CallOpts)
 }
 
 // GetBlackListStatus is a free data retrieval call binding the contract method 0x59bf1abe.
 //
 // Solidity: function getBlackListStatus(address _maker) view returns(bool)
-func (_Smc *SmcCaller) GetBlackListStatus(opts *bind.CallOpts, _maker common.Address) (bool, error) {
+func (_LF5 *LF5Caller) GetBlackListStatus(opts *bind.CallOpts, _maker common.Address) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getBlackListStatus", _maker)
+	err := _LF5.contract.Call(opts, &out, "getBlackListStatus", _maker)
 
 	if err != nil {
 		return *new(bool), err
@@ -347,23 +347,23 @@ func (_Smc *SmcCaller) GetBlackListStatus(opts *bind.CallOpts, _maker common.Add
 // GetBlackListStatus is a free data retrieval call binding the contract method 0x59bf1abe.
 //
 // Solidity: function getBlackListStatus(address _maker) view returns(bool)
-func (_Smc *SmcSession) GetBlackListStatus(_maker common.Address) (bool, error) {
-	return _Smc.Contract.GetBlackListStatus(&_Smc.CallOpts, _maker)
+func (_LF5 *LF5Session) GetBlackListStatus(_maker common.Address) (bool, error) {
+	return _LF5.Contract.GetBlackListStatus(&_LF5.CallOpts, _maker)
 }
 
 // GetBlackListStatus is a free data retrieval call binding the contract method 0x59bf1abe.
 //
 // Solidity: function getBlackListStatus(address _maker) view returns(bool)
-func (_Smc *SmcCallerSession) GetBlackListStatus(_maker common.Address) (bool, error) {
-	return _Smc.Contract.GetBlackListStatus(&_Smc.CallOpts, _maker)
+func (_LF5 *LF5CallerSession) GetBlackListStatus(_maker common.Address) (bool, error) {
+	return _LF5.Contract.GetBlackListStatus(&_LF5.CallOpts, _maker)
 }
 
 // GetOwner is a free data retrieval call binding the contract method 0x893d20e8.
 //
 // Solidity: function getOwner() view returns(address)
-func (_Smc *SmcCaller) GetOwner(opts *bind.CallOpts) (common.Address, error) {
+func (_LF5 *LF5Caller) GetOwner(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getOwner")
+	err := _LF5.contract.Call(opts, &out, "getOwner")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -378,23 +378,23 @@ func (_Smc *SmcCaller) GetOwner(opts *bind.CallOpts) (common.Address, error) {
 // GetOwner is a free data retrieval call binding the contract method 0x893d20e8.
 //
 // Solidity: function getOwner() view returns(address)
-func (_Smc *SmcSession) GetOwner() (common.Address, error) {
-	return _Smc.Contract.GetOwner(&_Smc.CallOpts)
+func (_LF5 *LF5Session) GetOwner() (common.Address, error) {
+	return _LF5.Contract.GetOwner(&_LF5.CallOpts)
 }
 
 // GetOwner is a free data retrieval call binding the contract method 0x893d20e8.
 //
 // Solidity: function getOwner() view returns(address)
-func (_Smc *SmcCallerSession) GetOwner() (common.Address, error) {
-	return _Smc.Contract.GetOwner(&_Smc.CallOpts)
+func (_LF5 *LF5CallerSession) GetOwner() (common.Address, error) {
+	return _LF5.Contract.GetOwner(&_LF5.CallOpts)
 }
 
 // IsBlackListed is a free data retrieval call binding the contract method 0xe47d6060.
 //
 // Solidity: function isBlackListed(address ) view returns(bool)
-func (_Smc *SmcCaller) IsBlackListed(opts *bind.CallOpts, arg0 common.Address) (bool, error) {
+func (_LF5 *LF5Caller) IsBlackListed(opts *bind.CallOpts, arg0 common.Address) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "isBlackListed", arg0)
+	err := _LF5.contract.Call(opts, &out, "isBlackListed", arg0)
 
 	if err != nil {
 		return *new(bool), err
@@ -409,23 +409,23 @@ func (_Smc *SmcCaller) IsBlackListed(opts *bind.CallOpts, arg0 common.Address) (
 // IsBlackListed is a free data retrieval call binding the contract method 0xe47d6060.
 //
 // Solidity: function isBlackListed(address ) view returns(bool)
-func (_Smc *SmcSession) IsBlackListed(arg0 common.Address) (bool, error) {
-	return _Smc.Contract.IsBlackListed(&_Smc.CallOpts, arg0)
+func (_LF5 *LF5Session) IsBlackListed(arg0 common.Address) (bool, error) {
+	return _LF5.Contract.IsBlackListed(&_LF5.CallOpts, arg0)
 }
 
 // IsBlackListed is a free data retrieval call binding the contract method 0xe47d6060.
 //
 // Solidity: function isBlackListed(address ) view returns(bool)
-func (_Smc *SmcCallerSession) IsBlackListed(arg0 common.Address) (bool, error) {
-	return _Smc.Contract.IsBlackListed(&_Smc.CallOpts, arg0)
+func (_LF5 *LF5CallerSession) IsBlackListed(arg0 common.Address) (bool, error) {
+	return _LF5.Contract.IsBlackListed(&_LF5.CallOpts, arg0)
 }
 
 // Name is a free data retrieval call binding the contract method 0x06fdde03.
 //
 // Solidity: function name() view returns(string)
-func (_Smc *SmcCaller) Name(opts *bind.CallOpts) (string, error) {
+func (_LF5 *LF5Caller) Name(opts *bind.CallOpts) (string, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "name")
+	err := _LF5.contract.Call(opts, &out, "name")
 
 	if err != nil {
 		return *new(string), err
@@ -440,23 +440,23 @@ func (_Smc *SmcCaller) Name(opts *bind.CallOpts) (string, error) {
 // Name is a free data retrieval call binding the contract method 0x06fdde03.
 //
 // Solidity: function name() view returns(string)
-func (_Smc *SmcSession) Name() (string, error) {
-	return _Smc.Contract.Name(&_Smc.CallOpts)
+func (_LF5 *LF5Session) Name() (string, error) {
+	return _LF5.Contract.Name(&_LF5.CallOpts)
 }
 
 // Name is a free data retrieval call binding the contract method 0x06fdde03.
 //
 // Solidity: function name() view returns(string)
-func (_Smc *SmcCallerSession) Name() (string, error) {
-	return _Smc.Contract.Name(&_Smc.CallOpts)
+func (_LF5 *LF5CallerSession) Name() (string, error) {
+	return _LF5.Contract.Name(&_LF5.CallOpts)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
+func (_LF5 *LF5Caller) Owner(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "owner")
+	err := _LF5.contract.Call(opts, &out, "owner")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -471,23 +471,23 @@ func (_Smc *SmcCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcSession) Owner() (common.Address, error) {
-	return _Smc.Contract.Owner(&_Smc.CallOpts)
+func (_LF5 *LF5Session) Owner() (common.Address, error) {
+	return _LF5.Contract.Owner(&_LF5.CallOpts)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcCallerSession) Owner() (common.Address, error) {
-	return _Smc.Contract.Owner(&_Smc.CallOpts)
+func (_LF5 *LF5CallerSession) Owner() (common.Address, error) {
+	return _LF5.Contract.Owner(&_LF5.CallOpts)
 }
 
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcCaller) Paused(opts *bind.CallOpts) (bool, error) {
+func (_LF5 *LF5Caller) Paused(opts *bind.CallOpts) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "paused")
+	err := _LF5.contract.Call(opts, &out, "paused")
 
 	if err != nil {
 		return *new(bool), err
@@ -502,23 +502,23 @@ func (_Smc *SmcCaller) Paused(opts *bind.CallOpts) (bool, error) {
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcSession) Paused() (bool, error) {
-	return _Smc.Contract.Paused(&_Smc.CallOpts)
+func (_LF5 *LF5Session) Paused() (bool, error) {
+	return _LF5.Contract.Paused(&_LF5.CallOpts)
 }
 
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcCallerSession) Paused() (bool, error) {
-	return _Smc.Contract.Paused(&_Smc.CallOpts)
+func (_LF5 *LF5CallerSession) Paused() (bool, error) {
+	return _LF5.Contract.Paused(&_LF5.CallOpts)
 }
 
 // Symbol is a free data retrieval call binding the contract method 0x95d89b41.
 //
 // Solidity: function symbol() view returns(string)
-func (_Smc *SmcCaller) Symbol(opts *bind.CallOpts) (string, error) {
+func (_LF5 *LF5Caller) Symbol(opts *bind.CallOpts) (string, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "symbol")
+	err := _LF5.contract.Call(opts, &out, "symbol")
 
 	if err != nil {
 		return *new(string), err
@@ -533,23 +533,23 @@ func (_Smc *SmcCaller) Symbol(opts *bind.CallOpts) (string, error) {
 // Symbol is a free data retrieval call binding the contract method 0x95d89b41.
 //
 // Solidity: function symbol() view returns(string)
-func (_Smc *SmcSession) Symbol() (string, error) {
-	return _Smc.Contract.Symbol(&_Smc.CallOpts)
+func (_LF5 *LF5Session) Symbol() (string, error) {
+	return _LF5.Contract.Symbol(&_LF5.CallOpts)
 }
 
 // Symbol is a free data retrieval call binding the contract method 0x95d89b41.
 //
 // Solidity: function symbol() view returns(string)
-func (_Smc *SmcCallerSession) Symbol() (string, error) {
-	return _Smc.Contract.Symbol(&_Smc.CallOpts)
+func (_LF5 *LF5CallerSession) Symbol() (string, error) {
+	return _LF5.Contract.Symbol(&_LF5.CallOpts)
 }
 
 // TotalSupply is a free data retrieval call binding the contract method 0x18160ddd.
 //
 // Solidity: function totalSupply() view returns(uint256)
-func (_Smc *SmcCaller) TotalSupply(opts *bind.CallOpts) (*big.Int, error) {
+func (_LF5 *LF5Caller) TotalSupply(opts *bind.CallOpts) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "totalSupply")
+	err := _LF5.contract.Call(opts, &out, "totalSupply")
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -564,419 +564,419 @@ func (_Smc *SmcCaller) TotalSupply(opts *bind.CallOpts) (*big.Int, error) {
 // TotalSupply is a free data retrieval call binding the contract method 0x18160ddd.
 //
 // Solidity: function totalSupply() view returns(uint256)
-func (_Smc *SmcSession) TotalSupply() (*big.Int, error) {
-	return _Smc.Contract.TotalSupply(&_Smc.CallOpts)
+func (_LF5 *LF5Session) TotalSupply() (*big.Int, error) {
+	return _LF5.Contract.TotalSupply(&_LF5.CallOpts)
 }
 
 // TotalSupply is a free data retrieval call binding the contract method 0x18160ddd.
 //
 // Solidity: function totalSupply() view returns(uint256)
-func (_Smc *SmcCallerSession) TotalSupply() (*big.Int, error) {
-	return _Smc.Contract.TotalSupply(&_Smc.CallOpts)
+func (_LF5 *LF5CallerSession) TotalSupply() (*big.Int, error) {
+	return _LF5.Contract.TotalSupply(&_LF5.CallOpts)
 }
 
 // AddAdmin is a paid mutator transaction binding the contract method 0x46f2ed2e.
 //
 // Solidity: function addAdmin(address a, uint256 maxIssuingTokenPerTime, uint256 maxTotalIssuingToken) returns()
-func (_Smc *SmcTransactor) AddAdmin(opts *bind.TransactOpts, a common.Address, maxIssuingTokenPerTime *big.Int, maxTotalIssuingToken *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "addAdmin", a, maxIssuingTokenPerTime, maxTotalIssuingToken)
+func (_LF5 *LF5Transactor) AddAdmin(opts *bind.TransactOpts, a common.Address, maxIssuingTokenPerTime *big.Int, maxTotalIssuingToken *big.Int) (*types.Transaction, error) {
+	return _LF5.contract.Transact(opts, "addAdmin", a, maxIssuingTokenPerTime, maxTotalIssuingToken)
 }
 
 // AddAdmin is a paid mutator transaction binding the contract method 0x46f2ed2e.
 //
 // Solidity: function addAdmin(address a, uint256 maxIssuingTokenPerTime, uint256 maxTotalIssuingToken) returns()
-func (_Smc *SmcSession) AddAdmin(a common.Address, maxIssuingTokenPerTime *big.Int, maxTotalIssuingToken *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.AddAdmin(&_Smc.TransactOpts, a, maxIssuingTokenPerTime, maxTotalIssuingToken)
+func (_LF5 *LF5Session) AddAdmin(a common.Address, maxIssuingTokenPerTime *big.Int, maxTotalIssuingToken *big.Int) (*types.Transaction, error) {
+	return _LF5.Contract.AddAdmin(&_LF5.TransactOpts, a, maxIssuingTokenPerTime, maxTotalIssuingToken)
 }
 
 // AddAdmin is a paid mutator transaction binding the contract method 0x46f2ed2e.
 //
 // Solidity: function addAdmin(address a, uint256 maxIssuingTokenPerTime, uint256 maxTotalIssuingToken) returns()
-func (_Smc *SmcTransactorSession) AddAdmin(a common.Address, maxIssuingTokenPerTime *big.Int, maxTotalIssuingToken *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.AddAdmin(&_Smc.TransactOpts, a, maxIssuingTokenPerTime, maxTotalIssuingToken)
+func (_LF5 *LF5TransactorSession) AddAdmin(a common.Address, maxIssuingTokenPerTime *big.Int, maxTotalIssuingToken *big.Int) (*types.Transaction, error) {
+	return _LF5.Contract.AddAdmin(&_LF5.TransactOpts, a, maxIssuingTokenPerTime, maxTotalIssuingToken)
 }
 
 // AddBlackList is a paid mutator transaction binding the contract method 0x0ecb93c0.
 //
 // Solidity: function addBlackList(address _evilUser) returns()
-func (_Smc *SmcTransactor) AddBlackList(opts *bind.TransactOpts, _evilUser common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "addBlackList", _evilUser)
+func (_LF5 *LF5Transactor) AddBlackList(opts *bind.TransactOpts, _evilUser common.Address) (*types.Transaction, error) {
+	return _LF5.contract.Transact(opts, "addBlackList", _evilUser)
 }
 
 // AddBlackList is a paid mutator transaction binding the contract method 0x0ecb93c0.
 //
 // Solidity: function addBlackList(address _evilUser) returns()
-func (_Smc *SmcSession) AddBlackList(_evilUser common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.AddBlackList(&_Smc.TransactOpts, _evilUser)
+func (_LF5 *LF5Session) AddBlackList(_evilUser common.Address) (*types.Transaction, error) {
+	return _LF5.Contract.AddBlackList(&_LF5.TransactOpts, _evilUser)
 }
 
 // AddBlackList is a paid mutator transaction binding the contract method 0x0ecb93c0.
 //
 // Solidity: function addBlackList(address _evilUser) returns()
-func (_Smc *SmcTransactorSession) AddBlackList(_evilUser common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.AddBlackList(&_Smc.TransactOpts, _evilUser)
+func (_LF5 *LF5TransactorSession) AddBlackList(_evilUser common.Address) (*types.Transaction, error) {
+	return _LF5.Contract.AddBlackList(&_LF5.TransactOpts, _evilUser)
 }
 
 // Approve is a paid mutator transaction binding the contract method 0x095ea7b3.
 //
 // Solidity: function approve(address spender, uint256 amount) returns(bool)
-func (_Smc *SmcTransactor) Approve(opts *bind.TransactOpts, spender common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "approve", spender, amount)
+func (_LF5 *LF5Transactor) Approve(opts *bind.TransactOpts, spender common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _LF5.contract.Transact(opts, "approve", spender, amount)
 }
 
 // Approve is a paid mutator transaction binding the contract method 0x095ea7b3.
 //
 // Solidity: function approve(address spender, uint256 amount) returns(bool)
-func (_Smc *SmcSession) Approve(spender common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.Approve(&_Smc.TransactOpts, spender, amount)
+func (_LF5 *LF5Session) Approve(spender common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _LF5.Contract.Approve(&_LF5.TransactOpts, spender, amount)
 }
 
 // Approve is a paid mutator transaction binding the contract method 0x095ea7b3.
 //
 // Solidity: function approve(address spender, uint256 amount) returns(bool)
-func (_Smc *SmcTransactorSession) Approve(spender common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.Approve(&_Smc.TransactOpts, spender, amount)
+func (_LF5 *LF5TransactorSession) Approve(spender common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _LF5.Contract.Approve(&_LF5.TransactOpts, spender, amount)
 }
 
 // DecreaseAllowance is a paid mutator transaction binding the contract method 0xa457c2d7.
 //
 // Solidity: function decreaseAllowance(address spender, uint256 subtractedValue) returns(bool)
-func (_Smc *SmcTransactor) DecreaseAllowance(opts *bind.TransactOpts, spender common.Address, subtractedValue *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "decreaseAllowance", spender, subtractedValue)
+func (_LF5 *LF5Transactor) DecreaseAllowance(opts *bind.TransactOpts, spender common.Address, subtractedValue *big.Int) (*types.Transaction, error) {
+	return _LF5.contract.Transact(opts, "decreaseAllowance", spender, subtractedValue)
 }
 
 // DecreaseAllowance is a paid mutator transaction binding the contract method 0xa457c2d7.
 //
 // Solidity: function decreaseAllowance(address spender, uint256 subtractedValue) returns(bool)
-func (_Smc *SmcSession) DecreaseAllowance(spender common.Address, subtractedValue *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.DecreaseAllowance(&_Smc.TransactOpts, spender, subtractedValue)
+func (_LF5 *LF5Session) DecreaseAllowance(spender common.Address, subtractedValue *big.Int) (*types.Transaction, error) {
+	return _LF5.Contract.DecreaseAllowance(&_LF5.TransactOpts, spender, subtractedValue)
 }
 
 // DecreaseAllowance is a paid mutator transaction binding the contract method 0xa457c2d7.
 //
 // Solidity: function decreaseAllowance(address spender, uint256 subtractedValue) returns(bool)
-func (_Smc *SmcTransactorSession) DecreaseAllowance(spender common.Address, subtractedValue *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.DecreaseAllowance(&_Smc.TransactOpts, spender, subtractedValue)
+func (_LF5 *LF5TransactorSession) DecreaseAllowance(spender common.Address, subtractedValue *big.Int) (*types.Transaction, error) {
+	return _LF5.Contract.DecreaseAllowance(&_LF5.TransactOpts, spender, subtractedValue)
 }
 
 // DestroyBlackFunds is a paid mutator transaction binding the contract method 0xf3bdc228.
 //
 // Solidity: function destroyBlackFunds(address _blackListedUser) returns()
-func (_Smc *SmcTransactor) DestroyBlackFunds(opts *bind.TransactOpts, _blackListedUser common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "destroyBlackFunds", _blackListedUser)
+func (_LF5 *LF5Transactor) DestroyBlackFunds(opts *bind.TransactOpts, _blackListedUser common.Address) (*types.Transaction, error) {
+	return _LF5.contract.Transact(opts, "destroyBlackFunds", _blackListedUser)
 }
 
 // DestroyBlackFunds is a paid mutator transaction binding the contract method 0xf3bdc228.
 //
 // Solidity: function destroyBlackFunds(address _blackListedUser) returns()
-func (_Smc *SmcSession) DestroyBlackFunds(_blackListedUser common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.DestroyBlackFunds(&_Smc.TransactOpts, _blackListedUser)
+func (_LF5 *LF5Session) DestroyBlackFunds(_blackListedUser common.Address) (*types.Transaction, error) {
+	return _LF5.Contract.DestroyBlackFunds(&_LF5.TransactOpts, _blackListedUser)
 }
 
 // DestroyBlackFunds is a paid mutator transaction binding the contract method 0xf3bdc228.
 //
 // Solidity: function destroyBlackFunds(address _blackListedUser) returns()
-func (_Smc *SmcTransactorSession) DestroyBlackFunds(_blackListedUser common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.DestroyBlackFunds(&_Smc.TransactOpts, _blackListedUser)
+func (_LF5 *LF5TransactorSession) DestroyBlackFunds(_blackListedUser common.Address) (*types.Transaction, error) {
+	return _LF5.Contract.DestroyBlackFunds(&_LF5.TransactOpts, _blackListedUser)
 }
 
 // IncreaseAllowance is a paid mutator transaction binding the contract method 0x39509351.
 //
 // Solidity: function increaseAllowance(address spender, uint256 addedValue) returns(bool)
-func (_Smc *SmcTransactor) IncreaseAllowance(opts *bind.TransactOpts, spender common.Address, addedValue *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "increaseAllowance", spender, addedValue)
+func (_LF5 *LF5Transactor) IncreaseAllowance(opts *bind.TransactOpts, spender common.Address, addedValue *big.Int) (*types.Transaction, error) {
+	return _LF5.contract.Transact(opts, "increaseAllowance", spender, addedValue)
 }
 
 // IncreaseAllowance is a paid mutator transaction binding the contract method 0x39509351.
 //
 // Solidity: function increaseAllowance(address spender, uint256 addedValue) returns(bool)
-func (_Smc *SmcSession) IncreaseAllowance(spender common.Address, addedValue *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.IncreaseAllowance(&_Smc.TransactOpts, spender, addedValue)
+func (_LF5 *LF5Session) IncreaseAllowance(spender common.Address, addedValue *big.Int) (*types.Transaction, error) {
+	return _LF5.Contract.IncreaseAllowance(&_LF5.TransactOpts, spender, addedValue)
 }
 
 // IncreaseAllowance is a paid mutator transaction binding the contract method 0x39509351.
 //
 // Solidity: function increaseAllowance(address spender, uint256 addedValue) returns(bool)
-func (_Smc *SmcTransactorSession) IncreaseAllowance(spender common.Address, addedValue *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.IncreaseAllowance(&_Smc.TransactOpts, spender, addedValue)
+func (_LF5 *LF5TransactorSession) IncreaseAllowance(spender common.Address, addedValue *big.Int) (*types.Transaction, error) {
+	return _LF5.Contract.IncreaseAllowance(&_LF5.TransactOpts, spender, addedValue)
 }
 
 // Issue is a paid mutator transaction binding the contract method 0xea3f068d.
 //
 // Solidity: function issue(address issuer, uint256 value, bytes32 offchain) returns()
-func (_Smc *SmcTransactor) Issue(opts *bind.TransactOpts, issuer common.Address, value *big.Int, offchain [32]byte) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "issue", issuer, value, offchain)
+func (_LF5 *LF5Transactor) Issue(opts *bind.TransactOpts, issuer common.Address, value *big.Int, offchain [32]byte) (*types.Transaction, error) {
+	return _LF5.contract.Transact(opts, "issue", issuer, value, offchain)
 }
 
 // Issue is a paid mutator transaction binding the contract method 0xea3f068d.
 //
 // Solidity: function issue(address issuer, uint256 value, bytes32 offchain) returns()
-func (_Smc *SmcSession) Issue(issuer common.Address, value *big.Int, offchain [32]byte) (*types.Transaction, error) {
-	return _Smc.Contract.Issue(&_Smc.TransactOpts, issuer, value, offchain)
+func (_LF5 *LF5Session) Issue(issuer common.Address, value *big.Int, offchain [32]byte) (*types.Transaction, error) {
+	return _LF5.Contract.Issue(&_LF5.TransactOpts, issuer, value, offchain)
 }
 
 // Issue is a paid mutator transaction binding the contract method 0xea3f068d.
 //
 // Solidity: function issue(address issuer, uint256 value, bytes32 offchain) returns()
-func (_Smc *SmcTransactorSession) Issue(issuer common.Address, value *big.Int, offchain [32]byte) (*types.Transaction, error) {
-	return _Smc.Contract.Issue(&_Smc.TransactOpts, issuer, value, offchain)
+func (_LF5 *LF5TransactorSession) Issue(issuer common.Address, value *big.Int, offchain [32]byte) (*types.Transaction, error) {
+	return _LF5.Contract.Issue(&_LF5.TransactOpts, issuer, value, offchain)
 }
 
 // IssueByAdmin is a paid mutator transaction binding the contract method 0xd10601ec.
 //
 // Solidity: function issueByAdmin(address issuer, uint256 value, bytes32 offchain) returns()
-func (_Smc *SmcTransactor) IssueByAdmin(opts *bind.TransactOpts, issuer common.Address, value *big.Int, offchain [32]byte) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "issueByAdmin", issuer, value, offchain)
+func (_LF5 *LF5Transactor) IssueByAdmin(opts *bind.TransactOpts, issuer common.Address, value *big.Int, offchain [32]byte) (*types.Transaction, error) {
+	return _LF5.contract.Transact(opts, "issueByAdmin", issuer, value, offchain)
 }
 
 // IssueByAdmin is a paid mutator transaction binding the contract method 0xd10601ec.
 //
 // Solidity: function issueByAdmin(address issuer, uint256 value, bytes32 offchain) returns()
-func (_Smc *SmcSession) IssueByAdmin(issuer common.Address, value *big.Int, offchain [32]byte) (*types.Transaction, error) {
-	return _Smc.Contract.IssueByAdmin(&_Smc.TransactOpts, issuer, value, offchain)
+func (_LF5 *LF5Session) IssueByAdmin(issuer common.Address, value *big.Int, offchain [32]byte) (*types.Transaction, error) {
+	return _LF5.Contract.IssueByAdmin(&_LF5.TransactOpts, issuer, value, offchain)
 }
 
 // IssueByAdmin is a paid mutator transaction binding the contract method 0xd10601ec.
 //
 // Solidity: function issueByAdmin(address issuer, uint256 value, bytes32 offchain) returns()
-func (_Smc *SmcTransactorSession) IssueByAdmin(issuer common.Address, value *big.Int, offchain [32]byte) (*types.Transaction, error) {
-	return _Smc.Contract.IssueByAdmin(&_Smc.TransactOpts, issuer, value, offchain)
+func (_LF5 *LF5TransactorSession) IssueByAdmin(issuer common.Address, value *big.Int, offchain [32]byte) (*types.Transaction, error) {
+	return _LF5.Contract.IssueByAdmin(&_LF5.TransactOpts, issuer, value, offchain)
 }
 
 // Mint is a paid mutator transaction binding the contract method 0xa0712d68.
 //
 // Solidity: function mint(uint256 amount) returns(bool)
-func (_Smc *SmcTransactor) Mint(opts *bind.TransactOpts, amount *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "mint", amount)
+func (_LF5 *LF5Transactor) Mint(opts *bind.TransactOpts, amount *big.Int) (*types.Transaction, error) {
+	return _LF5.contract.Transact(opts, "mint", amount)
 }
 
 // Mint is a paid mutator transaction binding the contract method 0xa0712d68.
 //
 // Solidity: function mint(uint256 amount) returns(bool)
-func (_Smc *SmcSession) Mint(amount *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.Mint(&_Smc.TransactOpts, amount)
+func (_LF5 *LF5Session) Mint(amount *big.Int) (*types.Transaction, error) {
+	return _LF5.Contract.Mint(&_LF5.TransactOpts, amount)
 }
 
 // Mint is a paid mutator transaction binding the contract method 0xa0712d68.
 //
 // Solidity: function mint(uint256 amount) returns(bool)
-func (_Smc *SmcTransactorSession) Mint(amount *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.Mint(&_Smc.TransactOpts, amount)
+func (_LF5 *LF5TransactorSession) Mint(amount *big.Int) (*types.Transaction, error) {
+	return _LF5.Contract.Mint(&_LF5.TransactOpts, amount)
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcTransactor) Pause(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "pause")
+func (_LF5 *LF5Transactor) Pause(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _LF5.contract.Transact(opts, "pause")
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcSession) Pause() (*types.Transaction, error) {
-	return _Smc.Contract.Pause(&_Smc.TransactOpts)
+func (_LF5 *LF5Session) Pause() (*types.Transaction, error) {
+	return _LF5.Contract.Pause(&_LF5.TransactOpts)
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcTransactorSession) Pause() (*types.Transaction, error) {
-	return _Smc.Contract.Pause(&_Smc.TransactOpts)
+func (_LF5 *LF5TransactorSession) Pause() (*types.Transaction, error) {
+	return _LF5.Contract.Pause(&_LF5.TransactOpts)
 }
 
 // Redeem is a paid mutator transaction binding the contract method 0x992c3e4b.
 //
 // Solidity: function redeem(address redeemer, uint256 value, bytes32 offchain) returns()
-func (_Smc *SmcTransactor) Redeem(opts *bind.TransactOpts, redeemer common.Address, value *big.Int, offchain [32]byte) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "redeem", redeemer, value, offchain)
+func (_LF5 *LF5Transactor) Redeem(opts *bind.TransactOpts, redeemer common.Address, value *big.Int, offchain [32]byte) (*types.Transaction, error) {
+	return _LF5.contract.Transact(opts, "redeem", redeemer, value, offchain)
 }
 
 // Redeem is a paid mutator transaction binding the contract method 0x992c3e4b.
 //
 // Solidity: function redeem(address redeemer, uint256 value, bytes32 offchain) returns()
-func (_Smc *SmcSession) Redeem(redeemer common.Address, value *big.Int, offchain [32]byte) (*types.Transaction, error) {
-	return _Smc.Contract.Redeem(&_Smc.TransactOpts, redeemer, value, offchain)
+func (_LF5 *LF5Session) Redeem(redeemer common.Address, value *big.Int, offchain [32]byte) (*types.Transaction, error) {
+	return _LF5.Contract.Redeem(&_LF5.TransactOpts, redeemer, value, offchain)
 }
 
 // Redeem is a paid mutator transaction binding the contract method 0x992c3e4b.
 //
 // Solidity: function redeem(address redeemer, uint256 value, bytes32 offchain) returns()
-func (_Smc *SmcTransactorSession) Redeem(redeemer common.Address, value *big.Int, offchain [32]byte) (*types.Transaction, error) {
-	return _Smc.Contract.Redeem(&_Smc.TransactOpts, redeemer, value, offchain)
+func (_LF5 *LF5TransactorSession) Redeem(redeemer common.Address, value *big.Int, offchain [32]byte) (*types.Transaction, error) {
+	return _LF5.Contract.Redeem(&_LF5.TransactOpts, redeemer, value, offchain)
 }
 
 // RemoveAdmin is a paid mutator transaction binding the contract method 0x1785f53c.
 //
 // Solidity: function removeAdmin(address a) returns()
-func (_Smc *SmcTransactor) RemoveAdmin(opts *bind.TransactOpts, a common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "removeAdmin", a)
+func (_LF5 *LF5Transactor) RemoveAdmin(opts *bind.TransactOpts, a common.Address) (*types.Transaction, error) {
+	return _LF5.contract.Transact(opts, "removeAdmin", a)
 }
 
 // RemoveAdmin is a paid mutator transaction binding the contract method 0x1785f53c.
 //
 // Solidity: function removeAdmin(address a) returns()
-func (_Smc *SmcSession) RemoveAdmin(a common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RemoveAdmin(&_Smc.TransactOpts, a)
+func (_LF5 *LF5Session) RemoveAdmin(a common.Address) (*types.Transaction, error) {
+	return _LF5.Contract.RemoveAdmin(&_LF5.TransactOpts, a)
 }
 
 // RemoveAdmin is a paid mutator transaction binding the contract method 0x1785f53c.
 //
 // Solidity: function removeAdmin(address a) returns()
-func (_Smc *SmcTransactorSession) RemoveAdmin(a common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RemoveAdmin(&_Smc.TransactOpts, a)
+func (_LF5 *LF5TransactorSession) RemoveAdmin(a common.Address) (*types.Transaction, error) {
+	return _LF5.Contract.RemoveAdmin(&_LF5.TransactOpts, a)
 }
 
 // RemoveBlackList is a paid mutator transaction binding the contract method 0xe4997dc5.
 //
 // Solidity: function removeBlackList(address _clearedUser) returns()
-func (_Smc *SmcTransactor) RemoveBlackList(opts *bind.TransactOpts, _clearedUser common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "removeBlackList", _clearedUser)
+func (_LF5 *LF5Transactor) RemoveBlackList(opts *bind.TransactOpts, _clearedUser common.Address) (*types.Transaction, error) {
+	return _LF5.contract.Transact(opts, "removeBlackList", _clearedUser)
 }
 
 // RemoveBlackList is a paid mutator transaction binding the contract method 0xe4997dc5.
 //
 // Solidity: function removeBlackList(address _clearedUser) returns()
-func (_Smc *SmcSession) RemoveBlackList(_clearedUser common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RemoveBlackList(&_Smc.TransactOpts, _clearedUser)
+func (_LF5 *LF5Session) RemoveBlackList(_clearedUser common.Address) (*types.Transaction, error) {
+	return _LF5.Contract.RemoveBlackList(&_LF5.TransactOpts, _clearedUser)
 }
 
 // RemoveBlackList is a paid mutator transaction binding the contract method 0xe4997dc5.
 //
 // Solidity: function removeBlackList(address _clearedUser) returns()
-func (_Smc *SmcTransactorSession) RemoveBlackList(_clearedUser common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RemoveBlackList(&_Smc.TransactOpts, _clearedUser)
+func (_LF5 *LF5TransactorSession) RemoveBlackList(_clearedUser common.Address) (*types.Transaction, error) {
+	return _LF5.Contract.RemoveBlackList(&_LF5.TransactOpts, _clearedUser)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcTransactor) RenounceOwnership(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "renounceOwnership")
+func (_LF5 *LF5Transactor) RenounceOwnership(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _LF5.contract.Transact(opts, "renounceOwnership")
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcSession) RenounceOwnership() (*types.Transaction, error) {
-	return _Smc.Contract.RenounceOwnership(&_Smc.TransactOpts)
+func (_LF5 *LF5Session) RenounceOwnership() (*types.Transaction, error) {
+	return _LF5.Contract.RenounceOwnership(&_LF5.TransactOpts)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcTransactorSession) RenounceOwnership() (*types.Transaction, error) {
-	return _Smc.Contract.RenounceOwnership(&_Smc.TransactOpts)
+func (_LF5 *LF5TransactorSession) RenounceOwnership() (*types.Transaction, error) {
+	return _LF5.Contract.RenounceOwnership(&_LF5.TransactOpts)
 }
 
 // Transfer is a paid mutator transaction binding the contract method 0xa9059cbb.
 //
 // Solidity: function transfer(address _to, uint256 _value) returns(bool)
-func (_Smc *SmcTransactor) Transfer(opts *bind.TransactOpts, _to common.Address, _value *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "transfer", _to, _value)
+func (_LF5 *LF5Transactor) Transfer(opts *bind.TransactOpts, _to common.Address, _value *big.Int) (*types.Transaction, error) {
+	return _LF5.contract.Transact(opts, "transfer", _to, _value)
 }
 
 // Transfer is a paid mutator transaction binding the contract method 0xa9059cbb.
 //
 // Solidity: function transfer(address _to, uint256 _value) returns(bool)
-func (_Smc *SmcSession) Transfer(_to common.Address, _value *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.Transfer(&_Smc.TransactOpts, _to, _value)
+func (_LF5 *LF5Session) Transfer(_to common.Address, _value *big.Int) (*types.Transaction, error) {
+	return _LF5.Contract.Transfer(&_LF5.TransactOpts, _to, _value)
 }
 
 // Transfer is a paid mutator transaction binding the contract method 0xa9059cbb.
 //
 // Solidity: function transfer(address _to, uint256 _value) returns(bool)
-func (_Smc *SmcTransactorSession) Transfer(_to common.Address, _value *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.Transfer(&_Smc.TransactOpts, _to, _value)
+func (_LF5 *LF5TransactorSession) Transfer(_to common.Address, _value *big.Int) (*types.Transaction, error) {
+	return _LF5.Contract.Transfer(&_LF5.TransactOpts, _to, _value)
 }
 
 // TransferByAdmin is a paid mutator transaction binding the contract method 0xf9ba884f.
 //
 // Solidity: function transferByAdmin(address from, address to, uint256 value, bytes32 offchain) returns()
-func (_Smc *SmcTransactor) TransferByAdmin(opts *bind.TransactOpts, from common.Address, to common.Address, value *big.Int, offchain [32]byte) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "transferByAdmin", from, to, value, offchain)
+func (_LF5 *LF5Transactor) TransferByAdmin(opts *bind.TransactOpts, from common.Address, to common.Address, value *big.Int, offchain [32]byte) (*types.Transaction, error) {
+	return _LF5.contract.Transact(opts, "transferByAdmin", from, to, value, offchain)
 }
 
 // TransferByAdmin is a paid mutator transaction binding the contract method 0xf9ba884f.
 //
 // Solidity: function transferByAdmin(address from, address to, uint256 value, bytes32 offchain) returns()
-func (_Smc *SmcSession) TransferByAdmin(from common.Address, to common.Address, value *big.Int, offchain [32]byte) (*types.Transaction, error) {
-	return _Smc.Contract.TransferByAdmin(&_Smc.TransactOpts, from, to, value, offchain)
+func (_LF5 *LF5Session) TransferByAdmin(from common.Address, to common.Address, value *big.Int, offchain [32]byte) (*types.Transaction, error) {
+	return _LF5.Contract.TransferByAdmin(&_LF5.TransactOpts, from, to, value, offchain)
 }
 
 // TransferByAdmin is a paid mutator transaction binding the contract method 0xf9ba884f.
 //
 // Solidity: function transferByAdmin(address from, address to, uint256 value, bytes32 offchain) returns()
-func (_Smc *SmcTransactorSession) TransferByAdmin(from common.Address, to common.Address, value *big.Int, offchain [32]byte) (*types.Transaction, error) {
-	return _Smc.Contract.TransferByAdmin(&_Smc.TransactOpts, from, to, value, offchain)
+func (_LF5 *LF5TransactorSession) TransferByAdmin(from common.Address, to common.Address, value *big.Int, offchain [32]byte) (*types.Transaction, error) {
+	return _LF5.Contract.TransferByAdmin(&_LF5.TransactOpts, from, to, value, offchain)
 }
 
 // TransferFrom is a paid mutator transaction binding the contract method 0x23b872dd.
 //
 // Solidity: function transferFrom(address _from, address _to, uint256 _value) returns(bool)
-func (_Smc *SmcTransactor) TransferFrom(opts *bind.TransactOpts, _from common.Address, _to common.Address, _value *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "transferFrom", _from, _to, _value)
+func (_LF5 *LF5Transactor) TransferFrom(opts *bind.TransactOpts, _from common.Address, _to common.Address, _value *big.Int) (*types.Transaction, error) {
+	return _LF5.contract.Transact(opts, "transferFrom", _from, _to, _value)
 }
 
 // TransferFrom is a paid mutator transaction binding the contract method 0x23b872dd.
 //
 // Solidity: function transferFrom(address _from, address _to, uint256 _value) returns(bool)
-func (_Smc *SmcSession) TransferFrom(_from common.Address, _to common.Address, _value *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.TransferFrom(&_Smc.TransactOpts, _from, _to, _value)
+func (_LF5 *LF5Session) TransferFrom(_from common.Address, _to common.Address, _value *big.Int) (*types.Transaction, error) {
+	return _LF5.Contract.TransferFrom(&_LF5.TransactOpts, _from, _to, _value)
 }
 
 // TransferFrom is a paid mutator transaction binding the contract method 0x23b872dd.
 //
 // Solidity: function transferFrom(address _from, address _to, uint256 _value) returns(bool)
-func (_Smc *SmcTransactorSession) TransferFrom(_from common.Address, _to common.Address, _value *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.TransferFrom(&_Smc.TransactOpts, _from, _to, _value)
+func (_LF5 *LF5TransactorSession) TransferFrom(_from common.Address, _to common.Address, _value *big.Int) (*types.Transaction, error) {
+	return _LF5.Contract.TransferFrom(&_LF5.TransactOpts, _from, _to, _value)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcTransactor) TransferOwnership(opts *bind.TransactOpts, newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "transferOwnership", newOwner)
+func (_LF5 *LF5Transactor) TransferOwnership(opts *bind.TransactOpts, newOwner common.Address) (*types.Transaction, error) {
+	return _LF5.contract.Transact(opts, "transferOwnership", newOwner)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.TransferOwnership(&_Smc.TransactOpts, newOwner)
+func (_LF5 *LF5Session) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
+	return _LF5.Contract.TransferOwnership(&_LF5.TransactOpts, newOwner)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcTransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.TransferOwnership(&_Smc.TransactOpts, newOwner)
+func (_LF5 *LF5TransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
+	return _LF5.Contract.TransferOwnership(&_LF5.TransactOpts, newOwner)
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcTransactor) Unpause(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "unpause")
+func (_LF5 *LF5Transactor) Unpause(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _LF5.contract.Transact(opts, "unpause")
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcSession) Unpause() (*types.Transaction, error) {
-	return _Smc.Contract.Unpause(&_Smc.TransactOpts)
+func (_LF5 *LF5Session) Unpause() (*types.Transaction, error) {
+	return _LF5.Contract.Unpause(&_LF5.TransactOpts)
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcTransactorSession) Unpause() (*types.Transaction, error) {
-	return _Smc.Contract.Unpause(&_Smc.TransactOpts)
+func (_LF5 *LF5TransactorSession) Unpause() (*types.Transaction, error) {
+	return _LF5.Contract.Unpause(&_LF5.TransactOpts)
 }
 
-// SmcAddedBlackListIterator is returned from FilterAddedBlackList and is used to iterate over the raw logs and unpacked data for AddedBlackList events raised by the Smc contract.
-type SmcAddedBlackListIterator struct {
-	Event *SmcAddedBlackList // Event containing the contract specifics and raw log
+// LF5AddedBlackListIterator is returned from FilterAddedBlackList and is used to iterate over the raw logs and unpacked data for AddedBlackList events raised by the LF5 contract.
+type LF5AddedBlackListIterator struct {
+	Event *LF5AddedBlackList // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -990,7 +990,7 @@ type SmcAddedBlackListIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcAddedBlackListIterator) Next() bool {
+func (it *LF5AddedBlackListIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -999,7 +999,7 @@ func (it *SmcAddedBlackListIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcAddedBlackList)
+			it.Event = new(LF5AddedBlackList)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1014,7 +1014,7 @@ func (it *SmcAddedBlackListIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcAddedBlackList)
+		it.Event = new(LF5AddedBlackList)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1030,19 +1030,19 @@ func (it *SmcAddedBlackListIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcAddedBlackListIterator) Error() error {
+func (it *LF5AddedBlackListIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcAddedBlackListIterator) Close() error {
+func (it *LF5AddedBlackListIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcAddedBlackList represents a AddedBlackList event raised by the Smc contract.
-type SmcAddedBlackList struct {
+// LF5AddedBlackList represents a AddedBlackList event raised by the LF5 contract.
+type LF5AddedBlackList struct {
 	User common.Address
 	Raw  types.Log // Blockchain specific contextual infos
 }
@@ -1050,21 +1050,21 @@ type SmcAddedBlackList struct {
 // FilterAddedBlackList is a free log retrieval operation binding the contract event 0x42e160154868087d6bfdc0ca23d96a1c1cfa32f1b72ba9ba27b69b98a0d819dc.
 //
 // Solidity: event AddedBlackList(address _user)
-func (_Smc *SmcFilterer) FilterAddedBlackList(opts *bind.FilterOpts) (*SmcAddedBlackListIterator, error) {
+func (_LF5 *LF5Filterer) FilterAddedBlackList(opts *bind.FilterOpts) (*LF5AddedBlackListIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "AddedBlackList")
+	logs, sub, err := _LF5.contract.FilterLogs(opts, "AddedBlackList")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcAddedBlackListIterator{contract: _Smc.contract, event: "AddedBlackList", logs: logs, sub: sub}, nil
+	return &LF5AddedBlackListIterator{contract: _LF5.contract, event: "AddedBlackList", logs: logs, sub: sub}, nil
 }
 
 // WatchAddedBlackList is a free log subscription operation binding the contract event 0x42e160154868087d6bfdc0ca23d96a1c1cfa32f1b72ba9ba27b69b98a0d819dc.
 //
 // Solidity: event AddedBlackList(address _user)
-func (_Smc *SmcFilterer) WatchAddedBlackList(opts *bind.WatchOpts, sink chan<- *SmcAddedBlackList) (event.Subscription, error) {
+func (_LF5 *LF5Filterer) WatchAddedBlackList(opts *bind.WatchOpts, sink chan<- *LF5AddedBlackList) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "AddedBlackList")
+	logs, sub, err := _LF5.contract.WatchLogs(opts, "AddedBlackList")
 	if err != nil {
 		return nil, err
 	}
@@ -1074,8 +1074,8 @@ func (_Smc *SmcFilterer) WatchAddedBlackList(opts *bind.WatchOpts, sink chan<- *
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcAddedBlackList)
-				if err := _Smc.contract.UnpackLog(event, "AddedBlackList", log); err != nil {
+				event := new(LF5AddedBlackList)
+				if err := _LF5.contract.UnpackLog(event, "AddedBlackList", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1099,18 +1099,18 @@ func (_Smc *SmcFilterer) WatchAddedBlackList(opts *bind.WatchOpts, sink chan<- *
 // ParseAddedBlackList is a log parse operation binding the contract event 0x42e160154868087d6bfdc0ca23d96a1c1cfa32f1b72ba9ba27b69b98a0d819dc.
 //
 // Solidity: event AddedBlackList(address _user)
-func (_Smc *SmcFilterer) ParseAddedBlackList(log types.Log) (*SmcAddedBlackList, error) {
-	event := new(SmcAddedBlackList)
-	if err := _Smc.contract.UnpackLog(event, "AddedBlackList", log); err != nil {
+func (_LF5 *LF5Filterer) ParseAddedBlackList(log types.Log) (*LF5AddedBlackList, error) {
+	event := new(LF5AddedBlackList)
+	if err := _LF5.contract.UnpackLog(event, "AddedBlackList", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcApprovalIterator is returned from FilterApproval and is used to iterate over the raw logs and unpacked data for Approval events raised by the Smc contract.
-type SmcApprovalIterator struct {
-	Event *SmcApproval // Event containing the contract specifics and raw log
+// LF5ApprovalIterator is returned from FilterApproval and is used to iterate over the raw logs and unpacked data for Approval events raised by the LF5 contract.
+type LF5ApprovalIterator struct {
+	Event *LF5Approval // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1124,7 +1124,7 @@ type SmcApprovalIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcApprovalIterator) Next() bool {
+func (it *LF5ApprovalIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1133,7 +1133,7 @@ func (it *SmcApprovalIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcApproval)
+			it.Event = new(LF5Approval)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1148,7 +1148,7 @@ func (it *SmcApprovalIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcApproval)
+		it.Event = new(LF5Approval)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1164,19 +1164,19 @@ func (it *SmcApprovalIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcApprovalIterator) Error() error {
+func (it *LF5ApprovalIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcApprovalIterator) Close() error {
+func (it *LF5ApprovalIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcApproval represents a Approval event raised by the Smc contract.
-type SmcApproval struct {
+// LF5Approval represents a Approval event raised by the LF5 contract.
+type LF5Approval struct {
 	Owner   common.Address
 	Spender common.Address
 	Value   *big.Int
@@ -1186,7 +1186,7 @@ type SmcApproval struct {
 // FilterApproval is a free log retrieval operation binding the contract event 0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925.
 //
 // Solidity: event Approval(address indexed owner, address indexed spender, uint256 value)
-func (_Smc *SmcFilterer) FilterApproval(opts *bind.FilterOpts, owner []common.Address, spender []common.Address) (*SmcApprovalIterator, error) {
+func (_LF5 *LF5Filterer) FilterApproval(opts *bind.FilterOpts, owner []common.Address, spender []common.Address) (*LF5ApprovalIterator, error) {
 
 	var ownerRule []interface{}
 	for _, ownerItem := range owner {
@@ -1197,17 +1197,17 @@ func (_Smc *SmcFilterer) FilterApproval(opts *bind.FilterOpts, owner []common.Ad
 		spenderRule = append(spenderRule, spenderItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Approval", ownerRule, spenderRule)
+	logs, sub, err := _LF5.contract.FilterLogs(opts, "Approval", ownerRule, spenderRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcApprovalIterator{contract: _Smc.contract, event: "Approval", logs: logs, sub: sub}, nil
+	return &LF5ApprovalIterator{contract: _LF5.contract, event: "Approval", logs: logs, sub: sub}, nil
 }
 
 // WatchApproval is a free log subscription operation binding the contract event 0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925.
 //
 // Solidity: event Approval(address indexed owner, address indexed spender, uint256 value)
-func (_Smc *SmcFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *SmcApproval, owner []common.Address, spender []common.Address) (event.Subscription, error) {
+func (_LF5 *LF5Filterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *LF5Approval, owner []common.Address, spender []common.Address) (event.Subscription, error) {
 
 	var ownerRule []interface{}
 	for _, ownerItem := range owner {
@@ -1218,7 +1218,7 @@ func (_Smc *SmcFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *SmcApp
 		spenderRule = append(spenderRule, spenderItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Approval", ownerRule, spenderRule)
+	logs, sub, err := _LF5.contract.WatchLogs(opts, "Approval", ownerRule, spenderRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1228,8 +1228,8 @@ func (_Smc *SmcFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *SmcApp
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcApproval)
-				if err := _Smc.contract.UnpackLog(event, "Approval", log); err != nil {
+				event := new(LF5Approval)
+				if err := _LF5.contract.UnpackLog(event, "Approval", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1253,18 +1253,18 @@ func (_Smc *SmcFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *SmcApp
 // ParseApproval is a log parse operation binding the contract event 0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925.
 //
 // Solidity: event Approval(address indexed owner, address indexed spender, uint256 value)
-func (_Smc *SmcFilterer) ParseApproval(log types.Log) (*SmcApproval, error) {
-	event := new(SmcApproval)
-	if err := _Smc.contract.UnpackLog(event, "Approval", log); err != nil {
+func (_LF5 *LF5Filterer) ParseApproval(log types.Log) (*LF5Approval, error) {
+	event := new(LF5Approval)
+	if err := _LF5.contract.UnpackLog(event, "Approval", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcDestroyedBlackFundsIterator is returned from FilterDestroyedBlackFunds and is used to iterate over the raw logs and unpacked data for DestroyedBlackFunds events raised by the Smc contract.
-type SmcDestroyedBlackFundsIterator struct {
-	Event *SmcDestroyedBlackFunds // Event containing the contract specifics and raw log
+// LF5DestroyedBlackFundsIterator is returned from FilterDestroyedBlackFunds and is used to iterate over the raw logs and unpacked data for DestroyedBlackFunds events raised by the LF5 contract.
+type LF5DestroyedBlackFundsIterator struct {
+	Event *LF5DestroyedBlackFunds // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1278,7 +1278,7 @@ type SmcDestroyedBlackFundsIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcDestroyedBlackFundsIterator) Next() bool {
+func (it *LF5DestroyedBlackFundsIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1287,7 +1287,7 @@ func (it *SmcDestroyedBlackFundsIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcDestroyedBlackFunds)
+			it.Event = new(LF5DestroyedBlackFunds)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1302,7 +1302,7 @@ func (it *SmcDestroyedBlackFundsIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcDestroyedBlackFunds)
+		it.Event = new(LF5DestroyedBlackFunds)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1318,19 +1318,19 @@ func (it *SmcDestroyedBlackFundsIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcDestroyedBlackFundsIterator) Error() error {
+func (it *LF5DestroyedBlackFundsIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcDestroyedBlackFundsIterator) Close() error {
+func (it *LF5DestroyedBlackFundsIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcDestroyedBlackFunds represents a DestroyedBlackFunds event raised by the Smc contract.
-type SmcDestroyedBlackFunds struct {
+// LF5DestroyedBlackFunds represents a DestroyedBlackFunds event raised by the LF5 contract.
+type LF5DestroyedBlackFunds struct {
 	BlackListedUser common.Address
 	Balance         *big.Int
 	Raw             types.Log // Blockchain specific contextual infos
@@ -1339,21 +1339,21 @@ type SmcDestroyedBlackFunds struct {
 // FilterDestroyedBlackFunds is a free log retrieval operation binding the contract event 0x61e6e66b0d6339b2980aecc6ccc0039736791f0ccde9ed512e789a7fbdd698c6.
 //
 // Solidity: event DestroyedBlackFunds(address _blackListedUser, uint256 _balance)
-func (_Smc *SmcFilterer) FilterDestroyedBlackFunds(opts *bind.FilterOpts) (*SmcDestroyedBlackFundsIterator, error) {
+func (_LF5 *LF5Filterer) FilterDestroyedBlackFunds(opts *bind.FilterOpts) (*LF5DestroyedBlackFundsIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "DestroyedBlackFunds")
+	logs, sub, err := _LF5.contract.FilterLogs(opts, "DestroyedBlackFunds")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcDestroyedBlackFundsIterator{contract: _Smc.contract, event: "DestroyedBlackFunds", logs: logs, sub: sub}, nil
+	return &LF5DestroyedBlackFundsIterator{contract: _LF5.contract, event: "DestroyedBlackFunds", logs: logs, sub: sub}, nil
 }
 
 // WatchDestroyedBlackFunds is a free log subscription operation binding the contract event 0x61e6e66b0d6339b2980aecc6ccc0039736791f0ccde9ed512e789a7fbdd698c6.
 //
 // Solidity: event DestroyedBlackFunds(address _blackListedUser, uint256 _balance)
-func (_Smc *SmcFilterer) WatchDestroyedBlackFunds(opts *bind.WatchOpts, sink chan<- *SmcDestroyedBlackFunds) (event.Subscription, error) {
+func (_LF5 *LF5Filterer) WatchDestroyedBlackFunds(opts *bind.WatchOpts, sink chan<- *LF5DestroyedBlackFunds) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "DestroyedBlackFunds")
+	logs, sub, err := _LF5.contract.WatchLogs(opts, "DestroyedBlackFunds")
 	if err != nil {
 		return nil, err
 	}
@@ -1363,8 +1363,8 @@ func (_Smc *SmcFilterer) WatchDestroyedBlackFunds(opts *bind.WatchOpts, sink cha
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcDestroyedBlackFunds)
-				if err := _Smc.contract.UnpackLog(event, "DestroyedBlackFunds", log); err != nil {
+				event := new(LF5DestroyedBlackFunds)
+				if err := _LF5.contract.UnpackLog(event, "DestroyedBlackFunds", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1388,18 +1388,18 @@ func (_Smc *SmcFilterer) WatchDestroyedBlackFunds(opts *bind.WatchOpts, sink cha
 // ParseDestroyedBlackFunds is a log parse operation binding the contract event 0x61e6e66b0d6339b2980aecc6ccc0039736791f0ccde9ed512e789a7fbdd698c6.
 //
 // Solidity: event DestroyedBlackFunds(address _blackListedUser, uint256 _balance)
-func (_Smc *SmcFilterer) ParseDestroyedBlackFunds(log types.Log) (*SmcDestroyedBlackFunds, error) {
-	event := new(SmcDestroyedBlackFunds)
-	if err := _Smc.contract.UnpackLog(event, "DestroyedBlackFunds", log); err != nil {
+func (_LF5 *LF5Filterer) ParseDestroyedBlackFunds(log types.Log) (*LF5DestroyedBlackFunds, error) {
+	event := new(LF5DestroyedBlackFunds)
+	if err := _LF5.contract.UnpackLog(event, "DestroyedBlackFunds", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the Smc contract.
-type SmcOwnershipTransferredIterator struct {
-	Event *SmcOwnershipTransferred // Event containing the contract specifics and raw log
+// LF5OwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the LF5 contract.
+type LF5OwnershipTransferredIterator struct {
+	Event *LF5OwnershipTransferred // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1413,7 +1413,7 @@ type SmcOwnershipTransferredIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcOwnershipTransferredIterator) Next() bool {
+func (it *LF5OwnershipTransferredIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1422,7 +1422,7 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcOwnershipTransferred)
+			it.Event = new(LF5OwnershipTransferred)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1437,7 +1437,7 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcOwnershipTransferred)
+		it.Event = new(LF5OwnershipTransferred)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1453,19 +1453,19 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcOwnershipTransferredIterator) Error() error {
+func (it *LF5OwnershipTransferredIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcOwnershipTransferredIterator) Close() error {
+func (it *LF5OwnershipTransferredIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcOwnershipTransferred represents a OwnershipTransferred event raised by the Smc contract.
-type SmcOwnershipTransferred struct {
+// LF5OwnershipTransferred represents a OwnershipTransferred event raised by the LF5 contract.
+type LF5OwnershipTransferred struct {
 	PreviousOwner common.Address
 	NewOwner      common.Address
 	Raw           types.Log // Blockchain specific contextual infos
@@ -1474,7 +1474,7 @@ type SmcOwnershipTransferred struct {
 // FilterOwnershipTransferred is a free log retrieval operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previousOwner []common.Address, newOwner []common.Address) (*SmcOwnershipTransferredIterator, error) {
+func (_LF5 *LF5Filterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previousOwner []common.Address, newOwner []common.Address) (*LF5OwnershipTransferredIterator, error) {
 
 	var previousOwnerRule []interface{}
 	for _, previousOwnerItem := range previousOwner {
@@ -1485,17 +1485,17 @@ func (_Smc *SmcFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previ
 		newOwnerRule = append(newOwnerRule, newOwnerItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
+	logs, sub, err := _LF5.contract.FilterLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcOwnershipTransferredIterator{contract: _Smc.contract, event: "OwnershipTransferred", logs: logs, sub: sub}, nil
+	return &LF5OwnershipTransferredIterator{contract: _LF5.contract, event: "OwnershipTransferred", logs: logs, sub: sub}, nil
 }
 
 // WatchOwnershipTransferred is a free log subscription operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink chan<- *SmcOwnershipTransferred, previousOwner []common.Address, newOwner []common.Address) (event.Subscription, error) {
+func (_LF5 *LF5Filterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink chan<- *LF5OwnershipTransferred, previousOwner []common.Address, newOwner []common.Address) (event.Subscription, error) {
 
 	var previousOwnerRule []interface{}
 	for _, previousOwnerItem := range previousOwner {
@@ -1506,7 +1506,7 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 		newOwnerRule = append(newOwnerRule, newOwnerItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
+	logs, sub, err := _LF5.contract.WatchLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1516,8 +1516,8 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcOwnershipTransferred)
-				if err := _Smc.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
+				event := new(LF5OwnershipTransferred)
+				if err := _LF5.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1541,18 +1541,18 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 // ParseOwnershipTransferred is a log parse operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) ParseOwnershipTransferred(log types.Log) (*SmcOwnershipTransferred, error) {
-	event := new(SmcOwnershipTransferred)
-	if err := _Smc.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
+func (_LF5 *LF5Filterer) ParseOwnershipTransferred(log types.Log) (*LF5OwnershipTransferred, error) {
+	event := new(LF5OwnershipTransferred)
+	if err := _LF5.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcPausedIterator is returned from FilterPaused and is used to iterate over the raw logs and unpacked data for Paused events raised by the Smc contract.
-type SmcPausedIterator struct {
-	Event *SmcPaused // Event containing the contract specifics and raw log
+// LF5PausedIterator is returned from FilterPaused and is used to iterate over the raw logs and unpacked data for Paused events raised by the LF5 contract.
+type LF5PausedIterator struct {
+	Event *LF5Paused // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1566,7 +1566,7 @@ type SmcPausedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcPausedIterator) Next() bool {
+func (it *LF5PausedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1575,7 +1575,7 @@ func (it *SmcPausedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcPaused)
+			it.Event = new(LF5Paused)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1590,7 +1590,7 @@ func (it *SmcPausedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcPaused)
+		it.Event = new(LF5Paused)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1606,19 +1606,19 @@ func (it *SmcPausedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcPausedIterator) Error() error {
+func (it *LF5PausedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcPausedIterator) Close() error {
+func (it *LF5PausedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcPaused represents a Paused event raised by the Smc contract.
-type SmcPaused struct {
+// LF5Paused represents a Paused event raised by the LF5 contract.
+type LF5Paused struct {
 	Account common.Address
 	Raw     types.Log // Blockchain specific contextual infos
 }
@@ -1626,21 +1626,21 @@ type SmcPaused struct {
 // FilterPaused is a free log retrieval operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) FilterPaused(opts *bind.FilterOpts) (*SmcPausedIterator, error) {
+func (_LF5 *LF5Filterer) FilterPaused(opts *bind.FilterOpts) (*LF5PausedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Paused")
+	logs, sub, err := _LF5.contract.FilterLogs(opts, "Paused")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcPausedIterator{contract: _Smc.contract, event: "Paused", logs: logs, sub: sub}, nil
+	return &LF5PausedIterator{contract: _LF5.contract, event: "Paused", logs: logs, sub: sub}, nil
 }
 
 // WatchPaused is a free log subscription operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPaused) (event.Subscription, error) {
+func (_LF5 *LF5Filterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *LF5Paused) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Paused")
+	logs, sub, err := _LF5.contract.WatchLogs(opts, "Paused")
 	if err != nil {
 		return nil, err
 	}
@@ -1650,8 +1650,8 @@ func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPause
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcPaused)
-				if err := _Smc.contract.UnpackLog(event, "Paused", log); err != nil {
+				event := new(LF5Paused)
+				if err := _LF5.contract.UnpackLog(event, "Paused", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1675,18 +1675,18 @@ func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPause
 // ParsePaused is a log parse operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) ParsePaused(log types.Log) (*SmcPaused, error) {
-	event := new(SmcPaused)
-	if err := _Smc.contract.UnpackLog(event, "Paused", log); err != nil {
+func (_LF5 *LF5Filterer) ParsePaused(log types.Log) (*LF5Paused, error) {
+	event := new(LF5Paused)
+	if err := _LF5.contract.UnpackLog(event, "Paused", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRemovedBlackListIterator is returned from FilterRemovedBlackList and is used to iterate over the raw logs and unpacked data for RemovedBlackList events raised by the Smc contract.
-type SmcRemovedBlackListIterator struct {
-	Event *SmcRemovedBlackList // Event containing the contract specifics and raw log
+// LF5RemovedBlackListIterator is returned from FilterRemovedBlackList and is used to iterate over the raw logs and unpacked data for RemovedBlackList events raised by the LF5 contract.
+type LF5RemovedBlackListIterator struct {
+	Event *LF5RemovedBlackList // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1700,7 +1700,7 @@ type SmcRemovedBlackListIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRemovedBlackListIterator) Next() bool {
+func (it *LF5RemovedBlackListIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1709,7 +1709,7 @@ func (it *SmcRemovedBlackListIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRemovedBlackList)
+			it.Event = new(LF5RemovedBlackList)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1724,7 +1724,7 @@ func (it *SmcRemovedBlackListIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRemovedBlackList)
+		it.Event = new(LF5RemovedBlackList)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1740,19 +1740,19 @@ func (it *SmcRemovedBlackListIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRemovedBlackListIterator) Error() error {
+func (it *LF5RemovedBlackListIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRemovedBlackListIterator) Close() error {
+func (it *LF5RemovedBlackListIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRemovedBlackList represents a RemovedBlackList event raised by the Smc contract.
-type SmcRemovedBlackList struct {
+// LF5RemovedBlackList represents a RemovedBlackList event raised by the LF5 contract.
+type LF5RemovedBlackList struct {
 	User common.Address
 	Raw  types.Log // Blockchain specific contextual infos
 }
@@ -1760,21 +1760,21 @@ type SmcRemovedBlackList struct {
 // FilterRemovedBlackList is a free log retrieval operation binding the contract event 0xd7e9ec6e6ecd65492dce6bf513cd6867560d49544421d0783ddf06e76c24470c.
 //
 // Solidity: event RemovedBlackList(address _user)
-func (_Smc *SmcFilterer) FilterRemovedBlackList(opts *bind.FilterOpts) (*SmcRemovedBlackListIterator, error) {
+func (_LF5 *LF5Filterer) FilterRemovedBlackList(opts *bind.FilterOpts) (*LF5RemovedBlackListIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RemovedBlackList")
+	logs, sub, err := _LF5.contract.FilterLogs(opts, "RemovedBlackList")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRemovedBlackListIterator{contract: _Smc.contract, event: "RemovedBlackList", logs: logs, sub: sub}, nil
+	return &LF5RemovedBlackListIterator{contract: _LF5.contract, event: "RemovedBlackList", logs: logs, sub: sub}, nil
 }
 
 // WatchRemovedBlackList is a free log subscription operation binding the contract event 0xd7e9ec6e6ecd65492dce6bf513cd6867560d49544421d0783ddf06e76c24470c.
 //
 // Solidity: event RemovedBlackList(address _user)
-func (_Smc *SmcFilterer) WatchRemovedBlackList(opts *bind.WatchOpts, sink chan<- *SmcRemovedBlackList) (event.Subscription, error) {
+func (_LF5 *LF5Filterer) WatchRemovedBlackList(opts *bind.WatchOpts, sink chan<- *LF5RemovedBlackList) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RemovedBlackList")
+	logs, sub, err := _LF5.contract.WatchLogs(opts, "RemovedBlackList")
 	if err != nil {
 		return nil, err
 	}
@@ -1784,8 +1784,8 @@ func (_Smc *SmcFilterer) WatchRemovedBlackList(opts *bind.WatchOpts, sink chan<-
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRemovedBlackList)
-				if err := _Smc.contract.UnpackLog(event, "RemovedBlackList", log); err != nil {
+				event := new(LF5RemovedBlackList)
+				if err := _LF5.contract.UnpackLog(event, "RemovedBlackList", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1809,18 +1809,18 @@ func (_Smc *SmcFilterer) WatchRemovedBlackList(opts *bind.WatchOpts, sink chan<-
 // ParseRemovedBlackList is a log parse operation binding the contract event 0xd7e9ec6e6ecd65492dce6bf513cd6867560d49544421d0783ddf06e76c24470c.
 //
 // Solidity: event RemovedBlackList(address _user)
-func (_Smc *SmcFilterer) ParseRemovedBlackList(log types.Log) (*SmcRemovedBlackList, error) {
-	event := new(SmcRemovedBlackList)
-	if err := _Smc.contract.UnpackLog(event, "RemovedBlackList", log); err != nil {
+func (_LF5 *LF5Filterer) ParseRemovedBlackList(log types.Log) (*LF5RemovedBlackList, error) {
+	event := new(LF5RemovedBlackList)
+	if err := _LF5.contract.UnpackLog(event, "RemovedBlackList", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcTransferIterator is returned from FilterTransfer and is used to iterate over the raw logs and unpacked data for Transfer events raised by the Smc contract.
-type SmcTransferIterator struct {
-	Event *SmcTransfer // Event containing the contract specifics and raw log
+// LF5TransferIterator is returned from FilterTransfer and is used to iterate over the raw logs and unpacked data for Transfer events raised by the LF5 contract.
+type LF5TransferIterator struct {
+	Event *LF5Transfer // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1834,7 +1834,7 @@ type SmcTransferIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcTransferIterator) Next() bool {
+func (it *LF5TransferIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1843,7 +1843,7 @@ func (it *SmcTransferIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcTransfer)
+			it.Event = new(LF5Transfer)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1858,7 +1858,7 @@ func (it *SmcTransferIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcTransfer)
+		it.Event = new(LF5Transfer)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1874,19 +1874,19 @@ func (it *SmcTransferIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcTransferIterator) Error() error {
+func (it *LF5TransferIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcTransferIterator) Close() error {
+func (it *LF5TransferIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcTransfer represents a Transfer event raised by the Smc contract.
-type SmcTransfer struct {
+// LF5Transfer represents a Transfer event raised by the LF5 contract.
+type LF5Transfer struct {
 	From  common.Address
 	To    common.Address
 	Value *big.Int
@@ -1896,7 +1896,7 @@ type SmcTransfer struct {
 // FilterTransfer is a free log retrieval operation binding the contract event 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef.
 //
 // Solidity: event Transfer(address indexed from, address indexed to, uint256 value)
-func (_Smc *SmcFilterer) FilterTransfer(opts *bind.FilterOpts, from []common.Address, to []common.Address) (*SmcTransferIterator, error) {
+func (_LF5 *LF5Filterer) FilterTransfer(opts *bind.FilterOpts, from []common.Address, to []common.Address) (*LF5TransferIterator, error) {
 
 	var fromRule []interface{}
 	for _, fromItem := range from {
@@ -1907,17 +1907,17 @@ func (_Smc *SmcFilterer) FilterTransfer(opts *bind.FilterOpts, from []common.Add
 		toRule = append(toRule, toItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Transfer", fromRule, toRule)
+	logs, sub, err := _LF5.contract.FilterLogs(opts, "Transfer", fromRule, toRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTransferIterator{contract: _Smc.contract, event: "Transfer", logs: logs, sub: sub}, nil
+	return &LF5TransferIterator{contract: _LF5.contract, event: "Transfer", logs: logs, sub: sub}, nil
 }
 
 // WatchTransfer is a free log subscription operation binding the contract event 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef.
 //
 // Solidity: event Transfer(address indexed from, address indexed to, uint256 value)
-func (_Smc *SmcFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *SmcTransfer, from []common.Address, to []common.Address) (event.Subscription, error) {
+func (_LF5 *LF5Filterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *LF5Transfer, from []common.Address, to []common.Address) (event.Subscription, error) {
 
 	var fromRule []interface{}
 	for _, fromItem := range from {
@@ -1928,7 +1928,7 @@ func (_Smc *SmcFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *SmcTra
 		toRule = append(toRule, toItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Transfer", fromRule, toRule)
+	logs, sub, err := _LF5.contract.WatchLogs(opts, "Transfer", fromRule, toRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1938,8 +1938,8 @@ func (_Smc *SmcFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *SmcTra
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcTransfer)
-				if err := _Smc.contract.UnpackLog(event, "Transfer", log); err != nil {
+				event := new(LF5Transfer)
+				if err := _LF5.contract.UnpackLog(event, "Transfer", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1963,18 +1963,18 @@ func (_Smc *SmcFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *SmcTra
 // ParseTransfer is a log parse operation binding the contract event 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef.
 //
 // Solidity: event Transfer(address indexed from, address indexed to, uint256 value)
-func (_Smc *SmcFilterer) ParseTransfer(log types.Log) (*SmcTransfer, error) {
-	event := new(SmcTransfer)
-	if err := _Smc.contract.UnpackLog(event, "Transfer", log); err != nil {
+func (_LF5 *LF5Filterer) ParseTransfer(log types.Log) (*LF5Transfer, error) {
+	event := new(LF5Transfer)
+	if err := _LF5.contract.UnpackLog(event, "Transfer", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcUnpausedIterator is returned from FilterUnpaused and is used to iterate over the raw logs and unpacked data for Unpaused events raised by the Smc contract.
-type SmcUnpausedIterator struct {
-	Event *SmcUnpaused // Event containing the contract specifics and raw log
+// LF5UnpausedIterator is returned from FilterUnpaused and is used to iterate over the raw logs and unpacked data for Unpaused events raised by the LF5 contract.
+type LF5UnpausedIterator struct {
+	Event *LF5Unpaused // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1988,7 +1988,7 @@ type SmcUnpausedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcUnpausedIterator) Next() bool {
+func (it *LF5UnpausedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1997,7 +1997,7 @@ func (it *SmcUnpausedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcUnpaused)
+			it.Event = new(LF5Unpaused)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2012,7 +2012,7 @@ func (it *SmcUnpausedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcUnpaused)
+		it.Event = new(LF5Unpaused)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2028,19 +2028,19 @@ func (it *SmcUnpausedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcUnpausedIterator) Error() error {
+func (it *LF5UnpausedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcUnpausedIterator) Close() error {
+func (it *LF5UnpausedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcUnpaused represents a Unpaused event raised by the Smc contract.
-type SmcUnpaused struct {
+// LF5Unpaused represents a Unpaused event raised by the LF5 contract.
+type LF5Unpaused struct {
 	Account common.Address
 	Raw     types.Log // Blockchain specific contextual infos
 }
@@ -2048,21 +2048,21 @@ type SmcUnpaused struct {
 // FilterUnpaused is a free log retrieval operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) FilterUnpaused(opts *bind.FilterOpts) (*SmcUnpausedIterator, error) {
+func (_LF5 *LF5Filterer) FilterUnpaused(opts *bind.FilterOpts) (*LF5UnpausedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Unpaused")
+	logs, sub, err := _LF5.contract.FilterLogs(opts, "Unpaused")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcUnpausedIterator{contract: _Smc.contract, event: "Unpaused", logs: logs, sub: sub}, nil
+	return &LF5UnpausedIterator{contract: _LF5.contract, event: "Unpaused", logs: logs, sub: sub}, nil
 }
 
 // WatchUnpaused is a free log subscription operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnpaused) (event.Subscription, error) {
+func (_LF5 *LF5Filterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *LF5Unpaused) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Unpaused")
+	logs, sub, err := _LF5.contract.WatchLogs(opts, "Unpaused")
 	if err != nil {
 		return nil, err
 	}
@@ -2072,8 +2072,8 @@ func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnp
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcUnpaused)
-				if err := _Smc.contract.UnpackLog(event, "Unpaused", log); err != nil {
+				event := new(LF5Unpaused)
+				if err := _LF5.contract.UnpackLog(event, "Unpaused", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2097,18 +2097,18 @@ func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnp
 // ParseUnpaused is a log parse operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) ParseUnpaused(log types.Log) (*SmcUnpaused, error) {
-	event := new(SmcUnpaused)
-	if err := _Smc.contract.UnpackLog(event, "Unpaused", log); err != nil {
+func (_LF5 *LF5Filterer) ParseUnpaused(log types.Log) (*LF5Unpaused, error) {
+	event := new(LF5Unpaused)
+	if err := _LF5.contract.UnpackLog(event, "Unpaused", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcIssueIterator is returned from FilterIssue and is used to iterate over the raw logs and unpacked data for Issue events raised by the Smc contract.
-type SmcIssueIterator struct {
-	Event *SmcIssue // Event containing the contract specifics and raw log
+// LF5IssueIterator is returned from FilterIssue and is used to iterate over the raw logs and unpacked data for Issue events raised by the LF5 contract.
+type LF5IssueIterator struct {
+	Event *LF5Issue // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2122,7 +2122,7 @@ type SmcIssueIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcIssueIterator) Next() bool {
+func (it *LF5IssueIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2131,7 +2131,7 @@ func (it *SmcIssueIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcIssue)
+			it.Event = new(LF5Issue)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2146,7 +2146,7 @@ func (it *SmcIssueIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcIssue)
+		it.Event = new(LF5Issue)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2162,19 +2162,19 @@ func (it *SmcIssueIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcIssueIterator) Error() error {
+func (it *LF5IssueIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcIssueIterator) Close() error {
+func (it *LF5IssueIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcIssue represents a Issue event raised by the Smc contract.
-type SmcIssue struct {
+// LF5Issue represents a Issue event raised by the LF5 contract.
+type LF5Issue struct {
 	Offchain [32]byte
 	Raw      types.Log // Blockchain specific contextual infos
 }
@@ -2182,21 +2182,21 @@ type SmcIssue struct {
 // FilterIssue is a free log retrieval operation binding the contract event 0x182a88d3fbfcb38ffaddf26e6d63ecd93b4348141de1eb744c43c4fbb1ccfb22.
 //
 // Solidity: event __issue(bytes32 offchain)
-func (_Smc *SmcFilterer) FilterIssue(opts *bind.FilterOpts) (*SmcIssueIterator, error) {
+func (_LF5 *LF5Filterer) FilterIssue(opts *bind.FilterOpts) (*LF5IssueIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "__issue")
+	logs, sub, err := _LF5.contract.FilterLogs(opts, "__issue")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcIssueIterator{contract: _Smc.contract, event: "__issue", logs: logs, sub: sub}, nil
+	return &LF5IssueIterator{contract: _LF5.contract, event: "__issue", logs: logs, sub: sub}, nil
 }
 
 // WatchIssue is a free log subscription operation binding the contract event 0x182a88d3fbfcb38ffaddf26e6d63ecd93b4348141de1eb744c43c4fbb1ccfb22.
 //
 // Solidity: event __issue(bytes32 offchain)
-func (_Smc *SmcFilterer) WatchIssue(opts *bind.WatchOpts, sink chan<- *SmcIssue) (event.Subscription, error) {
+func (_LF5 *LF5Filterer) WatchIssue(opts *bind.WatchOpts, sink chan<- *LF5Issue) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "__issue")
+	logs, sub, err := _LF5.contract.WatchLogs(opts, "__issue")
 	if err != nil {
 		return nil, err
 	}
@@ -2206,8 +2206,8 @@ func (_Smc *SmcFilterer) WatchIssue(opts *bind.WatchOpts, sink chan<- *SmcIssue)
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcIssue)
-				if err := _Smc.contract.UnpackLog(event, "__issue", log); err != nil {
+				event := new(LF5Issue)
+				if err := _LF5.contract.UnpackLog(event, "__issue", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2231,18 +2231,18 @@ func (_Smc *SmcFilterer) WatchIssue(opts *bind.WatchOpts, sink chan<- *SmcIssue)
 // ParseIssue is a log parse operation binding the contract event 0x182a88d3fbfcb38ffaddf26e6d63ecd93b4348141de1eb744c43c4fbb1ccfb22.
 //
 // Solidity: event __issue(bytes32 offchain)
-func (_Smc *SmcFilterer) ParseIssue(log types.Log) (*SmcIssue, error) {
-	event := new(SmcIssue)
-	if err := _Smc.contract.UnpackLog(event, "__issue", log); err != nil {
+func (_LF5 *LF5Filterer) ParseIssue(log types.Log) (*LF5Issue, error) {
+	event := new(LF5Issue)
+	if err := _LF5.contract.UnpackLog(event, "__issue", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRedeemIterator is returned from FilterRedeem and is used to iterate over the raw logs and unpacked data for Redeem events raised by the Smc contract.
-type SmcRedeemIterator struct {
-	Event *SmcRedeem // Event containing the contract specifics and raw log
+// LF5RedeemIterator is returned from FilterRedeem and is used to iterate over the raw logs and unpacked data for Redeem events raised by the LF5 contract.
+type LF5RedeemIterator struct {
+	Event *LF5Redeem // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2256,7 +2256,7 @@ type SmcRedeemIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRedeemIterator) Next() bool {
+func (it *LF5RedeemIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2265,7 +2265,7 @@ func (it *SmcRedeemIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRedeem)
+			it.Event = new(LF5Redeem)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2280,7 +2280,7 @@ func (it *SmcRedeemIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRedeem)
+		it.Event = new(LF5Redeem)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2296,19 +2296,19 @@ func (it *SmcRedeemIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRedeemIterator) Error() error {
+func (it *LF5RedeemIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRedeemIterator) Close() error {
+func (it *LF5RedeemIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRedeem represents a Redeem event raised by the Smc contract.
-type SmcRedeem struct {
+// LF5Redeem represents a Redeem event raised by the LF5 contract.
+type LF5Redeem struct {
 	Offchain [32]byte
 	Raw      types.Log // Blockchain specific contextual infos
 }
@@ -2316,21 +2316,21 @@ type SmcRedeem struct {
 // FilterRedeem is a free log retrieval operation binding the contract event 0xb0de879351469d2741406aafc9ba1f44eb957cf44ee3391e59a7a9097050c927.
 //
 // Solidity: event __redeem(bytes32 offchain)
-func (_Smc *SmcFilterer) FilterRedeem(opts *bind.FilterOpts) (*SmcRedeemIterator, error) {
+func (_LF5 *LF5Filterer) FilterRedeem(opts *bind.FilterOpts) (*LF5RedeemIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "__redeem")
+	logs, sub, err := _LF5.contract.FilterLogs(opts, "__redeem")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRedeemIterator{contract: _Smc.contract, event: "__redeem", logs: logs, sub: sub}, nil
+	return &LF5RedeemIterator{contract: _LF5.contract, event: "__redeem", logs: logs, sub: sub}, nil
 }
 
 // WatchRedeem is a free log subscription operation binding the contract event 0xb0de879351469d2741406aafc9ba1f44eb957cf44ee3391e59a7a9097050c927.
 //
 // Solidity: event __redeem(bytes32 offchain)
-func (_Smc *SmcFilterer) WatchRedeem(opts *bind.WatchOpts, sink chan<- *SmcRedeem) (event.Subscription, error) {
+func (_LF5 *LF5Filterer) WatchRedeem(opts *bind.WatchOpts, sink chan<- *LF5Redeem) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "__redeem")
+	logs, sub, err := _LF5.contract.WatchLogs(opts, "__redeem")
 	if err != nil {
 		return nil, err
 	}
@@ -2340,8 +2340,8 @@ func (_Smc *SmcFilterer) WatchRedeem(opts *bind.WatchOpts, sink chan<- *SmcRedee
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRedeem)
-				if err := _Smc.contract.UnpackLog(event, "__redeem", log); err != nil {
+				event := new(LF5Redeem)
+				if err := _LF5.contract.UnpackLog(event, "__redeem", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2365,18 +2365,18 @@ func (_Smc *SmcFilterer) WatchRedeem(opts *bind.WatchOpts, sink chan<- *SmcRedee
 // ParseRedeem is a log parse operation binding the contract event 0xb0de879351469d2741406aafc9ba1f44eb957cf44ee3391e59a7a9097050c927.
 //
 // Solidity: event __redeem(bytes32 offchain)
-func (_Smc *SmcFilterer) ParseRedeem(log types.Log) (*SmcRedeem, error) {
-	event := new(SmcRedeem)
-	if err := _Smc.contract.UnpackLog(event, "__redeem", log); err != nil {
+func (_LF5 *LF5Filterer) ParseRedeem(log types.Log) (*LF5Redeem, error) {
+	event := new(LF5Redeem)
+	if err := _LF5.contract.UnpackLog(event, "__redeem", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcTransferByAdminIterator is returned from FilterTransferByAdmin and is used to iterate over the raw logs and unpacked data for TransferByAdmin events raised by the Smc contract.
-type SmcTransferByAdminIterator struct {
-	Event *SmcTransferByAdmin // Event containing the contract specifics and raw log
+// LF5TransferByAdminIterator is returned from FilterTransferByAdmin and is used to iterate over the raw logs and unpacked data for TransferByAdmin events raised by the LF5 contract.
+type LF5TransferByAdminIterator struct {
+	Event *LF5TransferByAdmin // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2390,7 +2390,7 @@ type SmcTransferByAdminIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcTransferByAdminIterator) Next() bool {
+func (it *LF5TransferByAdminIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2399,7 +2399,7 @@ func (it *SmcTransferByAdminIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcTransferByAdmin)
+			it.Event = new(LF5TransferByAdmin)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2414,7 +2414,7 @@ func (it *SmcTransferByAdminIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcTransferByAdmin)
+		it.Event = new(LF5TransferByAdmin)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2430,19 +2430,19 @@ func (it *SmcTransferByAdminIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcTransferByAdminIterator) Error() error {
+func (it *LF5TransferByAdminIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcTransferByAdminIterator) Close() error {
+func (it *LF5TransferByAdminIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcTransferByAdmin represents a TransferByAdmin event raised by the Smc contract.
-type SmcTransferByAdmin struct {
+// LF5TransferByAdmin represents a TransferByAdmin event raised by the LF5 contract.
+type LF5TransferByAdmin struct {
 	Offchain [32]byte
 	Raw      types.Log // Blockchain specific contextual infos
 }
@@ -2450,21 +2450,21 @@ type SmcTransferByAdmin struct {
 // FilterTransferByAdmin is a free log retrieval operation binding the contract event 0x3b36ee6b35325f38e95938557be92853c842b7a9a19fd7ac4931a6d24db52682.
 //
 // Solidity: event __transferByAdmin(bytes32 offchain)
-func (_Smc *SmcFilterer) FilterTransferByAdmin(opts *bind.FilterOpts) (*SmcTransferByAdminIterator, error) {
+func (_LF5 *LF5Filterer) FilterTransferByAdmin(opts *bind.FilterOpts) (*LF5TransferByAdminIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "__transferByAdmin")
+	logs, sub, err := _LF5.contract.FilterLogs(opts, "__transferByAdmin")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTransferByAdminIterator{contract: _Smc.contract, event: "__transferByAdmin", logs: logs, sub: sub}, nil
+	return &LF5TransferByAdminIterator{contract: _LF5.contract, event: "__transferByAdmin", logs: logs, sub: sub}, nil
 }
 
 // WatchTransferByAdmin is a free log subscription operation binding the contract event 0x3b36ee6b35325f38e95938557be92853c842b7a9a19fd7ac4931a6d24db52682.
 //
 // Solidity: event __transferByAdmin(bytes32 offchain)
-func (_Smc *SmcFilterer) WatchTransferByAdmin(opts *bind.WatchOpts, sink chan<- *SmcTransferByAdmin) (event.Subscription, error) {
+func (_LF5 *LF5Filterer) WatchTransferByAdmin(opts *bind.WatchOpts, sink chan<- *LF5TransferByAdmin) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "__transferByAdmin")
+	logs, sub, err := _LF5.contract.WatchLogs(opts, "__transferByAdmin")
 	if err != nil {
 		return nil, err
 	}
@@ -2474,8 +2474,8 @@ func (_Smc *SmcFilterer) WatchTransferByAdmin(opts *bind.WatchOpts, sink chan<- 
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcTransferByAdmin)
-				if err := _Smc.contract.UnpackLog(event, "__transferByAdmin", log); err != nil {
+				event := new(LF5TransferByAdmin)
+				if err := _LF5.contract.UnpackLog(event, "__transferByAdmin", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2499,9 +2499,9 @@ func (_Smc *SmcFilterer) WatchTransferByAdmin(opts *bind.WatchOpts, sink chan<- 
 // ParseTransferByAdmin is a log parse operation binding the contract event 0x3b36ee6b35325f38e95938557be92853c842b7a9a19fd7ac4931a6d24db52682.
 //
 // Solidity: event __transferByAdmin(bytes32 offchain)
-func (_Smc *SmcFilterer) ParseTransferByAdmin(log types.Log) (*SmcTransferByAdmin, error) {
-	event := new(SmcTransferByAdmin)
-	if err := _Smc.contract.UnpackLog(event, "__transferByAdmin", log); err != nil {
+func (_LF5 *LF5Filterer) ParseTransferByAdmin(log types.Log) (*LF5TransferByAdmin, error) {
+	event := new(LF5TransferByAdmin)
+	if err := _LF5.contract.UnpackLog(event, "__transferByAdmin", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log

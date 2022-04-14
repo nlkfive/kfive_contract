@@ -5,10 +5,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/access/AccessControlEnumerable.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 
-contract KfiveAccessControl is AccessControlEnumerable,
-    Ownable,
-    Pausable
-{
+contract KfiveAccessControl is AccessControlEnumerable, Ownable, Pausable {
     constructor() {
         _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
         _setupRole(ADMIN_ROLE, _msgSender());

@@ -1,7 +1,7 @@
 // Code generated - DO NOT EDIT.
 // This file is a generated binding and any manual changes will be lost.
 
-package smc
+package MarketplaceStorage
 
 import (
 	"errors"
@@ -48,113 +48,113 @@ type IOrderOrder struct {
 	ExpiredAt  *big.Int
 }
 
-// SmcMetaData contains all meta data concerning the Smc contract.
-var SmcMetaData = &bind.MetaData{
+// MarketplaceStorageMetaData contains all meta data concerning the MarketplaceStorage contract.
+var MarketplaceStorageMetaData = &bind.MetaData{
 	ABI: "[{\"inputs\":[],\"name\":\"NotExisted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotRunning\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooEarly\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooLate\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"AuctionCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"}],\"name\":\"AuctionCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"AuctionEnded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"deposit\",\"type\":\"uint256\"}],\"name\":\"AuctionRefund\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"totalPrice\",\"type\":\"uint256\"}],\"name\":\"AuctionSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindedBid\",\"type\":\"bytes32\"}],\"name\":\"BidSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"}],\"name\":\"OrderCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"priceInWei\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"name\":\"OrderCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"}],\"name\":\"OrderSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"fake\",\"type\":\"bool\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"RevealFailed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"fake\",\"type\":\"bool\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindedBid\",\"type\":\"bytes32\"}],\"name\":\"RevealSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PAUSER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getRoleMember\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleMemberCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"orderByNftAsset\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_auctionMarketplace\",\"type\":\"address\"}],\"name\":\"updateAuctionMarketplace\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_orderMarketplace\",\"type\":\"address\"}],\"name\":\"updateOrderMarketplace\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"assetIsAvailable\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"auctionIsExisted\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"auctionIsEnded\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"auctionIsRunning\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"assetOwner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"}],\"name\":\"createAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"getAuction\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"highestBidder\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"highestBid\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startPrice\",\"type\":\"uint256\"}],\"internalType\":\"structIAuction.Auction\",\"name\":\"order\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"auctionEnded\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"highestBid\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"updateHighestBid\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"priceInWei\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"name\":\"createOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"getOrder\",\"outputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"internalType\":\"structIOrder.Order\",\"name\":\"order\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"deleteOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
-// SmcABI is the input ABI used to generate the binding from.
-// Deprecated: Use SmcMetaData.ABI instead.
-var SmcABI = SmcMetaData.ABI
+// MarketplaceStorageABI is the input ABI used to generate the binding from.
+// Deprecated: Use MarketplaceStorageMetaData.ABI instead.
+var MarketplaceStorageABI = MarketplaceStorageMetaData.ABI
 
-// Smc is an auto generated Go binding around an Ethereum contract.
-type Smc struct {
-	SmcCaller     // Read-only binding to the contract
-	SmcTransactor // Write-only binding to the contract
-	SmcFilterer   // Log filterer for contract events
+// MarketplaceStorage is an auto generated Go binding around an Ethereum contract.
+type MarketplaceStorage struct {
+	MarketplaceStorageCaller     // Read-only binding to the contract
+	MarketplaceStorageTransactor // Write-only binding to the contract
+	MarketplaceStorageFilterer   // Log filterer for contract events
 }
 
-// SmcCaller is an auto generated read-only Go binding around an Ethereum contract.
-type SmcCaller struct {
+// MarketplaceStorageCaller is an auto generated read-only Go binding around an Ethereum contract.
+type MarketplaceStorageCaller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcTransactor is an auto generated write-only Go binding around an Ethereum contract.
-type SmcTransactor struct {
+// MarketplaceStorageTransactor is an auto generated write-only Go binding around an Ethereum contract.
+type MarketplaceStorageTransactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
-type SmcFilterer struct {
+// MarketplaceStorageFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type MarketplaceStorageFilterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// SmcSession is an auto generated Go binding around an Ethereum contract,
+// MarketplaceStorageSession is an auto generated Go binding around an Ethereum contract,
 // with pre-set call and transact options.
-type SmcSession struct {
-	Contract     *Smc              // Generic contract binding to set the session for
-	CallOpts     bind.CallOpts     // Call options to use throughout this session
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type MarketplaceStorageSession struct {
+	Contract     *MarketplaceStorage // Generic contract binding to set the session for
+	CallOpts     bind.CallOpts       // Call options to use throughout this session
+	TransactOpts bind.TransactOpts   // Transaction auth options to use throughout this session
 }
 
-// SmcCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// MarketplaceStorageCallerSession is an auto generated read-only Go binding around an Ethereum contract,
 // with pre-set call options.
-type SmcCallerSession struct {
-	Contract *SmcCaller    // Generic contract caller binding to set the session for
-	CallOpts bind.CallOpts // Call options to use throughout this session
+type MarketplaceStorageCallerSession struct {
+	Contract *MarketplaceStorageCaller // Generic contract caller binding to set the session for
+	CallOpts bind.CallOpts             // Call options to use throughout this session
 }
 
-// SmcTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// MarketplaceStorageTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
 // with pre-set transact options.
-type SmcTransactorSession struct {
-	Contract     *SmcTransactor    // Generic contract transactor binding to set the session for
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type MarketplaceStorageTransactorSession struct {
+	Contract     *MarketplaceStorageTransactor // Generic contract transactor binding to set the session for
+	TransactOpts bind.TransactOpts             // Transaction auth options to use throughout this session
 }
 
-// SmcRaw is an auto generated low-level Go binding around an Ethereum contract.
-type SmcRaw struct {
-	Contract *Smc // Generic contract binding to access the raw methods on
+// MarketplaceStorageRaw is an auto generated low-level Go binding around an Ethereum contract.
+type MarketplaceStorageRaw struct {
+	Contract *MarketplaceStorage // Generic contract binding to access the raw methods on
 }
 
-// SmcCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
-type SmcCallerRaw struct {
-	Contract *SmcCaller // Generic read-only contract binding to access the raw methods on
+// MarketplaceStorageCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type MarketplaceStorageCallerRaw struct {
+	Contract *MarketplaceStorageCaller // Generic read-only contract binding to access the raw methods on
 }
 
-// SmcTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
-type SmcTransactorRaw struct {
-	Contract *SmcTransactor // Generic write-only contract binding to access the raw methods on
+// MarketplaceStorageTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type MarketplaceStorageTransactorRaw struct {
+	Contract *MarketplaceStorageTransactor // Generic write-only contract binding to access the raw methods on
 }
 
-// NewSmc creates a new instance of Smc, bound to a specific deployed contract.
-func NewSmc(address common.Address, backend bind.ContractBackend) (*Smc, error) {
-	contract, err := bindSmc(address, backend, backend, backend)
+// NewMarketplaceStorage creates a new instance of MarketplaceStorage, bound to a specific deployed contract.
+func NewMarketplaceStorage(address common.Address, backend bind.ContractBackend) (*MarketplaceStorage, error) {
+	contract, err := bindMarketplaceStorage(address, backend, backend, backend)
 	if err != nil {
 		return nil, err
 	}
-	return &Smc{SmcCaller: SmcCaller{contract: contract}, SmcTransactor: SmcTransactor{contract: contract}, SmcFilterer: SmcFilterer{contract: contract}}, nil
+	return &MarketplaceStorage{MarketplaceStorageCaller: MarketplaceStorageCaller{contract: contract}, MarketplaceStorageTransactor: MarketplaceStorageTransactor{contract: contract}, MarketplaceStorageFilterer: MarketplaceStorageFilterer{contract: contract}}, nil
 }
 
-// NewSmcCaller creates a new read-only instance of Smc, bound to a specific deployed contract.
-func NewSmcCaller(address common.Address, caller bind.ContractCaller) (*SmcCaller, error) {
-	contract, err := bindSmc(address, caller, nil, nil)
+// NewMarketplaceStorageCaller creates a new read-only instance of MarketplaceStorage, bound to a specific deployed contract.
+func NewMarketplaceStorageCaller(address common.Address, caller bind.ContractCaller) (*MarketplaceStorageCaller, error) {
+	contract, err := bindMarketplaceStorage(address, caller, nil, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcCaller{contract: contract}, nil
+	return &MarketplaceStorageCaller{contract: contract}, nil
 }
 
-// NewSmcTransactor creates a new write-only instance of Smc, bound to a specific deployed contract.
-func NewSmcTransactor(address common.Address, transactor bind.ContractTransactor) (*SmcTransactor, error) {
-	contract, err := bindSmc(address, nil, transactor, nil)
+// NewMarketplaceStorageTransactor creates a new write-only instance of MarketplaceStorage, bound to a specific deployed contract.
+func NewMarketplaceStorageTransactor(address common.Address, transactor bind.ContractTransactor) (*MarketplaceStorageTransactor, error) {
+	contract, err := bindMarketplaceStorage(address, nil, transactor, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcTransactor{contract: contract}, nil
+	return &MarketplaceStorageTransactor{contract: contract}, nil
 }
 
-// NewSmcFilterer creates a new log filterer instance of Smc, bound to a specific deployed contract.
-func NewSmcFilterer(address common.Address, filterer bind.ContractFilterer) (*SmcFilterer, error) {
-	contract, err := bindSmc(address, nil, nil, filterer)
+// NewMarketplaceStorageFilterer creates a new log filterer instance of MarketplaceStorage, bound to a specific deployed contract.
+func NewMarketplaceStorageFilterer(address common.Address, filterer bind.ContractFilterer) (*MarketplaceStorageFilterer, error) {
+	contract, err := bindMarketplaceStorage(address, nil, nil, filterer)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcFilterer{contract: contract}, nil
+	return &MarketplaceStorageFilterer{contract: contract}, nil
 }
 
-// bindSmc binds a generic wrapper to an already deployed contract.
-func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-	parsed, err := abi.JSON(strings.NewReader(SmcABI))
+// bindMarketplaceStorage binds a generic wrapper to an already deployed contract.
+func bindMarketplaceStorage(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := abi.JSON(strings.NewReader(MarketplaceStorageABI))
 	if err != nil {
 		return nil, err
 	}
@@ -165,46 +165,46 @@ func bindSmc(address common.Address, caller bind.ContractCaller, transactor bind
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.SmcCaller.contract.Call(opts, result, method, params...)
+func (_MarketplaceStorage *MarketplaceStorageRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _MarketplaceStorage.Contract.MarketplaceStorageCaller.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transfer(opts)
+func (_MarketplaceStorage *MarketplaceStorageRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.MarketplaceStorageTransactor.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.SmcTransactor.contract.Transact(opts, method, params...)
+func (_MarketplaceStorage *MarketplaceStorageRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.MarketplaceStorageTransactor.contract.Transact(opts, method, params...)
 }
 
 // Call invokes the (constant) contract method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Smc *SmcCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Smc.Contract.contract.Call(opts, result, method, params...)
+func (_MarketplaceStorage *MarketplaceStorageCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _MarketplaceStorage.Contract.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Smc *SmcTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transfer(opts)
+func (_MarketplaceStorage *MarketplaceStorageTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Smc *SmcTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Smc.Contract.contract.Transact(opts, method, params...)
+func (_MarketplaceStorage *MarketplaceStorageTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.contract.Transact(opts, method, params...)
 }
 
 // ADMINROLE is a free data retrieval call binding the contract method 0x75b238fc.
 //
 // Solidity: function ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcCaller) ADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
+func (_MarketplaceStorage *MarketplaceStorageCaller) ADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "ADMIN_ROLE")
+	err := _MarketplaceStorage.contract.Call(opts, &out, "ADMIN_ROLE")
 
 	if err != nil {
 		return *new([32]byte), err
@@ -219,23 +219,23 @@ func (_Smc *SmcCaller) ADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
 // ADMINROLE is a free data retrieval call binding the contract method 0x75b238fc.
 //
 // Solidity: function ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcSession) ADMINROLE() ([32]byte, error) {
-	return _Smc.Contract.ADMINROLE(&_Smc.CallOpts)
+func (_MarketplaceStorage *MarketplaceStorageSession) ADMINROLE() ([32]byte, error) {
+	return _MarketplaceStorage.Contract.ADMINROLE(&_MarketplaceStorage.CallOpts)
 }
 
 // ADMINROLE is a free data retrieval call binding the contract method 0x75b238fc.
 //
 // Solidity: function ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcCallerSession) ADMINROLE() ([32]byte, error) {
-	return _Smc.Contract.ADMINROLE(&_Smc.CallOpts)
+func (_MarketplaceStorage *MarketplaceStorageCallerSession) ADMINROLE() ([32]byte, error) {
+	return _MarketplaceStorage.Contract.ADMINROLE(&_MarketplaceStorage.CallOpts)
 }
 
 // DEFAULTADMINROLE is a free data retrieval call binding the contract method 0xa217fddf.
 //
 // Solidity: function DEFAULT_ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcCaller) DEFAULTADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
+func (_MarketplaceStorage *MarketplaceStorageCaller) DEFAULTADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "DEFAULT_ADMIN_ROLE")
+	err := _MarketplaceStorage.contract.Call(opts, &out, "DEFAULT_ADMIN_ROLE")
 
 	if err != nil {
 		return *new([32]byte), err
@@ -250,23 +250,23 @@ func (_Smc *SmcCaller) DEFAULTADMINROLE(opts *bind.CallOpts) ([32]byte, error) {
 // DEFAULTADMINROLE is a free data retrieval call binding the contract method 0xa217fddf.
 //
 // Solidity: function DEFAULT_ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcSession) DEFAULTADMINROLE() ([32]byte, error) {
-	return _Smc.Contract.DEFAULTADMINROLE(&_Smc.CallOpts)
+func (_MarketplaceStorage *MarketplaceStorageSession) DEFAULTADMINROLE() ([32]byte, error) {
+	return _MarketplaceStorage.Contract.DEFAULTADMINROLE(&_MarketplaceStorage.CallOpts)
 }
 
 // DEFAULTADMINROLE is a free data retrieval call binding the contract method 0xa217fddf.
 //
 // Solidity: function DEFAULT_ADMIN_ROLE() view returns(bytes32)
-func (_Smc *SmcCallerSession) DEFAULTADMINROLE() ([32]byte, error) {
-	return _Smc.Contract.DEFAULTADMINROLE(&_Smc.CallOpts)
+func (_MarketplaceStorage *MarketplaceStorageCallerSession) DEFAULTADMINROLE() ([32]byte, error) {
+	return _MarketplaceStorage.Contract.DEFAULTADMINROLE(&_MarketplaceStorage.CallOpts)
 }
 
 // PAUSERROLE is a free data retrieval call binding the contract method 0xe63ab1e9.
 //
 // Solidity: function PAUSER_ROLE() view returns(bytes32)
-func (_Smc *SmcCaller) PAUSERROLE(opts *bind.CallOpts) ([32]byte, error) {
+func (_MarketplaceStorage *MarketplaceStorageCaller) PAUSERROLE(opts *bind.CallOpts) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "PAUSER_ROLE")
+	err := _MarketplaceStorage.contract.Call(opts, &out, "PAUSER_ROLE")
 
 	if err != nil {
 		return *new([32]byte), err
@@ -281,23 +281,23 @@ func (_Smc *SmcCaller) PAUSERROLE(opts *bind.CallOpts) ([32]byte, error) {
 // PAUSERROLE is a free data retrieval call binding the contract method 0xe63ab1e9.
 //
 // Solidity: function PAUSER_ROLE() view returns(bytes32)
-func (_Smc *SmcSession) PAUSERROLE() ([32]byte, error) {
-	return _Smc.Contract.PAUSERROLE(&_Smc.CallOpts)
+func (_MarketplaceStorage *MarketplaceStorageSession) PAUSERROLE() ([32]byte, error) {
+	return _MarketplaceStorage.Contract.PAUSERROLE(&_MarketplaceStorage.CallOpts)
 }
 
 // PAUSERROLE is a free data retrieval call binding the contract method 0xe63ab1e9.
 //
 // Solidity: function PAUSER_ROLE() view returns(bytes32)
-func (_Smc *SmcCallerSession) PAUSERROLE() ([32]byte, error) {
-	return _Smc.Contract.PAUSERROLE(&_Smc.CallOpts)
+func (_MarketplaceStorage *MarketplaceStorageCallerSession) PAUSERROLE() ([32]byte, error) {
+	return _MarketplaceStorage.Contract.PAUSERROLE(&_MarketplaceStorage.CallOpts)
 }
 
 // AssetIsAvailable is a free data retrieval call binding the contract method 0x0a7f8977.
 //
 // Solidity: function assetIsAvailable(bytes32 nftAsset) view returns(bool)
-func (_Smc *SmcCaller) AssetIsAvailable(opts *bind.CallOpts, nftAsset [32]byte) (bool, error) {
+func (_MarketplaceStorage *MarketplaceStorageCaller) AssetIsAvailable(opts *bind.CallOpts, nftAsset [32]byte) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "assetIsAvailable", nftAsset)
+	err := _MarketplaceStorage.contract.Call(opts, &out, "assetIsAvailable", nftAsset)
 
 	if err != nil {
 		return *new(bool), err
@@ -312,23 +312,23 @@ func (_Smc *SmcCaller) AssetIsAvailable(opts *bind.CallOpts, nftAsset [32]byte) 
 // AssetIsAvailable is a free data retrieval call binding the contract method 0x0a7f8977.
 //
 // Solidity: function assetIsAvailable(bytes32 nftAsset) view returns(bool)
-func (_Smc *SmcSession) AssetIsAvailable(nftAsset [32]byte) (bool, error) {
-	return _Smc.Contract.AssetIsAvailable(&_Smc.CallOpts, nftAsset)
+func (_MarketplaceStorage *MarketplaceStorageSession) AssetIsAvailable(nftAsset [32]byte) (bool, error) {
+	return _MarketplaceStorage.Contract.AssetIsAvailable(&_MarketplaceStorage.CallOpts, nftAsset)
 }
 
 // AssetIsAvailable is a free data retrieval call binding the contract method 0x0a7f8977.
 //
 // Solidity: function assetIsAvailable(bytes32 nftAsset) view returns(bool)
-func (_Smc *SmcCallerSession) AssetIsAvailable(nftAsset [32]byte) (bool, error) {
-	return _Smc.Contract.AssetIsAvailable(&_Smc.CallOpts, nftAsset)
+func (_MarketplaceStorage *MarketplaceStorageCallerSession) AssetIsAvailable(nftAsset [32]byte) (bool, error) {
+	return _MarketplaceStorage.Contract.AssetIsAvailable(&_MarketplaceStorage.CallOpts, nftAsset)
 }
 
 // AuctionIsEnded is a free data retrieval call binding the contract method 0xc064bc50.
 //
 // Solidity: function auctionIsEnded(bytes32 nftAsset, bytes32 auctionId) view returns(bool)
-func (_Smc *SmcCaller) AuctionIsEnded(opts *bind.CallOpts, nftAsset [32]byte, auctionId [32]byte) (bool, error) {
+func (_MarketplaceStorage *MarketplaceStorageCaller) AuctionIsEnded(opts *bind.CallOpts, nftAsset [32]byte, auctionId [32]byte) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "auctionIsEnded", nftAsset, auctionId)
+	err := _MarketplaceStorage.contract.Call(opts, &out, "auctionIsEnded", nftAsset, auctionId)
 
 	if err != nil {
 		return *new(bool), err
@@ -343,23 +343,23 @@ func (_Smc *SmcCaller) AuctionIsEnded(opts *bind.CallOpts, nftAsset [32]byte, au
 // AuctionIsEnded is a free data retrieval call binding the contract method 0xc064bc50.
 //
 // Solidity: function auctionIsEnded(bytes32 nftAsset, bytes32 auctionId) view returns(bool)
-func (_Smc *SmcSession) AuctionIsEnded(nftAsset [32]byte, auctionId [32]byte) (bool, error) {
-	return _Smc.Contract.AuctionIsEnded(&_Smc.CallOpts, nftAsset, auctionId)
+func (_MarketplaceStorage *MarketplaceStorageSession) AuctionIsEnded(nftAsset [32]byte, auctionId [32]byte) (bool, error) {
+	return _MarketplaceStorage.Contract.AuctionIsEnded(&_MarketplaceStorage.CallOpts, nftAsset, auctionId)
 }
 
 // AuctionIsEnded is a free data retrieval call binding the contract method 0xc064bc50.
 //
 // Solidity: function auctionIsEnded(bytes32 nftAsset, bytes32 auctionId) view returns(bool)
-func (_Smc *SmcCallerSession) AuctionIsEnded(nftAsset [32]byte, auctionId [32]byte) (bool, error) {
-	return _Smc.Contract.AuctionIsEnded(&_Smc.CallOpts, nftAsset, auctionId)
+func (_MarketplaceStorage *MarketplaceStorageCallerSession) AuctionIsEnded(nftAsset [32]byte, auctionId [32]byte) (bool, error) {
+	return _MarketplaceStorage.Contract.AuctionIsEnded(&_MarketplaceStorage.CallOpts, nftAsset, auctionId)
 }
 
 // AuctionIsExisted is a free data retrieval call binding the contract method 0x1a8b4169.
 //
 // Solidity: function auctionIsExisted(bytes32 auctionId) view returns(bool)
-func (_Smc *SmcCaller) AuctionIsExisted(opts *bind.CallOpts, auctionId [32]byte) (bool, error) {
+func (_MarketplaceStorage *MarketplaceStorageCaller) AuctionIsExisted(opts *bind.CallOpts, auctionId [32]byte) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "auctionIsExisted", auctionId)
+	err := _MarketplaceStorage.contract.Call(opts, &out, "auctionIsExisted", auctionId)
 
 	if err != nil {
 		return *new(bool), err
@@ -374,23 +374,23 @@ func (_Smc *SmcCaller) AuctionIsExisted(opts *bind.CallOpts, auctionId [32]byte)
 // AuctionIsExisted is a free data retrieval call binding the contract method 0x1a8b4169.
 //
 // Solidity: function auctionIsExisted(bytes32 auctionId) view returns(bool)
-func (_Smc *SmcSession) AuctionIsExisted(auctionId [32]byte) (bool, error) {
-	return _Smc.Contract.AuctionIsExisted(&_Smc.CallOpts, auctionId)
+func (_MarketplaceStorage *MarketplaceStorageSession) AuctionIsExisted(auctionId [32]byte) (bool, error) {
+	return _MarketplaceStorage.Contract.AuctionIsExisted(&_MarketplaceStorage.CallOpts, auctionId)
 }
 
 // AuctionIsExisted is a free data retrieval call binding the contract method 0x1a8b4169.
 //
 // Solidity: function auctionIsExisted(bytes32 auctionId) view returns(bool)
-func (_Smc *SmcCallerSession) AuctionIsExisted(auctionId [32]byte) (bool, error) {
-	return _Smc.Contract.AuctionIsExisted(&_Smc.CallOpts, auctionId)
+func (_MarketplaceStorage *MarketplaceStorageCallerSession) AuctionIsExisted(auctionId [32]byte) (bool, error) {
+	return _MarketplaceStorage.Contract.AuctionIsExisted(&_MarketplaceStorage.CallOpts, auctionId)
 }
 
 // AuctionIsRunning is a free data retrieval call binding the contract method 0xbc66c29f.
 //
 // Solidity: function auctionIsRunning(bytes32 nftAsset, bytes32 auctionId) view returns(bool)
-func (_Smc *SmcCaller) AuctionIsRunning(opts *bind.CallOpts, nftAsset [32]byte, auctionId [32]byte) (bool, error) {
+func (_MarketplaceStorage *MarketplaceStorageCaller) AuctionIsRunning(opts *bind.CallOpts, nftAsset [32]byte, auctionId [32]byte) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "auctionIsRunning", nftAsset, auctionId)
+	err := _MarketplaceStorage.contract.Call(opts, &out, "auctionIsRunning", nftAsset, auctionId)
 
 	if err != nil {
 		return *new(bool), err
@@ -405,23 +405,23 @@ func (_Smc *SmcCaller) AuctionIsRunning(opts *bind.CallOpts, nftAsset [32]byte, 
 // AuctionIsRunning is a free data retrieval call binding the contract method 0xbc66c29f.
 //
 // Solidity: function auctionIsRunning(bytes32 nftAsset, bytes32 auctionId) view returns(bool)
-func (_Smc *SmcSession) AuctionIsRunning(nftAsset [32]byte, auctionId [32]byte) (bool, error) {
-	return _Smc.Contract.AuctionIsRunning(&_Smc.CallOpts, nftAsset, auctionId)
+func (_MarketplaceStorage *MarketplaceStorageSession) AuctionIsRunning(nftAsset [32]byte, auctionId [32]byte) (bool, error) {
+	return _MarketplaceStorage.Contract.AuctionIsRunning(&_MarketplaceStorage.CallOpts, nftAsset, auctionId)
 }
 
 // AuctionIsRunning is a free data retrieval call binding the contract method 0xbc66c29f.
 //
 // Solidity: function auctionIsRunning(bytes32 nftAsset, bytes32 auctionId) view returns(bool)
-func (_Smc *SmcCallerSession) AuctionIsRunning(nftAsset [32]byte, auctionId [32]byte) (bool, error) {
-	return _Smc.Contract.AuctionIsRunning(&_Smc.CallOpts, nftAsset, auctionId)
+func (_MarketplaceStorage *MarketplaceStorageCallerSession) AuctionIsRunning(nftAsset [32]byte, auctionId [32]byte) (bool, error) {
+	return _MarketplaceStorage.Contract.AuctionIsRunning(&_MarketplaceStorage.CallOpts, nftAsset, auctionId)
 }
 
 // GetAuction is a free data retrieval call binding the contract method 0x15924b5b.
 //
 // Solidity: function getAuction(bytes32 auctionId) view returns((address,address,bytes32,uint256,uint256,uint256,uint256) order)
-func (_Smc *SmcCaller) GetAuction(opts *bind.CallOpts, auctionId [32]byte) (IAuctionAuction, error) {
+func (_MarketplaceStorage *MarketplaceStorageCaller) GetAuction(opts *bind.CallOpts, auctionId [32]byte) (IAuctionAuction, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getAuction", auctionId)
+	err := _MarketplaceStorage.contract.Call(opts, &out, "getAuction", auctionId)
 
 	if err != nil {
 		return *new(IAuctionAuction), err
@@ -436,23 +436,23 @@ func (_Smc *SmcCaller) GetAuction(opts *bind.CallOpts, auctionId [32]byte) (IAuc
 // GetAuction is a free data retrieval call binding the contract method 0x15924b5b.
 //
 // Solidity: function getAuction(bytes32 auctionId) view returns((address,address,bytes32,uint256,uint256,uint256,uint256) order)
-func (_Smc *SmcSession) GetAuction(auctionId [32]byte) (IAuctionAuction, error) {
-	return _Smc.Contract.GetAuction(&_Smc.CallOpts, auctionId)
+func (_MarketplaceStorage *MarketplaceStorageSession) GetAuction(auctionId [32]byte) (IAuctionAuction, error) {
+	return _MarketplaceStorage.Contract.GetAuction(&_MarketplaceStorage.CallOpts, auctionId)
 }
 
 // GetAuction is a free data retrieval call binding the contract method 0x15924b5b.
 //
 // Solidity: function getAuction(bytes32 auctionId) view returns((address,address,bytes32,uint256,uint256,uint256,uint256) order)
-func (_Smc *SmcCallerSession) GetAuction(auctionId [32]byte) (IAuctionAuction, error) {
-	return _Smc.Contract.GetAuction(&_Smc.CallOpts, auctionId)
+func (_MarketplaceStorage *MarketplaceStorageCallerSession) GetAuction(auctionId [32]byte) (IAuctionAuction, error) {
+	return _MarketplaceStorage.Contract.GetAuction(&_MarketplaceStorage.CallOpts, auctionId)
 }
 
 // GetOrder is a free data retrieval call binding the contract method 0x5778472a.
 //
 // Solidity: function getOrder(bytes32 nftAsset) view returns((bytes32,address,address,uint256,uint256) order)
-func (_Smc *SmcCaller) GetOrder(opts *bind.CallOpts, nftAsset [32]byte) (IOrderOrder, error) {
+func (_MarketplaceStorage *MarketplaceStorageCaller) GetOrder(opts *bind.CallOpts, nftAsset [32]byte) (IOrderOrder, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getOrder", nftAsset)
+	err := _MarketplaceStorage.contract.Call(opts, &out, "getOrder", nftAsset)
 
 	if err != nil {
 		return *new(IOrderOrder), err
@@ -467,23 +467,23 @@ func (_Smc *SmcCaller) GetOrder(opts *bind.CallOpts, nftAsset [32]byte) (IOrderO
 // GetOrder is a free data retrieval call binding the contract method 0x5778472a.
 //
 // Solidity: function getOrder(bytes32 nftAsset) view returns((bytes32,address,address,uint256,uint256) order)
-func (_Smc *SmcSession) GetOrder(nftAsset [32]byte) (IOrderOrder, error) {
-	return _Smc.Contract.GetOrder(&_Smc.CallOpts, nftAsset)
+func (_MarketplaceStorage *MarketplaceStorageSession) GetOrder(nftAsset [32]byte) (IOrderOrder, error) {
+	return _MarketplaceStorage.Contract.GetOrder(&_MarketplaceStorage.CallOpts, nftAsset)
 }
 
 // GetOrder is a free data retrieval call binding the contract method 0x5778472a.
 //
 // Solidity: function getOrder(bytes32 nftAsset) view returns((bytes32,address,address,uint256,uint256) order)
-func (_Smc *SmcCallerSession) GetOrder(nftAsset [32]byte) (IOrderOrder, error) {
-	return _Smc.Contract.GetOrder(&_Smc.CallOpts, nftAsset)
+func (_MarketplaceStorage *MarketplaceStorageCallerSession) GetOrder(nftAsset [32]byte) (IOrderOrder, error) {
+	return _MarketplaceStorage.Contract.GetOrder(&_MarketplaceStorage.CallOpts, nftAsset)
 }
 
 // GetRoleAdmin is a free data retrieval call binding the contract method 0x248a9ca3.
 //
 // Solidity: function getRoleAdmin(bytes32 role) view returns(bytes32)
-func (_Smc *SmcCaller) GetRoleAdmin(opts *bind.CallOpts, role [32]byte) ([32]byte, error) {
+func (_MarketplaceStorage *MarketplaceStorageCaller) GetRoleAdmin(opts *bind.CallOpts, role [32]byte) ([32]byte, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getRoleAdmin", role)
+	err := _MarketplaceStorage.contract.Call(opts, &out, "getRoleAdmin", role)
 
 	if err != nil {
 		return *new([32]byte), err
@@ -498,23 +498,23 @@ func (_Smc *SmcCaller) GetRoleAdmin(opts *bind.CallOpts, role [32]byte) ([32]byt
 // GetRoleAdmin is a free data retrieval call binding the contract method 0x248a9ca3.
 //
 // Solidity: function getRoleAdmin(bytes32 role) view returns(bytes32)
-func (_Smc *SmcSession) GetRoleAdmin(role [32]byte) ([32]byte, error) {
-	return _Smc.Contract.GetRoleAdmin(&_Smc.CallOpts, role)
+func (_MarketplaceStorage *MarketplaceStorageSession) GetRoleAdmin(role [32]byte) ([32]byte, error) {
+	return _MarketplaceStorage.Contract.GetRoleAdmin(&_MarketplaceStorage.CallOpts, role)
 }
 
 // GetRoleAdmin is a free data retrieval call binding the contract method 0x248a9ca3.
 //
 // Solidity: function getRoleAdmin(bytes32 role) view returns(bytes32)
-func (_Smc *SmcCallerSession) GetRoleAdmin(role [32]byte) ([32]byte, error) {
-	return _Smc.Contract.GetRoleAdmin(&_Smc.CallOpts, role)
+func (_MarketplaceStorage *MarketplaceStorageCallerSession) GetRoleAdmin(role [32]byte) ([32]byte, error) {
+	return _MarketplaceStorage.Contract.GetRoleAdmin(&_MarketplaceStorage.CallOpts, role)
 }
 
 // GetRoleMember is a free data retrieval call binding the contract method 0x9010d07c.
 //
 // Solidity: function getRoleMember(bytes32 role, uint256 index) view returns(address)
-func (_Smc *SmcCaller) GetRoleMember(opts *bind.CallOpts, role [32]byte, index *big.Int) (common.Address, error) {
+func (_MarketplaceStorage *MarketplaceStorageCaller) GetRoleMember(opts *bind.CallOpts, role [32]byte, index *big.Int) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getRoleMember", role, index)
+	err := _MarketplaceStorage.contract.Call(opts, &out, "getRoleMember", role, index)
 
 	if err != nil {
 		return *new(common.Address), err
@@ -529,23 +529,23 @@ func (_Smc *SmcCaller) GetRoleMember(opts *bind.CallOpts, role [32]byte, index *
 // GetRoleMember is a free data retrieval call binding the contract method 0x9010d07c.
 //
 // Solidity: function getRoleMember(bytes32 role, uint256 index) view returns(address)
-func (_Smc *SmcSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
-	return _Smc.Contract.GetRoleMember(&_Smc.CallOpts, role, index)
+func (_MarketplaceStorage *MarketplaceStorageSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
+	return _MarketplaceStorage.Contract.GetRoleMember(&_MarketplaceStorage.CallOpts, role, index)
 }
 
 // GetRoleMember is a free data retrieval call binding the contract method 0x9010d07c.
 //
 // Solidity: function getRoleMember(bytes32 role, uint256 index) view returns(address)
-func (_Smc *SmcCallerSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
-	return _Smc.Contract.GetRoleMember(&_Smc.CallOpts, role, index)
+func (_MarketplaceStorage *MarketplaceStorageCallerSession) GetRoleMember(role [32]byte, index *big.Int) (common.Address, error) {
+	return _MarketplaceStorage.Contract.GetRoleMember(&_MarketplaceStorage.CallOpts, role, index)
 }
 
 // GetRoleMemberCount is a free data retrieval call binding the contract method 0xca15c873.
 //
 // Solidity: function getRoleMemberCount(bytes32 role) view returns(uint256)
-func (_Smc *SmcCaller) GetRoleMemberCount(opts *bind.CallOpts, role [32]byte) (*big.Int, error) {
+func (_MarketplaceStorage *MarketplaceStorageCaller) GetRoleMemberCount(opts *bind.CallOpts, role [32]byte) (*big.Int, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "getRoleMemberCount", role)
+	err := _MarketplaceStorage.contract.Call(opts, &out, "getRoleMemberCount", role)
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -560,23 +560,23 @@ func (_Smc *SmcCaller) GetRoleMemberCount(opts *bind.CallOpts, role [32]byte) (*
 // GetRoleMemberCount is a free data retrieval call binding the contract method 0xca15c873.
 //
 // Solidity: function getRoleMemberCount(bytes32 role) view returns(uint256)
-func (_Smc *SmcSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
-	return _Smc.Contract.GetRoleMemberCount(&_Smc.CallOpts, role)
+func (_MarketplaceStorage *MarketplaceStorageSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
+	return _MarketplaceStorage.Contract.GetRoleMemberCount(&_MarketplaceStorage.CallOpts, role)
 }
 
 // GetRoleMemberCount is a free data retrieval call binding the contract method 0xca15c873.
 //
 // Solidity: function getRoleMemberCount(bytes32 role) view returns(uint256)
-func (_Smc *SmcCallerSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
-	return _Smc.Contract.GetRoleMemberCount(&_Smc.CallOpts, role)
+func (_MarketplaceStorage *MarketplaceStorageCallerSession) GetRoleMemberCount(role [32]byte) (*big.Int, error) {
+	return _MarketplaceStorage.Contract.GetRoleMemberCount(&_MarketplaceStorage.CallOpts, role)
 }
 
 // HasRole is a free data retrieval call binding the contract method 0x91d14854.
 //
 // Solidity: function hasRole(bytes32 role, address account) view returns(bool)
-func (_Smc *SmcCaller) HasRole(opts *bind.CallOpts, role [32]byte, account common.Address) (bool, error) {
+func (_MarketplaceStorage *MarketplaceStorageCaller) HasRole(opts *bind.CallOpts, role [32]byte, account common.Address) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "hasRole", role, account)
+	err := _MarketplaceStorage.contract.Call(opts, &out, "hasRole", role, account)
 
 	if err != nil {
 		return *new(bool), err
@@ -591,21 +591,21 @@ func (_Smc *SmcCaller) HasRole(opts *bind.CallOpts, role [32]byte, account commo
 // HasRole is a free data retrieval call binding the contract method 0x91d14854.
 //
 // Solidity: function hasRole(bytes32 role, address account) view returns(bool)
-func (_Smc *SmcSession) HasRole(role [32]byte, account common.Address) (bool, error) {
-	return _Smc.Contract.HasRole(&_Smc.CallOpts, role, account)
+func (_MarketplaceStorage *MarketplaceStorageSession) HasRole(role [32]byte, account common.Address) (bool, error) {
+	return _MarketplaceStorage.Contract.HasRole(&_MarketplaceStorage.CallOpts, role, account)
 }
 
 // HasRole is a free data retrieval call binding the contract method 0x91d14854.
 //
 // Solidity: function hasRole(bytes32 role, address account) view returns(bool)
-func (_Smc *SmcCallerSession) HasRole(role [32]byte, account common.Address) (bool, error) {
-	return _Smc.Contract.HasRole(&_Smc.CallOpts, role, account)
+func (_MarketplaceStorage *MarketplaceStorageCallerSession) HasRole(role [32]byte, account common.Address) (bool, error) {
+	return _MarketplaceStorage.Contract.HasRole(&_MarketplaceStorage.CallOpts, role, account)
 }
 
 // OrderByNftAsset is a free data retrieval call binding the contract method 0x3a3999d9.
 //
 // Solidity: function orderByNftAsset(bytes32 ) view returns(bytes32 orderId, address seller, address nftAddress, uint256 price, uint256 expiredAt)
-func (_Smc *SmcCaller) OrderByNftAsset(opts *bind.CallOpts, arg0 [32]byte) (struct {
+func (_MarketplaceStorage *MarketplaceStorageCaller) OrderByNftAsset(opts *bind.CallOpts, arg0 [32]byte) (struct {
 	OrderId    [32]byte
 	Seller     common.Address
 	NftAddress common.Address
@@ -613,7 +613,7 @@ func (_Smc *SmcCaller) OrderByNftAsset(opts *bind.CallOpts, arg0 [32]byte) (stru
 	ExpiredAt  *big.Int
 }, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "orderByNftAsset", arg0)
+	err := _MarketplaceStorage.contract.Call(opts, &out, "orderByNftAsset", arg0)
 
 	outstruct := new(struct {
 		OrderId    [32]byte
@@ -639,35 +639,35 @@ func (_Smc *SmcCaller) OrderByNftAsset(opts *bind.CallOpts, arg0 [32]byte) (stru
 // OrderByNftAsset is a free data retrieval call binding the contract method 0x3a3999d9.
 //
 // Solidity: function orderByNftAsset(bytes32 ) view returns(bytes32 orderId, address seller, address nftAddress, uint256 price, uint256 expiredAt)
-func (_Smc *SmcSession) OrderByNftAsset(arg0 [32]byte) (struct {
+func (_MarketplaceStorage *MarketplaceStorageSession) OrderByNftAsset(arg0 [32]byte) (struct {
 	OrderId    [32]byte
 	Seller     common.Address
 	NftAddress common.Address
 	Price      *big.Int
 	ExpiredAt  *big.Int
 }, error) {
-	return _Smc.Contract.OrderByNftAsset(&_Smc.CallOpts, arg0)
+	return _MarketplaceStorage.Contract.OrderByNftAsset(&_MarketplaceStorage.CallOpts, arg0)
 }
 
 // OrderByNftAsset is a free data retrieval call binding the contract method 0x3a3999d9.
 //
 // Solidity: function orderByNftAsset(bytes32 ) view returns(bytes32 orderId, address seller, address nftAddress, uint256 price, uint256 expiredAt)
-func (_Smc *SmcCallerSession) OrderByNftAsset(arg0 [32]byte) (struct {
+func (_MarketplaceStorage *MarketplaceStorageCallerSession) OrderByNftAsset(arg0 [32]byte) (struct {
 	OrderId    [32]byte
 	Seller     common.Address
 	NftAddress common.Address
 	Price      *big.Int
 	ExpiredAt  *big.Int
 }, error) {
-	return _Smc.Contract.OrderByNftAsset(&_Smc.CallOpts, arg0)
+	return _MarketplaceStorage.Contract.OrderByNftAsset(&_MarketplaceStorage.CallOpts, arg0)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
+func (_MarketplaceStorage *MarketplaceStorageCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "owner")
+	err := _MarketplaceStorage.contract.Call(opts, &out, "owner")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -682,23 +682,23 @@ func (_Smc *SmcCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcSession) Owner() (common.Address, error) {
-	return _Smc.Contract.Owner(&_Smc.CallOpts)
+func (_MarketplaceStorage *MarketplaceStorageSession) Owner() (common.Address, error) {
+	return _MarketplaceStorage.Contract.Owner(&_MarketplaceStorage.CallOpts)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Smc *SmcCallerSession) Owner() (common.Address, error) {
-	return _Smc.Contract.Owner(&_Smc.CallOpts)
+func (_MarketplaceStorage *MarketplaceStorageCallerSession) Owner() (common.Address, error) {
+	return _MarketplaceStorage.Contract.Owner(&_MarketplaceStorage.CallOpts)
 }
 
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcCaller) Paused(opts *bind.CallOpts) (bool, error) {
+func (_MarketplaceStorage *MarketplaceStorageCaller) Paused(opts *bind.CallOpts) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "paused")
+	err := _MarketplaceStorage.contract.Call(opts, &out, "paused")
 
 	if err != nil {
 		return *new(bool), err
@@ -713,23 +713,23 @@ func (_Smc *SmcCaller) Paused(opts *bind.CallOpts) (bool, error) {
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcSession) Paused() (bool, error) {
-	return _Smc.Contract.Paused(&_Smc.CallOpts)
+func (_MarketplaceStorage *MarketplaceStorageSession) Paused() (bool, error) {
+	return _MarketplaceStorage.Contract.Paused(&_MarketplaceStorage.CallOpts)
 }
 
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
-func (_Smc *SmcCallerSession) Paused() (bool, error) {
-	return _Smc.Contract.Paused(&_Smc.CallOpts)
+func (_MarketplaceStorage *MarketplaceStorageCallerSession) Paused() (bool, error) {
+	return _MarketplaceStorage.Contract.Paused(&_MarketplaceStorage.CallOpts)
 }
 
 // SupportsInterface is a free data retrieval call binding the contract method 0x01ffc9a7.
 //
 // Solidity: function supportsInterface(bytes4 interfaceId) view returns(bool)
-func (_Smc *SmcCaller) SupportsInterface(opts *bind.CallOpts, interfaceId [4]byte) (bool, error) {
+func (_MarketplaceStorage *MarketplaceStorageCaller) SupportsInterface(opts *bind.CallOpts, interfaceId [4]byte) (bool, error) {
 	var out []interface{}
-	err := _Smc.contract.Call(opts, &out, "supportsInterface", interfaceId)
+	err := _MarketplaceStorage.contract.Call(opts, &out, "supportsInterface", interfaceId)
 
 	if err != nil {
 		return *new(bool), err
@@ -744,314 +744,314 @@ func (_Smc *SmcCaller) SupportsInterface(opts *bind.CallOpts, interfaceId [4]byt
 // SupportsInterface is a free data retrieval call binding the contract method 0x01ffc9a7.
 //
 // Solidity: function supportsInterface(bytes4 interfaceId) view returns(bool)
-func (_Smc *SmcSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
-	return _Smc.Contract.SupportsInterface(&_Smc.CallOpts, interfaceId)
+func (_MarketplaceStorage *MarketplaceStorageSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
+	return _MarketplaceStorage.Contract.SupportsInterface(&_MarketplaceStorage.CallOpts, interfaceId)
 }
 
 // SupportsInterface is a free data retrieval call binding the contract method 0x01ffc9a7.
 //
 // Solidity: function supportsInterface(bytes4 interfaceId) view returns(bool)
-func (_Smc *SmcCallerSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
-	return _Smc.Contract.SupportsInterface(&_Smc.CallOpts, interfaceId)
+func (_MarketplaceStorage *MarketplaceStorageCallerSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
+	return _MarketplaceStorage.Contract.SupportsInterface(&_MarketplaceStorage.CallOpts, interfaceId)
 }
 
 // AuctionEnded is a paid mutator transaction binding the contract method 0xac84b7bc.
 //
 // Solidity: function auctionEnded(bytes32 nftAsset) returns()
-func (_Smc *SmcTransactor) AuctionEnded(opts *bind.TransactOpts, nftAsset [32]byte) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "auctionEnded", nftAsset)
+func (_MarketplaceStorage *MarketplaceStorageTransactor) AuctionEnded(opts *bind.TransactOpts, nftAsset [32]byte) (*types.Transaction, error) {
+	return _MarketplaceStorage.contract.Transact(opts, "auctionEnded", nftAsset)
 }
 
 // AuctionEnded is a paid mutator transaction binding the contract method 0xac84b7bc.
 //
 // Solidity: function auctionEnded(bytes32 nftAsset) returns()
-func (_Smc *SmcSession) AuctionEnded(nftAsset [32]byte) (*types.Transaction, error) {
-	return _Smc.Contract.AuctionEnded(&_Smc.TransactOpts, nftAsset)
+func (_MarketplaceStorage *MarketplaceStorageSession) AuctionEnded(nftAsset [32]byte) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.AuctionEnded(&_MarketplaceStorage.TransactOpts, nftAsset)
 }
 
 // AuctionEnded is a paid mutator transaction binding the contract method 0xac84b7bc.
 //
 // Solidity: function auctionEnded(bytes32 nftAsset) returns()
-func (_Smc *SmcTransactorSession) AuctionEnded(nftAsset [32]byte) (*types.Transaction, error) {
-	return _Smc.Contract.AuctionEnded(&_Smc.TransactOpts, nftAsset)
+func (_MarketplaceStorage *MarketplaceStorageTransactorSession) AuctionEnded(nftAsset [32]byte) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.AuctionEnded(&_MarketplaceStorage.TransactOpts, nftAsset)
 }
 
 // CreateAuction is a paid mutator transaction binding the contract method 0x84b04aa9.
 //
 // Solidity: function createAuction(address assetOwner, address nftAddress, uint256 assetId, bytes32 auctionId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei) returns()
-func (_Smc *SmcTransactor) CreateAuction(opts *bind.TransactOpts, assetOwner common.Address, nftAddress common.Address, assetId *big.Int, auctionId [32]byte, biddingEnd *big.Int, revealEnd *big.Int, startPriceInWei *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "createAuction", assetOwner, nftAddress, assetId, auctionId, biddingEnd, revealEnd, startPriceInWei)
+func (_MarketplaceStorage *MarketplaceStorageTransactor) CreateAuction(opts *bind.TransactOpts, assetOwner common.Address, nftAddress common.Address, assetId *big.Int, auctionId [32]byte, biddingEnd *big.Int, revealEnd *big.Int, startPriceInWei *big.Int) (*types.Transaction, error) {
+	return _MarketplaceStorage.contract.Transact(opts, "createAuction", assetOwner, nftAddress, assetId, auctionId, biddingEnd, revealEnd, startPriceInWei)
 }
 
 // CreateAuction is a paid mutator transaction binding the contract method 0x84b04aa9.
 //
 // Solidity: function createAuction(address assetOwner, address nftAddress, uint256 assetId, bytes32 auctionId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei) returns()
-func (_Smc *SmcSession) CreateAuction(assetOwner common.Address, nftAddress common.Address, assetId *big.Int, auctionId [32]byte, biddingEnd *big.Int, revealEnd *big.Int, startPriceInWei *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.CreateAuction(&_Smc.TransactOpts, assetOwner, nftAddress, assetId, auctionId, biddingEnd, revealEnd, startPriceInWei)
+func (_MarketplaceStorage *MarketplaceStorageSession) CreateAuction(assetOwner common.Address, nftAddress common.Address, assetId *big.Int, auctionId [32]byte, biddingEnd *big.Int, revealEnd *big.Int, startPriceInWei *big.Int) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.CreateAuction(&_MarketplaceStorage.TransactOpts, assetOwner, nftAddress, assetId, auctionId, biddingEnd, revealEnd, startPriceInWei)
 }
 
 // CreateAuction is a paid mutator transaction binding the contract method 0x84b04aa9.
 //
 // Solidity: function createAuction(address assetOwner, address nftAddress, uint256 assetId, bytes32 auctionId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei) returns()
-func (_Smc *SmcTransactorSession) CreateAuction(assetOwner common.Address, nftAddress common.Address, assetId *big.Int, auctionId [32]byte, biddingEnd *big.Int, revealEnd *big.Int, startPriceInWei *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.CreateAuction(&_Smc.TransactOpts, assetOwner, nftAddress, assetId, auctionId, biddingEnd, revealEnd, startPriceInWei)
+func (_MarketplaceStorage *MarketplaceStorageTransactorSession) CreateAuction(assetOwner common.Address, nftAddress common.Address, assetId *big.Int, auctionId [32]byte, biddingEnd *big.Int, revealEnd *big.Int, startPriceInWei *big.Int) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.CreateAuction(&_MarketplaceStorage.TransactOpts, assetOwner, nftAddress, assetId, auctionId, biddingEnd, revealEnd, startPriceInWei)
 }
 
 // CreateOrder is a paid mutator transaction binding the contract method 0x930ca094.
 //
 // Solidity: function createOrder(address seller, address nftAddress, uint256 assetId, bytes32 orderId, uint256 priceInWei, uint256 expiredAt) returns()
-func (_Smc *SmcTransactor) CreateOrder(opts *bind.TransactOpts, seller common.Address, nftAddress common.Address, assetId *big.Int, orderId [32]byte, priceInWei *big.Int, expiredAt *big.Int) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "createOrder", seller, nftAddress, assetId, orderId, priceInWei, expiredAt)
+func (_MarketplaceStorage *MarketplaceStorageTransactor) CreateOrder(opts *bind.TransactOpts, seller common.Address, nftAddress common.Address, assetId *big.Int, orderId [32]byte, priceInWei *big.Int, expiredAt *big.Int) (*types.Transaction, error) {
+	return _MarketplaceStorage.contract.Transact(opts, "createOrder", seller, nftAddress, assetId, orderId, priceInWei, expiredAt)
 }
 
 // CreateOrder is a paid mutator transaction binding the contract method 0x930ca094.
 //
 // Solidity: function createOrder(address seller, address nftAddress, uint256 assetId, bytes32 orderId, uint256 priceInWei, uint256 expiredAt) returns()
-func (_Smc *SmcSession) CreateOrder(seller common.Address, nftAddress common.Address, assetId *big.Int, orderId [32]byte, priceInWei *big.Int, expiredAt *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.CreateOrder(&_Smc.TransactOpts, seller, nftAddress, assetId, orderId, priceInWei, expiredAt)
+func (_MarketplaceStorage *MarketplaceStorageSession) CreateOrder(seller common.Address, nftAddress common.Address, assetId *big.Int, orderId [32]byte, priceInWei *big.Int, expiredAt *big.Int) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.CreateOrder(&_MarketplaceStorage.TransactOpts, seller, nftAddress, assetId, orderId, priceInWei, expiredAt)
 }
 
 // CreateOrder is a paid mutator transaction binding the contract method 0x930ca094.
 //
 // Solidity: function createOrder(address seller, address nftAddress, uint256 assetId, bytes32 orderId, uint256 priceInWei, uint256 expiredAt) returns()
-func (_Smc *SmcTransactorSession) CreateOrder(seller common.Address, nftAddress common.Address, assetId *big.Int, orderId [32]byte, priceInWei *big.Int, expiredAt *big.Int) (*types.Transaction, error) {
-	return _Smc.Contract.CreateOrder(&_Smc.TransactOpts, seller, nftAddress, assetId, orderId, priceInWei, expiredAt)
+func (_MarketplaceStorage *MarketplaceStorageTransactorSession) CreateOrder(seller common.Address, nftAddress common.Address, assetId *big.Int, orderId [32]byte, priceInWei *big.Int, expiredAt *big.Int) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.CreateOrder(&_MarketplaceStorage.TransactOpts, seller, nftAddress, assetId, orderId, priceInWei, expiredAt)
 }
 
 // DeleteOrder is a paid mutator transaction binding the contract method 0x87a61cbd.
 //
 // Solidity: function deleteOrder(bytes32 nftAsset) returns()
-func (_Smc *SmcTransactor) DeleteOrder(opts *bind.TransactOpts, nftAsset [32]byte) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "deleteOrder", nftAsset)
+func (_MarketplaceStorage *MarketplaceStorageTransactor) DeleteOrder(opts *bind.TransactOpts, nftAsset [32]byte) (*types.Transaction, error) {
+	return _MarketplaceStorage.contract.Transact(opts, "deleteOrder", nftAsset)
 }
 
 // DeleteOrder is a paid mutator transaction binding the contract method 0x87a61cbd.
 //
 // Solidity: function deleteOrder(bytes32 nftAsset) returns()
-func (_Smc *SmcSession) DeleteOrder(nftAsset [32]byte) (*types.Transaction, error) {
-	return _Smc.Contract.DeleteOrder(&_Smc.TransactOpts, nftAsset)
+func (_MarketplaceStorage *MarketplaceStorageSession) DeleteOrder(nftAsset [32]byte) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.DeleteOrder(&_MarketplaceStorage.TransactOpts, nftAsset)
 }
 
 // DeleteOrder is a paid mutator transaction binding the contract method 0x87a61cbd.
 //
 // Solidity: function deleteOrder(bytes32 nftAsset) returns()
-func (_Smc *SmcTransactorSession) DeleteOrder(nftAsset [32]byte) (*types.Transaction, error) {
-	return _Smc.Contract.DeleteOrder(&_Smc.TransactOpts, nftAsset)
+func (_MarketplaceStorage *MarketplaceStorageTransactorSession) DeleteOrder(nftAsset [32]byte) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.DeleteOrder(&_MarketplaceStorage.TransactOpts, nftAsset)
 }
 
 // GrantRole is a paid mutator transaction binding the contract method 0x2f2ff15d.
 //
 // Solidity: function grantRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactor) GrantRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "grantRole", role, account)
+func (_MarketplaceStorage *MarketplaceStorageTransactor) GrantRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _MarketplaceStorage.contract.Transact(opts, "grantRole", role, account)
 }
 
 // GrantRole is a paid mutator transaction binding the contract method 0x2f2ff15d.
 //
 // Solidity: function grantRole(bytes32 role, address account) returns()
-func (_Smc *SmcSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.GrantRole(&_Smc.TransactOpts, role, account)
+func (_MarketplaceStorage *MarketplaceStorageSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.GrantRole(&_MarketplaceStorage.TransactOpts, role, account)
 }
 
 // GrantRole is a paid mutator transaction binding the contract method 0x2f2ff15d.
 //
 // Solidity: function grantRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactorSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.GrantRole(&_Smc.TransactOpts, role, account)
+func (_MarketplaceStorage *MarketplaceStorageTransactorSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.GrantRole(&_MarketplaceStorage.TransactOpts, role, account)
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcTransactor) Pause(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "pause")
+func (_MarketplaceStorage *MarketplaceStorageTransactor) Pause(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _MarketplaceStorage.contract.Transact(opts, "pause")
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcSession) Pause() (*types.Transaction, error) {
-	return _Smc.Contract.Pause(&_Smc.TransactOpts)
+func (_MarketplaceStorage *MarketplaceStorageSession) Pause() (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.Pause(&_MarketplaceStorage.TransactOpts)
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
 //
 // Solidity: function pause() returns()
-func (_Smc *SmcTransactorSession) Pause() (*types.Transaction, error) {
-	return _Smc.Contract.Pause(&_Smc.TransactOpts)
+func (_MarketplaceStorage *MarketplaceStorageTransactorSession) Pause() (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.Pause(&_MarketplaceStorage.TransactOpts)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcTransactor) RenounceOwnership(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "renounceOwnership")
+func (_MarketplaceStorage *MarketplaceStorageTransactor) RenounceOwnership(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _MarketplaceStorage.contract.Transact(opts, "renounceOwnership")
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcSession) RenounceOwnership() (*types.Transaction, error) {
-	return _Smc.Contract.RenounceOwnership(&_Smc.TransactOpts)
+func (_MarketplaceStorage *MarketplaceStorageSession) RenounceOwnership() (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.RenounceOwnership(&_MarketplaceStorage.TransactOpts)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Smc *SmcTransactorSession) RenounceOwnership() (*types.Transaction, error) {
-	return _Smc.Contract.RenounceOwnership(&_Smc.TransactOpts)
+func (_MarketplaceStorage *MarketplaceStorageTransactorSession) RenounceOwnership() (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.RenounceOwnership(&_MarketplaceStorage.TransactOpts)
 }
 
 // RenounceRole is a paid mutator transaction binding the contract method 0x36568abe.
 //
 // Solidity: function renounceRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactor) RenounceRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "renounceRole", role, account)
+func (_MarketplaceStorage *MarketplaceStorageTransactor) RenounceRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _MarketplaceStorage.contract.Transact(opts, "renounceRole", role, account)
 }
 
 // RenounceRole is a paid mutator transaction binding the contract method 0x36568abe.
 //
 // Solidity: function renounceRole(bytes32 role, address account) returns()
-func (_Smc *SmcSession) RenounceRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RenounceRole(&_Smc.TransactOpts, role, account)
+func (_MarketplaceStorage *MarketplaceStorageSession) RenounceRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.RenounceRole(&_MarketplaceStorage.TransactOpts, role, account)
 }
 
 // RenounceRole is a paid mutator transaction binding the contract method 0x36568abe.
 //
 // Solidity: function renounceRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactorSession) RenounceRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RenounceRole(&_Smc.TransactOpts, role, account)
+func (_MarketplaceStorage *MarketplaceStorageTransactorSession) RenounceRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.RenounceRole(&_MarketplaceStorage.TransactOpts, role, account)
 }
 
 // RevokeRole is a paid mutator transaction binding the contract method 0xd547741f.
 //
 // Solidity: function revokeRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactor) RevokeRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "revokeRole", role, account)
+func (_MarketplaceStorage *MarketplaceStorageTransactor) RevokeRole(opts *bind.TransactOpts, role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _MarketplaceStorage.contract.Transact(opts, "revokeRole", role, account)
 }
 
 // RevokeRole is a paid mutator transaction binding the contract method 0xd547741f.
 //
 // Solidity: function revokeRole(bytes32 role, address account) returns()
-func (_Smc *SmcSession) RevokeRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RevokeRole(&_Smc.TransactOpts, role, account)
+func (_MarketplaceStorage *MarketplaceStorageSession) RevokeRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.RevokeRole(&_MarketplaceStorage.TransactOpts, role, account)
 }
 
 // RevokeRole is a paid mutator transaction binding the contract method 0xd547741f.
 //
 // Solidity: function revokeRole(bytes32 role, address account) returns()
-func (_Smc *SmcTransactorSession) RevokeRole(role [32]byte, account common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.RevokeRole(&_Smc.TransactOpts, role, account)
+func (_MarketplaceStorage *MarketplaceStorageTransactorSession) RevokeRole(role [32]byte, account common.Address) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.RevokeRole(&_MarketplaceStorage.TransactOpts, role, account)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcTransactor) TransferOwnership(opts *bind.TransactOpts, newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "transferOwnership", newOwner)
+func (_MarketplaceStorage *MarketplaceStorageTransactor) TransferOwnership(opts *bind.TransactOpts, newOwner common.Address) (*types.Transaction, error) {
+	return _MarketplaceStorage.contract.Transact(opts, "transferOwnership", newOwner)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.TransferOwnership(&_Smc.TransactOpts, newOwner)
+func (_MarketplaceStorage *MarketplaceStorageSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.TransferOwnership(&_MarketplaceStorage.TransactOpts, newOwner)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Smc *SmcTransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.TransferOwnership(&_Smc.TransactOpts, newOwner)
+func (_MarketplaceStorage *MarketplaceStorageTransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.TransferOwnership(&_MarketplaceStorage.TransactOpts, newOwner)
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcTransactor) Unpause(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "unpause")
+func (_MarketplaceStorage *MarketplaceStorageTransactor) Unpause(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _MarketplaceStorage.contract.Transact(opts, "unpause")
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcSession) Unpause() (*types.Transaction, error) {
-	return _Smc.Contract.Unpause(&_Smc.TransactOpts)
+func (_MarketplaceStorage *MarketplaceStorageSession) Unpause() (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.Unpause(&_MarketplaceStorage.TransactOpts)
 }
 
 // Unpause is a paid mutator transaction binding the contract method 0x3f4ba83a.
 //
 // Solidity: function unpause() returns()
-func (_Smc *SmcTransactorSession) Unpause() (*types.Transaction, error) {
-	return _Smc.Contract.Unpause(&_Smc.TransactOpts)
+func (_MarketplaceStorage *MarketplaceStorageTransactorSession) Unpause() (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.Unpause(&_MarketplaceStorage.TransactOpts)
 }
 
 // UpdateAuctionMarketplace is a paid mutator transaction binding the contract method 0x3dd328d1.
 //
 // Solidity: function updateAuctionMarketplace(address _auctionMarketplace) returns()
-func (_Smc *SmcTransactor) UpdateAuctionMarketplace(opts *bind.TransactOpts, _auctionMarketplace common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "updateAuctionMarketplace", _auctionMarketplace)
+func (_MarketplaceStorage *MarketplaceStorageTransactor) UpdateAuctionMarketplace(opts *bind.TransactOpts, _auctionMarketplace common.Address) (*types.Transaction, error) {
+	return _MarketplaceStorage.contract.Transact(opts, "updateAuctionMarketplace", _auctionMarketplace)
 }
 
 // UpdateAuctionMarketplace is a paid mutator transaction binding the contract method 0x3dd328d1.
 //
 // Solidity: function updateAuctionMarketplace(address _auctionMarketplace) returns()
-func (_Smc *SmcSession) UpdateAuctionMarketplace(_auctionMarketplace common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.UpdateAuctionMarketplace(&_Smc.TransactOpts, _auctionMarketplace)
+func (_MarketplaceStorage *MarketplaceStorageSession) UpdateAuctionMarketplace(_auctionMarketplace common.Address) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.UpdateAuctionMarketplace(&_MarketplaceStorage.TransactOpts, _auctionMarketplace)
 }
 
 // UpdateAuctionMarketplace is a paid mutator transaction binding the contract method 0x3dd328d1.
 //
 // Solidity: function updateAuctionMarketplace(address _auctionMarketplace) returns()
-func (_Smc *SmcTransactorSession) UpdateAuctionMarketplace(_auctionMarketplace common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.UpdateAuctionMarketplace(&_Smc.TransactOpts, _auctionMarketplace)
+func (_MarketplaceStorage *MarketplaceStorageTransactorSession) UpdateAuctionMarketplace(_auctionMarketplace common.Address) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.UpdateAuctionMarketplace(&_MarketplaceStorage.TransactOpts, _auctionMarketplace)
 }
 
 // UpdateHighestBid is a paid mutator transaction binding the contract method 0x572f7d5e.
 //
 // Solidity: function updateHighestBid(address bidder, uint256 highestBid, bytes32 auctionId) returns()
-func (_Smc *SmcTransactor) UpdateHighestBid(opts *bind.TransactOpts, bidder common.Address, highestBid *big.Int, auctionId [32]byte) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "updateHighestBid", bidder, highestBid, auctionId)
+func (_MarketplaceStorage *MarketplaceStorageTransactor) UpdateHighestBid(opts *bind.TransactOpts, bidder common.Address, highestBid *big.Int, auctionId [32]byte) (*types.Transaction, error) {
+	return _MarketplaceStorage.contract.Transact(opts, "updateHighestBid", bidder, highestBid, auctionId)
 }
 
 // UpdateHighestBid is a paid mutator transaction binding the contract method 0x572f7d5e.
 //
 // Solidity: function updateHighestBid(address bidder, uint256 highestBid, bytes32 auctionId) returns()
-func (_Smc *SmcSession) UpdateHighestBid(bidder common.Address, highestBid *big.Int, auctionId [32]byte) (*types.Transaction, error) {
-	return _Smc.Contract.UpdateHighestBid(&_Smc.TransactOpts, bidder, highestBid, auctionId)
+func (_MarketplaceStorage *MarketplaceStorageSession) UpdateHighestBid(bidder common.Address, highestBid *big.Int, auctionId [32]byte) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.UpdateHighestBid(&_MarketplaceStorage.TransactOpts, bidder, highestBid, auctionId)
 }
 
 // UpdateHighestBid is a paid mutator transaction binding the contract method 0x572f7d5e.
 //
 // Solidity: function updateHighestBid(address bidder, uint256 highestBid, bytes32 auctionId) returns()
-func (_Smc *SmcTransactorSession) UpdateHighestBid(bidder common.Address, highestBid *big.Int, auctionId [32]byte) (*types.Transaction, error) {
-	return _Smc.Contract.UpdateHighestBid(&_Smc.TransactOpts, bidder, highestBid, auctionId)
+func (_MarketplaceStorage *MarketplaceStorageTransactorSession) UpdateHighestBid(bidder common.Address, highestBid *big.Int, auctionId [32]byte) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.UpdateHighestBid(&_MarketplaceStorage.TransactOpts, bidder, highestBid, auctionId)
 }
 
 // UpdateOrderMarketplace is a paid mutator transaction binding the contract method 0x9a91d9c0.
 //
 // Solidity: function updateOrderMarketplace(address _orderMarketplace) returns()
-func (_Smc *SmcTransactor) UpdateOrderMarketplace(opts *bind.TransactOpts, _orderMarketplace common.Address) (*types.Transaction, error) {
-	return _Smc.contract.Transact(opts, "updateOrderMarketplace", _orderMarketplace)
+func (_MarketplaceStorage *MarketplaceStorageTransactor) UpdateOrderMarketplace(opts *bind.TransactOpts, _orderMarketplace common.Address) (*types.Transaction, error) {
+	return _MarketplaceStorage.contract.Transact(opts, "updateOrderMarketplace", _orderMarketplace)
 }
 
 // UpdateOrderMarketplace is a paid mutator transaction binding the contract method 0x9a91d9c0.
 //
 // Solidity: function updateOrderMarketplace(address _orderMarketplace) returns()
-func (_Smc *SmcSession) UpdateOrderMarketplace(_orderMarketplace common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.UpdateOrderMarketplace(&_Smc.TransactOpts, _orderMarketplace)
+func (_MarketplaceStorage *MarketplaceStorageSession) UpdateOrderMarketplace(_orderMarketplace common.Address) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.UpdateOrderMarketplace(&_MarketplaceStorage.TransactOpts, _orderMarketplace)
 }
 
 // UpdateOrderMarketplace is a paid mutator transaction binding the contract method 0x9a91d9c0.
 //
 // Solidity: function updateOrderMarketplace(address _orderMarketplace) returns()
-func (_Smc *SmcTransactorSession) UpdateOrderMarketplace(_orderMarketplace common.Address) (*types.Transaction, error) {
-	return _Smc.Contract.UpdateOrderMarketplace(&_Smc.TransactOpts, _orderMarketplace)
+func (_MarketplaceStorage *MarketplaceStorageTransactorSession) UpdateOrderMarketplace(_orderMarketplace common.Address) (*types.Transaction, error) {
+	return _MarketplaceStorage.Contract.UpdateOrderMarketplace(&_MarketplaceStorage.TransactOpts, _orderMarketplace)
 }
 
-// SmcAuctionCancelledIterator is returned from FilterAuctionCancelled and is used to iterate over the raw logs and unpacked data for AuctionCancelled events raised by the Smc contract.
-type SmcAuctionCancelledIterator struct {
-	Event *SmcAuctionCancelled // Event containing the contract specifics and raw log
+// MarketplaceStorageAuctionCancelledIterator is returned from FilterAuctionCancelled and is used to iterate over the raw logs and unpacked data for AuctionCancelled events raised by the MarketplaceStorage contract.
+type MarketplaceStorageAuctionCancelledIterator struct {
+	Event *MarketplaceStorageAuctionCancelled // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1065,7 +1065,7 @@ type SmcAuctionCancelledIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcAuctionCancelledIterator) Next() bool {
+func (it *MarketplaceStorageAuctionCancelledIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1074,7 +1074,7 @@ func (it *SmcAuctionCancelledIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcAuctionCancelled)
+			it.Event = new(MarketplaceStorageAuctionCancelled)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1089,7 +1089,7 @@ func (it *SmcAuctionCancelledIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcAuctionCancelled)
+		it.Event = new(MarketplaceStorageAuctionCancelled)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1105,19 +1105,19 @@ func (it *SmcAuctionCancelledIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcAuctionCancelledIterator) Error() error {
+func (it *MarketplaceStorageAuctionCancelledIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcAuctionCancelledIterator) Close() error {
+func (it *MarketplaceStorageAuctionCancelledIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcAuctionCancelled represents a AuctionCancelled event raised by the Smc contract.
-type SmcAuctionCancelled struct {
+// MarketplaceStorageAuctionCancelled represents a AuctionCancelled event raised by the MarketplaceStorage contract.
+type MarketplaceStorageAuctionCancelled struct {
 	AuctionId [32]byte
 	Raw       types.Log // Blockchain specific contextual infos
 }
@@ -1125,31 +1125,31 @@ type SmcAuctionCancelled struct {
 // FilterAuctionCancelled is a free log retrieval operation binding the contract event 0xd88fab4b08bf76f15cf2d6e03e382acf1edd6790ab82967e406abac37db20288.
 //
 // Solidity: event AuctionCancelled(bytes32 indexed auctionId)
-func (_Smc *SmcFilterer) FilterAuctionCancelled(opts *bind.FilterOpts, auctionId [][32]byte) (*SmcAuctionCancelledIterator, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterAuctionCancelled(opts *bind.FilterOpts, auctionId [][32]byte) (*MarketplaceStorageAuctionCancelledIterator, error) {
 
 	var auctionIdRule []interface{}
 	for _, auctionIdItem := range auctionId {
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "AuctionCancelled", auctionIdRule)
+	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "AuctionCancelled", auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcAuctionCancelledIterator{contract: _Smc.contract, event: "AuctionCancelled", logs: logs, sub: sub}, nil
+	return &MarketplaceStorageAuctionCancelledIterator{contract: _MarketplaceStorage.contract, event: "AuctionCancelled", logs: logs, sub: sub}, nil
 }
 
 // WatchAuctionCancelled is a free log subscription operation binding the contract event 0xd88fab4b08bf76f15cf2d6e03e382acf1edd6790ab82967e406abac37db20288.
 //
 // Solidity: event AuctionCancelled(bytes32 indexed auctionId)
-func (_Smc *SmcFilterer) WatchAuctionCancelled(opts *bind.WatchOpts, sink chan<- *SmcAuctionCancelled, auctionId [][32]byte) (event.Subscription, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchAuctionCancelled(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageAuctionCancelled, auctionId [][32]byte) (event.Subscription, error) {
 
 	var auctionIdRule []interface{}
 	for _, auctionIdItem := range auctionId {
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "AuctionCancelled", auctionIdRule)
+	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "AuctionCancelled", auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1159,8 +1159,8 @@ func (_Smc *SmcFilterer) WatchAuctionCancelled(opts *bind.WatchOpts, sink chan<-
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcAuctionCancelled)
-				if err := _Smc.contract.UnpackLog(event, "AuctionCancelled", log); err != nil {
+				event := new(MarketplaceStorageAuctionCancelled)
+				if err := _MarketplaceStorage.contract.UnpackLog(event, "AuctionCancelled", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1184,18 +1184,18 @@ func (_Smc *SmcFilterer) WatchAuctionCancelled(opts *bind.WatchOpts, sink chan<-
 // ParseAuctionCancelled is a log parse operation binding the contract event 0xd88fab4b08bf76f15cf2d6e03e382acf1edd6790ab82967e406abac37db20288.
 //
 // Solidity: event AuctionCancelled(bytes32 indexed auctionId)
-func (_Smc *SmcFilterer) ParseAuctionCancelled(log types.Log) (*SmcAuctionCancelled, error) {
-	event := new(SmcAuctionCancelled)
-	if err := _Smc.contract.UnpackLog(event, "AuctionCancelled", log); err != nil {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseAuctionCancelled(log types.Log) (*MarketplaceStorageAuctionCancelled, error) {
+	event := new(MarketplaceStorageAuctionCancelled)
+	if err := _MarketplaceStorage.contract.UnpackLog(event, "AuctionCancelled", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcAuctionCreatedIterator is returned from FilterAuctionCreated and is used to iterate over the raw logs and unpacked data for AuctionCreated events raised by the Smc contract.
-type SmcAuctionCreatedIterator struct {
-	Event *SmcAuctionCreated // Event containing the contract specifics and raw log
+// MarketplaceStorageAuctionCreatedIterator is returned from FilterAuctionCreated and is used to iterate over the raw logs and unpacked data for AuctionCreated events raised by the MarketplaceStorage contract.
+type MarketplaceStorageAuctionCreatedIterator struct {
+	Event *MarketplaceStorageAuctionCreated // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1209,7 +1209,7 @@ type SmcAuctionCreatedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcAuctionCreatedIterator) Next() bool {
+func (it *MarketplaceStorageAuctionCreatedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1218,7 +1218,7 @@ func (it *SmcAuctionCreatedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcAuctionCreated)
+			it.Event = new(MarketplaceStorageAuctionCreated)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1233,7 +1233,7 @@ func (it *SmcAuctionCreatedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcAuctionCreated)
+		it.Event = new(MarketplaceStorageAuctionCreated)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1249,19 +1249,19 @@ func (it *SmcAuctionCreatedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcAuctionCreatedIterator) Error() error {
+func (it *MarketplaceStorageAuctionCreatedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcAuctionCreatedIterator) Close() error {
+func (it *MarketplaceStorageAuctionCreatedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcAuctionCreated represents a AuctionCreated event raised by the Smc contract.
-type SmcAuctionCreated struct {
+// MarketplaceStorageAuctionCreated represents a AuctionCreated event raised by the MarketplaceStorage contract.
+type MarketplaceStorageAuctionCreated struct {
 	Seller          common.Address
 	NftAddress      common.Address
 	AuctionId       [32]byte
@@ -1275,7 +1275,7 @@ type SmcAuctionCreated struct {
 // FilterAuctionCreated is a free log retrieval operation binding the contract event 0xaf4bad306f14d5c908e5b871fa54296ed7d4f29b8092bf5062de6813c247e54b.
 //
 // Solidity: event AuctionCreated(address indexed seller, address nftAddress, bytes32 indexed auctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
-func (_Smc *SmcFilterer) FilterAuctionCreated(opts *bind.FilterOpts, seller []common.Address, auctionId [][32]byte) (*SmcAuctionCreatedIterator, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterAuctionCreated(opts *bind.FilterOpts, seller []common.Address, auctionId [][32]byte) (*MarketplaceStorageAuctionCreatedIterator, error) {
 
 	var sellerRule []interface{}
 	for _, sellerItem := range seller {
@@ -1287,17 +1287,17 @@ func (_Smc *SmcFilterer) FilterAuctionCreated(opts *bind.FilterOpts, seller []co
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "AuctionCreated", sellerRule, auctionIdRule)
+	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "AuctionCreated", sellerRule, auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcAuctionCreatedIterator{contract: _Smc.contract, event: "AuctionCreated", logs: logs, sub: sub}, nil
+	return &MarketplaceStorageAuctionCreatedIterator{contract: _MarketplaceStorage.contract, event: "AuctionCreated", logs: logs, sub: sub}, nil
 }
 
 // WatchAuctionCreated is a free log subscription operation binding the contract event 0xaf4bad306f14d5c908e5b871fa54296ed7d4f29b8092bf5062de6813c247e54b.
 //
 // Solidity: event AuctionCreated(address indexed seller, address nftAddress, bytes32 indexed auctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
-func (_Smc *SmcFilterer) WatchAuctionCreated(opts *bind.WatchOpts, sink chan<- *SmcAuctionCreated, seller []common.Address, auctionId [][32]byte) (event.Subscription, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchAuctionCreated(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageAuctionCreated, seller []common.Address, auctionId [][32]byte) (event.Subscription, error) {
 
 	var sellerRule []interface{}
 	for _, sellerItem := range seller {
@@ -1309,7 +1309,7 @@ func (_Smc *SmcFilterer) WatchAuctionCreated(opts *bind.WatchOpts, sink chan<- *
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "AuctionCreated", sellerRule, auctionIdRule)
+	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "AuctionCreated", sellerRule, auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1319,8 +1319,8 @@ func (_Smc *SmcFilterer) WatchAuctionCreated(opts *bind.WatchOpts, sink chan<- *
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcAuctionCreated)
-				if err := _Smc.contract.UnpackLog(event, "AuctionCreated", log); err != nil {
+				event := new(MarketplaceStorageAuctionCreated)
+				if err := _MarketplaceStorage.contract.UnpackLog(event, "AuctionCreated", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1344,18 +1344,18 @@ func (_Smc *SmcFilterer) WatchAuctionCreated(opts *bind.WatchOpts, sink chan<- *
 // ParseAuctionCreated is a log parse operation binding the contract event 0xaf4bad306f14d5c908e5b871fa54296ed7d4f29b8092bf5062de6813c247e54b.
 //
 // Solidity: event AuctionCreated(address indexed seller, address nftAddress, bytes32 indexed auctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
-func (_Smc *SmcFilterer) ParseAuctionCreated(log types.Log) (*SmcAuctionCreated, error) {
-	event := new(SmcAuctionCreated)
-	if err := _Smc.contract.UnpackLog(event, "AuctionCreated", log); err != nil {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseAuctionCreated(log types.Log) (*MarketplaceStorageAuctionCreated, error) {
+	event := new(MarketplaceStorageAuctionCreated)
+	if err := _MarketplaceStorage.contract.UnpackLog(event, "AuctionCreated", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcAuctionEndedIterator is returned from FilterAuctionEnded and is used to iterate over the raw logs and unpacked data for AuctionEnded events raised by the Smc contract.
-type SmcAuctionEndedIterator struct {
-	Event *SmcAuctionEnded // Event containing the contract specifics and raw log
+// MarketplaceStorageAuctionEndedIterator is returned from FilterAuctionEnded and is used to iterate over the raw logs and unpacked data for AuctionEnded events raised by the MarketplaceStorage contract.
+type MarketplaceStorageAuctionEndedIterator struct {
+	Event *MarketplaceStorageAuctionEnded // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1369,7 +1369,7 @@ type SmcAuctionEndedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcAuctionEndedIterator) Next() bool {
+func (it *MarketplaceStorageAuctionEndedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1378,7 +1378,7 @@ func (it *SmcAuctionEndedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcAuctionEnded)
+			it.Event = new(MarketplaceStorageAuctionEnded)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1393,7 +1393,7 @@ func (it *SmcAuctionEndedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcAuctionEnded)
+		it.Event = new(MarketplaceStorageAuctionEnded)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1409,19 +1409,19 @@ func (it *SmcAuctionEndedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcAuctionEndedIterator) Error() error {
+func (it *MarketplaceStorageAuctionEndedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcAuctionEndedIterator) Close() error {
+func (it *MarketplaceStorageAuctionEndedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcAuctionEnded represents a AuctionEnded event raised by the Smc contract.
-type SmcAuctionEnded struct {
+// MarketplaceStorageAuctionEnded represents a AuctionEnded event raised by the MarketplaceStorage contract.
+type MarketplaceStorageAuctionEnded struct {
 	AuctionId [32]byte
 	Raw       types.Log // Blockchain specific contextual infos
 }
@@ -1429,31 +1429,31 @@ type SmcAuctionEnded struct {
 // FilterAuctionEnded is a free log retrieval operation binding the contract event 0x447d0298e6e2716a4343195759c35b277a60b76e628284d93262fa9869db9921.
 //
 // Solidity: event AuctionEnded(bytes32 indexed auctionId)
-func (_Smc *SmcFilterer) FilterAuctionEnded(opts *bind.FilterOpts, auctionId [][32]byte) (*SmcAuctionEndedIterator, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterAuctionEnded(opts *bind.FilterOpts, auctionId [][32]byte) (*MarketplaceStorageAuctionEndedIterator, error) {
 
 	var auctionIdRule []interface{}
 	for _, auctionIdItem := range auctionId {
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "AuctionEnded", auctionIdRule)
+	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "AuctionEnded", auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcAuctionEndedIterator{contract: _Smc.contract, event: "AuctionEnded", logs: logs, sub: sub}, nil
+	return &MarketplaceStorageAuctionEndedIterator{contract: _MarketplaceStorage.contract, event: "AuctionEnded", logs: logs, sub: sub}, nil
 }
 
 // WatchAuctionEnded is a free log subscription operation binding the contract event 0x447d0298e6e2716a4343195759c35b277a60b76e628284d93262fa9869db9921.
 //
 // Solidity: event AuctionEnded(bytes32 indexed auctionId)
-func (_Smc *SmcFilterer) WatchAuctionEnded(opts *bind.WatchOpts, sink chan<- *SmcAuctionEnded, auctionId [][32]byte) (event.Subscription, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchAuctionEnded(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageAuctionEnded, auctionId [][32]byte) (event.Subscription, error) {
 
 	var auctionIdRule []interface{}
 	for _, auctionIdItem := range auctionId {
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "AuctionEnded", auctionIdRule)
+	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "AuctionEnded", auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1463,8 +1463,8 @@ func (_Smc *SmcFilterer) WatchAuctionEnded(opts *bind.WatchOpts, sink chan<- *Sm
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcAuctionEnded)
-				if err := _Smc.contract.UnpackLog(event, "AuctionEnded", log); err != nil {
+				event := new(MarketplaceStorageAuctionEnded)
+				if err := _MarketplaceStorage.contract.UnpackLog(event, "AuctionEnded", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1488,18 +1488,18 @@ func (_Smc *SmcFilterer) WatchAuctionEnded(opts *bind.WatchOpts, sink chan<- *Sm
 // ParseAuctionEnded is a log parse operation binding the contract event 0x447d0298e6e2716a4343195759c35b277a60b76e628284d93262fa9869db9921.
 //
 // Solidity: event AuctionEnded(bytes32 indexed auctionId)
-func (_Smc *SmcFilterer) ParseAuctionEnded(log types.Log) (*SmcAuctionEnded, error) {
-	event := new(SmcAuctionEnded)
-	if err := _Smc.contract.UnpackLog(event, "AuctionEnded", log); err != nil {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseAuctionEnded(log types.Log) (*MarketplaceStorageAuctionEnded, error) {
+	event := new(MarketplaceStorageAuctionEnded)
+	if err := _MarketplaceStorage.contract.UnpackLog(event, "AuctionEnded", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcAuctionRefundIterator is returned from FilterAuctionRefund and is used to iterate over the raw logs and unpacked data for AuctionRefund events raised by the Smc contract.
-type SmcAuctionRefundIterator struct {
-	Event *SmcAuctionRefund // Event containing the contract specifics and raw log
+// MarketplaceStorageAuctionRefundIterator is returned from FilterAuctionRefund and is used to iterate over the raw logs and unpacked data for AuctionRefund events raised by the MarketplaceStorage contract.
+type MarketplaceStorageAuctionRefundIterator struct {
+	Event *MarketplaceStorageAuctionRefund // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1513,7 +1513,7 @@ type SmcAuctionRefundIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcAuctionRefundIterator) Next() bool {
+func (it *MarketplaceStorageAuctionRefundIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1522,7 +1522,7 @@ func (it *SmcAuctionRefundIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcAuctionRefund)
+			it.Event = new(MarketplaceStorageAuctionRefund)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1537,7 +1537,7 @@ func (it *SmcAuctionRefundIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcAuctionRefund)
+		it.Event = new(MarketplaceStorageAuctionRefund)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1553,19 +1553,19 @@ func (it *SmcAuctionRefundIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcAuctionRefundIterator) Error() error {
+func (it *MarketplaceStorageAuctionRefundIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcAuctionRefundIterator) Close() error {
+func (it *MarketplaceStorageAuctionRefundIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcAuctionRefund represents a AuctionRefund event raised by the Smc contract.
-type SmcAuctionRefund struct {
+// MarketplaceStorageAuctionRefund represents a AuctionRefund event raised by the MarketplaceStorage contract.
+type MarketplaceStorageAuctionRefund struct {
 	Bidder    common.Address
 	AuctionId [32]byte
 	Deposit   *big.Int
@@ -1575,31 +1575,31 @@ type SmcAuctionRefund struct {
 // FilterAuctionRefund is a free log retrieval operation binding the contract event 0x6be22eb0241a0575f8b866ff176552cf71078977d6d30e501dd2d326c8d57114.
 //
 // Solidity: event AuctionRefund(address indexed bidder, bytes32 auctionId, uint256 deposit)
-func (_Smc *SmcFilterer) FilterAuctionRefund(opts *bind.FilterOpts, bidder []common.Address) (*SmcAuctionRefundIterator, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterAuctionRefund(opts *bind.FilterOpts, bidder []common.Address) (*MarketplaceStorageAuctionRefundIterator, error) {
 
 	var bidderRule []interface{}
 	for _, bidderItem := range bidder {
 		bidderRule = append(bidderRule, bidderItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "AuctionRefund", bidderRule)
+	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "AuctionRefund", bidderRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcAuctionRefundIterator{contract: _Smc.contract, event: "AuctionRefund", logs: logs, sub: sub}, nil
+	return &MarketplaceStorageAuctionRefundIterator{contract: _MarketplaceStorage.contract, event: "AuctionRefund", logs: logs, sub: sub}, nil
 }
 
 // WatchAuctionRefund is a free log subscription operation binding the contract event 0x6be22eb0241a0575f8b866ff176552cf71078977d6d30e501dd2d326c8d57114.
 //
 // Solidity: event AuctionRefund(address indexed bidder, bytes32 auctionId, uint256 deposit)
-func (_Smc *SmcFilterer) WatchAuctionRefund(opts *bind.WatchOpts, sink chan<- *SmcAuctionRefund, bidder []common.Address) (event.Subscription, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchAuctionRefund(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageAuctionRefund, bidder []common.Address) (event.Subscription, error) {
 
 	var bidderRule []interface{}
 	for _, bidderItem := range bidder {
 		bidderRule = append(bidderRule, bidderItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "AuctionRefund", bidderRule)
+	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "AuctionRefund", bidderRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1609,8 +1609,8 @@ func (_Smc *SmcFilterer) WatchAuctionRefund(opts *bind.WatchOpts, sink chan<- *S
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcAuctionRefund)
-				if err := _Smc.contract.UnpackLog(event, "AuctionRefund", log); err != nil {
+				event := new(MarketplaceStorageAuctionRefund)
+				if err := _MarketplaceStorage.contract.UnpackLog(event, "AuctionRefund", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1634,18 +1634,18 @@ func (_Smc *SmcFilterer) WatchAuctionRefund(opts *bind.WatchOpts, sink chan<- *S
 // ParseAuctionRefund is a log parse operation binding the contract event 0x6be22eb0241a0575f8b866ff176552cf71078977d6d30e501dd2d326c8d57114.
 //
 // Solidity: event AuctionRefund(address indexed bidder, bytes32 auctionId, uint256 deposit)
-func (_Smc *SmcFilterer) ParseAuctionRefund(log types.Log) (*SmcAuctionRefund, error) {
-	event := new(SmcAuctionRefund)
-	if err := _Smc.contract.UnpackLog(event, "AuctionRefund", log); err != nil {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseAuctionRefund(log types.Log) (*MarketplaceStorageAuctionRefund, error) {
+	event := new(MarketplaceStorageAuctionRefund)
+	if err := _MarketplaceStorage.contract.UnpackLog(event, "AuctionRefund", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcAuctionSuccessfulIterator is returned from FilterAuctionSuccessful and is used to iterate over the raw logs and unpacked data for AuctionSuccessful events raised by the Smc contract.
-type SmcAuctionSuccessfulIterator struct {
-	Event *SmcAuctionSuccessful // Event containing the contract specifics and raw log
+// MarketplaceStorageAuctionSuccessfulIterator is returned from FilterAuctionSuccessful and is used to iterate over the raw logs and unpacked data for AuctionSuccessful events raised by the MarketplaceStorage contract.
+type MarketplaceStorageAuctionSuccessfulIterator struct {
+	Event *MarketplaceStorageAuctionSuccessful // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1659,7 +1659,7 @@ type SmcAuctionSuccessfulIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcAuctionSuccessfulIterator) Next() bool {
+func (it *MarketplaceStorageAuctionSuccessfulIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1668,7 +1668,7 @@ func (it *SmcAuctionSuccessfulIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcAuctionSuccessful)
+			it.Event = new(MarketplaceStorageAuctionSuccessful)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1683,7 +1683,7 @@ func (it *SmcAuctionSuccessfulIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcAuctionSuccessful)
+		it.Event = new(MarketplaceStorageAuctionSuccessful)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1699,19 +1699,19 @@ func (it *SmcAuctionSuccessfulIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcAuctionSuccessfulIterator) Error() error {
+func (it *MarketplaceStorageAuctionSuccessfulIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcAuctionSuccessfulIterator) Close() error {
+func (it *MarketplaceStorageAuctionSuccessfulIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcAuctionSuccessful represents a AuctionSuccessful event raised by the Smc contract.
-type SmcAuctionSuccessful struct {
+// MarketplaceStorageAuctionSuccessful represents a AuctionSuccessful event raised by the MarketplaceStorage contract.
+type MarketplaceStorageAuctionSuccessful struct {
 	Seller     common.Address
 	Buyer      common.Address
 	AuctionId  [32]byte
@@ -1722,7 +1722,7 @@ type SmcAuctionSuccessful struct {
 // FilterAuctionSuccessful is a free log retrieval operation binding the contract event 0x5ed769e966210f5d06d68e75831871131255cee237cb8edf78565aae170475ea.
 //
 // Solidity: event AuctionSuccessful(address indexed seller, address indexed buyer, bytes32 indexed auctionId, uint256 totalPrice)
-func (_Smc *SmcFilterer) FilterAuctionSuccessful(opts *bind.FilterOpts, seller []common.Address, buyer []common.Address, auctionId [][32]byte) (*SmcAuctionSuccessfulIterator, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterAuctionSuccessful(opts *bind.FilterOpts, seller []common.Address, buyer []common.Address, auctionId [][32]byte) (*MarketplaceStorageAuctionSuccessfulIterator, error) {
 
 	var sellerRule []interface{}
 	for _, sellerItem := range seller {
@@ -1737,17 +1737,17 @@ func (_Smc *SmcFilterer) FilterAuctionSuccessful(opts *bind.FilterOpts, seller [
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "AuctionSuccessful", sellerRule, buyerRule, auctionIdRule)
+	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "AuctionSuccessful", sellerRule, buyerRule, auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcAuctionSuccessfulIterator{contract: _Smc.contract, event: "AuctionSuccessful", logs: logs, sub: sub}, nil
+	return &MarketplaceStorageAuctionSuccessfulIterator{contract: _MarketplaceStorage.contract, event: "AuctionSuccessful", logs: logs, sub: sub}, nil
 }
 
 // WatchAuctionSuccessful is a free log subscription operation binding the contract event 0x5ed769e966210f5d06d68e75831871131255cee237cb8edf78565aae170475ea.
 //
 // Solidity: event AuctionSuccessful(address indexed seller, address indexed buyer, bytes32 indexed auctionId, uint256 totalPrice)
-func (_Smc *SmcFilterer) WatchAuctionSuccessful(opts *bind.WatchOpts, sink chan<- *SmcAuctionSuccessful, seller []common.Address, buyer []common.Address, auctionId [][32]byte) (event.Subscription, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchAuctionSuccessful(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageAuctionSuccessful, seller []common.Address, buyer []common.Address, auctionId [][32]byte) (event.Subscription, error) {
 
 	var sellerRule []interface{}
 	for _, sellerItem := range seller {
@@ -1762,7 +1762,7 @@ func (_Smc *SmcFilterer) WatchAuctionSuccessful(opts *bind.WatchOpts, sink chan<
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "AuctionSuccessful", sellerRule, buyerRule, auctionIdRule)
+	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "AuctionSuccessful", sellerRule, buyerRule, auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1772,8 +1772,8 @@ func (_Smc *SmcFilterer) WatchAuctionSuccessful(opts *bind.WatchOpts, sink chan<
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcAuctionSuccessful)
-				if err := _Smc.contract.UnpackLog(event, "AuctionSuccessful", log); err != nil {
+				event := new(MarketplaceStorageAuctionSuccessful)
+				if err := _MarketplaceStorage.contract.UnpackLog(event, "AuctionSuccessful", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1797,18 +1797,18 @@ func (_Smc *SmcFilterer) WatchAuctionSuccessful(opts *bind.WatchOpts, sink chan<
 // ParseAuctionSuccessful is a log parse operation binding the contract event 0x5ed769e966210f5d06d68e75831871131255cee237cb8edf78565aae170475ea.
 //
 // Solidity: event AuctionSuccessful(address indexed seller, address indexed buyer, bytes32 indexed auctionId, uint256 totalPrice)
-func (_Smc *SmcFilterer) ParseAuctionSuccessful(log types.Log) (*SmcAuctionSuccessful, error) {
-	event := new(SmcAuctionSuccessful)
-	if err := _Smc.contract.UnpackLog(event, "AuctionSuccessful", log); err != nil {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseAuctionSuccessful(log types.Log) (*MarketplaceStorageAuctionSuccessful, error) {
+	event := new(MarketplaceStorageAuctionSuccessful)
+	if err := _MarketplaceStorage.contract.UnpackLog(event, "AuctionSuccessful", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcBidSuccessfulIterator is returned from FilterBidSuccessful and is used to iterate over the raw logs and unpacked data for BidSuccessful events raised by the Smc contract.
-type SmcBidSuccessfulIterator struct {
-	Event *SmcBidSuccessful // Event containing the contract specifics and raw log
+// MarketplaceStorageBidSuccessfulIterator is returned from FilterBidSuccessful and is used to iterate over the raw logs and unpacked data for BidSuccessful events raised by the MarketplaceStorage contract.
+type MarketplaceStorageBidSuccessfulIterator struct {
+	Event *MarketplaceStorageBidSuccessful // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1822,7 +1822,7 @@ type SmcBidSuccessfulIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcBidSuccessfulIterator) Next() bool {
+func (it *MarketplaceStorageBidSuccessfulIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1831,7 +1831,7 @@ func (it *SmcBidSuccessfulIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcBidSuccessful)
+			it.Event = new(MarketplaceStorageBidSuccessful)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1846,7 +1846,7 @@ func (it *SmcBidSuccessfulIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcBidSuccessful)
+		it.Event = new(MarketplaceStorageBidSuccessful)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1862,19 +1862,19 @@ func (it *SmcBidSuccessfulIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcBidSuccessfulIterator) Error() error {
+func (it *MarketplaceStorageBidSuccessfulIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcBidSuccessfulIterator) Close() error {
+func (it *MarketplaceStorageBidSuccessfulIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcBidSuccessful represents a BidSuccessful event raised by the Smc contract.
-type SmcBidSuccessful struct {
+// MarketplaceStorageBidSuccessful represents a BidSuccessful event raised by the MarketplaceStorage contract.
+type MarketplaceStorageBidSuccessful struct {
 	Bidder     common.Address
 	AuctionId  [32]byte
 	BlindedBid [32]byte
@@ -1884,7 +1884,7 @@ type SmcBidSuccessful struct {
 // FilterBidSuccessful is a free log retrieval operation binding the contract event 0x327e5a459c964bcfa4f6d71b32a04a53b0002417b0924a8057d9f12e688e0bec.
 //
 // Solidity: event BidSuccessful(address indexed bidder, bytes32 indexed auctionId, bytes32 blindedBid)
-func (_Smc *SmcFilterer) FilterBidSuccessful(opts *bind.FilterOpts, bidder []common.Address, auctionId [][32]byte) (*SmcBidSuccessfulIterator, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterBidSuccessful(opts *bind.FilterOpts, bidder []common.Address, auctionId [][32]byte) (*MarketplaceStorageBidSuccessfulIterator, error) {
 
 	var bidderRule []interface{}
 	for _, bidderItem := range bidder {
@@ -1895,17 +1895,17 @@ func (_Smc *SmcFilterer) FilterBidSuccessful(opts *bind.FilterOpts, bidder []com
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "BidSuccessful", bidderRule, auctionIdRule)
+	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "BidSuccessful", bidderRule, auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcBidSuccessfulIterator{contract: _Smc.contract, event: "BidSuccessful", logs: logs, sub: sub}, nil
+	return &MarketplaceStorageBidSuccessfulIterator{contract: _MarketplaceStorage.contract, event: "BidSuccessful", logs: logs, sub: sub}, nil
 }
 
 // WatchBidSuccessful is a free log subscription operation binding the contract event 0x327e5a459c964bcfa4f6d71b32a04a53b0002417b0924a8057d9f12e688e0bec.
 //
 // Solidity: event BidSuccessful(address indexed bidder, bytes32 indexed auctionId, bytes32 blindedBid)
-func (_Smc *SmcFilterer) WatchBidSuccessful(opts *bind.WatchOpts, sink chan<- *SmcBidSuccessful, bidder []common.Address, auctionId [][32]byte) (event.Subscription, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchBidSuccessful(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageBidSuccessful, bidder []common.Address, auctionId [][32]byte) (event.Subscription, error) {
 
 	var bidderRule []interface{}
 	for _, bidderItem := range bidder {
@@ -1916,7 +1916,7 @@ func (_Smc *SmcFilterer) WatchBidSuccessful(opts *bind.WatchOpts, sink chan<- *S
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "BidSuccessful", bidderRule, auctionIdRule)
+	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "BidSuccessful", bidderRule, auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1926,8 +1926,8 @@ func (_Smc *SmcFilterer) WatchBidSuccessful(opts *bind.WatchOpts, sink chan<- *S
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcBidSuccessful)
-				if err := _Smc.contract.UnpackLog(event, "BidSuccessful", log); err != nil {
+				event := new(MarketplaceStorageBidSuccessful)
+				if err := _MarketplaceStorage.contract.UnpackLog(event, "BidSuccessful", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1951,18 +1951,18 @@ func (_Smc *SmcFilterer) WatchBidSuccessful(opts *bind.WatchOpts, sink chan<- *S
 // ParseBidSuccessful is a log parse operation binding the contract event 0x327e5a459c964bcfa4f6d71b32a04a53b0002417b0924a8057d9f12e688e0bec.
 //
 // Solidity: event BidSuccessful(address indexed bidder, bytes32 indexed auctionId, bytes32 blindedBid)
-func (_Smc *SmcFilterer) ParseBidSuccessful(log types.Log) (*SmcBidSuccessful, error) {
-	event := new(SmcBidSuccessful)
-	if err := _Smc.contract.UnpackLog(event, "BidSuccessful", log); err != nil {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseBidSuccessful(log types.Log) (*MarketplaceStorageBidSuccessful, error) {
+	event := new(MarketplaceStorageBidSuccessful)
+	if err := _MarketplaceStorage.contract.UnpackLog(event, "BidSuccessful", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcOrderCancelledIterator is returned from FilterOrderCancelled and is used to iterate over the raw logs and unpacked data for OrderCancelled events raised by the Smc contract.
-type SmcOrderCancelledIterator struct {
-	Event *SmcOrderCancelled // Event containing the contract specifics and raw log
+// MarketplaceStorageOrderCancelledIterator is returned from FilterOrderCancelled and is used to iterate over the raw logs and unpacked data for OrderCancelled events raised by the MarketplaceStorage contract.
+type MarketplaceStorageOrderCancelledIterator struct {
+	Event *MarketplaceStorageOrderCancelled // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1976,7 +1976,7 @@ type SmcOrderCancelledIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcOrderCancelledIterator) Next() bool {
+func (it *MarketplaceStorageOrderCancelledIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1985,7 +1985,7 @@ func (it *SmcOrderCancelledIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcOrderCancelled)
+			it.Event = new(MarketplaceStorageOrderCancelled)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2000,7 +2000,7 @@ func (it *SmcOrderCancelledIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcOrderCancelled)
+		it.Event = new(MarketplaceStorageOrderCancelled)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2016,19 +2016,19 @@ func (it *SmcOrderCancelledIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcOrderCancelledIterator) Error() error {
+func (it *MarketplaceStorageOrderCancelledIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcOrderCancelledIterator) Close() error {
+func (it *MarketplaceStorageOrderCancelledIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcOrderCancelled represents a OrderCancelled event raised by the Smc contract.
-type SmcOrderCancelled struct {
+// MarketplaceStorageOrderCancelled represents a OrderCancelled event raised by the MarketplaceStorage contract.
+type MarketplaceStorageOrderCancelled struct {
 	Id  [32]byte
 	Raw types.Log // Blockchain specific contextual infos
 }
@@ -2036,31 +2036,31 @@ type SmcOrderCancelled struct {
 // FilterOrderCancelled is a free log retrieval operation binding the contract event 0x5152abf959f6564662358c2e52b702259b78bac5ee7842a0f01937e670efcc7d.
 //
 // Solidity: event OrderCancelled(bytes32 indexed id)
-func (_Smc *SmcFilterer) FilterOrderCancelled(opts *bind.FilterOpts, id [][32]byte) (*SmcOrderCancelledIterator, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterOrderCancelled(opts *bind.FilterOpts, id [][32]byte) (*MarketplaceStorageOrderCancelledIterator, error) {
 
 	var idRule []interface{}
 	for _, idItem := range id {
 		idRule = append(idRule, idItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "OrderCancelled", idRule)
+	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "OrderCancelled", idRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcOrderCancelledIterator{contract: _Smc.contract, event: "OrderCancelled", logs: logs, sub: sub}, nil
+	return &MarketplaceStorageOrderCancelledIterator{contract: _MarketplaceStorage.contract, event: "OrderCancelled", logs: logs, sub: sub}, nil
 }
 
 // WatchOrderCancelled is a free log subscription operation binding the contract event 0x5152abf959f6564662358c2e52b702259b78bac5ee7842a0f01937e670efcc7d.
 //
 // Solidity: event OrderCancelled(bytes32 indexed id)
-func (_Smc *SmcFilterer) WatchOrderCancelled(opts *bind.WatchOpts, sink chan<- *SmcOrderCancelled, id [][32]byte) (event.Subscription, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchOrderCancelled(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageOrderCancelled, id [][32]byte) (event.Subscription, error) {
 
 	var idRule []interface{}
 	for _, idItem := range id {
 		idRule = append(idRule, idItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "OrderCancelled", idRule)
+	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "OrderCancelled", idRule)
 	if err != nil {
 		return nil, err
 	}
@@ -2070,8 +2070,8 @@ func (_Smc *SmcFilterer) WatchOrderCancelled(opts *bind.WatchOpts, sink chan<- *
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcOrderCancelled)
-				if err := _Smc.contract.UnpackLog(event, "OrderCancelled", log); err != nil {
+				event := new(MarketplaceStorageOrderCancelled)
+				if err := _MarketplaceStorage.contract.UnpackLog(event, "OrderCancelled", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2095,18 +2095,18 @@ func (_Smc *SmcFilterer) WatchOrderCancelled(opts *bind.WatchOpts, sink chan<- *
 // ParseOrderCancelled is a log parse operation binding the contract event 0x5152abf959f6564662358c2e52b702259b78bac5ee7842a0f01937e670efcc7d.
 //
 // Solidity: event OrderCancelled(bytes32 indexed id)
-func (_Smc *SmcFilterer) ParseOrderCancelled(log types.Log) (*SmcOrderCancelled, error) {
-	event := new(SmcOrderCancelled)
-	if err := _Smc.contract.UnpackLog(event, "OrderCancelled", log); err != nil {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseOrderCancelled(log types.Log) (*MarketplaceStorageOrderCancelled, error) {
+	event := new(MarketplaceStorageOrderCancelled)
+	if err := _MarketplaceStorage.contract.UnpackLog(event, "OrderCancelled", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcOrderCreatedIterator is returned from FilterOrderCreated and is used to iterate over the raw logs and unpacked data for OrderCreated events raised by the Smc contract.
-type SmcOrderCreatedIterator struct {
-	Event *SmcOrderCreated // Event containing the contract specifics and raw log
+// MarketplaceStorageOrderCreatedIterator is returned from FilterOrderCreated and is used to iterate over the raw logs and unpacked data for OrderCreated events raised by the MarketplaceStorage contract.
+type MarketplaceStorageOrderCreatedIterator struct {
+	Event *MarketplaceStorageOrderCreated // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2120,7 +2120,7 @@ type SmcOrderCreatedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcOrderCreatedIterator) Next() bool {
+func (it *MarketplaceStorageOrderCreatedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2129,7 +2129,7 @@ func (it *SmcOrderCreatedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcOrderCreated)
+			it.Event = new(MarketplaceStorageOrderCreated)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2144,7 +2144,7 @@ func (it *SmcOrderCreatedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcOrderCreated)
+		it.Event = new(MarketplaceStorageOrderCreated)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2160,19 +2160,19 @@ func (it *SmcOrderCreatedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcOrderCreatedIterator) Error() error {
+func (it *MarketplaceStorageOrderCreatedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcOrderCreatedIterator) Close() error {
+func (it *MarketplaceStorageOrderCreatedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcOrderCreated represents a OrderCreated event raised by the Smc contract.
-type SmcOrderCreated struct {
+// MarketplaceStorageOrderCreated represents a OrderCreated event raised by the MarketplaceStorage contract.
+type MarketplaceStorageOrderCreated struct {
 	OrderId    [32]byte
 	AssetId    *big.Int
 	Seller     common.Address
@@ -2185,7 +2185,7 @@ type SmcOrderCreated struct {
 // FilterOrderCreated is a free log retrieval operation binding the contract event 0x84c66c3f7ba4b390e20e8e8233e2a516f3ce34a72749e4f12bd010dfba238039.
 //
 // Solidity: event OrderCreated(bytes32 indexed orderId, uint256 indexed assetId, address indexed seller, address nftAddress, uint256 priceInWei, uint256 expiredAt)
-func (_Smc *SmcFilterer) FilterOrderCreated(opts *bind.FilterOpts, orderId [][32]byte, assetId []*big.Int, seller []common.Address) (*SmcOrderCreatedIterator, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterOrderCreated(opts *bind.FilterOpts, orderId [][32]byte, assetId []*big.Int, seller []common.Address) (*MarketplaceStorageOrderCreatedIterator, error) {
 
 	var orderIdRule []interface{}
 	for _, orderIdItem := range orderId {
@@ -2200,17 +2200,17 @@ func (_Smc *SmcFilterer) FilterOrderCreated(opts *bind.FilterOpts, orderId [][32
 		sellerRule = append(sellerRule, sellerItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "OrderCreated", orderIdRule, assetIdRule, sellerRule)
+	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "OrderCreated", orderIdRule, assetIdRule, sellerRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcOrderCreatedIterator{contract: _Smc.contract, event: "OrderCreated", logs: logs, sub: sub}, nil
+	return &MarketplaceStorageOrderCreatedIterator{contract: _MarketplaceStorage.contract, event: "OrderCreated", logs: logs, sub: sub}, nil
 }
 
 // WatchOrderCreated is a free log subscription operation binding the contract event 0x84c66c3f7ba4b390e20e8e8233e2a516f3ce34a72749e4f12bd010dfba238039.
 //
 // Solidity: event OrderCreated(bytes32 indexed orderId, uint256 indexed assetId, address indexed seller, address nftAddress, uint256 priceInWei, uint256 expiredAt)
-func (_Smc *SmcFilterer) WatchOrderCreated(opts *bind.WatchOpts, sink chan<- *SmcOrderCreated, orderId [][32]byte, assetId []*big.Int, seller []common.Address) (event.Subscription, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchOrderCreated(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageOrderCreated, orderId [][32]byte, assetId []*big.Int, seller []common.Address) (event.Subscription, error) {
 
 	var orderIdRule []interface{}
 	for _, orderIdItem := range orderId {
@@ -2225,7 +2225,7 @@ func (_Smc *SmcFilterer) WatchOrderCreated(opts *bind.WatchOpts, sink chan<- *Sm
 		sellerRule = append(sellerRule, sellerItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "OrderCreated", orderIdRule, assetIdRule, sellerRule)
+	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "OrderCreated", orderIdRule, assetIdRule, sellerRule)
 	if err != nil {
 		return nil, err
 	}
@@ -2235,8 +2235,8 @@ func (_Smc *SmcFilterer) WatchOrderCreated(opts *bind.WatchOpts, sink chan<- *Sm
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcOrderCreated)
-				if err := _Smc.contract.UnpackLog(event, "OrderCreated", log); err != nil {
+				event := new(MarketplaceStorageOrderCreated)
+				if err := _MarketplaceStorage.contract.UnpackLog(event, "OrderCreated", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2260,18 +2260,18 @@ func (_Smc *SmcFilterer) WatchOrderCreated(opts *bind.WatchOpts, sink chan<- *Sm
 // ParseOrderCreated is a log parse operation binding the contract event 0x84c66c3f7ba4b390e20e8e8233e2a516f3ce34a72749e4f12bd010dfba238039.
 //
 // Solidity: event OrderCreated(bytes32 indexed orderId, uint256 indexed assetId, address indexed seller, address nftAddress, uint256 priceInWei, uint256 expiredAt)
-func (_Smc *SmcFilterer) ParseOrderCreated(log types.Log) (*SmcOrderCreated, error) {
-	event := new(SmcOrderCreated)
-	if err := _Smc.contract.UnpackLog(event, "OrderCreated", log); err != nil {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseOrderCreated(log types.Log) (*MarketplaceStorageOrderCreated, error) {
+	event := new(MarketplaceStorageOrderCreated)
+	if err := _MarketplaceStorage.contract.UnpackLog(event, "OrderCreated", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcOrderSuccessfulIterator is returned from FilterOrderSuccessful and is used to iterate over the raw logs and unpacked data for OrderSuccessful events raised by the Smc contract.
-type SmcOrderSuccessfulIterator struct {
-	Event *SmcOrderSuccessful // Event containing the contract specifics and raw log
+// MarketplaceStorageOrderSuccessfulIterator is returned from FilterOrderSuccessful and is used to iterate over the raw logs and unpacked data for OrderSuccessful events raised by the MarketplaceStorage contract.
+type MarketplaceStorageOrderSuccessfulIterator struct {
+	Event *MarketplaceStorageOrderSuccessful // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2285,7 +2285,7 @@ type SmcOrderSuccessfulIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcOrderSuccessfulIterator) Next() bool {
+func (it *MarketplaceStorageOrderSuccessfulIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2294,7 +2294,7 @@ func (it *SmcOrderSuccessfulIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcOrderSuccessful)
+			it.Event = new(MarketplaceStorageOrderSuccessful)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2309,7 +2309,7 @@ func (it *SmcOrderSuccessfulIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcOrderSuccessful)
+		it.Event = new(MarketplaceStorageOrderSuccessful)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2325,19 +2325,19 @@ func (it *SmcOrderSuccessfulIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcOrderSuccessfulIterator) Error() error {
+func (it *MarketplaceStorageOrderSuccessfulIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcOrderSuccessfulIterator) Close() error {
+func (it *MarketplaceStorageOrderSuccessfulIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcOrderSuccessful represents a OrderSuccessful event raised by the Smc contract.
-type SmcOrderSuccessful struct {
+// MarketplaceStorageOrderSuccessful represents a OrderSuccessful event raised by the MarketplaceStorage contract.
+type MarketplaceStorageOrderSuccessful struct {
 	Id    [32]byte
 	Buyer common.Address
 	Raw   types.Log // Blockchain specific contextual infos
@@ -2346,7 +2346,7 @@ type SmcOrderSuccessful struct {
 // FilterOrderSuccessful is a free log retrieval operation binding the contract event 0x56e5f4ff73854a4423571427b069b47d6509b44bb78145207a634f2dd720916b.
 //
 // Solidity: event OrderSuccessful(bytes32 indexed id, address indexed buyer)
-func (_Smc *SmcFilterer) FilterOrderSuccessful(opts *bind.FilterOpts, id [][32]byte, buyer []common.Address) (*SmcOrderSuccessfulIterator, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterOrderSuccessful(opts *bind.FilterOpts, id [][32]byte, buyer []common.Address) (*MarketplaceStorageOrderSuccessfulIterator, error) {
 
 	var idRule []interface{}
 	for _, idItem := range id {
@@ -2357,17 +2357,17 @@ func (_Smc *SmcFilterer) FilterOrderSuccessful(opts *bind.FilterOpts, id [][32]b
 		buyerRule = append(buyerRule, buyerItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "OrderSuccessful", idRule, buyerRule)
+	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "OrderSuccessful", idRule, buyerRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcOrderSuccessfulIterator{contract: _Smc.contract, event: "OrderSuccessful", logs: logs, sub: sub}, nil
+	return &MarketplaceStorageOrderSuccessfulIterator{contract: _MarketplaceStorage.contract, event: "OrderSuccessful", logs: logs, sub: sub}, nil
 }
 
 // WatchOrderSuccessful is a free log subscription operation binding the contract event 0x56e5f4ff73854a4423571427b069b47d6509b44bb78145207a634f2dd720916b.
 //
 // Solidity: event OrderSuccessful(bytes32 indexed id, address indexed buyer)
-func (_Smc *SmcFilterer) WatchOrderSuccessful(opts *bind.WatchOpts, sink chan<- *SmcOrderSuccessful, id [][32]byte, buyer []common.Address) (event.Subscription, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchOrderSuccessful(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageOrderSuccessful, id [][32]byte, buyer []common.Address) (event.Subscription, error) {
 
 	var idRule []interface{}
 	for _, idItem := range id {
@@ -2378,7 +2378,7 @@ func (_Smc *SmcFilterer) WatchOrderSuccessful(opts *bind.WatchOpts, sink chan<- 
 		buyerRule = append(buyerRule, buyerItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "OrderSuccessful", idRule, buyerRule)
+	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "OrderSuccessful", idRule, buyerRule)
 	if err != nil {
 		return nil, err
 	}
@@ -2388,8 +2388,8 @@ func (_Smc *SmcFilterer) WatchOrderSuccessful(opts *bind.WatchOpts, sink chan<- 
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcOrderSuccessful)
-				if err := _Smc.contract.UnpackLog(event, "OrderSuccessful", log); err != nil {
+				event := new(MarketplaceStorageOrderSuccessful)
+				if err := _MarketplaceStorage.contract.UnpackLog(event, "OrderSuccessful", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2413,18 +2413,18 @@ func (_Smc *SmcFilterer) WatchOrderSuccessful(opts *bind.WatchOpts, sink chan<- 
 // ParseOrderSuccessful is a log parse operation binding the contract event 0x56e5f4ff73854a4423571427b069b47d6509b44bb78145207a634f2dd720916b.
 //
 // Solidity: event OrderSuccessful(bytes32 indexed id, address indexed buyer)
-func (_Smc *SmcFilterer) ParseOrderSuccessful(log types.Log) (*SmcOrderSuccessful, error) {
-	event := new(SmcOrderSuccessful)
-	if err := _Smc.contract.UnpackLog(event, "OrderSuccessful", log); err != nil {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseOrderSuccessful(log types.Log) (*MarketplaceStorageOrderSuccessful, error) {
+	event := new(MarketplaceStorageOrderSuccessful)
+	if err := _MarketplaceStorage.contract.UnpackLog(event, "OrderSuccessful", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the Smc contract.
-type SmcOwnershipTransferredIterator struct {
-	Event *SmcOwnershipTransferred // Event containing the contract specifics and raw log
+// MarketplaceStorageOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the MarketplaceStorage contract.
+type MarketplaceStorageOwnershipTransferredIterator struct {
+	Event *MarketplaceStorageOwnershipTransferred // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2438,7 +2438,7 @@ type SmcOwnershipTransferredIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcOwnershipTransferredIterator) Next() bool {
+func (it *MarketplaceStorageOwnershipTransferredIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2447,7 +2447,7 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcOwnershipTransferred)
+			it.Event = new(MarketplaceStorageOwnershipTransferred)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2462,7 +2462,7 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcOwnershipTransferred)
+		it.Event = new(MarketplaceStorageOwnershipTransferred)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2478,19 +2478,19 @@ func (it *SmcOwnershipTransferredIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcOwnershipTransferredIterator) Error() error {
+func (it *MarketplaceStorageOwnershipTransferredIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcOwnershipTransferredIterator) Close() error {
+func (it *MarketplaceStorageOwnershipTransferredIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcOwnershipTransferred represents a OwnershipTransferred event raised by the Smc contract.
-type SmcOwnershipTransferred struct {
+// MarketplaceStorageOwnershipTransferred represents a OwnershipTransferred event raised by the MarketplaceStorage contract.
+type MarketplaceStorageOwnershipTransferred struct {
 	PreviousOwner common.Address
 	NewOwner      common.Address
 	Raw           types.Log // Blockchain specific contextual infos
@@ -2499,7 +2499,7 @@ type SmcOwnershipTransferred struct {
 // FilterOwnershipTransferred is a free log retrieval operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previousOwner []common.Address, newOwner []common.Address) (*SmcOwnershipTransferredIterator, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previousOwner []common.Address, newOwner []common.Address) (*MarketplaceStorageOwnershipTransferredIterator, error) {
 
 	var previousOwnerRule []interface{}
 	for _, previousOwnerItem := range previousOwner {
@@ -2510,17 +2510,17 @@ func (_Smc *SmcFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previ
 		newOwnerRule = append(newOwnerRule, newOwnerItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
+	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcOwnershipTransferredIterator{contract: _Smc.contract, event: "OwnershipTransferred", logs: logs, sub: sub}, nil
+	return &MarketplaceStorageOwnershipTransferredIterator{contract: _MarketplaceStorage.contract, event: "OwnershipTransferred", logs: logs, sub: sub}, nil
 }
 
 // WatchOwnershipTransferred is a free log subscription operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink chan<- *SmcOwnershipTransferred, previousOwner []common.Address, newOwner []common.Address) (event.Subscription, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageOwnershipTransferred, previousOwner []common.Address, newOwner []common.Address) (event.Subscription, error) {
 
 	var previousOwnerRule []interface{}
 	for _, previousOwnerItem := range previousOwner {
@@ -2531,7 +2531,7 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 		newOwnerRule = append(newOwnerRule, newOwnerItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
+	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
 	if err != nil {
 		return nil, err
 	}
@@ -2541,8 +2541,8 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcOwnershipTransferred)
-				if err := _Smc.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
+				event := new(MarketplaceStorageOwnershipTransferred)
+				if err := _MarketplaceStorage.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2566,18 +2566,18 @@ func (_Smc *SmcFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink ch
 // ParseOwnershipTransferred is a log parse operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Smc *SmcFilterer) ParseOwnershipTransferred(log types.Log) (*SmcOwnershipTransferred, error) {
-	event := new(SmcOwnershipTransferred)
-	if err := _Smc.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseOwnershipTransferred(log types.Log) (*MarketplaceStorageOwnershipTransferred, error) {
+	event := new(MarketplaceStorageOwnershipTransferred)
+	if err := _MarketplaceStorage.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcPausedIterator is returned from FilterPaused and is used to iterate over the raw logs and unpacked data for Paused events raised by the Smc contract.
-type SmcPausedIterator struct {
-	Event *SmcPaused // Event containing the contract specifics and raw log
+// MarketplaceStoragePausedIterator is returned from FilterPaused and is used to iterate over the raw logs and unpacked data for Paused events raised by the MarketplaceStorage contract.
+type MarketplaceStoragePausedIterator struct {
+	Event *MarketplaceStoragePaused // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2591,7 +2591,7 @@ type SmcPausedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcPausedIterator) Next() bool {
+func (it *MarketplaceStoragePausedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2600,7 +2600,7 @@ func (it *SmcPausedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcPaused)
+			it.Event = new(MarketplaceStoragePaused)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2615,7 +2615,7 @@ func (it *SmcPausedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcPaused)
+		it.Event = new(MarketplaceStoragePaused)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2631,19 +2631,19 @@ func (it *SmcPausedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcPausedIterator) Error() error {
+func (it *MarketplaceStoragePausedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcPausedIterator) Close() error {
+func (it *MarketplaceStoragePausedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcPaused represents a Paused event raised by the Smc contract.
-type SmcPaused struct {
+// MarketplaceStoragePaused represents a Paused event raised by the MarketplaceStorage contract.
+type MarketplaceStoragePaused struct {
 	Account common.Address
 	Raw     types.Log // Blockchain specific contextual infos
 }
@@ -2651,21 +2651,21 @@ type SmcPaused struct {
 // FilterPaused is a free log retrieval operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) FilterPaused(opts *bind.FilterOpts) (*SmcPausedIterator, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterPaused(opts *bind.FilterOpts) (*MarketplaceStoragePausedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Paused")
+	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "Paused")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcPausedIterator{contract: _Smc.contract, event: "Paused", logs: logs, sub: sub}, nil
+	return &MarketplaceStoragePausedIterator{contract: _MarketplaceStorage.contract, event: "Paused", logs: logs, sub: sub}, nil
 }
 
 // WatchPaused is a free log subscription operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPaused) (event.Subscription, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *MarketplaceStoragePaused) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Paused")
+	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "Paused")
 	if err != nil {
 		return nil, err
 	}
@@ -2675,8 +2675,8 @@ func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPause
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcPaused)
-				if err := _Smc.contract.UnpackLog(event, "Paused", log); err != nil {
+				event := new(MarketplaceStoragePaused)
+				if err := _MarketplaceStorage.contract.UnpackLog(event, "Paused", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2700,18 +2700,18 @@ func (_Smc *SmcFilterer) WatchPaused(opts *bind.WatchOpts, sink chan<- *SmcPause
 // ParsePaused is a log parse operation binding the contract event 0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258.
 //
 // Solidity: event Paused(address account)
-func (_Smc *SmcFilterer) ParsePaused(log types.Log) (*SmcPaused, error) {
-	event := new(SmcPaused)
-	if err := _Smc.contract.UnpackLog(event, "Paused", log); err != nil {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) ParsePaused(log types.Log) (*MarketplaceStoragePaused, error) {
+	event := new(MarketplaceStoragePaused)
+	if err := _MarketplaceStorage.contract.UnpackLog(event, "Paused", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRevealFailedIterator is returned from FilterRevealFailed and is used to iterate over the raw logs and unpacked data for RevealFailed events raised by the Smc contract.
-type SmcRevealFailedIterator struct {
-	Event *SmcRevealFailed // Event containing the contract specifics and raw log
+// MarketplaceStorageRevealFailedIterator is returned from FilterRevealFailed and is used to iterate over the raw logs and unpacked data for RevealFailed events raised by the MarketplaceStorage contract.
+type MarketplaceStorageRevealFailedIterator struct {
+	Event *MarketplaceStorageRevealFailed // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2725,7 +2725,7 @@ type SmcRevealFailedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRevealFailedIterator) Next() bool {
+func (it *MarketplaceStorageRevealFailedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2734,7 +2734,7 @@ func (it *SmcRevealFailedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRevealFailed)
+			it.Event = new(MarketplaceStorageRevealFailed)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2749,7 +2749,7 @@ func (it *SmcRevealFailedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRevealFailed)
+		it.Event = new(MarketplaceStorageRevealFailed)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2765,19 +2765,19 @@ func (it *SmcRevealFailedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRevealFailedIterator) Error() error {
+func (it *MarketplaceStorageRevealFailedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRevealFailedIterator) Close() error {
+func (it *MarketplaceStorageRevealFailedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRevealFailed represents a RevealFailed event raised by the Smc contract.
-type SmcRevealFailed struct {
+// MarketplaceStorageRevealFailed represents a RevealFailed event raised by the MarketplaceStorage contract.
+type MarketplaceStorageRevealFailed struct {
 	Fake      bool
 	AuctionId [32]byte
 	Value     *big.Int
@@ -2787,31 +2787,31 @@ type SmcRevealFailed struct {
 // FilterRevealFailed is a free log retrieval operation binding the contract event 0x8491bb9f45e55b89e41be77fb6f559dcedeaed2ed85a61f74d039b2f1389d4a3.
 //
 // Solidity: event RevealFailed(bool fake, bytes32 indexed auctionId, uint256 value)
-func (_Smc *SmcFilterer) FilterRevealFailed(opts *bind.FilterOpts, auctionId [][32]byte) (*SmcRevealFailedIterator, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterRevealFailed(opts *bind.FilterOpts, auctionId [][32]byte) (*MarketplaceStorageRevealFailedIterator, error) {
 
 	var auctionIdRule []interface{}
 	for _, auctionIdItem := range auctionId {
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RevealFailed", auctionIdRule)
+	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "RevealFailed", auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRevealFailedIterator{contract: _Smc.contract, event: "RevealFailed", logs: logs, sub: sub}, nil
+	return &MarketplaceStorageRevealFailedIterator{contract: _MarketplaceStorage.contract, event: "RevealFailed", logs: logs, sub: sub}, nil
 }
 
 // WatchRevealFailed is a free log subscription operation binding the contract event 0x8491bb9f45e55b89e41be77fb6f559dcedeaed2ed85a61f74d039b2f1389d4a3.
 //
 // Solidity: event RevealFailed(bool fake, bytes32 indexed auctionId, uint256 value)
-func (_Smc *SmcFilterer) WatchRevealFailed(opts *bind.WatchOpts, sink chan<- *SmcRevealFailed, auctionId [][32]byte) (event.Subscription, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchRevealFailed(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageRevealFailed, auctionId [][32]byte) (event.Subscription, error) {
 
 	var auctionIdRule []interface{}
 	for _, auctionIdItem := range auctionId {
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RevealFailed", auctionIdRule)
+	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "RevealFailed", auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
@@ -2821,8 +2821,8 @@ func (_Smc *SmcFilterer) WatchRevealFailed(opts *bind.WatchOpts, sink chan<- *Sm
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRevealFailed)
-				if err := _Smc.contract.UnpackLog(event, "RevealFailed", log); err != nil {
+				event := new(MarketplaceStorageRevealFailed)
+				if err := _MarketplaceStorage.contract.UnpackLog(event, "RevealFailed", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2846,18 +2846,18 @@ func (_Smc *SmcFilterer) WatchRevealFailed(opts *bind.WatchOpts, sink chan<- *Sm
 // ParseRevealFailed is a log parse operation binding the contract event 0x8491bb9f45e55b89e41be77fb6f559dcedeaed2ed85a61f74d039b2f1389d4a3.
 //
 // Solidity: event RevealFailed(bool fake, bytes32 indexed auctionId, uint256 value)
-func (_Smc *SmcFilterer) ParseRevealFailed(log types.Log) (*SmcRevealFailed, error) {
-	event := new(SmcRevealFailed)
-	if err := _Smc.contract.UnpackLog(event, "RevealFailed", log); err != nil {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseRevealFailed(log types.Log) (*MarketplaceStorageRevealFailed, error) {
+	event := new(MarketplaceStorageRevealFailed)
+	if err := _MarketplaceStorage.contract.UnpackLog(event, "RevealFailed", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRevealSuccessfulIterator is returned from FilterRevealSuccessful and is used to iterate over the raw logs and unpacked data for RevealSuccessful events raised by the Smc contract.
-type SmcRevealSuccessfulIterator struct {
-	Event *SmcRevealSuccessful // Event containing the contract specifics and raw log
+// MarketplaceStorageRevealSuccessfulIterator is returned from FilterRevealSuccessful and is used to iterate over the raw logs and unpacked data for RevealSuccessful events raised by the MarketplaceStorage contract.
+type MarketplaceStorageRevealSuccessfulIterator struct {
+	Event *MarketplaceStorageRevealSuccessful // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2871,7 +2871,7 @@ type SmcRevealSuccessfulIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRevealSuccessfulIterator) Next() bool {
+func (it *MarketplaceStorageRevealSuccessfulIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2880,7 +2880,7 @@ func (it *SmcRevealSuccessfulIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRevealSuccessful)
+			it.Event = new(MarketplaceStorageRevealSuccessful)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2895,7 +2895,7 @@ func (it *SmcRevealSuccessfulIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRevealSuccessful)
+		it.Event = new(MarketplaceStorageRevealSuccessful)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2911,19 +2911,19 @@ func (it *SmcRevealSuccessfulIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRevealSuccessfulIterator) Error() error {
+func (it *MarketplaceStorageRevealSuccessfulIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRevealSuccessfulIterator) Close() error {
+func (it *MarketplaceStorageRevealSuccessfulIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRevealSuccessful represents a RevealSuccessful event raised by the Smc contract.
-type SmcRevealSuccessful struct {
+// MarketplaceStorageRevealSuccessful represents a RevealSuccessful event raised by the MarketplaceStorage contract.
+type MarketplaceStorageRevealSuccessful struct {
 	Fake       bool
 	AuctionId  [32]byte
 	Value      *big.Int
@@ -2934,31 +2934,31 @@ type SmcRevealSuccessful struct {
 // FilterRevealSuccessful is a free log retrieval operation binding the contract event 0xc69be17b446ade79dcd9f07e13f1c8493dd4a1940caf6318d617fbd25d256d9b.
 //
 // Solidity: event RevealSuccessful(bool fake, bytes32 indexed auctionId, uint256 value, bytes32 blindedBid)
-func (_Smc *SmcFilterer) FilterRevealSuccessful(opts *bind.FilterOpts, auctionId [][32]byte) (*SmcRevealSuccessfulIterator, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterRevealSuccessful(opts *bind.FilterOpts, auctionId [][32]byte) (*MarketplaceStorageRevealSuccessfulIterator, error) {
 
 	var auctionIdRule []interface{}
 	for _, auctionIdItem := range auctionId {
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RevealSuccessful", auctionIdRule)
+	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "RevealSuccessful", auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRevealSuccessfulIterator{contract: _Smc.contract, event: "RevealSuccessful", logs: logs, sub: sub}, nil
+	return &MarketplaceStorageRevealSuccessfulIterator{contract: _MarketplaceStorage.contract, event: "RevealSuccessful", logs: logs, sub: sub}, nil
 }
 
 // WatchRevealSuccessful is a free log subscription operation binding the contract event 0xc69be17b446ade79dcd9f07e13f1c8493dd4a1940caf6318d617fbd25d256d9b.
 //
 // Solidity: event RevealSuccessful(bool fake, bytes32 indexed auctionId, uint256 value, bytes32 blindedBid)
-func (_Smc *SmcFilterer) WatchRevealSuccessful(opts *bind.WatchOpts, sink chan<- *SmcRevealSuccessful, auctionId [][32]byte) (event.Subscription, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchRevealSuccessful(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageRevealSuccessful, auctionId [][32]byte) (event.Subscription, error) {
 
 	var auctionIdRule []interface{}
 	for _, auctionIdItem := range auctionId {
 		auctionIdRule = append(auctionIdRule, auctionIdItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RevealSuccessful", auctionIdRule)
+	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "RevealSuccessful", auctionIdRule)
 	if err != nil {
 		return nil, err
 	}
@@ -2968,8 +2968,8 @@ func (_Smc *SmcFilterer) WatchRevealSuccessful(opts *bind.WatchOpts, sink chan<-
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRevealSuccessful)
-				if err := _Smc.contract.UnpackLog(event, "RevealSuccessful", log); err != nil {
+				event := new(MarketplaceStorageRevealSuccessful)
+				if err := _MarketplaceStorage.contract.UnpackLog(event, "RevealSuccessful", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2993,18 +2993,18 @@ func (_Smc *SmcFilterer) WatchRevealSuccessful(opts *bind.WatchOpts, sink chan<-
 // ParseRevealSuccessful is a log parse operation binding the contract event 0xc69be17b446ade79dcd9f07e13f1c8493dd4a1940caf6318d617fbd25d256d9b.
 //
 // Solidity: event RevealSuccessful(bool fake, bytes32 indexed auctionId, uint256 value, bytes32 blindedBid)
-func (_Smc *SmcFilterer) ParseRevealSuccessful(log types.Log) (*SmcRevealSuccessful, error) {
-	event := new(SmcRevealSuccessful)
-	if err := _Smc.contract.UnpackLog(event, "RevealSuccessful", log); err != nil {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseRevealSuccessful(log types.Log) (*MarketplaceStorageRevealSuccessful, error) {
+	event := new(MarketplaceStorageRevealSuccessful)
+	if err := _MarketplaceStorage.contract.UnpackLog(event, "RevealSuccessful", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRoleAdminChangedIterator is returned from FilterRoleAdminChanged and is used to iterate over the raw logs and unpacked data for RoleAdminChanged events raised by the Smc contract.
-type SmcRoleAdminChangedIterator struct {
-	Event *SmcRoleAdminChanged // Event containing the contract specifics and raw log
+// MarketplaceStorageRoleAdminChangedIterator is returned from FilterRoleAdminChanged and is used to iterate over the raw logs and unpacked data for RoleAdminChanged events raised by the MarketplaceStorage contract.
+type MarketplaceStorageRoleAdminChangedIterator struct {
+	Event *MarketplaceStorageRoleAdminChanged // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -3018,7 +3018,7 @@ type SmcRoleAdminChangedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRoleAdminChangedIterator) Next() bool {
+func (it *MarketplaceStorageRoleAdminChangedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -3027,7 +3027,7 @@ func (it *SmcRoleAdminChangedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRoleAdminChanged)
+			it.Event = new(MarketplaceStorageRoleAdminChanged)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -3042,7 +3042,7 @@ func (it *SmcRoleAdminChangedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRoleAdminChanged)
+		it.Event = new(MarketplaceStorageRoleAdminChanged)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -3058,19 +3058,19 @@ func (it *SmcRoleAdminChangedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRoleAdminChangedIterator) Error() error {
+func (it *MarketplaceStorageRoleAdminChangedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRoleAdminChangedIterator) Close() error {
+func (it *MarketplaceStorageRoleAdminChangedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRoleAdminChanged represents a RoleAdminChanged event raised by the Smc contract.
-type SmcRoleAdminChanged struct {
+// MarketplaceStorageRoleAdminChanged represents a RoleAdminChanged event raised by the MarketplaceStorage contract.
+type MarketplaceStorageRoleAdminChanged struct {
 	Role              [32]byte
 	PreviousAdminRole [32]byte
 	NewAdminRole      [32]byte
@@ -3080,7 +3080,7 @@ type SmcRoleAdminChanged struct {
 // FilterRoleAdminChanged is a free log retrieval operation binding the contract event 0xbd79b86ffe0ab8e8776151514217cd7cacd52c909f66475c3af44e129f0b00ff.
 //
 // Solidity: event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
-func (_Smc *SmcFilterer) FilterRoleAdminChanged(opts *bind.FilterOpts, role [][32]byte, previousAdminRole [][32]byte, newAdminRole [][32]byte) (*SmcRoleAdminChangedIterator, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterRoleAdminChanged(opts *bind.FilterOpts, role [][32]byte, previousAdminRole [][32]byte, newAdminRole [][32]byte) (*MarketplaceStorageRoleAdminChangedIterator, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -3095,17 +3095,17 @@ func (_Smc *SmcFilterer) FilterRoleAdminChanged(opts *bind.FilterOpts, role [][3
 		newAdminRoleRule = append(newAdminRoleRule, newAdminRoleItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RoleAdminChanged", roleRule, previousAdminRoleRule, newAdminRoleRule)
+	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "RoleAdminChanged", roleRule, previousAdminRoleRule, newAdminRoleRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRoleAdminChangedIterator{contract: _Smc.contract, event: "RoleAdminChanged", logs: logs, sub: sub}, nil
+	return &MarketplaceStorageRoleAdminChangedIterator{contract: _MarketplaceStorage.contract, event: "RoleAdminChanged", logs: logs, sub: sub}, nil
 }
 
 // WatchRoleAdminChanged is a free log subscription operation binding the contract event 0xbd79b86ffe0ab8e8776151514217cd7cacd52c909f66475c3af44e129f0b00ff.
 //
 // Solidity: event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
-func (_Smc *SmcFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<- *SmcRoleAdminChanged, role [][32]byte, previousAdminRole [][32]byte, newAdminRole [][32]byte) (event.Subscription, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageRoleAdminChanged, role [][32]byte, previousAdminRole [][32]byte, newAdminRole [][32]byte) (event.Subscription, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -3120,7 +3120,7 @@ func (_Smc *SmcFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<-
 		newAdminRoleRule = append(newAdminRoleRule, newAdminRoleItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RoleAdminChanged", roleRule, previousAdminRoleRule, newAdminRoleRule)
+	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "RoleAdminChanged", roleRule, previousAdminRoleRule, newAdminRoleRule)
 	if err != nil {
 		return nil, err
 	}
@@ -3130,8 +3130,8 @@ func (_Smc *SmcFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<-
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRoleAdminChanged)
-				if err := _Smc.contract.UnpackLog(event, "RoleAdminChanged", log); err != nil {
+				event := new(MarketplaceStorageRoleAdminChanged)
+				if err := _MarketplaceStorage.contract.UnpackLog(event, "RoleAdminChanged", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -3155,18 +3155,18 @@ func (_Smc *SmcFilterer) WatchRoleAdminChanged(opts *bind.WatchOpts, sink chan<-
 // ParseRoleAdminChanged is a log parse operation binding the contract event 0xbd79b86ffe0ab8e8776151514217cd7cacd52c909f66475c3af44e129f0b00ff.
 //
 // Solidity: event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
-func (_Smc *SmcFilterer) ParseRoleAdminChanged(log types.Log) (*SmcRoleAdminChanged, error) {
-	event := new(SmcRoleAdminChanged)
-	if err := _Smc.contract.UnpackLog(event, "RoleAdminChanged", log); err != nil {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseRoleAdminChanged(log types.Log) (*MarketplaceStorageRoleAdminChanged, error) {
+	event := new(MarketplaceStorageRoleAdminChanged)
+	if err := _MarketplaceStorage.contract.UnpackLog(event, "RoleAdminChanged", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRoleGrantedIterator is returned from FilterRoleGranted and is used to iterate over the raw logs and unpacked data for RoleGranted events raised by the Smc contract.
-type SmcRoleGrantedIterator struct {
-	Event *SmcRoleGranted // Event containing the contract specifics and raw log
+// MarketplaceStorageRoleGrantedIterator is returned from FilterRoleGranted and is used to iterate over the raw logs and unpacked data for RoleGranted events raised by the MarketplaceStorage contract.
+type MarketplaceStorageRoleGrantedIterator struct {
+	Event *MarketplaceStorageRoleGranted // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -3180,7 +3180,7 @@ type SmcRoleGrantedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRoleGrantedIterator) Next() bool {
+func (it *MarketplaceStorageRoleGrantedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -3189,7 +3189,7 @@ func (it *SmcRoleGrantedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRoleGranted)
+			it.Event = new(MarketplaceStorageRoleGranted)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -3204,7 +3204,7 @@ func (it *SmcRoleGrantedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRoleGranted)
+		it.Event = new(MarketplaceStorageRoleGranted)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -3220,19 +3220,19 @@ func (it *SmcRoleGrantedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRoleGrantedIterator) Error() error {
+func (it *MarketplaceStorageRoleGrantedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRoleGrantedIterator) Close() error {
+func (it *MarketplaceStorageRoleGrantedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRoleGranted represents a RoleGranted event raised by the Smc contract.
-type SmcRoleGranted struct {
+// MarketplaceStorageRoleGranted represents a RoleGranted event raised by the MarketplaceStorage contract.
+type MarketplaceStorageRoleGranted struct {
 	Role    [32]byte
 	Account common.Address
 	Sender  common.Address
@@ -3242,7 +3242,7 @@ type SmcRoleGranted struct {
 // FilterRoleGranted is a free log retrieval operation binding the contract event 0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d.
 //
 // Solidity: event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) FilterRoleGranted(opts *bind.FilterOpts, role [][32]byte, account []common.Address, sender []common.Address) (*SmcRoleGrantedIterator, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterRoleGranted(opts *bind.FilterOpts, role [][32]byte, account []common.Address, sender []common.Address) (*MarketplaceStorageRoleGrantedIterator, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -3257,17 +3257,17 @@ func (_Smc *SmcFilterer) FilterRoleGranted(opts *bind.FilterOpts, role [][32]byt
 		senderRule = append(senderRule, senderItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RoleGranted", roleRule, accountRule, senderRule)
+	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "RoleGranted", roleRule, accountRule, senderRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRoleGrantedIterator{contract: _Smc.contract, event: "RoleGranted", logs: logs, sub: sub}, nil
+	return &MarketplaceStorageRoleGrantedIterator{contract: _MarketplaceStorage.contract, event: "RoleGranted", logs: logs, sub: sub}, nil
 }
 
 // WatchRoleGranted is a free log subscription operation binding the contract event 0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d.
 //
 // Solidity: event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *SmcRoleGranted, role [][32]byte, account []common.Address, sender []common.Address) (event.Subscription, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageRoleGranted, role [][32]byte, account []common.Address, sender []common.Address) (event.Subscription, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -3282,7 +3282,7 @@ func (_Smc *SmcFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *Smc
 		senderRule = append(senderRule, senderItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RoleGranted", roleRule, accountRule, senderRule)
+	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "RoleGranted", roleRule, accountRule, senderRule)
 	if err != nil {
 		return nil, err
 	}
@@ -3292,8 +3292,8 @@ func (_Smc *SmcFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *Smc
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRoleGranted)
-				if err := _Smc.contract.UnpackLog(event, "RoleGranted", log); err != nil {
+				event := new(MarketplaceStorageRoleGranted)
+				if err := _MarketplaceStorage.contract.UnpackLog(event, "RoleGranted", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -3317,18 +3317,18 @@ func (_Smc *SmcFilterer) WatchRoleGranted(opts *bind.WatchOpts, sink chan<- *Smc
 // ParseRoleGranted is a log parse operation binding the contract event 0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d.
 //
 // Solidity: event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) ParseRoleGranted(log types.Log) (*SmcRoleGranted, error) {
-	event := new(SmcRoleGranted)
-	if err := _Smc.contract.UnpackLog(event, "RoleGranted", log); err != nil {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseRoleGranted(log types.Log) (*MarketplaceStorageRoleGranted, error) {
+	event := new(MarketplaceStorageRoleGranted)
+	if err := _MarketplaceStorage.contract.UnpackLog(event, "RoleGranted", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcRoleRevokedIterator is returned from FilterRoleRevoked and is used to iterate over the raw logs and unpacked data for RoleRevoked events raised by the Smc contract.
-type SmcRoleRevokedIterator struct {
-	Event *SmcRoleRevoked // Event containing the contract specifics and raw log
+// MarketplaceStorageRoleRevokedIterator is returned from FilterRoleRevoked and is used to iterate over the raw logs and unpacked data for RoleRevoked events raised by the MarketplaceStorage contract.
+type MarketplaceStorageRoleRevokedIterator struct {
+	Event *MarketplaceStorageRoleRevoked // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -3342,7 +3342,7 @@ type SmcRoleRevokedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcRoleRevokedIterator) Next() bool {
+func (it *MarketplaceStorageRoleRevokedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -3351,7 +3351,7 @@ func (it *SmcRoleRevokedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcRoleRevoked)
+			it.Event = new(MarketplaceStorageRoleRevoked)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -3366,7 +3366,7 @@ func (it *SmcRoleRevokedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcRoleRevoked)
+		it.Event = new(MarketplaceStorageRoleRevoked)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -3382,19 +3382,19 @@ func (it *SmcRoleRevokedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcRoleRevokedIterator) Error() error {
+func (it *MarketplaceStorageRoleRevokedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcRoleRevokedIterator) Close() error {
+func (it *MarketplaceStorageRoleRevokedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcRoleRevoked represents a RoleRevoked event raised by the Smc contract.
-type SmcRoleRevoked struct {
+// MarketplaceStorageRoleRevoked represents a RoleRevoked event raised by the MarketplaceStorage contract.
+type MarketplaceStorageRoleRevoked struct {
 	Role    [32]byte
 	Account common.Address
 	Sender  common.Address
@@ -3404,7 +3404,7 @@ type SmcRoleRevoked struct {
 // FilterRoleRevoked is a free log retrieval operation binding the contract event 0xf6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b.
 //
 // Solidity: event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) FilterRoleRevoked(opts *bind.FilterOpts, role [][32]byte, account []common.Address, sender []common.Address) (*SmcRoleRevokedIterator, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterRoleRevoked(opts *bind.FilterOpts, role [][32]byte, account []common.Address, sender []common.Address) (*MarketplaceStorageRoleRevokedIterator, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -3419,17 +3419,17 @@ func (_Smc *SmcFilterer) FilterRoleRevoked(opts *bind.FilterOpts, role [][32]byt
 		senderRule = append(senderRule, senderItem)
 	}
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "RoleRevoked", roleRule, accountRule, senderRule)
+	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "RoleRevoked", roleRule, accountRule, senderRule)
 	if err != nil {
 		return nil, err
 	}
-	return &SmcRoleRevokedIterator{contract: _Smc.contract, event: "RoleRevoked", logs: logs, sub: sub}, nil
+	return &MarketplaceStorageRoleRevokedIterator{contract: _MarketplaceStorage.contract, event: "RoleRevoked", logs: logs, sub: sub}, nil
 }
 
 // WatchRoleRevoked is a free log subscription operation binding the contract event 0xf6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b.
 //
 // Solidity: event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *SmcRoleRevoked, role [][32]byte, account []common.Address, sender []common.Address) (event.Subscription, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageRoleRevoked, role [][32]byte, account []common.Address, sender []common.Address) (event.Subscription, error) {
 
 	var roleRule []interface{}
 	for _, roleItem := range role {
@@ -3444,7 +3444,7 @@ func (_Smc *SmcFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *Smc
 		senderRule = append(senderRule, senderItem)
 	}
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "RoleRevoked", roleRule, accountRule, senderRule)
+	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "RoleRevoked", roleRule, accountRule, senderRule)
 	if err != nil {
 		return nil, err
 	}
@@ -3454,8 +3454,8 @@ func (_Smc *SmcFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *Smc
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcRoleRevoked)
-				if err := _Smc.contract.UnpackLog(event, "RoleRevoked", log); err != nil {
+				event := new(MarketplaceStorageRoleRevoked)
+				if err := _MarketplaceStorage.contract.UnpackLog(event, "RoleRevoked", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -3479,18 +3479,18 @@ func (_Smc *SmcFilterer) WatchRoleRevoked(opts *bind.WatchOpts, sink chan<- *Smc
 // ParseRoleRevoked is a log parse operation binding the contract event 0xf6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b.
 //
 // Solidity: event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
-func (_Smc *SmcFilterer) ParseRoleRevoked(log types.Log) (*SmcRoleRevoked, error) {
-	event := new(SmcRoleRevoked)
-	if err := _Smc.contract.UnpackLog(event, "RoleRevoked", log); err != nil {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseRoleRevoked(log types.Log) (*MarketplaceStorageRoleRevoked, error) {
+	event := new(MarketplaceStorageRoleRevoked)
+	if err := _MarketplaceStorage.contract.UnpackLog(event, "RoleRevoked", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// SmcUnpausedIterator is returned from FilterUnpaused and is used to iterate over the raw logs and unpacked data for Unpaused events raised by the Smc contract.
-type SmcUnpausedIterator struct {
-	Event *SmcUnpaused // Event containing the contract specifics and raw log
+// MarketplaceStorageUnpausedIterator is returned from FilterUnpaused and is used to iterate over the raw logs and unpacked data for Unpaused events raised by the MarketplaceStorage contract.
+type MarketplaceStorageUnpausedIterator struct {
+	Event *MarketplaceStorageUnpaused // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -3504,7 +3504,7 @@ type SmcUnpausedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *SmcUnpausedIterator) Next() bool {
+func (it *MarketplaceStorageUnpausedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -3513,7 +3513,7 @@ func (it *SmcUnpausedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(SmcUnpaused)
+			it.Event = new(MarketplaceStorageUnpaused)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -3528,7 +3528,7 @@ func (it *SmcUnpausedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(SmcUnpaused)
+		it.Event = new(MarketplaceStorageUnpaused)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -3544,19 +3544,19 @@ func (it *SmcUnpausedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *SmcUnpausedIterator) Error() error {
+func (it *MarketplaceStorageUnpausedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *SmcUnpausedIterator) Close() error {
+func (it *MarketplaceStorageUnpausedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// SmcUnpaused represents a Unpaused event raised by the Smc contract.
-type SmcUnpaused struct {
+// MarketplaceStorageUnpaused represents a Unpaused event raised by the MarketplaceStorage contract.
+type MarketplaceStorageUnpaused struct {
 	Account common.Address
 	Raw     types.Log // Blockchain specific contextual infos
 }
@@ -3564,21 +3564,21 @@ type SmcUnpaused struct {
 // FilterUnpaused is a free log retrieval operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) FilterUnpaused(opts *bind.FilterOpts) (*SmcUnpausedIterator, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterUnpaused(opts *bind.FilterOpts) (*MarketplaceStorageUnpausedIterator, error) {
 
-	logs, sub, err := _Smc.contract.FilterLogs(opts, "Unpaused")
+	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "Unpaused")
 	if err != nil {
 		return nil, err
 	}
-	return &SmcUnpausedIterator{contract: _Smc.contract, event: "Unpaused", logs: logs, sub: sub}, nil
+	return &MarketplaceStorageUnpausedIterator{contract: _MarketplaceStorage.contract, event: "Unpaused", logs: logs, sub: sub}, nil
 }
 
 // WatchUnpaused is a free log subscription operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnpaused) (event.Subscription, error) {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageUnpaused) (event.Subscription, error) {
 
-	logs, sub, err := _Smc.contract.WatchLogs(opts, "Unpaused")
+	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "Unpaused")
 	if err != nil {
 		return nil, err
 	}
@@ -3588,8 +3588,8 @@ func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnp
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(SmcUnpaused)
-				if err := _Smc.contract.UnpackLog(event, "Unpaused", log); err != nil {
+				event := new(MarketplaceStorageUnpaused)
+				if err := _MarketplaceStorage.contract.UnpackLog(event, "Unpaused", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -3613,9 +3613,9 @@ func (_Smc *SmcFilterer) WatchUnpaused(opts *bind.WatchOpts, sink chan<- *SmcUnp
 // ParseUnpaused is a log parse operation binding the contract event 0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa.
 //
 // Solidity: event Unpaused(address account)
-func (_Smc *SmcFilterer) ParseUnpaused(log types.Log) (*SmcUnpaused, error) {
-	event := new(SmcUnpaused)
-	if err := _Smc.contract.UnpackLog(event, "Unpaused", log); err != nil {
+func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseUnpaused(log types.Log) (*MarketplaceStorageUnpaused, error) {
+	event := new(MarketplaceStorageUnpaused)
+	if err := _MarketplaceStorage.contract.UnpackLog(event, "Unpaused", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log

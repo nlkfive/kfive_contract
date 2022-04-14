@@ -1,5 +1,5 @@
-var RaceList = artifacts.require('RaceList');
+var RaceList = artifacts.require("RaceList");
 
 module.exports = async function (deployer) {
-    deployer.deploy(RaceList);
+  deployer.deploy(RaceList);
 };

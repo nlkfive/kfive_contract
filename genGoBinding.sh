@@ -1,10 +1,11 @@
 #!/bin/sh
-
-base_dir="abigenBindings"
+base_dir=$(pwd)/abigenBindings
+mkdir -p $base_dir/golang
 contracts=$(find $base_dir/abi -mindepth 1 -maxdepth 1 -exec basename {} \;)
 
 for contract in $contracts; do
     echo $contract
-    abigen --abi $base_dir/abi/$contract --pkg smc --out $base_dir/golang/${contract%.*}.go
+    name=${contract%.*}
+    abigen --abi $base_dir/abi/$contract --pkg "$name" --out $base_dir/golang/${name}.go
 done
 
