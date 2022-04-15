@@ -251,13 +251,13 @@ contract Bething is
         emit AcceptTokenUpdated(acceptToken);
     }
 
-    // = totalRaceBet * (1000 - commission)/1000
+    // = totalRaceBet * commission /1000
     function _calculateCommission(bytes32 raceId, uint256 commission) 
         private 
         view
         returns (uint256)
     {
-        return totalRaceBet(raceId).mul(1000 - commission).div(1000);
+        return totalRaceBet(raceId).mul(commission).div(1000);
     }
 
     function _totalTop3BetReward(
@@ -303,14 +303,13 @@ contract Bething is
     {
         // if the race isn't ended or you are out of top 3
         uint256 position = getSlotPosition(raceId, slotId);
-        if (position > 0 && position < 3){
-            reward = totalSlotBet(raceId, slotId).mul(
+        if (position > 0 && position <= 3){
+            reward = bettors[raceId][slotId][_msgSender()].mul(
                 totalRaceBet(raceId) - _calculateCommission(raceId, commission)
             ).div(
                 totalTop3BetReward
             );
-
-            for (uint256 count = 0; count < position; count++) {
+            for (uint256 count = 3; count > position; count--) {
                 reward = reward.mul(rewardRate).div(1000);
             }
         }
@@ -322,6 +321,33 @@ contract Bething is
 
     function onlyAfter(uint256 _time) internal view {
         if (block.timestamp <= _time) revert TooEarly(_time);
+    }
+
+    function checkReward(
+        bytes32 raceId,
+        uint256 slotId
+    ) 
+        external
+        view
+        returns (uint256 reward)
+    {
+        Race memory _race = _raceList.getRace(raceId);
+        if (_race.betStarted == 0) revert RaceNotExisted();
+        onlyAfter(_race.betEnded);
+
+        uint256 totalTop3BetReward = _totalTop3BetReward(
+            raceId,
+            _race.slots,
+            _race.result,
+            _race.rewardRate
+        );
+        reward = _calculateReward(
+            raceId, 
+            slotId,
+            _race.rewardRate,
+            _race.commission,
+            totalTop3BetReward
+        );
     }
 
     /**
