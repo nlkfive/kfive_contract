@@ -2,5 +2,9 @@
 . "$(dirname "$0")/_/husky.sh"
 
 npx truffle run abigen 
+abiOutput="abigenBindings/abi"
+for f in $abiOutput/*.abi; do 
+    mv -- "$f" "${f%.abi}.json"
+done
 sh genGoBinding.sh
 git add -A .
