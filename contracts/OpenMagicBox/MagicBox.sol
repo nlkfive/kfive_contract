@@ -80,10 +80,10 @@ contract MagicBox is
         if (block.timestamp >= endedAt) revert TooLate(endedAt);
 
         _acceptToken = IBEP20(acceptToken);
-        _price[BoxType.DIAMON] = 20;
-        _price[BoxType.GOLD] = 10;
+        _price[BoxType.DIAMON] = 40;
+        _price[BoxType.GOLD] = 15;
         _price[BoxType.SILVER] = 5;
-        _price[BoxType.BROZEN] = 0;
+        _price[BoxType.BROZEN] = 1;
         _endedAt = endedAt;
 
         _magicBoxReward = IERC721Enumerable(magicBoxReward);

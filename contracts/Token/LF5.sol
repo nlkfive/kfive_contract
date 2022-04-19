@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/security/Pausable.sol";
 import "../common/BlackList.sol";
 import "../common/TokenAdmin.sol";
 
-contract LF5 is BEP20("Lucky K5", "LF5", 1), Pausable, BlackList, TokenAdmin {
+contract LF5 is BEP20("Lucky K5", "LF5", 0), Pausable, BlackList, TokenAdmin {
     // events to track onchain-offchain relationships
     event __transferByAdmin(bytes32 offchain);
     event __issue(bytes32 offchain);

@@ -48,9 +48,6 @@ contract LuckyVault is KfiveAccessControl, ReentrancyGuard {
         address depositToken, // KFIVE
         address rewardToken, // LF5
         address receiver, // Address where receive tradeToken
-        uint256 tradeRate, // 5.2 BUSD/KFIVE -> 0.192 => 192
-        uint256 tradeRewardRate, // 10 KFIVE/LF5 -> 0.1 => 100
-        uint256 depositRewardRate, // 100 KFIVE/LF5 -> 0.01 => 10
         uint256 endedAt
     ) {
         if(!tradeToken.isContract()) revert InvalidContract();
@@ -62,9 +59,9 @@ contract LuckyVault is KfiveAccessControl, ReentrancyGuard {
         _depositToken = IBEP20(depositToken);
         _rewardToken = IBEP20(rewardToken);
         _receiver = receiver;
-        _tradeRate = tradeRate;
-        _tradeRewardRate = tradeRewardRate;
-        _depositRewardRate = depositRewardRate;
+        _tradeRate = 192; // 5.2 BUSD/KFIVE -> 0.192 => 192
+        _tradeRewardRate = 500; // 2 KFIVE/LF5 -> 0.5 => 500
+        _depositRewardRate = 25; // 40 KFIVE/LF5 -> 0.025 => 25
         _endedAt = endedAt;
     }
 
