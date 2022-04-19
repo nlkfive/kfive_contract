@@ -23,19 +23,20 @@ contract LuckyVault is KfiveAccessControl, ReentrancyGuard {
 
     mapping(address => uint256) depositList;
 
-    error InvalidContract();
-    error DepositFailed();
-    error RewardFailed();
-    error TradeFailed();
-    error SendDepositTokenFailed();
-    error TooLate(uint256 time);
-    error TooEarly(uint256 time);
-    error InvalidWithdrawAmount();
-    error WithdrawFailed();
-    error AdminWithdrawFailed();
-    error InsufficientBalance();
-    error InvalidAmount();
-    error NoReward();
+    
+    error InvalidContract(); // 6eefed20
+    error DepositFailed(); // 79cacff1
+    error RewardFailed(); // d48c2547
+    error TradeFailed(); // 2d8ef0cf
+    error SendDepositTokenFailed(); // 46e95fd1
+    error TooLate(uint256 time);  // 691e5682
+    error TooEarly(uint256 time); // 2a35a324
+    error InvalidWithdrawAmount(); // db73cdf0
+    error WithdrawFailed(); // 750b219c
+    error AdminWithdrawFailed(); // e1464389
+    error InsufficientBalance(); // f4d678b8
+    error InvalidAmount(); // 2c5211c6
+    error NoReward(); // 6e992686
 
     event DepositSuccessful(address sender, uint256 amount, uint256 rewardAmount);
     event TradeSuccessful(address sender, uint256 amount, uint256 tradeAmount, uint256 rewardAmount);
@@ -187,6 +188,22 @@ contract LuckyVault is KfiveAccessControl, ReentrancyGuard {
     function checkBalance(uint256 amount) internal view {
         uint256 tokenBalance = _depositToken.balanceOf(address(this));
         if (tokenBalance < amount) revert InsufficientBalance();
+    }
+
+    function getTradeRate() external view returns (uint256) {
+        return _tradeRate;
+    }
+
+    function getTradeRewardRate() external view returns (uint256) {
+        return _tradeRewardRate;
+    }
+
+    function getDepositRewardRate() external view returns (uint256) {
+        return _depositRewardRate;
+    }
+
+    function getEndedAt() external view returns (uint256) {
+        return _endedAt;
     }
 
     /**

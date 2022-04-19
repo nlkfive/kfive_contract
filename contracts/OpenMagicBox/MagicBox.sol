@@ -56,8 +56,8 @@ contract MagicBox is
     // Cannot exceed VRFCoordinatorV2.MAX_NUM_WORDS.
     uint32 private constant numWords =  1;
 
-
     error InvalidContract();
+    error NoReward();
     error DrawFailed();
     error TooLate(uint256 time);
 
@@ -69,10 +69,6 @@ contract MagicBox is
         address acceptToken, // LF5
         address vrfCoordinator,
         address magicBoxReward,
-        uint256 diamonPrice,
-        uint256 goldPrice,
-        uint256 silverPrice,
-        uint256 brozenPrice,
         uint256 endedAt,
         uint64 subscriptionId,
         bytes32 keyHash
@@ -84,10 +80,10 @@ contract MagicBox is
         if (block.timestamp >= endedAt) revert TooLate(endedAt);
 
         _acceptToken = IBEP20(acceptToken);
-        _price[BoxType.DIAMON] = diamonPrice;
-        _price[BoxType.GOLD] = goldPrice;
-        _price[BoxType.SILVER] = silverPrice;
-        _price[BoxType.BROZEN] = brozenPrice;
+        _price[BoxType.DIAMON] = 20;
+        _price[BoxType.GOLD] = 10;
+        _price[BoxType.SILVER] = 5;
+        _price[BoxType.BROZEN] = 0;
         _endedAt = endedAt;
 
         _magicBoxReward = IERC721Enumerable(magicBoxReward);
@@ -107,8 +103,11 @@ contract MagicBox is
         onlyBefore
         returns (uint256 requestId)
     {
-
         address sender = _msgSender();
+
+        if (_rewardCount[boxType] == 0) {
+            revert NoReward();
+        }
 
         if (!_acceptToken.transferFrom(sender, address(this), _price[boxType])) revert DrawFailed();
 
@@ -135,6 +134,9 @@ contract MagicBox is
     function fulfillRandomWords(uint256 requestId, uint256[] memory randomWords) internal override 
     {
         BoxType boxType = _vrfRandomMap[requestId].boxType;
+        if (_rewardCount[boxType] == 0) {
+            revert NoReward();
+        }
         address receiver = _vrfRandomMap[requestId].receiver;
         uint256 randomness = randomWords[0];
         uint256 totalRemainReward = _rewardCount[boxType];
@@ -175,6 +177,14 @@ contract MagicBox is
     modifier onlyBefore() {
         if (block.timestamp >= _endedAt) revert TooLate(_endedAt);
         _;
+    }
+
+    function remainReward(BoxType boxType) external view returns (uint256) {
+        return _rewardCount[boxType];
+    }
+
+    function getEndedAt() external view returns (uint256) {
+        return _endedAt;
     }
 
     function onERC721Received(
