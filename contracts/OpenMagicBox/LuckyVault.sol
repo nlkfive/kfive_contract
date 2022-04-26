@@ -162,6 +162,14 @@ contract LuckyVault is KfiveAccessControl, ReentrancyGuard {
         emit AdminWithdrawSuccessful(_msgSender(), receiver, amount);
     }
 
+    function getDeposit(address owner)
+        external
+        view
+        returns (uint256)
+    {
+        return depositList[owner];
+    }
+
     function _transferReward(
         address sender,
         uint256 amount
