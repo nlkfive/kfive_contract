@@ -50,7 +50,7 @@ contract MagicBox is
     // this limit based on the network that you select, the size of the request,
     // and the processing of the callback request in the fulfillRandomWords()
     // function.
-    uint32 private constant callbackGasLimit = 100000;
+    uint32 private constant callbackGasLimit = 300000;
 
     // For this example, retrieve 2 random values in one request.
     // Cannot exceed VRFCoordinatorV2.MAX_NUM_WORDS.
@@ -144,6 +144,7 @@ contract MagicBox is
         uint256 nftId = _rewardList[boxType][randomness % totalRemainReward];
 
         delete _rewardList[boxType][randomness % totalRemainReward];
+        _rewardCount[boxType] = totalRemainReward.sub(1);
         _magicBoxReward.safeTransferFrom(
             address(this),
             receiver,
