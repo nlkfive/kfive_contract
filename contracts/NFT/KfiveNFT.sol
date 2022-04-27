@@ -9,10 +9,12 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/AccessControlEnumerable.sol";
 import "../common/BlackList.sol";
 import "../common/StorageLock.sol";
+import "./IKfiveNFT.sol";
 
 contract KfiveNFT is
     StorageLock,
     AccessControlEnumerable,
+    IKfiveNFT,
     ERC721Enumerable,
     ERC721Pausable,
     ERC721URIStorage,
@@ -67,7 +69,7 @@ contract KfiveNFT is
         address to,
         uint256 tokenId,
         string memory gtokenURI
-    ) public virtual onlyRole(MINTER_ROLE) {
+    ) public override virtual onlyRole(MINTER_ROLE) {
         // We cannot just use balanceOf to create the new tokenId because tokens
         // can be burned (destroyed), so we need a separate counter.
         _safeMint(to, tokenId);
@@ -118,7 +120,7 @@ contract KfiveNFT is
         public
         view
         virtual
-        override(AccessControlEnumerable, ERC721, ERC721Enumerable)
+        override(AccessControlEnumerable, IERC165, ERC721, ERC721Enumerable)
         returns (bool)
     {
         return super.supportsInterface(interfaceId);
@@ -132,7 +134,7 @@ contract KfiveNFT is
         super._burn(tokenId);
     }
 
-    function burn(uint256 tokenId) public onlyRole(ADMIN_ROLE) {
+    function burn(uint256 tokenId) public override onlyRole(ADMIN_ROLE) {
         _burn(tokenId);
     }
 

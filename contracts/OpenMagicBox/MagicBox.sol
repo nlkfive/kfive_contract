@@ -5,7 +5,7 @@ pragma solidity 0.8.4;
 import "../common/AccessControl.sol";
 import "../BEP20/IBEP20.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
-import "@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol";
+import "../NFT/IKfiveNFT.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 import "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol";
 import "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol";
@@ -21,18 +21,20 @@ contract MagicBox is
     using Address for address;
 
     enum BoxType{ DIAMON, GOLD, SILVER, BROZEN }
-    struct DrawInfo {
+    struct BoxInfo {
         BoxType boxType;
         address receiver;
+        uint256 randomness;
     }
 
     IBEP20 private _acceptToken;
     uint256 _endedAt;
     mapping (BoxType => uint256) _price;
     mapping (BoxType => uint256) _rewardCount;
-    mapping (BoxType => uint256[]) _rewardList;
-    mapping (uint256 => DrawInfo) _vrfRandomMap;
-    IERC721Enumerable private _magicBoxReward;
+    mapping (BoxType => mapping(uint256 => uint256)) _rewardList;
+    mapping (uint256 => BoxInfo) _vrfRandomMap;
+    mapping (uint256 => uint256) _receivedMap;
+    IKfiveNFT private _magicBoxReward;
 
     VRFCoordinatorV2Interface private _vrfCoordinator;
 
@@ -50,20 +52,22 @@ contract MagicBox is
     // this limit based on the network that you select, the size of the request,
     // and the processing of the callback request in the fulfillRandomWords()
     // function.
-    uint32 private constant callbackGasLimit = 300000;
+    uint32 private constant callbackGasLimit = 100000;
 
     // For this example, retrieve 2 random values in one request.
     // Cannot exceed VRFCoordinatorV2.MAX_NUM_WORDS.
     uint32 private constant numWords =  1;
 
-    error InvalidContract();
-    error NoReward();
-    error DrawFailed();
+    error InvalidContract(); // 0x6eefed20
+    error NoReward(); // 0x6e992686
+    error OpenFailed(); // 0xffd586b9
     error TooLate(uint256 time);
+    error NotOwner(); // 0x30cd7471
 
-    event DrawSuccessful(BoxType boxType, address sender, uint256 requestId);
+    event RequestBoxSuccessful(BoxType boxType, address sender, uint256 requestId);
     event RewardAdded(BoxType boxType, uint256 rewardIndex, uint256 nftRewardId);
-    event RewardTransfered(address receiver, uint256 requestId, uint256 randomness, uint256 nftId);
+    event RewardTransfered(address receiver, uint256 rewardIndex, uint256 tokenId);
+    event BoxReceived(uint256 requestId, uint256 randomness);
 
     constructor(
         address acceptToken, // LF5
@@ -86,16 +90,16 @@ contract MagicBox is
         _price[BoxType.BROZEN] = 1;
         _endedAt = endedAt;
 
-        _magicBoxReward = IERC721Enumerable(magicBoxReward);
+        _magicBoxReward = IKfiveNFT(magicBoxReward);
         _vrfCoordinator = VRFCoordinatorV2Interface(vrfCoordinator);
         s_keyHash = keyHash;
         s_subscriptionId = subscriptionId;
     }
 
     /** 
-     * @dev Draw diamon box
+     * @dev Get random box
      */
-    function draw(
+    function requestBox(
         BoxType boxType
     ) 
         external
@@ -105,12 +109,6 @@ contract MagicBox is
     {
         address sender = _msgSender();
 
-        if (_rewardCount[boxType] == 0) {
-            revert NoReward();
-        }
-
-        if (!_acceptToken.transferFrom(sender, address(this), _price[boxType])) revert DrawFailed();
-
         requestId = _vrfCoordinator.requestRandomWords(
             s_keyHash,
             s_subscriptionId,
@@ -119,13 +117,13 @@ contract MagicBox is
             numWords
         );
         // storing requestId
-        DrawInfo storage drawInfo = _vrfRandomMap[requestId];
+        BoxInfo storage boxInfo = _vrfRandomMap[requestId];
         {
-            drawInfo.boxType = boxType;
-            drawInfo.receiver = sender;
+            boxInfo.boxType = boxType;
+            boxInfo.receiver = sender;
         }
 
-        emit DrawSuccessful(boxType, sender, requestId);
+        emit RequestBoxSuccessful(boxType, sender, requestId);
     }
 
     /** 
@@ -133,44 +131,54 @@ contract MagicBox is
      */
     function fulfillRandomWords(uint256 requestId, uint256[] memory randomWords) internal override 
     {
-        BoxType boxType = _vrfRandomMap[requestId].boxType;
-        if (_rewardCount[boxType] == 0) {
+        uint256 randomness = randomWords[0];
+        _vrfRandomMap[requestId].randomness = randomness;
+        emit BoxReceived(requestId, randomness);
+    }
+
+    /** 
+     * @dev Handle on result random
+     */
+    function openBox(uint256 requestId) 
+        external
+        whenNotPaused
+        onlyBefore
+    {
+        address sender = _msgSender();
+        BoxInfo memory boxInfo = _vrfRandomMap[requestId];
+        delete _vrfRandomMap[requestId];
+        if (boxInfo.receiver != sender){
+            revert NotOwner();
+        }
+        BoxType boxType = boxInfo.boxType;
+        uint256 totalRemainReward = _rewardCount[boxType];
+        if (totalRemainReward == 0) {
             revert NoReward();
         }
-        address receiver = _vrfRandomMap[requestId].receiver;
-        uint256 randomness = randomWords[0];
-        uint256 totalRemainReward = _rewardCount[boxType];
 
-        uint256 nftId = _rewardList[boxType][randomness % totalRemainReward];
-
-        delete _rewardList[boxType][randomness % totalRemainReward];
+        if (!_acceptToken.transferFrom(sender, address(this), _price[boxType])) revert OpenFailed();
         _rewardCount[boxType] = totalRemainReward.sub(1);
-        _magicBoxReward.safeTransferFrom(
-            address(this),
-            receiver,
-            nftId
-        );
 
-        emit RewardTransfered(receiver, requestId, randomness, nftId);
+        uint256 rewardIndex = boxInfo.randomness.mod(totalRemainReward);
+        _getReward(boxType, sender, rewardIndex, _rewardCount[boxType]);
     }
 
     /**
      * @dev Add reward.
      */
-    function addReward(BoxType boxType, uint256 nftRewardId) 
+    function addReward(BoxType boxType, uint256 nftRewardId, string memory tokenURI) 
         external 
         whenNotPaused
         onlyRole(ADMIN_ROLE)
     {
         uint256 rewardIndex = _rewardCount[boxType];
-
-        _magicBoxReward.safeTransferFrom(
-            _msgSender(),
+        _magicBoxReward.mint(
             address(this),
-            nftRewardId
+            nftRewardId,
+            tokenURI
         );
         _rewardCount[boxType] = rewardIndex.add(1);
-        _rewardList[boxType].push(nftRewardId);
+        _rewardList[boxType][rewardIndex] = nftRewardId;
 
         emit RewardAdded(boxType, rewardIndex, nftRewardId);
     }
@@ -186,6 +194,38 @@ contract MagicBox is
 
     function getEndedAt() external view returns (uint256) {
         return _endedAt;
+    }
+
+    function _getReward(
+        BoxType boxType, 
+        address receiver, 
+        uint256 rewardIndex, 
+        uint256 lastRewardIndex
+    ) internal {
+        // Check if rewardIndex have already been received
+        if (_receivedMap[rewardIndex] != 0){
+            // The actual rewardIndex was saved in this map "_receivedMap"
+            rewardIndex = _receivedMap[rewardIndex];
+        }
+        
+        uint256 nftId = _rewardList[boxType][rewardIndex];
+
+        // Store received rewardIndex to map
+        // Store at the rewardIndex that the last is mapping to if the last has been map
+        if (_receivedMap[lastRewardIndex] != 0){
+            _receivedMap[rewardIndex] = _receivedMap[lastRewardIndex];
+        // Store at the last rewardIndex if it hasn't been map
+        } else {
+            _receivedMap[rewardIndex] = lastRewardIndex;
+        }
+
+        _magicBoxReward.safeTransferFrom(
+            address(this),
+            receiver,
+            nftId
+        );
+
+        emit RewardTransfered(receiver, rewardIndex, nftId);
     }
 
     function onERC721Received(
