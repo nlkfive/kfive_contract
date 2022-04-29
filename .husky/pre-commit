@@ -1,6 +1,7 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+npx truffle build
 npx truffle run abigen 
 abiOutput="abigenBindings/abi"
 for f in $abiOutput/*.abi; do 
