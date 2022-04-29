@@ -14,7 +14,7 @@ import "@openzeppelin/contracts/utils/Address.sol";
 contract MagicBox is 
     VRFConsumerBaseV2,
     KfiveAccessControl, 
-    IERC721Receiver 
+    IERC721Receiver
 {
 
     using SafeMath for uint256;
