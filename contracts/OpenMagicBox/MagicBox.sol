@@ -34,6 +34,7 @@ contract MagicBox is
     mapping (BoxType => mapping(uint256 => uint256)) _rewardList;
     mapping (uint256 => BoxInfo) _vrfRandomMap;
     mapping (uint256 => uint256) _receivedMap;
+    mapping (address => uint256) _listRequested;
     IKfiveNFT private _magicBoxReward;
 
     VRFCoordinatorV2Interface private _vrfCoordinator;
@@ -63,6 +64,7 @@ contract MagicBox is
     error OpenFailed(); // 0xffd586b9
     error TooLate(uint256 time);
     error NotOwner(); // 0x30cd7471
+    error BoxRequested();
 
     event RequestBoxSuccessful(BoxType boxType, address sender, uint256 requestId);
     event RewardAdded(BoxType boxType, uint256 rewardIndex, uint256 nftRewardId);
@@ -108,6 +110,10 @@ contract MagicBox is
         returns (uint256 requestId)
     {
         address sender = _msgSender();
+        if (_listRequested[sender] != 0){
+            revert BoxRequested();
+        }
+        _listRequested[sender] = 1;
 
         requestId = _vrfCoordinator.requestRandomWords(
             s_keyHash,
@@ -135,7 +141,7 @@ contract MagicBox is
         _vrfRandomMap[requestId].randomness = randomness;
         emit BoxReceived(requestId, randomness);
     }
-
+    
     /** 
      * @dev Handle on result random
      */
@@ -147,6 +153,8 @@ contract MagicBox is
         address sender = _msgSender();
         BoxInfo memory boxInfo = _vrfRandomMap[requestId];
         delete _vrfRandomMap[requestId];
+        _listRequested[sender] = 0;
+
         if (boxInfo.receiver != sender){
             revert NotOwner();
         }
