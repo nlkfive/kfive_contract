@@ -2018,10 +2018,10 @@
   resolved "https://registry.yarnpkg.com/@redux-saga/types/-/types-1.1.0.tgz#0e81ce56b4883b4b2a3001ebe1ab298b84237204"
   integrity sha512-afmTuJrylUU/0OtqzaRkbyYFFNgCF73Bvel/sw90pvGrWIZ+vyoIJqA6eMSoA6+nb443kTmulmBtC9NerXboNg==
 
-"@remix-project/remixd@^0.5.0":
-  version "0.5.5"
-  resolved "https://registry.yarnpkg.com/@remix-project/remixd/-/remixd-0.5.5.tgz#9775c9216750c57fe97d96c7c8dfcb3ff5e7b841"
-  integrity sha512-6aJAG9cR+ZPTjS2CLvQlk2obYpaiSuKuO2RkuOwmM1Srd1aRU8YY57jyWl6BofzNf3ewSeGS8KpaJDje5QE7Wg==
+"@remix-project/remixd@^0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@remix-project/remixd/-/remixd-0.6.1.tgz#d08bd9ca3a26399e7df79c1ff69448cc04d0cb76"
+  integrity sha512-/2FgM8d3u8zm6eNWuv5kOunfTKYTVtTxx5KdyLFaPCuED/co6HJ98dR5flp7ArzBNUzvO3DtNmEI1tzv9Par9A==
   dependencies:
     "@remixproject/plugin" "^0.3.11"
     "@remixproject/plugin-api" "^0.3.11"
@@ -15208,11 +15208,6 @@ prettier@^2.0.5, prettier@^2.1.2:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.5.1.tgz#fff75fa9d519c54cf0fce328c1017d94546bc56a"
   integrity sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==
-
-prettier@^2.6.2:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.6.2.tgz#e26d71a18a74c3d0f0597f55f01fb6c06c206032"
-  integrity sha512-PkUpF+qoXTqhOeWL9fu7As8LXsIUZ1WYaJiY/a7McAQzxjk82OF0tibkFXVCDImZtWxbvojFjerkiLb0/q8mew==
 
 pretty-bytes@^1.0.2:
   version "1.0.4"
