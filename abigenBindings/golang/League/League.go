@@ -30,7 +30,7 @@ var (
 
 // LeagueMetaData contains all meta data concerning the League contract.
 var LeagueMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[],\"name\":\"CannotCancel\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidContract\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidSlot\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RaceExisted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RaceNotExisted\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooEarly\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooLate\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"}],\"name\":\"RaceCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"slots\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startAt\",\"type\":\"uint256\"}],\"name\":\"RaceCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"result\",\"type\":\"bytes32\"}],\"name\":\"RaceResultUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PAUSER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getRoleMember\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleMemberCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"register\",\"type\":\"address\"}],\"name\":\"registerIsValid\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"raceSlots\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"slots\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"raceStartAt\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"startAt\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"raceResult\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"result\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"leagueName\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"slots\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startAt\",\"type\":\"uint256\"}],\"name\":\"createRace\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"cancelRace\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"result\",\"type\":\"bytes32\"}],\"name\":\"updateRaceResult\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
+	ABI: "[{\"inputs\":[],\"name\":\"AlreadyRegistered\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CannotCancel\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_currentRaceNo\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"totalRace\",\"type\":\"uint256\"}],\"name\":\"CannotCreateMoreRace\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidContract\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidRegister\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidSender\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidSlot\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RaceExisted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RaceNotExisted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RewardIsExisted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RewardIsNotExisted\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooEarly\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooLate\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"}],\"name\":\"RaceCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"slots\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startAt\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"raceNo\",\"type\":\"uint256\"}],\"name\":\"RaceCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"result\",\"type\":\"bytes32\"}],\"name\":\"RaceResultUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"participant\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"Registered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"winnerIndex\",\"type\":\"uint256\"}],\"name\":\"RewardAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"}],\"name\":\"RewardReceived\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"winnerIndex\",\"type\":\"uint256\"}],\"name\":\"RewardRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PAUSER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getRoleMember\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleMemberCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"raceInfo\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"slots\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startAt\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"result\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"leagueName\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"}],\"name\":\"registerRace\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"slots\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startAt\",\"type\":\"uint256\"}],\"name\":\"createRace\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"cancelRace\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"result\",\"type\":\"bytes32\"}],\"name\":\"updateRaceResult\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"winnerIndex\",\"type\":\"uint256\"}],\"name\":\"addRewardByTransfer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"winnerIndex\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"tokenURI\",\"type\":\"string\"}],\"name\":\"addRewardByMint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"}],\"name\":\"receiveReward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"winnerIndex\",\"type\":\"uint256\"}],\"name\":\"removeReward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"onERC721Received\",\"outputs\":[{\"internalType\":\"bytes4\",\"name\":\"\",\"type\":\"bytes4\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}]",
 }
 
 // LeagueABI is the input ABI used to generate the binding from.
@@ -427,6 +427,37 @@ func (_League *LeagueCallerSession) LeagueName() (string, error) {
 	return _League.Contract.LeagueName(&_League.CallOpts)
 }
 
+// OnERC721Received is a free data retrieval call binding the contract method 0x150b7a02.
+//
+// Solidity: function onERC721Received(address , address , uint256 , bytes ) pure returns(bytes4)
+func (_League *LeagueCaller) OnERC721Received(opts *bind.CallOpts, arg0 common.Address, arg1 common.Address, arg2 *big.Int, arg3 []byte) ([4]byte, error) {
+	var out []interface{}
+	err := _League.contract.Call(opts, &out, "onERC721Received", arg0, arg1, arg2, arg3)
+
+	if err != nil {
+		return *new([4]byte), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new([4]byte)).(*[4]byte)
+
+	return out0, err
+
+}
+
+// OnERC721Received is a free data retrieval call binding the contract method 0x150b7a02.
+//
+// Solidity: function onERC721Received(address , address , uint256 , bytes ) pure returns(bytes4)
+func (_League *LeagueSession) OnERC721Received(arg0 common.Address, arg1 common.Address, arg2 *big.Int, arg3 []byte) ([4]byte, error) {
+	return _League.Contract.OnERC721Received(&_League.CallOpts, arg0, arg1, arg2, arg3)
+}
+
+// OnERC721Received is a free data retrieval call binding the contract method 0x150b7a02.
+//
+// Solidity: function onERC721Received(address , address , uint256 , bytes ) pure returns(bytes4)
+func (_League *LeagueCallerSession) OnERC721Received(arg0 common.Address, arg1 common.Address, arg2 *big.Int, arg3 []byte) ([4]byte, error) {
+	return _League.Contract.OnERC721Received(&_League.CallOpts, arg0, arg1, arg2, arg3)
+}
+
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
@@ -489,97 +520,54 @@ func (_League *LeagueCallerSession) Paused() (bool, error) {
 	return _League.Contract.Paused(&_League.CallOpts)
 }
 
-// RaceResult is a free data retrieval call binding the contract method 0x6d93b958.
+// RaceInfo is a free data retrieval call binding the contract method 0xef8597fd.
 //
-// Solidity: function raceResult(bytes32 raceId) view returns(bytes32 result)
-func (_League *LeagueCaller) RaceResult(opts *bind.CallOpts, raceId [32]byte) ([32]byte, error) {
+// Solidity: function raceInfo(bytes32 raceId) view returns(uint256 slots, uint256 startAt, bytes32 result)
+func (_League *LeagueCaller) RaceInfo(opts *bind.CallOpts, raceId [32]byte) (struct {
+	Slots   *big.Int
+	StartAt *big.Int
+	Result  [32]byte
+}, error) {
 	var out []interface{}
-	err := _League.contract.Call(opts, &out, "raceResult", raceId)
+	err := _League.contract.Call(opts, &out, "raceInfo", raceId)
 
+	outstruct := new(struct {
+		Slots   *big.Int
+		StartAt *big.Int
+		Result  [32]byte
+	})
 	if err != nil {
-		return *new([32]byte), err
+		return *outstruct, err
 	}
 
-	out0 := *abi.ConvertType(out[0], new([32]byte)).(*[32]byte)
+	outstruct.Slots = *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	outstruct.StartAt = *abi.ConvertType(out[1], new(*big.Int)).(**big.Int)
+	outstruct.Result = *abi.ConvertType(out[2], new([32]byte)).(*[32]byte)
 
-	return out0, err
-
-}
-
-// RaceResult is a free data retrieval call binding the contract method 0x6d93b958.
-//
-// Solidity: function raceResult(bytes32 raceId) view returns(bytes32 result)
-func (_League *LeagueSession) RaceResult(raceId [32]byte) ([32]byte, error) {
-	return _League.Contract.RaceResult(&_League.CallOpts, raceId)
-}
-
-// RaceResult is a free data retrieval call binding the contract method 0x6d93b958.
-//
-// Solidity: function raceResult(bytes32 raceId) view returns(bytes32 result)
-func (_League *LeagueCallerSession) RaceResult(raceId [32]byte) ([32]byte, error) {
-	return _League.Contract.RaceResult(&_League.CallOpts, raceId)
-}
-
-// RaceSlots is a free data retrieval call binding the contract method 0xd0cbb2a4.
-//
-// Solidity: function raceSlots(bytes32 raceId) view returns(uint256 slots)
-func (_League *LeagueCaller) RaceSlots(opts *bind.CallOpts, raceId [32]byte) (*big.Int, error) {
-	var out []interface{}
-	err := _League.contract.Call(opts, &out, "raceSlots", raceId)
-
-	if err != nil {
-		return *new(*big.Int), err
-	}
-
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
-
-	return out0, err
+	return *outstruct, err
 
 }
 
-// RaceSlots is a free data retrieval call binding the contract method 0xd0cbb2a4.
+// RaceInfo is a free data retrieval call binding the contract method 0xef8597fd.
 //
-// Solidity: function raceSlots(bytes32 raceId) view returns(uint256 slots)
-func (_League *LeagueSession) RaceSlots(raceId [32]byte) (*big.Int, error) {
-	return _League.Contract.RaceSlots(&_League.CallOpts, raceId)
+// Solidity: function raceInfo(bytes32 raceId) view returns(uint256 slots, uint256 startAt, bytes32 result)
+func (_League *LeagueSession) RaceInfo(raceId [32]byte) (struct {
+	Slots   *big.Int
+	StartAt *big.Int
+	Result  [32]byte
+}, error) {
+	return _League.Contract.RaceInfo(&_League.CallOpts, raceId)
 }
 
-// RaceSlots is a free data retrieval call binding the contract method 0xd0cbb2a4.
+// RaceInfo is a free data retrieval call binding the contract method 0xef8597fd.
 //
-// Solidity: function raceSlots(bytes32 raceId) view returns(uint256 slots)
-func (_League *LeagueCallerSession) RaceSlots(raceId [32]byte) (*big.Int, error) {
-	return _League.Contract.RaceSlots(&_League.CallOpts, raceId)
-}
-
-// RaceStartAt is a free data retrieval call binding the contract method 0x1d88e1bd.
-//
-// Solidity: function raceStartAt(bytes32 raceId) view returns(uint256 startAt)
-func (_League *LeagueCaller) RaceStartAt(opts *bind.CallOpts, raceId [32]byte) (*big.Int, error) {
-	var out []interface{}
-	err := _League.contract.Call(opts, &out, "raceStartAt", raceId)
-
-	if err != nil {
-		return *new(*big.Int), err
-	}
-
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
-
-	return out0, err
-
-}
-
-// RaceStartAt is a free data retrieval call binding the contract method 0x1d88e1bd.
-//
-// Solidity: function raceStartAt(bytes32 raceId) view returns(uint256 startAt)
-func (_League *LeagueSession) RaceStartAt(raceId [32]byte) (*big.Int, error) {
-	return _League.Contract.RaceStartAt(&_League.CallOpts, raceId)
-}
-
-// RaceStartAt is a free data retrieval call binding the contract method 0x1d88e1bd.
-//
-// Solidity: function raceStartAt(bytes32 raceId) view returns(uint256 startAt)
-func (_League *LeagueCallerSession) RaceStartAt(raceId [32]byte) (*big.Int, error) {
-	return _League.Contract.RaceStartAt(&_League.CallOpts, raceId)
+// Solidity: function raceInfo(bytes32 raceId) view returns(uint256 slots, uint256 startAt, bytes32 result)
+func (_League *LeagueCallerSession) RaceInfo(raceId [32]byte) (struct {
+	Slots   *big.Int
+	StartAt *big.Int
+	Result  [32]byte
+}, error) {
+	return _League.Contract.RaceInfo(&_League.CallOpts, raceId)
 }
 
 // SupportsInterface is a free data retrieval call binding the contract method 0x01ffc9a7.
@@ -611,6 +599,48 @@ func (_League *LeagueSession) SupportsInterface(interfaceId [4]byte) (bool, erro
 // Solidity: function supportsInterface(bytes4 interfaceId) view returns(bool)
 func (_League *LeagueCallerSession) SupportsInterface(interfaceId [4]byte) (bool, error) {
 	return _League.Contract.SupportsInterface(&_League.CallOpts, interfaceId)
+}
+
+// AddRewardByMint is a paid mutator transaction binding the contract method 0xa4c1564a.
+//
+// Solidity: function addRewardByMint(bytes32 raceId, uint256 nftRewardId, uint256 winnerIndex, string tokenURI) returns()
+func (_League *LeagueTransactor) AddRewardByMint(opts *bind.TransactOpts, raceId [32]byte, nftRewardId *big.Int, winnerIndex *big.Int, tokenURI string) (*types.Transaction, error) {
+	return _League.contract.Transact(opts, "addRewardByMint", raceId, nftRewardId, winnerIndex, tokenURI)
+}
+
+// AddRewardByMint is a paid mutator transaction binding the contract method 0xa4c1564a.
+//
+// Solidity: function addRewardByMint(bytes32 raceId, uint256 nftRewardId, uint256 winnerIndex, string tokenURI) returns()
+func (_League *LeagueSession) AddRewardByMint(raceId [32]byte, nftRewardId *big.Int, winnerIndex *big.Int, tokenURI string) (*types.Transaction, error) {
+	return _League.Contract.AddRewardByMint(&_League.TransactOpts, raceId, nftRewardId, winnerIndex, tokenURI)
+}
+
+// AddRewardByMint is a paid mutator transaction binding the contract method 0xa4c1564a.
+//
+// Solidity: function addRewardByMint(bytes32 raceId, uint256 nftRewardId, uint256 winnerIndex, string tokenURI) returns()
+func (_League *LeagueTransactorSession) AddRewardByMint(raceId [32]byte, nftRewardId *big.Int, winnerIndex *big.Int, tokenURI string) (*types.Transaction, error) {
+	return _League.Contract.AddRewardByMint(&_League.TransactOpts, raceId, nftRewardId, winnerIndex, tokenURI)
+}
+
+// AddRewardByTransfer is a paid mutator transaction binding the contract method 0x21ad4e51.
+//
+// Solidity: function addRewardByTransfer(bytes32 raceId, uint256 nftRewardId, uint256 winnerIndex) returns()
+func (_League *LeagueTransactor) AddRewardByTransfer(opts *bind.TransactOpts, raceId [32]byte, nftRewardId *big.Int, winnerIndex *big.Int) (*types.Transaction, error) {
+	return _League.contract.Transact(opts, "addRewardByTransfer", raceId, nftRewardId, winnerIndex)
+}
+
+// AddRewardByTransfer is a paid mutator transaction binding the contract method 0x21ad4e51.
+//
+// Solidity: function addRewardByTransfer(bytes32 raceId, uint256 nftRewardId, uint256 winnerIndex) returns()
+func (_League *LeagueSession) AddRewardByTransfer(raceId [32]byte, nftRewardId *big.Int, winnerIndex *big.Int) (*types.Transaction, error) {
+	return _League.Contract.AddRewardByTransfer(&_League.TransactOpts, raceId, nftRewardId, winnerIndex)
+}
+
+// AddRewardByTransfer is a paid mutator transaction binding the contract method 0x21ad4e51.
+//
+// Solidity: function addRewardByTransfer(bytes32 raceId, uint256 nftRewardId, uint256 winnerIndex) returns()
+func (_League *LeagueTransactorSession) AddRewardByTransfer(raceId [32]byte, nftRewardId *big.Int, winnerIndex *big.Int) (*types.Transaction, error) {
+	return _League.Contract.AddRewardByTransfer(&_League.TransactOpts, raceId, nftRewardId, winnerIndex)
 }
 
 // CancelRace is a paid mutator transaction binding the contract method 0xc05c107d.
@@ -697,25 +727,67 @@ func (_League *LeagueTransactorSession) Pause() (*types.Transaction, error) {
 	return _League.Contract.Pause(&_League.TransactOpts)
 }
 
-// RegisterIsValid is a paid mutator transaction binding the contract method 0x53eeece1.
+// ReceiveReward is a paid mutator transaction binding the contract method 0x1a0fc715.
 //
-// Solidity: function registerIsValid(address register) returns(bool)
-func (_League *LeagueTransactor) RegisterIsValid(opts *bind.TransactOpts, register common.Address) (*types.Transaction, error) {
-	return _League.contract.Transact(opts, "registerIsValid", register)
+// Solidity: function receiveReward(bytes32 raceId, uint256 slotId) returns()
+func (_League *LeagueTransactor) ReceiveReward(opts *bind.TransactOpts, raceId [32]byte, slotId *big.Int) (*types.Transaction, error) {
+	return _League.contract.Transact(opts, "receiveReward", raceId, slotId)
 }
 
-// RegisterIsValid is a paid mutator transaction binding the contract method 0x53eeece1.
+// ReceiveReward is a paid mutator transaction binding the contract method 0x1a0fc715.
 //
-// Solidity: function registerIsValid(address register) returns(bool)
-func (_League *LeagueSession) RegisterIsValid(register common.Address) (*types.Transaction, error) {
-	return _League.Contract.RegisterIsValid(&_League.TransactOpts, register)
+// Solidity: function receiveReward(bytes32 raceId, uint256 slotId) returns()
+func (_League *LeagueSession) ReceiveReward(raceId [32]byte, slotId *big.Int) (*types.Transaction, error) {
+	return _League.Contract.ReceiveReward(&_League.TransactOpts, raceId, slotId)
 }
 
-// RegisterIsValid is a paid mutator transaction binding the contract method 0x53eeece1.
+// ReceiveReward is a paid mutator transaction binding the contract method 0x1a0fc715.
 //
-// Solidity: function registerIsValid(address register) returns(bool)
-func (_League *LeagueTransactorSession) RegisterIsValid(register common.Address) (*types.Transaction, error) {
-	return _League.Contract.RegisterIsValid(&_League.TransactOpts, register)
+// Solidity: function receiveReward(bytes32 raceId, uint256 slotId) returns()
+func (_League *LeagueTransactorSession) ReceiveReward(raceId [32]byte, slotId *big.Int) (*types.Transaction, error) {
+	return _League.Contract.ReceiveReward(&_League.TransactOpts, raceId, slotId)
+}
+
+// RegisterRace is a paid mutator transaction binding the contract method 0xbc13db99.
+//
+// Solidity: function registerRace(bytes32 raceId, uint256 slotId) returns()
+func (_League *LeagueTransactor) RegisterRace(opts *bind.TransactOpts, raceId [32]byte, slotId *big.Int) (*types.Transaction, error) {
+	return _League.contract.Transact(opts, "registerRace", raceId, slotId)
+}
+
+// RegisterRace is a paid mutator transaction binding the contract method 0xbc13db99.
+//
+// Solidity: function registerRace(bytes32 raceId, uint256 slotId) returns()
+func (_League *LeagueSession) RegisterRace(raceId [32]byte, slotId *big.Int) (*types.Transaction, error) {
+	return _League.Contract.RegisterRace(&_League.TransactOpts, raceId, slotId)
+}
+
+// RegisterRace is a paid mutator transaction binding the contract method 0xbc13db99.
+//
+// Solidity: function registerRace(bytes32 raceId, uint256 slotId) returns()
+func (_League *LeagueTransactorSession) RegisterRace(raceId [32]byte, slotId *big.Int) (*types.Transaction, error) {
+	return _League.Contract.RegisterRace(&_League.TransactOpts, raceId, slotId)
+}
+
+// RemoveReward is a paid mutator transaction binding the contract method 0x70e45679.
+//
+// Solidity: function removeReward(bytes32 raceId, uint256 winnerIndex) returns()
+func (_League *LeagueTransactor) RemoveReward(opts *bind.TransactOpts, raceId [32]byte, winnerIndex *big.Int) (*types.Transaction, error) {
+	return _League.contract.Transact(opts, "removeReward", raceId, winnerIndex)
+}
+
+// RemoveReward is a paid mutator transaction binding the contract method 0x70e45679.
+//
+// Solidity: function removeReward(bytes32 raceId, uint256 winnerIndex) returns()
+func (_League *LeagueSession) RemoveReward(raceId [32]byte, winnerIndex *big.Int) (*types.Transaction, error) {
+	return _League.Contract.RemoveReward(&_League.TransactOpts, raceId, winnerIndex)
+}
+
+// RemoveReward is a paid mutator transaction binding the contract method 0x70e45679.
+//
+// Solidity: function removeReward(bytes32 raceId, uint256 winnerIndex) returns()
+func (_League *LeagueTransactorSession) RemoveReward(raceId [32]byte, winnerIndex *big.Int) (*types.Transaction, error) {
+	return _League.Contract.RemoveReward(&_League.TransactOpts, raceId, winnerIndex)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
@@ -1337,12 +1409,13 @@ type LeagueRaceCreated struct {
 	Id      [32]byte
 	Slots   *big.Int
 	StartAt *big.Int
+	RaceNo  *big.Int
 	Raw     types.Log // Blockchain specific contextual infos
 }
 
-// FilterRaceCreated is a free log retrieval operation binding the contract event 0x3d4c26760d0e4825f9a3f6ccba234d54aeeae3e6471639b8366708a183f1e837.
+// FilterRaceCreated is a free log retrieval operation binding the contract event 0x7d96e4700661907fc6a8ea8f3b79949cb0170bd192240352fdd5f891f5c2d562.
 //
-// Solidity: event RaceCreated(bytes32 id, uint256 slots, uint256 startAt)
+// Solidity: event RaceCreated(bytes32 id, uint256 slots, uint256 startAt, uint256 raceNo)
 func (_League *LeagueFilterer) FilterRaceCreated(opts *bind.FilterOpts) (*LeagueRaceCreatedIterator, error) {
 
 	logs, sub, err := _League.contract.FilterLogs(opts, "RaceCreated")
@@ -1352,9 +1425,9 @@ func (_League *LeagueFilterer) FilterRaceCreated(opts *bind.FilterOpts) (*League
 	return &LeagueRaceCreatedIterator{contract: _League.contract, event: "RaceCreated", logs: logs, sub: sub}, nil
 }
 
-// WatchRaceCreated is a free log subscription operation binding the contract event 0x3d4c26760d0e4825f9a3f6ccba234d54aeeae3e6471639b8366708a183f1e837.
+// WatchRaceCreated is a free log subscription operation binding the contract event 0x7d96e4700661907fc6a8ea8f3b79949cb0170bd192240352fdd5f891f5c2d562.
 //
-// Solidity: event RaceCreated(bytes32 id, uint256 slots, uint256 startAt)
+// Solidity: event RaceCreated(bytes32 id, uint256 slots, uint256 startAt, uint256 raceNo)
 func (_League *LeagueFilterer) WatchRaceCreated(opts *bind.WatchOpts, sink chan<- *LeagueRaceCreated) (event.Subscription, error) {
 
 	logs, sub, err := _League.contract.WatchLogs(opts, "RaceCreated")
@@ -1389,9 +1462,9 @@ func (_League *LeagueFilterer) WatchRaceCreated(opts *bind.WatchOpts, sink chan<
 	}), nil
 }
 
-// ParseRaceCreated is a log parse operation binding the contract event 0x3d4c26760d0e4825f9a3f6ccba234d54aeeae3e6471639b8366708a183f1e837.
+// ParseRaceCreated is a log parse operation binding the contract event 0x7d96e4700661907fc6a8ea8f3b79949cb0170bd192240352fdd5f891f5c2d562.
 //
-// Solidity: event RaceCreated(bytes32 id, uint256 slots, uint256 startAt)
+// Solidity: event RaceCreated(bytes32 id, uint256 slots, uint256 startAt, uint256 raceNo)
 func (_League *LeagueFilterer) ParseRaceCreated(log types.Log) (*LeagueRaceCreated, error) {
 	event := new(LeagueRaceCreated)
 	if err := _League.contract.UnpackLog(event, "RaceCreated", log); err != nil {
@@ -1530,6 +1603,550 @@ func (_League *LeagueFilterer) WatchRaceResultUpdated(opts *bind.WatchOpts, sink
 func (_League *LeagueFilterer) ParseRaceResultUpdated(log types.Log) (*LeagueRaceResultUpdated, error) {
 	event := new(LeagueRaceResultUpdated)
 	if err := _League.contract.UnpackLog(event, "RaceResultUpdated", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// LeagueRegisteredIterator is returned from FilterRegistered and is used to iterate over the raw logs and unpacked data for Registered events raised by the League contract.
+type LeagueRegisteredIterator struct {
+	Event *LeagueRegistered // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *LeagueRegisteredIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(LeagueRegistered)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(LeagueRegistered)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *LeagueRegisteredIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *LeagueRegisteredIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// LeagueRegistered represents a Registered event raised by the League contract.
+type LeagueRegistered struct {
+	SlotId      *big.Int
+	Participant common.Address
+	RaceId      [32]byte
+	Raw         types.Log // Blockchain specific contextual infos
+}
+
+// FilterRegistered is a free log retrieval operation binding the contract event 0xd62c7bd2779dc6ebe426bed623399b1fc1d190c063eadefcffffb1efe6f253ef.
+//
+// Solidity: event Registered(uint256 slotId, address participant, bytes32 raceId)
+func (_League *LeagueFilterer) FilterRegistered(opts *bind.FilterOpts) (*LeagueRegisteredIterator, error) {
+
+	logs, sub, err := _League.contract.FilterLogs(opts, "Registered")
+	if err != nil {
+		return nil, err
+	}
+	return &LeagueRegisteredIterator{contract: _League.contract, event: "Registered", logs: logs, sub: sub}, nil
+}
+
+// WatchRegistered is a free log subscription operation binding the contract event 0xd62c7bd2779dc6ebe426bed623399b1fc1d190c063eadefcffffb1efe6f253ef.
+//
+// Solidity: event Registered(uint256 slotId, address participant, bytes32 raceId)
+func (_League *LeagueFilterer) WatchRegistered(opts *bind.WatchOpts, sink chan<- *LeagueRegistered) (event.Subscription, error) {
+
+	logs, sub, err := _League.contract.WatchLogs(opts, "Registered")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(LeagueRegistered)
+				if err := _League.contract.UnpackLog(event, "Registered", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseRegistered is a log parse operation binding the contract event 0xd62c7bd2779dc6ebe426bed623399b1fc1d190c063eadefcffffb1efe6f253ef.
+//
+// Solidity: event Registered(uint256 slotId, address participant, bytes32 raceId)
+func (_League *LeagueFilterer) ParseRegistered(log types.Log) (*LeagueRegistered, error) {
+	event := new(LeagueRegistered)
+	if err := _League.contract.UnpackLog(event, "Registered", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// LeagueRewardAddedIterator is returned from FilterRewardAdded and is used to iterate over the raw logs and unpacked data for RewardAdded events raised by the League contract.
+type LeagueRewardAddedIterator struct {
+	Event *LeagueRewardAdded // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *LeagueRewardAddedIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(LeagueRewardAdded)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(LeagueRewardAdded)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *LeagueRewardAddedIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *LeagueRewardAddedIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// LeagueRewardAdded represents a RewardAdded event raised by the League contract.
+type LeagueRewardAdded struct {
+	RaceId      [32]byte
+	NftRewardId *big.Int
+	WinnerIndex *big.Int
+	Raw         types.Log // Blockchain specific contextual infos
+}
+
+// FilterRewardAdded is a free log retrieval operation binding the contract event 0xa28d22473b1a2f01a0708abe09b0bf3b7e1b0f30b0f759e2948b55c8e6fdd6e3.
+//
+// Solidity: event RewardAdded(bytes32 raceId, uint256 nftRewardId, uint256 winnerIndex)
+func (_League *LeagueFilterer) FilterRewardAdded(opts *bind.FilterOpts) (*LeagueRewardAddedIterator, error) {
+
+	logs, sub, err := _League.contract.FilterLogs(opts, "RewardAdded")
+	if err != nil {
+		return nil, err
+	}
+	return &LeagueRewardAddedIterator{contract: _League.contract, event: "RewardAdded", logs: logs, sub: sub}, nil
+}
+
+// WatchRewardAdded is a free log subscription operation binding the contract event 0xa28d22473b1a2f01a0708abe09b0bf3b7e1b0f30b0f759e2948b55c8e6fdd6e3.
+//
+// Solidity: event RewardAdded(bytes32 raceId, uint256 nftRewardId, uint256 winnerIndex)
+func (_League *LeagueFilterer) WatchRewardAdded(opts *bind.WatchOpts, sink chan<- *LeagueRewardAdded) (event.Subscription, error) {
+
+	logs, sub, err := _League.contract.WatchLogs(opts, "RewardAdded")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(LeagueRewardAdded)
+				if err := _League.contract.UnpackLog(event, "RewardAdded", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseRewardAdded is a log parse operation binding the contract event 0xa28d22473b1a2f01a0708abe09b0bf3b7e1b0f30b0f759e2948b55c8e6fdd6e3.
+//
+// Solidity: event RewardAdded(bytes32 raceId, uint256 nftRewardId, uint256 winnerIndex)
+func (_League *LeagueFilterer) ParseRewardAdded(log types.Log) (*LeagueRewardAdded, error) {
+	event := new(LeagueRewardAdded)
+	if err := _League.contract.UnpackLog(event, "RewardAdded", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// LeagueRewardReceivedIterator is returned from FilterRewardReceived and is used to iterate over the raw logs and unpacked data for RewardReceived events raised by the League contract.
+type LeagueRewardReceivedIterator struct {
+	Event *LeagueRewardReceived // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *LeagueRewardReceivedIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(LeagueRewardReceived)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(LeagueRewardReceived)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *LeagueRewardReceivedIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *LeagueRewardReceivedIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// LeagueRewardReceived represents a RewardReceived event raised by the League contract.
+type LeagueRewardReceived struct {
+	RaceId      [32]byte
+	SlotId      *big.Int
+	NftRewardId *big.Int
+	Raw         types.Log // Blockchain specific contextual infos
+}
+
+// FilterRewardReceived is a free log retrieval operation binding the contract event 0xe2ece170b35ae79cbe45ffdaf4931b8bc45056da5d3e9aa4aea67fcdf307929a.
+//
+// Solidity: event RewardReceived(bytes32 raceId, uint256 slotId, uint256 nftRewardId)
+func (_League *LeagueFilterer) FilterRewardReceived(opts *bind.FilterOpts) (*LeagueRewardReceivedIterator, error) {
+
+	logs, sub, err := _League.contract.FilterLogs(opts, "RewardReceived")
+	if err != nil {
+		return nil, err
+	}
+	return &LeagueRewardReceivedIterator{contract: _League.contract, event: "RewardReceived", logs: logs, sub: sub}, nil
+}
+
+// WatchRewardReceived is a free log subscription operation binding the contract event 0xe2ece170b35ae79cbe45ffdaf4931b8bc45056da5d3e9aa4aea67fcdf307929a.
+//
+// Solidity: event RewardReceived(bytes32 raceId, uint256 slotId, uint256 nftRewardId)
+func (_League *LeagueFilterer) WatchRewardReceived(opts *bind.WatchOpts, sink chan<- *LeagueRewardReceived) (event.Subscription, error) {
+
+	logs, sub, err := _League.contract.WatchLogs(opts, "RewardReceived")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(LeagueRewardReceived)
+				if err := _League.contract.UnpackLog(event, "RewardReceived", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseRewardReceived is a log parse operation binding the contract event 0xe2ece170b35ae79cbe45ffdaf4931b8bc45056da5d3e9aa4aea67fcdf307929a.
+//
+// Solidity: event RewardReceived(bytes32 raceId, uint256 slotId, uint256 nftRewardId)
+func (_League *LeagueFilterer) ParseRewardReceived(log types.Log) (*LeagueRewardReceived, error) {
+	event := new(LeagueRewardReceived)
+	if err := _League.contract.UnpackLog(event, "RewardReceived", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// LeagueRewardRemovedIterator is returned from FilterRewardRemoved and is used to iterate over the raw logs and unpacked data for RewardRemoved events raised by the League contract.
+type LeagueRewardRemovedIterator struct {
+	Event *LeagueRewardRemoved // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *LeagueRewardRemovedIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(LeagueRewardRemoved)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(LeagueRewardRemoved)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *LeagueRewardRemovedIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *LeagueRewardRemovedIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// LeagueRewardRemoved represents a RewardRemoved event raised by the League contract.
+type LeagueRewardRemoved struct {
+	RaceId      [32]byte
+	NftRewardId *big.Int
+	WinnerIndex *big.Int
+	Raw         types.Log // Blockchain specific contextual infos
+}
+
+// FilterRewardRemoved is a free log retrieval operation binding the contract event 0xefba7d4f0912cb3bf75c07898c0969e76416cc35a7046ba3c04902f3f3f607f3.
+//
+// Solidity: event RewardRemoved(bytes32 raceId, uint256 nftRewardId, uint256 winnerIndex)
+func (_League *LeagueFilterer) FilterRewardRemoved(opts *bind.FilterOpts) (*LeagueRewardRemovedIterator, error) {
+
+	logs, sub, err := _League.contract.FilterLogs(opts, "RewardRemoved")
+	if err != nil {
+		return nil, err
+	}
+	return &LeagueRewardRemovedIterator{contract: _League.contract, event: "RewardRemoved", logs: logs, sub: sub}, nil
+}
+
+// WatchRewardRemoved is a free log subscription operation binding the contract event 0xefba7d4f0912cb3bf75c07898c0969e76416cc35a7046ba3c04902f3f3f607f3.
+//
+// Solidity: event RewardRemoved(bytes32 raceId, uint256 nftRewardId, uint256 winnerIndex)
+func (_League *LeagueFilterer) WatchRewardRemoved(opts *bind.WatchOpts, sink chan<- *LeagueRewardRemoved) (event.Subscription, error) {
+
+	logs, sub, err := _League.contract.WatchLogs(opts, "RewardRemoved")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(LeagueRewardRemoved)
+				if err := _League.contract.UnpackLog(event, "RewardRemoved", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseRewardRemoved is a log parse operation binding the contract event 0xefba7d4f0912cb3bf75c07898c0969e76416cc35a7046ba3c04902f3f3f607f3.
+//
+// Solidity: event RewardRemoved(bytes32 raceId, uint256 nftRewardId, uint256 winnerIndex)
+func (_League *LeagueFilterer) ParseRewardRemoved(log types.Log) (*LeagueRewardRemoved, error) {
+	event := new(LeagueRewardRemoved)
+	if err := _League.contract.UnpackLog(event, "RewardRemoved", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
