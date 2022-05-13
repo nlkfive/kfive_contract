@@ -4,13 +4,11 @@ pragma solidity 0.8.4;
 import "./interfaces/ILeague.sol";
 import "../common/AccessControl.sol";
 import "@openzeppelin/contracts/utils/introspection/ERC165.sol";
-import "@openzeppelin/contracts/utils/Address.sol";
 
-contract League is
+abstract contract League is
     KfiveAccessControl,
     ILeague
 {
-    using Address for address;
     string private _leagueName;
 
     // Race info

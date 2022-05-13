@@ -50,6 +50,11 @@ interface ILeague is IERC165 {
     function cancelRace(bytes32 id) external;
 
     /**
+     * @dev Cancel race by id.
+     */
+    function registerIsValid(address register) external returns (bool);
+
+    /**
      * @dev Update race result.
      */
     function updateRaceResult(
@@ -67,6 +72,7 @@ interface ILeague is IERC165 {
 
     error TooLate(uint256 time);
     error TooEarly(uint256 time);
+    error InvalidContract();
     error InvalidSlot();
     error RaceNotExisted();
     error RaceExisted();
