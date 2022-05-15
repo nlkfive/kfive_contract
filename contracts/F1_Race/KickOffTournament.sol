@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.4;
 
-import "./League.sol";
+import "./Tournament.sol";
 import "../NFT/IKfiveNFT.sol";
 
-contract KickOffLeague is League
+contract KickOffTournament is Tournament
 {
     using Address for address;
     IKfiveNFT private _nlggt;
 
-    constructor(uint8 noRace, address nlggtAddr, address raceReward, string memory _leagueName) League(noRace, raceReward, _leagueName){
+    constructor(uint8 noRace, address nlggtAddr, address raceReward, string memory _tournamentName) Tournament(noRace, raceReward, _tournamentName){
         if(!nlggtAddr.isContract()) revert InvalidContract();
         _nlggt = IKfiveNFT(nlggtAddr);
     }

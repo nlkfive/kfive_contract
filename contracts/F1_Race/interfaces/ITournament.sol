@@ -3,7 +3,7 @@ pragma solidity 0.8.4;
 
 import "@openzeppelin/contracts/utils/introspection/IERC165.sol";
 
-interface ILeague is IERC165 {
+interface ITournament is IERC165 {
 
     struct Race {
         uint8 noSlot; // Max 26
@@ -11,11 +11,11 @@ interface ILeague is IERC165 {
         bytes27 result; // 27 bytes - Remove first bytes
     }
 
-    struct LeagueInfo {
+    struct TournamentInfo {
         uint8 totalRace; // Max 255 races
         uint8 createdRace; // Max totalRace
         uint8 endedRace; // Max totalRace
-        string leagueName;
+        string tournamentName;
     }
 
     /**
@@ -43,7 +43,7 @@ interface ILeague is IERC165 {
     returns (uint8);
 
     /**
-     * @dev Check total score of this league.
+     * @dev Check total score of this tournament.
      */
     function getTotalScore(address register) 
         external 
@@ -51,12 +51,12 @@ interface ILeague is IERC165 {
         returns (uint8);
 
     /**
-     * @dev Get league info.
+     * @dev Get tournament info.
      */
-    function leagueInfo() 
+    function tournamentInfo() 
         external 
         view 
-        returns (LeagueInfo memory);
+        returns (TournamentInfo memory);
 
     /**
      * @dev Cancel race by id.
@@ -77,28 +77,9 @@ interface ILeague is IERC165 {
     ) external;
 
     /**
-     * @dev Add reward by transfer.
+     * @dev Grand reward after league ended.
      */
-    function addRewardByTransfer(bytes32 raceId, uint256 nftRewardId, uint256 winnerIndex) 
-        external;
-
-     /**
-     * @dev Add reward by mint.
-     */
-    function addRewardByMint(bytes32 raceId, uint256 nftRewardId, uint256 winnerIndex, string memory tokenURI) 
-        external;
-
-    /**
-     * @dev Remove added reward.
-     */
-    function removeReward(
-        bytes32 raceId, uint256 winnerIndex
-    ) external;
-
-    /**
-     * @dev Receive reward after race ended.
-     */
-    function receiveReward(uint8 slotId, bytes32 raceId) external;
+    function grandReward(uint8 winnerIndex, address winner, uint256 nftRewardId, string memory tokenURI) external;
 
     event RaceCreated(
         uint8 noSlot,
@@ -108,9 +89,7 @@ interface ILeague is IERC165 {
     );
     event RaceResultUpdated(bytes32 id, bytes27 result);
     event RaceCancelled(bytes32 id);
-    event RewardAdded(bytes32 raceId, uint256 nftRewardId, uint256 winnerIndex);
-    event RewardReceived(uint8 slotId, bytes32 raceId, uint256 nftRewardId);
-    event RewardRemoved(bytes32 raceId, uint256 nftRewardId, uint256 winnerIndex);
+    event RewardGranted(uint8 winnerIndex, uint8 score, address winner, uint256 nftRewardId);
     event Registered(uint8 slotId, address participant, bytes32 raceId);
 
     error TooLate(uint256 time);
@@ -119,8 +98,6 @@ interface ILeague is IERC165 {
     error InvalidSlot();
     error RaceNotExisted();
     error RaceExisted();
-    error RewardIsNotExisted();
-    error RewardIsExisted();
     error InvalidSender();
     error CannotCreateMoreRace(uint256 _currentRaceNo, uint256 totalRace);
     error AlreadyRegistered();

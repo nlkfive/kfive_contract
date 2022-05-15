@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.4;
 
-import "./interfaces/ILeague.sol";
+import "./interfaces/ITournament.sol";
 import "../common/AccessControl.sol";
 import "@openzeppelin/contracts/utils/introspection/ERC165.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
@@ -9,25 +9,25 @@ import "../NFT/IKfiveNFT.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
-abstract contract League is
+abstract contract Tournament is
     KfiveAccessControl,
-    ILeague,
+    ITournament,
     IERC721Receiver
 {
     using Address for address;
     using SafeMath for uint256;
 
-    LeagueInfo private _leagueInfo;
+    TournamentInfo private _tournamentInfo;
     IKfiveNFT private _f1Reward;
 
     // Race info
     mapping(bytes32 => Race) private _raceInfo;
-    // WinnerIndex => NFTID
-    mapping(uint256 => uint256) private _listRewards;
     // RaceId -> User address -> slotId
     mapping(bytes32 => mapping(address => uint8)) private _registeredSlot;
     // RaceNo -> RaceId
     mapping(uint8 => bytes32) private _listRaces;
+    // UserAddress -> Score
+    mapping(address => uint8) private _userScore;
 
     constructor(
         uint8 totalRace,
@@ -36,11 +36,11 @@ abstract contract League is
     ) {
         if(!raceReward.isContract()) revert InvalidContract();
         _f1Reward = IKfiveNFT(raceReward);
-        _leagueInfo = LeagueInfo({
+        _tournamentInfo = TournamentInfo({
             totalRace: totalRace,
             createdRace: 0,
             endedRace: 0,
-            leagueName: name
+            tournamentName: name
         });
     }
     
@@ -52,7 +52,7 @@ abstract contract League is
         returns (bool)
     {
         return
-            interfaceId == type(ILeague).interfaceId ||
+            interfaceId == type(ITournament).interfaceId ||
             super.supportsInterface(interfaceId);
     }
 
@@ -65,13 +65,13 @@ abstract contract League is
         return _raceInfo[raceId];
     }
 
-    function leagueInfo() 
+    function tournamentInfo() 
         external 
         view 
         override
-        returns (LeagueInfo memory) 
+        returns (TournamentInfo memory) 
     {
-        return _leagueInfo;
+        return _tournamentInfo;
     }
 
     function registeredSlot(address register, bytes32 raceId)
@@ -89,7 +89,7 @@ abstract contract League is
         override
         returns (uint8 score) 
     {
-        for (uint8 i = 0; i < _leagueInfo.createdRace; i++) {
+        for (uint8 i = 0; i < _tournamentInfo.createdRace; i++) {
             bytes32 raceId = _listRaces[i];
             uint8 slotId = _registeredSlot[raceId][register];
             score += uint8(_raceInfo[raceId].result[slotId]);
@@ -129,8 +129,8 @@ abstract contract League is
         returns (bytes32)
     {
         if(noSlot > 26) revert InvalidSlot();
-        uint8 raceNo = _leagueInfo.createdRace + 1;
-        if (raceNo > _leagueInfo.totalRace) revert CannotCreateMoreRace(raceNo, _leagueInfo.totalRace);
+        uint8 raceNo = _tournamentInfo.createdRace + 1;
+        if (raceNo > _tournamentInfo.totalRace) revert CannotCreateMoreRace(raceNo, _tournamentInfo.totalRace);
         onlyBefore(startAt);
 
         bytes32 raceId = keccak256(
@@ -141,7 +141,7 @@ abstract contract League is
             )
         );
         if (_raceInfo[raceId].startAt == 0) revert RaceNotExisted();
-        _leagueInfo.createdRace += 1;
+        _tournamentInfo.createdRace += 1;
         _listRaces[raceNo] = raceId;
 
         _raceInfo[raceId] = Race({
@@ -171,7 +171,7 @@ abstract contract League is
         Race memory _race = _raceInfo[raceId];
         if (_race.startAt == 0) revert RaceNotExisted();
         if (_race.result != 0) revert RaceWasUpdated();
-        _leagueInfo.endedRace = _leagueInfo.endedRace - 1;
+        _tournamentInfo.endedRace = _tournamentInfo.endedRace - 1;
         delete _raceInfo[raceId];
         emit RaceCancelled(raceId);
     }
@@ -196,80 +196,28 @@ abstract contract League is
         if (_race.result != 0) revert RaceWasUpdated();
         onlyAfter(_race.startAt);
         _race.result = result;
-        _leagueInfo.endedRace = _leagueInfo.endedRace + 1;
+        _tournamentInfo.endedRace = _tournamentInfo.endedRace + 1;
         emit RaceResultUpdated(raceId, result);
     }
 
     /**
-     * @dev Add reward.
+     * @dev Mint nft to the winner
+     * Admin check the winner list offchain and announce the winner to onchain by using this function
      */
-    function addRewardByTransfer(bytes32 raceId, uint256 nftRewardId, uint256 winnerIndex) 
+    function grandReward(uint8 winnerIndex, address winner, uint256 nftRewardId, string memory tokenURI) 
         external 
         override
         whenNotPaused
-        onlyRole(ADMIN_ROLE)
+        onlyRole(ADMIN_ROLE) 
     {
-        if (_listRewards[winnerIndex] != 0) revert RewardIsExisted();
-
-        _f1Reward.safeTransferFrom(
-            _msgSender(),
-            address(this),
-            nftRewardId
-        );
-        _listRewards[winnerIndex] = nftRewardId;
-        emit RewardAdded(raceId, nftRewardId, winnerIndex);
-    }
-
-    /**
-     * @dev Add reward.
-     */
-    function addRewardByMint(bytes32 raceId, uint256 nftRewardId, uint256 winnerIndex, string memory tokenURI) 
-        external 
-        override
-        whenNotPaused
-        onlyRole(ADMIN_ROLE)
-    {
-        if (_listRewards[winnerIndex] != 0) revert RewardIsExisted();
-
-        _listRewards[winnerIndex] = nftRewardId;
+        if (_tournamentInfo.endedRace < _tournamentInfo.totalRace) revert NotEndYet();
         _f1Reward.mint(
             address(this),
             nftRewardId,
             tokenURI
         );
-        emit RewardAdded(raceId, nftRewardId, winnerIndex);
+        emit RewardGranted(winnerIndex, getTotalScore(winner), winner, nftRewardId);
     }
-
-    /**
-     * @dev Receive reward after race ended.
-     */
-    function receiveReward(uint8 slotId, bytes32 raceId) 
-        external 
-        override
-        whenNotPaused
-    {
-        if (_leagueInfo.endedRace < _leagueInfo.totalRace) revert NotEndYet();
-
-    }
-
-    function removeReward(
-        bytes32 raceId, uint256 winnerIndex
-    )  
-        external 
-        override
-        whenNotPaused
-        onlyRole(ADMIN_ROLE) {
-
-        if (_listRewards[winnerIndex] == 0) revert RewardIsNotExisted();
-
-        _f1Reward.safeTransferFrom(
-            address(this),
-            _msgSender(),
-            _listRewards[winnerIndex]
-        );
-        _listRewards[winnerIndex] = 0;
-        emit RewardRemoved(raceId, _listRewards[winnerIndex], winnerIndex);
-    } 
 
     function onERC721Received(
         address,
