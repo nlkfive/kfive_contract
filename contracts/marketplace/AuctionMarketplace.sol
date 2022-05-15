@@ -9,18 +9,21 @@ contract AuctionMarketplace is IAuction, Marketplace {
     using SafeMath for uint256;
 
     // List of bids (bid => user => _blindedBid => deposit value)
-    mapping(bytes32 => mapping(address => mapping(bytes32 => uint256))) _bids;
+    mapping(bytes32 => mapping(address => mapping(bytes32 => uint256))) private _bids;
     // List of pending returns
-    mapping(bytes32 => mapping(address => uint256)) _pendingReturns;
-    uint256 _minStageDuration;
+    mapping(bytes32 => mapping(address => uint256)) private _pendingReturns;
 
     constructor(
-        address _acceptedToken,
-        address _marketplaceStorage,
-        uint256 _ownerCutPerMillion
-    ) Marketplace(_acceptedToken, _marketplaceStorage, _ownerCutPerMillion) {
-        _minStageDuration = 1 hours;
+        address acceptedToken,
+        address marketplaceStorage,
+        address beneficary,
+        uint256 ownerCutPerMillion
+    ) Marketplace(acceptedToken, beneficary, marketplaceStorage, ownerCutPerMillion) {
     }
+
+    error InvalidBiddingEnd();
+    error InvalidRevealEnd();
+    error Bidded();
 
     /**
      * @dev Creates a new auction
@@ -44,41 +47,37 @@ contract AuctionMarketplace is IAuction, Marketplace {
         // Validate input
         address assetOwner;
         {
-            require(biddingEnd > block.timestamp.add(_minStageDuration), "Invalid BE");
-            require(revealEnd > biddingEnd.add(_minStageDuration), "Invalid RE");
-            require(startPriceInWei > 0, "Invalid Price");
+            if(biddingEnd < block.timestamp.add(minStageDuration)) revert InvalidBiddingEnd();
+            if(revealEnd < biddingEnd.add(minStageDuration)) revert InvalidRevealEnd();
+            if(startPriceInWei == 0) revert InvalidPrice();
             address sender = _msgSender();
             {
                 // Check owner
                 IERC721 nftRegistry = IERC721(nftAddress);
                 assetOwner = nftRegistry.ownerOf(assetId);
-                require(sender == assetOwner, "Unauthorized");
-
-                // Check permission
-                require(
-                    nftRegistry.getApproved(assetId) == address(this) ||
-                        nftRegistry.isApprovedForAll(assetOwner, address(this)),
-                    "Unauthorized"
-                );
+                if(sender != assetOwner || 
+                    !(
+                        nftRegistry.getApproved(assetId) == address(this) ||
+                        nftRegistry.isApprovedForAll(assetOwner, address(this))
+                    )
+                ) revert Unauthorized();
 
                 // Check if asset is available
-                bytes32 nftAsset = keccak256(
-                    abi.encodePacked(nftAddress, assetId)
-                );
-                if (!marketplaceStorage.assetIsAvailable(nftAsset)) {
-                    revert("Unavailable");
+                if (!marketplaceStorage.assetIsAvailable(
+                    keccak256( // nftAsset
+                        abi.encodePacked(nftAddress, assetId)
+                    )
+                )) {
+                    revert Unavailable();
                 }
             }
             // Check if there's a publication fee and
             // transfer the amount to marketplace owner
             if (publicationFeeInWei > 0) {
-                require(
-                    acceptedToken.transferFrom(
-                        sender,
-                        owner(),
-                        publicationFeeInWei
-                    ),
-                    "Transfer failed"
+                acceptedToken.transferFrom(
+                    sender,
+                    beneficary,
+                    publicationFeeInWei
                 );
             }
         }
@@ -129,10 +128,9 @@ contract AuctionMarketplace is IAuction, Marketplace {
         address sender = _msgSender();
         address seller = marketplaceStorage.getAuction(auctionId).seller;
 
-        require(
-            seller == sender || hasRole(CANCEL_ROLE, _msgSender()),
-            "Unauthorized"
-        );
+        if(
+            !(seller == sender || hasRole(CANCEL_ROLE, _msgSender()))
+        ) revert Unauthorized();
         marketplaceStorage.auctionEnded(nftAsset);
         emit AuctionCancelled(auctionId);
     }
@@ -166,11 +164,8 @@ contract AuctionMarketplace is IAuction, Marketplace {
         onlyBefore(biddingEnd);
         address sender = _msgSender();
 
-        require(
-            acceptedToken.transferFrom(sender, address(this), deposit),
-            "Deposit failed"
-        );
-        require(_bids[auctionId][sender][blindedBid] == 0, "Already bidded");
+        acceptedToken.transferFrom(sender, address(this), deposit);
+        if(_bids[auctionId][sender][blindedBid] != 0) revert Bidded();
 
         _bids[auctionId][sender][blindedBid] = deposit;
         emit BidSuccessful(sender, auctionId, blindedBid);
@@ -227,9 +222,8 @@ contract AuctionMarketplace is IAuction, Marketplace {
      * @param auctionId - ID of the auction
      */
     function withdraw(bytes32 auctionId) external whenNotPaused {
-        checkExisted(auctionId);
+        uint256 amount = pendingReturns(auctionId);
         address sender = _msgSender();
-        uint256 amount = _pendingReturns[auctionId][sender];
         if (amount > 0) {
             // It is important to set this to zero because the recipient
             // can call this function again as part of the receiving call
@@ -245,7 +239,7 @@ contract AuctionMarketplace is IAuction, Marketplace {
      * @dev Withdraw a bid that was overbid.
      * @param auctionId - ID of the auction
      */
-    function pendingReturns(bytes32 auctionId) external view returns (uint256) {
+    function pendingReturns(bytes32 auctionId) public view returns (uint256) {
         checkExisted(auctionId);
         return _pendingReturns[auctionId][_msgSender()];
     }
@@ -256,13 +250,13 @@ contract AuctionMarketplace is IAuction, Marketplace {
      * @param assetId - ID of NFT address
      * @param auctionId - ID of the auction
      */
-    function auctionEnd(
+    function closeAuction(
         address nftAddress,
         uint256 assetId,
         bytes32 auctionId
     ) external whenNotPaused {
         checkExisted(auctionId);
-        _auctionEnd(
+        _closeAuction(
             nftAddress,
             assetId,
             keccak256(abi.encodePacked(nftAddress, assetId)),
@@ -322,7 +316,7 @@ contract AuctionMarketplace is IAuction, Marketplace {
         return refund;
     }
 
-    function _auctionEnd(
+    function _closeAuction(
         address nftAddress,
         uint256 assetId,
         bytes32 nftAsset,
@@ -336,9 +330,8 @@ contract AuctionMarketplace is IAuction, Marketplace {
         address seller = _auction.seller;
         uint256 auctionHighestBid = _auction.highestBid;
 
-        require(seller != address(0), "Invalid seller");
         IERC721 nftRegistry = IERC721(nftAddress);
-        require(seller == nftRegistry.ownerOf(assetId), "Invalid owner");
+        if(seller != nftRegistry.ownerOf(assetId)) revert Unauthorized();
         marketplaceStorage.auctionEnded(nftAsset);
 
         if (auctionHighestBidder != address(0)){
@@ -351,19 +344,13 @@ contract AuctionMarketplace is IAuction, Marketplace {
                 );
 
                 // Transfer share amount for marketplace Owner
-                require(
-                    acceptedToken.transfer(owner(), saleShareAmount),
-                    "Transfer share failed"
-                );
+                acceptedToken.transfer(beneficary, saleShareAmount);
             }
 
             // Transfer sale amount to seller
-            require(
-                acceptedToken.transfer(
-                    seller,
-                    auctionHighestBid.sub(saleShareAmount)
-                ),
-                "Transfer HBid failed"
+            acceptedToken.transfer(
+                seller,
+                auctionHighestBid.sub(saleShareAmount)
             );
 
             // Transfer asset owner
@@ -388,18 +375,15 @@ contract AuctionMarketplace is IAuction, Marketplace {
         if (block.timestamp <= _time) revert TooEarly(_time);
     }
 
-    function checkExisted(bytes32 auctionId) private view {
+    function checkExisted(bytes32 auctionId) public view {
         if (!marketplaceStorage.auctionIsExisted(auctionId))
             revert NotExisted();
     }
 
-    function checkRunning(bytes32 nftAsset, bytes32 auctionId) private view {
+    function checkRunning(bytes32 nftAsset, bytes32 auctionId) public view {
         checkExisted(auctionId);
         if (!marketplaceStorage.auctionIsRunning(nftAsset, auctionId))
             revert NotRunning();
     }
 
-    function setMinStageDuration(uint256 _duration) external onlyRole(ADMIN_ROLE) {
-        _minStageDuration = _duration;
-    }
 }

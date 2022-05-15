@@ -7,6 +7,7 @@ import "@openzeppelin/contracts/utils/introspection/ERC165.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 import "../NFT/IKfiveNFT.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
+import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 abstract contract League is
     KfiveAccessControl,
@@ -14,11 +15,11 @@ abstract contract League is
     IERC721Receiver
 {
     using Address for address;
+    using SafeMath for uint256;
 
     string private _leagueName;
     uint256 private _totalRace;
     IKfiveNFT private _f1Reward;
-    uint256 private _currentRaceNo = 1;
 
     // Race info
     mapping(bytes32 => uint256) private _raceSlot;
@@ -26,10 +27,9 @@ abstract contract League is
     mapping(bytes32 => bytes32) private _raceResult;
     // WinnerIndex => NFTID
     mapping(uint256 => uint256) private _listRewards;
-    // Raceid -> User Address -> isRegistered
-    mapping(bytes32 => mapping(address => bool)) private registeredSlot;
-    // RaceId -> slotId -> list registers
-    mapping(bytes32 => mapping(uint256 => address[])) private registrationList;
+    // RaceId -> User address -> slotId
+    mapping(bytes32 => mapping(address => uint8)) private _registeredSlot;
+    bytes32[] private _listRaces;
 
     constructor(
         address raceReward,
@@ -74,9 +74,46 @@ abstract contract League is
         return _leagueName;
     }
 
+    function registeredSlot(address register, bytes32 raceId) 
+        external 
+        view 
+        override
+        returns (uint256) 
+    {
+        return _registeredSlot[raceId][register];
+    }
+
+    function getTotalScore(address register) 
+        public 
+        view 
+        override
+        returns (uint256 score) 
+    {
+        for (uint256 i = 0; i < _listRaces.length; i++) {
+            bytes32 raceId = _listRaces[i];
+            uint8 slotId = _registeredSlot[raceId][register];
+            score += uint8(_raceResult[raceId][slotId]);
+        }
+    }
+
+    function ended() 
+        public 
+        view 
+        override
+        returns (bool) 
+    {
+        for (uint256 i = 0; i < _listRaces.length; i++) {
+            bytes32 raceId = _listRaces[i];
+            if (_raceResult[raceId] == bytes32(0)){
+                return false;
+            }
+        }
+        return _listRaces.length == _totalRace;
+    }
+
     function registerRace(
         bytes32 raceId,
-        uint256 slotId
+        uint8 slotId
     )
         external 
         override
@@ -84,11 +121,10 @@ abstract contract League is
     {
         onlyBefore(_raceStartAt[raceId]);
         checkValidRegister();
-        if(slotId >= _raceSlot[raceId]) revert InvalidSlot();
-        if(registeredSlot[raceId][_msgSender()]) revert AlreadyRegistered();
+        if(slotId > _raceSlot[raceId] || slotId == 0) revert InvalidSlot();
+        if(_registeredSlot[raceId][_msgSender()] != 0) revert AlreadyRegistered();
 
-        registeredSlot[raceId][_msgSender()] = true;
-        registrationList[raceId][slotId].push(_msgSender());
+        _registeredSlot[raceId][_msgSender()] = slotId;
         
         emit Registered(slotId, _msgSender(), raceId);
     }
@@ -107,17 +143,19 @@ abstract contract League is
         returns (bytes32)
     {
         if(slots >= 32) revert InvalidSlot();
-        if (_currentRaceNo > _totalRace) revert CannotCreateMoreRace(_currentRaceNo, _totalRace);
+        uint256 currentRaceIndex = _listRaces.length.add(1);
+        if (currentRaceIndex > _totalRace) revert CannotCreateMoreRace(currentRaceIndex, _totalRace);
         onlyBefore(startAt);
 
         bytes32 raceId = keccak256(
             abi.encodePacked(
-                _currentRaceNo,
+                currentRaceIndex,
                 slots,
                 startAt
             )
         );
         if (_raceStartAt[raceId] != 0) revert RaceExisted();
+        _listRaces.push(raceId);
 
         _raceSlot[raceId] = slots;
         _raceStartAt[raceId] = startAt;
@@ -126,9 +164,8 @@ abstract contract League is
             raceId,
             slots,
             startAt,
-            _currentRaceNo
+            currentRaceIndex
         );
-        _currentRaceNo += 1;
         return raceId;
     }
 
@@ -214,6 +251,8 @@ abstract contract League is
         override
         whenNotPaused
     {
+        if (!ended()) revert NotEndYet();
+        
     }
 
     function removeReward(

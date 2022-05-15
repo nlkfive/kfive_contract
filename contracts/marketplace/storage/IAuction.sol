@@ -5,7 +5,6 @@ interface IAuction {
     // ERRORS
     error TooEarly(uint256 time);
     error TooLate(uint256 time);
-    error NotExisted();
     error NotRunning();
 
     // AUCTION EVENTS

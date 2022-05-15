@@ -19,6 +19,8 @@ contract Marketplace is
 
     uint256 public ownerCutPerMillion;
     uint256 public publicationFeeInWei;
+    uint256 public minStageDuration;
+    address public beneficary;
 
     bytes4 public constant ERC721_Interface = bytes4(0x80ac58cd);
 
@@ -31,6 +33,13 @@ contract Marketplace is
 
     using Address for address;
 
+    error InvalidContract();
+    error InvalidCut();
+    error InvalidPrice();
+    error Unauthorized();
+    error Unavailable();
+    error NotExisted();
+    
     /**
      * @dev Initialize this contract. Acts as a constructor
      * @param _acceptedToken - Address of the ERC20 accepted for this marketplace
@@ -38,12 +47,13 @@ contract Marketplace is
      */
     constructor(
         address _acceptedToken,
+        address _beneficary,
         address _marketplaceStorage,
         uint256 _ownerCutPerMillion
     ) StorageLock(_marketplaceStorage) {
         transferOwnership(_msgSender());
 
-        require(_acceptedToken.isContract(), "Invalid contract");
+        if (!_acceptedToken.isContract()) revert InvalidContract();
         acceptedToken = IBEP20(_acceptedToken);
         marketplaceStorage = IMarketplaceStorage(_marketplaceStorage);
 
@@ -58,6 +68,10 @@ contract Marketplace is
 
         // Fee init
         setOwnerCutPerMillion(_ownerCutPerMillion);
+
+        minStageDuration = 1 hours;
+        beneficary = _beneficary;
+
     }
 
     /**
@@ -81,16 +95,15 @@ contract Marketplace is
         public
         onlyRole(ADMIN_ROLE)
     {
-        require(_ownerCutPerMillion < 1000000, "Invalid cut");
+        if(_ownerCutPerMillion >= 1000000) revert InvalidCut();
         ownerCutPerMillion = _ownerCutPerMillion;
         emit ChangedOwnerCutPerMillion(ownerCutPerMillion);
     }
 
     modifier _requireERC721(address nftAddress) {
-        require(nftAddress.isContract(), "Invalid contract");
+        if(!nftAddress.isContract()) revert InvalidContract();
         require(
-            IERC721(nftAddress).supportsInterface(ERC721_Interface),
-            "Invalid erc721"
+            IERC721(nftAddress).supportsInterface(ERC721_Interface)
         );
         _;
     }
@@ -138,5 +151,13 @@ contract Marketplace is
         onlyRole(ADMIN_ROLE)
     {
         super.updateStorageAddress(_marketplaceStorage);
+    }
+
+    function setMinStageDuration(uint256 duration) external onlyRole(ADMIN_ROLE) {
+        minStageDuration = duration;
+    }
+
+    function setBeneficary(address _beneficary) external onlyRole(ADMIN_ROLE) {
+        beneficary = _beneficary;
     }
 }

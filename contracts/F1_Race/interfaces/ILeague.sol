@@ -21,6 +21,30 @@ interface ILeague is IERC165 {
         returns (uint256 slots, uint256 startAt, bytes32 result);
 
     /**
+     * @dev Check registered slot.
+     */
+    function registeredSlot(address register, bytes32 raceId) 
+        external 
+        view 
+    returns (uint256);
+
+    /**
+     * @dev Check total score of this league.
+     */
+    function getTotalScore(address register) 
+        external 
+        view 
+        returns (uint256);
+
+    /**
+     * @dev League is ended
+     */
+    function ended() 
+        external 
+        view 
+        returns (bool);
+
+    /**
      * @dev Get league name.
      */
     function leagueName() 
@@ -36,7 +60,7 @@ interface ILeague is IERC165 {
     /**
      * @dev Register race by id.
      */
-    function registerRace(bytes32 raceId, uint256 slotId) external;
+    function registerRace(bytes32 raceId, uint8 slotId) external;
 
     /**
      * @dev Update race result.
@@ -96,4 +120,5 @@ interface ILeague is IERC165 {
     error CannotCreateMoreRace(uint256 _currentRaceNo, uint256 totalRace);
     error AlreadyRegistered();
     error InvalidRegister();
+    error NotEndYet();
 }
