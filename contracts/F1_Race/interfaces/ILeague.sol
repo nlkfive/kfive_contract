@@ -4,12 +4,26 @@ pragma solidity 0.8.4;
 import "@openzeppelin/contracts/utils/introspection/IERC165.sol";
 
 interface ILeague is IERC165 {
+
+    struct Race {
+        uint8 noSlot; // Max 26
+        uint32 startAt; // Max 4294967295 -> Sunday, 7 February 2106 06:28:15
+        bytes27 result; // 27 bytes - Remove first bytes
+    }
+
+    struct LeagueInfo {
+        uint8 totalRace; // Max 255 races
+        uint8 createdRace; // Max totalRace
+        uint8 endedRace; // Max totalRace
+        string leagueName;
+    }
+
     /**
      * @dev Create new auction
      */
     function createRace(
-        uint256 slots,
-        uint256 startAt
+        uint8 noSlot,
+        uint32 startAt
     ) external returns (bytes32);
 
     /**
@@ -18,7 +32,7 @@ interface ILeague is IERC165 {
     function raceInfo(bytes32 raceId)
         external
         view
-        returns (uint256 slots, uint256 startAt, bytes32 result);
+        returns (Race memory);
 
     /**
      * @dev Check registered slot.
@@ -26,7 +40,7 @@ interface ILeague is IERC165 {
     function registeredSlot(address register, bytes32 raceId) 
         external 
         view 
-    returns (uint256);
+    returns (uint8);
 
     /**
      * @dev Check total score of this league.
@@ -34,23 +48,15 @@ interface ILeague is IERC165 {
     function getTotalScore(address register) 
         external 
         view 
-        returns (uint256);
+        returns (uint8);
 
     /**
-     * @dev League is ended
+     * @dev Get league info.
      */
-    function ended() 
+    function leagueInfo() 
         external 
         view 
-        returns (bool);
-
-    /**
-     * @dev Get league name.
-     */
-    function leagueName() 
-        external 
-        view 
-        returns (string memory);
+        returns (LeagueInfo memory);
 
     /**
      * @dev Cancel race by id.
@@ -60,14 +66,14 @@ interface ILeague is IERC165 {
     /**
      * @dev Register race by id.
      */
-    function registerRace(bytes32 raceId, uint8 slotId) external;
+    function registerRace(uint8 slotId, bytes32 raceId) external;
 
     /**
      * @dev Update race result.
      */
     function updateRaceResult(
         bytes32 raceId,
-        bytes32 result
+        bytes27 result
     ) external;
 
     /**
@@ -92,20 +98,20 @@ interface ILeague is IERC165 {
     /**
      * @dev Receive reward after race ended.
      */
-    function receiveReward(bytes32 raceId, uint256 slotId) external;
+    function receiveReward(uint8 slotId, bytes32 raceId) external;
 
     event RaceCreated(
-        bytes32 id,
-        uint256 slots,
-        uint256 startAt,
-        uint256 raceNo
+        uint8 noSlot,
+        uint8 raceNo,
+        uint32 startAt,
+        bytes32 id
     );
-    event RaceResultUpdated(bytes32 id, bytes32 result);
+    event RaceResultUpdated(bytes32 id, bytes27 result);
     event RaceCancelled(bytes32 id);
     event RewardAdded(bytes32 raceId, uint256 nftRewardId, uint256 winnerIndex);
-    event RewardReceived(bytes32 raceId, uint256 slotId, uint256 nftRewardId);
+    event RewardReceived(uint8 slotId, bytes32 raceId, uint256 nftRewardId);
     event RewardRemoved(bytes32 raceId, uint256 nftRewardId, uint256 winnerIndex);
-    event Registered(uint256 slotId, address participant, bytes32 raceId);
+    event Registered(uint8 slotId, address participant, bytes32 raceId);
 
     error TooLate(uint256 time);
     error TooEarly(uint256 time);
@@ -113,7 +119,6 @@ interface ILeague is IERC165 {
     error InvalidSlot();
     error RaceNotExisted();
     error RaceExisted();
-    error CannotCancel();
     error RewardIsNotExisted();
     error RewardIsExisted();
     error InvalidSender();
@@ -121,4 +126,5 @@ interface ILeague is IERC165 {
     error AlreadyRegistered();
     error InvalidRegister();
     error NotEndYet();
+    error RaceWasUpdated();
 }

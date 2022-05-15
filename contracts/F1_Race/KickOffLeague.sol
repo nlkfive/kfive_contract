@@ -9,7 +9,7 @@ contract KickOffLeague is League
     using Address for address;
     IKfiveNFT private _nlggt;
 
-    constructor(address nlggtAddr, address raceReward, uint256 noRace, string memory _leagueName) League(raceReward, noRace, _leagueName){
+    constructor(uint8 noRace, address nlggtAddr, address raceReward, string memory _leagueName) League(noRace, raceReward, _leagueName){
         if(!nlggtAddr.isContract()) revert InvalidContract();
         _nlggt = IKfiveNFT(nlggtAddr);
     }

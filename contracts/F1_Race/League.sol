@@ -17,29 +17,31 @@ abstract contract League is
     using Address for address;
     using SafeMath for uint256;
 
-    string private _leagueName;
-    uint256 private _totalRace;
+    LeagueInfo private _leagueInfo;
     IKfiveNFT private _f1Reward;
 
     // Race info
-    mapping(bytes32 => uint256) private _raceSlot;
-    mapping(bytes32 => uint256) private _raceStartAt;
-    mapping(bytes32 => bytes32) private _raceResult;
+    mapping(bytes32 => Race) private _raceInfo;
     // WinnerIndex => NFTID
     mapping(uint256 => uint256) private _listRewards;
     // RaceId -> User address -> slotId
     mapping(bytes32 => mapping(address => uint8)) private _registeredSlot;
-    bytes32[] private _listRaces;
+    // RaceNo -> RaceId
+    mapping(uint8 => bytes32) private _listRaces;
 
     constructor(
+        uint8 totalRace,
         address raceReward,
-        uint256 totalRace,
         string memory name
     ) {
         if(!raceReward.isContract()) revert InvalidContract();
         _f1Reward = IKfiveNFT(raceReward);
-        _totalRace = totalRace;
-        _leagueName = name;
+        _leagueInfo = LeagueInfo({
+            totalRace: totalRace,
+            createdRace: 0,
+            endedRace: 0,
+            leagueName: name
+        });
     }
     
     function supportsInterface(bytes4 interfaceId)
@@ -58,70 +60,54 @@ abstract contract League is
         external
         view
         override
-        returns (uint256 slots, uint256 startAt, bytes32 result)
+        returns (Race memory)
     {
-        slots = _raceSlot[raceId];
-        startAt = _raceStartAt[raceId];
-        result = _raceResult[raceId];
+        return _raceInfo[raceId];
     }
 
-    function leagueName() 
+    function leagueInfo() 
         external 
         view 
         override
-        returns (string memory) 
+        returns (LeagueInfo memory) 
     {
-        return _leagueName;
+        return _leagueInfo;
     }
 
-    function registeredSlot(address register, bytes32 raceId) 
+    function registeredSlot(address register, bytes32 raceId)
         external 
         view 
         override
-        returns (uint256) 
+        returns (uint8) 
     {
         return _registeredSlot[raceId][register];
     }
 
-    function getTotalScore(address register) 
+    function getTotalScore(address register)
         public 
         view 
         override
-        returns (uint256 score) 
+        returns (uint8 score) 
     {
-        for (uint256 i = 0; i < _listRaces.length; i++) {
+        for (uint8 i = 0; i < _leagueInfo.createdRace; i++) {
             bytes32 raceId = _listRaces[i];
             uint8 slotId = _registeredSlot[raceId][register];
-            score += uint8(_raceResult[raceId][slotId]);
+            score += uint8(_raceInfo[raceId].result[slotId]);
         }
-    }
-
-    function ended() 
-        public 
-        view 
-        override
-        returns (bool) 
-    {
-        for (uint256 i = 0; i < _listRaces.length; i++) {
-            bytes32 raceId = _listRaces[i];
-            if (_raceResult[raceId] == bytes32(0)){
-                return false;
-            }
-        }
-        return _listRaces.length == _totalRace;
     }
 
     function registerRace(
-        bytes32 raceId,
-        uint8 slotId
+        uint8 slotId,
+        bytes32 raceId
     )
         external 
         override
         whenNotPaused
     {
-        onlyBefore(_raceStartAt[raceId]);
+        Race memory _race = _raceInfo[raceId];
+        onlyBefore(_race.startAt);
         checkValidRegister();
-        if(slotId > _raceSlot[raceId] || slotId == 0) revert InvalidSlot();
+        if(slotId > _race.noSlot || slotId == 0) revert InvalidSlot();
         if(_registeredSlot[raceId][_msgSender()] != 0) revert AlreadyRegistered();
 
         _registeredSlot[raceId][_msgSender()] = slotId;
@@ -133,8 +119,8 @@ abstract contract League is
      * @dev Create new race
      */
     function createRace(
-        uint256 slots,
-        uint256 startAt
+        uint8 noSlot,
+        uint32 startAt
     ) 
         external 
         override 
@@ -142,29 +128,33 @@ abstract contract League is
         onlyRole(ADMIN_ROLE) 
         returns (bytes32)
     {
-        if(slots >= 32) revert InvalidSlot();
-        uint256 currentRaceIndex = _listRaces.length.add(1);
-        if (currentRaceIndex > _totalRace) revert CannotCreateMoreRace(currentRaceIndex, _totalRace);
+        if(noSlot > 26) revert InvalidSlot();
+        uint8 raceNo = _leagueInfo.createdRace + 1;
+        if (raceNo > _leagueInfo.totalRace) revert CannotCreateMoreRace(raceNo, _leagueInfo.totalRace);
         onlyBefore(startAt);
 
         bytes32 raceId = keccak256(
             abi.encodePacked(
-                currentRaceIndex,
-                slots,
+                raceNo,
+                noSlot,
                 startAt
             )
         );
-        if (_raceStartAt[raceId] != 0) revert RaceExisted();
-        _listRaces.push(raceId);
+        if (_raceInfo[raceId].startAt == 0) revert RaceNotExisted();
+        _leagueInfo.createdRace += 1;
+        _listRaces[raceNo] = raceId;
 
-        _raceSlot[raceId] = slots;
-        _raceStartAt[raceId] = startAt;
+        _raceInfo[raceId] = Race({
+            noSlot: noSlot,
+            startAt: startAt,
+            result: 0
+        });
 
         emit RaceCreated(
-            raceId,
-            slots,
+            noSlot,
+            raceNo,
             startAt,
-            currentRaceIndex
+            raceId
         );
         return raceId;
     }
@@ -178,28 +168,35 @@ abstract contract League is
         whenNotPaused
         onlyRole(ADMIN_ROLE)
     {
-        if (_raceStartAt[raceId] == 0) revert RaceNotExisted();
-        if (_raceResult[raceId] != 0) revert CannotCancel();
-        delete _raceStartAt[raceId];
-        delete _raceSlot[raceId];
+        Race memory _race = _raceInfo[raceId];
+        if (_race.startAt == 0) revert RaceNotExisted();
+        if (_race.result != 0) revert RaceWasUpdated();
+        _leagueInfo.endedRace = _leagueInfo.endedRace - 1;
+        delete _raceInfo[raceId];
         emit RaceCancelled(raceId);
     }
 
     /**
      * @dev Update race result.
+     * Highest score each race = 5 -> 51 races -> max score 255
+     * Highest score each race = 15 -> 17 races -> max score 255
+     * Result : Ignore first bytes because of slotId start at 1, 1 -> 26
      */
     function updateRaceResult(
         bytes32 raceId,
-        bytes32 result
+        bytes27 result
     ) 
         external 
-        override 
+        override
         whenNotPaused
         onlyRole(ADMIN_ROLE) 
     {
-        if (_raceStartAt[raceId] == 0) revert RaceNotExisted();
-        onlyAfter(_raceStartAt[raceId]);
-        _raceResult[raceId] = result;
+        Race storage _race = _raceInfo[raceId];
+        if (_race.startAt == 0) revert RaceNotExisted();
+        if (_race.result != 0) revert RaceWasUpdated();
+        onlyAfter(_race.startAt);
+        _race.result = result;
+        _leagueInfo.endedRace = _leagueInfo.endedRace + 1;
         emit RaceResultUpdated(raceId, result);
     }
 
@@ -246,13 +243,13 @@ abstract contract League is
     /**
      * @dev Receive reward after race ended.
      */
-    function receiveReward(bytes32 raceId, uint256 slotId) 
+    function receiveReward(uint8 slotId, bytes32 raceId) 
         external 
         override
         whenNotPaused
     {
-        if (!ended()) revert NotEndYet();
-        
+        if (_leagueInfo.endedRace < _leagueInfo.totalRace) revert NotEndYet();
+
     }
 
     function removeReward(
