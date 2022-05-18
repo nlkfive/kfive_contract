@@ -99,4 +99,9 @@ interface IMarketplaceStorage is IERC165, IOrder, IAuction {
      * @dev Delete order by nftAsset.
      */
     function deleteOrder(bytes32 nftAsset) external;
+
+    error InvalidMkpSender();
+    error AssetNotExisted();
+    error AssetUnvailable();
+    error AuctionAlreadyEnded();
 }

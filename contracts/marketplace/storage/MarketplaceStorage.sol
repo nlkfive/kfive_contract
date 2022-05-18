@@ -127,7 +127,7 @@ contract MarketplaceStorage is
         onlyFrom(auctionMarketplace) 
     {
         bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
-        require(assetIsAvailable(nftAsset), "Unvailable");
+        if(!assetIsAvailable(nftAsset)) revert AssetUnvailable();
 
         // Update current running before actually create
         runningActionIds[nftAsset] = auctionId;
@@ -164,7 +164,7 @@ contract MarketplaceStorage is
         whenNotPaused
         onlyFrom(auctionMarketplace)
     {
-        require(runningActionIds[nftAsset] != 0, "Already ended");
+        if (runningActionIds[nftAsset] == 0) revert AuctionAlreadyEnded();
         delete runningActionIds[nftAsset];
     }
 
@@ -208,7 +208,7 @@ contract MarketplaceStorage is
         whenNotPaused
     {
         bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
-        require(assetIsAvailable(nftAsset), "Unvailable");
+        if(!assetIsAvailable(nftAsset)) revert AssetUnvailable();
 
         orderByNftAsset[nftAsset] = Order({
             orderId: orderId,
@@ -234,7 +234,7 @@ contract MarketplaceStorage is
         whenNotPaused
         onlyFrom(orderMarketplace)
     {
-        require(orderByNftAsset[nftAsset].orderId != bytes32(0), "Not existed");
+        if(orderByNftAsset[nftAsset].orderId == bytes32(0)) revert AssetNotExisted();
         delete orderByNftAsset[nftAsset];
     }
 
@@ -247,7 +247,7 @@ contract MarketplaceStorage is
     }
 
     modifier onlyFrom(address contractAddr) {
-        require(_msgSender() == contractAddr, "Invalid sender");
+        if(_msgSender() != contractAddr) revert InvalidMkpSender();
         _;
     }
 }
