@@ -30,7 +30,7 @@ var (
 
 // IAuctionMetaData contains all meta data concerning the IAuction contract.
 var IAuctionMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[],\"name\":\"NotRunning\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooEarly\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooLate\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"AuctionCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"}],\"name\":\"AuctionCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"AuctionEnded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"deposit\",\"type\":\"uint256\"}],\"name\":\"AuctionRefund\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"totalPrice\",\"type\":\"uint256\"}],\"name\":\"AuctionSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindedBid\",\"type\":\"bytes32\"}],\"name\":\"BidSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"fake\",\"type\":\"bool\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"RevealFailed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"fake\",\"type\":\"bool\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindedBid\",\"type\":\"bytes32\"}],\"name\":\"RevealSuccessful\",\"type\":\"event\"}]",
+	ABI: "[{\"inputs\":[],\"name\":\"NotRunning\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooEarly\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooLate\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"AuctionCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"}],\"name\":\"AuctionCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"AuctionEnded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"deposit\",\"type\":\"uint256\"}],\"name\":\"AuctionRefund\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"totalPrice\",\"type\":\"uint256\"}],\"name\":\"AuctionSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindedBid\",\"type\":\"bytes32\"}],\"name\":\"BidSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"fake\",\"type\":\"bool\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"revealer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"RevealFailed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"fake\",\"type\":\"bool\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"revealer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindedBid\",\"type\":\"bytes32\"}],\"name\":\"RevealSuccessful\",\"type\":\"event\"}]",
 }
 
 // IAuctionABI is the input ABI used to generate the binding from.
@@ -254,15 +254,10 @@ type IAuctionAuctionCancelled struct {
 
 // FilterAuctionCancelled is a free log retrieval operation binding the contract event 0xd88fab4b08bf76f15cf2d6e03e382acf1edd6790ab82967e406abac37db20288.
 //
-// Solidity: event AuctionCancelled(bytes32 indexed auctionId)
-func (_IAuction *IAuctionFilterer) FilterAuctionCancelled(opts *bind.FilterOpts, auctionId [][32]byte) (*IAuctionAuctionCancelledIterator, error) {
+// Solidity: event AuctionCancelled(bytes32 auctionId)
+func (_IAuction *IAuctionFilterer) FilterAuctionCancelled(opts *bind.FilterOpts) (*IAuctionAuctionCancelledIterator, error) {
 
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IAuction.contract.FilterLogs(opts, "AuctionCancelled", auctionIdRule)
+	logs, sub, err := _IAuction.contract.FilterLogs(opts, "AuctionCancelled")
 	if err != nil {
 		return nil, err
 	}
@@ -271,15 +266,10 @@ func (_IAuction *IAuctionFilterer) FilterAuctionCancelled(opts *bind.FilterOpts,
 
 // WatchAuctionCancelled is a free log subscription operation binding the contract event 0xd88fab4b08bf76f15cf2d6e03e382acf1edd6790ab82967e406abac37db20288.
 //
-// Solidity: event AuctionCancelled(bytes32 indexed auctionId)
-func (_IAuction *IAuctionFilterer) WatchAuctionCancelled(opts *bind.WatchOpts, sink chan<- *IAuctionAuctionCancelled, auctionId [][32]byte) (event.Subscription, error) {
+// Solidity: event AuctionCancelled(bytes32 auctionId)
+func (_IAuction *IAuctionFilterer) WatchAuctionCancelled(opts *bind.WatchOpts, sink chan<- *IAuctionAuctionCancelled) (event.Subscription, error) {
 
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IAuction.contract.WatchLogs(opts, "AuctionCancelled", auctionIdRule)
+	logs, sub, err := _IAuction.contract.WatchLogs(opts, "AuctionCancelled")
 	if err != nil {
 		return nil, err
 	}
@@ -313,7 +303,7 @@ func (_IAuction *IAuctionFilterer) WatchAuctionCancelled(opts *bind.WatchOpts, s
 
 // ParseAuctionCancelled is a log parse operation binding the contract event 0xd88fab4b08bf76f15cf2d6e03e382acf1edd6790ab82967e406abac37db20288.
 //
-// Solidity: event AuctionCancelled(bytes32 indexed auctionId)
+// Solidity: event AuctionCancelled(bytes32 auctionId)
 func (_IAuction *IAuctionFilterer) ParseAuctionCancelled(log types.Log) (*IAuctionAuctionCancelled, error) {
 	event := new(IAuctionAuctionCancelled)
 	if err := _IAuction.contract.UnpackLog(event, "AuctionCancelled", log); err != nil {
@@ -404,20 +394,10 @@ type IAuctionAuctionCreated struct {
 
 // FilterAuctionCreated is a free log retrieval operation binding the contract event 0xaf4bad306f14d5c908e5b871fa54296ed7d4f29b8092bf5062de6813c247e54b.
 //
-// Solidity: event AuctionCreated(address indexed seller, address nftAddress, bytes32 indexed auctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
-func (_IAuction *IAuctionFilterer) FilterAuctionCreated(opts *bind.FilterOpts, seller []common.Address, auctionId [][32]byte) (*IAuctionAuctionCreatedIterator, error) {
+// Solidity: event AuctionCreated(address seller, address nftAddress, bytes32 auctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
+func (_IAuction *IAuctionFilterer) FilterAuctionCreated(opts *bind.FilterOpts) (*IAuctionAuctionCreatedIterator, error) {
 
-	var sellerRule []interface{}
-	for _, sellerItem := range seller {
-		sellerRule = append(sellerRule, sellerItem)
-	}
-
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IAuction.contract.FilterLogs(opts, "AuctionCreated", sellerRule, auctionIdRule)
+	logs, sub, err := _IAuction.contract.FilterLogs(opts, "AuctionCreated")
 	if err != nil {
 		return nil, err
 	}
@@ -426,20 +406,10 @@ func (_IAuction *IAuctionFilterer) FilterAuctionCreated(opts *bind.FilterOpts, s
 
 // WatchAuctionCreated is a free log subscription operation binding the contract event 0xaf4bad306f14d5c908e5b871fa54296ed7d4f29b8092bf5062de6813c247e54b.
 //
-// Solidity: event AuctionCreated(address indexed seller, address nftAddress, bytes32 indexed auctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
-func (_IAuction *IAuctionFilterer) WatchAuctionCreated(opts *bind.WatchOpts, sink chan<- *IAuctionAuctionCreated, seller []common.Address, auctionId [][32]byte) (event.Subscription, error) {
+// Solidity: event AuctionCreated(address seller, address nftAddress, bytes32 auctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
+func (_IAuction *IAuctionFilterer) WatchAuctionCreated(opts *bind.WatchOpts, sink chan<- *IAuctionAuctionCreated) (event.Subscription, error) {
 
-	var sellerRule []interface{}
-	for _, sellerItem := range seller {
-		sellerRule = append(sellerRule, sellerItem)
-	}
-
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IAuction.contract.WatchLogs(opts, "AuctionCreated", sellerRule, auctionIdRule)
+	logs, sub, err := _IAuction.contract.WatchLogs(opts, "AuctionCreated")
 	if err != nil {
 		return nil, err
 	}
@@ -473,7 +443,7 @@ func (_IAuction *IAuctionFilterer) WatchAuctionCreated(opts *bind.WatchOpts, sin
 
 // ParseAuctionCreated is a log parse operation binding the contract event 0xaf4bad306f14d5c908e5b871fa54296ed7d4f29b8092bf5062de6813c247e54b.
 //
-// Solidity: event AuctionCreated(address indexed seller, address nftAddress, bytes32 indexed auctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
+// Solidity: event AuctionCreated(address seller, address nftAddress, bytes32 auctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
 func (_IAuction *IAuctionFilterer) ParseAuctionCreated(log types.Log) (*IAuctionAuctionCreated, error) {
 	event := new(IAuctionAuctionCreated)
 	if err := _IAuction.contract.UnpackLog(event, "AuctionCreated", log); err != nil {
@@ -558,15 +528,10 @@ type IAuctionAuctionEnded struct {
 
 // FilterAuctionEnded is a free log retrieval operation binding the contract event 0x447d0298e6e2716a4343195759c35b277a60b76e628284d93262fa9869db9921.
 //
-// Solidity: event AuctionEnded(bytes32 indexed auctionId)
-func (_IAuction *IAuctionFilterer) FilterAuctionEnded(opts *bind.FilterOpts, auctionId [][32]byte) (*IAuctionAuctionEndedIterator, error) {
+// Solidity: event AuctionEnded(bytes32 auctionId)
+func (_IAuction *IAuctionFilterer) FilterAuctionEnded(opts *bind.FilterOpts) (*IAuctionAuctionEndedIterator, error) {
 
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IAuction.contract.FilterLogs(opts, "AuctionEnded", auctionIdRule)
+	logs, sub, err := _IAuction.contract.FilterLogs(opts, "AuctionEnded")
 	if err != nil {
 		return nil, err
 	}
@@ -575,15 +540,10 @@ func (_IAuction *IAuctionFilterer) FilterAuctionEnded(opts *bind.FilterOpts, auc
 
 // WatchAuctionEnded is a free log subscription operation binding the contract event 0x447d0298e6e2716a4343195759c35b277a60b76e628284d93262fa9869db9921.
 //
-// Solidity: event AuctionEnded(bytes32 indexed auctionId)
-func (_IAuction *IAuctionFilterer) WatchAuctionEnded(opts *bind.WatchOpts, sink chan<- *IAuctionAuctionEnded, auctionId [][32]byte) (event.Subscription, error) {
+// Solidity: event AuctionEnded(bytes32 auctionId)
+func (_IAuction *IAuctionFilterer) WatchAuctionEnded(opts *bind.WatchOpts, sink chan<- *IAuctionAuctionEnded) (event.Subscription, error) {
 
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IAuction.contract.WatchLogs(opts, "AuctionEnded", auctionIdRule)
+	logs, sub, err := _IAuction.contract.WatchLogs(opts, "AuctionEnded")
 	if err != nil {
 		return nil, err
 	}
@@ -617,7 +577,7 @@ func (_IAuction *IAuctionFilterer) WatchAuctionEnded(opts *bind.WatchOpts, sink 
 
 // ParseAuctionEnded is a log parse operation binding the contract event 0x447d0298e6e2716a4343195759c35b277a60b76e628284d93262fa9869db9921.
 //
-// Solidity: event AuctionEnded(bytes32 indexed auctionId)
+// Solidity: event AuctionEnded(bytes32 auctionId)
 func (_IAuction *IAuctionFilterer) ParseAuctionEnded(log types.Log) (*IAuctionAuctionEnded, error) {
 	event := new(IAuctionAuctionEnded)
 	if err := _IAuction.contract.UnpackLog(event, "AuctionEnded", log); err != nil {
@@ -704,15 +664,10 @@ type IAuctionAuctionRefund struct {
 
 // FilterAuctionRefund is a free log retrieval operation binding the contract event 0x6be22eb0241a0575f8b866ff176552cf71078977d6d30e501dd2d326c8d57114.
 //
-// Solidity: event AuctionRefund(address indexed bidder, bytes32 auctionId, uint256 deposit)
-func (_IAuction *IAuctionFilterer) FilterAuctionRefund(opts *bind.FilterOpts, bidder []common.Address) (*IAuctionAuctionRefundIterator, error) {
+// Solidity: event AuctionRefund(address bidder, bytes32 auctionId, uint256 deposit)
+func (_IAuction *IAuctionFilterer) FilterAuctionRefund(opts *bind.FilterOpts) (*IAuctionAuctionRefundIterator, error) {
 
-	var bidderRule []interface{}
-	for _, bidderItem := range bidder {
-		bidderRule = append(bidderRule, bidderItem)
-	}
-
-	logs, sub, err := _IAuction.contract.FilterLogs(opts, "AuctionRefund", bidderRule)
+	logs, sub, err := _IAuction.contract.FilterLogs(opts, "AuctionRefund")
 	if err != nil {
 		return nil, err
 	}
@@ -721,15 +676,10 @@ func (_IAuction *IAuctionFilterer) FilterAuctionRefund(opts *bind.FilterOpts, bi
 
 // WatchAuctionRefund is a free log subscription operation binding the contract event 0x6be22eb0241a0575f8b866ff176552cf71078977d6d30e501dd2d326c8d57114.
 //
-// Solidity: event AuctionRefund(address indexed bidder, bytes32 auctionId, uint256 deposit)
-func (_IAuction *IAuctionFilterer) WatchAuctionRefund(opts *bind.WatchOpts, sink chan<- *IAuctionAuctionRefund, bidder []common.Address) (event.Subscription, error) {
+// Solidity: event AuctionRefund(address bidder, bytes32 auctionId, uint256 deposit)
+func (_IAuction *IAuctionFilterer) WatchAuctionRefund(opts *bind.WatchOpts, sink chan<- *IAuctionAuctionRefund) (event.Subscription, error) {
 
-	var bidderRule []interface{}
-	for _, bidderItem := range bidder {
-		bidderRule = append(bidderRule, bidderItem)
-	}
-
-	logs, sub, err := _IAuction.contract.WatchLogs(opts, "AuctionRefund", bidderRule)
+	logs, sub, err := _IAuction.contract.WatchLogs(opts, "AuctionRefund")
 	if err != nil {
 		return nil, err
 	}
@@ -763,7 +713,7 @@ func (_IAuction *IAuctionFilterer) WatchAuctionRefund(opts *bind.WatchOpts, sink
 
 // ParseAuctionRefund is a log parse operation binding the contract event 0x6be22eb0241a0575f8b866ff176552cf71078977d6d30e501dd2d326c8d57114.
 //
-// Solidity: event AuctionRefund(address indexed bidder, bytes32 auctionId, uint256 deposit)
+// Solidity: event AuctionRefund(address bidder, bytes32 auctionId, uint256 deposit)
 func (_IAuction *IAuctionFilterer) ParseAuctionRefund(log types.Log) (*IAuctionAuctionRefund, error) {
 	event := new(IAuctionAuctionRefund)
 	if err := _IAuction.contract.UnpackLog(event, "AuctionRefund", log); err != nil {
@@ -851,23 +801,10 @@ type IAuctionAuctionSuccessful struct {
 
 // FilterAuctionSuccessful is a free log retrieval operation binding the contract event 0x5ed769e966210f5d06d68e75831871131255cee237cb8edf78565aae170475ea.
 //
-// Solidity: event AuctionSuccessful(address indexed seller, address indexed buyer, bytes32 indexed auctionId, uint256 totalPrice)
-func (_IAuction *IAuctionFilterer) FilterAuctionSuccessful(opts *bind.FilterOpts, seller []common.Address, buyer []common.Address, auctionId [][32]byte) (*IAuctionAuctionSuccessfulIterator, error) {
+// Solidity: event AuctionSuccessful(address seller, address buyer, bytes32 auctionId, uint256 totalPrice)
+func (_IAuction *IAuctionFilterer) FilterAuctionSuccessful(opts *bind.FilterOpts) (*IAuctionAuctionSuccessfulIterator, error) {
 
-	var sellerRule []interface{}
-	for _, sellerItem := range seller {
-		sellerRule = append(sellerRule, sellerItem)
-	}
-	var buyerRule []interface{}
-	for _, buyerItem := range buyer {
-		buyerRule = append(buyerRule, buyerItem)
-	}
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IAuction.contract.FilterLogs(opts, "AuctionSuccessful", sellerRule, buyerRule, auctionIdRule)
+	logs, sub, err := _IAuction.contract.FilterLogs(opts, "AuctionSuccessful")
 	if err != nil {
 		return nil, err
 	}
@@ -876,23 +813,10 @@ func (_IAuction *IAuctionFilterer) FilterAuctionSuccessful(opts *bind.FilterOpts
 
 // WatchAuctionSuccessful is a free log subscription operation binding the contract event 0x5ed769e966210f5d06d68e75831871131255cee237cb8edf78565aae170475ea.
 //
-// Solidity: event AuctionSuccessful(address indexed seller, address indexed buyer, bytes32 indexed auctionId, uint256 totalPrice)
-func (_IAuction *IAuctionFilterer) WatchAuctionSuccessful(opts *bind.WatchOpts, sink chan<- *IAuctionAuctionSuccessful, seller []common.Address, buyer []common.Address, auctionId [][32]byte) (event.Subscription, error) {
+// Solidity: event AuctionSuccessful(address seller, address buyer, bytes32 auctionId, uint256 totalPrice)
+func (_IAuction *IAuctionFilterer) WatchAuctionSuccessful(opts *bind.WatchOpts, sink chan<- *IAuctionAuctionSuccessful) (event.Subscription, error) {
 
-	var sellerRule []interface{}
-	for _, sellerItem := range seller {
-		sellerRule = append(sellerRule, sellerItem)
-	}
-	var buyerRule []interface{}
-	for _, buyerItem := range buyer {
-		buyerRule = append(buyerRule, buyerItem)
-	}
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IAuction.contract.WatchLogs(opts, "AuctionSuccessful", sellerRule, buyerRule, auctionIdRule)
+	logs, sub, err := _IAuction.contract.WatchLogs(opts, "AuctionSuccessful")
 	if err != nil {
 		return nil, err
 	}
@@ -926,7 +850,7 @@ func (_IAuction *IAuctionFilterer) WatchAuctionSuccessful(opts *bind.WatchOpts, 
 
 // ParseAuctionSuccessful is a log parse operation binding the contract event 0x5ed769e966210f5d06d68e75831871131255cee237cb8edf78565aae170475ea.
 //
-// Solidity: event AuctionSuccessful(address indexed seller, address indexed buyer, bytes32 indexed auctionId, uint256 totalPrice)
+// Solidity: event AuctionSuccessful(address seller, address buyer, bytes32 auctionId, uint256 totalPrice)
 func (_IAuction *IAuctionFilterer) ParseAuctionSuccessful(log types.Log) (*IAuctionAuctionSuccessful, error) {
 	event := new(IAuctionAuctionSuccessful)
 	if err := _IAuction.contract.UnpackLog(event, "AuctionSuccessful", log); err != nil {
@@ -1013,19 +937,10 @@ type IAuctionBidSuccessful struct {
 
 // FilterBidSuccessful is a free log retrieval operation binding the contract event 0x327e5a459c964bcfa4f6d71b32a04a53b0002417b0924a8057d9f12e688e0bec.
 //
-// Solidity: event BidSuccessful(address indexed bidder, bytes32 indexed auctionId, bytes32 blindedBid)
-func (_IAuction *IAuctionFilterer) FilterBidSuccessful(opts *bind.FilterOpts, bidder []common.Address, auctionId [][32]byte) (*IAuctionBidSuccessfulIterator, error) {
+// Solidity: event BidSuccessful(address bidder, bytes32 auctionId, bytes32 blindedBid)
+func (_IAuction *IAuctionFilterer) FilterBidSuccessful(opts *bind.FilterOpts) (*IAuctionBidSuccessfulIterator, error) {
 
-	var bidderRule []interface{}
-	for _, bidderItem := range bidder {
-		bidderRule = append(bidderRule, bidderItem)
-	}
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IAuction.contract.FilterLogs(opts, "BidSuccessful", bidderRule, auctionIdRule)
+	logs, sub, err := _IAuction.contract.FilterLogs(opts, "BidSuccessful")
 	if err != nil {
 		return nil, err
 	}
@@ -1034,19 +949,10 @@ func (_IAuction *IAuctionFilterer) FilterBidSuccessful(opts *bind.FilterOpts, bi
 
 // WatchBidSuccessful is a free log subscription operation binding the contract event 0x327e5a459c964bcfa4f6d71b32a04a53b0002417b0924a8057d9f12e688e0bec.
 //
-// Solidity: event BidSuccessful(address indexed bidder, bytes32 indexed auctionId, bytes32 blindedBid)
-func (_IAuction *IAuctionFilterer) WatchBidSuccessful(opts *bind.WatchOpts, sink chan<- *IAuctionBidSuccessful, bidder []common.Address, auctionId [][32]byte) (event.Subscription, error) {
+// Solidity: event BidSuccessful(address bidder, bytes32 auctionId, bytes32 blindedBid)
+func (_IAuction *IAuctionFilterer) WatchBidSuccessful(opts *bind.WatchOpts, sink chan<- *IAuctionBidSuccessful) (event.Subscription, error) {
 
-	var bidderRule []interface{}
-	for _, bidderItem := range bidder {
-		bidderRule = append(bidderRule, bidderItem)
-	}
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IAuction.contract.WatchLogs(opts, "BidSuccessful", bidderRule, auctionIdRule)
+	logs, sub, err := _IAuction.contract.WatchLogs(opts, "BidSuccessful")
 	if err != nil {
 		return nil, err
 	}
@@ -1080,7 +986,7 @@ func (_IAuction *IAuctionFilterer) WatchBidSuccessful(opts *bind.WatchOpts, sink
 
 // ParseBidSuccessful is a log parse operation binding the contract event 0x327e5a459c964bcfa4f6d71b32a04a53b0002417b0924a8057d9f12e688e0bec.
 //
-// Solidity: event BidSuccessful(address indexed bidder, bytes32 indexed auctionId, bytes32 blindedBid)
+// Solidity: event BidSuccessful(address bidder, bytes32 auctionId, bytes32 blindedBid)
 func (_IAuction *IAuctionFilterer) ParseBidSuccessful(log types.Log) (*IAuctionBidSuccessful, error) {
 	event := new(IAuctionBidSuccessful)
 	if err := _IAuction.contract.UnpackLog(event, "BidSuccessful", log); err != nil {
@@ -1160,39 +1066,30 @@ func (it *IAuctionRevealFailedIterator) Close() error {
 // IAuctionRevealFailed represents a RevealFailed event raised by the IAuction contract.
 type IAuctionRevealFailed struct {
 	Fake      bool
+	Revealer  common.Address
 	AuctionId [32]byte
 	Value     *big.Int
 	Raw       types.Log // Blockchain specific contextual infos
 }
 
-// FilterRevealFailed is a free log retrieval operation binding the contract event 0x8491bb9f45e55b89e41be77fb6f559dcedeaed2ed85a61f74d039b2f1389d4a3.
+// FilterRevealFailed is a free log retrieval operation binding the contract event 0x255ef988657daaeb7f921a0c776fa6efb221748fb64e61ab1febb0fd37f67175.
 //
-// Solidity: event RevealFailed(bool fake, bytes32 indexed auctionId, uint256 value)
-func (_IAuction *IAuctionFilterer) FilterRevealFailed(opts *bind.FilterOpts, auctionId [][32]byte) (*IAuctionRevealFailedIterator, error) {
+// Solidity: event RevealFailed(bool fake, address revealer, bytes32 auctionId, uint256 value)
+func (_IAuction *IAuctionFilterer) FilterRevealFailed(opts *bind.FilterOpts) (*IAuctionRevealFailedIterator, error) {
 
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IAuction.contract.FilterLogs(opts, "RevealFailed", auctionIdRule)
+	logs, sub, err := _IAuction.contract.FilterLogs(opts, "RevealFailed")
 	if err != nil {
 		return nil, err
 	}
 	return &IAuctionRevealFailedIterator{contract: _IAuction.contract, event: "RevealFailed", logs: logs, sub: sub}, nil
 }
 
-// WatchRevealFailed is a free log subscription operation binding the contract event 0x8491bb9f45e55b89e41be77fb6f559dcedeaed2ed85a61f74d039b2f1389d4a3.
+// WatchRevealFailed is a free log subscription operation binding the contract event 0x255ef988657daaeb7f921a0c776fa6efb221748fb64e61ab1febb0fd37f67175.
 //
-// Solidity: event RevealFailed(bool fake, bytes32 indexed auctionId, uint256 value)
-func (_IAuction *IAuctionFilterer) WatchRevealFailed(opts *bind.WatchOpts, sink chan<- *IAuctionRevealFailed, auctionId [][32]byte) (event.Subscription, error) {
+// Solidity: event RevealFailed(bool fake, address revealer, bytes32 auctionId, uint256 value)
+func (_IAuction *IAuctionFilterer) WatchRevealFailed(opts *bind.WatchOpts, sink chan<- *IAuctionRevealFailed) (event.Subscription, error) {
 
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IAuction.contract.WatchLogs(opts, "RevealFailed", auctionIdRule)
+	logs, sub, err := _IAuction.contract.WatchLogs(opts, "RevealFailed")
 	if err != nil {
 		return nil, err
 	}
@@ -1224,9 +1121,9 @@ func (_IAuction *IAuctionFilterer) WatchRevealFailed(opts *bind.WatchOpts, sink 
 	}), nil
 }
 
-// ParseRevealFailed is a log parse operation binding the contract event 0x8491bb9f45e55b89e41be77fb6f559dcedeaed2ed85a61f74d039b2f1389d4a3.
+// ParseRevealFailed is a log parse operation binding the contract event 0x255ef988657daaeb7f921a0c776fa6efb221748fb64e61ab1febb0fd37f67175.
 //
-// Solidity: event RevealFailed(bool fake, bytes32 indexed auctionId, uint256 value)
+// Solidity: event RevealFailed(bool fake, address revealer, bytes32 auctionId, uint256 value)
 func (_IAuction *IAuctionFilterer) ParseRevealFailed(log types.Log) (*IAuctionRevealFailed, error) {
 	event := new(IAuctionRevealFailed)
 	if err := _IAuction.contract.UnpackLog(event, "RevealFailed", log); err != nil {
@@ -1306,40 +1203,31 @@ func (it *IAuctionRevealSuccessfulIterator) Close() error {
 // IAuctionRevealSuccessful represents a RevealSuccessful event raised by the IAuction contract.
 type IAuctionRevealSuccessful struct {
 	Fake       bool
+	Revealer   common.Address
 	AuctionId  [32]byte
 	Value      *big.Int
 	BlindedBid [32]byte
 	Raw        types.Log // Blockchain specific contextual infos
 }
 
-// FilterRevealSuccessful is a free log retrieval operation binding the contract event 0xc69be17b446ade79dcd9f07e13f1c8493dd4a1940caf6318d617fbd25d256d9b.
+// FilterRevealSuccessful is a free log retrieval operation binding the contract event 0xabef59dc3ae014d197fad42649c58d34bfc816d3e1a7f26ca32c13611b13e7a1.
 //
-// Solidity: event RevealSuccessful(bool fake, bytes32 indexed auctionId, uint256 value, bytes32 blindedBid)
-func (_IAuction *IAuctionFilterer) FilterRevealSuccessful(opts *bind.FilterOpts, auctionId [][32]byte) (*IAuctionRevealSuccessfulIterator, error) {
+// Solidity: event RevealSuccessful(bool fake, address revealer, bytes32 auctionId, uint256 value, bytes32 blindedBid)
+func (_IAuction *IAuctionFilterer) FilterRevealSuccessful(opts *bind.FilterOpts) (*IAuctionRevealSuccessfulIterator, error) {
 
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IAuction.contract.FilterLogs(opts, "RevealSuccessful", auctionIdRule)
+	logs, sub, err := _IAuction.contract.FilterLogs(opts, "RevealSuccessful")
 	if err != nil {
 		return nil, err
 	}
 	return &IAuctionRevealSuccessfulIterator{contract: _IAuction.contract, event: "RevealSuccessful", logs: logs, sub: sub}, nil
 }
 
-// WatchRevealSuccessful is a free log subscription operation binding the contract event 0xc69be17b446ade79dcd9f07e13f1c8493dd4a1940caf6318d617fbd25d256d9b.
+// WatchRevealSuccessful is a free log subscription operation binding the contract event 0xabef59dc3ae014d197fad42649c58d34bfc816d3e1a7f26ca32c13611b13e7a1.
 //
-// Solidity: event RevealSuccessful(bool fake, bytes32 indexed auctionId, uint256 value, bytes32 blindedBid)
-func (_IAuction *IAuctionFilterer) WatchRevealSuccessful(opts *bind.WatchOpts, sink chan<- *IAuctionRevealSuccessful, auctionId [][32]byte) (event.Subscription, error) {
+// Solidity: event RevealSuccessful(bool fake, address revealer, bytes32 auctionId, uint256 value, bytes32 blindedBid)
+func (_IAuction *IAuctionFilterer) WatchRevealSuccessful(opts *bind.WatchOpts, sink chan<- *IAuctionRevealSuccessful) (event.Subscription, error) {
 
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IAuction.contract.WatchLogs(opts, "RevealSuccessful", auctionIdRule)
+	logs, sub, err := _IAuction.contract.WatchLogs(opts, "RevealSuccessful")
 	if err != nil {
 		return nil, err
 	}
@@ -1371,9 +1259,9 @@ func (_IAuction *IAuctionFilterer) WatchRevealSuccessful(opts *bind.WatchOpts, s
 	}), nil
 }
 
-// ParseRevealSuccessful is a log parse operation binding the contract event 0xc69be17b446ade79dcd9f07e13f1c8493dd4a1940caf6318d617fbd25d256d9b.
+// ParseRevealSuccessful is a log parse operation binding the contract event 0xabef59dc3ae014d197fad42649c58d34bfc816d3e1a7f26ca32c13611b13e7a1.
 //
-// Solidity: event RevealSuccessful(bool fake, bytes32 indexed auctionId, uint256 value, bytes32 blindedBid)
+// Solidity: event RevealSuccessful(bool fake, address revealer, bytes32 auctionId, uint256 value, bytes32 blindedBid)
 func (_IAuction *IAuctionFilterer) ParseRevealSuccessful(log types.Log) (*IAuctionRevealSuccessful, error) {
 	event := new(IAuctionRevealSuccessful)
 	if err := _IAuction.contract.UnpackLog(event, "RevealSuccessful", log); err != nil {

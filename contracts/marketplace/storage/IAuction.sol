@@ -9,34 +9,34 @@ interface IAuction {
 
     // AUCTION EVENTS
     event BidSuccessful(
-        address indexed bidder,
-        bytes32 indexed auctionId,
+        address bidder,
+        bytes32 auctionId,
         bytes32 blindedBid
     );
-    event RevealSuccessful(bool fake, bytes32 indexed auctionId, uint256 value, bytes32 blindedBid);
-    event RevealFailed(bool fake, bytes32 indexed auctionId, uint256 value);
-    event AuctionEnded(bytes32 indexed auctionId);
+    event RevealSuccessful(bool fake, address revealer, bytes32 auctionId, uint256 value, bytes32 blindedBid);
+    event RevealFailed(bool fake, address revealer, bytes32 auctionId, uint256 value);
+    event AuctionEnded(bytes32 auctionId);
     event AuctionRefund(
-        address indexed bidder,
+        address bidder,
         bytes32 auctionId,
         uint256 deposit
     );
     event AuctionCreated(
-        address indexed seller,
+        address seller,
         address nftAddress,
-        bytes32 indexed auctionId,
+        bytes32 auctionId,
         uint256 assetId,
         uint256 biddingEnd,
         uint256 revealEnd,
         uint256 startPriceInWei
     );
     event AuctionSuccessful(
-        address indexed seller,
-        address indexed buyer,
-        bytes32 indexed auctionId,
+        address seller,
+        address buyer,
+        bytes32 auctionId,
         uint256 totalPrice
     );
-    event AuctionCancelled(bytes32 indexed auctionId);
+    event AuctionCancelled(bytes32 auctionId);
 
     ////////////////////////////////////////////////////////////
     // STORAGE

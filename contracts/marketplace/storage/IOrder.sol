@@ -6,15 +6,15 @@ interface IOrder {
     // EVENTS
     ////////////////////////////////////////////////////////////
     event OrderCreated(
-        bytes32 indexed orderId,
-        uint256 indexed assetId,
-        address indexed seller,
+        bytes32 orderId,
+        uint256 assetId,
+        address seller,
         address nftAddress,
         uint256 priceInWei,
         uint256 expiredAt
     );
-    event OrderSuccessful(bytes32 indexed id, address indexed buyer);
-    event OrderCancelled(bytes32 indexed id);
+    event OrderSuccessful(bytes32 id, address buyer, address seller);
+    event OrderCancelled(bytes32 id);
 
     ////////////////////////////////////////////////////////////
     // STORAGE

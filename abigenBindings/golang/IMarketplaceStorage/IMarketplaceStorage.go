@@ -50,7 +50,7 @@ type IOrderOrder struct {
 
 // IMarketplaceStorageMetaData contains all meta data concerning the IMarketplaceStorage contract.
 var IMarketplaceStorageMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[],\"name\":\"AssetNotExisted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AssetUnvailable\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AuctionAlreadyEnded\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidMkpSender\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotRunning\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooEarly\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooLate\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"AuctionCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"}],\"name\":\"AuctionCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"AuctionEnded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"deposit\",\"type\":\"uint256\"}],\"name\":\"AuctionRefund\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"totalPrice\",\"type\":\"uint256\"}],\"name\":\"AuctionSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindedBid\",\"type\":\"bytes32\"}],\"name\":\"BidSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"}],\"name\":\"OrderCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"priceInWei\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"name\":\"OrderCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"}],\"name\":\"OrderSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"fake\",\"type\":\"bool\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"RevealFailed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"fake\",\"type\":\"bool\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindedBid\",\"type\":\"bytes32\"}],\"name\":\"RevealSuccessful\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"assetIsAvailable\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"auctionIsExisted\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"existed\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"auctionIsEnded\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"ended\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"auctionIsRunning\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"existed\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"assetOwner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"}],\"name\":\"createAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"getAuction\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"highestBidder\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"highestBid\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startPrice\",\"type\":\"uint256\"}],\"internalType\":\"structIAuction.Auction\",\"name\":\"order\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"auctionEnded\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"highestBid\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"updateHighestBid\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"priceInWei\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"name\":\"createOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"getOrder\",\"outputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"internalType\":\"structIOrder.Order\",\"name\":\"order\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"deleteOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
+	ABI: "[{\"inputs\":[],\"name\":\"AssetNotExisted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AssetUnvailable\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AuctionAlreadyEnded\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidMkpSender\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotRunning\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooEarly\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooLate\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"AuctionCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"}],\"name\":\"AuctionCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"AuctionEnded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"deposit\",\"type\":\"uint256\"}],\"name\":\"AuctionRefund\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"totalPrice\",\"type\":\"uint256\"}],\"name\":\"AuctionSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindedBid\",\"type\":\"bytes32\"}],\"name\":\"BidSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"}],\"name\":\"OrderCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"priceInWei\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"name\":\"OrderCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"}],\"name\":\"OrderSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"fake\",\"type\":\"bool\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"revealer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"RevealFailed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"fake\",\"type\":\"bool\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"revealer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindedBid\",\"type\":\"bytes32\"}],\"name\":\"RevealSuccessful\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"assetIsAvailable\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"auctionIsExisted\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"existed\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"auctionIsEnded\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"ended\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"auctionIsRunning\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"existed\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"assetOwner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"}],\"name\":\"createAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"getAuction\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"highestBidder\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"highestBid\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startPrice\",\"type\":\"uint256\"}],\"internalType\":\"structIAuction.Auction\",\"name\":\"order\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"auctionEnded\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"highestBid\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"updateHighestBid\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"priceInWei\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"name\":\"createOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"getOrder\",\"outputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"internalType\":\"structIOrder.Order\",\"name\":\"order\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"deleteOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
 // IMarketplaceStorageABI is the input ABI used to generate the binding from.
@@ -596,15 +596,10 @@ type IMarketplaceStorageAuctionCancelled struct {
 
 // FilterAuctionCancelled is a free log retrieval operation binding the contract event 0xd88fab4b08bf76f15cf2d6e03e382acf1edd6790ab82967e406abac37db20288.
 //
-// Solidity: event AuctionCancelled(bytes32 indexed auctionId)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterAuctionCancelled(opts *bind.FilterOpts, auctionId [][32]byte) (*IMarketplaceStorageAuctionCancelledIterator, error) {
+// Solidity: event AuctionCancelled(bytes32 auctionId)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterAuctionCancelled(opts *bind.FilterOpts) (*IMarketplaceStorageAuctionCancelledIterator, error) {
 
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "AuctionCancelled", auctionIdRule)
+	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "AuctionCancelled")
 	if err != nil {
 		return nil, err
 	}
@@ -613,15 +608,10 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterAuctionCancelled(
 
 // WatchAuctionCancelled is a free log subscription operation binding the contract event 0xd88fab4b08bf76f15cf2d6e03e382acf1edd6790ab82967e406abac37db20288.
 //
-// Solidity: event AuctionCancelled(bytes32 indexed auctionId)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchAuctionCancelled(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageAuctionCancelled, auctionId [][32]byte) (event.Subscription, error) {
+// Solidity: event AuctionCancelled(bytes32 auctionId)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchAuctionCancelled(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageAuctionCancelled) (event.Subscription, error) {
 
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "AuctionCancelled", auctionIdRule)
+	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "AuctionCancelled")
 	if err != nil {
 		return nil, err
 	}
@@ -655,7 +645,7 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchAuctionCancelled(o
 
 // ParseAuctionCancelled is a log parse operation binding the contract event 0xd88fab4b08bf76f15cf2d6e03e382acf1edd6790ab82967e406abac37db20288.
 //
-// Solidity: event AuctionCancelled(bytes32 indexed auctionId)
+// Solidity: event AuctionCancelled(bytes32 auctionId)
 func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParseAuctionCancelled(log types.Log) (*IMarketplaceStorageAuctionCancelled, error) {
 	event := new(IMarketplaceStorageAuctionCancelled)
 	if err := _IMarketplaceStorage.contract.UnpackLog(event, "AuctionCancelled", log); err != nil {
@@ -746,20 +736,10 @@ type IMarketplaceStorageAuctionCreated struct {
 
 // FilterAuctionCreated is a free log retrieval operation binding the contract event 0xaf4bad306f14d5c908e5b871fa54296ed7d4f29b8092bf5062de6813c247e54b.
 //
-// Solidity: event AuctionCreated(address indexed seller, address nftAddress, bytes32 indexed auctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterAuctionCreated(opts *bind.FilterOpts, seller []common.Address, auctionId [][32]byte) (*IMarketplaceStorageAuctionCreatedIterator, error) {
+// Solidity: event AuctionCreated(address seller, address nftAddress, bytes32 auctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterAuctionCreated(opts *bind.FilterOpts) (*IMarketplaceStorageAuctionCreatedIterator, error) {
 
-	var sellerRule []interface{}
-	for _, sellerItem := range seller {
-		sellerRule = append(sellerRule, sellerItem)
-	}
-
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "AuctionCreated", sellerRule, auctionIdRule)
+	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "AuctionCreated")
 	if err != nil {
 		return nil, err
 	}
@@ -768,20 +748,10 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterAuctionCreated(op
 
 // WatchAuctionCreated is a free log subscription operation binding the contract event 0xaf4bad306f14d5c908e5b871fa54296ed7d4f29b8092bf5062de6813c247e54b.
 //
-// Solidity: event AuctionCreated(address indexed seller, address nftAddress, bytes32 indexed auctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchAuctionCreated(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageAuctionCreated, seller []common.Address, auctionId [][32]byte) (event.Subscription, error) {
+// Solidity: event AuctionCreated(address seller, address nftAddress, bytes32 auctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchAuctionCreated(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageAuctionCreated) (event.Subscription, error) {
 
-	var sellerRule []interface{}
-	for _, sellerItem := range seller {
-		sellerRule = append(sellerRule, sellerItem)
-	}
-
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "AuctionCreated", sellerRule, auctionIdRule)
+	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "AuctionCreated")
 	if err != nil {
 		return nil, err
 	}
@@ -815,7 +785,7 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchAuctionCreated(opt
 
 // ParseAuctionCreated is a log parse operation binding the contract event 0xaf4bad306f14d5c908e5b871fa54296ed7d4f29b8092bf5062de6813c247e54b.
 //
-// Solidity: event AuctionCreated(address indexed seller, address nftAddress, bytes32 indexed auctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
+// Solidity: event AuctionCreated(address seller, address nftAddress, bytes32 auctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
 func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParseAuctionCreated(log types.Log) (*IMarketplaceStorageAuctionCreated, error) {
 	event := new(IMarketplaceStorageAuctionCreated)
 	if err := _IMarketplaceStorage.contract.UnpackLog(event, "AuctionCreated", log); err != nil {
@@ -900,15 +870,10 @@ type IMarketplaceStorageAuctionEnded struct {
 
 // FilterAuctionEnded is a free log retrieval operation binding the contract event 0x447d0298e6e2716a4343195759c35b277a60b76e628284d93262fa9869db9921.
 //
-// Solidity: event AuctionEnded(bytes32 indexed auctionId)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterAuctionEnded(opts *bind.FilterOpts, auctionId [][32]byte) (*IMarketplaceStorageAuctionEndedIterator, error) {
+// Solidity: event AuctionEnded(bytes32 auctionId)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterAuctionEnded(opts *bind.FilterOpts) (*IMarketplaceStorageAuctionEndedIterator, error) {
 
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "AuctionEnded", auctionIdRule)
+	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "AuctionEnded")
 	if err != nil {
 		return nil, err
 	}
@@ -917,15 +882,10 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterAuctionEnded(opts
 
 // WatchAuctionEnded is a free log subscription operation binding the contract event 0x447d0298e6e2716a4343195759c35b277a60b76e628284d93262fa9869db9921.
 //
-// Solidity: event AuctionEnded(bytes32 indexed auctionId)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchAuctionEnded(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageAuctionEnded, auctionId [][32]byte) (event.Subscription, error) {
+// Solidity: event AuctionEnded(bytes32 auctionId)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchAuctionEnded(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageAuctionEnded) (event.Subscription, error) {
 
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "AuctionEnded", auctionIdRule)
+	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "AuctionEnded")
 	if err != nil {
 		return nil, err
 	}
@@ -959,7 +919,7 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchAuctionEnded(opts 
 
 // ParseAuctionEnded is a log parse operation binding the contract event 0x447d0298e6e2716a4343195759c35b277a60b76e628284d93262fa9869db9921.
 //
-// Solidity: event AuctionEnded(bytes32 indexed auctionId)
+// Solidity: event AuctionEnded(bytes32 auctionId)
 func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParseAuctionEnded(log types.Log) (*IMarketplaceStorageAuctionEnded, error) {
 	event := new(IMarketplaceStorageAuctionEnded)
 	if err := _IMarketplaceStorage.contract.UnpackLog(event, "AuctionEnded", log); err != nil {
@@ -1046,15 +1006,10 @@ type IMarketplaceStorageAuctionRefund struct {
 
 // FilterAuctionRefund is a free log retrieval operation binding the contract event 0x6be22eb0241a0575f8b866ff176552cf71078977d6d30e501dd2d326c8d57114.
 //
-// Solidity: event AuctionRefund(address indexed bidder, bytes32 auctionId, uint256 deposit)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterAuctionRefund(opts *bind.FilterOpts, bidder []common.Address) (*IMarketplaceStorageAuctionRefundIterator, error) {
+// Solidity: event AuctionRefund(address bidder, bytes32 auctionId, uint256 deposit)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterAuctionRefund(opts *bind.FilterOpts) (*IMarketplaceStorageAuctionRefundIterator, error) {
 
-	var bidderRule []interface{}
-	for _, bidderItem := range bidder {
-		bidderRule = append(bidderRule, bidderItem)
-	}
-
-	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "AuctionRefund", bidderRule)
+	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "AuctionRefund")
 	if err != nil {
 		return nil, err
 	}
@@ -1063,15 +1018,10 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterAuctionRefund(opt
 
 // WatchAuctionRefund is a free log subscription operation binding the contract event 0x6be22eb0241a0575f8b866ff176552cf71078977d6d30e501dd2d326c8d57114.
 //
-// Solidity: event AuctionRefund(address indexed bidder, bytes32 auctionId, uint256 deposit)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchAuctionRefund(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageAuctionRefund, bidder []common.Address) (event.Subscription, error) {
+// Solidity: event AuctionRefund(address bidder, bytes32 auctionId, uint256 deposit)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchAuctionRefund(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageAuctionRefund) (event.Subscription, error) {
 
-	var bidderRule []interface{}
-	for _, bidderItem := range bidder {
-		bidderRule = append(bidderRule, bidderItem)
-	}
-
-	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "AuctionRefund", bidderRule)
+	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "AuctionRefund")
 	if err != nil {
 		return nil, err
 	}
@@ -1105,7 +1055,7 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchAuctionRefund(opts
 
 // ParseAuctionRefund is a log parse operation binding the contract event 0x6be22eb0241a0575f8b866ff176552cf71078977d6d30e501dd2d326c8d57114.
 //
-// Solidity: event AuctionRefund(address indexed bidder, bytes32 auctionId, uint256 deposit)
+// Solidity: event AuctionRefund(address bidder, bytes32 auctionId, uint256 deposit)
 func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParseAuctionRefund(log types.Log) (*IMarketplaceStorageAuctionRefund, error) {
 	event := new(IMarketplaceStorageAuctionRefund)
 	if err := _IMarketplaceStorage.contract.UnpackLog(event, "AuctionRefund", log); err != nil {
@@ -1193,23 +1143,10 @@ type IMarketplaceStorageAuctionSuccessful struct {
 
 // FilterAuctionSuccessful is a free log retrieval operation binding the contract event 0x5ed769e966210f5d06d68e75831871131255cee237cb8edf78565aae170475ea.
 //
-// Solidity: event AuctionSuccessful(address indexed seller, address indexed buyer, bytes32 indexed auctionId, uint256 totalPrice)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterAuctionSuccessful(opts *bind.FilterOpts, seller []common.Address, buyer []common.Address, auctionId [][32]byte) (*IMarketplaceStorageAuctionSuccessfulIterator, error) {
+// Solidity: event AuctionSuccessful(address seller, address buyer, bytes32 auctionId, uint256 totalPrice)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterAuctionSuccessful(opts *bind.FilterOpts) (*IMarketplaceStorageAuctionSuccessfulIterator, error) {
 
-	var sellerRule []interface{}
-	for _, sellerItem := range seller {
-		sellerRule = append(sellerRule, sellerItem)
-	}
-	var buyerRule []interface{}
-	for _, buyerItem := range buyer {
-		buyerRule = append(buyerRule, buyerItem)
-	}
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "AuctionSuccessful", sellerRule, buyerRule, auctionIdRule)
+	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "AuctionSuccessful")
 	if err != nil {
 		return nil, err
 	}
@@ -1218,23 +1155,10 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterAuctionSuccessful
 
 // WatchAuctionSuccessful is a free log subscription operation binding the contract event 0x5ed769e966210f5d06d68e75831871131255cee237cb8edf78565aae170475ea.
 //
-// Solidity: event AuctionSuccessful(address indexed seller, address indexed buyer, bytes32 indexed auctionId, uint256 totalPrice)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchAuctionSuccessful(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageAuctionSuccessful, seller []common.Address, buyer []common.Address, auctionId [][32]byte) (event.Subscription, error) {
+// Solidity: event AuctionSuccessful(address seller, address buyer, bytes32 auctionId, uint256 totalPrice)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchAuctionSuccessful(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageAuctionSuccessful) (event.Subscription, error) {
 
-	var sellerRule []interface{}
-	for _, sellerItem := range seller {
-		sellerRule = append(sellerRule, sellerItem)
-	}
-	var buyerRule []interface{}
-	for _, buyerItem := range buyer {
-		buyerRule = append(buyerRule, buyerItem)
-	}
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "AuctionSuccessful", sellerRule, buyerRule, auctionIdRule)
+	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "AuctionSuccessful")
 	if err != nil {
 		return nil, err
 	}
@@ -1268,7 +1192,7 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchAuctionSuccessful(
 
 // ParseAuctionSuccessful is a log parse operation binding the contract event 0x5ed769e966210f5d06d68e75831871131255cee237cb8edf78565aae170475ea.
 //
-// Solidity: event AuctionSuccessful(address indexed seller, address indexed buyer, bytes32 indexed auctionId, uint256 totalPrice)
+// Solidity: event AuctionSuccessful(address seller, address buyer, bytes32 auctionId, uint256 totalPrice)
 func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParseAuctionSuccessful(log types.Log) (*IMarketplaceStorageAuctionSuccessful, error) {
 	event := new(IMarketplaceStorageAuctionSuccessful)
 	if err := _IMarketplaceStorage.contract.UnpackLog(event, "AuctionSuccessful", log); err != nil {
@@ -1355,19 +1279,10 @@ type IMarketplaceStorageBidSuccessful struct {
 
 // FilterBidSuccessful is a free log retrieval operation binding the contract event 0x327e5a459c964bcfa4f6d71b32a04a53b0002417b0924a8057d9f12e688e0bec.
 //
-// Solidity: event BidSuccessful(address indexed bidder, bytes32 indexed auctionId, bytes32 blindedBid)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterBidSuccessful(opts *bind.FilterOpts, bidder []common.Address, auctionId [][32]byte) (*IMarketplaceStorageBidSuccessfulIterator, error) {
+// Solidity: event BidSuccessful(address bidder, bytes32 auctionId, bytes32 blindedBid)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterBidSuccessful(opts *bind.FilterOpts) (*IMarketplaceStorageBidSuccessfulIterator, error) {
 
-	var bidderRule []interface{}
-	for _, bidderItem := range bidder {
-		bidderRule = append(bidderRule, bidderItem)
-	}
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "BidSuccessful", bidderRule, auctionIdRule)
+	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "BidSuccessful")
 	if err != nil {
 		return nil, err
 	}
@@ -1376,19 +1291,10 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterBidSuccessful(opt
 
 // WatchBidSuccessful is a free log subscription operation binding the contract event 0x327e5a459c964bcfa4f6d71b32a04a53b0002417b0924a8057d9f12e688e0bec.
 //
-// Solidity: event BidSuccessful(address indexed bidder, bytes32 indexed auctionId, bytes32 blindedBid)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchBidSuccessful(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageBidSuccessful, bidder []common.Address, auctionId [][32]byte) (event.Subscription, error) {
+// Solidity: event BidSuccessful(address bidder, bytes32 auctionId, bytes32 blindedBid)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchBidSuccessful(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageBidSuccessful) (event.Subscription, error) {
 
-	var bidderRule []interface{}
-	for _, bidderItem := range bidder {
-		bidderRule = append(bidderRule, bidderItem)
-	}
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "BidSuccessful", bidderRule, auctionIdRule)
+	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "BidSuccessful")
 	if err != nil {
 		return nil, err
 	}
@@ -1422,7 +1328,7 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchBidSuccessful(opts
 
 // ParseBidSuccessful is a log parse operation binding the contract event 0x327e5a459c964bcfa4f6d71b32a04a53b0002417b0924a8057d9f12e688e0bec.
 //
-// Solidity: event BidSuccessful(address indexed bidder, bytes32 indexed auctionId, bytes32 blindedBid)
+// Solidity: event BidSuccessful(address bidder, bytes32 auctionId, bytes32 blindedBid)
 func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParseBidSuccessful(log types.Log) (*IMarketplaceStorageBidSuccessful, error) {
 	event := new(IMarketplaceStorageBidSuccessful)
 	if err := _IMarketplaceStorage.contract.UnpackLog(event, "BidSuccessful", log); err != nil {
@@ -1507,15 +1413,10 @@ type IMarketplaceStorageOrderCancelled struct {
 
 // FilterOrderCancelled is a free log retrieval operation binding the contract event 0x5152abf959f6564662358c2e52b702259b78bac5ee7842a0f01937e670efcc7d.
 //
-// Solidity: event OrderCancelled(bytes32 indexed id)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterOrderCancelled(opts *bind.FilterOpts, id [][32]byte) (*IMarketplaceStorageOrderCancelledIterator, error) {
+// Solidity: event OrderCancelled(bytes32 id)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterOrderCancelled(opts *bind.FilterOpts) (*IMarketplaceStorageOrderCancelledIterator, error) {
 
-	var idRule []interface{}
-	for _, idItem := range id {
-		idRule = append(idRule, idItem)
-	}
-
-	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "OrderCancelled", idRule)
+	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "OrderCancelled")
 	if err != nil {
 		return nil, err
 	}
@@ -1524,15 +1425,10 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterOrderCancelled(op
 
 // WatchOrderCancelled is a free log subscription operation binding the contract event 0x5152abf959f6564662358c2e52b702259b78bac5ee7842a0f01937e670efcc7d.
 //
-// Solidity: event OrderCancelled(bytes32 indexed id)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchOrderCancelled(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageOrderCancelled, id [][32]byte) (event.Subscription, error) {
+// Solidity: event OrderCancelled(bytes32 id)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchOrderCancelled(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageOrderCancelled) (event.Subscription, error) {
 
-	var idRule []interface{}
-	for _, idItem := range id {
-		idRule = append(idRule, idItem)
-	}
-
-	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "OrderCancelled", idRule)
+	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "OrderCancelled")
 	if err != nil {
 		return nil, err
 	}
@@ -1566,7 +1462,7 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchOrderCancelled(opt
 
 // ParseOrderCancelled is a log parse operation binding the contract event 0x5152abf959f6564662358c2e52b702259b78bac5ee7842a0f01937e670efcc7d.
 //
-// Solidity: event OrderCancelled(bytes32 indexed id)
+// Solidity: event OrderCancelled(bytes32 id)
 func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParseOrderCancelled(log types.Log) (*IMarketplaceStorageOrderCancelled, error) {
 	event := new(IMarketplaceStorageOrderCancelled)
 	if err := _IMarketplaceStorage.contract.UnpackLog(event, "OrderCancelled", log); err != nil {
@@ -1656,23 +1552,10 @@ type IMarketplaceStorageOrderCreated struct {
 
 // FilterOrderCreated is a free log retrieval operation binding the contract event 0x84c66c3f7ba4b390e20e8e8233e2a516f3ce34a72749e4f12bd010dfba238039.
 //
-// Solidity: event OrderCreated(bytes32 indexed orderId, uint256 indexed assetId, address indexed seller, address nftAddress, uint256 priceInWei, uint256 expiredAt)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterOrderCreated(opts *bind.FilterOpts, orderId [][32]byte, assetId []*big.Int, seller []common.Address) (*IMarketplaceStorageOrderCreatedIterator, error) {
+// Solidity: event OrderCreated(bytes32 orderId, uint256 assetId, address seller, address nftAddress, uint256 priceInWei, uint256 expiredAt)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterOrderCreated(opts *bind.FilterOpts) (*IMarketplaceStorageOrderCreatedIterator, error) {
 
-	var orderIdRule []interface{}
-	for _, orderIdItem := range orderId {
-		orderIdRule = append(orderIdRule, orderIdItem)
-	}
-	var assetIdRule []interface{}
-	for _, assetIdItem := range assetId {
-		assetIdRule = append(assetIdRule, assetIdItem)
-	}
-	var sellerRule []interface{}
-	for _, sellerItem := range seller {
-		sellerRule = append(sellerRule, sellerItem)
-	}
-
-	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "OrderCreated", orderIdRule, assetIdRule, sellerRule)
+	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "OrderCreated")
 	if err != nil {
 		return nil, err
 	}
@@ -1681,23 +1564,10 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterOrderCreated(opts
 
 // WatchOrderCreated is a free log subscription operation binding the contract event 0x84c66c3f7ba4b390e20e8e8233e2a516f3ce34a72749e4f12bd010dfba238039.
 //
-// Solidity: event OrderCreated(bytes32 indexed orderId, uint256 indexed assetId, address indexed seller, address nftAddress, uint256 priceInWei, uint256 expiredAt)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchOrderCreated(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageOrderCreated, orderId [][32]byte, assetId []*big.Int, seller []common.Address) (event.Subscription, error) {
+// Solidity: event OrderCreated(bytes32 orderId, uint256 assetId, address seller, address nftAddress, uint256 priceInWei, uint256 expiredAt)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchOrderCreated(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageOrderCreated) (event.Subscription, error) {
 
-	var orderIdRule []interface{}
-	for _, orderIdItem := range orderId {
-		orderIdRule = append(orderIdRule, orderIdItem)
-	}
-	var assetIdRule []interface{}
-	for _, assetIdItem := range assetId {
-		assetIdRule = append(assetIdRule, assetIdItem)
-	}
-	var sellerRule []interface{}
-	for _, sellerItem := range seller {
-		sellerRule = append(sellerRule, sellerItem)
-	}
-
-	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "OrderCreated", orderIdRule, assetIdRule, sellerRule)
+	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "OrderCreated")
 	if err != nil {
 		return nil, err
 	}
@@ -1731,7 +1601,7 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchOrderCreated(opts 
 
 // ParseOrderCreated is a log parse operation binding the contract event 0x84c66c3f7ba4b390e20e8e8233e2a516f3ce34a72749e4f12bd010dfba238039.
 //
-// Solidity: event OrderCreated(bytes32 indexed orderId, uint256 indexed assetId, address indexed seller, address nftAddress, uint256 priceInWei, uint256 expiredAt)
+// Solidity: event OrderCreated(bytes32 orderId, uint256 assetId, address seller, address nftAddress, uint256 priceInWei, uint256 expiredAt)
 func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParseOrderCreated(log types.Log) (*IMarketplaceStorageOrderCreated, error) {
 	event := new(IMarketplaceStorageOrderCreated)
 	if err := _IMarketplaceStorage.contract.UnpackLog(event, "OrderCreated", log); err != nil {
@@ -1810,47 +1680,30 @@ func (it *IMarketplaceStorageOrderSuccessfulIterator) Close() error {
 
 // IMarketplaceStorageOrderSuccessful represents a OrderSuccessful event raised by the IMarketplaceStorage contract.
 type IMarketplaceStorageOrderSuccessful struct {
-	Id    [32]byte
-	Buyer common.Address
-	Raw   types.Log // Blockchain specific contextual infos
+	Id     [32]byte
+	Buyer  common.Address
+	Seller common.Address
+	Raw    types.Log // Blockchain specific contextual infos
 }
 
-// FilterOrderSuccessful is a free log retrieval operation binding the contract event 0x56e5f4ff73854a4423571427b069b47d6509b44bb78145207a634f2dd720916b.
+// FilterOrderSuccessful is a free log retrieval operation binding the contract event 0xa3fe2a6ffb1ad0de1c1ee8e3513d205b99980c40af9de82e502095245debabbb.
 //
-// Solidity: event OrderSuccessful(bytes32 indexed id, address indexed buyer)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterOrderSuccessful(opts *bind.FilterOpts, id [][32]byte, buyer []common.Address) (*IMarketplaceStorageOrderSuccessfulIterator, error) {
+// Solidity: event OrderSuccessful(bytes32 id, address buyer, address seller)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterOrderSuccessful(opts *bind.FilterOpts) (*IMarketplaceStorageOrderSuccessfulIterator, error) {
 
-	var idRule []interface{}
-	for _, idItem := range id {
-		idRule = append(idRule, idItem)
-	}
-	var buyerRule []interface{}
-	for _, buyerItem := range buyer {
-		buyerRule = append(buyerRule, buyerItem)
-	}
-
-	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "OrderSuccessful", idRule, buyerRule)
+	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "OrderSuccessful")
 	if err != nil {
 		return nil, err
 	}
 	return &IMarketplaceStorageOrderSuccessfulIterator{contract: _IMarketplaceStorage.contract, event: "OrderSuccessful", logs: logs, sub: sub}, nil
 }
 
-// WatchOrderSuccessful is a free log subscription operation binding the contract event 0x56e5f4ff73854a4423571427b069b47d6509b44bb78145207a634f2dd720916b.
+// WatchOrderSuccessful is a free log subscription operation binding the contract event 0xa3fe2a6ffb1ad0de1c1ee8e3513d205b99980c40af9de82e502095245debabbb.
 //
-// Solidity: event OrderSuccessful(bytes32 indexed id, address indexed buyer)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchOrderSuccessful(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageOrderSuccessful, id [][32]byte, buyer []common.Address) (event.Subscription, error) {
+// Solidity: event OrderSuccessful(bytes32 id, address buyer, address seller)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchOrderSuccessful(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageOrderSuccessful) (event.Subscription, error) {
 
-	var idRule []interface{}
-	for _, idItem := range id {
-		idRule = append(idRule, idItem)
-	}
-	var buyerRule []interface{}
-	for _, buyerItem := range buyer {
-		buyerRule = append(buyerRule, buyerItem)
-	}
-
-	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "OrderSuccessful", idRule, buyerRule)
+	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "OrderSuccessful")
 	if err != nil {
 		return nil, err
 	}
@@ -1882,9 +1735,9 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchOrderSuccessful(op
 	}), nil
 }
 
-// ParseOrderSuccessful is a log parse operation binding the contract event 0x56e5f4ff73854a4423571427b069b47d6509b44bb78145207a634f2dd720916b.
+// ParseOrderSuccessful is a log parse operation binding the contract event 0xa3fe2a6ffb1ad0de1c1ee8e3513d205b99980c40af9de82e502095245debabbb.
 //
-// Solidity: event OrderSuccessful(bytes32 indexed id, address indexed buyer)
+// Solidity: event OrderSuccessful(bytes32 id, address buyer, address seller)
 func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParseOrderSuccessful(log types.Log) (*IMarketplaceStorageOrderSuccessful, error) {
 	event := new(IMarketplaceStorageOrderSuccessful)
 	if err := _IMarketplaceStorage.contract.UnpackLog(event, "OrderSuccessful", log); err != nil {
@@ -1964,39 +1817,30 @@ func (it *IMarketplaceStorageRevealFailedIterator) Close() error {
 // IMarketplaceStorageRevealFailed represents a RevealFailed event raised by the IMarketplaceStorage contract.
 type IMarketplaceStorageRevealFailed struct {
 	Fake      bool
+	Revealer  common.Address
 	AuctionId [32]byte
 	Value     *big.Int
 	Raw       types.Log // Blockchain specific contextual infos
 }
 
-// FilterRevealFailed is a free log retrieval operation binding the contract event 0x8491bb9f45e55b89e41be77fb6f559dcedeaed2ed85a61f74d039b2f1389d4a3.
+// FilterRevealFailed is a free log retrieval operation binding the contract event 0x255ef988657daaeb7f921a0c776fa6efb221748fb64e61ab1febb0fd37f67175.
 //
-// Solidity: event RevealFailed(bool fake, bytes32 indexed auctionId, uint256 value)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterRevealFailed(opts *bind.FilterOpts, auctionId [][32]byte) (*IMarketplaceStorageRevealFailedIterator, error) {
+// Solidity: event RevealFailed(bool fake, address revealer, bytes32 auctionId, uint256 value)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterRevealFailed(opts *bind.FilterOpts) (*IMarketplaceStorageRevealFailedIterator, error) {
 
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "RevealFailed", auctionIdRule)
+	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "RevealFailed")
 	if err != nil {
 		return nil, err
 	}
 	return &IMarketplaceStorageRevealFailedIterator{contract: _IMarketplaceStorage.contract, event: "RevealFailed", logs: logs, sub: sub}, nil
 }
 
-// WatchRevealFailed is a free log subscription operation binding the contract event 0x8491bb9f45e55b89e41be77fb6f559dcedeaed2ed85a61f74d039b2f1389d4a3.
+// WatchRevealFailed is a free log subscription operation binding the contract event 0x255ef988657daaeb7f921a0c776fa6efb221748fb64e61ab1febb0fd37f67175.
 //
-// Solidity: event RevealFailed(bool fake, bytes32 indexed auctionId, uint256 value)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchRevealFailed(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageRevealFailed, auctionId [][32]byte) (event.Subscription, error) {
+// Solidity: event RevealFailed(bool fake, address revealer, bytes32 auctionId, uint256 value)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchRevealFailed(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageRevealFailed) (event.Subscription, error) {
 
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "RevealFailed", auctionIdRule)
+	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "RevealFailed")
 	if err != nil {
 		return nil, err
 	}
@@ -2028,9 +1872,9 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchRevealFailed(opts 
 	}), nil
 }
 
-// ParseRevealFailed is a log parse operation binding the contract event 0x8491bb9f45e55b89e41be77fb6f559dcedeaed2ed85a61f74d039b2f1389d4a3.
+// ParseRevealFailed is a log parse operation binding the contract event 0x255ef988657daaeb7f921a0c776fa6efb221748fb64e61ab1febb0fd37f67175.
 //
-// Solidity: event RevealFailed(bool fake, bytes32 indexed auctionId, uint256 value)
+// Solidity: event RevealFailed(bool fake, address revealer, bytes32 auctionId, uint256 value)
 func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParseRevealFailed(log types.Log) (*IMarketplaceStorageRevealFailed, error) {
 	event := new(IMarketplaceStorageRevealFailed)
 	if err := _IMarketplaceStorage.contract.UnpackLog(event, "RevealFailed", log); err != nil {
@@ -2110,40 +1954,31 @@ func (it *IMarketplaceStorageRevealSuccessfulIterator) Close() error {
 // IMarketplaceStorageRevealSuccessful represents a RevealSuccessful event raised by the IMarketplaceStorage contract.
 type IMarketplaceStorageRevealSuccessful struct {
 	Fake       bool
+	Revealer   common.Address
 	AuctionId  [32]byte
 	Value      *big.Int
 	BlindedBid [32]byte
 	Raw        types.Log // Blockchain specific contextual infos
 }
 
-// FilterRevealSuccessful is a free log retrieval operation binding the contract event 0xc69be17b446ade79dcd9f07e13f1c8493dd4a1940caf6318d617fbd25d256d9b.
+// FilterRevealSuccessful is a free log retrieval operation binding the contract event 0xabef59dc3ae014d197fad42649c58d34bfc816d3e1a7f26ca32c13611b13e7a1.
 //
-// Solidity: event RevealSuccessful(bool fake, bytes32 indexed auctionId, uint256 value, bytes32 blindedBid)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterRevealSuccessful(opts *bind.FilterOpts, auctionId [][32]byte) (*IMarketplaceStorageRevealSuccessfulIterator, error) {
+// Solidity: event RevealSuccessful(bool fake, address revealer, bytes32 auctionId, uint256 value, bytes32 blindedBid)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterRevealSuccessful(opts *bind.FilterOpts) (*IMarketplaceStorageRevealSuccessfulIterator, error) {
 
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "RevealSuccessful", auctionIdRule)
+	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "RevealSuccessful")
 	if err != nil {
 		return nil, err
 	}
 	return &IMarketplaceStorageRevealSuccessfulIterator{contract: _IMarketplaceStorage.contract, event: "RevealSuccessful", logs: logs, sub: sub}, nil
 }
 
-// WatchRevealSuccessful is a free log subscription operation binding the contract event 0xc69be17b446ade79dcd9f07e13f1c8493dd4a1940caf6318d617fbd25d256d9b.
+// WatchRevealSuccessful is a free log subscription operation binding the contract event 0xabef59dc3ae014d197fad42649c58d34bfc816d3e1a7f26ca32c13611b13e7a1.
 //
-// Solidity: event RevealSuccessful(bool fake, bytes32 indexed auctionId, uint256 value, bytes32 blindedBid)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchRevealSuccessful(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageRevealSuccessful, auctionId [][32]byte) (event.Subscription, error) {
+// Solidity: event RevealSuccessful(bool fake, address revealer, bytes32 auctionId, uint256 value, bytes32 blindedBid)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchRevealSuccessful(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageRevealSuccessful) (event.Subscription, error) {
 
-	var auctionIdRule []interface{}
-	for _, auctionIdItem := range auctionId {
-		auctionIdRule = append(auctionIdRule, auctionIdItem)
-	}
-
-	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "RevealSuccessful", auctionIdRule)
+	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "RevealSuccessful")
 	if err != nil {
 		return nil, err
 	}
@@ -2175,9 +2010,9 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchRevealSuccessful(o
 	}), nil
 }
 
-// ParseRevealSuccessful is a log parse operation binding the contract event 0xc69be17b446ade79dcd9f07e13f1c8493dd4a1940caf6318d617fbd25d256d9b.
+// ParseRevealSuccessful is a log parse operation binding the contract event 0xabef59dc3ae014d197fad42649c58d34bfc816d3e1a7f26ca32c13611b13e7a1.
 //
-// Solidity: event RevealSuccessful(bool fake, bytes32 indexed auctionId, uint256 value, bytes32 blindedBid)
+// Solidity: event RevealSuccessful(bool fake, address revealer, bytes32 auctionId, uint256 value, bytes32 blindedBid)
 func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParseRevealSuccessful(log types.Log) (*IMarketplaceStorageRevealSuccessful, error) {
 	event := new(IMarketplaceStorageRevealSuccessful)
 	if err := _IMarketplaceStorage.contract.UnpackLog(event, "RevealSuccessful", log); err != nil {

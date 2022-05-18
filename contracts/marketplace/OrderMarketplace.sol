@@ -178,7 +178,7 @@ contract OrderMarketplace is IOrder, Marketplace {
         // Transfer asset owner
         nftRegistry.safeTransferFrom(seller, sender, assetId);
 
-        emit OrderSuccessful(orderId, sender);
+        emit OrderSuccessful(orderId, sender, seller);
 
         return order;
     }

@@ -296,7 +296,7 @@ contract AuctionMarketplace is IAuction, Marketplace {
         uint256 deposit = _bids[auctionId][sender][blindedBid];
         if (deposit == 0) {
             // Incorrect bid parameter
-            emit RevealFailed(fake, auctionId, value);
+            emit RevealFailed(fake, sender, auctionId, value);
             return 0;
         }
 
@@ -312,7 +312,7 @@ contract AuctionMarketplace is IAuction, Marketplace {
             refund = refund.sub(value);
         }
 
-        emit RevealSuccessful(fake, auctionId, value, blindedBid);
+        emit RevealSuccessful(fake, sender, auctionId, value, blindedBid);
         return refund;
     }
 
