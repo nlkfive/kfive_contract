@@ -132,7 +132,7 @@ contract AuctionMarketplace is IAuction, Marketplace {
             !(seller == sender || hasRole(CANCEL_ROLE, _msgSender()))
         ) revert Unauthorized();
         marketplaceStorage.auctionEnded(nftAsset);
-        emit AuctionCancelled(auctionId);
+        emit AuctionCancelled(sender, auctionId);
     }
 
     /**

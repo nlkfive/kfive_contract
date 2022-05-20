@@ -36,7 +36,7 @@ interface IAuction {
         bytes32 auctionId,
         uint256 totalPrice
     );
-    event AuctionCancelled(bytes32 auctionId);
+    event AuctionCancelled(address who, bytes32 auctionId);
 
     ////////////////////////////////////////////////////////////
     // STORAGE

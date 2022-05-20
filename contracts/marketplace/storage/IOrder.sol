@@ -14,7 +14,7 @@ interface IOrder {
         uint256 expiredAt
     );
     event OrderSuccessful(bytes32 id, address buyer, address seller);
-    event OrderCancelled(bytes32 id);
+    event OrderCancelled(address who, bytes32 id);
 
     ////////////////////////////////////////////////////////////
     // STORAGE

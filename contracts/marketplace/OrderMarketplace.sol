@@ -129,7 +129,7 @@ contract OrderMarketplace is IOrder, Marketplace {
         ) revert Unauthorized();
 
         marketplaceStorage.deleteOrder(nftAsset);
-        emit OrderCancelled(orderId);
+        emit OrderCancelled(sender, orderId);
     }
 
     function _executeOrder(
