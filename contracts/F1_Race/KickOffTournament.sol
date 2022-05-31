@@ -18,3 +18,4 @@ contract KickOffTournament is Tournament
         if (_nlggt.balanceOf(_msgSender()) > 0) revert InvalidRegister();
     }
 }
+
