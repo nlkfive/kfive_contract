@@ -31,11 +31,33 @@ var (
 // UtilMetaData contains all meta data concerning the Util contract.
 var UtilMetaData = &bind.MetaData{
 	ABI: "[{\"inputs\":[],\"name\":\"blockTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]",
+	Bin: "0x608060405234801561001057600080fd5b5060b58061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c8063adb6183214602d575b600080fd5b60336047565b604051603e9190605c565b60405180910390f35b600042905090565b6056816075565b82525050565b6000602082019050606f6000830184604f565b92915050565b600081905091905056fea26469706673582212209e01509524cb773a1210294722e9653ff7238df150f3ecb9366e9eff362b929864736f6c63430008040033",
 }
 
 // UtilABI is the input ABI used to generate the binding from.
 // Deprecated: Use UtilMetaData.ABI instead.
 var UtilABI = UtilMetaData.ABI
+
+// UtilBin is the compiled bytecode used for deploying new contracts.
+// Deprecated: Use UtilMetaData.Bin instead.
+var UtilBin = UtilMetaData.Bin
+
+// DeployUtil deploys a new Ethereum contract, binding an instance of Util to it.
+func DeployUtil(auth *bind.TransactOpts, backend bind.ContractBackend) (common.Address, *types.Transaction, *Util, error) {
+	parsed, err := UtilMetaData.GetAbi()
+	if err != nil {
+		return common.Address{}, nil, nil, err
+	}
+	if parsed == nil {
+		return common.Address{}, nil, nil, errors.New("GetABI returned nil")
+	}
+
+	address, tx, contract, err := bind.DeployContract(auth, *parsed, common.FromHex(UtilBin), backend)
+	if err != nil {
+		return common.Address{}, nil, nil, err
+	}
+	return address, tx, &Util{UtilCaller: UtilCaller{contract: contract}, UtilTransactor: UtilTransactor{contract: contract}, UtilFilterer: UtilFilterer{contract: contract}}, nil
+}
 
 // Util is an auto generated Go binding around an Ethereum contract.
 type Util struct {

@@ -31,11 +31,33 @@ var (
 // SelectorMetaData contains all meta data concerning the Selector contract.
 var SelectorMetaData = &bind.MetaData{
 	ABI: "[{\"inputs\":[],\"name\":\"calcStoreInterfaceId\",\"outputs\":[{\"internalType\":\"bytes4\",\"name\":\"\",\"type\":\"bytes4\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}]",
+	Bin: "0x608060405234801561001057600080fd5b50610145806100206000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c806363d5af8d14610030575b600080fd5b61003861004e565b60405161004591906100c8565b60405180910390f35b6000806387a61cbd60e01b635778472a60e01b63930ca09460e01b63572f7d5e60e01b63ac84b7bc60e01b6315924b5b60e01b6384b04aa960e01b63bc66c29f60e01b631a8b416960e01b630a7f897760e01b63c064bc5060e01b1818181818181818181891505090565b6100c2816100e3565b82525050565b60006020820190506100dd60008301846100b9565b92915050565b60007fffffffff000000000000000000000000000000000000000000000000000000008216905091905056fea2646970667358221220c73a2a6de2ab84b342efe9fa199010e38b50b4f6cc54d4451764461bde7c5f6564736f6c63430008040033",
 }
 
 // SelectorABI is the input ABI used to generate the binding from.
 // Deprecated: Use SelectorMetaData.ABI instead.
 var SelectorABI = SelectorMetaData.ABI
+
+// SelectorBin is the compiled bytecode used for deploying new contracts.
+// Deprecated: Use SelectorMetaData.Bin instead.
+var SelectorBin = SelectorMetaData.Bin
+
+// DeploySelector deploys a new Ethereum contract, binding an instance of Selector to it.
+func DeploySelector(auth *bind.TransactOpts, backend bind.ContractBackend) (common.Address, *types.Transaction, *Selector, error) {
+	parsed, err := SelectorMetaData.GetAbi()
+	if err != nil {
+		return common.Address{}, nil, nil, err
+	}
+	if parsed == nil {
+		return common.Address{}, nil, nil, errors.New("GetABI returned nil")
+	}
+
+	address, tx, contract, err := bind.DeployContract(auth, *parsed, common.FromHex(SelectorBin), backend)
+	if err != nil {
+		return common.Address{}, nil, nil, err
+	}
+	return address, tx, &Selector{SelectorCaller: SelectorCaller{contract: contract}, SelectorTransactor: SelectorTransactor{contract: contract}, SelectorFilterer: SelectorFilterer{contract: contract}}, nil
+}
 
 // Selector is an auto generated Go binding around an Ethereum contract.
 type Selector struct {

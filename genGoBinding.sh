@@ -7,6 +7,6 @@ for contract in $contracts; do
     echo $contract
     name=${contract%.*}
     mkdir -p $base_dir/golang/$name
-    abigen --abi $base_dir/abi/$contract --pkg "$name" --out $base_dir/golang/$name/${name}.go
+    abigen --bin $base_dir/bin/$name.bin --abi $base_dir/abi/$contract --pkg "$name" --out $base_dir/golang/$name/${name}.go
 done
 

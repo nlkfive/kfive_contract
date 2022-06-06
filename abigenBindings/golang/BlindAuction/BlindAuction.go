@@ -31,11 +31,33 @@ var (
 // BlindAuctionMetaData contains all meta data concerning the BlindAuction contract.
 var BlindAuctionMetaData = &bind.MetaData{
 	ABI: "[{\"inputs\":[],\"name\":\"AuctionEndAlreadyCalled\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooEarly\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooLate\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"deposit\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"}],\"name\":\"AuctionRefund\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindedBid\",\"type\":\"bytes32\"}],\"name\":\"BidSuccessful\",\"type\":\"event\"}]",
+	Bin: "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212204f37109351cad20af7cc03e8ae45ee9a1a6477a22d15b231048712f86cf1277864736f6c63430008040033",
 }
 
 // BlindAuctionABI is the input ABI used to generate the binding from.
 // Deprecated: Use BlindAuctionMetaData.ABI instead.
 var BlindAuctionABI = BlindAuctionMetaData.ABI
+
+// BlindAuctionBin is the compiled bytecode used for deploying new contracts.
+// Deprecated: Use BlindAuctionMetaData.Bin instead.
+var BlindAuctionBin = BlindAuctionMetaData.Bin
+
+// DeployBlindAuction deploys a new Ethereum contract, binding an instance of BlindAuction to it.
+func DeployBlindAuction(auth *bind.TransactOpts, backend bind.ContractBackend) (common.Address, *types.Transaction, *BlindAuction, error) {
+	parsed, err := BlindAuctionMetaData.GetAbi()
+	if err != nil {
+		return common.Address{}, nil, nil, err
+	}
+	if parsed == nil {
+		return common.Address{}, nil, nil, errors.New("GetABI returned nil")
+	}
+
+	address, tx, contract, err := bind.DeployContract(auth, *parsed, common.FromHex(BlindAuctionBin), backend)
+	if err != nil {
+		return common.Address{}, nil, nil, err
+	}
+	return address, tx, &BlindAuction{BlindAuctionCaller: BlindAuctionCaller{contract: contract}, BlindAuctionTransactor: BlindAuctionTransactor{contract: contract}, BlindAuctionFilterer: BlindAuctionFilterer{contract: contract}}, nil
+}
 
 // BlindAuction is an auto generated Go binding around an Ethereum contract.
 type BlindAuction struct {

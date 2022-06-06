@@ -31,11 +31,33 @@ var (
 // EIP712BaseMetaData contains all meta data concerning the EIP712Base contract.
 var EIP712BaseMetaData = &bind.MetaData{
 	ABI: "[{\"inputs\":[],\"name\":\"domainSeparator\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getChainId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]",
+	Bin: "0x608060405234801561001057600080fd5b50610114806100206000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c80633408e470146037578063f698da25146051575b600080fd5b603d606b565b6040516048919060b1565b60405180910390f35b60576078565b604051606291906098565b60405180910390f35b6000804690508091505090565b60005481565b60858160ca565b82525050565b60928160d4565b82525050565b600060208201905060ab6000830184607e565b92915050565b600060208201905060c46000830184608b565b92915050565b6000819050919050565b600081905091905056fea2646970667358221220e3bee2ec4ec13bb7ab533a56f73a0342c4a3ed88c6fca20d95f0b1535f00727564736f6c63430008040033",
 }
 
 // EIP712BaseABI is the input ABI used to generate the binding from.
 // Deprecated: Use EIP712BaseMetaData.ABI instead.
 var EIP712BaseABI = EIP712BaseMetaData.ABI
+
+// EIP712BaseBin is the compiled bytecode used for deploying new contracts.
+// Deprecated: Use EIP712BaseMetaData.Bin instead.
+var EIP712BaseBin = EIP712BaseMetaData.Bin
+
+// DeployEIP712Base deploys a new Ethereum contract, binding an instance of EIP712Base to it.
+func DeployEIP712Base(auth *bind.TransactOpts, backend bind.ContractBackend) (common.Address, *types.Transaction, *EIP712Base, error) {
+	parsed, err := EIP712BaseMetaData.GetAbi()
+	if err != nil {
+		return common.Address{}, nil, nil, err
+	}
+	if parsed == nil {
+		return common.Address{}, nil, nil, errors.New("GetABI returned nil")
+	}
+
+	address, tx, contract, err := bind.DeployContract(auth, *parsed, common.FromHex(EIP712BaseBin), backend)
+	if err != nil {
+		return common.Address{}, nil, nil, err
+	}
+	return address, tx, &EIP712Base{EIP712BaseCaller: EIP712BaseCaller{contract: contract}, EIP712BaseTransactor: EIP712BaseTransactor{contract: contract}, EIP712BaseFilterer: EIP712BaseFilterer{contract: contract}}, nil
+}
 
 // EIP712Base is an auto generated Go binding around an Ethereum contract.
 type EIP712Base struct {

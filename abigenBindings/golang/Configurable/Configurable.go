@@ -31,11 +31,33 @@ var (
 // ConfigurableMetaData contains all meta data concerning the Configurable contract.
 var ConfigurableMetaData = &bind.MetaData{
 	ABI: "[{\"inputs\":[],\"name\":\"KFIVE2MTC\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"cap\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]",
+	Bin: "0x608060405234801561001057600080fd5b5060e38061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c8063355274ea14603757806362e8db23146051575b600080fd5b603d606b565b60405160489190608a565b60405180910390f35b60576077565b60405160629190608a565b60405180910390f35b679aee7ed9c076000081565b61043881565b60848160a3565b82525050565b6000602082019050609d6000830184607d565b92915050565b600081905091905056fea2646970667358221220b7bb7e475542356638f2cc922bc0ae7b1a23fdf63891bb2f5429b81f4088b5dd64736f6c63430008040033",
 }
 
 // ConfigurableABI is the input ABI used to generate the binding from.
 // Deprecated: Use ConfigurableMetaData.ABI instead.
 var ConfigurableABI = ConfigurableMetaData.ABI
+
+// ConfigurableBin is the compiled bytecode used for deploying new contracts.
+// Deprecated: Use ConfigurableMetaData.Bin instead.
+var ConfigurableBin = ConfigurableMetaData.Bin
+
+// DeployConfigurable deploys a new Ethereum contract, binding an instance of Configurable to it.
+func DeployConfigurable(auth *bind.TransactOpts, backend bind.ContractBackend) (common.Address, *types.Transaction, *Configurable, error) {
+	parsed, err := ConfigurableMetaData.GetAbi()
+	if err != nil {
+		return common.Address{}, nil, nil, err
+	}
+	if parsed == nil {
+		return common.Address{}, nil, nil, errors.New("GetABI returned nil")
+	}
+
+	address, tx, contract, err := bind.DeployContract(auth, *parsed, common.FromHex(ConfigurableBin), backend)
+	if err != nil {
+		return common.Address{}, nil, nil, err
+	}
+	return address, tx, &Configurable{ConfigurableCaller: ConfigurableCaller{contract: contract}, ConfigurableTransactor: ConfigurableTransactor{contract: contract}, ConfigurableFilterer: ConfigurableFilterer{contract: contract}}, nil
+}
 
 // Configurable is an auto generated Go binding around an Ethereum contract.
 type Configurable struct {

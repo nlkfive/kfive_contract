@@ -31,11 +31,33 @@ var (
 // OrderStorageMetaData contains all meta data concerning the OrderStorage contract.
 var OrderStorageMetaData = &bind.MetaData{
 	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"}],\"name\":\"OrderCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"priceInWei\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"expiresAt\",\"type\":\"uint256\"}],\"name\":\"OrderCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"totalPrice\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"}],\"name\":\"OrderSuccessful\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"orderByAssetId\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiresAt\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]",
+	Bin: "0x608060405234801561001057600080fd5b50610277806100206000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c8063e61f385114610030575b600080fd5b61004a60048036038101906100459190610111565b610064565b60405161005b95949392919061017a565b60405180910390f35b6000602052816000526040600020602052806000526040600020600091509150508060000154908060010160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060020160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060030154908060040154905085565b6000813590506100f681610213565b92915050565b60008135905061010b8161022a565b92915050565b6000806040838503121561012457600080fd5b6000610132858286016100e7565b9250506020610143858286016100fc565b9150509250929050565b610156816101cd565b82525050565b610165816101df565b82525050565b61017481610209565b82525050565b600060a08201905061018f600083018861015c565b61019c602083018761014d565b6101a9604083018661014d565b6101b6606083018561016b565b6101c3608083018461016b565b9695505050505050565b60006101d8826101e9565b9050919050565b6000819050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b61021c816101cd565b811461022757600080fd5b50565b61023381610209565b811461023e57600080fd5b5056fea2646970667358221220a00f26721a1cae34ce8ddad30ed6fab66e997749a47ccac87bb617ef9eca578f64736f6c63430008040033",
 }
 
 // OrderStorageABI is the input ABI used to generate the binding from.
 // Deprecated: Use OrderStorageMetaData.ABI instead.
 var OrderStorageABI = OrderStorageMetaData.ABI
+
+// OrderStorageBin is the compiled bytecode used for deploying new contracts.
+// Deprecated: Use OrderStorageMetaData.Bin instead.
+var OrderStorageBin = OrderStorageMetaData.Bin
+
+// DeployOrderStorage deploys a new Ethereum contract, binding an instance of OrderStorage to it.
+func DeployOrderStorage(auth *bind.TransactOpts, backend bind.ContractBackend) (common.Address, *types.Transaction, *OrderStorage, error) {
+	parsed, err := OrderStorageMetaData.GetAbi()
+	if err != nil {
+		return common.Address{}, nil, nil, err
+	}
+	if parsed == nil {
+		return common.Address{}, nil, nil, errors.New("GetABI returned nil")
+	}
+
+	address, tx, contract, err := bind.DeployContract(auth, *parsed, common.FromHex(OrderStorageBin), backend)
+	if err != nil {
+		return common.Address{}, nil, nil, err
+	}
+	return address, tx, &OrderStorage{OrderStorageCaller: OrderStorageCaller{contract: contract}, OrderStorageTransactor: OrderStorageTransactor{contract: contract}, OrderStorageFilterer: OrderStorageFilterer{contract: contract}}, nil
+}
 
 // OrderStorage is an auto generated Go binding around an Ethereum contract.
 type OrderStorage struct {
