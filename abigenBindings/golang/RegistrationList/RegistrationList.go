@@ -30,7 +30,7 @@ var (
 
 // RegistrationListMetaData contains all meta data concerning the RegistrationList contract.
 var RegistrationListMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"vrfCoordinator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nlggt\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"raceReward\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"raceList\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"subscriptionId\",\"type\":\"uint64\"},{\"internalType\":\"bytes32\",\"name\":\"keyHash\",\"type\":\"bytes32\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"AlreadyRegistered\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AlreadySelected\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidContract\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidSender\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidSlot\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"MaximumReached\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotNLGGTHolder\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"have\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"want\",\"type\":\"address\"}],\"name\":\"OnlyCoordinatorCanFulfill\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RaceNotExisted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RewardIsExisted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RewardNotExistedOrReceived\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooEarly\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooLate\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nlggt\",\"type\":\"address\"}],\"name\":\"NlggtUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"randomness\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"selected\",\"type\":\"bytes32\"}],\"name\":\"ParticipantsSelected\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"race\",\"type\":\"address\"}],\"name\":\"RaceListUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"RandomInProgress\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"participant\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"Registered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes1\",\"name\":\"resultIndex\",\"type\":\"bytes1\"}],\"name\":\"RewardAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"}],\"name\":\"RewardReceived\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PAUSER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getRoleMember\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleMemberCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"},{\"internalType\":\"uint256[]\",\"name\":\"randomWords\",\"type\":\"uint256[]\"}],\"name\":\"rawFulfillRandomWords\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"register\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"selectParticipant\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"},{\"internalType\":\"bytes1\",\"name\":\"resultIndex\",\"type\":\"bytes1\"}],\"name\":\"addReward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"}],\"name\":\"receiveReward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"raceList\",\"type\":\"address\"}],\"name\":\"updateRaceAddress\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"nlggt\",\"type\":\"address\"}],\"name\":\"updateNlggtAddress\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"selectedParticipants\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"result\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"}],\"name\":\"selectedParticipant\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"totalRegister\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"onERC721Received\",\"outputs\":[{\"internalType\":\"bytes4\",\"name\":\"\",\"type\":\"bytes4\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}]",
+	ABI: "[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"vrfCoordinator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nlggt\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"raceReward\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"raceList\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"subscriptionId\",\"type\":\"uint64\"},{\"internalType\":\"bytes32\",\"name\":\"keyHash\",\"type\":\"bytes32\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"AlreadyRegistered\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AlreadySelected\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidContract\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidSender\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidSlot\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotNLGGTHolder\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"have\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"want\",\"type\":\"address\"}],\"name\":\"OnlyCoordinatorCanFulfill\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RaceNotExisted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RewardIsExisted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RewardIsNotExisted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RewardNotExistedOrReceived\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooEarly\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooLate\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nlggt\",\"type\":\"address\"}],\"name\":\"NlggtUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"randomness\",\"type\":\"uint256\"}],\"name\":\"ParticipantsSelected\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"race\",\"type\":\"address\"}],\"name\":\"RaceListUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"RandomInProgress\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"participant\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"Registered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes1\",\"name\":\"resultIndex\",\"type\":\"bytes1\"}],\"name\":\"RewardAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"}],\"name\":\"RewardReceived\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes1\",\"name\":\"resultIndex\",\"type\":\"bytes1\"}],\"name\":\"RewardRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PAUSER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getRoleMember\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleMemberCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"},{\"internalType\":\"uint256[]\",\"name\":\"randomWords\",\"type\":\"uint256[]\"}],\"name\":\"rawFulfillRandomWords\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"register\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"selectParticipant\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"},{\"internalType\":\"bytes1\",\"name\":\"resultIndex\",\"type\":\"bytes1\"}],\"name\":\"addRewardByTransfer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"},{\"internalType\":\"bytes1\",\"name\":\"resultIndex\",\"type\":\"bytes1\"},{\"internalType\":\"string\",\"name\":\"tokenURI\",\"type\":\"string\"}],\"name\":\"addRewardByMint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"}],\"name\":\"receiveReward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"raceList\",\"type\":\"address\"}],\"name\":\"updateRaceAddress\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"nlggt\",\"type\":\"address\"}],\"name\":\"updateNlggtAddress\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"selectedParticipants\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"}],\"name\":\"selectedParticipant\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"totalRegister\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"onERC721Received\",\"outputs\":[{\"internalType\":\"bytes4\",\"name\":\"\",\"type\":\"bytes4\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"},{\"internalType\":\"bytes1\",\"name\":\"resultIndex\",\"type\":\"bytes1\"}],\"name\":\"removeReward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
 // RegistrationListABI is the input ABI used to generate the binding from.
@@ -522,16 +522,16 @@ func (_RegistrationList *RegistrationListCallerSession) SelectedParticipant(race
 
 // SelectedParticipants is a free data retrieval call binding the contract method 0x0506f9ef.
 //
-// Solidity: function selectedParticipants(bytes32 raceId) view returns(bytes32 result)
-func (_RegistrationList *RegistrationListCaller) SelectedParticipants(opts *bind.CallOpts, raceId [32]byte) ([32]byte, error) {
+// Solidity: function selectedParticipants(bytes32 raceId) view returns(address[])
+func (_RegistrationList *RegistrationListCaller) SelectedParticipants(opts *bind.CallOpts, raceId [32]byte) ([]common.Address, error) {
 	var out []interface{}
 	err := _RegistrationList.contract.Call(opts, &out, "selectedParticipants", raceId)
 
 	if err != nil {
-		return *new([32]byte), err
+		return *new([]common.Address), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new([32]byte)).(*[32]byte)
+	out0 := *abi.ConvertType(out[0], new([]common.Address)).(*[]common.Address)
 
 	return out0, err
 
@@ -539,15 +539,15 @@ func (_RegistrationList *RegistrationListCaller) SelectedParticipants(opts *bind
 
 // SelectedParticipants is a free data retrieval call binding the contract method 0x0506f9ef.
 //
-// Solidity: function selectedParticipants(bytes32 raceId) view returns(bytes32 result)
-func (_RegistrationList *RegistrationListSession) SelectedParticipants(raceId [32]byte) ([32]byte, error) {
+// Solidity: function selectedParticipants(bytes32 raceId) view returns(address[])
+func (_RegistrationList *RegistrationListSession) SelectedParticipants(raceId [32]byte) ([]common.Address, error) {
 	return _RegistrationList.Contract.SelectedParticipants(&_RegistrationList.CallOpts, raceId)
 }
 
 // SelectedParticipants is a free data retrieval call binding the contract method 0x0506f9ef.
 //
-// Solidity: function selectedParticipants(bytes32 raceId) view returns(bytes32 result)
-func (_RegistrationList *RegistrationListCallerSession) SelectedParticipants(raceId [32]byte) ([32]byte, error) {
+// Solidity: function selectedParticipants(bytes32 raceId) view returns(address[])
+func (_RegistrationList *RegistrationListCallerSession) SelectedParticipants(raceId [32]byte) ([]common.Address, error) {
 	return _RegistrationList.Contract.SelectedParticipants(&_RegistrationList.CallOpts, raceId)
 }
 
@@ -584,16 +584,16 @@ func (_RegistrationList *RegistrationListCallerSession) SupportsInterface(interf
 
 // TotalRegister is a free data retrieval call binding the contract method 0xbe7cb219.
 //
-// Solidity: function totalRegister(bytes32 raceId) view returns(bytes32)
-func (_RegistrationList *RegistrationListCaller) TotalRegister(opts *bind.CallOpts, raceId [32]byte) ([32]byte, error) {
+// Solidity: function totalRegister(bytes32 raceId) view returns(uint256[])
+func (_RegistrationList *RegistrationListCaller) TotalRegister(opts *bind.CallOpts, raceId [32]byte) ([]*big.Int, error) {
 	var out []interface{}
 	err := _RegistrationList.contract.Call(opts, &out, "totalRegister", raceId)
 
 	if err != nil {
-		return *new([32]byte), err
+		return *new([]*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new([32]byte)).(*[32]byte)
+	out0 := *abi.ConvertType(out[0], new([]*big.Int)).(*[]*big.Int)
 
 	return out0, err
 
@@ -601,37 +601,58 @@ func (_RegistrationList *RegistrationListCaller) TotalRegister(opts *bind.CallOp
 
 // TotalRegister is a free data retrieval call binding the contract method 0xbe7cb219.
 //
-// Solidity: function totalRegister(bytes32 raceId) view returns(bytes32)
-func (_RegistrationList *RegistrationListSession) TotalRegister(raceId [32]byte) ([32]byte, error) {
+// Solidity: function totalRegister(bytes32 raceId) view returns(uint256[])
+func (_RegistrationList *RegistrationListSession) TotalRegister(raceId [32]byte) ([]*big.Int, error) {
 	return _RegistrationList.Contract.TotalRegister(&_RegistrationList.CallOpts, raceId)
 }
 
 // TotalRegister is a free data retrieval call binding the contract method 0xbe7cb219.
 //
-// Solidity: function totalRegister(bytes32 raceId) view returns(bytes32)
-func (_RegistrationList *RegistrationListCallerSession) TotalRegister(raceId [32]byte) ([32]byte, error) {
+// Solidity: function totalRegister(bytes32 raceId) view returns(uint256[])
+func (_RegistrationList *RegistrationListCallerSession) TotalRegister(raceId [32]byte) ([]*big.Int, error) {
 	return _RegistrationList.Contract.TotalRegister(&_RegistrationList.CallOpts, raceId)
 }
 
-// AddReward is a paid mutator transaction binding the contract method 0x9a789d92.
+// AddRewardByMint is a paid mutator transaction binding the contract method 0x6bef76da.
 //
-// Solidity: function addReward(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex) returns()
-func (_RegistrationList *RegistrationListTransactor) AddReward(opts *bind.TransactOpts, raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte) (*types.Transaction, error) {
-	return _RegistrationList.contract.Transact(opts, "addReward", raceId, nftRewardId, resultIndex)
+// Solidity: function addRewardByMint(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex, string tokenURI) returns()
+func (_RegistrationList *RegistrationListTransactor) AddRewardByMint(opts *bind.TransactOpts, raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte, tokenURI string) (*types.Transaction, error) {
+	return _RegistrationList.contract.Transact(opts, "addRewardByMint", raceId, nftRewardId, resultIndex, tokenURI)
 }
 
-// AddReward is a paid mutator transaction binding the contract method 0x9a789d92.
+// AddRewardByMint is a paid mutator transaction binding the contract method 0x6bef76da.
 //
-// Solidity: function addReward(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex) returns()
-func (_RegistrationList *RegistrationListSession) AddReward(raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte) (*types.Transaction, error) {
-	return _RegistrationList.Contract.AddReward(&_RegistrationList.TransactOpts, raceId, nftRewardId, resultIndex)
+// Solidity: function addRewardByMint(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex, string tokenURI) returns()
+func (_RegistrationList *RegistrationListSession) AddRewardByMint(raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte, tokenURI string) (*types.Transaction, error) {
+	return _RegistrationList.Contract.AddRewardByMint(&_RegistrationList.TransactOpts, raceId, nftRewardId, resultIndex, tokenURI)
 }
 
-// AddReward is a paid mutator transaction binding the contract method 0x9a789d92.
+// AddRewardByMint is a paid mutator transaction binding the contract method 0x6bef76da.
 //
-// Solidity: function addReward(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex) returns()
-func (_RegistrationList *RegistrationListTransactorSession) AddReward(raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte) (*types.Transaction, error) {
-	return _RegistrationList.Contract.AddReward(&_RegistrationList.TransactOpts, raceId, nftRewardId, resultIndex)
+// Solidity: function addRewardByMint(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex, string tokenURI) returns()
+func (_RegistrationList *RegistrationListTransactorSession) AddRewardByMint(raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte, tokenURI string) (*types.Transaction, error) {
+	return _RegistrationList.Contract.AddRewardByMint(&_RegistrationList.TransactOpts, raceId, nftRewardId, resultIndex, tokenURI)
+}
+
+// AddRewardByTransfer is a paid mutator transaction binding the contract method 0x81357309.
+//
+// Solidity: function addRewardByTransfer(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex) returns()
+func (_RegistrationList *RegistrationListTransactor) AddRewardByTransfer(opts *bind.TransactOpts, raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte) (*types.Transaction, error) {
+	return _RegistrationList.contract.Transact(opts, "addRewardByTransfer", raceId, nftRewardId, resultIndex)
+}
+
+// AddRewardByTransfer is a paid mutator transaction binding the contract method 0x81357309.
+//
+// Solidity: function addRewardByTransfer(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex) returns()
+func (_RegistrationList *RegistrationListSession) AddRewardByTransfer(raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte) (*types.Transaction, error) {
+	return _RegistrationList.Contract.AddRewardByTransfer(&_RegistrationList.TransactOpts, raceId, nftRewardId, resultIndex)
+}
+
+// AddRewardByTransfer is a paid mutator transaction binding the contract method 0x81357309.
+//
+// Solidity: function addRewardByTransfer(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex) returns()
+func (_RegistrationList *RegistrationListTransactorSession) AddRewardByTransfer(raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte) (*types.Transaction, error) {
+	return _RegistrationList.Contract.AddRewardByTransfer(&_RegistrationList.TransactOpts, raceId, nftRewardId, resultIndex)
 }
 
 // GrantRole is a paid mutator transaction binding the contract method 0x2f2ff15d.
@@ -737,6 +758,27 @@ func (_RegistrationList *RegistrationListSession) Register(slotId *big.Int, race
 // Solidity: function register(uint256 slotId, bytes32 raceId) returns()
 func (_RegistrationList *RegistrationListTransactorSession) Register(slotId *big.Int, raceId [32]byte) (*types.Transaction, error) {
 	return _RegistrationList.Contract.Register(&_RegistrationList.TransactOpts, slotId, raceId)
+}
+
+// RemoveReward is a paid mutator transaction binding the contract method 0x0fa445f5.
+//
+// Solidity: function removeReward(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex) returns()
+func (_RegistrationList *RegistrationListTransactor) RemoveReward(opts *bind.TransactOpts, raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte) (*types.Transaction, error) {
+	return _RegistrationList.contract.Transact(opts, "removeReward", raceId, nftRewardId, resultIndex)
+}
+
+// RemoveReward is a paid mutator transaction binding the contract method 0x0fa445f5.
+//
+// Solidity: function removeReward(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex) returns()
+func (_RegistrationList *RegistrationListSession) RemoveReward(raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte) (*types.Transaction, error) {
+	return _RegistrationList.Contract.RemoveReward(&_RegistrationList.TransactOpts, raceId, nftRewardId, resultIndex)
+}
+
+// RemoveReward is a paid mutator transaction binding the contract method 0x0fa445f5.
+//
+// Solidity: function removeReward(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex) returns()
+func (_RegistrationList *RegistrationListTransactorSession) RemoveReward(raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte) (*types.Transaction, error) {
+	return _RegistrationList.Contract.RemoveReward(&_RegistrationList.TransactOpts, raceId, nftRewardId, resultIndex)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
@@ -1265,14 +1307,13 @@ func (it *RegistrationListParticipantsSelectedIterator) Close() error {
 type RegistrationListParticipantsSelected struct {
 	RequestId  *big.Int
 	RaceId     [32]byte
-	Randomness [32]byte
-	Selected   [32]byte
+	Randomness *big.Int
 	Raw        types.Log // Blockchain specific contextual infos
 }
 
-// FilterParticipantsSelected is a free log retrieval operation binding the contract event 0xf67ae7b61862fbe089bafd38aea69def4c64db49c4bff6d29f038cfd13fdd4c2.
+// FilterParticipantsSelected is a free log retrieval operation binding the contract event 0x5a1c9864d9d35edf19fb83e7a07ad46d28d80307bd248fb165e8814a1d1cfe2b.
 //
-// Solidity: event ParticipantsSelected(uint256 requestId, bytes32 raceId, bytes32 randomness, bytes32 selected)
+// Solidity: event ParticipantsSelected(uint256 requestId, bytes32 raceId, uint256 randomness)
 func (_RegistrationList *RegistrationListFilterer) FilterParticipantsSelected(opts *bind.FilterOpts) (*RegistrationListParticipantsSelectedIterator, error) {
 
 	logs, sub, err := _RegistrationList.contract.FilterLogs(opts, "ParticipantsSelected")
@@ -1282,9 +1323,9 @@ func (_RegistrationList *RegistrationListFilterer) FilterParticipantsSelected(op
 	return &RegistrationListParticipantsSelectedIterator{contract: _RegistrationList.contract, event: "ParticipantsSelected", logs: logs, sub: sub}, nil
 }
 
-// WatchParticipantsSelected is a free log subscription operation binding the contract event 0xf67ae7b61862fbe089bafd38aea69def4c64db49c4bff6d29f038cfd13fdd4c2.
+// WatchParticipantsSelected is a free log subscription operation binding the contract event 0x5a1c9864d9d35edf19fb83e7a07ad46d28d80307bd248fb165e8814a1d1cfe2b.
 //
-// Solidity: event ParticipantsSelected(uint256 requestId, bytes32 raceId, bytes32 randomness, bytes32 selected)
+// Solidity: event ParticipantsSelected(uint256 requestId, bytes32 raceId, uint256 randomness)
 func (_RegistrationList *RegistrationListFilterer) WatchParticipantsSelected(opts *bind.WatchOpts, sink chan<- *RegistrationListParticipantsSelected) (event.Subscription, error) {
 
 	logs, sub, err := _RegistrationList.contract.WatchLogs(opts, "ParticipantsSelected")
@@ -1319,9 +1360,9 @@ func (_RegistrationList *RegistrationListFilterer) WatchParticipantsSelected(opt
 	}), nil
 }
 
-// ParseParticipantsSelected is a log parse operation binding the contract event 0xf67ae7b61862fbe089bafd38aea69def4c64db49c4bff6d29f038cfd13fdd4c2.
+// ParseParticipantsSelected is a log parse operation binding the contract event 0x5a1c9864d9d35edf19fb83e7a07ad46d28d80307bd248fb165e8814a1d1cfe2b.
 //
-// Solidity: event ParticipantsSelected(uint256 requestId, bytes32 raceId, bytes32 randomness, bytes32 selected)
+// Solidity: event ParticipantsSelected(uint256 requestId, bytes32 raceId, uint256 randomness)
 func (_RegistrationList *RegistrationListFilterer) ParseParticipantsSelected(log types.Log) (*RegistrationListParticipantsSelected, error) {
 	event := new(RegistrationListParticipantsSelected)
 	if err := _RegistrationList.contract.UnpackLog(event, "ParticipantsSelected", log); err != nil {
@@ -2135,6 +2176,142 @@ func (_RegistrationList *RegistrationListFilterer) WatchRewardReceived(opts *bin
 func (_RegistrationList *RegistrationListFilterer) ParseRewardReceived(log types.Log) (*RegistrationListRewardReceived, error) {
 	event := new(RegistrationListRewardReceived)
 	if err := _RegistrationList.contract.UnpackLog(event, "RewardReceived", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// RegistrationListRewardRemovedIterator is returned from FilterRewardRemoved and is used to iterate over the raw logs and unpacked data for RewardRemoved events raised by the RegistrationList contract.
+type RegistrationListRewardRemovedIterator struct {
+	Event *RegistrationListRewardRemoved // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *RegistrationListRewardRemovedIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(RegistrationListRewardRemoved)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(RegistrationListRewardRemoved)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *RegistrationListRewardRemovedIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *RegistrationListRewardRemovedIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// RegistrationListRewardRemoved represents a RewardRemoved event raised by the RegistrationList contract.
+type RegistrationListRewardRemoved struct {
+	RaceId      [32]byte
+	NftRewardId *big.Int
+	ResultIndex [1]byte
+	Raw         types.Log // Blockchain specific contextual infos
+}
+
+// FilterRewardRemoved is a free log retrieval operation binding the contract event 0xddda89b96dee97fe43f9803c50584f6dd667bedc8b02a7c75407e6906bf31ead.
+//
+// Solidity: event RewardRemoved(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex)
+func (_RegistrationList *RegistrationListFilterer) FilterRewardRemoved(opts *bind.FilterOpts) (*RegistrationListRewardRemovedIterator, error) {
+
+	logs, sub, err := _RegistrationList.contract.FilterLogs(opts, "RewardRemoved")
+	if err != nil {
+		return nil, err
+	}
+	return &RegistrationListRewardRemovedIterator{contract: _RegistrationList.contract, event: "RewardRemoved", logs: logs, sub: sub}, nil
+}
+
+// WatchRewardRemoved is a free log subscription operation binding the contract event 0xddda89b96dee97fe43f9803c50584f6dd667bedc8b02a7c75407e6906bf31ead.
+//
+// Solidity: event RewardRemoved(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex)
+func (_RegistrationList *RegistrationListFilterer) WatchRewardRemoved(opts *bind.WatchOpts, sink chan<- *RegistrationListRewardRemoved) (event.Subscription, error) {
+
+	logs, sub, err := _RegistrationList.contract.WatchLogs(opts, "RewardRemoved")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(RegistrationListRewardRemoved)
+				if err := _RegistrationList.contract.UnpackLog(event, "RewardRemoved", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseRewardRemoved is a log parse operation binding the contract event 0xddda89b96dee97fe43f9803c50584f6dd667bedc8b02a7c75407e6906bf31ead.
+//
+// Solidity: event RewardRemoved(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex)
+func (_RegistrationList *RegistrationListFilterer) ParseRewardRemoved(log types.Log) (*RegistrationListRewardRemoved, error) {
+	event := new(RegistrationListRewardRemoved)
+	if err := _RegistrationList.contract.UnpackLog(event, "RewardRemoved", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log

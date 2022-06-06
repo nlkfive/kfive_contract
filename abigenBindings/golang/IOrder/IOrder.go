@@ -30,7 +30,7 @@ var (
 
 // IOrderMetaData contains all meta data concerning the IOrder contract.
 var IOrderMetaData = &bind.MetaData{
-	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"}],\"name\":\"OrderCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"priceInWei\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"name\":\"OrderCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"}],\"name\":\"OrderSuccessful\",\"type\":\"event\"}]",
+	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"}],\"name\":\"OrderCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"priceInWei\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"name\":\"OrderCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"}],\"name\":\"OrderSuccessful\",\"type\":\"event\"}]",
 }
 
 // IOrderABI is the input ABI used to generate the binding from.
@@ -248,38 +248,29 @@ func (it *IOrderOrderCancelledIterator) Close() error {
 
 // IOrderOrderCancelled represents a OrderCancelled event raised by the IOrder contract.
 type IOrderOrderCancelled struct {
+	Who common.Address
 	Id  [32]byte
 	Raw types.Log // Blockchain specific contextual infos
 }
 
-// FilterOrderCancelled is a free log retrieval operation binding the contract event 0x5152abf959f6564662358c2e52b702259b78bac5ee7842a0f01937e670efcc7d.
+// FilterOrderCancelled is a free log retrieval operation binding the contract event 0x35974c4230d53fb4c6e8553fd900c88ba92747dbc689a79bcd6ba755cb936985.
 //
-// Solidity: event OrderCancelled(bytes32 indexed id)
-func (_IOrder *IOrderFilterer) FilterOrderCancelled(opts *bind.FilterOpts, id [][32]byte) (*IOrderOrderCancelledIterator, error) {
+// Solidity: event OrderCancelled(address who, bytes32 id)
+func (_IOrder *IOrderFilterer) FilterOrderCancelled(opts *bind.FilterOpts) (*IOrderOrderCancelledIterator, error) {
 
-	var idRule []interface{}
-	for _, idItem := range id {
-		idRule = append(idRule, idItem)
-	}
-
-	logs, sub, err := _IOrder.contract.FilterLogs(opts, "OrderCancelled", idRule)
+	logs, sub, err := _IOrder.contract.FilterLogs(opts, "OrderCancelled")
 	if err != nil {
 		return nil, err
 	}
 	return &IOrderOrderCancelledIterator{contract: _IOrder.contract, event: "OrderCancelled", logs: logs, sub: sub}, nil
 }
 
-// WatchOrderCancelled is a free log subscription operation binding the contract event 0x5152abf959f6564662358c2e52b702259b78bac5ee7842a0f01937e670efcc7d.
+// WatchOrderCancelled is a free log subscription operation binding the contract event 0x35974c4230d53fb4c6e8553fd900c88ba92747dbc689a79bcd6ba755cb936985.
 //
-// Solidity: event OrderCancelled(bytes32 indexed id)
-func (_IOrder *IOrderFilterer) WatchOrderCancelled(opts *bind.WatchOpts, sink chan<- *IOrderOrderCancelled, id [][32]byte) (event.Subscription, error) {
+// Solidity: event OrderCancelled(address who, bytes32 id)
+func (_IOrder *IOrderFilterer) WatchOrderCancelled(opts *bind.WatchOpts, sink chan<- *IOrderOrderCancelled) (event.Subscription, error) {
 
-	var idRule []interface{}
-	for _, idItem := range id {
-		idRule = append(idRule, idItem)
-	}
-
-	logs, sub, err := _IOrder.contract.WatchLogs(opts, "OrderCancelled", idRule)
+	logs, sub, err := _IOrder.contract.WatchLogs(opts, "OrderCancelled")
 	if err != nil {
 		return nil, err
 	}
@@ -311,9 +302,9 @@ func (_IOrder *IOrderFilterer) WatchOrderCancelled(opts *bind.WatchOpts, sink ch
 	}), nil
 }
 
-// ParseOrderCancelled is a log parse operation binding the contract event 0x5152abf959f6564662358c2e52b702259b78bac5ee7842a0f01937e670efcc7d.
+// ParseOrderCancelled is a log parse operation binding the contract event 0x35974c4230d53fb4c6e8553fd900c88ba92747dbc689a79bcd6ba755cb936985.
 //
-// Solidity: event OrderCancelled(bytes32 indexed id)
+// Solidity: event OrderCancelled(address who, bytes32 id)
 func (_IOrder *IOrderFilterer) ParseOrderCancelled(log types.Log) (*IOrderOrderCancelled, error) {
 	event := new(IOrderOrderCancelled)
 	if err := _IOrder.contract.UnpackLog(event, "OrderCancelled", log); err != nil {
@@ -403,23 +394,10 @@ type IOrderOrderCreated struct {
 
 // FilterOrderCreated is a free log retrieval operation binding the contract event 0x84c66c3f7ba4b390e20e8e8233e2a516f3ce34a72749e4f12bd010dfba238039.
 //
-// Solidity: event OrderCreated(bytes32 indexed orderId, uint256 indexed assetId, address indexed seller, address nftAddress, uint256 priceInWei, uint256 expiredAt)
-func (_IOrder *IOrderFilterer) FilterOrderCreated(opts *bind.FilterOpts, orderId [][32]byte, assetId []*big.Int, seller []common.Address) (*IOrderOrderCreatedIterator, error) {
+// Solidity: event OrderCreated(bytes32 orderId, uint256 assetId, address seller, address nftAddress, uint256 priceInWei, uint256 expiredAt)
+func (_IOrder *IOrderFilterer) FilterOrderCreated(opts *bind.FilterOpts) (*IOrderOrderCreatedIterator, error) {
 
-	var orderIdRule []interface{}
-	for _, orderIdItem := range orderId {
-		orderIdRule = append(orderIdRule, orderIdItem)
-	}
-	var assetIdRule []interface{}
-	for _, assetIdItem := range assetId {
-		assetIdRule = append(assetIdRule, assetIdItem)
-	}
-	var sellerRule []interface{}
-	for _, sellerItem := range seller {
-		sellerRule = append(sellerRule, sellerItem)
-	}
-
-	logs, sub, err := _IOrder.contract.FilterLogs(opts, "OrderCreated", orderIdRule, assetIdRule, sellerRule)
+	logs, sub, err := _IOrder.contract.FilterLogs(opts, "OrderCreated")
 	if err != nil {
 		return nil, err
 	}
@@ -428,23 +406,10 @@ func (_IOrder *IOrderFilterer) FilterOrderCreated(opts *bind.FilterOpts, orderId
 
 // WatchOrderCreated is a free log subscription operation binding the contract event 0x84c66c3f7ba4b390e20e8e8233e2a516f3ce34a72749e4f12bd010dfba238039.
 //
-// Solidity: event OrderCreated(bytes32 indexed orderId, uint256 indexed assetId, address indexed seller, address nftAddress, uint256 priceInWei, uint256 expiredAt)
-func (_IOrder *IOrderFilterer) WatchOrderCreated(opts *bind.WatchOpts, sink chan<- *IOrderOrderCreated, orderId [][32]byte, assetId []*big.Int, seller []common.Address) (event.Subscription, error) {
+// Solidity: event OrderCreated(bytes32 orderId, uint256 assetId, address seller, address nftAddress, uint256 priceInWei, uint256 expiredAt)
+func (_IOrder *IOrderFilterer) WatchOrderCreated(opts *bind.WatchOpts, sink chan<- *IOrderOrderCreated) (event.Subscription, error) {
 
-	var orderIdRule []interface{}
-	for _, orderIdItem := range orderId {
-		orderIdRule = append(orderIdRule, orderIdItem)
-	}
-	var assetIdRule []interface{}
-	for _, assetIdItem := range assetId {
-		assetIdRule = append(assetIdRule, assetIdItem)
-	}
-	var sellerRule []interface{}
-	for _, sellerItem := range seller {
-		sellerRule = append(sellerRule, sellerItem)
-	}
-
-	logs, sub, err := _IOrder.contract.WatchLogs(opts, "OrderCreated", orderIdRule, assetIdRule, sellerRule)
+	logs, sub, err := _IOrder.contract.WatchLogs(opts, "OrderCreated")
 	if err != nil {
 		return nil, err
 	}
@@ -478,7 +443,7 @@ func (_IOrder *IOrderFilterer) WatchOrderCreated(opts *bind.WatchOpts, sink chan
 
 // ParseOrderCreated is a log parse operation binding the contract event 0x84c66c3f7ba4b390e20e8e8233e2a516f3ce34a72749e4f12bd010dfba238039.
 //
-// Solidity: event OrderCreated(bytes32 indexed orderId, uint256 indexed assetId, address indexed seller, address nftAddress, uint256 priceInWei, uint256 expiredAt)
+// Solidity: event OrderCreated(bytes32 orderId, uint256 assetId, address seller, address nftAddress, uint256 priceInWei, uint256 expiredAt)
 func (_IOrder *IOrderFilterer) ParseOrderCreated(log types.Log) (*IOrderOrderCreated, error) {
 	event := new(IOrderOrderCreated)
 	if err := _IOrder.contract.UnpackLog(event, "OrderCreated", log); err != nil {
@@ -557,47 +522,30 @@ func (it *IOrderOrderSuccessfulIterator) Close() error {
 
 // IOrderOrderSuccessful represents a OrderSuccessful event raised by the IOrder contract.
 type IOrderOrderSuccessful struct {
-	Id    [32]byte
-	Buyer common.Address
-	Raw   types.Log // Blockchain specific contextual infos
+	Id     [32]byte
+	Buyer  common.Address
+	Seller common.Address
+	Raw    types.Log // Blockchain specific contextual infos
 }
 
-// FilterOrderSuccessful is a free log retrieval operation binding the contract event 0x56e5f4ff73854a4423571427b069b47d6509b44bb78145207a634f2dd720916b.
+// FilterOrderSuccessful is a free log retrieval operation binding the contract event 0xa3fe2a6ffb1ad0de1c1ee8e3513d205b99980c40af9de82e502095245debabbb.
 //
-// Solidity: event OrderSuccessful(bytes32 indexed id, address indexed buyer)
-func (_IOrder *IOrderFilterer) FilterOrderSuccessful(opts *bind.FilterOpts, id [][32]byte, buyer []common.Address) (*IOrderOrderSuccessfulIterator, error) {
+// Solidity: event OrderSuccessful(bytes32 id, address buyer, address seller)
+func (_IOrder *IOrderFilterer) FilterOrderSuccessful(opts *bind.FilterOpts) (*IOrderOrderSuccessfulIterator, error) {
 
-	var idRule []interface{}
-	for _, idItem := range id {
-		idRule = append(idRule, idItem)
-	}
-	var buyerRule []interface{}
-	for _, buyerItem := range buyer {
-		buyerRule = append(buyerRule, buyerItem)
-	}
-
-	logs, sub, err := _IOrder.contract.FilterLogs(opts, "OrderSuccessful", idRule, buyerRule)
+	logs, sub, err := _IOrder.contract.FilterLogs(opts, "OrderSuccessful")
 	if err != nil {
 		return nil, err
 	}
 	return &IOrderOrderSuccessfulIterator{contract: _IOrder.contract, event: "OrderSuccessful", logs: logs, sub: sub}, nil
 }
 
-// WatchOrderSuccessful is a free log subscription operation binding the contract event 0x56e5f4ff73854a4423571427b069b47d6509b44bb78145207a634f2dd720916b.
+// WatchOrderSuccessful is a free log subscription operation binding the contract event 0xa3fe2a6ffb1ad0de1c1ee8e3513d205b99980c40af9de82e502095245debabbb.
 //
-// Solidity: event OrderSuccessful(bytes32 indexed id, address indexed buyer)
-func (_IOrder *IOrderFilterer) WatchOrderSuccessful(opts *bind.WatchOpts, sink chan<- *IOrderOrderSuccessful, id [][32]byte, buyer []common.Address) (event.Subscription, error) {
+// Solidity: event OrderSuccessful(bytes32 id, address buyer, address seller)
+func (_IOrder *IOrderFilterer) WatchOrderSuccessful(opts *bind.WatchOpts, sink chan<- *IOrderOrderSuccessful) (event.Subscription, error) {
 
-	var idRule []interface{}
-	for _, idItem := range id {
-		idRule = append(idRule, idItem)
-	}
-	var buyerRule []interface{}
-	for _, buyerItem := range buyer {
-		buyerRule = append(buyerRule, buyerItem)
-	}
-
-	logs, sub, err := _IOrder.contract.WatchLogs(opts, "OrderSuccessful", idRule, buyerRule)
+	logs, sub, err := _IOrder.contract.WatchLogs(opts, "OrderSuccessful")
 	if err != nil {
 		return nil, err
 	}
@@ -629,9 +577,9 @@ func (_IOrder *IOrderFilterer) WatchOrderSuccessful(opts *bind.WatchOpts, sink c
 	}), nil
 }
 
-// ParseOrderSuccessful is a log parse operation binding the contract event 0x56e5f4ff73854a4423571427b069b47d6509b44bb78145207a634f2dd720916b.
+// ParseOrderSuccessful is a log parse operation binding the contract event 0xa3fe2a6ffb1ad0de1c1ee8e3513d205b99980c40af9de82e502095245debabbb.
 //
-// Solidity: event OrderSuccessful(bytes32 indexed id, address indexed buyer)
+// Solidity: event OrderSuccessful(bytes32 id, address buyer, address seller)
 func (_IOrder *IOrderFilterer) ParseOrderSuccessful(log types.Log) (*IOrderOrderSuccessful, error) {
 	event := new(IOrderOrderSuccessful)
 	if err := _IOrder.contract.UnpackLog(event, "OrderSuccessful", log); err != nil {

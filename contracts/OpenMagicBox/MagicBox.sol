@@ -14,11 +14,13 @@ import "@openzeppelin/contracts/utils/Address.sol";
 contract MagicBox is 
     VRFConsumerBaseV2,
     KfiveAccessControl, 
-    IERC721Receiver 
+    IERC721Receiver
 {
 
     using SafeMath for uint256;
     using Address for address;
+
+    uint256 private constant EMPTY = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF;
 
     enum BoxType{ DIAMON, GOLD, SILVER, BROZEN }
     struct BoxInfo {
@@ -30,10 +32,10 @@ contract MagicBox is
     IBEP20 private _acceptToken;
     uint256 _endedAt;
     mapping (BoxType => uint256) _price;
-    mapping (BoxType => uint256) _rewardCount;
-    mapping (BoxType => mapping(uint256 => uint256)) _rewardList;
+    mapping (BoxType => uint256[]) _rewardList;
     mapping (uint256 => BoxInfo) _vrfRandomMap;
     mapping (uint256 => uint256) _receivedMap;
+    mapping (address => uint256) _listRequested;
     IKfiveNFT private _magicBoxReward;
 
     VRFCoordinatorV2Interface private _vrfCoordinator;
@@ -63,6 +65,8 @@ contract MagicBox is
     error OpenFailed(); // 0xffd586b9
     error TooLate(uint256 time);
     error NotOwner(); // 0x30cd7471
+    error BoxRequested(); // 0x8b46d2c6
+    error RandomnessNotGenerated(); // 0xd93e896f
 
     event RequestBoxSuccessful(BoxType boxType, address sender, uint256 requestId);
     event RewardAdded(BoxType boxType, uint256 rewardIndex, uint256 nftRewardId);
@@ -108,6 +112,9 @@ contract MagicBox is
         returns (uint256 requestId)
     {
         address sender = _msgSender();
+        if (_listRequested[sender] != 0){
+            revert BoxRequested();
+        }
 
         requestId = _vrfCoordinator.requestRandomWords(
             s_keyHash,
@@ -116,11 +123,13 @@ contract MagicBox is
             callbackGasLimit,
             numWords
         );
+        _listRequested[sender] = requestId;
         // storing requestId
         BoxInfo storage boxInfo = _vrfRandomMap[requestId];
         {
             boxInfo.boxType = boxType;
             boxInfo.receiver = sender;
+            boxInfo.randomness = EMPTY;
         }
 
         emit RequestBoxSuccessful(boxType, sender, requestId);
@@ -135,7 +144,7 @@ contract MagicBox is
         _vrfRandomMap[requestId].randomness = randomness;
         emit BoxReceived(requestId, randomness);
     }
-
+    
     /** 
      * @dev Handle on result random
      */
@@ -147,20 +156,24 @@ contract MagicBox is
         address sender = _msgSender();
         BoxInfo memory boxInfo = _vrfRandomMap[requestId];
         delete _vrfRandomMap[requestId];
+        delete _listRequested[sender];
+
         if (boxInfo.receiver != sender){
             revert NotOwner();
         }
+        if (boxInfo.randomness == EMPTY){
+            revert RandomnessNotGenerated();
+        }
         BoxType boxType = boxInfo.boxType;
-        uint256 totalRemainReward = _rewardCount[boxType];
+        uint256 totalRemainReward = _rewardList[boxType].length;
         if (totalRemainReward == 0) {
             revert NoReward();
         }
 
         if (!_acceptToken.transferFrom(sender, address(this), _price[boxType])) revert OpenFailed();
-        _rewardCount[boxType] = totalRemainReward.sub(1);
 
         uint256 rewardIndex = boxInfo.randomness.mod(totalRemainReward);
-        _getReward(boxType, sender, rewardIndex, _rewardCount[boxType]);
+        _getReward(boxType, sender, rewardIndex);
     }
 
     /**
@@ -171,16 +184,14 @@ contract MagicBox is
         whenNotPaused
         onlyRole(ADMIN_ROLE)
     {
-        uint256 rewardIndex = _rewardCount[boxType];
         _magicBoxReward.mint(
             address(this),
             nftRewardId,
             tokenURI
         );
-        _rewardCount[boxType] = rewardIndex.add(1);
-        _rewardList[boxType][rewardIndex] = nftRewardId;
+        _rewardList[boxType].push(nftRewardId);
 
-        emit RewardAdded(boxType, rewardIndex, nftRewardId);
+        emit RewardAdded(boxType, _rewardList[boxType].length, nftRewardId);
     }
 
     modifier onlyBefore() {
@@ -189,7 +200,15 @@ contract MagicBox is
     }
 
     function remainReward(BoxType boxType) external view returns (uint256) {
-        return _rewardCount[boxType];
+        return _rewardList[boxType].length;
+    }
+
+    function listReward(BoxType boxType) external view returns (uint256[] memory) {
+        return _rewardList[boxType];
+    }
+
+    function getRequestId(address sender) external view returns (uint256) {
+        return _listRequested[sender];
     }
 
     function getEndedAt() external view returns (uint256) {
@@ -199,25 +218,10 @@ contract MagicBox is
     function _getReward(
         BoxType boxType, 
         address receiver, 
-        uint256 rewardIndex, 
-        uint256 lastRewardIndex
+        uint256 rewardIndex
     ) internal {
-        // Check if rewardIndex have already been received
-        if (_receivedMap[rewardIndex] != 0){
-            // The actual rewardIndex was saved in this map "_receivedMap"
-            rewardIndex = _receivedMap[rewardIndex];
-        }
-        
         uint256 nftId = _rewardList[boxType][rewardIndex];
-
-        // Store received rewardIndex to map
-        // Store at the rewardIndex that the last is mapping to if the last has been map
-        if (_receivedMap[lastRewardIndex] != 0){
-            _receivedMap[rewardIndex] = _receivedMap[lastRewardIndex];
-        // Store at the last rewardIndex if it hasn't been map
-        } else {
-            _receivedMap[rewardIndex] = lastRewardIndex;
-        }
+        _rewardList[boxType] = remove(rewardIndex, boxType);
 
         _magicBoxReward.safeTransferFrom(
             address(this),
@@ -238,5 +242,16 @@ contract MagicBox is
             bytes4(
                 keccak256("onERC721Received(address,address,uint256,bytes)")
             );
+    }
+
+    function remove(uint256 index, BoxType boxType) internal returns(uint256[] memory) {
+        uint256[] storage rewardList = _rewardList[boxType];
+        if (index >= rewardList.length) return rewardList;
+
+        for (uint256 i = index; i< rewardList.length-1; i++){
+            rewardList[i] = rewardList[i+1];
+        }
+        rewardList.pop();
+        return rewardList;
     }
 }

@@ -22,7 +22,7 @@
     "@chainlink/contracts": "^0.4.0",
     "@chainsafe/truffle-plugin-abigen": "^0.0.2",
     "@openzeppelin/contracts": "^4.4.0",
-    "@remix-project/remixd": "^0.5.0",
+    "@remix-project/remixd": "^0.6.1",
     "@truffle/hdwallet-provider": "^1.4.2",
     "dotenv": "^8.2.0",
     "eth-gas-reporter": "^0.2.22",
@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@openzeppelin/truffle-upgrades": "^1.7.0",
-    "solidity-coverage": "^0.7.16",
-    "husky": "^7.0.0"
+    "husky": "^7.0.0",
+    "solidity-coverage": "^0.7.16"
   }
 }

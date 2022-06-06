@@ -30,7 +30,7 @@ var (
 
 // MagicBoxMetaData contains all meta data concerning the MagicBox contract.
 var MagicBoxMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"acceptToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"vrfCoordinator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"magicBoxReward\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"diamonPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"goldPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"silverPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"brozenPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"endedAt\",\"type\":\"uint256\"},{\"internalType\":\"uint64\",\"name\":\"subscriptionId\",\"type\":\"uint64\"},{\"internalType\":\"bytes32\",\"name\":\"keyHash\",\"type\":\"bytes32\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"DrawFailed\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidContract\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"have\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"want\",\"type\":\"address\"}],\"name\":\"OnlyCoordinatorCanFulfill\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooLate\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"enumMagicBox.BoxType\",\"name\":\"boxType\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"}],\"name\":\"DrawSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"enumMagicBox.BoxType\",\"name\":\"boxType\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"rewardIndex\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"}],\"name\":\"RewardAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"randomness\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"nftId\",\"type\":\"uint256\"}],\"name\":\"RewardTransfered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PAUSER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getRoleMember\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleMemberCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"},{\"internalType\":\"uint256[]\",\"name\":\"randomWords\",\"type\":\"uint256[]\"}],\"name\":\"rawFulfillRandomWords\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"enumMagicBox.BoxType\",\"name\":\"boxType\",\"type\":\"uint8\"}],\"name\":\"draw\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"enumMagicBox.BoxType\",\"name\":\"boxType\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"}],\"name\":\"addReward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"onERC721Received\",\"outputs\":[{\"internalType\":\"bytes4\",\"name\":\"\",\"type\":\"bytes4\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}]",
+	ABI: "[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"acceptToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"vrfCoordinator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"magicBoxReward\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"endedAt\",\"type\":\"uint256\"},{\"internalType\":\"uint64\",\"name\":\"subscriptionId\",\"type\":\"uint64\"},{\"internalType\":\"bytes32\",\"name\":\"keyHash\",\"type\":\"bytes32\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"BoxRequested\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidContract\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NoReward\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"have\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"want\",\"type\":\"address\"}],\"name\":\"OnlyCoordinatorCanFulfill\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"OpenFailed\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RandomnessNotGenerated\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooLate\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"randomness\",\"type\":\"uint256\"}],\"name\":\"BoxReceived\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"enumMagicBox.BoxType\",\"name\":\"boxType\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"}],\"name\":\"RequestBoxSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"enumMagicBox.BoxType\",\"name\":\"boxType\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"rewardIndex\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"}],\"name\":\"RewardAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"rewardIndex\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"RewardTransfered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PAUSER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getRoleMember\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleMemberCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"},{\"internalType\":\"uint256[]\",\"name\":\"randomWords\",\"type\":\"uint256[]\"}],\"name\":\"rawFulfillRandomWords\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"enumMagicBox.BoxType\",\"name\":\"boxType\",\"type\":\"uint8\"}],\"name\":\"requestBox\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"}],\"name\":\"openBox\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"enumMagicBox.BoxType\",\"name\":\"boxType\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"tokenURI\",\"type\":\"string\"}],\"name\":\"addReward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"enumMagicBox.BoxType\",\"name\":\"boxType\",\"type\":\"uint8\"}],\"name\":\"remainReward\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"enumMagicBox.BoxType\",\"name\":\"boxType\",\"type\":\"uint8\"}],\"name\":\"listReward\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"getRequestId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getEndedAt\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"onERC721Received\",\"outputs\":[{\"internalType\":\"bytes4\",\"name\":\"\",\"type\":\"bytes4\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}]",
 }
 
 // MagicBoxABI is the input ABI used to generate the binding from.
@@ -272,6 +272,68 @@ func (_MagicBox *MagicBoxCallerSession) PAUSERROLE() ([32]byte, error) {
 	return _MagicBox.Contract.PAUSERROLE(&_MagicBox.CallOpts)
 }
 
+// GetEndedAt is a free data retrieval call binding the contract method 0x1906ab9b.
+//
+// Solidity: function getEndedAt() view returns(uint256)
+func (_MagicBox *MagicBoxCaller) GetEndedAt(opts *bind.CallOpts) (*big.Int, error) {
+	var out []interface{}
+	err := _MagicBox.contract.Call(opts, &out, "getEndedAt")
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// GetEndedAt is a free data retrieval call binding the contract method 0x1906ab9b.
+//
+// Solidity: function getEndedAt() view returns(uint256)
+func (_MagicBox *MagicBoxSession) GetEndedAt() (*big.Int, error) {
+	return _MagicBox.Contract.GetEndedAt(&_MagicBox.CallOpts)
+}
+
+// GetEndedAt is a free data retrieval call binding the contract method 0x1906ab9b.
+//
+// Solidity: function getEndedAt() view returns(uint256)
+func (_MagicBox *MagicBoxCallerSession) GetEndedAt() (*big.Int, error) {
+	return _MagicBox.Contract.GetEndedAt(&_MagicBox.CallOpts)
+}
+
+// GetRequestId is a free data retrieval call binding the contract method 0x1e612da8.
+//
+// Solidity: function getRequestId(address sender) view returns(uint256)
+func (_MagicBox *MagicBoxCaller) GetRequestId(opts *bind.CallOpts, sender common.Address) (*big.Int, error) {
+	var out []interface{}
+	err := _MagicBox.contract.Call(opts, &out, "getRequestId", sender)
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// GetRequestId is a free data retrieval call binding the contract method 0x1e612da8.
+//
+// Solidity: function getRequestId(address sender) view returns(uint256)
+func (_MagicBox *MagicBoxSession) GetRequestId(sender common.Address) (*big.Int, error) {
+	return _MagicBox.Contract.GetRequestId(&_MagicBox.CallOpts, sender)
+}
+
+// GetRequestId is a free data retrieval call binding the contract method 0x1e612da8.
+//
+// Solidity: function getRequestId(address sender) view returns(uint256)
+func (_MagicBox *MagicBoxCallerSession) GetRequestId(sender common.Address) (*big.Int, error) {
+	return _MagicBox.Contract.GetRequestId(&_MagicBox.CallOpts, sender)
+}
+
 // GetRoleAdmin is a free data retrieval call binding the contract method 0x248a9ca3.
 //
 // Solidity: function getRoleAdmin(bytes32 role) view returns(bytes32)
@@ -396,6 +458,37 @@ func (_MagicBox *MagicBoxCallerSession) HasRole(role [32]byte, account common.Ad
 	return _MagicBox.Contract.HasRole(&_MagicBox.CallOpts, role, account)
 }
 
+// ListReward is a free data retrieval call binding the contract method 0xd86eab47.
+//
+// Solidity: function listReward(uint8 boxType) view returns(uint256[])
+func (_MagicBox *MagicBoxCaller) ListReward(opts *bind.CallOpts, boxType uint8) ([]*big.Int, error) {
+	var out []interface{}
+	err := _MagicBox.contract.Call(opts, &out, "listReward", boxType)
+
+	if err != nil {
+		return *new([]*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new([]*big.Int)).(*[]*big.Int)
+
+	return out0, err
+
+}
+
+// ListReward is a free data retrieval call binding the contract method 0xd86eab47.
+//
+// Solidity: function listReward(uint8 boxType) view returns(uint256[])
+func (_MagicBox *MagicBoxSession) ListReward(boxType uint8) ([]*big.Int, error) {
+	return _MagicBox.Contract.ListReward(&_MagicBox.CallOpts, boxType)
+}
+
+// ListReward is a free data retrieval call binding the contract method 0xd86eab47.
+//
+// Solidity: function listReward(uint8 boxType) view returns(uint256[])
+func (_MagicBox *MagicBoxCallerSession) ListReward(boxType uint8) ([]*big.Int, error) {
+	return _MagicBox.Contract.ListReward(&_MagicBox.CallOpts, boxType)
+}
+
 // OnERC721Received is a free data retrieval call binding the contract method 0x150b7a02.
 //
 // Solidity: function onERC721Received(address , address , uint256 , bytes ) pure returns(bytes4)
@@ -489,6 +582,37 @@ func (_MagicBox *MagicBoxCallerSession) Paused() (bool, error) {
 	return _MagicBox.Contract.Paused(&_MagicBox.CallOpts)
 }
 
+// RemainReward is a free data retrieval call binding the contract method 0xa9d7fc21.
+//
+// Solidity: function remainReward(uint8 boxType) view returns(uint256)
+func (_MagicBox *MagicBoxCaller) RemainReward(opts *bind.CallOpts, boxType uint8) (*big.Int, error) {
+	var out []interface{}
+	err := _MagicBox.contract.Call(opts, &out, "remainReward", boxType)
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// RemainReward is a free data retrieval call binding the contract method 0xa9d7fc21.
+//
+// Solidity: function remainReward(uint8 boxType) view returns(uint256)
+func (_MagicBox *MagicBoxSession) RemainReward(boxType uint8) (*big.Int, error) {
+	return _MagicBox.Contract.RemainReward(&_MagicBox.CallOpts, boxType)
+}
+
+// RemainReward is a free data retrieval call binding the contract method 0xa9d7fc21.
+//
+// Solidity: function remainReward(uint8 boxType) view returns(uint256)
+func (_MagicBox *MagicBoxCallerSession) RemainReward(boxType uint8) (*big.Int, error) {
+	return _MagicBox.Contract.RemainReward(&_MagicBox.CallOpts, boxType)
+}
+
 // SupportsInterface is a free data retrieval call binding the contract method 0x01ffc9a7.
 //
 // Solidity: function supportsInterface(bytes4 interfaceId) view returns(bool)
@@ -520,46 +644,25 @@ func (_MagicBox *MagicBoxCallerSession) SupportsInterface(interfaceId [4]byte) (
 	return _MagicBox.Contract.SupportsInterface(&_MagicBox.CallOpts, interfaceId)
 }
 
-// AddReward is a paid mutator transaction binding the contract method 0x4e6b662f.
+// AddReward is a paid mutator transaction binding the contract method 0x9a136697.
 //
-// Solidity: function addReward(uint8 boxType, uint256 nftRewardId) returns()
-func (_MagicBox *MagicBoxTransactor) AddReward(opts *bind.TransactOpts, boxType uint8, nftRewardId *big.Int) (*types.Transaction, error) {
-	return _MagicBox.contract.Transact(opts, "addReward", boxType, nftRewardId)
+// Solidity: function addReward(uint8 boxType, uint256 nftRewardId, string tokenURI) returns()
+func (_MagicBox *MagicBoxTransactor) AddReward(opts *bind.TransactOpts, boxType uint8, nftRewardId *big.Int, tokenURI string) (*types.Transaction, error) {
+	return _MagicBox.contract.Transact(opts, "addReward", boxType, nftRewardId, tokenURI)
 }
 
-// AddReward is a paid mutator transaction binding the contract method 0x4e6b662f.
+// AddReward is a paid mutator transaction binding the contract method 0x9a136697.
 //
-// Solidity: function addReward(uint8 boxType, uint256 nftRewardId) returns()
-func (_MagicBox *MagicBoxSession) AddReward(boxType uint8, nftRewardId *big.Int) (*types.Transaction, error) {
-	return _MagicBox.Contract.AddReward(&_MagicBox.TransactOpts, boxType, nftRewardId)
+// Solidity: function addReward(uint8 boxType, uint256 nftRewardId, string tokenURI) returns()
+func (_MagicBox *MagicBoxSession) AddReward(boxType uint8, nftRewardId *big.Int, tokenURI string) (*types.Transaction, error) {
+	return _MagicBox.Contract.AddReward(&_MagicBox.TransactOpts, boxType, nftRewardId, tokenURI)
 }
 
-// AddReward is a paid mutator transaction binding the contract method 0x4e6b662f.
+// AddReward is a paid mutator transaction binding the contract method 0x9a136697.
 //
-// Solidity: function addReward(uint8 boxType, uint256 nftRewardId) returns()
-func (_MagicBox *MagicBoxTransactorSession) AddReward(boxType uint8, nftRewardId *big.Int) (*types.Transaction, error) {
-	return _MagicBox.Contract.AddReward(&_MagicBox.TransactOpts, boxType, nftRewardId)
-}
-
-// Draw is a paid mutator transaction binding the contract method 0xaee3bd49.
-//
-// Solidity: function draw(uint8 boxType) returns(uint256 requestId)
-func (_MagicBox *MagicBoxTransactor) Draw(opts *bind.TransactOpts, boxType uint8) (*types.Transaction, error) {
-	return _MagicBox.contract.Transact(opts, "draw", boxType)
-}
-
-// Draw is a paid mutator transaction binding the contract method 0xaee3bd49.
-//
-// Solidity: function draw(uint8 boxType) returns(uint256 requestId)
-func (_MagicBox *MagicBoxSession) Draw(boxType uint8) (*types.Transaction, error) {
-	return _MagicBox.Contract.Draw(&_MagicBox.TransactOpts, boxType)
-}
-
-// Draw is a paid mutator transaction binding the contract method 0xaee3bd49.
-//
-// Solidity: function draw(uint8 boxType) returns(uint256 requestId)
-func (_MagicBox *MagicBoxTransactorSession) Draw(boxType uint8) (*types.Transaction, error) {
-	return _MagicBox.Contract.Draw(&_MagicBox.TransactOpts, boxType)
+// Solidity: function addReward(uint8 boxType, uint256 nftRewardId, string tokenURI) returns()
+func (_MagicBox *MagicBoxTransactorSession) AddReward(boxType uint8, nftRewardId *big.Int, tokenURI string) (*types.Transaction, error) {
+	return _MagicBox.Contract.AddReward(&_MagicBox.TransactOpts, boxType, nftRewardId, tokenURI)
 }
 
 // GrantRole is a paid mutator transaction binding the contract method 0x2f2ff15d.
@@ -581,6 +684,27 @@ func (_MagicBox *MagicBoxSession) GrantRole(role [32]byte, account common.Addres
 // Solidity: function grantRole(bytes32 role, address account) returns()
 func (_MagicBox *MagicBoxTransactorSession) GrantRole(role [32]byte, account common.Address) (*types.Transaction, error) {
 	return _MagicBox.Contract.GrantRole(&_MagicBox.TransactOpts, role, account)
+}
+
+// OpenBox is a paid mutator transaction binding the contract method 0xb1e5e2b7.
+//
+// Solidity: function openBox(uint256 requestId) returns()
+func (_MagicBox *MagicBoxTransactor) OpenBox(opts *bind.TransactOpts, requestId *big.Int) (*types.Transaction, error) {
+	return _MagicBox.contract.Transact(opts, "openBox", requestId)
+}
+
+// OpenBox is a paid mutator transaction binding the contract method 0xb1e5e2b7.
+//
+// Solidity: function openBox(uint256 requestId) returns()
+func (_MagicBox *MagicBoxSession) OpenBox(requestId *big.Int) (*types.Transaction, error) {
+	return _MagicBox.Contract.OpenBox(&_MagicBox.TransactOpts, requestId)
+}
+
+// OpenBox is a paid mutator transaction binding the contract method 0xb1e5e2b7.
+//
+// Solidity: function openBox(uint256 requestId) returns()
+func (_MagicBox *MagicBoxTransactorSession) OpenBox(requestId *big.Int) (*types.Transaction, error) {
+	return _MagicBox.Contract.OpenBox(&_MagicBox.TransactOpts, requestId)
 }
 
 // Pause is a paid mutator transaction binding the contract method 0x8456cb59.
@@ -667,6 +791,27 @@ func (_MagicBox *MagicBoxTransactorSession) RenounceRole(role [32]byte, account 
 	return _MagicBox.Contract.RenounceRole(&_MagicBox.TransactOpts, role, account)
 }
 
+// RequestBox is a paid mutator transaction binding the contract method 0xea0192a0.
+//
+// Solidity: function requestBox(uint8 boxType) returns(uint256 requestId)
+func (_MagicBox *MagicBoxTransactor) RequestBox(opts *bind.TransactOpts, boxType uint8) (*types.Transaction, error) {
+	return _MagicBox.contract.Transact(opts, "requestBox", boxType)
+}
+
+// RequestBox is a paid mutator transaction binding the contract method 0xea0192a0.
+//
+// Solidity: function requestBox(uint8 boxType) returns(uint256 requestId)
+func (_MagicBox *MagicBoxSession) RequestBox(boxType uint8) (*types.Transaction, error) {
+	return _MagicBox.Contract.RequestBox(&_MagicBox.TransactOpts, boxType)
+}
+
+// RequestBox is a paid mutator transaction binding the contract method 0xea0192a0.
+//
+// Solidity: function requestBox(uint8 boxType) returns(uint256 requestId)
+func (_MagicBox *MagicBoxTransactorSession) RequestBox(boxType uint8) (*types.Transaction, error) {
+	return _MagicBox.Contract.RequestBox(&_MagicBox.TransactOpts, boxType)
+}
+
 // RevokeRole is a paid mutator transaction binding the contract method 0xd547741f.
 //
 // Solidity: function revokeRole(bytes32 role, address account) returns()
@@ -730,9 +875,9 @@ func (_MagicBox *MagicBoxTransactorSession) Unpause() (*types.Transaction, error
 	return _MagicBox.Contract.Unpause(&_MagicBox.TransactOpts)
 }
 
-// MagicBoxDrawSuccessfulIterator is returned from FilterDrawSuccessful and is used to iterate over the raw logs and unpacked data for DrawSuccessful events raised by the MagicBox contract.
-type MagicBoxDrawSuccessfulIterator struct {
-	Event *MagicBoxDrawSuccessful // Event containing the contract specifics and raw log
+// MagicBoxBoxReceivedIterator is returned from FilterBoxReceived and is used to iterate over the raw logs and unpacked data for BoxReceived events raised by the MagicBox contract.
+type MagicBoxBoxReceivedIterator struct {
+	Event *MagicBoxBoxReceived // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -746,7 +891,7 @@ type MagicBoxDrawSuccessfulIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *MagicBoxDrawSuccessfulIterator) Next() bool {
+func (it *MagicBoxBoxReceivedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -755,7 +900,7 @@ func (it *MagicBoxDrawSuccessfulIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(MagicBoxDrawSuccessful)
+			it.Event = new(MagicBoxBoxReceived)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -770,7 +915,7 @@ func (it *MagicBoxDrawSuccessfulIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(MagicBoxDrawSuccessful)
+		it.Event = new(MagicBoxBoxReceived)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -786,43 +931,42 @@ func (it *MagicBoxDrawSuccessfulIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *MagicBoxDrawSuccessfulIterator) Error() error {
+func (it *MagicBoxBoxReceivedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *MagicBoxDrawSuccessfulIterator) Close() error {
+func (it *MagicBoxBoxReceivedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// MagicBoxDrawSuccessful represents a DrawSuccessful event raised by the MagicBox contract.
-type MagicBoxDrawSuccessful struct {
-	BoxType   uint8
-	Sender    common.Address
-	RequestId *big.Int
-	Raw       types.Log // Blockchain specific contextual infos
+// MagicBoxBoxReceived represents a BoxReceived event raised by the MagicBox contract.
+type MagicBoxBoxReceived struct {
+	RequestId  *big.Int
+	Randomness *big.Int
+	Raw        types.Log // Blockchain specific contextual infos
 }
 
-// FilterDrawSuccessful is a free log retrieval operation binding the contract event 0x00e885293ce838a2bbe418dfe615090d72fe7dea0826609c50d18f97578d245c.
+// FilterBoxReceived is a free log retrieval operation binding the contract event 0x45b6eedd25b1b5c371d24f0338eccfea7dacaca789cf8dc0694d8fd308dc25c1.
 //
-// Solidity: event DrawSuccessful(uint8 boxType, address sender, uint256 requestId)
-func (_MagicBox *MagicBoxFilterer) FilterDrawSuccessful(opts *bind.FilterOpts) (*MagicBoxDrawSuccessfulIterator, error) {
+// Solidity: event BoxReceived(uint256 requestId, uint256 randomness)
+func (_MagicBox *MagicBoxFilterer) FilterBoxReceived(opts *bind.FilterOpts) (*MagicBoxBoxReceivedIterator, error) {
 
-	logs, sub, err := _MagicBox.contract.FilterLogs(opts, "DrawSuccessful")
+	logs, sub, err := _MagicBox.contract.FilterLogs(opts, "BoxReceived")
 	if err != nil {
 		return nil, err
 	}
-	return &MagicBoxDrawSuccessfulIterator{contract: _MagicBox.contract, event: "DrawSuccessful", logs: logs, sub: sub}, nil
+	return &MagicBoxBoxReceivedIterator{contract: _MagicBox.contract, event: "BoxReceived", logs: logs, sub: sub}, nil
 }
 
-// WatchDrawSuccessful is a free log subscription operation binding the contract event 0x00e885293ce838a2bbe418dfe615090d72fe7dea0826609c50d18f97578d245c.
+// WatchBoxReceived is a free log subscription operation binding the contract event 0x45b6eedd25b1b5c371d24f0338eccfea7dacaca789cf8dc0694d8fd308dc25c1.
 //
-// Solidity: event DrawSuccessful(uint8 boxType, address sender, uint256 requestId)
-func (_MagicBox *MagicBoxFilterer) WatchDrawSuccessful(opts *bind.WatchOpts, sink chan<- *MagicBoxDrawSuccessful) (event.Subscription, error) {
+// Solidity: event BoxReceived(uint256 requestId, uint256 randomness)
+func (_MagicBox *MagicBoxFilterer) WatchBoxReceived(opts *bind.WatchOpts, sink chan<- *MagicBoxBoxReceived) (event.Subscription, error) {
 
-	logs, sub, err := _MagicBox.contract.WatchLogs(opts, "DrawSuccessful")
+	logs, sub, err := _MagicBox.contract.WatchLogs(opts, "BoxReceived")
 	if err != nil {
 		return nil, err
 	}
@@ -832,8 +976,8 @@ func (_MagicBox *MagicBoxFilterer) WatchDrawSuccessful(opts *bind.WatchOpts, sin
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(MagicBoxDrawSuccessful)
-				if err := _MagicBox.contract.UnpackLog(event, "DrawSuccessful", log); err != nil {
+				event := new(MagicBoxBoxReceived)
+				if err := _MagicBox.contract.UnpackLog(event, "BoxReceived", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -854,12 +998,12 @@ func (_MagicBox *MagicBoxFilterer) WatchDrawSuccessful(opts *bind.WatchOpts, sin
 	}), nil
 }
 
-// ParseDrawSuccessful is a log parse operation binding the contract event 0x00e885293ce838a2bbe418dfe615090d72fe7dea0826609c50d18f97578d245c.
+// ParseBoxReceived is a log parse operation binding the contract event 0x45b6eedd25b1b5c371d24f0338eccfea7dacaca789cf8dc0694d8fd308dc25c1.
 //
-// Solidity: event DrawSuccessful(uint8 boxType, address sender, uint256 requestId)
-func (_MagicBox *MagicBoxFilterer) ParseDrawSuccessful(log types.Log) (*MagicBoxDrawSuccessful, error) {
-	event := new(MagicBoxDrawSuccessful)
-	if err := _MagicBox.contract.UnpackLog(event, "DrawSuccessful", log); err != nil {
+// Solidity: event BoxReceived(uint256 requestId, uint256 randomness)
+func (_MagicBox *MagicBoxFilterer) ParseBoxReceived(log types.Log) (*MagicBoxBoxReceived, error) {
+	event := new(MagicBoxBoxReceived)
+	if err := _MagicBox.contract.UnpackLog(event, "BoxReceived", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
@@ -1153,6 +1297,142 @@ func (_MagicBox *MagicBoxFilterer) ParsePaused(log types.Log) (*MagicBoxPaused, 
 	return event, nil
 }
 
+// MagicBoxRequestBoxSuccessfulIterator is returned from FilterRequestBoxSuccessful and is used to iterate over the raw logs and unpacked data for RequestBoxSuccessful events raised by the MagicBox contract.
+type MagicBoxRequestBoxSuccessfulIterator struct {
+	Event *MagicBoxRequestBoxSuccessful // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *MagicBoxRequestBoxSuccessfulIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(MagicBoxRequestBoxSuccessful)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(MagicBoxRequestBoxSuccessful)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *MagicBoxRequestBoxSuccessfulIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *MagicBoxRequestBoxSuccessfulIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// MagicBoxRequestBoxSuccessful represents a RequestBoxSuccessful event raised by the MagicBox contract.
+type MagicBoxRequestBoxSuccessful struct {
+	BoxType   uint8
+	Sender    common.Address
+	RequestId *big.Int
+	Raw       types.Log // Blockchain specific contextual infos
+}
+
+// FilterRequestBoxSuccessful is a free log retrieval operation binding the contract event 0x563346928a474bb9aa88267cb3c79d1a3520fc4d63177ad5eed057408ed5ecf5.
+//
+// Solidity: event RequestBoxSuccessful(uint8 boxType, address sender, uint256 requestId)
+func (_MagicBox *MagicBoxFilterer) FilterRequestBoxSuccessful(opts *bind.FilterOpts) (*MagicBoxRequestBoxSuccessfulIterator, error) {
+
+	logs, sub, err := _MagicBox.contract.FilterLogs(opts, "RequestBoxSuccessful")
+	if err != nil {
+		return nil, err
+	}
+	return &MagicBoxRequestBoxSuccessfulIterator{contract: _MagicBox.contract, event: "RequestBoxSuccessful", logs: logs, sub: sub}, nil
+}
+
+// WatchRequestBoxSuccessful is a free log subscription operation binding the contract event 0x563346928a474bb9aa88267cb3c79d1a3520fc4d63177ad5eed057408ed5ecf5.
+//
+// Solidity: event RequestBoxSuccessful(uint8 boxType, address sender, uint256 requestId)
+func (_MagicBox *MagicBoxFilterer) WatchRequestBoxSuccessful(opts *bind.WatchOpts, sink chan<- *MagicBoxRequestBoxSuccessful) (event.Subscription, error) {
+
+	logs, sub, err := _MagicBox.contract.WatchLogs(opts, "RequestBoxSuccessful")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(MagicBoxRequestBoxSuccessful)
+				if err := _MagicBox.contract.UnpackLog(event, "RequestBoxSuccessful", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseRequestBoxSuccessful is a log parse operation binding the contract event 0x563346928a474bb9aa88267cb3c79d1a3520fc4d63177ad5eed057408ed5ecf5.
+//
+// Solidity: event RequestBoxSuccessful(uint8 boxType, address sender, uint256 requestId)
+func (_MagicBox *MagicBoxFilterer) ParseRequestBoxSuccessful(log types.Log) (*MagicBoxRequestBoxSuccessful, error) {
+	event := new(MagicBoxRequestBoxSuccessful)
+	if err := _MagicBox.contract.UnpackLog(event, "RequestBoxSuccessful", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
 // MagicBoxRewardAddedIterator is returned from FilterRewardAdded and is used to iterate over the raw logs and unpacked data for RewardAdded events raised by the MagicBox contract.
 type MagicBoxRewardAddedIterator struct {
 	Event *MagicBoxRewardAdded // Event containing the contract specifics and raw log
@@ -1358,16 +1638,15 @@ func (it *MagicBoxRewardTransferedIterator) Close() error {
 
 // MagicBoxRewardTransfered represents a RewardTransfered event raised by the MagicBox contract.
 type MagicBoxRewardTransfered struct {
-	Receiver   common.Address
-	RequestId  *big.Int
-	Randomness *big.Int
-	NftId      *big.Int
-	Raw        types.Log // Blockchain specific contextual infos
+	Receiver    common.Address
+	RewardIndex *big.Int
+	TokenId     *big.Int
+	Raw         types.Log // Blockchain specific contextual infos
 }
 
-// FilterRewardTransfered is a free log retrieval operation binding the contract event 0xd84ab24d1234cd13205146cf40e0ad4430ae01bf51c87a82183285b4361fdf18.
+// FilterRewardTransfered is a free log retrieval operation binding the contract event 0xb84c51b5972dee6f0d5b879da24ecd8d4f93168b696aa2b12a5dcf9036656959.
 //
-// Solidity: event RewardTransfered(address receiver, uint256 requestId, uint256 randomness, uint256 nftId)
+// Solidity: event RewardTransfered(address receiver, uint256 rewardIndex, uint256 tokenId)
 func (_MagicBox *MagicBoxFilterer) FilterRewardTransfered(opts *bind.FilterOpts) (*MagicBoxRewardTransferedIterator, error) {
 
 	logs, sub, err := _MagicBox.contract.FilterLogs(opts, "RewardTransfered")
@@ -1377,9 +1656,9 @@ func (_MagicBox *MagicBoxFilterer) FilterRewardTransfered(opts *bind.FilterOpts)
 	return &MagicBoxRewardTransferedIterator{contract: _MagicBox.contract, event: "RewardTransfered", logs: logs, sub: sub}, nil
 }
 
-// WatchRewardTransfered is a free log subscription operation binding the contract event 0xd84ab24d1234cd13205146cf40e0ad4430ae01bf51c87a82183285b4361fdf18.
+// WatchRewardTransfered is a free log subscription operation binding the contract event 0xb84c51b5972dee6f0d5b879da24ecd8d4f93168b696aa2b12a5dcf9036656959.
 //
-// Solidity: event RewardTransfered(address receiver, uint256 requestId, uint256 randomness, uint256 nftId)
+// Solidity: event RewardTransfered(address receiver, uint256 rewardIndex, uint256 tokenId)
 func (_MagicBox *MagicBoxFilterer) WatchRewardTransfered(opts *bind.WatchOpts, sink chan<- *MagicBoxRewardTransfered) (event.Subscription, error) {
 
 	logs, sub, err := _MagicBox.contract.WatchLogs(opts, "RewardTransfered")
@@ -1414,9 +1693,9 @@ func (_MagicBox *MagicBoxFilterer) WatchRewardTransfered(opts *bind.WatchOpts, s
 	}), nil
 }
 
-// ParseRewardTransfered is a log parse operation binding the contract event 0xd84ab24d1234cd13205146cf40e0ad4430ae01bf51c87a82183285b4361fdf18.
+// ParseRewardTransfered is a log parse operation binding the contract event 0xb84c51b5972dee6f0d5b879da24ecd8d4f93168b696aa2b12a5dcf9036656959.
 //
-// Solidity: event RewardTransfered(address receiver, uint256 requestId, uint256 randomness, uint256 nftId)
+// Solidity: event RewardTransfered(address receiver, uint256 rewardIndex, uint256 tokenId)
 func (_MagicBox *MagicBoxFilterer) ParseRewardTransfered(log types.Log) (*MagicBoxRewardTransfered, error) {
 	event := new(MagicBoxRewardTransfered)
 	if err := _MagicBox.contract.UnpackLog(event, "RewardTransfered", log); err != nil {

@@ -22,7 +22,7 @@ const HDWalletProvider = require("truffle-hdwallet-provider");
 // const infuraKey = "fj4jll3k.....";
 //
 const fs = require("fs");
-const config = require("./.secret.js").test;
+const config = require("./.secret.js").main;
 const jsonConfig = JSON.parse(JSON.stringify(config));
 const mnemonic = jsonConfig.mnemonic;
 

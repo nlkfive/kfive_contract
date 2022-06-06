@@ -99,7 +99,6 @@ contract LuckyVault is KfiveAccessControl, ReentrancyGuard {
     ) 
         external
         nonReentrant
-        onlyBefore
         whenNotPaused
     {
         if (amount < 1 ether) revert InvalidAmount(); // At least 1 BUSD
@@ -131,7 +130,6 @@ contract LuckyVault is KfiveAccessControl, ReentrancyGuard {
         uint256 amount
     ) 
         external
-        onlyAfter
         whenNotPaused
     {
 

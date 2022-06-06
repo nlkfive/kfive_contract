@@ -30,7 +30,7 @@ var (
 
 // IRegistrationListMetaData contains all meta data concerning the IRegistrationList contract.
 var IRegistrationListMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[],\"name\":\"AlreadyRegistered\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AlreadySelected\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidContract\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidSender\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidSlot\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"MaximumReached\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotNLGGTHolder\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RaceNotExisted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RewardIsExisted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RewardNotExistedOrReceived\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooEarly\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooLate\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nlggt\",\"type\":\"address\"}],\"name\":\"NlggtUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"randomness\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"selected\",\"type\":\"bytes32\"}],\"name\":\"ParticipantsSelected\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"race\",\"type\":\"address\"}],\"name\":\"RaceListUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"RandomInProgress\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"participant\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"Registered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes1\",\"name\":\"resultIndex\",\"type\":\"bytes1\"}],\"name\":\"RewardAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"}],\"name\":\"RewardReceived\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"register\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"},{\"internalType\":\"bytes1\",\"name\":\"resultIndex\",\"type\":\"bytes1\"}],\"name\":\"addReward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"selectParticipant\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"raceList\",\"type\":\"address\"}],\"name\":\"updateRaceAddress\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"nlggt\",\"type\":\"address\"}],\"name\":\"updateNlggtAddress\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"}],\"name\":\"receiveReward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
+	ABI: "[{\"inputs\":[],\"name\":\"AlreadyRegistered\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AlreadySelected\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidContract\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidSender\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidSlot\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotNLGGTHolder\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RaceNotExisted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RewardIsExisted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RewardIsNotExisted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RewardNotExistedOrReceived\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooEarly\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"TooLate\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nlggt\",\"type\":\"address\"}],\"name\":\"NlggtUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"randomness\",\"type\":\"uint256\"}],\"name\":\"ParticipantsSelected\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"race\",\"type\":\"address\"}],\"name\":\"RaceListUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"RandomInProgress\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"participant\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"Registered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes1\",\"name\":\"resultIndex\",\"type\":\"bytes1\"}],\"name\":\"RewardAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"}],\"name\":\"RewardReceived\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes1\",\"name\":\"resultIndex\",\"type\":\"bytes1\"}],\"name\":\"RewardRemoved\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"register\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"},{\"internalType\":\"bytes1\",\"name\":\"resultIndex\",\"type\":\"bytes1\"}],\"name\":\"addRewardByTransfer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"},{\"internalType\":\"bytes1\",\"name\":\"resultIndex\",\"type\":\"bytes1\"},{\"internalType\":\"string\",\"name\":\"tokenURI\",\"type\":\"string\"}],\"name\":\"addRewardByMint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"nftRewardId\",\"type\":\"uint256\"},{\"internalType\":\"bytes1\",\"name\":\"resultIndex\",\"type\":\"bytes1\"}],\"name\":\"removeReward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"}],\"name\":\"selectParticipant\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"raceList\",\"type\":\"address\"}],\"name\":\"updateRaceAddress\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"nlggt\",\"type\":\"address\"}],\"name\":\"updateNlggtAddress\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"raceId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"slotId\",\"type\":\"uint256\"}],\"name\":\"receiveReward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
 // IRegistrationListABI is the input ABI used to generate the binding from.
@@ -210,25 +210,46 @@ func (_IRegistrationList *IRegistrationListCallerSession) SupportsInterface(inte
 	return _IRegistrationList.Contract.SupportsInterface(&_IRegistrationList.CallOpts, interfaceId)
 }
 
-// AddReward is a paid mutator transaction binding the contract method 0x9a789d92.
+// AddRewardByMint is a paid mutator transaction binding the contract method 0x6bef76da.
 //
-// Solidity: function addReward(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex) returns()
-func (_IRegistrationList *IRegistrationListTransactor) AddReward(opts *bind.TransactOpts, raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte) (*types.Transaction, error) {
-	return _IRegistrationList.contract.Transact(opts, "addReward", raceId, nftRewardId, resultIndex)
+// Solidity: function addRewardByMint(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex, string tokenURI) returns()
+func (_IRegistrationList *IRegistrationListTransactor) AddRewardByMint(opts *bind.TransactOpts, raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte, tokenURI string) (*types.Transaction, error) {
+	return _IRegistrationList.contract.Transact(opts, "addRewardByMint", raceId, nftRewardId, resultIndex, tokenURI)
 }
 
-// AddReward is a paid mutator transaction binding the contract method 0x9a789d92.
+// AddRewardByMint is a paid mutator transaction binding the contract method 0x6bef76da.
 //
-// Solidity: function addReward(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex) returns()
-func (_IRegistrationList *IRegistrationListSession) AddReward(raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte) (*types.Transaction, error) {
-	return _IRegistrationList.Contract.AddReward(&_IRegistrationList.TransactOpts, raceId, nftRewardId, resultIndex)
+// Solidity: function addRewardByMint(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex, string tokenURI) returns()
+func (_IRegistrationList *IRegistrationListSession) AddRewardByMint(raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte, tokenURI string) (*types.Transaction, error) {
+	return _IRegistrationList.Contract.AddRewardByMint(&_IRegistrationList.TransactOpts, raceId, nftRewardId, resultIndex, tokenURI)
 }
 
-// AddReward is a paid mutator transaction binding the contract method 0x9a789d92.
+// AddRewardByMint is a paid mutator transaction binding the contract method 0x6bef76da.
 //
-// Solidity: function addReward(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex) returns()
-func (_IRegistrationList *IRegistrationListTransactorSession) AddReward(raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte) (*types.Transaction, error) {
-	return _IRegistrationList.Contract.AddReward(&_IRegistrationList.TransactOpts, raceId, nftRewardId, resultIndex)
+// Solidity: function addRewardByMint(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex, string tokenURI) returns()
+func (_IRegistrationList *IRegistrationListTransactorSession) AddRewardByMint(raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte, tokenURI string) (*types.Transaction, error) {
+	return _IRegistrationList.Contract.AddRewardByMint(&_IRegistrationList.TransactOpts, raceId, nftRewardId, resultIndex, tokenURI)
+}
+
+// AddRewardByTransfer is a paid mutator transaction binding the contract method 0x81357309.
+//
+// Solidity: function addRewardByTransfer(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex) returns()
+func (_IRegistrationList *IRegistrationListTransactor) AddRewardByTransfer(opts *bind.TransactOpts, raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte) (*types.Transaction, error) {
+	return _IRegistrationList.contract.Transact(opts, "addRewardByTransfer", raceId, nftRewardId, resultIndex)
+}
+
+// AddRewardByTransfer is a paid mutator transaction binding the contract method 0x81357309.
+//
+// Solidity: function addRewardByTransfer(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex) returns()
+func (_IRegistrationList *IRegistrationListSession) AddRewardByTransfer(raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte) (*types.Transaction, error) {
+	return _IRegistrationList.Contract.AddRewardByTransfer(&_IRegistrationList.TransactOpts, raceId, nftRewardId, resultIndex)
+}
+
+// AddRewardByTransfer is a paid mutator transaction binding the contract method 0x81357309.
+//
+// Solidity: function addRewardByTransfer(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex) returns()
+func (_IRegistrationList *IRegistrationListTransactorSession) AddRewardByTransfer(raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte) (*types.Transaction, error) {
+	return _IRegistrationList.Contract.AddRewardByTransfer(&_IRegistrationList.TransactOpts, raceId, nftRewardId, resultIndex)
 }
 
 // ReceiveReward is a paid mutator transaction binding the contract method 0x1a0fc715.
@@ -271,6 +292,27 @@ func (_IRegistrationList *IRegistrationListSession) Register(slotId *big.Int, ra
 // Solidity: function register(uint256 slotId, bytes32 raceId) returns()
 func (_IRegistrationList *IRegistrationListTransactorSession) Register(slotId *big.Int, raceId [32]byte) (*types.Transaction, error) {
 	return _IRegistrationList.Contract.Register(&_IRegistrationList.TransactOpts, slotId, raceId)
+}
+
+// RemoveReward is a paid mutator transaction binding the contract method 0x0fa445f5.
+//
+// Solidity: function removeReward(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex) returns()
+func (_IRegistrationList *IRegistrationListTransactor) RemoveReward(opts *bind.TransactOpts, raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte) (*types.Transaction, error) {
+	return _IRegistrationList.contract.Transact(opts, "removeReward", raceId, nftRewardId, resultIndex)
+}
+
+// RemoveReward is a paid mutator transaction binding the contract method 0x0fa445f5.
+//
+// Solidity: function removeReward(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex) returns()
+func (_IRegistrationList *IRegistrationListSession) RemoveReward(raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte) (*types.Transaction, error) {
+	return _IRegistrationList.Contract.RemoveReward(&_IRegistrationList.TransactOpts, raceId, nftRewardId, resultIndex)
+}
+
+// RemoveReward is a paid mutator transaction binding the contract method 0x0fa445f5.
+//
+// Solidity: function removeReward(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex) returns()
+func (_IRegistrationList *IRegistrationListTransactorSession) RemoveReward(raceId [32]byte, nftRewardId *big.Int, resultIndex [1]byte) (*types.Transaction, error) {
+	return _IRegistrationList.Contract.RemoveReward(&_IRegistrationList.TransactOpts, raceId, nftRewardId, resultIndex)
 }
 
 // SelectParticipant is a paid mutator transaction binding the contract method 0x7d0f79b7.
@@ -541,14 +583,13 @@ func (it *IRegistrationListParticipantsSelectedIterator) Close() error {
 type IRegistrationListParticipantsSelected struct {
 	RequestId  *big.Int
 	RaceId     [32]byte
-	Randomness [32]byte
-	Selected   [32]byte
+	Randomness *big.Int
 	Raw        types.Log // Blockchain specific contextual infos
 }
 
-// FilterParticipantsSelected is a free log retrieval operation binding the contract event 0xf67ae7b61862fbe089bafd38aea69def4c64db49c4bff6d29f038cfd13fdd4c2.
+// FilterParticipantsSelected is a free log retrieval operation binding the contract event 0x5a1c9864d9d35edf19fb83e7a07ad46d28d80307bd248fb165e8814a1d1cfe2b.
 //
-// Solidity: event ParticipantsSelected(uint256 requestId, bytes32 raceId, bytes32 randomness, bytes32 selected)
+// Solidity: event ParticipantsSelected(uint256 requestId, bytes32 raceId, uint256 randomness)
 func (_IRegistrationList *IRegistrationListFilterer) FilterParticipantsSelected(opts *bind.FilterOpts) (*IRegistrationListParticipantsSelectedIterator, error) {
 
 	logs, sub, err := _IRegistrationList.contract.FilterLogs(opts, "ParticipantsSelected")
@@ -558,9 +599,9 @@ func (_IRegistrationList *IRegistrationListFilterer) FilterParticipantsSelected(
 	return &IRegistrationListParticipantsSelectedIterator{contract: _IRegistrationList.contract, event: "ParticipantsSelected", logs: logs, sub: sub}, nil
 }
 
-// WatchParticipantsSelected is a free log subscription operation binding the contract event 0xf67ae7b61862fbe089bafd38aea69def4c64db49c4bff6d29f038cfd13fdd4c2.
+// WatchParticipantsSelected is a free log subscription operation binding the contract event 0x5a1c9864d9d35edf19fb83e7a07ad46d28d80307bd248fb165e8814a1d1cfe2b.
 //
-// Solidity: event ParticipantsSelected(uint256 requestId, bytes32 raceId, bytes32 randomness, bytes32 selected)
+// Solidity: event ParticipantsSelected(uint256 requestId, bytes32 raceId, uint256 randomness)
 func (_IRegistrationList *IRegistrationListFilterer) WatchParticipantsSelected(opts *bind.WatchOpts, sink chan<- *IRegistrationListParticipantsSelected) (event.Subscription, error) {
 
 	logs, sub, err := _IRegistrationList.contract.WatchLogs(opts, "ParticipantsSelected")
@@ -595,9 +636,9 @@ func (_IRegistrationList *IRegistrationListFilterer) WatchParticipantsSelected(o
 	}), nil
 }
 
-// ParseParticipantsSelected is a log parse operation binding the contract event 0xf67ae7b61862fbe089bafd38aea69def4c64db49c4bff6d29f038cfd13fdd4c2.
+// ParseParticipantsSelected is a log parse operation binding the contract event 0x5a1c9864d9d35edf19fb83e7a07ad46d28d80307bd248fb165e8814a1d1cfe2b.
 //
-// Solidity: event ParticipantsSelected(uint256 requestId, bytes32 raceId, bytes32 randomness, bytes32 selected)
+// Solidity: event ParticipantsSelected(uint256 requestId, bytes32 raceId, uint256 randomness)
 func (_IRegistrationList *IRegistrationListFilterer) ParseParticipantsSelected(log types.Log) (*IRegistrationListParticipantsSelected, error) {
 	event := new(IRegistrationListParticipantsSelected)
 	if err := _IRegistrationList.contract.UnpackLog(event, "ParticipantsSelected", log); err != nil {
@@ -1277,6 +1318,142 @@ func (_IRegistrationList *IRegistrationListFilterer) WatchRewardReceived(opts *b
 func (_IRegistrationList *IRegistrationListFilterer) ParseRewardReceived(log types.Log) (*IRegistrationListRewardReceived, error) {
 	event := new(IRegistrationListRewardReceived)
 	if err := _IRegistrationList.contract.UnpackLog(event, "RewardReceived", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// IRegistrationListRewardRemovedIterator is returned from FilterRewardRemoved and is used to iterate over the raw logs and unpacked data for RewardRemoved events raised by the IRegistrationList contract.
+type IRegistrationListRewardRemovedIterator struct {
+	Event *IRegistrationListRewardRemoved // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *IRegistrationListRewardRemovedIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(IRegistrationListRewardRemoved)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(IRegistrationListRewardRemoved)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *IRegistrationListRewardRemovedIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *IRegistrationListRewardRemovedIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// IRegistrationListRewardRemoved represents a RewardRemoved event raised by the IRegistrationList contract.
+type IRegistrationListRewardRemoved struct {
+	RaceId      [32]byte
+	NftRewardId *big.Int
+	ResultIndex [1]byte
+	Raw         types.Log // Blockchain specific contextual infos
+}
+
+// FilterRewardRemoved is a free log retrieval operation binding the contract event 0xddda89b96dee97fe43f9803c50584f6dd667bedc8b02a7c75407e6906bf31ead.
+//
+// Solidity: event RewardRemoved(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex)
+func (_IRegistrationList *IRegistrationListFilterer) FilterRewardRemoved(opts *bind.FilterOpts) (*IRegistrationListRewardRemovedIterator, error) {
+
+	logs, sub, err := _IRegistrationList.contract.FilterLogs(opts, "RewardRemoved")
+	if err != nil {
+		return nil, err
+	}
+	return &IRegistrationListRewardRemovedIterator{contract: _IRegistrationList.contract, event: "RewardRemoved", logs: logs, sub: sub}, nil
+}
+
+// WatchRewardRemoved is a free log subscription operation binding the contract event 0xddda89b96dee97fe43f9803c50584f6dd667bedc8b02a7c75407e6906bf31ead.
+//
+// Solidity: event RewardRemoved(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex)
+func (_IRegistrationList *IRegistrationListFilterer) WatchRewardRemoved(opts *bind.WatchOpts, sink chan<- *IRegistrationListRewardRemoved) (event.Subscription, error) {
+
+	logs, sub, err := _IRegistrationList.contract.WatchLogs(opts, "RewardRemoved")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(IRegistrationListRewardRemoved)
+				if err := _IRegistrationList.contract.UnpackLog(event, "RewardRemoved", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseRewardRemoved is a log parse operation binding the contract event 0xddda89b96dee97fe43f9803c50584f6dd667bedc8b02a7c75407e6906bf31ead.
+//
+// Solidity: event RewardRemoved(bytes32 raceId, uint256 nftRewardId, bytes1 resultIndex)
+func (_IRegistrationList *IRegistrationListFilterer) ParseRewardRemoved(log types.Log) (*IRegistrationListRewardRemoved, error) {
+	event := new(IRegistrationListRewardRemoved)
+	if err := _IRegistrationList.contract.UnpackLog(event, "RewardRemoved", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
