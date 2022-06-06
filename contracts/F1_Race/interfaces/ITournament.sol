@@ -92,16 +92,16 @@ interface ITournament is IERC165 {
     event RewardGranted(uint8 winnerIndex, uint8 score, address winner, uint256 nftRewardId);
     event Registered(uint8 slotId, address participant, bytes32 raceId);
 
-    error TooLate(uint256 time);
-    error TooEarly(uint256 time);
-    error InvalidContract();
-    error InvalidSlot();
-    error RaceNotExisted();
-    error RaceExisted();
-    error InvalidSender();
-    error CannotCreateMoreRace(uint256 _currentRaceNo, uint256 totalRace);
-    error AlreadyRegistered();
-    error InvalidRegister();
-    error NotEndYet();
-    error RaceWasUpdated();
+    error TooLate(uint256 time); //691e5682
+    error TooEarly(uint256 time); //2a35a324
+    error InvalidContract(); //6eefed20
+    error InvalidSlot(); //1258e4438
+    error RaceNotExisted(); //e2a9931a
+    error RaceExisted(); //4868480f
+    error InvalidSender(); //ddb5de5e
+    error CannotCreateMoreRace(uint256 _currentRaceNo, uint256 totalRace);//df15abb8
+    error AlreadyRegistered(); //3a81d6fc
+    error InvalidRegister(); //14ddd536
+    error NotEndYet(); //e0219957
+    error RaceWasUpdated(); //6404a619
 }

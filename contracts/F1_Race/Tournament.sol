@@ -140,7 +140,8 @@ abstract contract Tournament is
                 startAt
             )
         );
-        if (_raceInfo[raceId].startAt == 0) revert RaceNotExisted();
+
+        if (_raceInfo[raceId].startAt != 0) revert RaceExisted();
         _tournamentInfo.createdRace += 1;
         _listRaces[raceNo] = raceId;
 
@@ -171,7 +172,9 @@ abstract contract Tournament is
         Race memory _race = _raceInfo[raceId];
         if (_race.startAt == 0) revert RaceNotExisted();
         if (_race.result != 0) revert RaceWasUpdated();
-        _tournamentInfo.endedRace = _tournamentInfo.endedRace - 1;
+        
+        _tournamentInfo.createdRace = _tournamentInfo.createdRace - 1;
+        
         delete _raceInfo[raceId];
         emit RaceCancelled(raceId);
     }
