@@ -15,7 +15,7 @@ contract KickOffTournament is Tournament
     }
 
     function checkValidRegister() internal override view {
-        if (_nlggt.balanceOf(_msgSender()) > 0) revert InvalidRegister();
+        if (_nlggt.balanceOf(_msgSender()) == 0) revert InvalidRegister();
     }
 }
 
