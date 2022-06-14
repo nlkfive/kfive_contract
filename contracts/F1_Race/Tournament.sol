@@ -215,7 +215,7 @@ abstract contract Tournament is
     {
         if (_tournamentInfo.endedRace < _tournamentInfo.totalRace) revert NotEndYet();
         _f1Reward.mint(
-            address(this),
+            winner,
             nftRewardId,
             tokenURI
         );
