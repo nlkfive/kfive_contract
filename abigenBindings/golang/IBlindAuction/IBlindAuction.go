@@ -30,7 +30,7 @@ var (
 
 // IBlindAuctionMetaData contains all meta data concerning the IBlindAuction contract.
 var IBlindAuctionMetaData = &bind.MetaData{
-	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindedBid\",\"type\":\"bytes32\"}],\"name\":\"BlindAuctionBidSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"canceller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"BlindAuctionCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"}],\"name\":\"BlindAuctionCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"BlindAuctionEnded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"BlindAuctionRefund\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"totalPrice\",\"type\":\"uint256\"}],\"name\":\"BlindAuctionSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"RevealSuccessful\",\"type\":\"event\"}]",
+	ABI: "[{\"inputs\":[],\"name\":\"AuctionCancelled\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AuctionEnded\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AuctionRefund\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidBiddingEnd\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidBiddingPrice\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidWithdraw\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotRunning\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotWinner\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RewardGranted\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"TooEarly\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"TooLate\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"canceller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"AuctionCancelledSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"AuctionRefundSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindedBid\",\"type\":\"bytes32\"}],\"name\":\"BlindAuctionBidSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"assetOwner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"}],\"name\":\"BlindAuctionCreatedSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"auctionHighestBidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"}],\"name\":\"GrantAuctionRewardSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"RevealSuccessful\",\"type\":\"event\"}]",
 }
 
 // IBlindAuctionABI is the input ABI used to generate the binding from.
@@ -179,6 +179,277 @@ func (_IBlindAuction *IBlindAuctionTransactorRaw) Transact(opts *bind.TransactOp
 	return _IBlindAuction.Contract.contract.Transact(opts, method, params...)
 }
 
+// IBlindAuctionAuctionCancelledSuccessfulIterator is returned from FilterAuctionCancelledSuccessful and is used to iterate over the raw logs and unpacked data for AuctionCancelledSuccessful events raised by the IBlindAuction contract.
+type IBlindAuctionAuctionCancelledSuccessfulIterator struct {
+	Event *IBlindAuctionAuctionCancelledSuccessful // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *IBlindAuctionAuctionCancelledSuccessfulIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(IBlindAuctionAuctionCancelledSuccessful)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(IBlindAuctionAuctionCancelledSuccessful)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *IBlindAuctionAuctionCancelledSuccessfulIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *IBlindAuctionAuctionCancelledSuccessfulIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// IBlindAuctionAuctionCancelledSuccessful represents a AuctionCancelledSuccessful event raised by the IBlindAuction contract.
+type IBlindAuctionAuctionCancelledSuccessful struct {
+	Canceller common.Address
+	AuctionId [32]byte
+	Raw       types.Log // Blockchain specific contextual infos
+}
+
+// FilterAuctionCancelledSuccessful is a free log retrieval operation binding the contract event 0xa021239bb373fef19aa7c7ef798961ab038ebf95bd85d546b731d25855db190e.
+//
+// Solidity: event AuctionCancelledSuccessful(address canceller, bytes32 auctionId)
+func (_IBlindAuction *IBlindAuctionFilterer) FilterAuctionCancelledSuccessful(opts *bind.FilterOpts) (*IBlindAuctionAuctionCancelledSuccessfulIterator, error) {
+
+	logs, sub, err := _IBlindAuction.contract.FilterLogs(opts, "AuctionCancelledSuccessful")
+	if err != nil {
+		return nil, err
+	}
+	return &IBlindAuctionAuctionCancelledSuccessfulIterator{contract: _IBlindAuction.contract, event: "AuctionCancelledSuccessful", logs: logs, sub: sub}, nil
+}
+
+// WatchAuctionCancelledSuccessful is a free log subscription operation binding the contract event 0xa021239bb373fef19aa7c7ef798961ab038ebf95bd85d546b731d25855db190e.
+//
+// Solidity: event AuctionCancelledSuccessful(address canceller, bytes32 auctionId)
+func (_IBlindAuction *IBlindAuctionFilterer) WatchAuctionCancelledSuccessful(opts *bind.WatchOpts, sink chan<- *IBlindAuctionAuctionCancelledSuccessful) (event.Subscription, error) {
+
+	logs, sub, err := _IBlindAuction.contract.WatchLogs(opts, "AuctionCancelledSuccessful")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(IBlindAuctionAuctionCancelledSuccessful)
+				if err := _IBlindAuction.contract.UnpackLog(event, "AuctionCancelledSuccessful", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseAuctionCancelledSuccessful is a log parse operation binding the contract event 0xa021239bb373fef19aa7c7ef798961ab038ebf95bd85d546b731d25855db190e.
+//
+// Solidity: event AuctionCancelledSuccessful(address canceller, bytes32 auctionId)
+func (_IBlindAuction *IBlindAuctionFilterer) ParseAuctionCancelledSuccessful(log types.Log) (*IBlindAuctionAuctionCancelledSuccessful, error) {
+	event := new(IBlindAuctionAuctionCancelledSuccessful)
+	if err := _IBlindAuction.contract.UnpackLog(event, "AuctionCancelledSuccessful", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// IBlindAuctionAuctionRefundSuccessfulIterator is returned from FilterAuctionRefundSuccessful and is used to iterate over the raw logs and unpacked data for AuctionRefundSuccessful events raised by the IBlindAuction contract.
+type IBlindAuctionAuctionRefundSuccessfulIterator struct {
+	Event *IBlindAuctionAuctionRefundSuccessful // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *IBlindAuctionAuctionRefundSuccessfulIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(IBlindAuctionAuctionRefundSuccessful)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(IBlindAuctionAuctionRefundSuccessful)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *IBlindAuctionAuctionRefundSuccessfulIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *IBlindAuctionAuctionRefundSuccessfulIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// IBlindAuctionAuctionRefundSuccessful represents a AuctionRefundSuccessful event raised by the IBlindAuction contract.
+type IBlindAuctionAuctionRefundSuccessful struct {
+	Bidder    common.Address
+	AuctionId [32]byte
+	Value     *big.Int
+	Raw       types.Log // Blockchain specific contextual infos
+}
+
+// FilterAuctionRefundSuccessful is a free log retrieval operation binding the contract event 0x5f4b88832be3746851e4d0ce6129f89fe39ddcf5a4b0204699724c459baf7d9d.
+//
+// Solidity: event AuctionRefundSuccessful(address bidder, bytes32 auctionId, uint256 value)
+func (_IBlindAuction *IBlindAuctionFilterer) FilterAuctionRefundSuccessful(opts *bind.FilterOpts) (*IBlindAuctionAuctionRefundSuccessfulIterator, error) {
+
+	logs, sub, err := _IBlindAuction.contract.FilterLogs(opts, "AuctionRefundSuccessful")
+	if err != nil {
+		return nil, err
+	}
+	return &IBlindAuctionAuctionRefundSuccessfulIterator{contract: _IBlindAuction.contract, event: "AuctionRefundSuccessful", logs: logs, sub: sub}, nil
+}
+
+// WatchAuctionRefundSuccessful is a free log subscription operation binding the contract event 0x5f4b88832be3746851e4d0ce6129f89fe39ddcf5a4b0204699724c459baf7d9d.
+//
+// Solidity: event AuctionRefundSuccessful(address bidder, bytes32 auctionId, uint256 value)
+func (_IBlindAuction *IBlindAuctionFilterer) WatchAuctionRefundSuccessful(opts *bind.WatchOpts, sink chan<- *IBlindAuctionAuctionRefundSuccessful) (event.Subscription, error) {
+
+	logs, sub, err := _IBlindAuction.contract.WatchLogs(opts, "AuctionRefundSuccessful")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(IBlindAuctionAuctionRefundSuccessful)
+				if err := _IBlindAuction.contract.UnpackLog(event, "AuctionRefundSuccessful", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseAuctionRefundSuccessful is a log parse operation binding the contract event 0x5f4b88832be3746851e4d0ce6129f89fe39ddcf5a4b0204699724c459baf7d9d.
+//
+// Solidity: event AuctionRefundSuccessful(address bidder, bytes32 auctionId, uint256 value)
+func (_IBlindAuction *IBlindAuctionFilterer) ParseAuctionRefundSuccessful(log types.Log) (*IBlindAuctionAuctionRefundSuccessful, error) {
+	event := new(IBlindAuctionAuctionRefundSuccessful)
+	if err := _IBlindAuction.contract.UnpackLog(event, "AuctionRefundSuccessful", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
 // IBlindAuctionBlindAuctionBidSuccessfulIterator is returned from FilterBlindAuctionBidSuccessful and is used to iterate over the raw logs and unpacked data for BlindAuctionBidSuccessful events raised by the IBlindAuction contract.
 type IBlindAuctionBlindAuctionBidSuccessfulIterator struct {
 	Event *IBlindAuctionBlindAuctionBidSuccessful // Event containing the contract specifics and raw log
@@ -248,7 +519,7 @@ func (it *IBlindAuctionBlindAuctionBidSuccessfulIterator) Close() error {
 
 // IBlindAuctionBlindAuctionBidSuccessful represents a BlindAuctionBidSuccessful event raised by the IBlindAuction contract.
 type IBlindAuctionBlindAuctionBidSuccessful struct {
-	Bidder         common.Address
+	Sender         common.Address
 	BlindAuctionId [32]byte
 	BlindedBid     [32]byte
 	Raw            types.Log // Blockchain specific contextual infos
@@ -256,7 +527,7 @@ type IBlindAuctionBlindAuctionBidSuccessful struct {
 
 // FilterBlindAuctionBidSuccessful is a free log retrieval operation binding the contract event 0x42412bd3e1b349d0fc9c3518c85d09f611398d80842c5d3e36449b76dca01b6b.
 //
-// Solidity: event BlindAuctionBidSuccessful(address bidder, bytes32 blindAuctionId, bytes32 blindedBid)
+// Solidity: event BlindAuctionBidSuccessful(address sender, bytes32 blindAuctionId, bytes32 blindedBid)
 func (_IBlindAuction *IBlindAuctionFilterer) FilterBlindAuctionBidSuccessful(opts *bind.FilterOpts) (*IBlindAuctionBlindAuctionBidSuccessfulIterator, error) {
 
 	logs, sub, err := _IBlindAuction.contract.FilterLogs(opts, "BlindAuctionBidSuccessful")
@@ -268,7 +539,7 @@ func (_IBlindAuction *IBlindAuctionFilterer) FilterBlindAuctionBidSuccessful(opt
 
 // WatchBlindAuctionBidSuccessful is a free log subscription operation binding the contract event 0x42412bd3e1b349d0fc9c3518c85d09f611398d80842c5d3e36449b76dca01b6b.
 //
-// Solidity: event BlindAuctionBidSuccessful(address bidder, bytes32 blindAuctionId, bytes32 blindedBid)
+// Solidity: event BlindAuctionBidSuccessful(address sender, bytes32 blindAuctionId, bytes32 blindedBid)
 func (_IBlindAuction *IBlindAuctionFilterer) WatchBlindAuctionBidSuccessful(opts *bind.WatchOpts, sink chan<- *IBlindAuctionBlindAuctionBidSuccessful) (event.Subscription, error) {
 
 	logs, sub, err := _IBlindAuction.contract.WatchLogs(opts, "BlindAuctionBidSuccessful")
@@ -305,7 +576,7 @@ func (_IBlindAuction *IBlindAuctionFilterer) WatchBlindAuctionBidSuccessful(opts
 
 // ParseBlindAuctionBidSuccessful is a log parse operation binding the contract event 0x42412bd3e1b349d0fc9c3518c85d09f611398d80842c5d3e36449b76dca01b6b.
 //
-// Solidity: event BlindAuctionBidSuccessful(address bidder, bytes32 blindAuctionId, bytes32 blindedBid)
+// Solidity: event BlindAuctionBidSuccessful(address sender, bytes32 blindAuctionId, bytes32 blindedBid)
 func (_IBlindAuction *IBlindAuctionFilterer) ParseBlindAuctionBidSuccessful(log types.Log) (*IBlindAuctionBlindAuctionBidSuccessful, error) {
 	event := new(IBlindAuctionBlindAuctionBidSuccessful)
 	if err := _IBlindAuction.contract.UnpackLog(event, "BlindAuctionBidSuccessful", log); err != nil {
@@ -315,9 +586,9 @@ func (_IBlindAuction *IBlindAuctionFilterer) ParseBlindAuctionBidSuccessful(log 
 	return event, nil
 }
 
-// IBlindAuctionBlindAuctionCancelledIterator is returned from FilterBlindAuctionCancelled and is used to iterate over the raw logs and unpacked data for BlindAuctionCancelled events raised by the IBlindAuction contract.
-type IBlindAuctionBlindAuctionCancelledIterator struct {
-	Event *IBlindAuctionBlindAuctionCancelled // Event containing the contract specifics and raw log
+// IBlindAuctionBlindAuctionCreatedSuccessfulIterator is returned from FilterBlindAuctionCreatedSuccessful and is used to iterate over the raw logs and unpacked data for BlindAuctionCreatedSuccessful events raised by the IBlindAuction contract.
+type IBlindAuctionBlindAuctionCreatedSuccessfulIterator struct {
+	Event *IBlindAuctionBlindAuctionCreatedSuccessful // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -331,7 +602,7 @@ type IBlindAuctionBlindAuctionCancelledIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *IBlindAuctionBlindAuctionCancelledIterator) Next() bool {
+func (it *IBlindAuctionBlindAuctionCreatedSuccessfulIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -340,7 +611,7 @@ func (it *IBlindAuctionBlindAuctionCancelledIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(IBlindAuctionBlindAuctionCancelled)
+			it.Event = new(IBlindAuctionBlindAuctionCreatedSuccessful)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -355,7 +626,7 @@ func (it *IBlindAuctionBlindAuctionCancelledIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(IBlindAuctionBlindAuctionCancelled)
+		it.Event = new(IBlindAuctionBlindAuctionCreatedSuccessful)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -371,155 +642,20 @@ func (it *IBlindAuctionBlindAuctionCancelledIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *IBlindAuctionBlindAuctionCancelledIterator) Error() error {
+func (it *IBlindAuctionBlindAuctionCreatedSuccessfulIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *IBlindAuctionBlindAuctionCancelledIterator) Close() error {
+func (it *IBlindAuctionBlindAuctionCreatedSuccessfulIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// IBlindAuctionBlindAuctionCancelled represents a BlindAuctionCancelled event raised by the IBlindAuction contract.
-type IBlindAuctionBlindAuctionCancelled struct {
-	Canceller      common.Address
-	BlindAuctionId [32]byte
-	Raw            types.Log // Blockchain specific contextual infos
-}
-
-// FilterBlindAuctionCancelled is a free log retrieval operation binding the contract event 0x620e9f21de284210359a265815fc84d3f6f4686df7a3841c7ef048a50ea80216.
-//
-// Solidity: event BlindAuctionCancelled(address canceller, bytes32 blindAuctionId)
-func (_IBlindAuction *IBlindAuctionFilterer) FilterBlindAuctionCancelled(opts *bind.FilterOpts) (*IBlindAuctionBlindAuctionCancelledIterator, error) {
-
-	logs, sub, err := _IBlindAuction.contract.FilterLogs(opts, "BlindAuctionCancelled")
-	if err != nil {
-		return nil, err
-	}
-	return &IBlindAuctionBlindAuctionCancelledIterator{contract: _IBlindAuction.contract, event: "BlindAuctionCancelled", logs: logs, sub: sub}, nil
-}
-
-// WatchBlindAuctionCancelled is a free log subscription operation binding the contract event 0x620e9f21de284210359a265815fc84d3f6f4686df7a3841c7ef048a50ea80216.
-//
-// Solidity: event BlindAuctionCancelled(address canceller, bytes32 blindAuctionId)
-func (_IBlindAuction *IBlindAuctionFilterer) WatchBlindAuctionCancelled(opts *bind.WatchOpts, sink chan<- *IBlindAuctionBlindAuctionCancelled) (event.Subscription, error) {
-
-	logs, sub, err := _IBlindAuction.contract.WatchLogs(opts, "BlindAuctionCancelled")
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(IBlindAuctionBlindAuctionCancelled)
-				if err := _IBlindAuction.contract.UnpackLog(event, "BlindAuctionCancelled", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParseBlindAuctionCancelled is a log parse operation binding the contract event 0x620e9f21de284210359a265815fc84d3f6f4686df7a3841c7ef048a50ea80216.
-//
-// Solidity: event BlindAuctionCancelled(address canceller, bytes32 blindAuctionId)
-func (_IBlindAuction *IBlindAuctionFilterer) ParseBlindAuctionCancelled(log types.Log) (*IBlindAuctionBlindAuctionCancelled, error) {
-	event := new(IBlindAuctionBlindAuctionCancelled)
-	if err := _IBlindAuction.contract.UnpackLog(event, "BlindAuctionCancelled", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
-}
-
-// IBlindAuctionBlindAuctionCreatedIterator is returned from FilterBlindAuctionCreated and is used to iterate over the raw logs and unpacked data for BlindAuctionCreated events raised by the IBlindAuction contract.
-type IBlindAuctionBlindAuctionCreatedIterator struct {
-	Event *IBlindAuctionBlindAuctionCreated // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *IBlindAuctionBlindAuctionCreatedIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(IBlindAuctionBlindAuctionCreated)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(IBlindAuctionBlindAuctionCreated)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *IBlindAuctionBlindAuctionCreatedIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *IBlindAuctionBlindAuctionCreatedIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// IBlindAuctionBlindAuctionCreated represents a BlindAuctionCreated event raised by the IBlindAuction contract.
-type IBlindAuctionBlindAuctionCreated struct {
-	Seller          common.Address
+// IBlindAuctionBlindAuctionCreatedSuccessful represents a BlindAuctionCreatedSuccessful event raised by the IBlindAuction contract.
+type IBlindAuctionBlindAuctionCreatedSuccessful struct {
+	AssetOwner      common.Address
 	NftAddress      common.Address
 	BlindAuctionId  [32]byte
 	AssetId         *big.Int
@@ -529,24 +665,24 @@ type IBlindAuctionBlindAuctionCreated struct {
 	Raw             types.Log // Blockchain specific contextual infos
 }
 
-// FilterBlindAuctionCreated is a free log retrieval operation binding the contract event 0xe64fd4ba0702f46ae298a3be33f16f223a5e06556977c42dee952f976abfed83.
+// FilterBlindAuctionCreatedSuccessful is a free log retrieval operation binding the contract event 0xde549e5fcbd4d262f76b1f3a6362777a2e669ce8a2a7b5460e00c7a38341baf7.
 //
-// Solidity: event BlindAuctionCreated(address seller, address nftAddress, bytes32 blindAuctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
-func (_IBlindAuction *IBlindAuctionFilterer) FilterBlindAuctionCreated(opts *bind.FilterOpts) (*IBlindAuctionBlindAuctionCreatedIterator, error) {
+// Solidity: event BlindAuctionCreatedSuccessful(address assetOwner, address nftAddress, bytes32 blindAuctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
+func (_IBlindAuction *IBlindAuctionFilterer) FilterBlindAuctionCreatedSuccessful(opts *bind.FilterOpts) (*IBlindAuctionBlindAuctionCreatedSuccessfulIterator, error) {
 
-	logs, sub, err := _IBlindAuction.contract.FilterLogs(opts, "BlindAuctionCreated")
+	logs, sub, err := _IBlindAuction.contract.FilterLogs(opts, "BlindAuctionCreatedSuccessful")
 	if err != nil {
 		return nil, err
 	}
-	return &IBlindAuctionBlindAuctionCreatedIterator{contract: _IBlindAuction.contract, event: "BlindAuctionCreated", logs: logs, sub: sub}, nil
+	return &IBlindAuctionBlindAuctionCreatedSuccessfulIterator{contract: _IBlindAuction.contract, event: "BlindAuctionCreatedSuccessful", logs: logs, sub: sub}, nil
 }
 
-// WatchBlindAuctionCreated is a free log subscription operation binding the contract event 0xe64fd4ba0702f46ae298a3be33f16f223a5e06556977c42dee952f976abfed83.
+// WatchBlindAuctionCreatedSuccessful is a free log subscription operation binding the contract event 0xde549e5fcbd4d262f76b1f3a6362777a2e669ce8a2a7b5460e00c7a38341baf7.
 //
-// Solidity: event BlindAuctionCreated(address seller, address nftAddress, bytes32 blindAuctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
-func (_IBlindAuction *IBlindAuctionFilterer) WatchBlindAuctionCreated(opts *bind.WatchOpts, sink chan<- *IBlindAuctionBlindAuctionCreated) (event.Subscription, error) {
+// Solidity: event BlindAuctionCreatedSuccessful(address assetOwner, address nftAddress, bytes32 blindAuctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
+func (_IBlindAuction *IBlindAuctionFilterer) WatchBlindAuctionCreatedSuccessful(opts *bind.WatchOpts, sink chan<- *IBlindAuctionBlindAuctionCreatedSuccessful) (event.Subscription, error) {
 
-	logs, sub, err := _IBlindAuction.contract.WatchLogs(opts, "BlindAuctionCreated")
+	logs, sub, err := _IBlindAuction.contract.WatchLogs(opts, "BlindAuctionCreatedSuccessful")
 	if err != nil {
 		return nil, err
 	}
@@ -556,8 +692,8 @@ func (_IBlindAuction *IBlindAuctionFilterer) WatchBlindAuctionCreated(opts *bind
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(IBlindAuctionBlindAuctionCreated)
-				if err := _IBlindAuction.contract.UnpackLog(event, "BlindAuctionCreated", log); err != nil {
+				event := new(IBlindAuctionBlindAuctionCreatedSuccessful)
+				if err := _IBlindAuction.contract.UnpackLog(event, "BlindAuctionCreatedSuccessful", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -578,21 +714,21 @@ func (_IBlindAuction *IBlindAuctionFilterer) WatchBlindAuctionCreated(opts *bind
 	}), nil
 }
 
-// ParseBlindAuctionCreated is a log parse operation binding the contract event 0xe64fd4ba0702f46ae298a3be33f16f223a5e06556977c42dee952f976abfed83.
+// ParseBlindAuctionCreatedSuccessful is a log parse operation binding the contract event 0xde549e5fcbd4d262f76b1f3a6362777a2e669ce8a2a7b5460e00c7a38341baf7.
 //
-// Solidity: event BlindAuctionCreated(address seller, address nftAddress, bytes32 blindAuctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
-func (_IBlindAuction *IBlindAuctionFilterer) ParseBlindAuctionCreated(log types.Log) (*IBlindAuctionBlindAuctionCreated, error) {
-	event := new(IBlindAuctionBlindAuctionCreated)
-	if err := _IBlindAuction.contract.UnpackLog(event, "BlindAuctionCreated", log); err != nil {
+// Solidity: event BlindAuctionCreatedSuccessful(address assetOwner, address nftAddress, bytes32 blindAuctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
+func (_IBlindAuction *IBlindAuctionFilterer) ParseBlindAuctionCreatedSuccessful(log types.Log) (*IBlindAuctionBlindAuctionCreatedSuccessful, error) {
+	event := new(IBlindAuctionBlindAuctionCreatedSuccessful)
+	if err := _IBlindAuction.contract.UnpackLog(event, "BlindAuctionCreatedSuccessful", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// IBlindAuctionBlindAuctionEndedIterator is returned from FilterBlindAuctionEnded and is used to iterate over the raw logs and unpacked data for BlindAuctionEnded events raised by the IBlindAuction contract.
-type IBlindAuctionBlindAuctionEndedIterator struct {
-	Event *IBlindAuctionBlindAuctionEnded // Event containing the contract specifics and raw log
+// IBlindAuctionGrantAuctionRewardSuccessfulIterator is returned from FilterGrantAuctionRewardSuccessful and is used to iterate over the raw logs and unpacked data for GrantAuctionRewardSuccessful events raised by the IBlindAuction contract.
+type IBlindAuctionGrantAuctionRewardSuccessfulIterator struct {
+	Event *IBlindAuctionGrantAuctionRewardSuccessful // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -606,7 +742,7 @@ type IBlindAuctionBlindAuctionEndedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *IBlindAuctionBlindAuctionEndedIterator) Next() bool {
+func (it *IBlindAuctionGrantAuctionRewardSuccessfulIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -615,7 +751,7 @@ func (it *IBlindAuctionBlindAuctionEndedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(IBlindAuctionBlindAuctionEnded)
+			it.Event = new(IBlindAuctionGrantAuctionRewardSuccessful)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -630,7 +766,7 @@ func (it *IBlindAuctionBlindAuctionEndedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(IBlindAuctionBlindAuctionEnded)
+		it.Event = new(IBlindAuctionGrantAuctionRewardSuccessful)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -646,41 +782,43 @@ func (it *IBlindAuctionBlindAuctionEndedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *IBlindAuctionBlindAuctionEndedIterator) Error() error {
+func (it *IBlindAuctionGrantAuctionRewardSuccessfulIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *IBlindAuctionBlindAuctionEndedIterator) Close() error {
+func (it *IBlindAuctionGrantAuctionRewardSuccessfulIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// IBlindAuctionBlindAuctionEnded represents a BlindAuctionEnded event raised by the IBlindAuction contract.
-type IBlindAuctionBlindAuctionEnded struct {
-	BlindAuctionId [32]byte
-	Raw            types.Log // Blockchain specific contextual infos
+// IBlindAuctionGrantAuctionRewardSuccessful represents a GrantAuctionRewardSuccessful event raised by the IBlindAuction contract.
+type IBlindAuctionGrantAuctionRewardSuccessful struct {
+	AuctionHighestBidder common.Address
+	AuctionId            [32]byte
+	AssetId              *big.Int
+	Raw                  types.Log // Blockchain specific contextual infos
 }
 
-// FilterBlindAuctionEnded is a free log retrieval operation binding the contract event 0xbe3b74f797d49d96897f669a8b62fc0d77fa4cd6cf999a1b08bc31e7f4faf219.
+// FilterGrantAuctionRewardSuccessful is a free log retrieval operation binding the contract event 0xa307d88e125ed19583b02332c5bd74f0323774248b3f9cac5047c2433d9d8ddc.
 //
-// Solidity: event BlindAuctionEnded(bytes32 blindAuctionId)
-func (_IBlindAuction *IBlindAuctionFilterer) FilterBlindAuctionEnded(opts *bind.FilterOpts) (*IBlindAuctionBlindAuctionEndedIterator, error) {
+// Solidity: event GrantAuctionRewardSuccessful(address auctionHighestBidder, bytes32 auctionId, uint256 assetId)
+func (_IBlindAuction *IBlindAuctionFilterer) FilterGrantAuctionRewardSuccessful(opts *bind.FilterOpts) (*IBlindAuctionGrantAuctionRewardSuccessfulIterator, error) {
 
-	logs, sub, err := _IBlindAuction.contract.FilterLogs(opts, "BlindAuctionEnded")
+	logs, sub, err := _IBlindAuction.contract.FilterLogs(opts, "GrantAuctionRewardSuccessful")
 	if err != nil {
 		return nil, err
 	}
-	return &IBlindAuctionBlindAuctionEndedIterator{contract: _IBlindAuction.contract, event: "BlindAuctionEnded", logs: logs, sub: sub}, nil
+	return &IBlindAuctionGrantAuctionRewardSuccessfulIterator{contract: _IBlindAuction.contract, event: "GrantAuctionRewardSuccessful", logs: logs, sub: sub}, nil
 }
 
-// WatchBlindAuctionEnded is a free log subscription operation binding the contract event 0xbe3b74f797d49d96897f669a8b62fc0d77fa4cd6cf999a1b08bc31e7f4faf219.
+// WatchGrantAuctionRewardSuccessful is a free log subscription operation binding the contract event 0xa307d88e125ed19583b02332c5bd74f0323774248b3f9cac5047c2433d9d8ddc.
 //
-// Solidity: event BlindAuctionEnded(bytes32 blindAuctionId)
-func (_IBlindAuction *IBlindAuctionFilterer) WatchBlindAuctionEnded(opts *bind.WatchOpts, sink chan<- *IBlindAuctionBlindAuctionEnded) (event.Subscription, error) {
+// Solidity: event GrantAuctionRewardSuccessful(address auctionHighestBidder, bytes32 auctionId, uint256 assetId)
+func (_IBlindAuction *IBlindAuctionFilterer) WatchGrantAuctionRewardSuccessful(opts *bind.WatchOpts, sink chan<- *IBlindAuctionGrantAuctionRewardSuccessful) (event.Subscription, error) {
 
-	logs, sub, err := _IBlindAuction.contract.WatchLogs(opts, "BlindAuctionEnded")
+	logs, sub, err := _IBlindAuction.contract.WatchLogs(opts, "GrantAuctionRewardSuccessful")
 	if err != nil {
 		return nil, err
 	}
@@ -690,8 +828,8 @@ func (_IBlindAuction *IBlindAuctionFilterer) WatchBlindAuctionEnded(opts *bind.W
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(IBlindAuctionBlindAuctionEnded)
-				if err := _IBlindAuction.contract.UnpackLog(event, "BlindAuctionEnded", log); err != nil {
+				event := new(IBlindAuctionGrantAuctionRewardSuccessful)
+				if err := _IBlindAuction.contract.UnpackLog(event, "GrantAuctionRewardSuccessful", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -712,284 +850,12 @@ func (_IBlindAuction *IBlindAuctionFilterer) WatchBlindAuctionEnded(opts *bind.W
 	}), nil
 }
 
-// ParseBlindAuctionEnded is a log parse operation binding the contract event 0xbe3b74f797d49d96897f669a8b62fc0d77fa4cd6cf999a1b08bc31e7f4faf219.
+// ParseGrantAuctionRewardSuccessful is a log parse operation binding the contract event 0xa307d88e125ed19583b02332c5bd74f0323774248b3f9cac5047c2433d9d8ddc.
 //
-// Solidity: event BlindAuctionEnded(bytes32 blindAuctionId)
-func (_IBlindAuction *IBlindAuctionFilterer) ParseBlindAuctionEnded(log types.Log) (*IBlindAuctionBlindAuctionEnded, error) {
-	event := new(IBlindAuctionBlindAuctionEnded)
-	if err := _IBlindAuction.contract.UnpackLog(event, "BlindAuctionEnded", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
-}
-
-// IBlindAuctionBlindAuctionRefundIterator is returned from FilterBlindAuctionRefund and is used to iterate over the raw logs and unpacked data for BlindAuctionRefund events raised by the IBlindAuction contract.
-type IBlindAuctionBlindAuctionRefundIterator struct {
-	Event *IBlindAuctionBlindAuctionRefund // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *IBlindAuctionBlindAuctionRefundIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(IBlindAuctionBlindAuctionRefund)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(IBlindAuctionBlindAuctionRefund)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *IBlindAuctionBlindAuctionRefundIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *IBlindAuctionBlindAuctionRefundIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// IBlindAuctionBlindAuctionRefund represents a BlindAuctionRefund event raised by the IBlindAuction contract.
-type IBlindAuctionBlindAuctionRefund struct {
-	Bidder         common.Address
-	BlindAuctionId [32]byte
-	Raw            types.Log // Blockchain specific contextual infos
-}
-
-// FilterBlindAuctionRefund is a free log retrieval operation binding the contract event 0xadada2afe0e9306e1b93faf56e74b041719e68f722de4f550d5a57e39610b404.
-//
-// Solidity: event BlindAuctionRefund(address bidder, bytes32 blindAuctionId)
-func (_IBlindAuction *IBlindAuctionFilterer) FilterBlindAuctionRefund(opts *bind.FilterOpts) (*IBlindAuctionBlindAuctionRefundIterator, error) {
-
-	logs, sub, err := _IBlindAuction.contract.FilterLogs(opts, "BlindAuctionRefund")
-	if err != nil {
-		return nil, err
-	}
-	return &IBlindAuctionBlindAuctionRefundIterator{contract: _IBlindAuction.contract, event: "BlindAuctionRefund", logs: logs, sub: sub}, nil
-}
-
-// WatchBlindAuctionRefund is a free log subscription operation binding the contract event 0xadada2afe0e9306e1b93faf56e74b041719e68f722de4f550d5a57e39610b404.
-//
-// Solidity: event BlindAuctionRefund(address bidder, bytes32 blindAuctionId)
-func (_IBlindAuction *IBlindAuctionFilterer) WatchBlindAuctionRefund(opts *bind.WatchOpts, sink chan<- *IBlindAuctionBlindAuctionRefund) (event.Subscription, error) {
-
-	logs, sub, err := _IBlindAuction.contract.WatchLogs(opts, "BlindAuctionRefund")
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(IBlindAuctionBlindAuctionRefund)
-				if err := _IBlindAuction.contract.UnpackLog(event, "BlindAuctionRefund", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParseBlindAuctionRefund is a log parse operation binding the contract event 0xadada2afe0e9306e1b93faf56e74b041719e68f722de4f550d5a57e39610b404.
-//
-// Solidity: event BlindAuctionRefund(address bidder, bytes32 blindAuctionId)
-func (_IBlindAuction *IBlindAuctionFilterer) ParseBlindAuctionRefund(log types.Log) (*IBlindAuctionBlindAuctionRefund, error) {
-	event := new(IBlindAuctionBlindAuctionRefund)
-	if err := _IBlindAuction.contract.UnpackLog(event, "BlindAuctionRefund", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
-}
-
-// IBlindAuctionBlindAuctionSuccessfulIterator is returned from FilterBlindAuctionSuccessful and is used to iterate over the raw logs and unpacked data for BlindAuctionSuccessful events raised by the IBlindAuction contract.
-type IBlindAuctionBlindAuctionSuccessfulIterator struct {
-	Event *IBlindAuctionBlindAuctionSuccessful // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *IBlindAuctionBlindAuctionSuccessfulIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(IBlindAuctionBlindAuctionSuccessful)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(IBlindAuctionBlindAuctionSuccessful)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *IBlindAuctionBlindAuctionSuccessfulIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *IBlindAuctionBlindAuctionSuccessfulIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// IBlindAuctionBlindAuctionSuccessful represents a BlindAuctionSuccessful event raised by the IBlindAuction contract.
-type IBlindAuctionBlindAuctionSuccessful struct {
-	Seller         common.Address
-	Buyer          common.Address
-	BlindAuctionId [32]byte
-	TotalPrice     *big.Int
-	Raw            types.Log // Blockchain specific contextual infos
-}
-
-// FilterBlindAuctionSuccessful is a free log retrieval operation binding the contract event 0x2258179acb0769137f4ff532afd72c91199ae597abded9936acb61a2e66fc142.
-//
-// Solidity: event BlindAuctionSuccessful(address seller, address buyer, bytes32 blindAuctionId, uint256 totalPrice)
-func (_IBlindAuction *IBlindAuctionFilterer) FilterBlindAuctionSuccessful(opts *bind.FilterOpts) (*IBlindAuctionBlindAuctionSuccessfulIterator, error) {
-
-	logs, sub, err := _IBlindAuction.contract.FilterLogs(opts, "BlindAuctionSuccessful")
-	if err != nil {
-		return nil, err
-	}
-	return &IBlindAuctionBlindAuctionSuccessfulIterator{contract: _IBlindAuction.contract, event: "BlindAuctionSuccessful", logs: logs, sub: sub}, nil
-}
-
-// WatchBlindAuctionSuccessful is a free log subscription operation binding the contract event 0x2258179acb0769137f4ff532afd72c91199ae597abded9936acb61a2e66fc142.
-//
-// Solidity: event BlindAuctionSuccessful(address seller, address buyer, bytes32 blindAuctionId, uint256 totalPrice)
-func (_IBlindAuction *IBlindAuctionFilterer) WatchBlindAuctionSuccessful(opts *bind.WatchOpts, sink chan<- *IBlindAuctionBlindAuctionSuccessful) (event.Subscription, error) {
-
-	logs, sub, err := _IBlindAuction.contract.WatchLogs(opts, "BlindAuctionSuccessful")
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(IBlindAuctionBlindAuctionSuccessful)
-				if err := _IBlindAuction.contract.UnpackLog(event, "BlindAuctionSuccessful", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParseBlindAuctionSuccessful is a log parse operation binding the contract event 0x2258179acb0769137f4ff532afd72c91199ae597abded9936acb61a2e66fc142.
-//
-// Solidity: event BlindAuctionSuccessful(address seller, address buyer, bytes32 blindAuctionId, uint256 totalPrice)
-func (_IBlindAuction *IBlindAuctionFilterer) ParseBlindAuctionSuccessful(log types.Log) (*IBlindAuctionBlindAuctionSuccessful, error) {
-	event := new(IBlindAuctionBlindAuctionSuccessful)
-	if err := _IBlindAuction.contract.UnpackLog(event, "BlindAuctionSuccessful", log); err != nil {
+// Solidity: event GrantAuctionRewardSuccessful(address auctionHighestBidder, bytes32 auctionId, uint256 assetId)
+func (_IBlindAuction *IBlindAuctionFilterer) ParseGrantAuctionRewardSuccessful(log types.Log) (*IBlindAuctionGrantAuctionRewardSuccessful, error) {
+	event := new(IBlindAuctionGrantAuctionRewardSuccessful)
+	if err := _IBlindAuction.contract.UnpackLog(event, "GrantAuctionRewardSuccessful", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
@@ -1065,14 +931,14 @@ func (it *IBlindAuctionRevealSuccessfulIterator) Close() error {
 
 // IBlindAuctionRevealSuccessful represents a RevealSuccessful event raised by the IBlindAuction contract.
 type IBlindAuctionRevealSuccessful struct {
-	Seller         common.Address
+	Sender         common.Address
 	BlindAuctionId [32]byte
 	Raw            types.Log // Blockchain specific contextual infos
 }
 
 // FilterRevealSuccessful is a free log retrieval operation binding the contract event 0x61d4ab60470c97b371c5f91be47873283386bb3af4de728e8795ef5318e013d6.
 //
-// Solidity: event RevealSuccessful(address seller, bytes32 blindAuctionId)
+// Solidity: event RevealSuccessful(address sender, bytes32 blindAuctionId)
 func (_IBlindAuction *IBlindAuctionFilterer) FilterRevealSuccessful(opts *bind.FilterOpts) (*IBlindAuctionRevealSuccessfulIterator, error) {
 
 	logs, sub, err := _IBlindAuction.contract.FilterLogs(opts, "RevealSuccessful")
@@ -1084,7 +950,7 @@ func (_IBlindAuction *IBlindAuctionFilterer) FilterRevealSuccessful(opts *bind.F
 
 // WatchRevealSuccessful is a free log subscription operation binding the contract event 0x61d4ab60470c97b371c5f91be47873283386bb3af4de728e8795ef5318e013d6.
 //
-// Solidity: event RevealSuccessful(address seller, bytes32 blindAuctionId)
+// Solidity: event RevealSuccessful(address sender, bytes32 blindAuctionId)
 func (_IBlindAuction *IBlindAuctionFilterer) WatchRevealSuccessful(opts *bind.WatchOpts, sink chan<- *IBlindAuctionRevealSuccessful) (event.Subscription, error) {
 
 	logs, sub, err := _IBlindAuction.contract.WatchLogs(opts, "RevealSuccessful")
@@ -1121,7 +987,7 @@ func (_IBlindAuction *IBlindAuctionFilterer) WatchRevealSuccessful(opts *bind.Wa
 
 // ParseRevealSuccessful is a log parse operation binding the contract event 0x61d4ab60470c97b371c5f91be47873283386bb3af4de728e8795ef5318e013d6.
 //
-// Solidity: event RevealSuccessful(address seller, bytes32 blindAuctionId)
+// Solidity: event RevealSuccessful(address sender, bytes32 blindAuctionId)
 func (_IBlindAuction *IBlindAuctionFilterer) ParseRevealSuccessful(log types.Log) (*IBlindAuctionRevealSuccessful, error) {
 	event := new(IBlindAuctionRevealSuccessful)
 	if err := _IBlindAuction.contract.UnpackLog(event, "RevealSuccessful", log); err != nil {

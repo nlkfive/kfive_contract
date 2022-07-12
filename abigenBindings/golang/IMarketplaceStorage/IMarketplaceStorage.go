@@ -61,7 +61,7 @@ type IPublicAuctionPublicAuction struct {
 
 // IMarketplaceStorageMetaData contains all meta data concerning the IMarketplaceStorage contract.
 var IMarketplaceStorageMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[],\"name\":\"AssetNotExisted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AssetUnvailable\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AuctionAlreadyEnded\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidMkpSender\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindedBid\",\"type\":\"bytes32\"}],\"name\":\"BlindAuctionBidSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"canceller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"BlindAuctionCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"}],\"name\":\"BlindAuctionCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"BlindAuctionEnded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"BlindAuctionRefund\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"totalPrice\",\"type\":\"uint256\"}],\"name\":\"BlindAuctionSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"}],\"name\":\"OrderCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"priceInWei\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"name\":\"OrderCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"}],\"name\":\"OrderSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"bidValue\",\"type\":\"uint256\"}],\"name\":\"PublicAuctionBidSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"canceller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"}],\"name\":\"PublicAuctionCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"minIncrement\",\"type\":\"uint256\"}],\"name\":\"PublicAuctionCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"}],\"name\":\"PublicAuctionEnded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"PublicAuctionRefund\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"totalPrice\",\"type\":\"uint256\"}],\"name\":\"PublicAuctionSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"RevealSuccessful\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"assetIsAvailable\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"}],\"name\":\"publicAuctionIsExisted\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"existed\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"}],\"name\":\"publicAuctionIsEnded\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"ended\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"}],\"name\":\"publicAuctionIsRunning\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"existed\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"assetOwner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"minIncrement\",\"type\":\"uint256\"}],\"name\":\"createPublicAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"}],\"name\":\"getPublicAuction\",\"outputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"highestBid\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"highestBidder\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"minIncrement\",\"type\":\"uint256\"}],\"internalType\":\"structIPublicAuction.PublicAuction\",\"name\":\"publicAuction\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"endPublicAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"highestBid\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"}],\"name\":\"updateHighestBidPublicAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"blindAuctionIsExisted\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"existed\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"blindAuctionIsEnded\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"ended\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"blindAuctionIsRunning\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"existed\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"assetOwner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"}],\"name\":\"createBlindAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"getBlindAuction\",\"outputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"highestBid\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"highestBidder\",\"type\":\"address\"}],\"internalType\":\"structIBlindAuction.BlindAuction\",\"name\":\"blindAuction\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"endBlindAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"highestBid\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"updateHighestBidBlindAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"priceInWei\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"name\":\"createOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"getOrder\",\"outputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"internalType\":\"structIOrder.Order\",\"name\":\"order\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"deleteOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
+	ABI: "[{\"inputs\":[],\"name\":\"AssetNotExisted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AssetUnvailable\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AuctionCancelled\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AuctionEnded\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AuctionRefund\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidBiddingEnd\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidBiddingPrice\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidExpiredTime\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidMkpSender\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidWithdraw\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotRunning\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotWinner\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"OrderExpired\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RewardGranted\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"TooEarly\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"TooLate\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"canceller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"AuctionCancelledSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"AuctionRefundSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindedBid\",\"type\":\"bytes32\"}],\"name\":\"BlindAuctionBidSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"assetOwner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"}],\"name\":\"BlindAuctionCreatedSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"auctionHighestBidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"}],\"name\":\"GrantAuctionRewardSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"}],\"name\":\"OrderCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"priceInWei\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"name\":\"OrderCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"}],\"name\":\"OrderSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"bidValue\",\"type\":\"uint256\"}],\"name\":\"PublicAuctionBidSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"assetOwner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"minIncrement\",\"type\":\"uint256\"}],\"name\":\"PublicAuctionCreatedSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"RevealSuccessful\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"assetIsAvailable\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"}],\"name\":\"publicAuctionIsExisted\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"existed\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"}],\"name\":\"publicAuctionIsEnded\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"ended\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"}],\"name\":\"publicAuctionIsRunning\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"existed\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"assetOwner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"minIncrement\",\"type\":\"uint256\"}],\"name\":\"createPublicAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"}],\"name\":\"getPublicAuction\",\"outputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"highestBid\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"highestBidder\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"minIncrement\",\"type\":\"uint256\"}],\"internalType\":\"structIPublicAuction.PublicAuction\",\"name\":\"publicAuction\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"endPublicAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"highestBid\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"}],\"name\":\"updateHighestBidPublicAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"blindAuctionIsExisted\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"existed\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"blindAuctionIsEnded\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"ended\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"blindAuctionIsRunning\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"existed\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"assetOwner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"}],\"name\":\"createBlindAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"getBlindAuction\",\"outputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"highestBid\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"highestBidder\",\"type\":\"address\"}],\"internalType\":\"structIBlindAuction.BlindAuction\",\"name\":\"blindAuction\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"endBlindAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"highestBid\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"updateHighestBidBlindAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"priceInWei\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"name\":\"createOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"getOrder\",\"outputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"internalType\":\"structIOrder.Order\",\"name\":\"order\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"deleteOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
 // IMarketplaceStorageABI is the input ABI used to generate the binding from.
@@ -719,6 +719,277 @@ func (_IMarketplaceStorage *IMarketplaceStorageTransactorSession) UpdateHighestB
 	return _IMarketplaceStorage.Contract.UpdateHighestBidPublicAuction(&_IMarketplaceStorage.TransactOpts, bidder, highestBid, publicAuctionId)
 }
 
+// IMarketplaceStorageAuctionCancelledSuccessfulIterator is returned from FilterAuctionCancelledSuccessful and is used to iterate over the raw logs and unpacked data for AuctionCancelledSuccessful events raised by the IMarketplaceStorage contract.
+type IMarketplaceStorageAuctionCancelledSuccessfulIterator struct {
+	Event *IMarketplaceStorageAuctionCancelledSuccessful // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *IMarketplaceStorageAuctionCancelledSuccessfulIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(IMarketplaceStorageAuctionCancelledSuccessful)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(IMarketplaceStorageAuctionCancelledSuccessful)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *IMarketplaceStorageAuctionCancelledSuccessfulIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *IMarketplaceStorageAuctionCancelledSuccessfulIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// IMarketplaceStorageAuctionCancelledSuccessful represents a AuctionCancelledSuccessful event raised by the IMarketplaceStorage contract.
+type IMarketplaceStorageAuctionCancelledSuccessful struct {
+	Canceller common.Address
+	AuctionId [32]byte
+	Raw       types.Log // Blockchain specific contextual infos
+}
+
+// FilterAuctionCancelledSuccessful is a free log retrieval operation binding the contract event 0xa021239bb373fef19aa7c7ef798961ab038ebf95bd85d546b731d25855db190e.
+//
+// Solidity: event AuctionCancelledSuccessful(address canceller, bytes32 auctionId)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterAuctionCancelledSuccessful(opts *bind.FilterOpts) (*IMarketplaceStorageAuctionCancelledSuccessfulIterator, error) {
+
+	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "AuctionCancelledSuccessful")
+	if err != nil {
+		return nil, err
+	}
+	return &IMarketplaceStorageAuctionCancelledSuccessfulIterator{contract: _IMarketplaceStorage.contract, event: "AuctionCancelledSuccessful", logs: logs, sub: sub}, nil
+}
+
+// WatchAuctionCancelledSuccessful is a free log subscription operation binding the contract event 0xa021239bb373fef19aa7c7ef798961ab038ebf95bd85d546b731d25855db190e.
+//
+// Solidity: event AuctionCancelledSuccessful(address canceller, bytes32 auctionId)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchAuctionCancelledSuccessful(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageAuctionCancelledSuccessful) (event.Subscription, error) {
+
+	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "AuctionCancelledSuccessful")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(IMarketplaceStorageAuctionCancelledSuccessful)
+				if err := _IMarketplaceStorage.contract.UnpackLog(event, "AuctionCancelledSuccessful", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseAuctionCancelledSuccessful is a log parse operation binding the contract event 0xa021239bb373fef19aa7c7ef798961ab038ebf95bd85d546b731d25855db190e.
+//
+// Solidity: event AuctionCancelledSuccessful(address canceller, bytes32 auctionId)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParseAuctionCancelledSuccessful(log types.Log) (*IMarketplaceStorageAuctionCancelledSuccessful, error) {
+	event := new(IMarketplaceStorageAuctionCancelledSuccessful)
+	if err := _IMarketplaceStorage.contract.UnpackLog(event, "AuctionCancelledSuccessful", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// IMarketplaceStorageAuctionRefundSuccessfulIterator is returned from FilterAuctionRefundSuccessful and is used to iterate over the raw logs and unpacked data for AuctionRefundSuccessful events raised by the IMarketplaceStorage contract.
+type IMarketplaceStorageAuctionRefundSuccessfulIterator struct {
+	Event *IMarketplaceStorageAuctionRefundSuccessful // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *IMarketplaceStorageAuctionRefundSuccessfulIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(IMarketplaceStorageAuctionRefundSuccessful)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(IMarketplaceStorageAuctionRefundSuccessful)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *IMarketplaceStorageAuctionRefundSuccessfulIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *IMarketplaceStorageAuctionRefundSuccessfulIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// IMarketplaceStorageAuctionRefundSuccessful represents a AuctionRefundSuccessful event raised by the IMarketplaceStorage contract.
+type IMarketplaceStorageAuctionRefundSuccessful struct {
+	Bidder    common.Address
+	AuctionId [32]byte
+	Value     *big.Int
+	Raw       types.Log // Blockchain specific contextual infos
+}
+
+// FilterAuctionRefundSuccessful is a free log retrieval operation binding the contract event 0x5f4b88832be3746851e4d0ce6129f89fe39ddcf5a4b0204699724c459baf7d9d.
+//
+// Solidity: event AuctionRefundSuccessful(address bidder, bytes32 auctionId, uint256 value)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterAuctionRefundSuccessful(opts *bind.FilterOpts) (*IMarketplaceStorageAuctionRefundSuccessfulIterator, error) {
+
+	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "AuctionRefundSuccessful")
+	if err != nil {
+		return nil, err
+	}
+	return &IMarketplaceStorageAuctionRefundSuccessfulIterator{contract: _IMarketplaceStorage.contract, event: "AuctionRefundSuccessful", logs: logs, sub: sub}, nil
+}
+
+// WatchAuctionRefundSuccessful is a free log subscription operation binding the contract event 0x5f4b88832be3746851e4d0ce6129f89fe39ddcf5a4b0204699724c459baf7d9d.
+//
+// Solidity: event AuctionRefundSuccessful(address bidder, bytes32 auctionId, uint256 value)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchAuctionRefundSuccessful(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageAuctionRefundSuccessful) (event.Subscription, error) {
+
+	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "AuctionRefundSuccessful")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(IMarketplaceStorageAuctionRefundSuccessful)
+				if err := _IMarketplaceStorage.contract.UnpackLog(event, "AuctionRefundSuccessful", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseAuctionRefundSuccessful is a log parse operation binding the contract event 0x5f4b88832be3746851e4d0ce6129f89fe39ddcf5a4b0204699724c459baf7d9d.
+//
+// Solidity: event AuctionRefundSuccessful(address bidder, bytes32 auctionId, uint256 value)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParseAuctionRefundSuccessful(log types.Log) (*IMarketplaceStorageAuctionRefundSuccessful, error) {
+	event := new(IMarketplaceStorageAuctionRefundSuccessful)
+	if err := _IMarketplaceStorage.contract.UnpackLog(event, "AuctionRefundSuccessful", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
 // IMarketplaceStorageBlindAuctionBidSuccessfulIterator is returned from FilterBlindAuctionBidSuccessful and is used to iterate over the raw logs and unpacked data for BlindAuctionBidSuccessful events raised by the IMarketplaceStorage contract.
 type IMarketplaceStorageBlindAuctionBidSuccessfulIterator struct {
 	Event *IMarketplaceStorageBlindAuctionBidSuccessful // Event containing the contract specifics and raw log
@@ -788,7 +1059,7 @@ func (it *IMarketplaceStorageBlindAuctionBidSuccessfulIterator) Close() error {
 
 // IMarketplaceStorageBlindAuctionBidSuccessful represents a BlindAuctionBidSuccessful event raised by the IMarketplaceStorage contract.
 type IMarketplaceStorageBlindAuctionBidSuccessful struct {
-	Bidder         common.Address
+	Sender         common.Address
 	BlindAuctionId [32]byte
 	BlindedBid     [32]byte
 	Raw            types.Log // Blockchain specific contextual infos
@@ -796,7 +1067,7 @@ type IMarketplaceStorageBlindAuctionBidSuccessful struct {
 
 // FilterBlindAuctionBidSuccessful is a free log retrieval operation binding the contract event 0x42412bd3e1b349d0fc9c3518c85d09f611398d80842c5d3e36449b76dca01b6b.
 //
-// Solidity: event BlindAuctionBidSuccessful(address bidder, bytes32 blindAuctionId, bytes32 blindedBid)
+// Solidity: event BlindAuctionBidSuccessful(address sender, bytes32 blindAuctionId, bytes32 blindedBid)
 func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterBlindAuctionBidSuccessful(opts *bind.FilterOpts) (*IMarketplaceStorageBlindAuctionBidSuccessfulIterator, error) {
 
 	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "BlindAuctionBidSuccessful")
@@ -808,7 +1079,7 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterBlindAuctionBidSu
 
 // WatchBlindAuctionBidSuccessful is a free log subscription operation binding the contract event 0x42412bd3e1b349d0fc9c3518c85d09f611398d80842c5d3e36449b76dca01b6b.
 //
-// Solidity: event BlindAuctionBidSuccessful(address bidder, bytes32 blindAuctionId, bytes32 blindedBid)
+// Solidity: event BlindAuctionBidSuccessful(address sender, bytes32 blindAuctionId, bytes32 blindedBid)
 func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchBlindAuctionBidSuccessful(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageBlindAuctionBidSuccessful) (event.Subscription, error) {
 
 	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "BlindAuctionBidSuccessful")
@@ -845,7 +1116,7 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchBlindAuctionBidSuc
 
 // ParseBlindAuctionBidSuccessful is a log parse operation binding the contract event 0x42412bd3e1b349d0fc9c3518c85d09f611398d80842c5d3e36449b76dca01b6b.
 //
-// Solidity: event BlindAuctionBidSuccessful(address bidder, bytes32 blindAuctionId, bytes32 blindedBid)
+// Solidity: event BlindAuctionBidSuccessful(address sender, bytes32 blindAuctionId, bytes32 blindedBid)
 func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParseBlindAuctionBidSuccessful(log types.Log) (*IMarketplaceStorageBlindAuctionBidSuccessful, error) {
 	event := new(IMarketplaceStorageBlindAuctionBidSuccessful)
 	if err := _IMarketplaceStorage.contract.UnpackLog(event, "BlindAuctionBidSuccessful", log); err != nil {
@@ -855,9 +1126,9 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParseBlindAuctionBidSuc
 	return event, nil
 }
 
-// IMarketplaceStorageBlindAuctionCancelledIterator is returned from FilterBlindAuctionCancelled and is used to iterate over the raw logs and unpacked data for BlindAuctionCancelled events raised by the IMarketplaceStorage contract.
-type IMarketplaceStorageBlindAuctionCancelledIterator struct {
-	Event *IMarketplaceStorageBlindAuctionCancelled // Event containing the contract specifics and raw log
+// IMarketplaceStorageBlindAuctionCreatedSuccessfulIterator is returned from FilterBlindAuctionCreatedSuccessful and is used to iterate over the raw logs and unpacked data for BlindAuctionCreatedSuccessful events raised by the IMarketplaceStorage contract.
+type IMarketplaceStorageBlindAuctionCreatedSuccessfulIterator struct {
+	Event *IMarketplaceStorageBlindAuctionCreatedSuccessful // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -871,7 +1142,7 @@ type IMarketplaceStorageBlindAuctionCancelledIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *IMarketplaceStorageBlindAuctionCancelledIterator) Next() bool {
+func (it *IMarketplaceStorageBlindAuctionCreatedSuccessfulIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -880,7 +1151,7 @@ func (it *IMarketplaceStorageBlindAuctionCancelledIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(IMarketplaceStorageBlindAuctionCancelled)
+			it.Event = new(IMarketplaceStorageBlindAuctionCreatedSuccessful)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -895,7 +1166,7 @@ func (it *IMarketplaceStorageBlindAuctionCancelledIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(IMarketplaceStorageBlindAuctionCancelled)
+		it.Event = new(IMarketplaceStorageBlindAuctionCreatedSuccessful)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -911,155 +1182,20 @@ func (it *IMarketplaceStorageBlindAuctionCancelledIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *IMarketplaceStorageBlindAuctionCancelledIterator) Error() error {
+func (it *IMarketplaceStorageBlindAuctionCreatedSuccessfulIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *IMarketplaceStorageBlindAuctionCancelledIterator) Close() error {
+func (it *IMarketplaceStorageBlindAuctionCreatedSuccessfulIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// IMarketplaceStorageBlindAuctionCancelled represents a BlindAuctionCancelled event raised by the IMarketplaceStorage contract.
-type IMarketplaceStorageBlindAuctionCancelled struct {
-	Canceller      common.Address
-	BlindAuctionId [32]byte
-	Raw            types.Log // Blockchain specific contextual infos
-}
-
-// FilterBlindAuctionCancelled is a free log retrieval operation binding the contract event 0x620e9f21de284210359a265815fc84d3f6f4686df7a3841c7ef048a50ea80216.
-//
-// Solidity: event BlindAuctionCancelled(address canceller, bytes32 blindAuctionId)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterBlindAuctionCancelled(opts *bind.FilterOpts) (*IMarketplaceStorageBlindAuctionCancelledIterator, error) {
-
-	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "BlindAuctionCancelled")
-	if err != nil {
-		return nil, err
-	}
-	return &IMarketplaceStorageBlindAuctionCancelledIterator{contract: _IMarketplaceStorage.contract, event: "BlindAuctionCancelled", logs: logs, sub: sub}, nil
-}
-
-// WatchBlindAuctionCancelled is a free log subscription operation binding the contract event 0x620e9f21de284210359a265815fc84d3f6f4686df7a3841c7ef048a50ea80216.
-//
-// Solidity: event BlindAuctionCancelled(address canceller, bytes32 blindAuctionId)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchBlindAuctionCancelled(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageBlindAuctionCancelled) (event.Subscription, error) {
-
-	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "BlindAuctionCancelled")
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(IMarketplaceStorageBlindAuctionCancelled)
-				if err := _IMarketplaceStorage.contract.UnpackLog(event, "BlindAuctionCancelled", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParseBlindAuctionCancelled is a log parse operation binding the contract event 0x620e9f21de284210359a265815fc84d3f6f4686df7a3841c7ef048a50ea80216.
-//
-// Solidity: event BlindAuctionCancelled(address canceller, bytes32 blindAuctionId)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParseBlindAuctionCancelled(log types.Log) (*IMarketplaceStorageBlindAuctionCancelled, error) {
-	event := new(IMarketplaceStorageBlindAuctionCancelled)
-	if err := _IMarketplaceStorage.contract.UnpackLog(event, "BlindAuctionCancelled", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
-}
-
-// IMarketplaceStorageBlindAuctionCreatedIterator is returned from FilterBlindAuctionCreated and is used to iterate over the raw logs and unpacked data for BlindAuctionCreated events raised by the IMarketplaceStorage contract.
-type IMarketplaceStorageBlindAuctionCreatedIterator struct {
-	Event *IMarketplaceStorageBlindAuctionCreated // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *IMarketplaceStorageBlindAuctionCreatedIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(IMarketplaceStorageBlindAuctionCreated)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(IMarketplaceStorageBlindAuctionCreated)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *IMarketplaceStorageBlindAuctionCreatedIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *IMarketplaceStorageBlindAuctionCreatedIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// IMarketplaceStorageBlindAuctionCreated represents a BlindAuctionCreated event raised by the IMarketplaceStorage contract.
-type IMarketplaceStorageBlindAuctionCreated struct {
-	Seller          common.Address
+// IMarketplaceStorageBlindAuctionCreatedSuccessful represents a BlindAuctionCreatedSuccessful event raised by the IMarketplaceStorage contract.
+type IMarketplaceStorageBlindAuctionCreatedSuccessful struct {
+	AssetOwner      common.Address
 	NftAddress      common.Address
 	BlindAuctionId  [32]byte
 	AssetId         *big.Int
@@ -1069,24 +1205,24 @@ type IMarketplaceStorageBlindAuctionCreated struct {
 	Raw             types.Log // Blockchain specific contextual infos
 }
 
-// FilterBlindAuctionCreated is a free log retrieval operation binding the contract event 0xe64fd4ba0702f46ae298a3be33f16f223a5e06556977c42dee952f976abfed83.
+// FilterBlindAuctionCreatedSuccessful is a free log retrieval operation binding the contract event 0xde549e5fcbd4d262f76b1f3a6362777a2e669ce8a2a7b5460e00c7a38341baf7.
 //
-// Solidity: event BlindAuctionCreated(address seller, address nftAddress, bytes32 blindAuctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterBlindAuctionCreated(opts *bind.FilterOpts) (*IMarketplaceStorageBlindAuctionCreatedIterator, error) {
+// Solidity: event BlindAuctionCreatedSuccessful(address assetOwner, address nftAddress, bytes32 blindAuctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterBlindAuctionCreatedSuccessful(opts *bind.FilterOpts) (*IMarketplaceStorageBlindAuctionCreatedSuccessfulIterator, error) {
 
-	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "BlindAuctionCreated")
+	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "BlindAuctionCreatedSuccessful")
 	if err != nil {
 		return nil, err
 	}
-	return &IMarketplaceStorageBlindAuctionCreatedIterator{contract: _IMarketplaceStorage.contract, event: "BlindAuctionCreated", logs: logs, sub: sub}, nil
+	return &IMarketplaceStorageBlindAuctionCreatedSuccessfulIterator{contract: _IMarketplaceStorage.contract, event: "BlindAuctionCreatedSuccessful", logs: logs, sub: sub}, nil
 }
 
-// WatchBlindAuctionCreated is a free log subscription operation binding the contract event 0xe64fd4ba0702f46ae298a3be33f16f223a5e06556977c42dee952f976abfed83.
+// WatchBlindAuctionCreatedSuccessful is a free log subscription operation binding the contract event 0xde549e5fcbd4d262f76b1f3a6362777a2e669ce8a2a7b5460e00c7a38341baf7.
 //
-// Solidity: event BlindAuctionCreated(address seller, address nftAddress, bytes32 blindAuctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchBlindAuctionCreated(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageBlindAuctionCreated) (event.Subscription, error) {
+// Solidity: event BlindAuctionCreatedSuccessful(address assetOwner, address nftAddress, bytes32 blindAuctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchBlindAuctionCreatedSuccessful(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageBlindAuctionCreatedSuccessful) (event.Subscription, error) {
 
-	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "BlindAuctionCreated")
+	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "BlindAuctionCreatedSuccessful")
 	if err != nil {
 		return nil, err
 	}
@@ -1096,8 +1232,8 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchBlindAuctionCreate
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(IMarketplaceStorageBlindAuctionCreated)
-				if err := _IMarketplaceStorage.contract.UnpackLog(event, "BlindAuctionCreated", log); err != nil {
+				event := new(IMarketplaceStorageBlindAuctionCreatedSuccessful)
+				if err := _IMarketplaceStorage.contract.UnpackLog(event, "BlindAuctionCreatedSuccessful", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1118,21 +1254,21 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchBlindAuctionCreate
 	}), nil
 }
 
-// ParseBlindAuctionCreated is a log parse operation binding the contract event 0xe64fd4ba0702f46ae298a3be33f16f223a5e06556977c42dee952f976abfed83.
+// ParseBlindAuctionCreatedSuccessful is a log parse operation binding the contract event 0xde549e5fcbd4d262f76b1f3a6362777a2e669ce8a2a7b5460e00c7a38341baf7.
 //
-// Solidity: event BlindAuctionCreated(address seller, address nftAddress, bytes32 blindAuctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParseBlindAuctionCreated(log types.Log) (*IMarketplaceStorageBlindAuctionCreated, error) {
-	event := new(IMarketplaceStorageBlindAuctionCreated)
-	if err := _IMarketplaceStorage.contract.UnpackLog(event, "BlindAuctionCreated", log); err != nil {
+// Solidity: event BlindAuctionCreatedSuccessful(address assetOwner, address nftAddress, bytes32 blindAuctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParseBlindAuctionCreatedSuccessful(log types.Log) (*IMarketplaceStorageBlindAuctionCreatedSuccessful, error) {
+	event := new(IMarketplaceStorageBlindAuctionCreatedSuccessful)
+	if err := _IMarketplaceStorage.contract.UnpackLog(event, "BlindAuctionCreatedSuccessful", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// IMarketplaceStorageBlindAuctionEndedIterator is returned from FilterBlindAuctionEnded and is used to iterate over the raw logs and unpacked data for BlindAuctionEnded events raised by the IMarketplaceStorage contract.
-type IMarketplaceStorageBlindAuctionEndedIterator struct {
-	Event *IMarketplaceStorageBlindAuctionEnded // Event containing the contract specifics and raw log
+// IMarketplaceStorageGrantAuctionRewardSuccessfulIterator is returned from FilterGrantAuctionRewardSuccessful and is used to iterate over the raw logs and unpacked data for GrantAuctionRewardSuccessful events raised by the IMarketplaceStorage contract.
+type IMarketplaceStorageGrantAuctionRewardSuccessfulIterator struct {
+	Event *IMarketplaceStorageGrantAuctionRewardSuccessful // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1146,7 +1282,7 @@ type IMarketplaceStorageBlindAuctionEndedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *IMarketplaceStorageBlindAuctionEndedIterator) Next() bool {
+func (it *IMarketplaceStorageGrantAuctionRewardSuccessfulIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1155,7 +1291,7 @@ func (it *IMarketplaceStorageBlindAuctionEndedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(IMarketplaceStorageBlindAuctionEnded)
+			it.Event = new(IMarketplaceStorageGrantAuctionRewardSuccessful)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1170,7 +1306,7 @@ func (it *IMarketplaceStorageBlindAuctionEndedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(IMarketplaceStorageBlindAuctionEnded)
+		it.Event = new(IMarketplaceStorageGrantAuctionRewardSuccessful)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1186,41 +1322,43 @@ func (it *IMarketplaceStorageBlindAuctionEndedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *IMarketplaceStorageBlindAuctionEndedIterator) Error() error {
+func (it *IMarketplaceStorageGrantAuctionRewardSuccessfulIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *IMarketplaceStorageBlindAuctionEndedIterator) Close() error {
+func (it *IMarketplaceStorageGrantAuctionRewardSuccessfulIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// IMarketplaceStorageBlindAuctionEnded represents a BlindAuctionEnded event raised by the IMarketplaceStorage contract.
-type IMarketplaceStorageBlindAuctionEnded struct {
-	BlindAuctionId [32]byte
-	Raw            types.Log // Blockchain specific contextual infos
+// IMarketplaceStorageGrantAuctionRewardSuccessful represents a GrantAuctionRewardSuccessful event raised by the IMarketplaceStorage contract.
+type IMarketplaceStorageGrantAuctionRewardSuccessful struct {
+	AuctionHighestBidder common.Address
+	AuctionId            [32]byte
+	AssetId              *big.Int
+	Raw                  types.Log // Blockchain specific contextual infos
 }
 
-// FilterBlindAuctionEnded is a free log retrieval operation binding the contract event 0xbe3b74f797d49d96897f669a8b62fc0d77fa4cd6cf999a1b08bc31e7f4faf219.
+// FilterGrantAuctionRewardSuccessful is a free log retrieval operation binding the contract event 0xa307d88e125ed19583b02332c5bd74f0323774248b3f9cac5047c2433d9d8ddc.
 //
-// Solidity: event BlindAuctionEnded(bytes32 blindAuctionId)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterBlindAuctionEnded(opts *bind.FilterOpts) (*IMarketplaceStorageBlindAuctionEndedIterator, error) {
+// Solidity: event GrantAuctionRewardSuccessful(address auctionHighestBidder, bytes32 auctionId, uint256 assetId)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterGrantAuctionRewardSuccessful(opts *bind.FilterOpts) (*IMarketplaceStorageGrantAuctionRewardSuccessfulIterator, error) {
 
-	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "BlindAuctionEnded")
+	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "GrantAuctionRewardSuccessful")
 	if err != nil {
 		return nil, err
 	}
-	return &IMarketplaceStorageBlindAuctionEndedIterator{contract: _IMarketplaceStorage.contract, event: "BlindAuctionEnded", logs: logs, sub: sub}, nil
+	return &IMarketplaceStorageGrantAuctionRewardSuccessfulIterator{contract: _IMarketplaceStorage.contract, event: "GrantAuctionRewardSuccessful", logs: logs, sub: sub}, nil
 }
 
-// WatchBlindAuctionEnded is a free log subscription operation binding the contract event 0xbe3b74f797d49d96897f669a8b62fc0d77fa4cd6cf999a1b08bc31e7f4faf219.
+// WatchGrantAuctionRewardSuccessful is a free log subscription operation binding the contract event 0xa307d88e125ed19583b02332c5bd74f0323774248b3f9cac5047c2433d9d8ddc.
 //
-// Solidity: event BlindAuctionEnded(bytes32 blindAuctionId)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchBlindAuctionEnded(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageBlindAuctionEnded) (event.Subscription, error) {
+// Solidity: event GrantAuctionRewardSuccessful(address auctionHighestBidder, bytes32 auctionId, uint256 assetId)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchGrantAuctionRewardSuccessful(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageGrantAuctionRewardSuccessful) (event.Subscription, error) {
 
-	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "BlindAuctionEnded")
+	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "GrantAuctionRewardSuccessful")
 	if err != nil {
 		return nil, err
 	}
@@ -1230,8 +1368,8 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchBlindAuctionEnded(
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(IMarketplaceStorageBlindAuctionEnded)
-				if err := _IMarketplaceStorage.contract.UnpackLog(event, "BlindAuctionEnded", log); err != nil {
+				event := new(IMarketplaceStorageGrantAuctionRewardSuccessful)
+				if err := _IMarketplaceStorage.contract.UnpackLog(event, "GrantAuctionRewardSuccessful", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1252,284 +1390,12 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchBlindAuctionEnded(
 	}), nil
 }
 
-// ParseBlindAuctionEnded is a log parse operation binding the contract event 0xbe3b74f797d49d96897f669a8b62fc0d77fa4cd6cf999a1b08bc31e7f4faf219.
+// ParseGrantAuctionRewardSuccessful is a log parse operation binding the contract event 0xa307d88e125ed19583b02332c5bd74f0323774248b3f9cac5047c2433d9d8ddc.
 //
-// Solidity: event BlindAuctionEnded(bytes32 blindAuctionId)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParseBlindAuctionEnded(log types.Log) (*IMarketplaceStorageBlindAuctionEnded, error) {
-	event := new(IMarketplaceStorageBlindAuctionEnded)
-	if err := _IMarketplaceStorage.contract.UnpackLog(event, "BlindAuctionEnded", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
-}
-
-// IMarketplaceStorageBlindAuctionRefundIterator is returned from FilterBlindAuctionRefund and is used to iterate over the raw logs and unpacked data for BlindAuctionRefund events raised by the IMarketplaceStorage contract.
-type IMarketplaceStorageBlindAuctionRefundIterator struct {
-	Event *IMarketplaceStorageBlindAuctionRefund // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *IMarketplaceStorageBlindAuctionRefundIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(IMarketplaceStorageBlindAuctionRefund)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(IMarketplaceStorageBlindAuctionRefund)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *IMarketplaceStorageBlindAuctionRefundIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *IMarketplaceStorageBlindAuctionRefundIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// IMarketplaceStorageBlindAuctionRefund represents a BlindAuctionRefund event raised by the IMarketplaceStorage contract.
-type IMarketplaceStorageBlindAuctionRefund struct {
-	Bidder         common.Address
-	BlindAuctionId [32]byte
-	Raw            types.Log // Blockchain specific contextual infos
-}
-
-// FilterBlindAuctionRefund is a free log retrieval operation binding the contract event 0xadada2afe0e9306e1b93faf56e74b041719e68f722de4f550d5a57e39610b404.
-//
-// Solidity: event BlindAuctionRefund(address bidder, bytes32 blindAuctionId)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterBlindAuctionRefund(opts *bind.FilterOpts) (*IMarketplaceStorageBlindAuctionRefundIterator, error) {
-
-	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "BlindAuctionRefund")
-	if err != nil {
-		return nil, err
-	}
-	return &IMarketplaceStorageBlindAuctionRefundIterator{contract: _IMarketplaceStorage.contract, event: "BlindAuctionRefund", logs: logs, sub: sub}, nil
-}
-
-// WatchBlindAuctionRefund is a free log subscription operation binding the contract event 0xadada2afe0e9306e1b93faf56e74b041719e68f722de4f550d5a57e39610b404.
-//
-// Solidity: event BlindAuctionRefund(address bidder, bytes32 blindAuctionId)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchBlindAuctionRefund(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageBlindAuctionRefund) (event.Subscription, error) {
-
-	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "BlindAuctionRefund")
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(IMarketplaceStorageBlindAuctionRefund)
-				if err := _IMarketplaceStorage.contract.UnpackLog(event, "BlindAuctionRefund", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParseBlindAuctionRefund is a log parse operation binding the contract event 0xadada2afe0e9306e1b93faf56e74b041719e68f722de4f550d5a57e39610b404.
-//
-// Solidity: event BlindAuctionRefund(address bidder, bytes32 blindAuctionId)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParseBlindAuctionRefund(log types.Log) (*IMarketplaceStorageBlindAuctionRefund, error) {
-	event := new(IMarketplaceStorageBlindAuctionRefund)
-	if err := _IMarketplaceStorage.contract.UnpackLog(event, "BlindAuctionRefund", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
-}
-
-// IMarketplaceStorageBlindAuctionSuccessfulIterator is returned from FilterBlindAuctionSuccessful and is used to iterate over the raw logs and unpacked data for BlindAuctionSuccessful events raised by the IMarketplaceStorage contract.
-type IMarketplaceStorageBlindAuctionSuccessfulIterator struct {
-	Event *IMarketplaceStorageBlindAuctionSuccessful // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *IMarketplaceStorageBlindAuctionSuccessfulIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(IMarketplaceStorageBlindAuctionSuccessful)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(IMarketplaceStorageBlindAuctionSuccessful)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *IMarketplaceStorageBlindAuctionSuccessfulIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *IMarketplaceStorageBlindAuctionSuccessfulIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// IMarketplaceStorageBlindAuctionSuccessful represents a BlindAuctionSuccessful event raised by the IMarketplaceStorage contract.
-type IMarketplaceStorageBlindAuctionSuccessful struct {
-	Seller         common.Address
-	Buyer          common.Address
-	BlindAuctionId [32]byte
-	TotalPrice     *big.Int
-	Raw            types.Log // Blockchain specific contextual infos
-}
-
-// FilterBlindAuctionSuccessful is a free log retrieval operation binding the contract event 0x2258179acb0769137f4ff532afd72c91199ae597abded9936acb61a2e66fc142.
-//
-// Solidity: event BlindAuctionSuccessful(address seller, address buyer, bytes32 blindAuctionId, uint256 totalPrice)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterBlindAuctionSuccessful(opts *bind.FilterOpts) (*IMarketplaceStorageBlindAuctionSuccessfulIterator, error) {
-
-	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "BlindAuctionSuccessful")
-	if err != nil {
-		return nil, err
-	}
-	return &IMarketplaceStorageBlindAuctionSuccessfulIterator{contract: _IMarketplaceStorage.contract, event: "BlindAuctionSuccessful", logs: logs, sub: sub}, nil
-}
-
-// WatchBlindAuctionSuccessful is a free log subscription operation binding the contract event 0x2258179acb0769137f4ff532afd72c91199ae597abded9936acb61a2e66fc142.
-//
-// Solidity: event BlindAuctionSuccessful(address seller, address buyer, bytes32 blindAuctionId, uint256 totalPrice)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchBlindAuctionSuccessful(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageBlindAuctionSuccessful) (event.Subscription, error) {
-
-	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "BlindAuctionSuccessful")
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(IMarketplaceStorageBlindAuctionSuccessful)
-				if err := _IMarketplaceStorage.contract.UnpackLog(event, "BlindAuctionSuccessful", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParseBlindAuctionSuccessful is a log parse operation binding the contract event 0x2258179acb0769137f4ff532afd72c91199ae597abded9936acb61a2e66fc142.
-//
-// Solidity: event BlindAuctionSuccessful(address seller, address buyer, bytes32 blindAuctionId, uint256 totalPrice)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParseBlindAuctionSuccessful(log types.Log) (*IMarketplaceStorageBlindAuctionSuccessful, error) {
-	event := new(IMarketplaceStorageBlindAuctionSuccessful)
-	if err := _IMarketplaceStorage.contract.UnpackLog(event, "BlindAuctionSuccessful", log); err != nil {
+// Solidity: event GrantAuctionRewardSuccessful(address auctionHighestBidder, bytes32 auctionId, uint256 assetId)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParseGrantAuctionRewardSuccessful(log types.Log) (*IMarketplaceStorageGrantAuctionRewardSuccessful, error) {
+	event := new(IMarketplaceStorageGrantAuctionRewardSuccessful)
+	if err := _IMarketplaceStorage.contract.UnpackLog(event, "GrantAuctionRewardSuccessful", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
@@ -2015,7 +1881,7 @@ func (it *IMarketplaceStoragePublicAuctionBidSuccessfulIterator) Close() error {
 
 // IMarketplaceStoragePublicAuctionBidSuccessful represents a PublicAuctionBidSuccessful event raised by the IMarketplaceStorage contract.
 type IMarketplaceStoragePublicAuctionBidSuccessful struct {
-	Bidder          common.Address
+	Sender          common.Address
 	PublicAuctionId [32]byte
 	BidValue        *big.Int
 	Raw             types.Log // Blockchain specific contextual infos
@@ -2023,7 +1889,7 @@ type IMarketplaceStoragePublicAuctionBidSuccessful struct {
 
 // FilterPublicAuctionBidSuccessful is a free log retrieval operation binding the contract event 0x9f541988b3aac74ac43a6f4b330ceed668244b74461b90850d199a38a172f7c2.
 //
-// Solidity: event PublicAuctionBidSuccessful(address bidder, bytes32 publicAuctionId, uint256 bidValue)
+// Solidity: event PublicAuctionBidSuccessful(address sender, bytes32 publicAuctionId, uint256 bidValue)
 func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterPublicAuctionBidSuccessful(opts *bind.FilterOpts) (*IMarketplaceStoragePublicAuctionBidSuccessfulIterator, error) {
 
 	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "PublicAuctionBidSuccessful")
@@ -2035,7 +1901,7 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterPublicAuctionBidS
 
 // WatchPublicAuctionBidSuccessful is a free log subscription operation binding the contract event 0x9f541988b3aac74ac43a6f4b330ceed668244b74461b90850d199a38a172f7c2.
 //
-// Solidity: event PublicAuctionBidSuccessful(address bidder, bytes32 publicAuctionId, uint256 bidValue)
+// Solidity: event PublicAuctionBidSuccessful(address sender, bytes32 publicAuctionId, uint256 bidValue)
 func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchPublicAuctionBidSuccessful(opts *bind.WatchOpts, sink chan<- *IMarketplaceStoragePublicAuctionBidSuccessful) (event.Subscription, error) {
 
 	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "PublicAuctionBidSuccessful")
@@ -2072,7 +1938,7 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchPublicAuctionBidSu
 
 // ParsePublicAuctionBidSuccessful is a log parse operation binding the contract event 0x9f541988b3aac74ac43a6f4b330ceed668244b74461b90850d199a38a172f7c2.
 //
-// Solidity: event PublicAuctionBidSuccessful(address bidder, bytes32 publicAuctionId, uint256 bidValue)
+// Solidity: event PublicAuctionBidSuccessful(address sender, bytes32 publicAuctionId, uint256 bidValue)
 func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParsePublicAuctionBidSuccessful(log types.Log) (*IMarketplaceStoragePublicAuctionBidSuccessful, error) {
 	event := new(IMarketplaceStoragePublicAuctionBidSuccessful)
 	if err := _IMarketplaceStorage.contract.UnpackLog(event, "PublicAuctionBidSuccessful", log); err != nil {
@@ -2082,9 +1948,9 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParsePublicAuctionBidSu
 	return event, nil
 }
 
-// IMarketplaceStoragePublicAuctionCancelledIterator is returned from FilterPublicAuctionCancelled and is used to iterate over the raw logs and unpacked data for PublicAuctionCancelled events raised by the IMarketplaceStorage contract.
-type IMarketplaceStoragePublicAuctionCancelledIterator struct {
-	Event *IMarketplaceStoragePublicAuctionCancelled // Event containing the contract specifics and raw log
+// IMarketplaceStoragePublicAuctionCreatedSuccessfulIterator is returned from FilterPublicAuctionCreatedSuccessful and is used to iterate over the raw logs and unpacked data for PublicAuctionCreatedSuccessful events raised by the IMarketplaceStorage contract.
+type IMarketplaceStoragePublicAuctionCreatedSuccessfulIterator struct {
+	Event *IMarketplaceStoragePublicAuctionCreatedSuccessful // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2098,7 +1964,7 @@ type IMarketplaceStoragePublicAuctionCancelledIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *IMarketplaceStoragePublicAuctionCancelledIterator) Next() bool {
+func (it *IMarketplaceStoragePublicAuctionCreatedSuccessfulIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2107,7 +1973,7 @@ func (it *IMarketplaceStoragePublicAuctionCancelledIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(IMarketplaceStoragePublicAuctionCancelled)
+			it.Event = new(IMarketplaceStoragePublicAuctionCreatedSuccessful)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2122,7 +1988,7 @@ func (it *IMarketplaceStoragePublicAuctionCancelledIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(IMarketplaceStoragePublicAuctionCancelled)
+		it.Event = new(IMarketplaceStoragePublicAuctionCreatedSuccessful)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2138,155 +2004,20 @@ func (it *IMarketplaceStoragePublicAuctionCancelledIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *IMarketplaceStoragePublicAuctionCancelledIterator) Error() error {
+func (it *IMarketplaceStoragePublicAuctionCreatedSuccessfulIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *IMarketplaceStoragePublicAuctionCancelledIterator) Close() error {
+func (it *IMarketplaceStoragePublicAuctionCreatedSuccessfulIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// IMarketplaceStoragePublicAuctionCancelled represents a PublicAuctionCancelled event raised by the IMarketplaceStorage contract.
-type IMarketplaceStoragePublicAuctionCancelled struct {
-	Canceller       common.Address
-	PublicAuctionId [32]byte
-	Raw             types.Log // Blockchain specific contextual infos
-}
-
-// FilterPublicAuctionCancelled is a free log retrieval operation binding the contract event 0x87cbb8dceaaacfbe7c9d99abf2a9c85f0249d860e329f60869079b204c7ad00d.
-//
-// Solidity: event PublicAuctionCancelled(address canceller, bytes32 publicAuctionId)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterPublicAuctionCancelled(opts *bind.FilterOpts) (*IMarketplaceStoragePublicAuctionCancelledIterator, error) {
-
-	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "PublicAuctionCancelled")
-	if err != nil {
-		return nil, err
-	}
-	return &IMarketplaceStoragePublicAuctionCancelledIterator{contract: _IMarketplaceStorage.contract, event: "PublicAuctionCancelled", logs: logs, sub: sub}, nil
-}
-
-// WatchPublicAuctionCancelled is a free log subscription operation binding the contract event 0x87cbb8dceaaacfbe7c9d99abf2a9c85f0249d860e329f60869079b204c7ad00d.
-//
-// Solidity: event PublicAuctionCancelled(address canceller, bytes32 publicAuctionId)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchPublicAuctionCancelled(opts *bind.WatchOpts, sink chan<- *IMarketplaceStoragePublicAuctionCancelled) (event.Subscription, error) {
-
-	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "PublicAuctionCancelled")
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(IMarketplaceStoragePublicAuctionCancelled)
-				if err := _IMarketplaceStorage.contract.UnpackLog(event, "PublicAuctionCancelled", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParsePublicAuctionCancelled is a log parse operation binding the contract event 0x87cbb8dceaaacfbe7c9d99abf2a9c85f0249d860e329f60869079b204c7ad00d.
-//
-// Solidity: event PublicAuctionCancelled(address canceller, bytes32 publicAuctionId)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParsePublicAuctionCancelled(log types.Log) (*IMarketplaceStoragePublicAuctionCancelled, error) {
-	event := new(IMarketplaceStoragePublicAuctionCancelled)
-	if err := _IMarketplaceStorage.contract.UnpackLog(event, "PublicAuctionCancelled", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
-}
-
-// IMarketplaceStoragePublicAuctionCreatedIterator is returned from FilterPublicAuctionCreated and is used to iterate over the raw logs and unpacked data for PublicAuctionCreated events raised by the IMarketplaceStorage contract.
-type IMarketplaceStoragePublicAuctionCreatedIterator struct {
-	Event *IMarketplaceStoragePublicAuctionCreated // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *IMarketplaceStoragePublicAuctionCreatedIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(IMarketplaceStoragePublicAuctionCreated)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(IMarketplaceStoragePublicAuctionCreated)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *IMarketplaceStoragePublicAuctionCreatedIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *IMarketplaceStoragePublicAuctionCreatedIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// IMarketplaceStoragePublicAuctionCreated represents a PublicAuctionCreated event raised by the IMarketplaceStorage contract.
-type IMarketplaceStoragePublicAuctionCreated struct {
-	Seller          common.Address
+// IMarketplaceStoragePublicAuctionCreatedSuccessful represents a PublicAuctionCreatedSuccessful event raised by the IMarketplaceStorage contract.
+type IMarketplaceStoragePublicAuctionCreatedSuccessful struct {
+	AssetOwner      common.Address
 	NftAddress      common.Address
 	PublicAuctionId [32]byte
 	AssetId         *big.Int
@@ -2296,24 +2027,24 @@ type IMarketplaceStoragePublicAuctionCreated struct {
 	Raw             types.Log // Blockchain specific contextual infos
 }
 
-// FilterPublicAuctionCreated is a free log retrieval operation binding the contract event 0xbdca6148a24d8e6e2d4ced0a6e168095869e61ea26b82332620abe8ba3ba5bd9.
+// FilterPublicAuctionCreatedSuccessful is a free log retrieval operation binding the contract event 0x434b2123b16b34f2926e4eb774145d073f6d34a8caa5b3eca34237ea2ce835a3.
 //
-// Solidity: event PublicAuctionCreated(address seller, address nftAddress, bytes32 publicAuctionId, uint256 assetId, uint256 biddingEnd, uint256 startPriceInWei, uint256 minIncrement)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterPublicAuctionCreated(opts *bind.FilterOpts) (*IMarketplaceStoragePublicAuctionCreatedIterator, error) {
+// Solidity: event PublicAuctionCreatedSuccessful(address assetOwner, address nftAddress, bytes32 publicAuctionId, uint256 assetId, uint256 biddingEnd, uint256 startPriceInWei, uint256 minIncrement)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterPublicAuctionCreatedSuccessful(opts *bind.FilterOpts) (*IMarketplaceStoragePublicAuctionCreatedSuccessfulIterator, error) {
 
-	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "PublicAuctionCreated")
+	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "PublicAuctionCreatedSuccessful")
 	if err != nil {
 		return nil, err
 	}
-	return &IMarketplaceStoragePublicAuctionCreatedIterator{contract: _IMarketplaceStorage.contract, event: "PublicAuctionCreated", logs: logs, sub: sub}, nil
+	return &IMarketplaceStoragePublicAuctionCreatedSuccessfulIterator{contract: _IMarketplaceStorage.contract, event: "PublicAuctionCreatedSuccessful", logs: logs, sub: sub}, nil
 }
 
-// WatchPublicAuctionCreated is a free log subscription operation binding the contract event 0xbdca6148a24d8e6e2d4ced0a6e168095869e61ea26b82332620abe8ba3ba5bd9.
+// WatchPublicAuctionCreatedSuccessful is a free log subscription operation binding the contract event 0x434b2123b16b34f2926e4eb774145d073f6d34a8caa5b3eca34237ea2ce835a3.
 //
-// Solidity: event PublicAuctionCreated(address seller, address nftAddress, bytes32 publicAuctionId, uint256 assetId, uint256 biddingEnd, uint256 startPriceInWei, uint256 minIncrement)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchPublicAuctionCreated(opts *bind.WatchOpts, sink chan<- *IMarketplaceStoragePublicAuctionCreated) (event.Subscription, error) {
+// Solidity: event PublicAuctionCreatedSuccessful(address assetOwner, address nftAddress, bytes32 publicAuctionId, uint256 assetId, uint256 biddingEnd, uint256 startPriceInWei, uint256 minIncrement)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchPublicAuctionCreatedSuccessful(opts *bind.WatchOpts, sink chan<- *IMarketplaceStoragePublicAuctionCreatedSuccessful) (event.Subscription, error) {
 
-	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "PublicAuctionCreated")
+	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "PublicAuctionCreatedSuccessful")
 	if err != nil {
 		return nil, err
 	}
@@ -2323,8 +2054,8 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchPublicAuctionCreat
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(IMarketplaceStoragePublicAuctionCreated)
-				if err := _IMarketplaceStorage.contract.UnpackLog(event, "PublicAuctionCreated", log); err != nil {
+				event := new(IMarketplaceStoragePublicAuctionCreatedSuccessful)
+				if err := _IMarketplaceStorage.contract.UnpackLog(event, "PublicAuctionCreatedSuccessful", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2345,419 +2076,12 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchPublicAuctionCreat
 	}), nil
 }
 
-// ParsePublicAuctionCreated is a log parse operation binding the contract event 0xbdca6148a24d8e6e2d4ced0a6e168095869e61ea26b82332620abe8ba3ba5bd9.
+// ParsePublicAuctionCreatedSuccessful is a log parse operation binding the contract event 0x434b2123b16b34f2926e4eb774145d073f6d34a8caa5b3eca34237ea2ce835a3.
 //
-// Solidity: event PublicAuctionCreated(address seller, address nftAddress, bytes32 publicAuctionId, uint256 assetId, uint256 biddingEnd, uint256 startPriceInWei, uint256 minIncrement)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParsePublicAuctionCreated(log types.Log) (*IMarketplaceStoragePublicAuctionCreated, error) {
-	event := new(IMarketplaceStoragePublicAuctionCreated)
-	if err := _IMarketplaceStorage.contract.UnpackLog(event, "PublicAuctionCreated", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
-}
-
-// IMarketplaceStoragePublicAuctionEndedIterator is returned from FilterPublicAuctionEnded and is used to iterate over the raw logs and unpacked data for PublicAuctionEnded events raised by the IMarketplaceStorage contract.
-type IMarketplaceStoragePublicAuctionEndedIterator struct {
-	Event *IMarketplaceStoragePublicAuctionEnded // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *IMarketplaceStoragePublicAuctionEndedIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(IMarketplaceStoragePublicAuctionEnded)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(IMarketplaceStoragePublicAuctionEnded)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *IMarketplaceStoragePublicAuctionEndedIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *IMarketplaceStoragePublicAuctionEndedIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// IMarketplaceStoragePublicAuctionEnded represents a PublicAuctionEnded event raised by the IMarketplaceStorage contract.
-type IMarketplaceStoragePublicAuctionEnded struct {
-	PublicAuctionId [32]byte
-	Raw             types.Log // Blockchain specific contextual infos
-}
-
-// FilterPublicAuctionEnded is a free log retrieval operation binding the contract event 0x156c2754a62667a51625de4ceb04df6640d97d06de8c89bd0bbb33307f144e42.
-//
-// Solidity: event PublicAuctionEnded(bytes32 publicAuctionId)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterPublicAuctionEnded(opts *bind.FilterOpts) (*IMarketplaceStoragePublicAuctionEndedIterator, error) {
-
-	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "PublicAuctionEnded")
-	if err != nil {
-		return nil, err
-	}
-	return &IMarketplaceStoragePublicAuctionEndedIterator{contract: _IMarketplaceStorage.contract, event: "PublicAuctionEnded", logs: logs, sub: sub}, nil
-}
-
-// WatchPublicAuctionEnded is a free log subscription operation binding the contract event 0x156c2754a62667a51625de4ceb04df6640d97d06de8c89bd0bbb33307f144e42.
-//
-// Solidity: event PublicAuctionEnded(bytes32 publicAuctionId)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchPublicAuctionEnded(opts *bind.WatchOpts, sink chan<- *IMarketplaceStoragePublicAuctionEnded) (event.Subscription, error) {
-
-	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "PublicAuctionEnded")
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(IMarketplaceStoragePublicAuctionEnded)
-				if err := _IMarketplaceStorage.contract.UnpackLog(event, "PublicAuctionEnded", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParsePublicAuctionEnded is a log parse operation binding the contract event 0x156c2754a62667a51625de4ceb04df6640d97d06de8c89bd0bbb33307f144e42.
-//
-// Solidity: event PublicAuctionEnded(bytes32 publicAuctionId)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParsePublicAuctionEnded(log types.Log) (*IMarketplaceStoragePublicAuctionEnded, error) {
-	event := new(IMarketplaceStoragePublicAuctionEnded)
-	if err := _IMarketplaceStorage.contract.UnpackLog(event, "PublicAuctionEnded", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
-}
-
-// IMarketplaceStoragePublicAuctionRefundIterator is returned from FilterPublicAuctionRefund and is used to iterate over the raw logs and unpacked data for PublicAuctionRefund events raised by the IMarketplaceStorage contract.
-type IMarketplaceStoragePublicAuctionRefundIterator struct {
-	Event *IMarketplaceStoragePublicAuctionRefund // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *IMarketplaceStoragePublicAuctionRefundIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(IMarketplaceStoragePublicAuctionRefund)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(IMarketplaceStoragePublicAuctionRefund)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *IMarketplaceStoragePublicAuctionRefundIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *IMarketplaceStoragePublicAuctionRefundIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// IMarketplaceStoragePublicAuctionRefund represents a PublicAuctionRefund event raised by the IMarketplaceStorage contract.
-type IMarketplaceStoragePublicAuctionRefund struct {
-	Bidder          common.Address
-	PublicAuctionId [32]byte
-	Value           *big.Int
-	Raw             types.Log // Blockchain specific contextual infos
-}
-
-// FilterPublicAuctionRefund is a free log retrieval operation binding the contract event 0x4fac96064e645402e0d4854b9549caba0169e3252c0e08a305eb60f498c88911.
-//
-// Solidity: event PublicAuctionRefund(address bidder, bytes32 publicAuctionId, uint256 value)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterPublicAuctionRefund(opts *bind.FilterOpts) (*IMarketplaceStoragePublicAuctionRefundIterator, error) {
-
-	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "PublicAuctionRefund")
-	if err != nil {
-		return nil, err
-	}
-	return &IMarketplaceStoragePublicAuctionRefundIterator{contract: _IMarketplaceStorage.contract, event: "PublicAuctionRefund", logs: logs, sub: sub}, nil
-}
-
-// WatchPublicAuctionRefund is a free log subscription operation binding the contract event 0x4fac96064e645402e0d4854b9549caba0169e3252c0e08a305eb60f498c88911.
-//
-// Solidity: event PublicAuctionRefund(address bidder, bytes32 publicAuctionId, uint256 value)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchPublicAuctionRefund(opts *bind.WatchOpts, sink chan<- *IMarketplaceStoragePublicAuctionRefund) (event.Subscription, error) {
-
-	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "PublicAuctionRefund")
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(IMarketplaceStoragePublicAuctionRefund)
-				if err := _IMarketplaceStorage.contract.UnpackLog(event, "PublicAuctionRefund", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParsePublicAuctionRefund is a log parse operation binding the contract event 0x4fac96064e645402e0d4854b9549caba0169e3252c0e08a305eb60f498c88911.
-//
-// Solidity: event PublicAuctionRefund(address bidder, bytes32 publicAuctionId, uint256 value)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParsePublicAuctionRefund(log types.Log) (*IMarketplaceStoragePublicAuctionRefund, error) {
-	event := new(IMarketplaceStoragePublicAuctionRefund)
-	if err := _IMarketplaceStorage.contract.UnpackLog(event, "PublicAuctionRefund", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
-}
-
-// IMarketplaceStoragePublicAuctionSuccessfulIterator is returned from FilterPublicAuctionSuccessful and is used to iterate over the raw logs and unpacked data for PublicAuctionSuccessful events raised by the IMarketplaceStorage contract.
-type IMarketplaceStoragePublicAuctionSuccessfulIterator struct {
-	Event *IMarketplaceStoragePublicAuctionSuccessful // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *IMarketplaceStoragePublicAuctionSuccessfulIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(IMarketplaceStoragePublicAuctionSuccessful)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(IMarketplaceStoragePublicAuctionSuccessful)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *IMarketplaceStoragePublicAuctionSuccessfulIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *IMarketplaceStoragePublicAuctionSuccessfulIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// IMarketplaceStoragePublicAuctionSuccessful represents a PublicAuctionSuccessful event raised by the IMarketplaceStorage contract.
-type IMarketplaceStoragePublicAuctionSuccessful struct {
-	Seller          common.Address
-	Buyer           common.Address
-	PublicAuctionId [32]byte
-	TotalPrice      *big.Int
-	Raw             types.Log // Blockchain specific contextual infos
-}
-
-// FilterPublicAuctionSuccessful is a free log retrieval operation binding the contract event 0xd5133f9e5285bd0635ccfe53ae8978b96ef34a7bf16a0a696a411dc669322cb6.
-//
-// Solidity: event PublicAuctionSuccessful(address seller, address buyer, bytes32 publicAuctionId, uint256 totalPrice)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterPublicAuctionSuccessful(opts *bind.FilterOpts) (*IMarketplaceStoragePublicAuctionSuccessfulIterator, error) {
-
-	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "PublicAuctionSuccessful")
-	if err != nil {
-		return nil, err
-	}
-	return &IMarketplaceStoragePublicAuctionSuccessfulIterator{contract: _IMarketplaceStorage.contract, event: "PublicAuctionSuccessful", logs: logs, sub: sub}, nil
-}
-
-// WatchPublicAuctionSuccessful is a free log subscription operation binding the contract event 0xd5133f9e5285bd0635ccfe53ae8978b96ef34a7bf16a0a696a411dc669322cb6.
-//
-// Solidity: event PublicAuctionSuccessful(address seller, address buyer, bytes32 publicAuctionId, uint256 totalPrice)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchPublicAuctionSuccessful(opts *bind.WatchOpts, sink chan<- *IMarketplaceStoragePublicAuctionSuccessful) (event.Subscription, error) {
-
-	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "PublicAuctionSuccessful")
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(IMarketplaceStoragePublicAuctionSuccessful)
-				if err := _IMarketplaceStorage.contract.UnpackLog(event, "PublicAuctionSuccessful", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParsePublicAuctionSuccessful is a log parse operation binding the contract event 0xd5133f9e5285bd0635ccfe53ae8978b96ef34a7bf16a0a696a411dc669322cb6.
-//
-// Solidity: event PublicAuctionSuccessful(address seller, address buyer, bytes32 publicAuctionId, uint256 totalPrice)
-func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParsePublicAuctionSuccessful(log types.Log) (*IMarketplaceStoragePublicAuctionSuccessful, error) {
-	event := new(IMarketplaceStoragePublicAuctionSuccessful)
-	if err := _IMarketplaceStorage.contract.UnpackLog(event, "PublicAuctionSuccessful", log); err != nil {
+// Solidity: event PublicAuctionCreatedSuccessful(address assetOwner, address nftAddress, bytes32 publicAuctionId, uint256 assetId, uint256 biddingEnd, uint256 startPriceInWei, uint256 minIncrement)
+func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParsePublicAuctionCreatedSuccessful(log types.Log) (*IMarketplaceStoragePublicAuctionCreatedSuccessful, error) {
+	event := new(IMarketplaceStoragePublicAuctionCreatedSuccessful)
+	if err := _IMarketplaceStorage.contract.UnpackLog(event, "PublicAuctionCreatedSuccessful", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
@@ -2833,14 +2157,14 @@ func (it *IMarketplaceStorageRevealSuccessfulIterator) Close() error {
 
 // IMarketplaceStorageRevealSuccessful represents a RevealSuccessful event raised by the IMarketplaceStorage contract.
 type IMarketplaceStorageRevealSuccessful struct {
-	Seller         common.Address
+	Sender         common.Address
 	BlindAuctionId [32]byte
 	Raw            types.Log // Blockchain specific contextual infos
 }
 
 // FilterRevealSuccessful is a free log retrieval operation binding the contract event 0x61d4ab60470c97b371c5f91be47873283386bb3af4de728e8795ef5318e013d6.
 //
-// Solidity: event RevealSuccessful(address seller, bytes32 blindAuctionId)
+// Solidity: event RevealSuccessful(address sender, bytes32 blindAuctionId)
 func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterRevealSuccessful(opts *bind.FilterOpts) (*IMarketplaceStorageRevealSuccessfulIterator, error) {
 
 	logs, sub, err := _IMarketplaceStorage.contract.FilterLogs(opts, "RevealSuccessful")
@@ -2852,7 +2176,7 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) FilterRevealSuccessful(
 
 // WatchRevealSuccessful is a free log subscription operation binding the contract event 0x61d4ab60470c97b371c5f91be47873283386bb3af4de728e8795ef5318e013d6.
 //
-// Solidity: event RevealSuccessful(address seller, bytes32 blindAuctionId)
+// Solidity: event RevealSuccessful(address sender, bytes32 blindAuctionId)
 func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchRevealSuccessful(opts *bind.WatchOpts, sink chan<- *IMarketplaceStorageRevealSuccessful) (event.Subscription, error) {
 
 	logs, sub, err := _IMarketplaceStorage.contract.WatchLogs(opts, "RevealSuccessful")
@@ -2889,7 +2213,7 @@ func (_IMarketplaceStorage *IMarketplaceStorageFilterer) WatchRevealSuccessful(o
 
 // ParseRevealSuccessful is a log parse operation binding the contract event 0x61d4ab60470c97b371c5f91be47873283386bb3af4de728e8795ef5318e013d6.
 //
-// Solidity: event RevealSuccessful(address seller, bytes32 blindAuctionId)
+// Solidity: event RevealSuccessful(address sender, bytes32 blindAuctionId)
 func (_IMarketplaceStorage *IMarketplaceStorageFilterer) ParseRevealSuccessful(log types.Log) (*IMarketplaceStorageRevealSuccessful, error) {
 	event := new(IMarketplaceStorageRevealSuccessful)
 	if err := _IMarketplaceStorage.contract.UnpackLog(event, "RevealSuccessful", log); err != nil {

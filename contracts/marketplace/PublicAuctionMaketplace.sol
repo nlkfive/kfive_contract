@@ -8,14 +8,6 @@ import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
     using SafeMath for uint256;
 
-    // Error
-    error InvalidBiddingEnd();
-    error InvalidBidding();
-    error NotRunning();
-    error RewardGranted();
-    error TooEarly(uint256);
-    error TooLate(uint256);
-
     constructor(
         address acceptedToken,
         address marketplaceStorage,
@@ -30,6 +22,7 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
      * @param assetId - ID of the published NFT
      * @param startPriceInWei - Price in Wei for the supported coin
      * @param biddingEnd - Timestamp when bidding end (in seconds)
+     * @param minIncrement - Min bid increment price in wei
      */
     function createPublicAuction(
         address nftAddress,
@@ -46,7 +39,7 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
         address assetOwner;
         {
             if(biddingEnd < block.timestamp.add(minStageDuration)) revert InvalidBiddingEnd();
-            if(startPriceInWei == 0) revert InvalidPrice();
+            if(startPriceInWei == 0 || minIncrement == 0) revert InvalidPrice();
             address sender = _msgSender();
             {
                 // Check owner
@@ -99,7 +92,7 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
             minIncrement
         );
 
-        emit PublicAuctionCreated(
+        emit PublicAuctionCreatedSuccessful(
             assetOwner,
             nftAddress,
             publicAuctionId,
@@ -129,17 +122,19 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
 
         address sender = _msgSender();
 
-        if(!(_publicAuction.seller == sender || hasRole(CANCEL_ROLE, _msgSender()))) revert Unauthorized();
+        if(!(_publicAuction.seller == sender || hasRole(CANCEL_ROLE, _msgSender()))) {
+            revert Unauthorized();
+        }
 
         // Refund to the current highest bid
         if(_publicAuction.highestBidder != address(0)) {
             acceptedToken.transfer(_publicAuction.highestBidder, _publicAuction.highestBid);
-            emit PublicAuctionRefund(_publicAuction.highestBidder, publicAuctionId, _publicAuction.highestBid);
+            emit AuctionRefundSuccessful(_publicAuction.highestBidder, publicAuctionId, _publicAuction.highestBid);
             marketplaceStorage.updateHighestBidPublicAuction(address(0), 0, publicAuctionId);
         }
 
         marketplaceStorage.endPublicAuction(nftAsset);
-        emit PublicAuctionCancelled(sender, publicAuctionId);
+        emit AuctionCancelledSuccessful(sender, publicAuctionId);
     }
 
     /**
@@ -162,23 +157,23 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
 
         if(bidValue <= _publicAuction.startPrice + _publicAuction.minIncrement
             || bidValue <= _publicAuction.highestBid + _publicAuction.minIncrement) {
-            revert InvalidBidding();
+            revert InvalidBiddingPrice();
         }
 
         address sender = _msgSender();
 
-        if(_publicAuction.highestBidder != address(0)) {
+        if(_publicAuction.highestBidder == address(0)) {
+            // first bid
+            acceptedToken.transferFrom(sender, address(this), bidValue);
+        } else {
             if(sender == _publicAuction.highestBidder) {
                 acceptedToken.transferFrom(sender, address(this), bidValue - _publicAuction.highestBid);
             } else {
                 acceptedToken.transferFrom(sender, address(this), bidValue);
                 // Refund to the previous highestBidder
                 acceptedToken.transfer(_publicAuction.highestBidder, _publicAuction.highestBid);
-                emit PublicAuctionRefund(_publicAuction.highestBidder, publicAuctionId, _publicAuction.highestBid);
+                emit AuctionRefundSuccessful(_publicAuction.highestBidder, publicAuctionId, _publicAuction.highestBid);
             }
-        } else {
-            // first bid
-            acceptedToken.transferFrom(sender, address(this), bidValue);
         }
 
         // Update highest bid
@@ -194,7 +189,12 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
      * @param assetId - ID of the nft
      * @param nftAddress - Nft address
      */
-    function getReward(bytes32 publicAuctionId, bytes32 nftAsset, uint256 assetId, address nftAddress) external whenNotPaused {
+    function getReward(
+        bytes32 publicAuctionId, 
+        bytes32 nftAsset, 
+        uint256 assetId, 
+        address nftAddress
+    ) external whenNotPaused {
         checkExisted(publicAuctionId);
 
         PublicAuction memory _publicAuction = marketplaceStorage.getPublicAuction(publicAuctionId);
@@ -207,9 +207,13 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
         address seller = _publicAuction.seller;
         uint256 auctionHighestBid = _publicAuction.highestBid;
 
+        // check sender is winner
+        if(sender != auctionHighestBidder) {
+            revert NotWinner();
+        }
+
         // Check if reward has been granted
-        if(_publicAuction.highestBidder == address(0) ||
-            sender != auctionHighestBidder ||
+        if(auctionHighestBidder == address(0) ||
             auctionHighestBid == 0) {
             revert RewardGranted();
         }
@@ -221,38 +225,33 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
         marketplaceStorage.endPublicAuction(nftAsset);
         marketplaceStorage.updateHighestBidPublicAuction(address(0), 0, publicAuctionId);
 
-        if (auctionHighestBidder != address(0)){
-            uint256 saleShareAmount = 0;
+        uint256 saleShareAmount = 0;
 
-            if (ownerCutPerMillion > 0) {
-                // Calculate sale share
-                saleShareAmount = auctionHighestBid.mul(ownerCutPerMillion).div(
-                    1000000
-                );
-
-                // Transfer share amount for marketplace Owner
-                acceptedToken.transfer(beneficary, saleShareAmount);
-            }
-
-            // Transfer sale amount to seller
-            acceptedToken.transfer(
-                seller,
-                auctionHighestBid.sub(saleShareAmount)
+        if (ownerCutPerMillion > 0) {
+            // Calculate sale share
+            saleShareAmount = auctionHighestBid.mul(ownerCutPerMillion).div(
+                1000000
             );
 
-            // Transfer asset owner
-            nftRegistry.safeTransferFrom(seller, auctionHighestBidder, assetId);
-
-            emit PublicAuctionSuccessful(
-                seller,
-                auctionHighestBidder,
-                publicAuctionId,
-                auctionHighestBid
-            );
-        } else {
-            emit PublicAuctionEnded(publicAuctionId);
+            // Transfer share amount for marketplace Owner
+            acceptedToken.transfer(beneficary, saleShareAmount);
         }
-    }
+
+        // Transfer sale amount to seller
+        acceptedToken.transfer(
+            seller,
+            auctionHighestBid.sub(saleShareAmount)
+        );
+
+        // Transfer asset owner
+        nftRegistry.safeTransferFrom(seller, auctionHighestBidder, assetId);
+
+        emit GrantAuctionRewardSuccessful(
+            auctionHighestBidder,
+            publicAuctionId,
+            assetId
+        );
+    } 
 
     function onlyBefore(uint256 _time) internal view {
         if (block.timestamp >= _time) revert TooLate(_time);

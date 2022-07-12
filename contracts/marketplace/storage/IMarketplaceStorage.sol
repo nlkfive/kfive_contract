@@ -7,6 +7,11 @@ import "./IBlindAuction.sol";
 import "./IOrder.sol";
 
 interface IMarketplaceStorage is IERC165, IOrder, IPublicAuction, IBlindAuction {
+    // Error
+    error InvalidMkpSender();
+    error AssetNotExisted();
+    error AssetUnvailable();
+
     function assetIsAvailable(bytes32 nftAsset) external view returns (bool);
     ////////////////////////////////////////////////////////////
     // Public Auction storage
@@ -155,9 +160,4 @@ interface IMarketplaceStorage is IERC165, IOrder, IPublicAuction, IBlindAuction 
      * @dev Delete order by nftAsset.
      */
     function deleteOrder(bytes32 nftAsset) external;
-
-    error InvalidMkpSender();
-    error AssetNotExisted();
-    error AssetUnvailable();
-    error AuctionAlreadyEnded();
 }

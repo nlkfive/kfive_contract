@@ -61,8 +61,8 @@ type IPublicAuctionPublicAuction struct {
 
 // MarketplaceStorageMetaData contains all meta data concerning the MarketplaceStorage contract.
 var MarketplaceStorageMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[],\"name\":\"AssetNotExisted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AssetUnvailable\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AuctionAlreadyEnded\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidMkpSender\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"TooEarly\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"TooLate\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindedBid\",\"type\":\"bytes32\"}],\"name\":\"BlindAuctionBidSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"canceller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"BlindAuctionCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"}],\"name\":\"BlindAuctionCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"BlindAuctionEnded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"BlindAuctionRefund\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"totalPrice\",\"type\":\"uint256\"}],\"name\":\"BlindAuctionSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"}],\"name\":\"OrderCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"priceInWei\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"name\":\"OrderCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"}],\"name\":\"OrderSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"bidValue\",\"type\":\"uint256\"}],\"name\":\"PublicAuctionBidSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"canceller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"}],\"name\":\"PublicAuctionCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"minIncrement\",\"type\":\"uint256\"}],\"name\":\"PublicAuctionCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"}],\"name\":\"PublicAuctionEnded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"PublicAuctionRefund\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"totalPrice\",\"type\":\"uint256\"}],\"name\":\"PublicAuctionSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"RevealSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PAUSER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getRoleMember\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleMemberCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"orderByNftAsset\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_publicAuctionMarketplace\",\"type\":\"address\"}],\"name\":\"updatePublicAuctionMarketplace\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_blindAuctionMarketplace\",\"type\":\"address\"}],\"name\":\"updateBlindAuctionMarketplace\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_orderMarketplace\",\"type\":\"address\"}],\"name\":\"updateOrderMarketplace\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"assetIsAvailable\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"}],\"name\":\"publicAuctionIsExisted\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"}],\"name\":\"publicAuctionIsEnded\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"}],\"name\":\"publicAuctionIsRunning\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"assetOwner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"minIncrement\",\"type\":\"uint256\"}],\"name\":\"createPublicAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"}],\"name\":\"getPublicAuction\",\"outputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"highestBid\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"highestBidder\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"minIncrement\",\"type\":\"uint256\"}],\"internalType\":\"structIPublicAuction.PublicAuction\",\"name\":\"publicAuction\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"endPublicAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"highestBid\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"}],\"name\":\"updateHighestBidPublicAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"blindAuctionIsExisted\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"blindAuctionIsEnded\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"blindAuctionIsRunning\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"assetOwner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"}],\"name\":\"createBlindAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"getBlindAuction\",\"outputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"highestBid\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"highestBidder\",\"type\":\"address\"}],\"internalType\":\"structIBlindAuction.BlindAuction\",\"name\":\"blindAuction\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"endBlindAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"highestBid\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"updateHighestBidBlindAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"priceInWei\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"name\":\"createOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"getOrder\",\"outputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"internalType\":\"structIOrder.Order\",\"name\":\"order\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"deleteOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
-	Bin: "0x60806040523480156200001157600080fd5b5062000032620000266200010a60201b60201c565b6200011260201b60201c565b6000600260146101000a81548160ff021916908315150217905550620000716000801b620000656200010a60201b60201c565b620001d860201b60201c565b620000b27fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775620000a66200010a60201b60201c565b620001d860201b60201c565b620001047f65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a7fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775620001ee60201b60201c565b620005b6565b600033905090565b6000600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905081600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508173ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a35050565b620001ea82826200025160201b60201c565b5050565b600062000201836200031f60201b60201c565b905081600080858152602001908152602001600020600101819055508181847fbd79b86ffe0ab8e8776151514217cd7cacd52c909f66475c3af44e129f0b00ff60405160405180910390a4505050565b6200026882826200033e60201b620020111760201c565b7fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c217758214806200029957506000801b82145b156200031b57620002d67f65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a826200033e60201b620020111760201c565b6000801b8214156200031a57620003197fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775826200033e60201b620020111760201c565b5b5b5050565b6000806000838152602001908152602001600020600101549050919050565b6200035582826200038660201b620020451760201c565b6200038181600160008581526020019081526020016000206200047760201b620021251790919060201c565b505050565b620003988282620004af60201b60201c565b6200047357600160008084815260200190815260200160002060000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff021916908315150217905550620004186200010a60201b60201c565b73ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16837f2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d60405160405180910390a45b5050565b6000620004a7836000018373ffffffffffffffffffffffffffffffffffffffff1660001b6200051960201b60201c565b905092915050565b600080600084815260200190815260200160002060000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff16905092915050565b60006200052d83836200059360201b60201c565b620005885782600001829080600181540180825580915050600190039060005260206000200160009091909190915055826000018054905083600101600084815260200190815260200160002081905550600190506200058d565b600090505b92915050565b600080836001016000848152602001908152602001600020541415905092915050565b613d9280620005c66000396000f3fe608060405234801561001057600080fd5b506004361061023c5760003560e01c806375b238fc1161013b578063a217fddf116100b8578063d7e4a3071161007c578063d7e4a3071461070f578063e63ab1e91461072b578063e7c847aa14610749578063ef2d8b5514610765578063f2fde38b146107815761023c565b8063a217fddf14610645578063bc4124c514610663578063ca15c87314610693578063cd23b172146106c3578063d547741f146106f35761023c565b80639010d07c116100ff5780639010d07c1461059157806391d14854146105c1578063930ca094146105f15780639a91d9c01461060d5780639d90ce3b146106295761023c565b806375b238fc146104ff5780638456cb591461051d578063866244481461052757806387a61cbd146105575780638da5cb5b146105735761023c565b80634a43c5b9116101c95780635c975abb1161018d5780635c975abb1461045b5780636af4c895146104795780636ed3be5314610495578063715018a6146104c55780637584f03d146104cf5761023c565b80634a43c5b91461039357806351b7e09d146103c35780635778472a146103df57806357a45b771461040f5780635a0affbb1461043f5761023c565b8063248a9ca311610210578063248a9ca3146102ed5780632f2ff15d1461031d57806336568abe146103395780633a3999d9146103555780633f4ba83a146103895761023c565b80622cb6a31461024157806301ffc9a7146102715780630a7f8977146102a157806315c97238146102d1575b600080fd5b61025b60048036038101906102569190613275565b61079d565b6040516102689190613734565b60405180910390f35b61028b600480360381019061028691906132ed565b6107bd565b6040516102989190613734565b60405180910390f35b6102bb60048036038101906102b69190613210565b610837565b6040516102c89190613734565b60405180910390f35b6102eb60048036038101906102e69190613210565b61089e565b005b61030760048036038101906103029190613210565b6109e0565b604051610314919061374f565b60405180910390f35b61033760048036038101906103329190613239565b6109ff565b005b610353600480360381019061034e9190613239565b610a20565b005b61036f600480360381019061036a9190613210565b610aa3565b60405161038095949392919061376a565b60405180910390f35b610391610b19565b005b6103ad60048036038101906103a89190613275565b610b4e565b6040516103ba9190613734565b60405180910390f35b6103dd60048036038101906103d89190613071565b610b6e565b005b6103f960048036038101906103f49190613210565b610c25565b60405161040691906138ba565b60405180910390f35b61042960048036038101906104249190613210565b610d1c565b60405161043691906138d5565b60405180910390f35b61045960048036038101906104549190613210565b610e27565b005b610463610f69565b6040516104709190613734565b60405180910390f35b610493600480360381019061048e9190613123565b610f80565b005b6104af60048036038101906104aa9190613210565b611165565b6040516104bc919061389f565b60405180910390f35b6104cd611270565b005b6104e960048036038101906104e49190613210565b6112f8565b6040516104f69190613734565b60405180910390f35b61050761131e565b604051610514919061374f565b60405180910390f35b610525611342565b005b610541600480360381019061053c9190613210565b611377565b60405161054e9190613734565b60405180910390f35b610571600480360381019061056c9190613210565b61139d565b005b61057b611547565b6040516105889190613719565b60405180910390f35b6105ab60048036038101906105a691906132b1565b611571565b6040516105b89190613719565b60405180910390f35b6105db60048036038101906105d69190613239565b6115a0565b6040516105e89190613734565b60405180910390f35b61060b6004803603810190610606919061309a565b61160a565b005b61062760048036038101906106229190613071565b61186c565b005b610643600480360381019061063e91906131c1565b611923565b005b61064d611a71565b60405161065a919061374f565b60405180910390f35b61067d60048036038101906106789190613275565b611a78565b60405161068a9190613734565b60405180910390f35b6106ad60048036038101906106a89190613210565b611a99565b6040516106ba91906138f0565b60405180910390f35b6106dd60048036038101906106d89190613275565b611abd565b6040516106ea9190613734565b60405180910390f35b61070d60048036038101906107089190613239565b611ade565b005b61072960048036038101906107249190613123565b611aff565b005b610733611ce4565b604051610740919061374f565b60405180910390f35b610763600480360381019061075e91906131c1565b611d08565b005b61077f600480360381019061077a9190613071565b611e56565b005b61079b60048036038101906107969190613071565b611f0d565b005b600081600760008581526020019081526020016000205414905092915050565b60007f30baaa08000000000000000000000000000000000000000000000000000000007bffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916827bffffffffffffffffffffffffffffffffffffffffffffffffffffffff19161480610830575061082f82612155565b5b9050919050565b60008060001b600760008481526020019081526020016000205414801561087357506000801b6009600084815260200190815260200160002054145b801561089757506000801b600a600084815260200190815260200160002060000154145b9050919050565b6108a6610f69565b156108e6576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016108dd9061383f565b60405180910390fd5b600560009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168073ffffffffffffffffffffffffffffffffffffffff166109286121cf565b73ffffffffffffffffffffffffffffffffffffffff1614610975576040517f2d0b96e300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000801b600960008481526020019081526020016000205414156109c5576040517fd02e774d00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60096000838152602001908152602001600020600090555050565b6000806000838152602001908152602001600020600101549050919050565b610a08826109e0565b610a11816121d7565b610a1b83836121eb565b505050565b610a286121cf565b73ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614610a95576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610a8c9061387f565b60405180910390fd5b610a9f828261228f565b5050565b600a6020528060005260406000206000915090508060000154908060010160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060020160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060030154908060040154905085565b7f65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a610b43816121d7565b610b4b612333565b50565b600081600960008581526020019081526020016000205414905092915050565b610b76610f69565b15610bb6576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610bad9061383f565b60405180910390fd5b7fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775610be0816121d7565b81600560006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050565b610c2d612ee7565b600a60008381526020019081526020016000206040518060a0016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020016002820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001600382015481526020016004820154815250509050919050565b610d24612f45565b600660008381526020019081526020016000206040518060e0016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001600282015481526020016003820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200160048201548152602001600582015481526020016006820154815250509050919050565b610e2f610f69565b15610e6f576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610e669061383f565b60405180910390fd5b600460009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168073ffffffffffffffffffffffffffffffffffffffff16610eb16121cf565b73ffffffffffffffffffffffffffffffffffffffff1614610efe576040517f2d0b96e300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000801b60076000848152602001908152602001600020541415610f4e576040517fd02e774d00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60076000838152602001908152602001600020600090555050565b6000600260149054906101000a900460ff16905090565b610f88610f69565b15610fc8576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610fbf9061383f565b60405180910390fd5b600460009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168073ffffffffffffffffffffffffffffffffffffffff1661100a6121cf565b73ffffffffffffffffffffffffffffffffffffffff1614611057576040517f2d0b96e300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000878760405160200161106c9291906136b3565b60405160208183030381529060405280519060200120905061108d81610837565b6110c3576040517fc0a24f6700000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b8560076000838152602001908152602001600020819055506000600660008881526020019081526020016000209050868160000181905550898160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555085816004018190555084816005018190555083816006018190555050505050505050505050565b61116d612fb1565b600860008381526020019081526020016000206040518060e0016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001600282015481526020016003820154815260200160048201548152602001600582015481526020016006820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815250509050919050565b6112786121cf565b73ffffffffffffffffffffffffffffffffffffffff16611296611547565b73ffffffffffffffffffffffffffffffffffffffff16146112ec576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016112e39061385f565b60405180910390fd5b6112f660006123d5565b565b60008060001b600660008481526020019081526020016000206000015414159050919050565b7fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c2177581565b7f65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a61136c816121d7565b61137461249b565b50565b60008060001b600860008481526020019081526020016000206000015414159050919050565b6113a5610f69565b156113e5576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016113dc9061383f565b60405180910390fd5b600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168073ffffffffffffffffffffffffffffffffffffffff166114276121cf565b73ffffffffffffffffffffffffffffffffffffffff1614611474576040517f2d0b96e300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000801b600a60008481526020019081526020016000206000015414156114c7576040517f84791e5200000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600a60008381526020019081526020016000206000808201600090556001820160006101000a81549073ffffffffffffffffffffffffffffffffffffffff02191690556002820160006101000a81549073ffffffffffffffffffffffffffffffffffffffff02191690556003820160009055600482016000905550505050565b6000600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b6000611598826001600086815260200190815260200160002061253e90919063ffffffff16565b905092915050565b600080600084815260200190815260200160002060000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff16905092915050565b600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168073ffffffffffffffffffffffffffffffffffffffff1661164c6121cf565b73ffffffffffffffffffffffffffffffffffffffff1614611699576040517f2d0b96e300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6116a1610f69565b156116e1576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016116d89061383f565b60405180910390fd5b600086866040516020016116f69291906136b3565b60405160208183030381529060405280519060200120905061171781610837565b61174d576040517fc0a24f6700000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6040518060a001604052808681526020018973ffffffffffffffffffffffffffffffffffffffff1681526020018873ffffffffffffffffffffffffffffffffffffffff16815260200185815260200184815250600a60008381526020019081526020016000206000820151816000015560208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060408201518160020160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060608201518160030155608082015181600401559050505050505050505050565b611874610f69565b156118b4576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016118ab9061383f565b60405180910390fd5b7fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c217756118de816121d7565b81600360006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050565b61192b610f69565b1561196b576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016119629061383f565b60405180910390fd5b600460009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168073ffffffffffffffffffffffffffffffffffffffff166119ad6121cf565b73ffffffffffffffffffffffffffffffffffffffff16146119fa576040517f2d0b96e300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000600660008481526020019081526020016000209050611a1e8160040154612558565b838160020181905550848160030160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050505050565b6000801b81565b60008160076000858152602001908152602001600020541415905092915050565b6000611ab66001600084815260200190815260200160002061259f565b9050919050565b60008160096000858152602001908152602001600020541415905092915050565b611ae7826109e0565b611af0816121d7565b611afa838361228f565b505050565b611b07610f69565b15611b47576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401611b3e9061383f565b60405180910390fd5b600560009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168073ffffffffffffffffffffffffffffffffffffffff16611b896121cf565b73ffffffffffffffffffffffffffffffffffffffff1614611bd6576040517f2d0b96e300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60008787604051602001611beb9291906136b3565b604051602081830303815290604052805190602001209050611c0c81610837565b611c42576040517fc0a24f6700000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b8560096000838152602001908152602001600020819055506000600860008881526020019081526020016000209050868160000181905550898160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555085816002018190555084816003018190555083816004018190555050505050505050505050565b7f65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a81565b611d10610f69565b15611d50576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401611d479061383f565b60405180910390fd5b600460009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168073ffffffffffffffffffffffffffffffffffffffff16611d926121cf565b73ffffffffffffffffffffffffffffffffffffffff1614611ddf576040517f2d0b96e300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000600860008481526020019081526020016000209050611e038160020154612558565b838160050181905550848160060160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050505050565b611e5e610f69565b15611e9e576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401611e959061383f565b60405180910390fd5b7fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775611ec8816121d7565b81600460006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050565b611f156121cf565b73ffffffffffffffffffffffffffffffffffffffff16611f33611547565b73ffffffffffffffffffffffffffffffffffffffff1614611f89576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401611f809061385f565b60405180910390fd5b611fb37fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775826121eb565b611fc06000801b826121eb565b611ff17fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775611fec611547565b61228f565b6120056000801b612000611547565b61228f565b61200e816125b4565b50565b61201b8282612045565b612040816001600085815260200190815260200160002061212590919063ffffffff16565b505050565b61204f82826115a0565b61212157600160008084815260200190815260200160002060000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055506120c66121cf565b73ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16837f2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d60405160405180910390a45b5050565b600061214d836000018373ffffffffffffffffffffffffffffffffffffffff1660001b6126ac565b905092915050565b60007f5a05180f000000000000000000000000000000000000000000000000000000007bffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916827bffffffffffffffffffffffffffffffffffffffffffffffffffffffff191614806121c857506121c78261271c565b5b9050919050565b600033905090565b6121e8816121e36121cf565b612796565b50565b6121f58282612011565b7fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c2177582148061222557506000801b82145b1561228b576122547f65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a82612011565b6000801b82141561228a576122897fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c2177582612011565b5b5b5050565b6122998282612833565b7fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c217758214806122c957506000801b82145b1561232f576122f87f65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a82612833565b6000801b82141561232e5761232d7fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c2177582612011565b5b5b5050565b61233b610f69565b61237a576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401612371906137ff565b60405180910390fd5b6000600260146101000a81548160ff0219169083151502179055507f5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa6123be6121cf565b6040516123cb9190613719565b60405180910390a1565b6000600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905081600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508173ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a35050565b6124a3610f69565b156124e3576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016124da9061383f565b60405180910390fd5b6001600260146101000a81548160ff0219169083151502179055507f62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a2586125276121cf565b6040516125349190613719565b60405180910390a1565b600061254d8360000183612867565b60001c905092915050565b80421061259c57806040517f691e568200000000000000000000000000000000000000000000000000000000815260040161259391906138f0565b60405180910390fd5b50565b60006125ad826000016128b8565b9050919050565b6125bc6121cf565b73ffffffffffffffffffffffffffffffffffffffff166125da611547565b73ffffffffffffffffffffffffffffffffffffffff1614612630576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016126279061385f565b60405180910390fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614156126a0576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016126979061381f565b60405180910390fd5b6126a9816123d5565b50565b60006126b883836128c9565b612711578260000182908060018154018082558091505060019003906000526020600020016000909190919091505582600001805490508360010160008481526020019081526020016000208190555060019050612716565b600090505b92915050565b60007f7965db0b000000000000000000000000000000000000000000000000000000007bffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916827bffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916148061278f575061278e826128ec565b5b9050919050565b6127a082826115a0565b61282f576127c58173ffffffffffffffffffffffffffffffffffffffff166014612956565b6127d38360001c6020612956565b6040516020016127e49291906136df565b6040516020818303038152906040526040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161282691906137bd565b60405180910390fd5b5050565b61283d8282612c50565b6128628160016000858152602001908152602001600020612d3190919063ffffffff16565b505050565b60008260000182815481106128a5577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b9060005260206000200154905092915050565b600081600001805490509050919050565b600080836001016000848152602001908152602001600020541415905092915050565b60007f01ffc9a7000000000000000000000000000000000000000000000000000000007bffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916827bffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916149050919050565b6060600060028360026129699190613988565b6129739190613932565b67ffffffffffffffff8111156129b2577f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b6040519080825280601f01601f1916602001820160405280156129e45781602001600182028036833780820191505090505b5090507f300000000000000000000000000000000000000000000000000000000000000081600081518110612a42577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b60200101907effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916908160001a9053507f780000000000000000000000000000000000000000000000000000000000000081600181518110612acc577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b60200101907effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916908160001a90535060006001846002612b0c9190613988565b612b169190613932565b90505b6001811115612c02577f3031323334353637383961626364656600000000000000000000000000000000600f861660108110612b7e577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b1a60f81b828281518110612bbb577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b60200101907effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916908160001a905350600485901c945080612bfb90613ac7565b9050612b19565b5060008414612c46576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401612c3d906137df565b60405180910390fd5b8091505092915050565b612c5a82826115a0565b15612d2d57600080600084815260200190815260200160002060000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff021916908315150217905550612cd26121cf565b73ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16837ff6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b60405160405180910390a45b5050565b6000612d59836000018373ffffffffffffffffffffffffffffffffffffffff1660001b612d61565b905092915050565b60008083600101600084815260200190815260200160002054905060008114612edb576000600182612d9391906139e2565b9050600060018660000180549050612dab91906139e2565b9050818114612e66576000866000018281548110612df2577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b9060005260206000200154905080876000018481548110612e3c577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b90600052602060002001819055508387600101600083815260200190815260200160002081905550505b85600001805480612ea0577f4e487b7100000000000000000000000000000000000000000000000000000000600052603160045260246000fd5b600190038181906000526020600020016000905590558560010160008681526020019081526020016000206000905560019350505050612ee1565b60009150505b92915050565b6040518060a0016040528060008019168152602001600073ffffffffffffffffffffffffffffffffffffffff168152602001600073ffffffffffffffffffffffffffffffffffffffff16815260200160008152602001600081525090565b6040518060e0016040528060008019168152602001600073ffffffffffffffffffffffffffffffffffffffff16815260200160008152602001600073ffffffffffffffffffffffffffffffffffffffff1681526020016000815260200160008152602001600081525090565b6040518060e0016040528060008019168152602001600073ffffffffffffffffffffffffffffffffffffffff16815260200160008152602001600081526020016000815260200160008152602001600073ffffffffffffffffffffffffffffffffffffffff1681525090565b60008135905061302c81613d00565b92915050565b60008135905061304181613d17565b92915050565b60008135905061305681613d2e565b92915050565b60008135905061306b81613d45565b92915050565b60006020828403121561308357600080fd5b60006130918482850161301d565b91505092915050565b60008060008060008060c087890312156130b357600080fd5b60006130c189828a0161301d565b96505060206130d289828a0161301d565b95505060406130e389828a0161305c565b94505060606130f489828a01613032565b935050608061310589828a0161305c565b92505060a061311689828a0161305c565b9150509295509295509295565b600080600080600080600060e0888a03121561313e57600080fd5b600061314c8a828b0161301d565b975050602061315d8a828b0161301d565b965050604061316e8a828b0161305c565b955050606061317f8a828b01613032565b94505060806131908a828b0161305c565b93505060a06131a18a828b0161305c565b92505060c06131b28a828b0161305c565b91505092959891949750929550565b6000806000606084860312156131d657600080fd5b60006131e48682870161301d565b93505060206131f58682870161305c565b925050604061320686828701613032565b9150509250925092565b60006020828403121561322257600080fd5b600061323084828501613032565b91505092915050565b6000806040838503121561324c57600080fd5b600061325a85828601613032565b925050602061326b8582860161301d565b9150509250929050565b6000806040838503121561328857600080fd5b600061329685828601613032565b92505060206132a785828601613032565b9150509250929050565b600080604083850312156132c457600080fd5b60006132d285828601613032565b92505060206132e38582860161305c565b9150509250929050565b6000602082840312156132ff57600080fd5b600061330d84828501613047565b91505092915050565b61331f81613a16565b82525050565b61332e81613a16565b82525050565b61334561334082613a16565b613af1565b82525050565b61335481613a28565b82525050565b61336381613a34565b82525050565b61337281613a34565b82525050565b60006133838261390b565b61338d8185613916565b935061339d818560208601613a94565b6133a681613b4e565b840191505092915050565b60006133bc8261390b565b6133c68185613927565b93506133d6818560208601613a94565b80840191505092915050565b60006133ef602083613916565b91506133fa82613b6c565b602082019050919050565b6000613412601483613916565b915061341d82613b95565b602082019050919050565b6000613435602683613916565b915061344082613bbe565b604082019050919050565b6000613458601083613916565b915061346382613c0d565b602082019050919050565b600061347b602083613916565b915061348682613c36565b602082019050919050565b600061349e601783613927565b91506134a982613c5f565b601782019050919050565b60006134c1601183613927565b91506134cc82613c88565b601182019050919050565b60006134e4602f83613916565b91506134ef82613cb1565b604082019050919050565b60e082016000820151613510600085018261335a565b5060208201516135236020850182613316565b506040820151613536604085018261367e565b506060820151613549606085018261367e565b50608082015161355c608085018261367e565b5060a082015161356f60a085018261367e565b5060c082015161358260c0850182613316565b50505050565b60a08201600082015161359e600085018261335a565b5060208201516135b16020850182613316565b5060408201516135c46040850182613316565b5060608201516135d7606085018261367e565b5060808201516135ea608085018261367e565b50505050565b60e082016000820151613606600085018261335a565b5060208201516136196020850182613316565b50604082015161362c604085018261367e565b50606082015161363f6060850182613316565b506080820151613652608085018261367e565b5060a082015161366560a085018261367e565b5060c082015161367860c085018261367e565b50505050565b61368781613a8a565b82525050565b61369681613a8a565b82525050565b6136ad6136a882613a8a565b613b15565b82525050565b60006136bf8285613334565b6014820191506136cf828461369c565b6020820191508190509392505050565b60006136ea82613491565b91506136f682856133b1565b9150613701826134b4565b915061370d82846133b1565b91508190509392505050565b600060208201905061372e6000830184613325565b92915050565b6000602082019050613749600083018461334b565b92915050565b60006020820190506137646000830184613369565b92915050565b600060a08201905061377f6000830188613369565b61378c6020830187613325565b6137996040830186613325565b6137a6606083018561368d565b6137b3608083018461368d565b9695505050505050565b600060208201905081810360008301526137d78184613378565b905092915050565b600060208201905081810360008301526137f8816133e2565b9050919050565b6000602082019050818103600083015261381881613405565b9050919050565b6000602082019050818103600083015261383881613428565b9050919050565b600060208201905081810360008301526138588161344b565b9050919050565b600060208201905081810360008301526138788161346e565b9050919050565b60006020820190508181036000830152613898816134d7565b9050919050565b600060e0820190506138b460008301846134fa565b92915050565b600060a0820190506138cf6000830184613588565b92915050565b600060e0820190506138ea60008301846135f0565b92915050565b6000602082019050613905600083018461368d565b92915050565b600081519050919050565b600082825260208201905092915050565b600081905092915050565b600061393d82613a8a565b915061394883613a8a565b9250827fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0382111561397d5761397c613b1f565b5b828201905092915050565b600061399382613a8a565b915061399e83613a8a565b9250817fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff04831182151516156139d7576139d6613b1f565b5b828202905092915050565b60006139ed82613a8a565b91506139f883613a8a565b925082821015613a0b57613a0a613b1f565b5b828203905092915050565b6000613a2182613a6a565b9050919050565b60008115159050919050565b6000819050919050565b60007fffffffff0000000000000000000000000000000000000000000000000000000082169050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b60005b83811015613ab2578082015181840152602081019050613a97565b83811115613ac1576000848401525b50505050565b6000613ad282613a8a565b91506000821415613ae657613ae5613b1f565b5b600182039050919050565b6000613afc82613b03565b9050919050565b6000613b0e82613b5f565b9050919050565b6000819050919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b6000601f19601f8301169050919050565b60008160601b9050919050565b7f537472696e67733a20686578206c656e67746820696e73756666696369656e74600082015250565b7f5061757361626c653a206e6f7420706175736564000000000000000000000000600082015250565b7f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160008201527f6464726573730000000000000000000000000000000000000000000000000000602082015250565b7f5061757361626c653a2070617573656400000000000000000000000000000000600082015250565b7f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572600082015250565b7f416363657373436f6e74726f6c3a206163636f756e7420000000000000000000600082015250565b7f206973206d697373696e6720726f6c6520000000000000000000000000000000600082015250565b7f416363657373436f6e74726f6c3a2063616e206f6e6c792072656e6f756e636560008201527f20726f6c657320666f722073656c660000000000000000000000000000000000602082015250565b613d0981613a16565b8114613d1457600080fd5b50565b613d2081613a34565b8114613d2b57600080fd5b50565b613d3781613a3e565b8114613d4257600080fd5b50565b613d4e81613a8a565b8114613d5957600080fd5b5056fea26469706673582212203f5c64b626bad79fddbc81fb053527cebd9a63361e08a32e56a36b523727f7cf64736f6c63430008040033",
+	ABI: "[{\"inputs\":[],\"name\":\"AssetNotExisted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AssetUnvailable\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AuctionCancelled\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AuctionEnded\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AuctionRefund\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidBiddingEnd\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidBiddingPrice\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidExpiredTime\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidMkpSender\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidWithdraw\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotRunning\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotWinner\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"OrderExpired\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RewardGranted\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"TooEarly\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"TooLate\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"canceller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"AuctionCancelledSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"AuctionRefundSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindedBid\",\"type\":\"bytes32\"}],\"name\":\"BlindAuctionBidSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"assetOwner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"}],\"name\":\"BlindAuctionCreatedSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"auctionHighestBidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"}],\"name\":\"GrantAuctionRewardSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"}],\"name\":\"OrderCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"priceInWei\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"name\":\"OrderCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"}],\"name\":\"OrderSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"bidValue\",\"type\":\"uint256\"}],\"name\":\"PublicAuctionBidSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"assetOwner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"minIncrement\",\"type\":\"uint256\"}],\"name\":\"PublicAuctionCreatedSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"RevealSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PAUSER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getRoleMember\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleMemberCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"orderByNftAsset\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_publicAuctionMarketplace\",\"type\":\"address\"}],\"name\":\"updatePublicAuctionMarketplace\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_blindAuctionMarketplace\",\"type\":\"address\"}],\"name\":\"updateBlindAuctionMarketplace\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_orderMarketplace\",\"type\":\"address\"}],\"name\":\"updateOrderMarketplace\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"assetIsAvailable\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"}],\"name\":\"publicAuctionIsExisted\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"}],\"name\":\"publicAuctionIsEnded\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"}],\"name\":\"publicAuctionIsRunning\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"assetOwner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"minIncrement\",\"type\":\"uint256\"}],\"name\":\"createPublicAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"}],\"name\":\"getPublicAuction\",\"outputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"highestBid\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"highestBidder\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"minIncrement\",\"type\":\"uint256\"}],\"internalType\":\"structIPublicAuction.PublicAuction\",\"name\":\"publicAuction\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"endPublicAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"highestBid\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"publicAuctionId\",\"type\":\"bytes32\"}],\"name\":\"updateHighestBidPublicAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"blindAuctionIsExisted\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"blindAuctionIsEnded\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"blindAuctionIsRunning\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"assetOwner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"}],\"name\":\"createBlindAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"getBlindAuction\",\"outputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"highestBid\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"highestBidder\",\"type\":\"address\"}],\"internalType\":\"structIBlindAuction.BlindAuction\",\"name\":\"blindAuction\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"endBlindAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"highestBid\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"updateHighestBidBlindAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"priceInWei\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"name\":\"createOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"getOrder\",\"outputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"orderId\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiredAt\",\"type\":\"uint256\"}],\"internalType\":\"structIOrder.Order\",\"name\":\"order\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"nftAsset\",\"type\":\"bytes32\"}],\"name\":\"deleteOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
+	Bin: "0x60806040523480156200001157600080fd5b5062000032620000266200010a60201b60201c565b6200011260201b60201c565b6000600260146101000a81548160ff021916908315150217905550620000716000801b620000656200010a60201b60201c565b620001d860201b60201c565b620000b27fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775620000a66200010a60201b60201c565b620001d860201b60201c565b620001047f65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a7fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775620001ee60201b60201c565b620005b6565b600033905090565b6000600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905081600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508173ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a35050565b620001ea82826200025160201b60201c565b5050565b600062000201836200031f60201b60201c565b905081600080858152602001908152602001600020600101819055508181847fbd79b86ffe0ab8e8776151514217cd7cacd52c909f66475c3af44e129f0b00ff60405160405180910390a4505050565b6200026882826200033e60201b6200201e1760201c565b7fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c217758214806200029957506000801b82145b156200031b57620002d67f65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a826200033e60201b6200201e1760201c565b6000801b8214156200031a57620003197fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775826200033e60201b6200201e1760201c565b5b5b5050565b6000806000838152602001908152602001600020600101549050919050565b6200035582826200038660201b620020521760201c565b6200038181600160008581526020019081526020016000206200047760201b620021321790919060201c565b505050565b620003988282620004af60201b60201c565b6200047357600160008084815260200190815260200160002060000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff021916908315150217905550620004186200010a60201b60201c565b73ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16837f2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d60405160405180910390a45b5050565b6000620004a7836000018373ffffffffffffffffffffffffffffffffffffffff1660001b6200051960201b60201c565b905092915050565b600080600084815260200190815260200160002060000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff16905092915050565b60006200052d83836200059360201b60201c565b620005885782600001829080600181540180825580915050600190039060005260206000200160009091909190915055826000018054905083600101600084815260200190815260200160002081905550600190506200058d565b600090505b92915050565b600080836001016000848152602001908152602001600020541415905092915050565b613de680620005c66000396000f3fe608060405234801561001057600080fd5b506004361061023c5760003560e01c806375b238fc1161013b578063a217fddf116100b8578063d7e4a3071161007c578063d7e4a3071461070f578063e63ab1e91461072b578063e7c847aa14610749578063ef2d8b5514610765578063f2fde38b146107815761023c565b8063a217fddf14610645578063bc4124c514610663578063ca15c87314610693578063cd23b172146106c3578063d547741f146106f35761023c565b80639010d07c116100ff5780639010d07c1461059157806391d14854146105c1578063930ca094146105f15780639a91d9c01461060d5780639d90ce3b146106295761023c565b806375b238fc146104ff5780638456cb591461051d578063866244481461052757806387a61cbd146105575780638da5cb5b146105735761023c565b80634a43c5b9116101c95780635c975abb1161018d5780635c975abb1461045b5780636af4c895146104795780636ed3be5314610495578063715018a6146104c55780637584f03d146104cf5761023c565b80634a43c5b91461039357806351b7e09d146103c35780635778472a146103df57806357a45b771461040f5780635a0affbb1461043f5761023c565b8063248a9ca311610210578063248a9ca3146102ed5780632f2ff15d1461031d57806336568abe146103395780633a3999d9146103555780633f4ba83a146103895761023c565b80622cb6a31461024157806301ffc9a7146102715780630a7f8977146102a157806315c97238146102d1575b600080fd5b61025b600480360381019061025691906132c9565b61079d565b6040516102689190613788565b60405180910390f35b61028b60048036038101906102869190613341565b6107bd565b6040516102989190613788565b60405180910390f35b6102bb60048036038101906102b69190613264565b610837565b6040516102c89190613788565b60405180910390f35b6102eb60048036038101906102e69190613264565b61089e565b005b61030760048036038101906103029190613264565b6109e0565b60405161031491906137a3565b60405180910390f35b6103376004803603810190610332919061328d565b6109ff565b005b610353600480360381019061034e919061328d565b610a20565b005b61036f600480360381019061036a9190613264565b610aa3565b6040516103809594939291906137be565b60405180910390f35b610391610b19565b005b6103ad60048036038101906103a891906132c9565b610b4e565b6040516103ba9190613788565b60405180910390f35b6103dd60048036038101906103d891906130c5565b610b6e565b005b6103f960048036038101906103f49190613264565b610c25565b604051610406919061390e565b60405180910390f35b61042960048036038101906104249190613264565b610d1c565b6040516104369190613929565b60405180910390f35b61045960048036038101906104549190613264565b610e27565b005b610463610f69565b6040516104709190613788565b60405180910390f35b610493600480360381019061048e9190613177565b610f80565b005b6104af60048036038101906104aa9190613264565b611165565b6040516104bc91906138f3565b60405180910390f35b6104cd611270565b005b6104e960048036038101906104e49190613264565b6112f8565b6040516104f69190613788565b60405180910390f35b61050761131e565b60405161051491906137a3565b60405180910390f35b610525611342565b005b610541600480360381019061053c9190613264565b611377565b60405161054e9190613788565b60405180910390f35b610571600480360381019061056c9190613264565b61139d565b005b61057b611547565b604051610588919061376d565b60405180910390f35b6105ab60048036038101906105a69190613305565b611571565b6040516105b8919061376d565b60405180910390f35b6105db60048036038101906105d6919061328d565b6115a0565b6040516105e89190613788565b60405180910390f35b61060b600480360381019061060691906130ee565b61160a565b005b610627600480360381019061062291906130c5565b61186c565b005b610643600480360381019061063e9190613215565b611923565b005b61064d611a71565b60405161065a91906137a3565b60405180910390f35b61067d600480360381019061067891906132c9565b611a78565b60405161068a9190613788565b60405180910390f35b6106ad60048036038101906106a89190613264565b611a99565b6040516106ba9190613944565b60405180910390f35b6106dd60048036038101906106d891906132c9565b611abd565b6040516106ea9190613788565b60405180910390f35b61070d6004803603810190610708919061328d565b611ade565b005b61072960048036038101906107249190613177565b611aff565b005b610733611ce4565b60405161074091906137a3565b60405180910390f35b610763600480360381019061075e9190613215565b611d08565b005b61077f600480360381019061077a91906130c5565b611e63565b005b61079b600480360381019061079691906130c5565b611f1a565b005b600081600760008581526020019081526020016000205414905092915050565b60007f30baaa08000000000000000000000000000000000000000000000000000000007bffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916827bffffffffffffffffffffffffffffffffffffffffffffffffffffffff19161480610830575061082f82612162565b5b9050919050565b60008060001b600760008481526020019081526020016000205414801561087357506000801b6009600084815260200190815260200160002054145b801561089757506000801b600a600084815260200190815260200160002060000154145b9050919050565b6108a6610f69565b156108e6576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016108dd90613893565b60405180910390fd5b600560009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168073ffffffffffffffffffffffffffffffffffffffff166109286121dc565b73ffffffffffffffffffffffffffffffffffffffff1614610975576040517f2d0b96e300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000801b600960008481526020019081526020016000205414156109c5576040517fa0e9298400000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60096000838152602001908152602001600020600090555050565b6000806000838152602001908152602001600020600101549050919050565b610a08826109e0565b610a11816121e4565b610a1b83836121f8565b505050565b610a286121dc565b73ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614610a95576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610a8c906138d3565b60405180910390fd5b610a9f828261229c565b5050565b600a6020528060005260406000206000915090508060000154908060010160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060020160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060030154908060040154905085565b7f65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a610b43816121e4565b610b4b612340565b50565b600081600960008581526020019081526020016000205414905092915050565b610b76610f69565b15610bb6576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610bad90613893565b60405180910390fd5b7fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775610be0816121e4565b81600560006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050565b610c2d612f3b565b600a60008381526020019081526020016000206040518060a0016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020016002820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001600382015481526020016004820154815250509050919050565b610d24612f99565b600660008381526020019081526020016000206040518060e0016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001600282015481526020016003820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200160048201548152602001600582015481526020016006820154815250509050919050565b610e2f610f69565b15610e6f576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610e6690613893565b60405180910390fd5b600460009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168073ffffffffffffffffffffffffffffffffffffffff16610eb16121dc565b73ffffffffffffffffffffffffffffffffffffffff1614610efe576040517f2d0b96e300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000801b60076000848152602001908152602001600020541415610f4e576040517fa0e9298400000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60076000838152602001908152602001600020600090555050565b6000600260149054906101000a900460ff16905090565b610f88610f69565b15610fc8576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610fbf90613893565b60405180910390fd5b600460009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168073ffffffffffffffffffffffffffffffffffffffff1661100a6121dc565b73ffffffffffffffffffffffffffffffffffffffff1614611057576040517f2d0b96e300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000878760405160200161106c929190613707565b60405160208183030381529060405280519060200120905061108d81610837565b6110c3576040517fc0a24f6700000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b8560076000838152602001908152602001600020819055506000600660008881526020019081526020016000209050868160000181905550898160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555085816004018190555084816005018190555083816006018190555050505050505050505050565b61116d613005565b600860008381526020019081526020016000206040518060e0016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001600282015481526020016003820154815260200160048201548152602001600582015481526020016006820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815250509050919050565b6112786121dc565b73ffffffffffffffffffffffffffffffffffffffff16611296611547565b73ffffffffffffffffffffffffffffffffffffffff16146112ec576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016112e3906138b3565b60405180910390fd5b6112f660006123e2565b565b60008060001b600660008481526020019081526020016000206000015414159050919050565b7fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c2177581565b7f65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a61136c816121e4565b6113746124a8565b50565b60008060001b600860008481526020019081526020016000206000015414159050919050565b6113a5610f69565b156113e5576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016113dc90613893565b60405180910390fd5b600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168073ffffffffffffffffffffffffffffffffffffffff166114276121dc565b73ffffffffffffffffffffffffffffffffffffffff1614611474576040517f2d0b96e300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000801b600a60008481526020019081526020016000206000015414156114c7576040517f84791e5200000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600a60008381526020019081526020016000206000808201600090556001820160006101000a81549073ffffffffffffffffffffffffffffffffffffffff02191690556002820160006101000a81549073ffffffffffffffffffffffffffffffffffffffff02191690556003820160009055600482016000905550505050565b6000600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b6000611598826001600086815260200190815260200160002061254b90919063ffffffff16565b905092915050565b600080600084815260200190815260200160002060000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff16905092915050565b600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168073ffffffffffffffffffffffffffffffffffffffff1661164c6121dc565b73ffffffffffffffffffffffffffffffffffffffff1614611699576040517f2d0b96e300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6116a1610f69565b156116e1576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016116d890613893565b60405180910390fd5b600086866040516020016116f6929190613707565b60405160208183030381529060405280519060200120905061171781610837565b61174d576040517fc0a24f6700000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6040518060a001604052808681526020018973ffffffffffffffffffffffffffffffffffffffff1681526020018873ffffffffffffffffffffffffffffffffffffffff16815260200185815260200184815250600a60008381526020019081526020016000206000820151816000015560208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060408201518160020160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060608201518160030155608082015181600401559050505050505050505050565b611874610f69565b156118b4576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016118ab90613893565b60405180910390fd5b7fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c217756118de816121e4565b81600360006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050565b61192b610f69565b1561196b576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161196290613893565b60405180910390fd5b600460009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168073ffffffffffffffffffffffffffffffffffffffff166119ad6121dc565b73ffffffffffffffffffffffffffffffffffffffff16146119fa576040517f2d0b96e300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000600660008481526020019081526020016000209050611a1e8160040154612565565b838160020181905550848160030160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050505050565b6000801b81565b60008160076000858152602001908152602001600020541415905092915050565b6000611ab6600160008481526020019081526020016000206125ac565b9050919050565b60008160096000858152602001908152602001600020541415905092915050565b611ae7826109e0565b611af0816121e4565b611afa838361229c565b505050565b611b07610f69565b15611b47576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401611b3e90613893565b60405180910390fd5b600560009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168073ffffffffffffffffffffffffffffffffffffffff16611b896121dc565b73ffffffffffffffffffffffffffffffffffffffff1614611bd6576040517f2d0b96e300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60008787604051602001611beb929190613707565b604051602081830303815290604052805190602001209050611c0c81610837565b611c42576040517fc0a24f6700000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b8560096000838152602001908152602001600020819055506000600860008881526020019081526020016000209050868160000181905550898160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555085816002018190555084816003018190555083816004018190555050505050505050505050565b7f65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a81565b611d10610f69565b15611d50576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401611d4790613893565b60405180910390fd5b600460009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168073ffffffffffffffffffffffffffffffffffffffff16611d926121dc565b73ffffffffffffffffffffffffffffffffffffffff1614611ddf576040517f2d0b96e300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000600860008481526020019081526020016000209050611e0381600201546125c1565b611e108160030154612565565b838160050181905550848160060160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050505050565b611e6b610f69565b15611eab576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401611ea290613893565b60405180910390fd5b7fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775611ed5816121e4565b81600460006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050565b611f226121dc565b73ffffffffffffffffffffffffffffffffffffffff16611f40611547565b73ffffffffffffffffffffffffffffffffffffffff1614611f96576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401611f8d906138b3565b60405180910390fd5b611fc07fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775826121f8565b611fcd6000801b826121f8565b611ffe7fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775611ff9611547565b61229c565b6120126000801b61200d611547565b61229c565b61201b81612608565b50565b6120288282612052565b61204d816001600085815260200190815260200160002061213290919063ffffffff16565b505050565b61205c82826115a0565b61212e57600160008084815260200190815260200160002060000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055506120d36121dc565b73ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16837f2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d60405160405180910390a45b5050565b600061215a836000018373ffffffffffffffffffffffffffffffffffffffff1660001b612700565b905092915050565b60007f5a05180f000000000000000000000000000000000000000000000000000000007bffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916827bffffffffffffffffffffffffffffffffffffffffffffffffffffffff191614806121d557506121d482612770565b5b9050919050565b600033905090565b6121f5816121f06121dc565b6127ea565b50565b612202828261201e565b7fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c2177582148061223257506000801b82145b15612298576122617f65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a8261201e565b6000801b821415612297576122967fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c217758261201e565b5b5b5050565b6122a68282612887565b7fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c217758214806122d657506000801b82145b1561233c576123057f65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a82612887565b6000801b82141561233b5761233a7fa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c217758261201e565b5b5b5050565b612348610f69565b612387576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161237e90613853565b60405180910390fd5b6000600260146101000a81548160ff0219169083151502179055507f5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa6123cb6121dc565b6040516123d8919061376d565b60405180910390a1565b6000600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905081600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508173ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a35050565b6124b0610f69565b156124f0576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016124e790613893565b60405180910390fd5b6001600260146101000a81548160ff0219169083151502179055507f62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a2586125346121dc565b604051612541919061376d565b60405180910390a1565b600061255a83600001836128bb565b60001c905092915050565b8042106125a957806040517f691e56820000000000000000000000000000000000000000000000000000000081526004016125a09190613944565b60405180910390fd5b50565b60006125ba8260000161290c565b9050919050565b80421161260557806040517f2a35a3240000000000000000000000000000000000000000000000000000000081526004016125fc9190613944565b60405180910390fd5b50565b6126106121dc565b73ffffffffffffffffffffffffffffffffffffffff1661262e611547565b73ffffffffffffffffffffffffffffffffffffffff1614612684576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161267b906138b3565b60405180910390fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614156126f4576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016126eb90613873565b60405180910390fd5b6126fd816123e2565b50565b600061270c838361291d565b61276557826000018290806001815401808255809150506001900390600052602060002001600090919091909150558260000180549050836001016000848152602001908152602001600020819055506001905061276a565b600090505b92915050565b60007f7965db0b000000000000000000000000000000000000000000000000000000007bffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916827bffffffffffffffffffffffffffffffffffffffffffffffffffffffff191614806127e357506127e282612940565b5b9050919050565b6127f482826115a0565b612883576128198173ffffffffffffffffffffffffffffffffffffffff1660146129aa565b6128278360001c60206129aa565b604051602001612838929190613733565b6040516020818303038152906040526040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161287a9190613811565b60405180910390fd5b5050565b6128918282612ca4565b6128b68160016000858152602001908152602001600020612d8590919063ffffffff16565b505050565b60008260000182815481106128f9577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b9060005260206000200154905092915050565b600081600001805490509050919050565b600080836001016000848152602001908152602001600020541415905092915050565b60007f01ffc9a7000000000000000000000000000000000000000000000000000000007bffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916827bffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916149050919050565b6060600060028360026129bd91906139dc565b6129c79190613986565b67ffffffffffffffff811115612a06577f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b6040519080825280601f01601f191660200182016040528015612a385781602001600182028036833780820191505090505b5090507f300000000000000000000000000000000000000000000000000000000000000081600081518110612a96577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b60200101907effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916908160001a9053507f780000000000000000000000000000000000000000000000000000000000000081600181518110612b20577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b60200101907effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916908160001a90535060006001846002612b6091906139dc565b612b6a9190613986565b90505b6001811115612c56577f3031323334353637383961626364656600000000000000000000000000000000600f861660108110612bd2577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b1a60f81b828281518110612c0f577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b60200101907effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916908160001a905350600485901c945080612c4f90613b1b565b9050612b6d565b5060008414612c9a576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401612c9190613833565b60405180910390fd5b8091505092915050565b612cae82826115a0565b15612d8157600080600084815260200190815260200160002060000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff021916908315150217905550612d266121dc565b73ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16837ff6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b60405160405180910390a45b5050565b6000612dad836000018373ffffffffffffffffffffffffffffffffffffffff1660001b612db5565b905092915050565b60008083600101600084815260200190815260200160002054905060008114612f2f576000600182612de79190613a36565b9050600060018660000180549050612dff9190613a36565b9050818114612eba576000866000018281548110612e46577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b9060005260206000200154905080876000018481548110612e90577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b90600052602060002001819055508387600101600083815260200190815260200160002081905550505b85600001805480612ef4577f4e487b7100000000000000000000000000000000000000000000000000000000600052603160045260246000fd5b600190038181906000526020600020016000905590558560010160008681526020019081526020016000206000905560019350505050612f35565b60009150505b92915050565b6040518060a0016040528060008019168152602001600073ffffffffffffffffffffffffffffffffffffffff168152602001600073ffffffffffffffffffffffffffffffffffffffff16815260200160008152602001600081525090565b6040518060e0016040528060008019168152602001600073ffffffffffffffffffffffffffffffffffffffff16815260200160008152602001600073ffffffffffffffffffffffffffffffffffffffff1681526020016000815260200160008152602001600081525090565b6040518060e0016040528060008019168152602001600073ffffffffffffffffffffffffffffffffffffffff16815260200160008152602001600081526020016000815260200160008152602001600073ffffffffffffffffffffffffffffffffffffffff1681525090565b60008135905061308081613d54565b92915050565b60008135905061309581613d6b565b92915050565b6000813590506130aa81613d82565b92915050565b6000813590506130bf81613d99565b92915050565b6000602082840312156130d757600080fd5b60006130e584828501613071565b91505092915050565b60008060008060008060c0878903121561310757600080fd5b600061311589828a01613071565b965050602061312689828a01613071565b955050604061313789828a016130b0565b945050606061314889828a01613086565b935050608061315989828a016130b0565b92505060a061316a89828a016130b0565b9150509295509295509295565b600080600080600080600060e0888a03121561319257600080fd5b60006131a08a828b01613071565b97505060206131b18a828b01613071565b96505060406131c28a828b016130b0565b95505060606131d38a828b01613086565b94505060806131e48a828b016130b0565b93505060a06131f58a828b016130b0565b92505060c06132068a828b016130b0565b91505092959891949750929550565b60008060006060848603121561322a57600080fd5b600061323886828701613071565b9350506020613249868287016130b0565b925050604061325a86828701613086565b9150509250925092565b60006020828403121561327657600080fd5b600061328484828501613086565b91505092915050565b600080604083850312156132a057600080fd5b60006132ae85828601613086565b92505060206132bf85828601613071565b9150509250929050565b600080604083850312156132dc57600080fd5b60006132ea85828601613086565b92505060206132fb85828601613086565b9150509250929050565b6000806040838503121561331857600080fd5b600061332685828601613086565b9250506020613337858286016130b0565b9150509250929050565b60006020828403121561335357600080fd5b60006133618482850161309b565b91505092915050565b61337381613a6a565b82525050565b61338281613a6a565b82525050565b61339961339482613a6a565b613b45565b82525050565b6133a881613a7c565b82525050565b6133b781613a88565b82525050565b6133c681613a88565b82525050565b60006133d78261395f565b6133e1818561396a565b93506133f1818560208601613ae8565b6133fa81613ba2565b840191505092915050565b60006134108261395f565b61341a818561397b565b935061342a818560208601613ae8565b80840191505092915050565b600061344360208361396a565b915061344e82613bc0565b602082019050919050565b600061346660148361396a565b915061347182613be9565b602082019050919050565b600061348960268361396a565b915061349482613c12565b604082019050919050565b60006134ac60108361396a565b91506134b782613c61565b602082019050919050565b60006134cf60208361396a565b91506134da82613c8a565b602082019050919050565b60006134f260178361397b565b91506134fd82613cb3565b601782019050919050565b600061351560118361397b565b915061352082613cdc565b601182019050919050565b6000613538602f8361396a565b915061354382613d05565b604082019050919050565b60e08201600082015161356460008501826133ae565b506020820151613577602085018261336a565b50604082015161358a60408501826136d2565b50606082015161359d60608501826136d2565b5060808201516135b060808501826136d2565b5060a08201516135c360a08501826136d2565b5060c08201516135d660c085018261336a565b50505050565b60a0820160008201516135f260008501826133ae565b506020820151613605602085018261336a565b506040820151613618604085018261336a565b50606082015161362b60608501826136d2565b50608082015161363e60808501826136d2565b50505050565b60e08201600082015161365a60008501826133ae565b50602082015161366d602085018261336a565b50604082015161368060408501826136d2565b506060820151613693606085018261336a565b5060808201516136a660808501826136d2565b5060a08201516136b960a08501826136d2565b5060c08201516136cc60c08501826136d2565b50505050565b6136db81613ade565b82525050565b6136ea81613ade565b82525050565b6137016136fc82613ade565b613b69565b82525050565b60006137138285613388565b60148201915061372382846136f0565b6020820191508190509392505050565b600061373e826134e5565b915061374a8285613405565b915061375582613508565b91506137618284613405565b91508190509392505050565b60006020820190506137826000830184613379565b92915050565b600060208201905061379d600083018461339f565b92915050565b60006020820190506137b860008301846133bd565b92915050565b600060a0820190506137d360008301886133bd565b6137e06020830187613379565b6137ed6040830186613379565b6137fa60608301856136e1565b61380760808301846136e1565b9695505050505050565b6000602082019050818103600083015261382b81846133cc565b905092915050565b6000602082019050818103600083015261384c81613436565b9050919050565b6000602082019050818103600083015261386c81613459565b9050919050565b6000602082019050818103600083015261388c8161347c565b9050919050565b600060208201905081810360008301526138ac8161349f565b9050919050565b600060208201905081810360008301526138cc816134c2565b9050919050565b600060208201905081810360008301526138ec8161352b565b9050919050565b600060e082019050613908600083018461354e565b92915050565b600060a08201905061392360008301846135dc565b92915050565b600060e08201905061393e6000830184613644565b92915050565b600060208201905061395960008301846136e1565b92915050565b600081519050919050565b600082825260208201905092915050565b600081905092915050565b600061399182613ade565b915061399c83613ade565b9250827fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff038211156139d1576139d0613b73565b5b828201905092915050565b60006139e782613ade565b91506139f283613ade565b9250817fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0483118215151615613a2b57613a2a613b73565b5b828202905092915050565b6000613a4182613ade565b9150613a4c83613ade565b925082821015613a5f57613a5e613b73565b5b828203905092915050565b6000613a7582613abe565b9050919050565b60008115159050919050565b6000819050919050565b60007fffffffff0000000000000000000000000000000000000000000000000000000082169050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b60005b83811015613b06578082015181840152602081019050613aeb565b83811115613b15576000848401525b50505050565b6000613b2682613ade565b91506000821415613b3a57613b39613b73565b5b600182039050919050565b6000613b5082613b57565b9050919050565b6000613b6282613bb3565b9050919050565b6000819050919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b6000601f19601f8301169050919050565b60008160601b9050919050565b7f537472696e67733a20686578206c656e67746820696e73756666696369656e74600082015250565b7f5061757361626c653a206e6f7420706175736564000000000000000000000000600082015250565b7f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160008201527f6464726573730000000000000000000000000000000000000000000000000000602082015250565b7f5061757361626c653a2070617573656400000000000000000000000000000000600082015250565b7f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572600082015250565b7f416363657373436f6e74726f6c3a206163636f756e7420000000000000000000600082015250565b7f206973206d697373696e6720726f6c6520000000000000000000000000000000600082015250565b7f416363657373436f6e74726f6c3a2063616e206f6e6c792072656e6f756e636560008201527f20726f6c657320666f722073656c660000000000000000000000000000000000602082015250565b613d5d81613a6a565b8114613d6857600080fd5b50565b613d7481613a88565b8114613d7f57600080fd5b50565b613d8b81613a92565b8114613d9657600080fd5b50565b613da281613ade565b8114613dad57600080fd5b5056fea2646970667358221220364ca71c1fe664b2871b274950d1c9b6f6985d184628129bb72a2065fda9444a64736f6c63430008040033",
 }
 
 // MarketplaceStorageABI is the input ABI used to generate the binding from.
@@ -1290,6 +1290,277 @@ func (_MarketplaceStorage *MarketplaceStorageTransactorSession) UpdatePublicAuct
 	return _MarketplaceStorage.Contract.UpdatePublicAuctionMarketplace(&_MarketplaceStorage.TransactOpts, _publicAuctionMarketplace)
 }
 
+// MarketplaceStorageAuctionCancelledSuccessfulIterator is returned from FilterAuctionCancelledSuccessful and is used to iterate over the raw logs and unpacked data for AuctionCancelledSuccessful events raised by the MarketplaceStorage contract.
+type MarketplaceStorageAuctionCancelledSuccessfulIterator struct {
+	Event *MarketplaceStorageAuctionCancelledSuccessful // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *MarketplaceStorageAuctionCancelledSuccessfulIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(MarketplaceStorageAuctionCancelledSuccessful)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(MarketplaceStorageAuctionCancelledSuccessful)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *MarketplaceStorageAuctionCancelledSuccessfulIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *MarketplaceStorageAuctionCancelledSuccessfulIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// MarketplaceStorageAuctionCancelledSuccessful represents a AuctionCancelledSuccessful event raised by the MarketplaceStorage contract.
+type MarketplaceStorageAuctionCancelledSuccessful struct {
+	Canceller common.Address
+	AuctionId [32]byte
+	Raw       types.Log // Blockchain specific contextual infos
+}
+
+// FilterAuctionCancelledSuccessful is a free log retrieval operation binding the contract event 0xa021239bb373fef19aa7c7ef798961ab038ebf95bd85d546b731d25855db190e.
+//
+// Solidity: event AuctionCancelledSuccessful(address canceller, bytes32 auctionId)
+func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterAuctionCancelledSuccessful(opts *bind.FilterOpts) (*MarketplaceStorageAuctionCancelledSuccessfulIterator, error) {
+
+	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "AuctionCancelledSuccessful")
+	if err != nil {
+		return nil, err
+	}
+	return &MarketplaceStorageAuctionCancelledSuccessfulIterator{contract: _MarketplaceStorage.contract, event: "AuctionCancelledSuccessful", logs: logs, sub: sub}, nil
+}
+
+// WatchAuctionCancelledSuccessful is a free log subscription operation binding the contract event 0xa021239bb373fef19aa7c7ef798961ab038ebf95bd85d546b731d25855db190e.
+//
+// Solidity: event AuctionCancelledSuccessful(address canceller, bytes32 auctionId)
+func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchAuctionCancelledSuccessful(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageAuctionCancelledSuccessful) (event.Subscription, error) {
+
+	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "AuctionCancelledSuccessful")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(MarketplaceStorageAuctionCancelledSuccessful)
+				if err := _MarketplaceStorage.contract.UnpackLog(event, "AuctionCancelledSuccessful", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseAuctionCancelledSuccessful is a log parse operation binding the contract event 0xa021239bb373fef19aa7c7ef798961ab038ebf95bd85d546b731d25855db190e.
+//
+// Solidity: event AuctionCancelledSuccessful(address canceller, bytes32 auctionId)
+func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseAuctionCancelledSuccessful(log types.Log) (*MarketplaceStorageAuctionCancelledSuccessful, error) {
+	event := new(MarketplaceStorageAuctionCancelledSuccessful)
+	if err := _MarketplaceStorage.contract.UnpackLog(event, "AuctionCancelledSuccessful", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// MarketplaceStorageAuctionRefundSuccessfulIterator is returned from FilterAuctionRefundSuccessful and is used to iterate over the raw logs and unpacked data for AuctionRefundSuccessful events raised by the MarketplaceStorage contract.
+type MarketplaceStorageAuctionRefundSuccessfulIterator struct {
+	Event *MarketplaceStorageAuctionRefundSuccessful // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *MarketplaceStorageAuctionRefundSuccessfulIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(MarketplaceStorageAuctionRefundSuccessful)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(MarketplaceStorageAuctionRefundSuccessful)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *MarketplaceStorageAuctionRefundSuccessfulIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *MarketplaceStorageAuctionRefundSuccessfulIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// MarketplaceStorageAuctionRefundSuccessful represents a AuctionRefundSuccessful event raised by the MarketplaceStorage contract.
+type MarketplaceStorageAuctionRefundSuccessful struct {
+	Bidder    common.Address
+	AuctionId [32]byte
+	Value     *big.Int
+	Raw       types.Log // Blockchain specific contextual infos
+}
+
+// FilterAuctionRefundSuccessful is a free log retrieval operation binding the contract event 0x5f4b88832be3746851e4d0ce6129f89fe39ddcf5a4b0204699724c459baf7d9d.
+//
+// Solidity: event AuctionRefundSuccessful(address bidder, bytes32 auctionId, uint256 value)
+func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterAuctionRefundSuccessful(opts *bind.FilterOpts) (*MarketplaceStorageAuctionRefundSuccessfulIterator, error) {
+
+	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "AuctionRefundSuccessful")
+	if err != nil {
+		return nil, err
+	}
+	return &MarketplaceStorageAuctionRefundSuccessfulIterator{contract: _MarketplaceStorage.contract, event: "AuctionRefundSuccessful", logs: logs, sub: sub}, nil
+}
+
+// WatchAuctionRefundSuccessful is a free log subscription operation binding the contract event 0x5f4b88832be3746851e4d0ce6129f89fe39ddcf5a4b0204699724c459baf7d9d.
+//
+// Solidity: event AuctionRefundSuccessful(address bidder, bytes32 auctionId, uint256 value)
+func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchAuctionRefundSuccessful(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageAuctionRefundSuccessful) (event.Subscription, error) {
+
+	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "AuctionRefundSuccessful")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(MarketplaceStorageAuctionRefundSuccessful)
+				if err := _MarketplaceStorage.contract.UnpackLog(event, "AuctionRefundSuccessful", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseAuctionRefundSuccessful is a log parse operation binding the contract event 0x5f4b88832be3746851e4d0ce6129f89fe39ddcf5a4b0204699724c459baf7d9d.
+//
+// Solidity: event AuctionRefundSuccessful(address bidder, bytes32 auctionId, uint256 value)
+func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseAuctionRefundSuccessful(log types.Log) (*MarketplaceStorageAuctionRefundSuccessful, error) {
+	event := new(MarketplaceStorageAuctionRefundSuccessful)
+	if err := _MarketplaceStorage.contract.UnpackLog(event, "AuctionRefundSuccessful", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
 // MarketplaceStorageBlindAuctionBidSuccessfulIterator is returned from FilterBlindAuctionBidSuccessful and is used to iterate over the raw logs and unpacked data for BlindAuctionBidSuccessful events raised by the MarketplaceStorage contract.
 type MarketplaceStorageBlindAuctionBidSuccessfulIterator struct {
 	Event *MarketplaceStorageBlindAuctionBidSuccessful // Event containing the contract specifics and raw log
@@ -1359,7 +1630,7 @@ func (it *MarketplaceStorageBlindAuctionBidSuccessfulIterator) Close() error {
 
 // MarketplaceStorageBlindAuctionBidSuccessful represents a BlindAuctionBidSuccessful event raised by the MarketplaceStorage contract.
 type MarketplaceStorageBlindAuctionBidSuccessful struct {
-	Bidder         common.Address
+	Sender         common.Address
 	BlindAuctionId [32]byte
 	BlindedBid     [32]byte
 	Raw            types.Log // Blockchain specific contextual infos
@@ -1367,7 +1638,7 @@ type MarketplaceStorageBlindAuctionBidSuccessful struct {
 
 // FilterBlindAuctionBidSuccessful is a free log retrieval operation binding the contract event 0x42412bd3e1b349d0fc9c3518c85d09f611398d80842c5d3e36449b76dca01b6b.
 //
-// Solidity: event BlindAuctionBidSuccessful(address bidder, bytes32 blindAuctionId, bytes32 blindedBid)
+// Solidity: event BlindAuctionBidSuccessful(address sender, bytes32 blindAuctionId, bytes32 blindedBid)
 func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterBlindAuctionBidSuccessful(opts *bind.FilterOpts) (*MarketplaceStorageBlindAuctionBidSuccessfulIterator, error) {
 
 	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "BlindAuctionBidSuccessful")
@@ -1379,7 +1650,7 @@ func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterBlindAuctionBidSucc
 
 // WatchBlindAuctionBidSuccessful is a free log subscription operation binding the contract event 0x42412bd3e1b349d0fc9c3518c85d09f611398d80842c5d3e36449b76dca01b6b.
 //
-// Solidity: event BlindAuctionBidSuccessful(address bidder, bytes32 blindAuctionId, bytes32 blindedBid)
+// Solidity: event BlindAuctionBidSuccessful(address sender, bytes32 blindAuctionId, bytes32 blindedBid)
 func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchBlindAuctionBidSuccessful(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageBlindAuctionBidSuccessful) (event.Subscription, error) {
 
 	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "BlindAuctionBidSuccessful")
@@ -1416,7 +1687,7 @@ func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchBlindAuctionBidSucce
 
 // ParseBlindAuctionBidSuccessful is a log parse operation binding the contract event 0x42412bd3e1b349d0fc9c3518c85d09f611398d80842c5d3e36449b76dca01b6b.
 //
-// Solidity: event BlindAuctionBidSuccessful(address bidder, bytes32 blindAuctionId, bytes32 blindedBid)
+// Solidity: event BlindAuctionBidSuccessful(address sender, bytes32 blindAuctionId, bytes32 blindedBid)
 func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseBlindAuctionBidSuccessful(log types.Log) (*MarketplaceStorageBlindAuctionBidSuccessful, error) {
 	event := new(MarketplaceStorageBlindAuctionBidSuccessful)
 	if err := _MarketplaceStorage.contract.UnpackLog(event, "BlindAuctionBidSuccessful", log); err != nil {
@@ -1426,9 +1697,9 @@ func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseBlindAuctionBidSucce
 	return event, nil
 }
 
-// MarketplaceStorageBlindAuctionCancelledIterator is returned from FilterBlindAuctionCancelled and is used to iterate over the raw logs and unpacked data for BlindAuctionCancelled events raised by the MarketplaceStorage contract.
-type MarketplaceStorageBlindAuctionCancelledIterator struct {
-	Event *MarketplaceStorageBlindAuctionCancelled // Event containing the contract specifics and raw log
+// MarketplaceStorageBlindAuctionCreatedSuccessfulIterator is returned from FilterBlindAuctionCreatedSuccessful and is used to iterate over the raw logs and unpacked data for BlindAuctionCreatedSuccessful events raised by the MarketplaceStorage contract.
+type MarketplaceStorageBlindAuctionCreatedSuccessfulIterator struct {
+	Event *MarketplaceStorageBlindAuctionCreatedSuccessful // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1442,7 +1713,7 @@ type MarketplaceStorageBlindAuctionCancelledIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *MarketplaceStorageBlindAuctionCancelledIterator) Next() bool {
+func (it *MarketplaceStorageBlindAuctionCreatedSuccessfulIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1451,7 +1722,7 @@ func (it *MarketplaceStorageBlindAuctionCancelledIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(MarketplaceStorageBlindAuctionCancelled)
+			it.Event = new(MarketplaceStorageBlindAuctionCreatedSuccessful)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1466,7 +1737,7 @@ func (it *MarketplaceStorageBlindAuctionCancelledIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(MarketplaceStorageBlindAuctionCancelled)
+		it.Event = new(MarketplaceStorageBlindAuctionCreatedSuccessful)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1482,155 +1753,20 @@ func (it *MarketplaceStorageBlindAuctionCancelledIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *MarketplaceStorageBlindAuctionCancelledIterator) Error() error {
+func (it *MarketplaceStorageBlindAuctionCreatedSuccessfulIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *MarketplaceStorageBlindAuctionCancelledIterator) Close() error {
+func (it *MarketplaceStorageBlindAuctionCreatedSuccessfulIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// MarketplaceStorageBlindAuctionCancelled represents a BlindAuctionCancelled event raised by the MarketplaceStorage contract.
-type MarketplaceStorageBlindAuctionCancelled struct {
-	Canceller      common.Address
-	BlindAuctionId [32]byte
-	Raw            types.Log // Blockchain specific contextual infos
-}
-
-// FilterBlindAuctionCancelled is a free log retrieval operation binding the contract event 0x620e9f21de284210359a265815fc84d3f6f4686df7a3841c7ef048a50ea80216.
-//
-// Solidity: event BlindAuctionCancelled(address canceller, bytes32 blindAuctionId)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterBlindAuctionCancelled(opts *bind.FilterOpts) (*MarketplaceStorageBlindAuctionCancelledIterator, error) {
-
-	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "BlindAuctionCancelled")
-	if err != nil {
-		return nil, err
-	}
-	return &MarketplaceStorageBlindAuctionCancelledIterator{contract: _MarketplaceStorage.contract, event: "BlindAuctionCancelled", logs: logs, sub: sub}, nil
-}
-
-// WatchBlindAuctionCancelled is a free log subscription operation binding the contract event 0x620e9f21de284210359a265815fc84d3f6f4686df7a3841c7ef048a50ea80216.
-//
-// Solidity: event BlindAuctionCancelled(address canceller, bytes32 blindAuctionId)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchBlindAuctionCancelled(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageBlindAuctionCancelled) (event.Subscription, error) {
-
-	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "BlindAuctionCancelled")
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(MarketplaceStorageBlindAuctionCancelled)
-				if err := _MarketplaceStorage.contract.UnpackLog(event, "BlindAuctionCancelled", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParseBlindAuctionCancelled is a log parse operation binding the contract event 0x620e9f21de284210359a265815fc84d3f6f4686df7a3841c7ef048a50ea80216.
-//
-// Solidity: event BlindAuctionCancelled(address canceller, bytes32 blindAuctionId)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseBlindAuctionCancelled(log types.Log) (*MarketplaceStorageBlindAuctionCancelled, error) {
-	event := new(MarketplaceStorageBlindAuctionCancelled)
-	if err := _MarketplaceStorage.contract.UnpackLog(event, "BlindAuctionCancelled", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
-}
-
-// MarketplaceStorageBlindAuctionCreatedIterator is returned from FilterBlindAuctionCreated and is used to iterate over the raw logs and unpacked data for BlindAuctionCreated events raised by the MarketplaceStorage contract.
-type MarketplaceStorageBlindAuctionCreatedIterator struct {
-	Event *MarketplaceStorageBlindAuctionCreated // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *MarketplaceStorageBlindAuctionCreatedIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(MarketplaceStorageBlindAuctionCreated)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(MarketplaceStorageBlindAuctionCreated)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *MarketplaceStorageBlindAuctionCreatedIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *MarketplaceStorageBlindAuctionCreatedIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// MarketplaceStorageBlindAuctionCreated represents a BlindAuctionCreated event raised by the MarketplaceStorage contract.
-type MarketplaceStorageBlindAuctionCreated struct {
-	Seller          common.Address
+// MarketplaceStorageBlindAuctionCreatedSuccessful represents a BlindAuctionCreatedSuccessful event raised by the MarketplaceStorage contract.
+type MarketplaceStorageBlindAuctionCreatedSuccessful struct {
+	AssetOwner      common.Address
 	NftAddress      common.Address
 	BlindAuctionId  [32]byte
 	AssetId         *big.Int
@@ -1640,24 +1776,24 @@ type MarketplaceStorageBlindAuctionCreated struct {
 	Raw             types.Log // Blockchain specific contextual infos
 }
 
-// FilterBlindAuctionCreated is a free log retrieval operation binding the contract event 0xe64fd4ba0702f46ae298a3be33f16f223a5e06556977c42dee952f976abfed83.
+// FilterBlindAuctionCreatedSuccessful is a free log retrieval operation binding the contract event 0xde549e5fcbd4d262f76b1f3a6362777a2e669ce8a2a7b5460e00c7a38341baf7.
 //
-// Solidity: event BlindAuctionCreated(address seller, address nftAddress, bytes32 blindAuctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterBlindAuctionCreated(opts *bind.FilterOpts) (*MarketplaceStorageBlindAuctionCreatedIterator, error) {
+// Solidity: event BlindAuctionCreatedSuccessful(address assetOwner, address nftAddress, bytes32 blindAuctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
+func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterBlindAuctionCreatedSuccessful(opts *bind.FilterOpts) (*MarketplaceStorageBlindAuctionCreatedSuccessfulIterator, error) {
 
-	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "BlindAuctionCreated")
+	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "BlindAuctionCreatedSuccessful")
 	if err != nil {
 		return nil, err
 	}
-	return &MarketplaceStorageBlindAuctionCreatedIterator{contract: _MarketplaceStorage.contract, event: "BlindAuctionCreated", logs: logs, sub: sub}, nil
+	return &MarketplaceStorageBlindAuctionCreatedSuccessfulIterator{contract: _MarketplaceStorage.contract, event: "BlindAuctionCreatedSuccessful", logs: logs, sub: sub}, nil
 }
 
-// WatchBlindAuctionCreated is a free log subscription operation binding the contract event 0xe64fd4ba0702f46ae298a3be33f16f223a5e06556977c42dee952f976abfed83.
+// WatchBlindAuctionCreatedSuccessful is a free log subscription operation binding the contract event 0xde549e5fcbd4d262f76b1f3a6362777a2e669ce8a2a7b5460e00c7a38341baf7.
 //
-// Solidity: event BlindAuctionCreated(address seller, address nftAddress, bytes32 blindAuctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchBlindAuctionCreated(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageBlindAuctionCreated) (event.Subscription, error) {
+// Solidity: event BlindAuctionCreatedSuccessful(address assetOwner, address nftAddress, bytes32 blindAuctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
+func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchBlindAuctionCreatedSuccessful(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageBlindAuctionCreatedSuccessful) (event.Subscription, error) {
 
-	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "BlindAuctionCreated")
+	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "BlindAuctionCreatedSuccessful")
 	if err != nil {
 		return nil, err
 	}
@@ -1667,8 +1803,8 @@ func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchBlindAuctionCreated(
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(MarketplaceStorageBlindAuctionCreated)
-				if err := _MarketplaceStorage.contract.UnpackLog(event, "BlindAuctionCreated", log); err != nil {
+				event := new(MarketplaceStorageBlindAuctionCreatedSuccessful)
+				if err := _MarketplaceStorage.contract.UnpackLog(event, "BlindAuctionCreatedSuccessful", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1689,21 +1825,21 @@ func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchBlindAuctionCreated(
 	}), nil
 }
 
-// ParseBlindAuctionCreated is a log parse operation binding the contract event 0xe64fd4ba0702f46ae298a3be33f16f223a5e06556977c42dee952f976abfed83.
+// ParseBlindAuctionCreatedSuccessful is a log parse operation binding the contract event 0xde549e5fcbd4d262f76b1f3a6362777a2e669ce8a2a7b5460e00c7a38341baf7.
 //
-// Solidity: event BlindAuctionCreated(address seller, address nftAddress, bytes32 blindAuctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseBlindAuctionCreated(log types.Log) (*MarketplaceStorageBlindAuctionCreated, error) {
-	event := new(MarketplaceStorageBlindAuctionCreated)
-	if err := _MarketplaceStorage.contract.UnpackLog(event, "BlindAuctionCreated", log); err != nil {
+// Solidity: event BlindAuctionCreatedSuccessful(address assetOwner, address nftAddress, bytes32 blindAuctionId, uint256 assetId, uint256 biddingEnd, uint256 revealEnd, uint256 startPriceInWei)
+func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseBlindAuctionCreatedSuccessful(log types.Log) (*MarketplaceStorageBlindAuctionCreatedSuccessful, error) {
+	event := new(MarketplaceStorageBlindAuctionCreatedSuccessful)
+	if err := _MarketplaceStorage.contract.UnpackLog(event, "BlindAuctionCreatedSuccessful", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// MarketplaceStorageBlindAuctionEndedIterator is returned from FilterBlindAuctionEnded and is used to iterate over the raw logs and unpacked data for BlindAuctionEnded events raised by the MarketplaceStorage contract.
-type MarketplaceStorageBlindAuctionEndedIterator struct {
-	Event *MarketplaceStorageBlindAuctionEnded // Event containing the contract specifics and raw log
+// MarketplaceStorageGrantAuctionRewardSuccessfulIterator is returned from FilterGrantAuctionRewardSuccessful and is used to iterate over the raw logs and unpacked data for GrantAuctionRewardSuccessful events raised by the MarketplaceStorage contract.
+type MarketplaceStorageGrantAuctionRewardSuccessfulIterator struct {
+	Event *MarketplaceStorageGrantAuctionRewardSuccessful // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1717,7 +1853,7 @@ type MarketplaceStorageBlindAuctionEndedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *MarketplaceStorageBlindAuctionEndedIterator) Next() bool {
+func (it *MarketplaceStorageGrantAuctionRewardSuccessfulIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1726,7 +1862,7 @@ func (it *MarketplaceStorageBlindAuctionEndedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(MarketplaceStorageBlindAuctionEnded)
+			it.Event = new(MarketplaceStorageGrantAuctionRewardSuccessful)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1741,7 +1877,7 @@ func (it *MarketplaceStorageBlindAuctionEndedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(MarketplaceStorageBlindAuctionEnded)
+		it.Event = new(MarketplaceStorageGrantAuctionRewardSuccessful)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1757,41 +1893,43 @@ func (it *MarketplaceStorageBlindAuctionEndedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *MarketplaceStorageBlindAuctionEndedIterator) Error() error {
+func (it *MarketplaceStorageGrantAuctionRewardSuccessfulIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *MarketplaceStorageBlindAuctionEndedIterator) Close() error {
+func (it *MarketplaceStorageGrantAuctionRewardSuccessfulIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// MarketplaceStorageBlindAuctionEnded represents a BlindAuctionEnded event raised by the MarketplaceStorage contract.
-type MarketplaceStorageBlindAuctionEnded struct {
-	BlindAuctionId [32]byte
-	Raw            types.Log // Blockchain specific contextual infos
+// MarketplaceStorageGrantAuctionRewardSuccessful represents a GrantAuctionRewardSuccessful event raised by the MarketplaceStorage contract.
+type MarketplaceStorageGrantAuctionRewardSuccessful struct {
+	AuctionHighestBidder common.Address
+	AuctionId            [32]byte
+	AssetId              *big.Int
+	Raw                  types.Log // Blockchain specific contextual infos
 }
 
-// FilterBlindAuctionEnded is a free log retrieval operation binding the contract event 0xbe3b74f797d49d96897f669a8b62fc0d77fa4cd6cf999a1b08bc31e7f4faf219.
+// FilterGrantAuctionRewardSuccessful is a free log retrieval operation binding the contract event 0xa307d88e125ed19583b02332c5bd74f0323774248b3f9cac5047c2433d9d8ddc.
 //
-// Solidity: event BlindAuctionEnded(bytes32 blindAuctionId)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterBlindAuctionEnded(opts *bind.FilterOpts) (*MarketplaceStorageBlindAuctionEndedIterator, error) {
+// Solidity: event GrantAuctionRewardSuccessful(address auctionHighestBidder, bytes32 auctionId, uint256 assetId)
+func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterGrantAuctionRewardSuccessful(opts *bind.FilterOpts) (*MarketplaceStorageGrantAuctionRewardSuccessfulIterator, error) {
 
-	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "BlindAuctionEnded")
+	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "GrantAuctionRewardSuccessful")
 	if err != nil {
 		return nil, err
 	}
-	return &MarketplaceStorageBlindAuctionEndedIterator{contract: _MarketplaceStorage.contract, event: "BlindAuctionEnded", logs: logs, sub: sub}, nil
+	return &MarketplaceStorageGrantAuctionRewardSuccessfulIterator{contract: _MarketplaceStorage.contract, event: "GrantAuctionRewardSuccessful", logs: logs, sub: sub}, nil
 }
 
-// WatchBlindAuctionEnded is a free log subscription operation binding the contract event 0xbe3b74f797d49d96897f669a8b62fc0d77fa4cd6cf999a1b08bc31e7f4faf219.
+// WatchGrantAuctionRewardSuccessful is a free log subscription operation binding the contract event 0xa307d88e125ed19583b02332c5bd74f0323774248b3f9cac5047c2433d9d8ddc.
 //
-// Solidity: event BlindAuctionEnded(bytes32 blindAuctionId)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchBlindAuctionEnded(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageBlindAuctionEnded) (event.Subscription, error) {
+// Solidity: event GrantAuctionRewardSuccessful(address auctionHighestBidder, bytes32 auctionId, uint256 assetId)
+func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchGrantAuctionRewardSuccessful(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageGrantAuctionRewardSuccessful) (event.Subscription, error) {
 
-	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "BlindAuctionEnded")
+	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "GrantAuctionRewardSuccessful")
 	if err != nil {
 		return nil, err
 	}
@@ -1801,8 +1939,8 @@ func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchBlindAuctionEnded(op
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(MarketplaceStorageBlindAuctionEnded)
-				if err := _MarketplaceStorage.contract.UnpackLog(event, "BlindAuctionEnded", log); err != nil {
+				event := new(MarketplaceStorageGrantAuctionRewardSuccessful)
+				if err := _MarketplaceStorage.contract.UnpackLog(event, "GrantAuctionRewardSuccessful", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1823,284 +1961,12 @@ func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchBlindAuctionEnded(op
 	}), nil
 }
 
-// ParseBlindAuctionEnded is a log parse operation binding the contract event 0xbe3b74f797d49d96897f669a8b62fc0d77fa4cd6cf999a1b08bc31e7f4faf219.
+// ParseGrantAuctionRewardSuccessful is a log parse operation binding the contract event 0xa307d88e125ed19583b02332c5bd74f0323774248b3f9cac5047c2433d9d8ddc.
 //
-// Solidity: event BlindAuctionEnded(bytes32 blindAuctionId)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseBlindAuctionEnded(log types.Log) (*MarketplaceStorageBlindAuctionEnded, error) {
-	event := new(MarketplaceStorageBlindAuctionEnded)
-	if err := _MarketplaceStorage.contract.UnpackLog(event, "BlindAuctionEnded", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
-}
-
-// MarketplaceStorageBlindAuctionRefundIterator is returned from FilterBlindAuctionRefund and is used to iterate over the raw logs and unpacked data for BlindAuctionRefund events raised by the MarketplaceStorage contract.
-type MarketplaceStorageBlindAuctionRefundIterator struct {
-	Event *MarketplaceStorageBlindAuctionRefund // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *MarketplaceStorageBlindAuctionRefundIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(MarketplaceStorageBlindAuctionRefund)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(MarketplaceStorageBlindAuctionRefund)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *MarketplaceStorageBlindAuctionRefundIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *MarketplaceStorageBlindAuctionRefundIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// MarketplaceStorageBlindAuctionRefund represents a BlindAuctionRefund event raised by the MarketplaceStorage contract.
-type MarketplaceStorageBlindAuctionRefund struct {
-	Bidder         common.Address
-	BlindAuctionId [32]byte
-	Raw            types.Log // Blockchain specific contextual infos
-}
-
-// FilterBlindAuctionRefund is a free log retrieval operation binding the contract event 0xadada2afe0e9306e1b93faf56e74b041719e68f722de4f550d5a57e39610b404.
-//
-// Solidity: event BlindAuctionRefund(address bidder, bytes32 blindAuctionId)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterBlindAuctionRefund(opts *bind.FilterOpts) (*MarketplaceStorageBlindAuctionRefundIterator, error) {
-
-	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "BlindAuctionRefund")
-	if err != nil {
-		return nil, err
-	}
-	return &MarketplaceStorageBlindAuctionRefundIterator{contract: _MarketplaceStorage.contract, event: "BlindAuctionRefund", logs: logs, sub: sub}, nil
-}
-
-// WatchBlindAuctionRefund is a free log subscription operation binding the contract event 0xadada2afe0e9306e1b93faf56e74b041719e68f722de4f550d5a57e39610b404.
-//
-// Solidity: event BlindAuctionRefund(address bidder, bytes32 blindAuctionId)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchBlindAuctionRefund(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageBlindAuctionRefund) (event.Subscription, error) {
-
-	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "BlindAuctionRefund")
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(MarketplaceStorageBlindAuctionRefund)
-				if err := _MarketplaceStorage.contract.UnpackLog(event, "BlindAuctionRefund", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParseBlindAuctionRefund is a log parse operation binding the contract event 0xadada2afe0e9306e1b93faf56e74b041719e68f722de4f550d5a57e39610b404.
-//
-// Solidity: event BlindAuctionRefund(address bidder, bytes32 blindAuctionId)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseBlindAuctionRefund(log types.Log) (*MarketplaceStorageBlindAuctionRefund, error) {
-	event := new(MarketplaceStorageBlindAuctionRefund)
-	if err := _MarketplaceStorage.contract.UnpackLog(event, "BlindAuctionRefund", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
-}
-
-// MarketplaceStorageBlindAuctionSuccessfulIterator is returned from FilterBlindAuctionSuccessful and is used to iterate over the raw logs and unpacked data for BlindAuctionSuccessful events raised by the MarketplaceStorage contract.
-type MarketplaceStorageBlindAuctionSuccessfulIterator struct {
-	Event *MarketplaceStorageBlindAuctionSuccessful // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *MarketplaceStorageBlindAuctionSuccessfulIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(MarketplaceStorageBlindAuctionSuccessful)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(MarketplaceStorageBlindAuctionSuccessful)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *MarketplaceStorageBlindAuctionSuccessfulIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *MarketplaceStorageBlindAuctionSuccessfulIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// MarketplaceStorageBlindAuctionSuccessful represents a BlindAuctionSuccessful event raised by the MarketplaceStorage contract.
-type MarketplaceStorageBlindAuctionSuccessful struct {
-	Seller         common.Address
-	Buyer          common.Address
-	BlindAuctionId [32]byte
-	TotalPrice     *big.Int
-	Raw            types.Log // Blockchain specific contextual infos
-}
-
-// FilterBlindAuctionSuccessful is a free log retrieval operation binding the contract event 0x2258179acb0769137f4ff532afd72c91199ae597abded9936acb61a2e66fc142.
-//
-// Solidity: event BlindAuctionSuccessful(address seller, address buyer, bytes32 blindAuctionId, uint256 totalPrice)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterBlindAuctionSuccessful(opts *bind.FilterOpts) (*MarketplaceStorageBlindAuctionSuccessfulIterator, error) {
-
-	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "BlindAuctionSuccessful")
-	if err != nil {
-		return nil, err
-	}
-	return &MarketplaceStorageBlindAuctionSuccessfulIterator{contract: _MarketplaceStorage.contract, event: "BlindAuctionSuccessful", logs: logs, sub: sub}, nil
-}
-
-// WatchBlindAuctionSuccessful is a free log subscription operation binding the contract event 0x2258179acb0769137f4ff532afd72c91199ae597abded9936acb61a2e66fc142.
-//
-// Solidity: event BlindAuctionSuccessful(address seller, address buyer, bytes32 blindAuctionId, uint256 totalPrice)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchBlindAuctionSuccessful(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageBlindAuctionSuccessful) (event.Subscription, error) {
-
-	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "BlindAuctionSuccessful")
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(MarketplaceStorageBlindAuctionSuccessful)
-				if err := _MarketplaceStorage.contract.UnpackLog(event, "BlindAuctionSuccessful", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParseBlindAuctionSuccessful is a log parse operation binding the contract event 0x2258179acb0769137f4ff532afd72c91199ae597abded9936acb61a2e66fc142.
-//
-// Solidity: event BlindAuctionSuccessful(address seller, address buyer, bytes32 blindAuctionId, uint256 totalPrice)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseBlindAuctionSuccessful(log types.Log) (*MarketplaceStorageBlindAuctionSuccessful, error) {
-	event := new(MarketplaceStorageBlindAuctionSuccessful)
-	if err := _MarketplaceStorage.contract.UnpackLog(event, "BlindAuctionSuccessful", log); err != nil {
+// Solidity: event GrantAuctionRewardSuccessful(address auctionHighestBidder, bytes32 auctionId, uint256 assetId)
+func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseGrantAuctionRewardSuccessful(log types.Log) (*MarketplaceStorageGrantAuctionRewardSuccessful, error) {
+	event := new(MarketplaceStorageGrantAuctionRewardSuccessful)
+	if err := _MarketplaceStorage.contract.UnpackLog(event, "GrantAuctionRewardSuccessful", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
@@ -2873,7 +2739,7 @@ func (it *MarketplaceStoragePublicAuctionBidSuccessfulIterator) Close() error {
 
 // MarketplaceStoragePublicAuctionBidSuccessful represents a PublicAuctionBidSuccessful event raised by the MarketplaceStorage contract.
 type MarketplaceStoragePublicAuctionBidSuccessful struct {
-	Bidder          common.Address
+	Sender          common.Address
 	PublicAuctionId [32]byte
 	BidValue        *big.Int
 	Raw             types.Log // Blockchain specific contextual infos
@@ -2881,7 +2747,7 @@ type MarketplaceStoragePublicAuctionBidSuccessful struct {
 
 // FilterPublicAuctionBidSuccessful is a free log retrieval operation binding the contract event 0x9f541988b3aac74ac43a6f4b330ceed668244b74461b90850d199a38a172f7c2.
 //
-// Solidity: event PublicAuctionBidSuccessful(address bidder, bytes32 publicAuctionId, uint256 bidValue)
+// Solidity: event PublicAuctionBidSuccessful(address sender, bytes32 publicAuctionId, uint256 bidValue)
 func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterPublicAuctionBidSuccessful(opts *bind.FilterOpts) (*MarketplaceStoragePublicAuctionBidSuccessfulIterator, error) {
 
 	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "PublicAuctionBidSuccessful")
@@ -2893,7 +2759,7 @@ func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterPublicAuctionBidSuc
 
 // WatchPublicAuctionBidSuccessful is a free log subscription operation binding the contract event 0x9f541988b3aac74ac43a6f4b330ceed668244b74461b90850d199a38a172f7c2.
 //
-// Solidity: event PublicAuctionBidSuccessful(address bidder, bytes32 publicAuctionId, uint256 bidValue)
+// Solidity: event PublicAuctionBidSuccessful(address sender, bytes32 publicAuctionId, uint256 bidValue)
 func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchPublicAuctionBidSuccessful(opts *bind.WatchOpts, sink chan<- *MarketplaceStoragePublicAuctionBidSuccessful) (event.Subscription, error) {
 
 	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "PublicAuctionBidSuccessful")
@@ -2930,7 +2796,7 @@ func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchPublicAuctionBidSucc
 
 // ParsePublicAuctionBidSuccessful is a log parse operation binding the contract event 0x9f541988b3aac74ac43a6f4b330ceed668244b74461b90850d199a38a172f7c2.
 //
-// Solidity: event PublicAuctionBidSuccessful(address bidder, bytes32 publicAuctionId, uint256 bidValue)
+// Solidity: event PublicAuctionBidSuccessful(address sender, bytes32 publicAuctionId, uint256 bidValue)
 func (_MarketplaceStorage *MarketplaceStorageFilterer) ParsePublicAuctionBidSuccessful(log types.Log) (*MarketplaceStoragePublicAuctionBidSuccessful, error) {
 	event := new(MarketplaceStoragePublicAuctionBidSuccessful)
 	if err := _MarketplaceStorage.contract.UnpackLog(event, "PublicAuctionBidSuccessful", log); err != nil {
@@ -2940,9 +2806,9 @@ func (_MarketplaceStorage *MarketplaceStorageFilterer) ParsePublicAuctionBidSucc
 	return event, nil
 }
 
-// MarketplaceStoragePublicAuctionCancelledIterator is returned from FilterPublicAuctionCancelled and is used to iterate over the raw logs and unpacked data for PublicAuctionCancelled events raised by the MarketplaceStorage contract.
-type MarketplaceStoragePublicAuctionCancelledIterator struct {
-	Event *MarketplaceStoragePublicAuctionCancelled // Event containing the contract specifics and raw log
+// MarketplaceStoragePublicAuctionCreatedSuccessfulIterator is returned from FilterPublicAuctionCreatedSuccessful and is used to iterate over the raw logs and unpacked data for PublicAuctionCreatedSuccessful events raised by the MarketplaceStorage contract.
+type MarketplaceStoragePublicAuctionCreatedSuccessfulIterator struct {
+	Event *MarketplaceStoragePublicAuctionCreatedSuccessful // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2956,7 +2822,7 @@ type MarketplaceStoragePublicAuctionCancelledIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *MarketplaceStoragePublicAuctionCancelledIterator) Next() bool {
+func (it *MarketplaceStoragePublicAuctionCreatedSuccessfulIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2965,7 +2831,7 @@ func (it *MarketplaceStoragePublicAuctionCancelledIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(MarketplaceStoragePublicAuctionCancelled)
+			it.Event = new(MarketplaceStoragePublicAuctionCreatedSuccessful)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2980,7 +2846,7 @@ func (it *MarketplaceStoragePublicAuctionCancelledIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(MarketplaceStoragePublicAuctionCancelled)
+		it.Event = new(MarketplaceStoragePublicAuctionCreatedSuccessful)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2996,155 +2862,20 @@ func (it *MarketplaceStoragePublicAuctionCancelledIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *MarketplaceStoragePublicAuctionCancelledIterator) Error() error {
+func (it *MarketplaceStoragePublicAuctionCreatedSuccessfulIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *MarketplaceStoragePublicAuctionCancelledIterator) Close() error {
+func (it *MarketplaceStoragePublicAuctionCreatedSuccessfulIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// MarketplaceStoragePublicAuctionCancelled represents a PublicAuctionCancelled event raised by the MarketplaceStorage contract.
-type MarketplaceStoragePublicAuctionCancelled struct {
-	Canceller       common.Address
-	PublicAuctionId [32]byte
-	Raw             types.Log // Blockchain specific contextual infos
-}
-
-// FilterPublicAuctionCancelled is a free log retrieval operation binding the contract event 0x87cbb8dceaaacfbe7c9d99abf2a9c85f0249d860e329f60869079b204c7ad00d.
-//
-// Solidity: event PublicAuctionCancelled(address canceller, bytes32 publicAuctionId)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterPublicAuctionCancelled(opts *bind.FilterOpts) (*MarketplaceStoragePublicAuctionCancelledIterator, error) {
-
-	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "PublicAuctionCancelled")
-	if err != nil {
-		return nil, err
-	}
-	return &MarketplaceStoragePublicAuctionCancelledIterator{contract: _MarketplaceStorage.contract, event: "PublicAuctionCancelled", logs: logs, sub: sub}, nil
-}
-
-// WatchPublicAuctionCancelled is a free log subscription operation binding the contract event 0x87cbb8dceaaacfbe7c9d99abf2a9c85f0249d860e329f60869079b204c7ad00d.
-//
-// Solidity: event PublicAuctionCancelled(address canceller, bytes32 publicAuctionId)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchPublicAuctionCancelled(opts *bind.WatchOpts, sink chan<- *MarketplaceStoragePublicAuctionCancelled) (event.Subscription, error) {
-
-	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "PublicAuctionCancelled")
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(MarketplaceStoragePublicAuctionCancelled)
-				if err := _MarketplaceStorage.contract.UnpackLog(event, "PublicAuctionCancelled", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParsePublicAuctionCancelled is a log parse operation binding the contract event 0x87cbb8dceaaacfbe7c9d99abf2a9c85f0249d860e329f60869079b204c7ad00d.
-//
-// Solidity: event PublicAuctionCancelled(address canceller, bytes32 publicAuctionId)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) ParsePublicAuctionCancelled(log types.Log) (*MarketplaceStoragePublicAuctionCancelled, error) {
-	event := new(MarketplaceStoragePublicAuctionCancelled)
-	if err := _MarketplaceStorage.contract.UnpackLog(event, "PublicAuctionCancelled", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
-}
-
-// MarketplaceStoragePublicAuctionCreatedIterator is returned from FilterPublicAuctionCreated and is used to iterate over the raw logs and unpacked data for PublicAuctionCreated events raised by the MarketplaceStorage contract.
-type MarketplaceStoragePublicAuctionCreatedIterator struct {
-	Event *MarketplaceStoragePublicAuctionCreated // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *MarketplaceStoragePublicAuctionCreatedIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(MarketplaceStoragePublicAuctionCreated)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(MarketplaceStoragePublicAuctionCreated)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *MarketplaceStoragePublicAuctionCreatedIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *MarketplaceStoragePublicAuctionCreatedIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// MarketplaceStoragePublicAuctionCreated represents a PublicAuctionCreated event raised by the MarketplaceStorage contract.
-type MarketplaceStoragePublicAuctionCreated struct {
-	Seller          common.Address
+// MarketplaceStoragePublicAuctionCreatedSuccessful represents a PublicAuctionCreatedSuccessful event raised by the MarketplaceStorage contract.
+type MarketplaceStoragePublicAuctionCreatedSuccessful struct {
+	AssetOwner      common.Address
 	NftAddress      common.Address
 	PublicAuctionId [32]byte
 	AssetId         *big.Int
@@ -3154,24 +2885,24 @@ type MarketplaceStoragePublicAuctionCreated struct {
 	Raw             types.Log // Blockchain specific contextual infos
 }
 
-// FilterPublicAuctionCreated is a free log retrieval operation binding the contract event 0xbdca6148a24d8e6e2d4ced0a6e168095869e61ea26b82332620abe8ba3ba5bd9.
+// FilterPublicAuctionCreatedSuccessful is a free log retrieval operation binding the contract event 0x434b2123b16b34f2926e4eb774145d073f6d34a8caa5b3eca34237ea2ce835a3.
 //
-// Solidity: event PublicAuctionCreated(address seller, address nftAddress, bytes32 publicAuctionId, uint256 assetId, uint256 biddingEnd, uint256 startPriceInWei, uint256 minIncrement)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterPublicAuctionCreated(opts *bind.FilterOpts) (*MarketplaceStoragePublicAuctionCreatedIterator, error) {
+// Solidity: event PublicAuctionCreatedSuccessful(address assetOwner, address nftAddress, bytes32 publicAuctionId, uint256 assetId, uint256 biddingEnd, uint256 startPriceInWei, uint256 minIncrement)
+func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterPublicAuctionCreatedSuccessful(opts *bind.FilterOpts) (*MarketplaceStoragePublicAuctionCreatedSuccessfulIterator, error) {
 
-	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "PublicAuctionCreated")
+	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "PublicAuctionCreatedSuccessful")
 	if err != nil {
 		return nil, err
 	}
-	return &MarketplaceStoragePublicAuctionCreatedIterator{contract: _MarketplaceStorage.contract, event: "PublicAuctionCreated", logs: logs, sub: sub}, nil
+	return &MarketplaceStoragePublicAuctionCreatedSuccessfulIterator{contract: _MarketplaceStorage.contract, event: "PublicAuctionCreatedSuccessful", logs: logs, sub: sub}, nil
 }
 
-// WatchPublicAuctionCreated is a free log subscription operation binding the contract event 0xbdca6148a24d8e6e2d4ced0a6e168095869e61ea26b82332620abe8ba3ba5bd9.
+// WatchPublicAuctionCreatedSuccessful is a free log subscription operation binding the contract event 0x434b2123b16b34f2926e4eb774145d073f6d34a8caa5b3eca34237ea2ce835a3.
 //
-// Solidity: event PublicAuctionCreated(address seller, address nftAddress, bytes32 publicAuctionId, uint256 assetId, uint256 biddingEnd, uint256 startPriceInWei, uint256 minIncrement)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchPublicAuctionCreated(opts *bind.WatchOpts, sink chan<- *MarketplaceStoragePublicAuctionCreated) (event.Subscription, error) {
+// Solidity: event PublicAuctionCreatedSuccessful(address assetOwner, address nftAddress, bytes32 publicAuctionId, uint256 assetId, uint256 biddingEnd, uint256 startPriceInWei, uint256 minIncrement)
+func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchPublicAuctionCreatedSuccessful(opts *bind.WatchOpts, sink chan<- *MarketplaceStoragePublicAuctionCreatedSuccessful) (event.Subscription, error) {
 
-	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "PublicAuctionCreated")
+	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "PublicAuctionCreatedSuccessful")
 	if err != nil {
 		return nil, err
 	}
@@ -3181,8 +2912,8 @@ func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchPublicAuctionCreated
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(MarketplaceStoragePublicAuctionCreated)
-				if err := _MarketplaceStorage.contract.UnpackLog(event, "PublicAuctionCreated", log); err != nil {
+				event := new(MarketplaceStoragePublicAuctionCreatedSuccessful)
+				if err := _MarketplaceStorage.contract.UnpackLog(event, "PublicAuctionCreatedSuccessful", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -3203,419 +2934,12 @@ func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchPublicAuctionCreated
 	}), nil
 }
 
-// ParsePublicAuctionCreated is a log parse operation binding the contract event 0xbdca6148a24d8e6e2d4ced0a6e168095869e61ea26b82332620abe8ba3ba5bd9.
+// ParsePublicAuctionCreatedSuccessful is a log parse operation binding the contract event 0x434b2123b16b34f2926e4eb774145d073f6d34a8caa5b3eca34237ea2ce835a3.
 //
-// Solidity: event PublicAuctionCreated(address seller, address nftAddress, bytes32 publicAuctionId, uint256 assetId, uint256 biddingEnd, uint256 startPriceInWei, uint256 minIncrement)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) ParsePublicAuctionCreated(log types.Log) (*MarketplaceStoragePublicAuctionCreated, error) {
-	event := new(MarketplaceStoragePublicAuctionCreated)
-	if err := _MarketplaceStorage.contract.UnpackLog(event, "PublicAuctionCreated", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
-}
-
-// MarketplaceStoragePublicAuctionEndedIterator is returned from FilterPublicAuctionEnded and is used to iterate over the raw logs and unpacked data for PublicAuctionEnded events raised by the MarketplaceStorage contract.
-type MarketplaceStoragePublicAuctionEndedIterator struct {
-	Event *MarketplaceStoragePublicAuctionEnded // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *MarketplaceStoragePublicAuctionEndedIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(MarketplaceStoragePublicAuctionEnded)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(MarketplaceStoragePublicAuctionEnded)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *MarketplaceStoragePublicAuctionEndedIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *MarketplaceStoragePublicAuctionEndedIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// MarketplaceStoragePublicAuctionEnded represents a PublicAuctionEnded event raised by the MarketplaceStorage contract.
-type MarketplaceStoragePublicAuctionEnded struct {
-	PublicAuctionId [32]byte
-	Raw             types.Log // Blockchain specific contextual infos
-}
-
-// FilterPublicAuctionEnded is a free log retrieval operation binding the contract event 0x156c2754a62667a51625de4ceb04df6640d97d06de8c89bd0bbb33307f144e42.
-//
-// Solidity: event PublicAuctionEnded(bytes32 publicAuctionId)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterPublicAuctionEnded(opts *bind.FilterOpts) (*MarketplaceStoragePublicAuctionEndedIterator, error) {
-
-	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "PublicAuctionEnded")
-	if err != nil {
-		return nil, err
-	}
-	return &MarketplaceStoragePublicAuctionEndedIterator{contract: _MarketplaceStorage.contract, event: "PublicAuctionEnded", logs: logs, sub: sub}, nil
-}
-
-// WatchPublicAuctionEnded is a free log subscription operation binding the contract event 0x156c2754a62667a51625de4ceb04df6640d97d06de8c89bd0bbb33307f144e42.
-//
-// Solidity: event PublicAuctionEnded(bytes32 publicAuctionId)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchPublicAuctionEnded(opts *bind.WatchOpts, sink chan<- *MarketplaceStoragePublicAuctionEnded) (event.Subscription, error) {
-
-	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "PublicAuctionEnded")
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(MarketplaceStoragePublicAuctionEnded)
-				if err := _MarketplaceStorage.contract.UnpackLog(event, "PublicAuctionEnded", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParsePublicAuctionEnded is a log parse operation binding the contract event 0x156c2754a62667a51625de4ceb04df6640d97d06de8c89bd0bbb33307f144e42.
-//
-// Solidity: event PublicAuctionEnded(bytes32 publicAuctionId)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) ParsePublicAuctionEnded(log types.Log) (*MarketplaceStoragePublicAuctionEnded, error) {
-	event := new(MarketplaceStoragePublicAuctionEnded)
-	if err := _MarketplaceStorage.contract.UnpackLog(event, "PublicAuctionEnded", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
-}
-
-// MarketplaceStoragePublicAuctionRefundIterator is returned from FilterPublicAuctionRefund and is used to iterate over the raw logs and unpacked data for PublicAuctionRefund events raised by the MarketplaceStorage contract.
-type MarketplaceStoragePublicAuctionRefundIterator struct {
-	Event *MarketplaceStoragePublicAuctionRefund // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *MarketplaceStoragePublicAuctionRefundIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(MarketplaceStoragePublicAuctionRefund)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(MarketplaceStoragePublicAuctionRefund)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *MarketplaceStoragePublicAuctionRefundIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *MarketplaceStoragePublicAuctionRefundIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// MarketplaceStoragePublicAuctionRefund represents a PublicAuctionRefund event raised by the MarketplaceStorage contract.
-type MarketplaceStoragePublicAuctionRefund struct {
-	Bidder          common.Address
-	PublicAuctionId [32]byte
-	Value           *big.Int
-	Raw             types.Log // Blockchain specific contextual infos
-}
-
-// FilterPublicAuctionRefund is a free log retrieval operation binding the contract event 0x4fac96064e645402e0d4854b9549caba0169e3252c0e08a305eb60f498c88911.
-//
-// Solidity: event PublicAuctionRefund(address bidder, bytes32 publicAuctionId, uint256 value)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterPublicAuctionRefund(opts *bind.FilterOpts) (*MarketplaceStoragePublicAuctionRefundIterator, error) {
-
-	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "PublicAuctionRefund")
-	if err != nil {
-		return nil, err
-	}
-	return &MarketplaceStoragePublicAuctionRefundIterator{contract: _MarketplaceStorage.contract, event: "PublicAuctionRefund", logs: logs, sub: sub}, nil
-}
-
-// WatchPublicAuctionRefund is a free log subscription operation binding the contract event 0x4fac96064e645402e0d4854b9549caba0169e3252c0e08a305eb60f498c88911.
-//
-// Solidity: event PublicAuctionRefund(address bidder, bytes32 publicAuctionId, uint256 value)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchPublicAuctionRefund(opts *bind.WatchOpts, sink chan<- *MarketplaceStoragePublicAuctionRefund) (event.Subscription, error) {
-
-	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "PublicAuctionRefund")
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(MarketplaceStoragePublicAuctionRefund)
-				if err := _MarketplaceStorage.contract.UnpackLog(event, "PublicAuctionRefund", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParsePublicAuctionRefund is a log parse operation binding the contract event 0x4fac96064e645402e0d4854b9549caba0169e3252c0e08a305eb60f498c88911.
-//
-// Solidity: event PublicAuctionRefund(address bidder, bytes32 publicAuctionId, uint256 value)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) ParsePublicAuctionRefund(log types.Log) (*MarketplaceStoragePublicAuctionRefund, error) {
-	event := new(MarketplaceStoragePublicAuctionRefund)
-	if err := _MarketplaceStorage.contract.UnpackLog(event, "PublicAuctionRefund", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
-}
-
-// MarketplaceStoragePublicAuctionSuccessfulIterator is returned from FilterPublicAuctionSuccessful and is used to iterate over the raw logs and unpacked data for PublicAuctionSuccessful events raised by the MarketplaceStorage contract.
-type MarketplaceStoragePublicAuctionSuccessfulIterator struct {
-	Event *MarketplaceStoragePublicAuctionSuccessful // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *MarketplaceStoragePublicAuctionSuccessfulIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(MarketplaceStoragePublicAuctionSuccessful)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(MarketplaceStoragePublicAuctionSuccessful)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *MarketplaceStoragePublicAuctionSuccessfulIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *MarketplaceStoragePublicAuctionSuccessfulIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// MarketplaceStoragePublicAuctionSuccessful represents a PublicAuctionSuccessful event raised by the MarketplaceStorage contract.
-type MarketplaceStoragePublicAuctionSuccessful struct {
-	Seller          common.Address
-	Buyer           common.Address
-	PublicAuctionId [32]byte
-	TotalPrice      *big.Int
-	Raw             types.Log // Blockchain specific contextual infos
-}
-
-// FilterPublicAuctionSuccessful is a free log retrieval operation binding the contract event 0xd5133f9e5285bd0635ccfe53ae8978b96ef34a7bf16a0a696a411dc669322cb6.
-//
-// Solidity: event PublicAuctionSuccessful(address seller, address buyer, bytes32 publicAuctionId, uint256 totalPrice)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterPublicAuctionSuccessful(opts *bind.FilterOpts) (*MarketplaceStoragePublicAuctionSuccessfulIterator, error) {
-
-	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "PublicAuctionSuccessful")
-	if err != nil {
-		return nil, err
-	}
-	return &MarketplaceStoragePublicAuctionSuccessfulIterator{contract: _MarketplaceStorage.contract, event: "PublicAuctionSuccessful", logs: logs, sub: sub}, nil
-}
-
-// WatchPublicAuctionSuccessful is a free log subscription operation binding the contract event 0xd5133f9e5285bd0635ccfe53ae8978b96ef34a7bf16a0a696a411dc669322cb6.
-//
-// Solidity: event PublicAuctionSuccessful(address seller, address buyer, bytes32 publicAuctionId, uint256 totalPrice)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchPublicAuctionSuccessful(opts *bind.WatchOpts, sink chan<- *MarketplaceStoragePublicAuctionSuccessful) (event.Subscription, error) {
-
-	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "PublicAuctionSuccessful")
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(MarketplaceStoragePublicAuctionSuccessful)
-				if err := _MarketplaceStorage.contract.UnpackLog(event, "PublicAuctionSuccessful", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParsePublicAuctionSuccessful is a log parse operation binding the contract event 0xd5133f9e5285bd0635ccfe53ae8978b96ef34a7bf16a0a696a411dc669322cb6.
-//
-// Solidity: event PublicAuctionSuccessful(address seller, address buyer, bytes32 publicAuctionId, uint256 totalPrice)
-func (_MarketplaceStorage *MarketplaceStorageFilterer) ParsePublicAuctionSuccessful(log types.Log) (*MarketplaceStoragePublicAuctionSuccessful, error) {
-	event := new(MarketplaceStoragePublicAuctionSuccessful)
-	if err := _MarketplaceStorage.contract.UnpackLog(event, "PublicAuctionSuccessful", log); err != nil {
+// Solidity: event PublicAuctionCreatedSuccessful(address assetOwner, address nftAddress, bytes32 publicAuctionId, uint256 assetId, uint256 biddingEnd, uint256 startPriceInWei, uint256 minIncrement)
+func (_MarketplaceStorage *MarketplaceStorageFilterer) ParsePublicAuctionCreatedSuccessful(log types.Log) (*MarketplaceStoragePublicAuctionCreatedSuccessful, error) {
+	event := new(MarketplaceStoragePublicAuctionCreatedSuccessful)
+	if err := _MarketplaceStorage.contract.UnpackLog(event, "PublicAuctionCreatedSuccessful", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
@@ -3691,14 +3015,14 @@ func (it *MarketplaceStorageRevealSuccessfulIterator) Close() error {
 
 // MarketplaceStorageRevealSuccessful represents a RevealSuccessful event raised by the MarketplaceStorage contract.
 type MarketplaceStorageRevealSuccessful struct {
-	Seller         common.Address
+	Sender         common.Address
 	BlindAuctionId [32]byte
 	Raw            types.Log // Blockchain specific contextual infos
 }
 
 // FilterRevealSuccessful is a free log retrieval operation binding the contract event 0x61d4ab60470c97b371c5f91be47873283386bb3af4de728e8795ef5318e013d6.
 //
-// Solidity: event RevealSuccessful(address seller, bytes32 blindAuctionId)
+// Solidity: event RevealSuccessful(address sender, bytes32 blindAuctionId)
 func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterRevealSuccessful(opts *bind.FilterOpts) (*MarketplaceStorageRevealSuccessfulIterator, error) {
 
 	logs, sub, err := _MarketplaceStorage.contract.FilterLogs(opts, "RevealSuccessful")
@@ -3710,7 +3034,7 @@ func (_MarketplaceStorage *MarketplaceStorageFilterer) FilterRevealSuccessful(op
 
 // WatchRevealSuccessful is a free log subscription operation binding the contract event 0x61d4ab60470c97b371c5f91be47873283386bb3af4de728e8795ef5318e013d6.
 //
-// Solidity: event RevealSuccessful(address seller, bytes32 blindAuctionId)
+// Solidity: event RevealSuccessful(address sender, bytes32 blindAuctionId)
 func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchRevealSuccessful(opts *bind.WatchOpts, sink chan<- *MarketplaceStorageRevealSuccessful) (event.Subscription, error) {
 
 	logs, sub, err := _MarketplaceStorage.contract.WatchLogs(opts, "RevealSuccessful")
@@ -3747,7 +3071,7 @@ func (_MarketplaceStorage *MarketplaceStorageFilterer) WatchRevealSuccessful(opt
 
 // ParseRevealSuccessful is a log parse operation binding the contract event 0x61d4ab60470c97b371c5f91be47873283386bb3af4de728e8795ef5318e013d6.
 //
-// Solidity: event RevealSuccessful(address seller, bytes32 blindAuctionId)
+// Solidity: event RevealSuccessful(address sender, bytes32 blindAuctionId)
 func (_MarketplaceStorage *MarketplaceStorageFilterer) ParseRevealSuccessful(log types.Log) (*MarketplaceStorageRevealSuccessful, error) {
 	event := new(MarketplaceStorageRevealSuccessful)
 	if err := _MarketplaceStorage.contract.UnpackLog(event, "RevealSuccessful", log); err != nil {

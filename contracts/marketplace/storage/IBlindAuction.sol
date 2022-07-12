@@ -1,15 +1,14 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity 0.8.4;
 
-interface IBlindAuction {
-    // BLIND AUCTION EVENTS
-    event BlindAuctionEnded(bytes32 blindAuctionId);
-    event BlindAuctionRefund(
-        address bidder,
-        bytes32 blindAuctionId
-    );
-    event BlindAuctionCreated(
-        address seller,
+import "./IAuction.sol";
+
+interface IBlindAuction is IAuction {
+    ////////////////////////////////////////////////////////////
+    // EVENTS
+    ////////////////////////////////////////////////////////////
+    event BlindAuctionCreatedSuccessful(
+        address assetOwner,
         address nftAddress,
         bytes32 blindAuctionId,
         uint256 assetId,
@@ -17,23 +16,15 @@ interface IBlindAuction {
         uint256 revealEnd,
         uint256 startPriceInWei
     );
-    event RevealSuccessful(
-        address seller,
-        bytes32 blindAuctionId
-    );
-    event BlindAuctionSuccessful(
-        address seller,
-        address buyer,
-        bytes32 blindAuctionId,
-        uint256 totalPrice
-    );
     event BlindAuctionBidSuccessful(
-        address bidder,
-        bytes32 blindAuctionId,
+        address sender, 
+        bytes32 blindAuctionId, 
         bytes32 blindedBid
     );
-    event BlindAuctionCancelled(address canceller, bytes32 blindAuctionId);
-
+    event RevealSuccessful(
+        address sender, 
+        bytes32 blindAuctionId
+    );
     ////////////////////////////////////////////////////////////
     // STORAGE
     ////////////////////////////////////////////////////////////

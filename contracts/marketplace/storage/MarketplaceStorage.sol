@@ -16,9 +16,6 @@ contract MarketplaceStorage is
     address publicAuctionMarketplace;
     address blindAuctionMarketplace;
 
-    error TooEarly(uint256);
-    error TooLate(uint256);
-
     /**
      * @dev See {IERC165-supportsInterface}.
      */
@@ -184,7 +181,7 @@ contract MarketplaceStorage is
         whenNotPaused
         onlyFrom(publicAuctionMarketplace)
     {
-        if (runningPublicAuctionIds[nftAsset] == 0) revert AuctionAlreadyEnded();
+        if (runningPublicAuctionIds[nftAsset] == 0) revert AuctionEnded();
         delete runningPublicAuctionIds[nftAsset];
     }
 
@@ -298,7 +295,7 @@ contract MarketplaceStorage is
         whenNotPaused
         onlyFrom(blindAuctionMarketplace)
     {
-        if (runningBlindAuctionIds[nftAsset] == 0) revert AuctionAlreadyEnded();
+        if (runningBlindAuctionIds[nftAsset] == 0) revert AuctionEnded();
         delete runningBlindAuctionIds[nftAsset];
     }
 
@@ -316,7 +313,8 @@ contract MarketplaceStorage is
         onlyFrom(publicAuctionMarketplace)
     {
         BlindAuction storage blindAuction = blindAuctions[blindAuctionId];
-        onlyBefore(blindAuction.biddingEnd);
+        onlyAfter(blindAuction.biddingEnd);
+        onlyBefore(blindAuction.revealEnd);
 
         blindAuction.highestBid = highestBid;
         blindAuction.highestBidder = bidder;

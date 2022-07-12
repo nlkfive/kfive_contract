@@ -5,20 +5,8 @@ import "./Marketplace.sol";
 import "./storage/IBlindAuction.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
-
-
 contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
     using SafeMath for uint256;
-
-    // Error
-    error InvalidBiddingEnd();
-    error InvalidBidding();
-    error InvalidWithdraw();
-    error NotRunning();
-    error RewardGranted();  
-    error Ended();
-    error TooEarly(uint256);
-    error TooLate(uint256);
 
     // List of bids (bid => (user => _blindedBid[]))
     mapping(bytes32 => mapping(address => bytes32[])) private _blindedBids;
@@ -56,7 +44,8 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         // Validate input
         address assetOwner;
         {
-            if(biddingEnd < block.timestamp.add(minStageDuration)) revert InvalidBiddingEnd();
+            if(biddingEnd < block.timestamp.add(minStageDuration))
+                revert InvalidBiddingEnd();
             if(startPriceInWei == 0) revert InvalidPrice();
             address sender = _msgSender();
             {
@@ -110,7 +99,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
             startPriceInWei
         );
 
-        emit BlindAuctionCreated(
+        emit BlindAuctionCreatedSuccessful(
             assetOwner,
             nftAddress,
             blindAuctionId,
@@ -142,7 +131,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         if(!(_blindAuction.seller == sender || hasRole(CANCEL_ROLE, _msgSender()))) revert Unauthorized();
 
         marketplaceStorage.endBlindAuction(nftAsset);
-        emit BlindAuctionCancelled(sender, blindAuctionId);
+        emit AuctionCancelledSuccessful(sender, blindAuctionId);
     }
 
     /**
@@ -168,7 +157,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         address sender = _msgSender();
 
         if(deposit <= _blindAuction.startPrice) {
-            revert InvalidBidding();
+            revert InvalidBiddingPrice();
         }
 
         if(deposit > _deposits[blindAuctionId][sender]) {
@@ -192,7 +181,6 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         uint256 assetId, 
         address nftAddress, 
         bytes32 nftAsset) external whenNotPaused {
-        // bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
         checkExisted(blindAuctionId);
         checkEnded(blindAuctionId, nftAsset);
 
@@ -201,24 +189,25 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         onlyAfter(_blindAuction.revealEnd);
 
         address sender = _msgSender();
-        uint256 maxDeposit = _deposits[blindAuctionId][sender];
-        if(maxDeposit == 0) {
+        uint256 refund = _deposits[blindAuctionId][sender];
+        if(refund == 0) {
             revert InvalidWithdraw();
         }
 
+        // handle if sender is highest bidder
         if(sender == _blindAuction.highestBidder) {
-            // winner get refund and nft
-            acceptedToken.transfer(sender, maxDeposit - _blindAuction.highestBid);
+            refund = refund - _blindAuction.highestBid;
             _grantReward(nftAddress, assetId, blindAuctionId);
             marketplaceStorage.updateHighestBidBlindAuction(address(0), 0, blindAuctionId);
-        } else {
-            // get refund
-            acceptedToken.transfer(sender, maxDeposit);
         }
+
+        // refund
+        acceptedToken.transfer(sender, refund);
 
         // update deposit value to zero
         _deposits[blindAuctionId][sender] = 0;
-        emit BlindAuctionRefund(sender, blindAuctionId);
+
+        emit AuctionRefundSuccessful(sender, blindAuctionId, refund);
     }
 
     function _grantReward(
@@ -235,7 +224,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         IERC721 nftRegistry = IERC721(nftAddress);
         if(seller != nftRegistry.ownerOf(assetId)) revert Unauthorized();
 
-        if (auctionHighestBidder == address(0)){
+        if (auctionHighestBidder == address(0) || auctionHighestBid == 0){
             revert RewardGranted();
         }
 
@@ -261,11 +250,10 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         nftRegistry.safeTransferFrom(seller, auctionHighestBidder, assetId);
         marketplaceStorage.updateHighestBidBlindAuction(address(0), 0, blindAuctionId);
 
-        emit BlindAuctionSuccessful(
-            seller,
+        emit GrantAuctionRewardSuccessful(
             auctionHighestBidder,
             blindAuctionId,
-            auctionHighestBid
+            assetId
         );
     }
 
@@ -291,7 +279,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         onlyBefore(_blindAuction.revealEnd);
 
         if(marketplaceStorage.blindAuctionIsEnded(nftAsset, blindAuctionId)) {
-            revert Ended();
+            revert AuctionEnded();
         }
 
         address sender = _msgSender();

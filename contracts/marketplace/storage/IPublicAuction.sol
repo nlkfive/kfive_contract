@@ -1,16 +1,14 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity 0.8.4;
 
-interface IPublicAuction {
-    // PUBLIC AUCTION EVENTS
-    event PublicAuctionEnded(bytes32 publicAuctionId);
-    event PublicAuctionRefund(
-        address bidder,
-        bytes32 publicAuctionId,
-        uint256 value
-    );
-    event PublicAuctionCreated(
-        address seller,
+import "./IAuction.sol";
+
+interface IPublicAuction is IAuction {
+    ////////////////////////////////////////////////////////////
+    // EVENTS
+    ////////////////////////////////////////////////////////////
+    event PublicAuctionCreatedSuccessful(
+        address assetOwner,
         address nftAddress,
         bytes32 publicAuctionId,
         uint256 assetId,
@@ -18,19 +16,11 @@ interface IPublicAuction {
         uint256 startPriceInWei,
         uint256 minIncrement
     );
-    event PublicAuctionSuccessful(
-        address seller,
-        address buyer,
-        bytes32 publicAuctionId,
-        uint256 totalPrice
-    );
     event PublicAuctionBidSuccessful(
-        address bidder,
-        bytes32 publicAuctionId,
+        address sender, 
+        bytes32 publicAuctionId, 
         uint256 bidValue
     );
-    event PublicAuctionCancelled(address canceller, bytes32 publicAuctionId);
-
     ////////////////////////////////////////////////////////////
     // STORAGE
     ////////////////////////////////////////////////////////////
