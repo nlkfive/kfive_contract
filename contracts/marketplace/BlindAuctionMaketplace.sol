@@ -185,9 +185,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
 
         BlindAuction memory _blindAuction = marketplaceStorage.getBlindAuction(blindAuctionId);
 
-        if(marketplaceStorage.blindAuctionIsEnded(nftAsset, blindAuctionId)) {
-            onlyAfter(_blindAuction.revealEnd);
-        } else {
+        if(!marketplaceStorage.blindAuctionIsEnded(nftAsset, blindAuctionId)) {
             marketplaceStorage.endBlindAuction(nftAsset);
         }
 
@@ -308,13 +306,13 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         bytes32 secret,
         bytes32 blindedBid
     ) internal pure returns (bool) {
-        if(_blindedBid(value, secret) == blindedBid) {
+        if(_encodeBid(value, secret) == blindedBid) {
             return true;
         }
         return false;
     }
 
-    function _blindedBid(uint256 value, bytes32 secret) internal pure returns (bytes32) {
+    function _encodeBid(uint256 value, bytes32 secret) internal pure returns (bytes32) {
         return keccak256(abi.encodePacked(value, secret));
     }
 
@@ -332,11 +330,6 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
 
     function checkExisted(bytes32 auctionId) public view {
         if (!marketplaceStorage.blindAuctionIsExisted(auctionId))
-            revert NotExisted();
-    }
-
-    function checkEnded(bytes32 auctionId, bytes32 nftAsset) public view {
-        if (!marketplaceStorage.blindAuctionIsEnded(nftAsset, auctionId))
             revert NotExisted();
     }
 
