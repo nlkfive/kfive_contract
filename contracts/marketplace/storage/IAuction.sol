@@ -5,17 +5,15 @@ interface IAuction {
     ////////////////////////////////////////////////////////////
     // ERRORS
     ////////////////////////////////////////////////////////////
-    error AuctionCancelled();
-    error InvalidBiddingEnd();
-    error InvalidBiddingPrice();
-    error AuctionRefund();
-    error NotWinner();
-    error RewardGranted();
-    error TooLate(uint256);
-    error TooEarly(uint256);
-    error NotRunning();
-    error InvalidWithdraw();
-    error AuctionEnded();
+    error InvalidBiddingEnd(); // 0x18c71d1ad
+    error InvalidBiddingPrice(); // 0x7532083f
+    error NotWinner(); // 0x618c7242
+    error RewardGranted(); // 0x946ef902
+    error TooLate(uint256); // 0x691e5682
+    error TooEarly(uint256); // 0x2a35a324
+    error NotRunning(); // 0x03b5e413
+    error InvalidWithdraw(); // 0x35411d8b
+    error AuctionEnded(); // 0xa0e92984
     ////////////////////////////////////////////////////////////
     // EVENTS
     ////////////////////////////////////////////////////////////

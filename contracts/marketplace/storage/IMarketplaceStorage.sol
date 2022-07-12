@@ -8,9 +8,9 @@ import "./IOrder.sol";
 
 interface IMarketplaceStorage is IERC165, IOrder, IPublicAuction, IBlindAuction {
     // Error
-    error InvalidMkpSender();
-    error AssetNotExisted();
-    error AssetUnvailable();
+    error InvalidMkpSender(); // 0x2d0b96e3
+    error AssetNotExisted(); // 0x84791e52
+    error AssetUnvailable(); // 0xc0a24f67
 
     function assetIsAvailable(bytes32 nftAsset) external view returns (bool);
     ////////////////////////////////////////////////////////////
