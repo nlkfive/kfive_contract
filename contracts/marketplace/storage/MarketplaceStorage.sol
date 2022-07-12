@@ -314,7 +314,6 @@ contract MarketplaceStorage is
     {
         BlindAuction storage blindAuction = blindAuctions[blindAuctionId];
         onlyAfter(blindAuction.biddingEnd);
-        onlyBefore(blindAuction.revealEnd);
 
         blindAuction.highestBid = highestBid;
         blindAuction.highestBidder = bidder;

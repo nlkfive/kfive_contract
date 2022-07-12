@@ -182,11 +182,14 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         address nftAddress, 
         bytes32 nftAsset) external whenNotPaused {
         checkExisted(blindAuctionId);
-        checkEnded(blindAuctionId, nftAsset);
 
         BlindAuction memory _blindAuction = marketplaceStorage.getBlindAuction(blindAuctionId);
 
-        onlyAfter(_blindAuction.revealEnd);
+        if(marketplaceStorage.blindAuctionIsEnded(nftAsset, blindAuctionId)) {
+            onlyAfter(_blindAuction.revealEnd);
+        } else {
+            marketplaceStorage.endBlindAuction(nftAsset);
+        }
 
         address sender = _msgSender();
         uint256 refund = _deposits[blindAuctionId][sender];
@@ -198,7 +201,6 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         if(sender == _blindAuction.highestBidder) {
             refund = refund - _blindAuction.highestBid;
             _grantReward(nftAddress, assetId, blindAuctionId);
-            marketplaceStorage.updateHighestBidBlindAuction(address(0), 0, blindAuctionId);
         }
 
         // refund
@@ -283,11 +285,17 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         }
 
         address sender = _msgSender();
-
+        uint256 maxDeposit = _deposits[blindAuctionId][sender];
         uint256 length = _values.length;
+
+        // sender has not bid yet
+        if (maxDeposit == 0 || length == 0) {
+            revert NotBidYet();
+        }
+
         for (uint256 i = 0; i < length; i++) {
             if(_verifyBid(_values[i], secret, _blindedBids[blindAuctionId][sender][i])) {
-                if (_blindAuction.highestBid < _values[i]) {
+                if (maxDeposit >= _values[i] && _blindAuction.highestBid < _values[i]) {
                     marketplaceStorage.updateHighestBidBlindAuction(sender, _values[i], blindAuctionId);
                 }
             }

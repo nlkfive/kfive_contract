@@ -266,11 +266,6 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
             revert NotExisted();
     }
 
-    function checkEnded(bytes32 publicAuctionId, bytes32 nftAsset) public view {
-        if (!marketplaceStorage.publicAuctionIsEnded(nftAsset, publicAuctionId))
-            revert NotExisted();
-    }
-
     function checkRunning(bytes32 nftAsset, bytes32 publicAuctionId) public view {
         checkExisted(publicAuctionId);
         if (!marketplaceStorage.publicAuctionIsRunning(nftAsset, publicAuctionId))
