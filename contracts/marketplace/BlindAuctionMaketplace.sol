@@ -30,7 +30,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
      * @param biddingEnd - Timestamp when bidding end (in seconds)
      * @param revealEnd - Timestamp when reveal end (in seconds)
      */
-    function createBlindAuction(
+    function createAuction(
         address nftAddress,
         uint256 assetId,
         uint256 startPriceInWei,
@@ -116,7 +116,10 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
      * @param nftAsset - keccak256(abi.encodePacked(nftAddress, assetId))
      * @param blindAuctionId - ID of the auction
      */
-    function cancelBlindAuction(bytes32 nftAsset, bytes32 blindAuctionId)
+    function cancelAuction(
+        bytes32 nftAsset, 
+        bytes32 blindAuctionId
+    )
         external
         whenNotPaused
     {
@@ -141,7 +144,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
      * @param blindedBid - Blinded bid
      * @param deposit - Deposit value
      */
-    function bidBlindAuction(
+    function bid(
         bytes32 nftAsset,
         bytes32 blindAuctionId,
         bytes32 blindedBid,
@@ -265,7 +268,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
      * @param _values - Array of bid values
      * @param secret - The secret values used for verify the encoded bid values in bidding stage
     */
-    function RevealBid(
+    function reveal(
         bytes32 blindAuctionId,
         bytes32 nftAsset,
         uint256[] memory _values,

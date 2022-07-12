@@ -24,7 +24,7 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
      * @param biddingEnd - Timestamp when bidding end (in seconds)
      * @param minIncrement - Min bid increment price in wei
      */
-    function createPublicAuction(
+    function createAuction(
         address nftAddress,
         uint256 assetId,
         uint256 startPriceInWei,
@@ -109,7 +109,10 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
      * @param nftAsset - keccak256(abi.encodePacked(nftAddress, assetId))
      * @param publicAuctionId - ID of the public auction
      */
-    function cancelPublicAuction(bytes32 nftAsset, bytes32 publicAuctionId)
+    function cancelAuction(
+        bytes32 nftAsset, 
+        bytes32 publicAuctionId
+    )
         external
         whenNotPaused
     {
@@ -143,7 +146,7 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
      * @param publicAuctionId - ID of the auction
      * @param bidValue - Bid value
      */
-    function bidPublicAuction(
+    function bid(
         bytes32 nftAsset,
         bytes32 publicAuctionId,
         uint256 bidValue
@@ -183,13 +186,13 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
     }
 
     /**
-     * @dev Winner get auction reward.
+     * @dev Winner receive auction reward.
      * @param publicAuctionId - ID of the auction
      * @param nftAsset - ID of the nft
      * @param assetId - ID of the nft
      * @param nftAddress - Nft address
      */
-    function getReward(
+    function receiveReward(
         bytes32 publicAuctionId, 
         bytes32 nftAsset, 
         uint256 assetId, 
