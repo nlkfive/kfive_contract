@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.4;
 
-import "./IAuction.sol";
+import "./IPublicAuction.sol";
 import "./IOrder.sol";
 import "./IMarketplaceStorage.sol";
 import "../../common/AccessControl.sol";
@@ -12,8 +12,12 @@ contract MarketplaceStorage is
     KfiveAccessControl,
     IMarketplaceStorage
 {
-    address auctionMarketplace;
     address orderMarketplace;
+    address publicAuctionMarketplace;
+    address blindAuctionMarketplace;
+
+    error TooEarly(uint256);
+    error TooLate(uint256);
 
     /**
      * @dev See {IERC165-supportsInterface}.
@@ -30,19 +34,34 @@ contract MarketplaceStorage is
             super.supportsInterface(interfaceId);
     }
 
-    /**
-     * @dev Update auction marketplace address.
+     /**
+     * @dev Update public auction marketplace address.
      *
      * Requirements:
      *
      * - the caller must have the `ADMIN_ROLE`.
      */
-    function updateAuctionMarketplace(address _auctionMarketplace)
+    function updatePublicAuctionMarketplace(address _publicAuctionMarketplace)
         external
         whenNotPaused
         onlyRole(ADMIN_ROLE)
     {
-        auctionMarketplace = _auctionMarketplace;
+        publicAuctionMarketplace = _publicAuctionMarketplace;
+    }
+
+     /**
+     * @dev Update blind auction marketplace address.
+     *
+     * Requirements:
+     *
+     * - the caller must have the `ADMIN_ROLE`.
+     */
+    function updateBlindAuctionMarketplace(address _blindAuctionMarketplace)
+        external
+        whenNotPaused
+        onlyRole(ADMIN_ROLE)
+    {
+        blindAuctionMarketplace = _blindAuctionMarketplace;
     }
 
     /**
@@ -70,53 +89,168 @@ contract MarketplaceStorage is
         returns (bool)
     {
         return
-            runningActionIds[nftAsset] == bytes32(0) &&
+            runningPublicAuctionIds[nftAsset] == bytes32(0) &&
+            runningBlindAuctionIds[nftAsset] == bytes32(0) &&
             orderByNftAsset[nftAsset].orderId == bytes32(0);
     }
 
     ////////////////////////////////////////////////////////////
-    // Auction storage
+    // Public Auction storage
     ////////////////////////////////////////////////////////////
-    // From running auction Id to auction
-    mapping(bytes32 => Auction) private auctions;
-    // From ERC721 registry keccak256(abi.encodePacked(nft,assetId)) to running Auction ID
-    mapping(bytes32 => bytes32) private runningActionIds;
+    // From running Id to public auction
+    mapping(bytes32 => PublicAuction) private publicAuctions;
+    // From ERC721 registry keccak256(abi.encodePacked(nft,assetId)) to running Public Auction ID
+    mapping(bytes32 => bytes32) private runningPublicAuctionIds;
 
-    function auctionIsExisted(bytes32 auctionId)
+    function publicAuctionIsExisted(bytes32 publicAuctionId)
         external
         view
         override
         returns (bool)
     {
-        return auctions[auctionId].id != bytes32(0);
+        return publicAuctions[publicAuctionId].id != bytes32(0);
     }
 
-    function auctionIsEnded(bytes32 nftAsset, bytes32 auctionId)
+    function publicAuctionIsEnded(bytes32 nftAsset, bytes32 publicAuctionId)
     external
         view
         override
         returns (bool)
     {
-        return runningActionIds[nftAsset] != auctionId;
+        return runningPublicAuctionIds[nftAsset] != publicAuctionId;
     }
 
-    function auctionIsRunning(bytes32 nftAsset, bytes32 auctionId)
+    function publicAuctionIsRunning(bytes32 nftAsset, bytes32 publicAuctionId)
         external
         view
         override
         returns (bool)
     {
-        return runningActionIds[nftAsset] == auctionId;
+        return runningPublicAuctionIds[nftAsset] == publicAuctionId;
     }
 
     /**
-     * @dev Create new auction
+     * @dev Create new public auction
      */
-    function createAuction(
+    function createPublicAuction(
         address assetOwner,
         address nftAddress,
         uint256 assetId,
-        bytes32 auctionId,
+        bytes32 publicAuctionId,
+        uint256 biddingEnd,
+        uint256 startPriceInWei,
+        uint256 minIncrement
+    ) 
+        external 
+        override 
+        whenNotPaused 
+        onlyFrom(publicAuctionMarketplace)
+    {
+        bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
+        if(!assetIsAvailable(nftAsset)) revert AssetUnvailable();
+
+        // Update current running before actually create
+        runningPublicAuctionIds[nftAsset] = publicAuctionId;
+
+        // Create new public auction
+        PublicAuction storage publicAuction = publicAuctions[publicAuctionId];
+        {
+            publicAuction.id = publicAuctionId;
+            publicAuction.seller = assetOwner;
+            publicAuction.biddingEnd = biddingEnd;
+            publicAuction.startPrice = startPriceInWei;
+            publicAuction.minIncrement = minIncrement;
+        }
+    }
+
+    /**
+     * @dev Get public auction by id.
+     */
+    function getPublicAuction(bytes32 publicAuctionId)
+        external
+        view
+        override
+        returns (PublicAuction memory publicAuction)
+    {
+        return publicAuctions[publicAuctionId];
+    }
+
+    /**
+     * @dev Delete public auction by nftAsset.
+     */
+    function endPublicAuction(bytes32 nftAsset)
+        external
+        override
+        whenNotPaused
+        onlyFrom(publicAuctionMarketplace)
+    {
+        if (runningPublicAuctionIds[nftAsset] == 0) revert AuctionAlreadyEnded();
+        delete runningPublicAuctionIds[nftAsset];
+    }
+
+    /**
+     * @dev Update highest bid auction by public auction ID.
+     */
+    function updateHighestBidPublicAuction(
+        address bidder,
+        uint256 highestBid,
+        bytes32 publicAuctionId
+    ) 
+        external 
+        override 
+        whenNotPaused
+        onlyFrom(publicAuctionMarketplace)
+    {
+        PublicAuction storage publicAuction = publicAuctions[publicAuctionId];
+        onlyBefore(publicAuction.biddingEnd);
+
+        publicAuction.highestBid = highestBid;
+        publicAuction.highestBidder = bidder;
+    }
+
+    ////////////////////////////////////////////////////////////
+    // Blind Auction storage
+    ////////////////////////////////////////////////////////////
+    // From running Id to blind auction
+    mapping(bytes32 => BlindAuction) private blindAuctions;
+    // From ERC721 registry keccak256(abi.encodePacked(nft,assetId)) to running Blind Auction ID
+    mapping(bytes32 => bytes32) private runningBlindAuctionIds;
+
+    function blindAuctionIsExisted(bytes32 blindAuctionId)
+        external
+        view
+        override
+        returns (bool)
+    {
+        return blindAuctions[blindAuctionId].id != bytes32(0);
+    }
+
+    function blindAuctionIsEnded(bytes32 nftAsset, bytes32 blindAuctionId)
+    external
+        view
+        override
+        returns (bool)
+    {
+        return runningBlindAuctionIds[nftAsset] != blindAuctionId;
+    }
+
+    function blindAuctionIsRunning(bytes32 nftAsset, bytes32 blindAuctionId)
+        external
+        view
+        override
+        returns (bool)
+    {
+        return runningBlindAuctionIds[nftAsset] == blindAuctionId;
+    }
+
+    /**
+     * @dev Create new blind auction
+     */
+    function createBlindAuction(
+        address assetOwner,
+        address nftAddress,
+        uint256 assetId,
+        bytes32 blindAuctionId,
         uint256 biddingEnd,
         uint256 revealEnd,
         uint256 startPriceInWei
@@ -124,72 +258,72 @@ contract MarketplaceStorage is
         external 
         override 
         whenNotPaused 
-        onlyFrom(auctionMarketplace) 
+        onlyFrom(blindAuctionMarketplace)
     {
         bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
         if(!assetIsAvailable(nftAsset)) revert AssetUnvailable();
 
         // Update current running before actually create
-        runningActionIds[nftAsset] = auctionId;
+        runningBlindAuctionIds[nftAsset] = blindAuctionId;
 
-        // Create new auction
-        Auction storage auction = auctions[auctionId];
+        // Create new blind auction
+        BlindAuction storage blindAuction = blindAuctions[blindAuctionId];
         {
-            auction.id = auctionId;
-            auction.seller = assetOwner;
-            auction.biddingEnd = biddingEnd;
-            auction.revealEnd = revealEnd;
-            auction.startPrice = startPriceInWei;
+            blindAuction.id = blindAuctionId;
+            blindAuction.seller = assetOwner;
+            blindAuction.biddingEnd = biddingEnd;
+            blindAuction.revealEnd = revealEnd;
+            blindAuction.startPrice = startPriceInWei;
         }
     }
 
     /**
-     * @dev Get auction by nftAsset.
+     * @dev Get blind auction by id.
      */
-    function getAuction(bytes32 auctionId)
+    function getBlindAuction(bytes32 blindAuctionId)
         external
         view
         override
-        returns (Auction memory order)
+        returns (BlindAuction memory blindAuction)
     {
-        return auctions[auctionId];
+        return blindAuctions[blindAuctionId];
     }
 
     /**
-     * @dev Delete auction by nftAsset.
+     * @dev Delete blind auction by nftAsset.
      */
-    function auctionEnded(bytes32 nftAsset)
+    function endBlindAuction(bytes32 nftAsset)
         external
         override
         whenNotPaused
-        onlyFrom(auctionMarketplace)
+        onlyFrom(blindAuctionMarketplace)
     {
-        if (runningActionIds[nftAsset] == 0) revert AuctionAlreadyEnded();
-        delete runningActionIds[nftAsset];
+        if (runningBlindAuctionIds[nftAsset] == 0) revert AuctionAlreadyEnded();
+        delete runningBlindAuctionIds[nftAsset];
     }
 
     /**
-     * @dev Update highest bid auction by auction ID.
+     * @dev Update highest bid auction by public auction ID.
      */
-    function updateHighestBid(
+    function updateHighestBidBlindAuction(
         address bidder,
         uint256 highestBid,
-        bytes32 auctionId
+        bytes32 blindAuctionId
     ) 
         external 
         override 
         whenNotPaused
-        onlyFrom(auctionMarketplace) 
+        onlyFrom(publicAuctionMarketplace)
     {
-        Auction storage auction = auctions[auctionId];
-        onlyBefore(auction.revealEnd);
+        BlindAuction storage blindAuction = blindAuctions[blindAuctionId];
+        onlyBefore(blindAuction.biddingEnd);
 
-        auction.highestBid = highestBid;
-        auction.highestBidder = bidder;
+        blindAuction.highestBid = highestBid;
+        blindAuction.highestBidder = bidder;
     }
 
     ////////////////////////////////////////////////////////////
-    // Trading storage
+    // Order storage
     ////////////////////////////////////////////////////////////
     // From ERC721 registry assetId to Order (to avoid asset collision)
     mapping(bytes32 => Order) public orderByNftAsset;
