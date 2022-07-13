@@ -200,7 +200,7 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
         uint256 auctionHighestBid = _publicAuction.highestBid;
 
         // Check if reward has been granted
-        if(auctionHighestBidder == address(0) || auctionHighestBid == 0) {
+        if(auctionHighestBidder == address(0)) {
             revert RewardGranted();
         }
 
@@ -240,11 +240,11 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
     } 
 
     function onlyBefore(uint256 _time) internal view {
-        if (block.timestamp >= _time) revert TooLate(_time);
+        if (!(block.timestamp < _time)) revert TooLate(_time);
     }
 
     function onlyAfter(uint256 _time) internal view {
-        if (block.timestamp <= _time) revert TooEarly(_time);
+        if (!(block.timestamp > _time)) revert TooEarly(_time);
     }
 
     function checkExisted(bytes32 publicAuctionId) public view {

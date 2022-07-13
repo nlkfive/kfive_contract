@@ -217,19 +217,17 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         if(seller != nftRegistry.ownerOf(assetId)) revert Unauthorized();
 
         address auctionHighestBidder = _auction.highestBidder;
-        uint256 auctionHighestBid = _auction.highestBid;
 
-        if (auctionHighestBidder == address(0) || auctionHighestBid == 0){
+        if (auctionHighestBidder == address(0)) {
             revert RewardGranted();
         }
 
         uint256 saleShareAmount = 0;
+        uint256 auctionHighestBid = _auction.highestBid;
 
         if (ownerCutPerMillion > 0) {
             // Calculate sale share
-            saleShareAmount = auctionHighestBid.mul(ownerCutPerMillion).div(
-                1000000
-            );
+            saleShareAmount = auctionHighestBid.mul(ownerCutPerMillion).div(1000000);
 
             // Transfer share amount for marketplace Owner
             acceptedToken.transfer(beneficary, saleShareAmount);
@@ -294,7 +292,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
 
         uint256 maxValue = 0;
 
-        for (uint i = 0; i < length; i++) {
+        for (uint i = 0; i < length; i = _unsafe_inc(i)) {
             if(_verifyBid(_values[i], secret, blindedBids[i])) {
                 if (maxDeposit >= _values[i] && maxValue < _values[i]) {
                     maxValue = _values[i];
@@ -315,16 +313,20 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         return keccak256(abi.encodePacked(value, secret)) == blindedBid;
     }
 
+    function _unsafe_inc(uint x) private pure returns (uint) {
+        unchecked { return x + 1; }
+    }
+
     function getBlindBid(bytes32 auctionId, address bidder) public view returns (bytes32[] memory) {
         return _blindedBids[auctionId][bidder];
     }
 
     function onlyBefore(uint256 _time) internal view {
-        if (block.timestamp >= _time) revert TooLate(_time);
+        if (!(block.timestamp < _time)) revert TooLate(_time);
     }
 
     function onlyAfter(uint256 _time) internal view {
-        if (block.timestamp <= _time) revert TooEarly(_time);
+        if (!(block.timestamp > _time)) revert TooEarly(_time);
     }
 
     function checkExisted(bytes32 auctionId) public view {
