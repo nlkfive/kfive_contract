@@ -19,6 +19,8 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
     /**
      * @dev Creates a new auction
      * @param nftAddress - Non fungible registry address
+     * @param publicAuctionId - ID of the auction
+     * @param nftAsset - keccak256(abi.encodePacked(nftAddress, assetId))
      * @param assetId - ID of the published NFT
      * @param startPriceInWei - Price in Wei for the supported coin
      * @param biddingEnd - Timestamp when bidding end (in seconds)
@@ -26,6 +28,8 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
      */
     function createAuction(
         address nftAddress,
+        bytes32 publicAuctionId,
+        bytes32 nftAsset,
         uint256 assetId,
         uint256 startPriceInWei,
         uint256 biddingEnd,
@@ -53,9 +57,7 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
                 ) revert Unauthorized();
 
                 // Check if asset is available
-                if (!marketplaceStorage.assetIsAvailable(keccak256( // nftAsset
-                        abi.encodePacked(nftAddress, assetId)
-                    ))) revert Unavailable();
+                if (!marketplaceStorage.assetIsAvailable(nftAsset)) revert Unavailable();
             }
             // Check if there's a publication fee and
             // transfer the amount to marketplace owner
@@ -63,16 +65,6 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
                 acceptedToken.transferFrom(sender, beneficary, publicationFeeInWei);
             }
         }
-
-        bytes32 publicAuctionId = keccak256(
-            abi.encodePacked(
-                block.timestamp,
-                assetOwner,
-                assetId,
-                nftAddress,
-                startPriceInWei
-            )
-        );
 
         marketplaceStorage.createPublicAuction(
             assetOwner,

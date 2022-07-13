@@ -25,6 +25,8 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
     /**
      * @dev Creates a new auction
      * @param nftAddress - Non fungible registry address
+     * @param blindAuctionId - ID of the auction
+     * @param nftAsset - keccak256(abi.encodePacked(nftAddress, assetId))
      * @param assetId - ID of the published NFT
      * @param startPriceInWei - Price in Wei for the supported coin
      * @param biddingEnd - Timestamp when bidding end (in seconds)
@@ -32,6 +34,8 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
      */
     function createAuction(
         address nftAddress,
+        bytes32 blindAuctionId,
+        bytes32 nftAsset,
         uint256 assetId,
         uint256 startPriceInWei,
         uint256 biddingEnd,
@@ -60,11 +64,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
                 ) revert Unauthorized();
 
                 // Check if asset is available
-                if (!marketplaceStorage.assetIsAvailable(
-                    keccak256( // nftAsset
-                        abi.encodePacked(nftAddress, assetId)
-                    )
-                )) {
+                if (!marketplaceStorage.assetIsAvailable(nftAsset)) {
                     revert Unavailable();
                 }
             }
@@ -78,16 +78,6 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
                 );
             }
         }
-
-        bytes32 blindAuctionId = keccak256(
-            abi.encodePacked(
-                block.timestamp,
-                assetOwner,
-                assetId,
-                nftAddress,
-                startPriceInWei
-            )
-        );
 
         marketplaceStorage.createBlindAuction(
             assetOwner,
