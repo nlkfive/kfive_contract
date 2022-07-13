@@ -159,7 +159,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
 
         address sender = _msgSender();
 
-        if(deposit <= _blindAuction.startPrice) {
+        if(!(deposit > _blindAuction.startPrice)) {
             revert InvalidBiddingPrice();
         }
 
@@ -180,10 +180,11 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
      * @param nftAddress - Nft address
      */
     function withdraw(
-        bytes32 blindAuctionId, 
-        uint256 assetId, 
         address nftAddress, 
-        bytes32 nftAsset) external whenNotPaused {
+        bytes32 nftAsset,
+        bytes32 blindAuctionId, 
+        uint256 assetId
+    ) external whenNotPaused {
         checkExisted(blindAuctionId);
 
         BlindAuction memory _blindAuction = marketplaceStorage.getBlindAuction(blindAuctionId);
@@ -201,7 +202,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         // handle if sender is highest bidder
         if(sender == _blindAuction.highestBidder) {
             refund = refund - _blindAuction.highestBid;
-            _grantReward(nftAddress, assetId, blindAuctionId);
+            _grantReward(nftAddress, blindAuctionId, assetId);
         }
 
         // refund
@@ -215,17 +216,18 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
 
     function _grantReward(
         address nftAddress,
-        uint256 assetId,
-        bytes32 blindAuctionId
+        bytes32 blindAuctionId,
+        uint256 assetId
     ) internal {
         BlindAuction memory _auction = marketplaceStorage.getBlindAuction(blindAuctionId);
 
-        address auctionHighestBidder = _auction.highestBidder;
         address seller = _auction.seller;
-        uint256 auctionHighestBid = _auction.highestBid;
 
         IERC721 nftRegistry = IERC721(nftAddress);
         if(seller != nftRegistry.ownerOf(assetId)) revert Unauthorized();
+
+        address auctionHighestBidder = _auction.highestBidder;
+        uint256 auctionHighestBid = _auction.highestBid;
 
         if (auctionHighestBidder == address(0) || auctionHighestBid == 0){
             revert RewardGranted();
@@ -271,8 +273,8 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
     function reveal(
         bytes32 blindAuctionId,
         bytes32 nftAsset,
-        uint256[] memory _values,
-        bytes32 secret
+        bytes32 secret,
+        uint256[] memory _values
     ) external whenNotPaused  {
         checkRunning(nftAsset, blindAuctionId);
 
@@ -294,12 +296,16 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
             revert NotBidYet();
         }
 
-        for (uint256 i = 0; i < length; i++) {
+        uint256 maxValue = 0;
+        for (uint i = 0; i < length; i++) {
             if(_verifyBid(_values[i], secret, _blindedBids[blindAuctionId][sender][i])) {
-                if (maxDeposit >= _values[i] && _blindAuction.highestBid < _values[i]) {
-                    marketplaceStorage.updateHighestBidBlindAuction(sender, _values[i], blindAuctionId);
+                if (maxDeposit >= _values[i] && maxValue < _values[i]) {
+                    maxValue = _values[i];
                 }
             }
+        }
+        if(maxValue > _blindAuction.highestBid) {
+            marketplaceStorage.updateHighestBidBlindAuction(sender, maxValue, blindAuctionId);
         }
         emit RevealSuccessful(sender, blindAuctionId);
     }
@@ -309,14 +315,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         bytes32 secret,
         bytes32 blindedBid
     ) internal pure returns (bool) {
-        if(_encodeBid(value, secret) == blindedBid) {
-            return true;
-        }
-        return false;
-    }
-
-    function _encodeBid(uint256 value, bytes32 secret) internal pure returns (bytes32) {
-        return keccak256(abi.encodePacked(value, secret));
+        return keccak256(abi.encodePacked(value, secret)) == blindedBid;
     }
 
     function getBlindBid(bytes32 auctionId, address bidder) public view returns (bytes32[] memory) {

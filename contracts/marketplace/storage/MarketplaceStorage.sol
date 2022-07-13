@@ -199,7 +199,6 @@ contract MarketplaceStorage is
         onlyFrom(publicAuctionMarketplace)
     {
         PublicAuction storage publicAuction = publicAuctions[publicAuctionId];
-        onlyBefore(publicAuction.biddingEnd);
 
         publicAuction.highestBid = highestBid;
         publicAuction.highestBidder = bidder;

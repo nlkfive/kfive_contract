@@ -53,22 +53,14 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
                 ) revert Unauthorized();
 
                 // Check if asset is available
-                if (!marketplaceStorage.assetIsAvailable(
-                    keccak256( // nftAsset
+                if (!marketplaceStorage.assetIsAvailable(keccak256( // nftAsset
                         abi.encodePacked(nftAddress, assetId)
-                    )
-                )) {
-                    revert Unavailable();
-                }
+                    ))) revert Unavailable();
             }
             // Check if there's a publication fee and
             // transfer the amount to marketplace owner
             if (publicationFeeInWei > 0) {
-                acceptedToken.transferFrom(
-                    sender,
-                    beneficary,
-                    publicationFeeInWei
-                );
+                acceptedToken.transferFrom(sender, beneficary, publicationFeeInWei);
             }
         }
 
@@ -158,8 +150,8 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
         // auction have not ended yet
         onlyBefore(_publicAuction.biddingEnd);
 
-        if(bidValue <= _publicAuction.startPrice + _publicAuction.minIncrement
-            || bidValue <= _publicAuction.highestBid + _publicAuction.minIncrement) {
+        if(bidValue < _publicAuction.startPrice + _publicAuction.minIncrement
+            || bidValue < _publicAuction.highestBid + _publicAuction.minIncrement) {
             revert InvalidBiddingPrice();
         }
 
@@ -193,10 +185,10 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
      * @param nftAddress - Nft address
      */
     function receiveReward(
+        address nftAddress,
         bytes32 publicAuctionId, 
         bytes32 nftAsset, 
-        uint256 assetId, 
-        address nftAddress
+        uint256 assetId
     ) external whenNotPaused {
         checkExisted(publicAuctionId);
 
@@ -207,34 +199,29 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
 
         address sender = _msgSender();
         address auctionHighestBidder = _publicAuction.highestBidder;
-        address seller = _publicAuction.seller;
-        uint256 auctionHighestBid = _publicAuction.highestBid;
 
         // check sender is winner
         if(sender != auctionHighestBidder) {
             revert NotWinner();
         }
 
+        uint256 auctionHighestBid = _publicAuction.highestBid;
+
         // Check if reward has been granted
-        if(auctionHighestBidder == address(0) ||
-            auctionHighestBid == 0) {
+        if(auctionHighestBidder == address(0) || auctionHighestBid == 0) {
             revert RewardGranted();
         }
 
+        address seller = _publicAuction.seller;
+
         IERC721 nftRegistry = IERC721(nftAddress);
         if(seller != nftRegistry.ownerOf(assetId)) revert Unauthorized();
-
-        // end auction storage
-        marketplaceStorage.endPublicAuction(nftAsset);
-        marketplaceStorage.updateHighestBidPublicAuction(address(0), 0, publicAuctionId);
 
         uint256 saleShareAmount = 0;
 
         if (ownerCutPerMillion > 0) {
             // Calculate sale share
-            saleShareAmount = auctionHighestBid.mul(ownerCutPerMillion).div(
-                1000000
-            );
+            saleShareAmount = auctionHighestBid.mul(ownerCutPerMillion).div(1000000);
 
             // Transfer share amount for marketplace Owner
             acceptedToken.transfer(beneficary, saleShareAmount);
@@ -248,6 +235,10 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
 
         // Transfer asset owner
         nftRegistry.safeTransferFrom(seller, auctionHighestBidder, assetId);
+
+        // end auction storage
+        marketplaceStorage.endPublicAuction(nftAsset);
+        marketplaceStorage.updateHighestBidPublicAuction(address(0), 0, publicAuctionId);
 
         emit GrantAuctionRewardSuccessful(
             auctionHighestBidder,
