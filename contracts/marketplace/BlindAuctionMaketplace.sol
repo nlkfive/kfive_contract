@@ -255,8 +255,9 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
      * correctly blinded invalid bids and for all bids except for
      * the totally highest.
      * @param blindAuctionId - ID of the auction
-     * @param _values - Array of bid values
+     * @param nftAsset - keccak256(abi.encodePacked(nftAddress, assetId))
      * @param secret - The secret values used for verify the encoded bid values in bidding stage
+     * @param _values - Array of bid values
     */
     function reveal(
         bytes32 blindAuctionId,
@@ -287,19 +288,19 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         bytes32[] memory blindedBids = _blindedBids[blindAuctionId][sender];
 
         if(!(length != blindedBids.length)) {
-            revert NotBidYet();
+            revert InvalidReveal();
         }
 
         uint256 maxValue = 0;
 
         for (uint i = 0; i < length; i = _unsafe_inc(i)) {
             if(_verifyBid(_values[i], secret, blindedBids[i])) {
-                if (maxDeposit >= _values[i] && maxValue < _values[i]) {
+                if (maxValue < _values[i]) {
                     maxValue = _values[i];
                 }
             }
         }
-        if(maxValue > _blindAuction.highestBid) {
+        if(maxDeposit > maxValue && maxValue > _blindAuction.highestBid) {
             marketplaceStorage.updateHighestBidBlindAuction(sender, maxValue, blindAuctionId);
         }
         emit RevealSuccessful(sender, blindAuctionId);
@@ -317,6 +318,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         unchecked { return x + 1; }
     }
 
+    // show list blind bid of user
     function getBlindBid(bytes32 auctionId, address bidder) public view returns (bytes32[] memory) {
         return _blindedBids[auctionId][bidder];
     }
