@@ -8,6 +8,7 @@ interface IBlindAuction is IAuction {
     // BLIND AUCTION ERRORS
     ////////////////////////////////////////////////////////////
     error InvalidWithdraw(); // 0x35411d8b
+    error InvalidReveal(); // 0x9ea6d127
     error AuctionEnded(); // 0xa0e92984
     error NotBidYet(); // 0x45c109aa
     ////////////////////////////////////////////////////////////

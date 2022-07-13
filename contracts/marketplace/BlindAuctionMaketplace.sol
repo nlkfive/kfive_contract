@@ -25,7 +25,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
     /**
      * @dev Creates a new auction
      * @param nftAddress - Non fungible registry address
-     * @param blindAuctionId - ID of the auction
+     * @param blindAuctionId - keccak256(abi.encodePacked(nftAddress, assetId, startPriceInWei, biddingEnd, revealEnd, time.now))
      * @param nftAsset - keccak256(abi.encodePacked(nftAddress, assetId))
      * @param assetId - ID of the published NFT
      * @param startPriceInWei - Price in Wei for the supported coin
@@ -286,9 +286,16 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
             revert NotBidYet();
         }
 
+        bytes32[] memory blindedBids = _blindedBids[blindAuctionId][sender];
+
+        if(!(length != blindedBids.length)) {
+            revert NotBidYet();
+        }
+
         uint256 maxValue = 0;
+
         for (uint i = 0; i < length; i++) {
-            if(_verifyBid(_values[i], secret, _blindedBids[blindAuctionId][sender][i])) {
+            if(_verifyBid(_values[i], secret, blindedBids[i])) {
                 if (maxDeposit >= _values[i] && maxValue < _values[i]) {
                     maxValue = _values[i];
                 }

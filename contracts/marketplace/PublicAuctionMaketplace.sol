@@ -19,7 +19,7 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
     /**
      * @dev Creates a new auction
      * @param nftAddress - Non fungible registry address
-     * @param publicAuctionId - ID of the auction
+     * @param publicAuctionId - keccak256(abi.encodePacked(nftAddress, assetId, startPriceInWei, biddingEnd, minIncrement, time.now))
      * @param nftAsset - keccak256(abi.encodePacked(nftAddress, assetId))
      * @param assetId - ID of the published NFT
      * @param startPriceInWei - Price in Wei for the supported coin
