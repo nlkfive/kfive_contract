@@ -151,15 +151,18 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
 
         address sender = _msgSender();
 
-        if(!(deposit > _blindAuction.startPrice)) {
+        // deposit >= startPrice
+        if(deposit < _blindAuction.startPrice) {
             revert InvalidBiddingPrice();
         }
 
+        // send max deposit to smc
         if(deposit > _deposits[blindAuctionId][sender]) {
             acceptedToken.transferFrom(sender, address(this), deposit - _deposits[blindAuctionId][sender]);
             _deposits[blindAuctionId][sender] = deposit;
         }
 
+        // save blind value bid
         _blindedBids[blindAuctionId][sender].push(blindedBid);
 
         emit BlindAuctionBidSuccessful(sender, blindAuctionId, blindedBid);
@@ -186,6 +189,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         }
 
         address sender = _msgSender();
+        // check deposit is exists
         uint256 refund = _deposits[blindAuctionId][sender];
         if(refund == 0) {
             revert InvalidWithdraw();
@@ -290,6 +294,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
 
         uint256 maxValue = 0;
 
+        // get the highest bid
         for (uint i = 0; i < length; i = _unsafe_inc(i)) {
             if(
                 keccak256(abi.encodePacked(_values[i], secret)) == blindedBids[i] && 
@@ -299,6 +304,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
             }
         }
 
+        // update if bid is less than or equal to max deposit and greater than current highest bid
         if(maxDeposit > maxValue && maxValue > _blindAuction.highestBid) {
             marketplaceStorage.updateHighestBidBlindAuction(sender, maxValue, blindAuctionId);
         }

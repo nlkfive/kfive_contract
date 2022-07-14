@@ -271,7 +271,6 @@ contract MarketplaceStorage is
             blindAuction.revealEnd = revealEnd;
             blindAuction.startTime = startTime;
             blindAuction.startPrice = startPriceInWei;
-            blindAuction.highestBid = startPriceInWei;
         }
     }
 
