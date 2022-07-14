@@ -226,11 +226,11 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
             auctionHighestBid.sub(saleShareAmount)
         );
 
-        // Transfer asset owner
-        nftRegistry.safeTransferFrom(seller, auctionHighestBidder, assetId);
-
         // end auction storage
         marketplaceStorage.endPublicAuction(nftAsset);
+
+        // Transfer asset owner
+        nftRegistry.safeTransferFrom(seller, auctionHighestBidder, assetId);
 
         emit GrantAuctionRewardSuccessful(
             auctionHighestBidder,
