@@ -243,7 +243,6 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
 
         // Transfer asset owner
         nftRegistry.safeTransferFrom(seller, auctionHighestBidder, assetId);
-        marketplaceStorage.updateHighestBidBlindAuction(address(0), 0, blindAuctionId);
 
         emit GrantAuctionRewardSuccessful(
             auctionHighestBidder,
@@ -274,16 +273,12 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         onlyAfter(_blindAuction.biddingEnd);
         onlyBefore(_blindAuction.revealEnd);
 
-        if(marketplaceStorage.blindAuctionIsEnded(nftAsset, blindAuctionId)) {
-            revert AuctionEnded();
-        }
-
         address sender = _msgSender();
         uint256 maxDeposit = _deposits[blindAuctionId][sender];
         uint256 length = _values.length;
 
         // sender has not bid yet
-        if (maxDeposit == 0 || length == 0) {
+        if (maxDeposit == 0) {
             revert NotBidYet();
         }
 

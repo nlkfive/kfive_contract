@@ -121,7 +121,6 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
         if(_publicAuction.highestBidder != address(0)) {
             acceptedToken.transfer(_publicAuction.highestBidder, _publicAuction.highestBid);
             emit AuctionRefundSuccessful(_publicAuction.highestBidder, publicAuctionId, _publicAuction.highestBid);
-            marketplaceStorage.updateHighestBidPublicAuction(address(0), 0, publicAuctionId);
         }
 
         marketplaceStorage.endPublicAuction(nftAsset);
@@ -185,7 +184,7 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
         bytes32 nftAsset, 
         uint256 assetId
     ) external whenNotPaused {
-        checkExisted(publicAuctionId);
+        checkRunning(nftAsset, publicAuctionId);
 
         PublicAuction memory _publicAuction = marketplaceStorage.getPublicAuction(publicAuctionId);
 
@@ -200,8 +199,6 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
             revert NotWinner();
         }
 
-        uint256 auctionHighestBid = _publicAuction.highestBid;
-
         // Check if reward has been granted
         if(auctionHighestBidder == address(0)) {
             revert RewardGranted();
@@ -213,6 +210,7 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
         if(seller != nftRegistry.ownerOf(assetId)) revert Unauthorized();
 
         uint256 saleShareAmount = 0;
+        uint256 auctionHighestBid = _publicAuction.highestBid;
 
         if (ownerCutPerMillion > 0) {
             // Calculate sale share
@@ -233,7 +231,6 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
 
         // end auction storage
         marketplaceStorage.endPublicAuction(nftAsset);
-        marketplaceStorage.updateHighestBidPublicAuction(address(0), 0, publicAuctionId);
 
         emit GrantAuctionRewardSuccessful(
             auctionHighestBidder,
