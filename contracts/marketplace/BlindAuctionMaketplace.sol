@@ -49,8 +49,8 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         // Validate input
         address assetOwner;
         {
-            if(biddingEnd < block.timestamp.add(minStageDuration))
-                revert InvalidBiddingEnd();
+            if(startTime < block.timestamp || startTime.add(minStageDuration) > biddingEnd) 
+                revert InvalidTime();
             if(startPriceInWei == 0) revert InvalidPrice();
             address sender = _msgSender();
             {

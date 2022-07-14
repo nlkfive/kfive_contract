@@ -379,3 +379,4 @@ console/
 
 # other
 contracts/.deps/
+test.js

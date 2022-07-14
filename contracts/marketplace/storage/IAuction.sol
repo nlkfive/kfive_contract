@@ -5,7 +5,7 @@ interface IAuction {
     ////////////////////////////////////////////////////////////
     // COMMON AUCTION ERRORS
     ////////////////////////////////////////////////////////////
-    error InvalidBiddingEnd(); // 0x18c71d1ad
+    error InvalidTime(); // 0x6f7eac26
     error InvalidBiddingPrice(); // 0x7532083f
     error RewardGranted(); // 0x946ef902
     error TooLate(uint256); // 0x691e5682

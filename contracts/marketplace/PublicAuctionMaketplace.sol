@@ -23,6 +23,7 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
      * @param nftAsset - keccak256(abi.encodePacked(nftAddress, assetId))
      * @param assetId - ID of the published NFT
      * @param startPriceInWei - Price in Wei for the supported coin
+     * @param startTime - Start time
      * @param biddingEnd - Timestamp when bidding end (in seconds)
      * @param minIncrement - Min bid increment price in wei
      */
@@ -43,7 +44,8 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
         // Validate input
         address assetOwner;
         {
-            if(biddingEnd < block.timestamp.add(minStageDuration)) revert InvalidBiddingEnd();
+            if(startTime < block.timestamp || startTime.add(minStageDuration) > biddingEnd) 
+                revert InvalidTime();
             if(startPriceInWei == 0 || minIncrement == 0) revert InvalidPrice();
             address sender = _msgSender();
             {
