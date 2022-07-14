@@ -19,17 +19,15 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
     /**
      * @dev Creates a new auction
      * @param nftAddress - Non fungible registry address
-     * @param publicAuctionId - keccak256(abi.encodePacked(nftAddress, assetId, startPriceInWei, biddingEnd, minIncrement, time.now))
-     * @param nftAsset - keccak256(abi.encodePacked(nftAddress, assetId))
      * @param assetId - ID of the published NFT
      * @param startPriceInWei - Price in Wei for the supported coin
      * @param biddingEnd - Timestamp when bidding end (in seconds)
      * @param minIncrement - Min bid increment price in wei
      */
     function createAuction(
+        // bytes32 publicAuctionId,
+        // bytes32 nftAsset,
         address nftAddress,
-        bytes32 publicAuctionId,
-        bytes32 nftAsset,
         uint256 assetId,
         uint256 startPriceInWei,
         uint256 biddingEnd,
@@ -39,6 +37,8 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
         _requireERC721(nftAddress) 
         whenNotPaused
     {
+        bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
+        bytes32 publicAuctionId = keccak256(abi.encodePacked(assetId, nftAddress, startPriceInWei, biddingEnd, minIncrement));
         // Validate input
         address assetOwner;
         {
@@ -90,16 +90,18 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
     /**
      * @dev Cancel an already published auction
      *  can only be canceled by seller or the contract owner
-     * @param nftAsset - keccak256(abi.encodePacked(nftAddress, assetId))
      * @param publicAuctionId - ID of the public auction
      */
     function cancelAuction(
-        bytes32 nftAsset, 
+        address nftAddress,
+        uint256 assetId,
+        // bytes32 nftAsset, 
         bytes32 publicAuctionId
     )
         external
         whenNotPaused
     {
+        bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
         checkRunning(nftAsset, publicAuctionId);
 
         PublicAuction memory _publicAuction = marketplaceStorage.getPublicAuction(publicAuctionId);
@@ -126,15 +128,17 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
 
     /**
      * @dev Bid the auction for a published NFT
-     * @param nftAsset - keccak256(abi.encodePacked(nftAddress, assetId))
      * @param publicAuctionId - ID of the auction
      * @param bidValue - Bid value
      */
     function bid(
-        bytes32 nftAsset,
+        address nftAddress,
+        uint256 assetId,
+        // bytes32 nftAsset,
         bytes32 publicAuctionId,
         uint256 bidValue
     ) external whenNotPaused {
+        bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
         checkRunning(nftAsset, publicAuctionId);
 
         PublicAuction memory _publicAuction = marketplaceStorage.getPublicAuction(publicAuctionId);
@@ -172,16 +176,15 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
     /**
      * @dev Winner receive auction reward.
      * @param publicAuctionId - ID of the auction
-     * @param nftAsset - ID of the nft
      * @param assetId - ID of the nft
      * @param nftAddress - Nft address
      */
     function receiveReward(
         address nftAddress,
         bytes32 publicAuctionId, 
-        bytes32 nftAsset, 
         uint256 assetId
     ) external whenNotPaused {
+        bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
         checkExisted(publicAuctionId);
 
         PublicAuction memory _publicAuction = marketplaceStorage.getPublicAuction(publicAuctionId);

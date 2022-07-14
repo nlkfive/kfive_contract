@@ -25,8 +25,6 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
     /**
      * @dev Creates a new auction
      * @param nftAddress - Non fungible registry address
-     * @param blindAuctionId - keccak256(abi.encodePacked(nftAddress, assetId, startPriceInWei, biddingEnd, revealEnd, time.now))
-     * @param nftAsset - keccak256(abi.encodePacked(nftAddress, assetId))
      * @param assetId - ID of the published NFT
      * @param startPriceInWei - Price in Wei for the supported coin
      * @param biddingEnd - Timestamp when bidding end (in seconds)
@@ -34,9 +32,9 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
      */
     function createAuction(
         address nftAddress,
-        bytes32 blindAuctionId,
-        bytes32 nftAsset,
         uint256 assetId,
+        // bytes32 blindAuctionId,
+        // bytes32 nftAsset,
         uint256 startPriceInWei,
         uint256 biddingEnd,
         uint256 revealEnd
@@ -45,6 +43,8 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         _requireERC721(nftAddress) 
         whenNotPaused
     {
+        bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
+        bytes32 blindAuctionId = keccak256(abi.encodePacked(nftAddress, assetId, startPriceInWei, biddingEnd,revealEnd));
         // Validate input
         address assetOwner;
         {
@@ -103,16 +103,18 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
     /**
      * @dev Cancel an already published auction
      *  can only be canceled by seller or the contract owner
-     * @param nftAsset - keccak256(abi.encodePacked(nftAddress, assetId))
      * @param blindAuctionId - ID of the auction
      */
     function cancelAuction(
-        bytes32 nftAsset, 
+        address nftAddress,
+        uint256 assetId,
+        // bytes32 nftAsset, 
         bytes32 blindAuctionId
     )
         external
         whenNotPaused
     {
+        bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
         checkRunning(nftAsset, blindAuctionId);
 
         BlindAuction memory _blindAuction = marketplaceStorage.getBlindAuction(blindAuctionId);
@@ -171,10 +173,11 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
      */
     function withdraw(
         address nftAddress, 
-        bytes32 nftAsset,
-        bytes32 blindAuctionId, 
-        uint256 assetId
+        uint256 assetId,
+        // bytes32 nftAsset,
+        bytes32 blindAuctionId
     ) external whenNotPaused {
+        bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
         checkExisted(blindAuctionId);
 
         BlindAuction memory _blindAuction = marketplaceStorage.getBlindAuction(blindAuctionId);
@@ -255,16 +258,17 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
      * correctly blinded invalid bids and for all bids except for
      * the totally highest.
      * @param blindAuctionId - ID of the auction
-     * @param nftAsset - keccak256(abi.encodePacked(nftAddress, assetId))
-     * @param secret - The secret values used for verify the encoded bid values in bidding stage
      * @param _values - Array of bid values
     */
     function reveal(
+        address nftAddress, 
+        uint256 assetId,
         bytes32 blindAuctionId,
-        bytes32 nftAsset,
-        bytes32 secret,
+        // bytes32 nftAsset,
+        //bytes32 secret,
         uint256[] memory _values
     ) external whenNotPaused  {
+        bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
         checkRunning(nftAsset, blindAuctionId);
 
         BlindAuction memory _blindAuction = marketplaceStorage.getBlindAuction(blindAuctionId);
@@ -294,11 +298,11 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         uint256 maxValue = 0;
 
         for (uint i = 0; i < length; i = _unsafe_inc(i)) {
-            if(_verifyBid(_values[i], secret, blindedBids[i])) {
+            // if(_verifyBid(_values[i], secret, blindedBids[i])) {
                 if (maxValue < _values[i]) {
                     maxValue = _values[i];
                 }
-            }
+            // }
         }
         if(maxDeposit > maxValue && maxValue > _blindAuction.highestBid) {
             marketplaceStorage.updateHighestBidBlindAuction(sender, maxValue, blindAuctionId);
