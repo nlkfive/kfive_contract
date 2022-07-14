@@ -16,9 +16,9 @@ interface IPublicAuction is IAuction {
         address nftAddress,
         bytes32 publicAuctionId,
         uint256 assetId,
+        uint256 startTime,
         uint256 biddingEnd,
         uint256 startPriceInWei,
-        uint256 startTime,
         uint256 minIncrement
     );
     event PublicAuctionBidSuccessful(
