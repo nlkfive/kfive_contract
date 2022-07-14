@@ -46,11 +46,11 @@ interface IMarketplaceStorage is IERC165, IOrder, IPublicAuction, IBlindAuction 
      */
     function createPublicAuction(
         address assetOwner,
-        address nftAddress,
-        uint256 assetId,
+        bytes32 nftAsset,
         bytes32 publicAuctionId,
         uint256 biddingEnd,
         uint256 startPriceInWei,
+        uint256 startTime,
         uint256 minIncrement
     ) external;
 
@@ -106,9 +106,9 @@ interface IMarketplaceStorage is IERC165, IOrder, IPublicAuction, IBlindAuction 
      */
     function createBlindAuction(
         address assetOwner,
-        address nftAddress,
-        uint256 assetId,
+        bytes32 nftAsset,
         bytes32 blindAuctionId,
+        uint256 startTime,
         uint256 biddingEnd,
         uint256 revealEnd,
         uint256 startPriceInWei

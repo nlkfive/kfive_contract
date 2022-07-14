@@ -18,6 +18,7 @@ interface IPublicAuction is IAuction {
         uint256 assetId,
         uint256 biddingEnd,
         uint256 startPriceInWei,
+        uint256 startTime,
         uint256 minIncrement
     );
     event PublicAuctionBidSuccessful(
@@ -41,6 +42,8 @@ interface IPublicAuction is IAuction {
         uint256 biddingEnd;
         // Start Price (in wei) for the published item
         uint256 startPrice;
+        // Start time
+        uint256 startTime;
         // Min increment bid price
         uint256 minIncrement;
     }

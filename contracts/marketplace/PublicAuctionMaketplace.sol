@@ -32,6 +32,7 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
         bytes32 nftAsset,
         uint256 assetId,
         uint256 startPriceInWei,
+        uint256 startTime,
         uint256 biddingEnd,
         uint256 minIncrement
     )
@@ -68,11 +69,11 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
 
         marketplaceStorage.createPublicAuction(
             assetOwner,
-            nftAddress,
-            assetId,
+            nftAsset,
             publicAuctionId,
             biddingEnd,
             startPriceInWei,
+            startTime,
             minIncrement
         );
 
@@ -81,6 +82,7 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
             nftAddress,
             publicAuctionId,
             assetId,
+            startTime,
             biddingEnd,
             startPriceInWei,
             minIncrement
@@ -139,7 +141,7 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
 
         PublicAuction memory _publicAuction = marketplaceStorage.getPublicAuction(publicAuctionId);
 
-        // auction have not ended yet
+        onlyAfter(_publicAuction.startTime);
         onlyBefore(_publicAuction.biddingEnd);
 
         if(bidValue < _publicAuction.startPrice + _publicAuction.minIncrement

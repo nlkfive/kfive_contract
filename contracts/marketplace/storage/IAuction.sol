@@ -11,6 +11,7 @@ interface IAuction {
     error TooLate(uint256); // 0x691e5682
     error TooEarly(uint256); // 0x2a35a324
     error NotRunning(); // 0x03b5e413
+    error NotStarted(); // 0x4ea9379a
     ////////////////////////////////////////////////////////////
     // COMMON AUCTION EVENTS
     ////////////////////////////////////////////////////////////

@@ -19,6 +19,7 @@ interface IBlindAuction is IAuction {
         address nftAddress,
         bytes32 blindAuctionId,
         uint256 assetId,
+        uint256 startTime,
         uint256 biddingEnd,
         uint256 revealEnd,
         uint256 startPriceInWei
@@ -40,6 +41,8 @@ interface IBlindAuction is IAuction {
         bytes32 id;
         // Owner of the NFT
         address seller;
+        // Start time
+        uint256 startTime;
         // Bidding end time
         uint256 biddingEnd;
         // Reveal end time

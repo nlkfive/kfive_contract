@@ -38,6 +38,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         bytes32 nftAsset,
         uint256 assetId,
         uint256 startPriceInWei,
+        uint256 startTime,
         uint256 biddingEnd,
         uint256 revealEnd
     )
@@ -81,9 +82,9 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
 
         marketplaceStorage.createBlindAuction(
             assetOwner,
-            nftAddress,
-            assetId,
+            nftAsset,
             blindAuctionId,
+            startTime,
             biddingEnd,
             revealEnd,
             startPriceInWei
@@ -94,6 +95,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
             nftAddress,
             blindAuctionId,
             assetId,
+            startTime,
             biddingEnd,
             revealEnd,
             startPriceInWei
@@ -144,7 +146,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
 
         BlindAuction memory _blindAuction = marketplaceStorage.getBlindAuction(blindAuctionId);
 
-        // auction have not ended yet
+        onlyAfter(_blindAuction.startTime);
         onlyBefore(_blindAuction.biddingEnd);
 
         address sender = _msgSender();
@@ -294,24 +296,19 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         uint256 maxValue = 0;
 
         for (uint i = 0; i < length; i = _unsafe_inc(i)) {
-            if(_verifyBid(_values[i], secret, blindedBids[i])) {
-                if (maxValue < _values[i]) {
-                    maxValue = _values[i];
-                }
+            if(
+                keccak256(abi.encodePacked(_values[i], secret)) == blindedBids[i] && 
+                maxValue < _values[i]
+            ) {
+                maxValue = _values[i];
             }
         }
+
         if(maxDeposit > maxValue && maxValue > _blindAuction.highestBid) {
             marketplaceStorage.updateHighestBidBlindAuction(sender, maxValue, blindAuctionId);
         }
-        emit RevealSuccessful(sender, blindAuctionId);
-    }
 
-    function _verifyBid(
-        uint256 value,
-        bytes32 secret,
-        bytes32 blindedBid
-    ) internal pure returns (bool) {
-        return keccak256(abi.encodePacked(value, secret)) == blindedBid;
+        emit RevealSuccessful(sender, blindAuctionId);
     }
 
     function _unsafe_inc(uint x) private pure returns (uint) {

@@ -131,11 +131,11 @@ contract MarketplaceStorage is
      */
     function createPublicAuction(
         address assetOwner,
-        address nftAddress,
-        uint256 assetId,
+        bytes32 nftAsset,
         bytes32 publicAuctionId,
         uint256 biddingEnd,
         uint256 startPriceInWei,
+        uint256 startTime,
         uint256 minIncrement
     ) 
         external 
@@ -143,7 +143,6 @@ contract MarketplaceStorage is
         whenNotPaused 
         onlyFrom(publicAuctionMarketplace)
     {
-        bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
         if(!assetIsAvailable(nftAsset)) revert AssetUnvailable();
 
         // Update current running before actually create
@@ -156,6 +155,7 @@ contract MarketplaceStorage is
             publicAuction.seller = assetOwner;
             publicAuction.biddingEnd = biddingEnd;
             publicAuction.startPrice = startPriceInWei;
+            publicAuction.startTime = startTime;
             publicAuction.minIncrement = minIncrement;
         }
     }
@@ -244,9 +244,9 @@ contract MarketplaceStorage is
      */
     function createBlindAuction(
         address assetOwner,
-        address nftAddress,
-        uint256 assetId,
+        bytes32 nftAsset,
         bytes32 blindAuctionId,
+        uint256 startTime,
         uint256 biddingEnd,
         uint256 revealEnd,
         uint256 startPriceInWei
@@ -256,7 +256,6 @@ contract MarketplaceStorage is
         whenNotPaused 
         onlyFrom(blindAuctionMarketplace)
     {
-        bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
         if(!assetIsAvailable(nftAsset)) revert AssetUnvailable();
 
         // Update current running before actually create
@@ -269,6 +268,7 @@ contract MarketplaceStorage is
             blindAuction.seller = assetOwner;
             blindAuction.biddingEnd = biddingEnd;
             blindAuction.revealEnd = revealEnd;
+            blindAuction.startTime = startTime;
             blindAuction.startPrice = startPriceInWei;
         }
     }
