@@ -146,8 +146,7 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
         onlyAfter(_publicAuction.startTime);
         onlyBefore(_publicAuction.biddingEnd);
 
-        if(bidValue < _publicAuction.startPrice + _publicAuction.minIncrement
-            || bidValue < _publicAuction.highestBid + _publicAuction.minIncrement) {
+        if(bidValue < _publicAuction.highestBid + _publicAuction.minIncrement) {
             revert InvalidBiddingPrice();
         }
 

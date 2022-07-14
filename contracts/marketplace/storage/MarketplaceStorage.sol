@@ -157,6 +157,7 @@ contract MarketplaceStorage is
             publicAuction.startPrice = startPriceInWei;
             publicAuction.startTime = startTime;
             publicAuction.minIncrement = minIncrement;
+            publicAuction.highestBid = startPriceInWei;
         }
     }
 
@@ -270,6 +271,7 @@ contract MarketplaceStorage is
             blindAuction.revealEnd = revealEnd;
             blindAuction.startTime = startTime;
             blindAuction.startPrice = startPriceInWei;
+            blindAuction.highestBid = startPriceInWei;
         }
     }
 
