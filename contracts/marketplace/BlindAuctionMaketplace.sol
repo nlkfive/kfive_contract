@@ -289,7 +289,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
 
         bytes32[] memory blindedBids = _blindedBids[blindAuctionId][sender];
 
-        if(!(length != blindedBids.length)) {
+        if(!(length == blindedBids.length)) {
             revert InvalidReveal();
         }
 
@@ -316,27 +316,27 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
     }
 
     // show list blind bid of user
-    function getBlindBid(bytes32 auctionId, address bidder) public view returns (bytes32[] memory) {
-        return _blindedBids[auctionId][bidder];
+    function getBlindBid(bytes32 blindAuctionId, address bidder) public view returns (bytes32[] memory) {
+        return _blindedBids[blindAuctionId][bidder];
     }
 
     function onlyBefore(uint256 _time) internal view {
-        if (!(block.timestamp < _time)) revert TooLate(_time);
+        if (!(block.timestamp < _time)) revert TooLate(_time); // 0x691e5682
     }
 
     function onlyAfter(uint256 _time) internal view {
-        if (!(block.timestamp > _time)) revert TooEarly(_time);
+        if (!(block.timestamp > _time)) revert TooEarly(_time); // 0x2a35a324
     }
 
-    function checkExisted(bytes32 auctionId) public view {
-        if (!marketplaceStorage.blindAuctionIsExisted(auctionId))
-            revert NotExisted();
+    function checkExisted(bytes32 blindAuctionId) public view {
+        if (!marketplaceStorage.blindAuctionIsExisted(blindAuctionId))
+            revert NotExisted(); // 0xafdd4890
     }
 
-    function checkRunning(bytes32 nftAsset, bytes32 auctionId) public view {
-        checkExisted(auctionId);
-        if (!marketplaceStorage.blindAuctionIsRunning(nftAsset, auctionId))
-            revert NotRunning();
+    function checkRunning(bytes32 nftAsset, bytes32 blindAuctionId) public view {
+        checkExisted(blindAuctionId);
+        if (!marketplaceStorage.blindAuctionIsRunning(nftAsset, blindAuctionId))
+            revert NotRunning(); // 0xfb18c2ce
     }
 
 }
