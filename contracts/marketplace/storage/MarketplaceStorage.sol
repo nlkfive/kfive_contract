@@ -311,7 +311,7 @@ contract MarketplaceStorage is
         external 
         override 
         whenNotPaused
-        onlyFrom(publicAuctionMarketplace)
+        onlyFrom(blindAuctionMarketplace)
     {
         BlindAuction storage blindAuction = blindAuctions[blindAuctionId];
         onlyAfter(blindAuction.biddingEnd);
