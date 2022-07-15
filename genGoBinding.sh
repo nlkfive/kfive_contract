@@ -9,4 +9,3 @@ for contract in $contracts; do
     mkdir -p $base_dir/golang/$name
     abigen --bin $base_dir/bin/$name.bin --abi $base_dir/abi/$contract --pkg "$name" --out $base_dir/golang/$name/${name}.go
 done
-

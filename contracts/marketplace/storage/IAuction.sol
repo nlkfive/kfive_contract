@@ -2,59 +2,31 @@
 pragma solidity 0.8.4;
 
 interface IAuction {
-    // ERRORS
-    error TooEarly(uint256 time);
-    error TooLate(uint256 time);
-    error NotRunning();
-
-    // AUCTION EVENTS
-    event BidSuccessful(
+    ////////////////////////////////////////////////////////////
+    // COMMON AUCTION ERRORS
+    ////////////////////////////////////////////////////////////
+    error InvalidTime(); // 0x6f7eac26
+    error InvalidBiddingPrice(); // 0x7532083f
+    error RewardGranted(); // 0x946ef902
+    error TooLate(uint256); // 0x691e5682
+    error TooEarly(uint256); // 0x2a35a324
+    error NotRunning(); // 0x03b5e413
+    error NotStarted(); // 0x4ea9379a
+    ////////////////////////////////////////////////////////////
+    // COMMON AUCTION EVENTS
+    ////////////////////////////////////////////////////////////
+    event AuctionRefundSuccessful(
         address bidder,
         bytes32 auctionId,
-        bytes32 blindedBid
+        uint256 value
     );
-    event RevealSuccessful(bool fake, address revealer, bytes32 auctionId, uint256 value, bytes32 blindedBid);
-    event RevealFailed(bool fake, address revealer, bytes32 auctionId, uint256 value);
-    event AuctionEnded(bytes32 auctionId);
-    event AuctionRefund(
-        address bidder,
+    event AuctionCancelledSuccessful(
+        address canceller, 
+        bytes32 auctionId
+    );
+    event GrantAuctionRewardSuccessful(
+        address auctionHighestBidder,
         bytes32 auctionId,
-        uint256 deposit
+        uint256 assetId
     );
-    event AuctionCreated(
-        address seller,
-        address nftAddress,
-        bytes32 auctionId,
-        uint256 assetId,
-        uint256 biddingEnd,
-        uint256 revealEnd,
-        uint256 startPriceInWei
-    );
-    event AuctionSuccessful(
-        address seller,
-        address buyer,
-        bytes32 auctionId,
-        uint256 totalPrice
-    );
-    event AuctionCancelled(address who, bytes32 auctionId);
-
-    ////////////////////////////////////////////////////////////
-    // STORAGE
-    ////////////////////////////////////////////////////////////
-    struct Auction {
-        // Owner of the NFT
-        address seller;
-        // Highest bidder
-        address highestBidder;
-        // Auction ID
-        bytes32 id;
-        // Bidding end time
-        uint256 biddingEnd;
-        // Reveal end time
-        uint256 revealEnd;
-        // Highest bid
-        uint256 highestBid;
-        // Start Price (in wei) for the published item
-        uint256 startPrice;
-    }
 }

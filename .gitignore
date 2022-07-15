@@ -376,3 +376,7 @@ logs
 .secret.js
 artifacts/
 console/
+
+# other
+contracts/.deps/
+test.js

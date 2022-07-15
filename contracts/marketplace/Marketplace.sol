@@ -69,7 +69,7 @@ contract Marketplace is
         // Fee init
         setOwnerCutPerMillion(_ownerCutPerMillion);
 
-        minStageDuration = 1 hours;
+        minStageDuration = 1 seconds;
         beneficary = _beneficary;
 
     }

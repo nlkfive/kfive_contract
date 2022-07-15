@@ -7,9 +7,6 @@ import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 contract OrderMarketplace is IOrder, Marketplace {
     using SafeMath for uint256;
-    
-    error InvalidExpiredTime();
-    error OrderExpired();
 
     constructor(
         address _acceptedToken,
@@ -75,7 +72,8 @@ contract OrderMarketplace is IOrder, Marketplace {
             )
         ) revert Unauthorized();
         if(priceInWei == 0) revert InvalidPrice();
-        if(expiredAt < block.timestamp.add(minStageDuration)) revert InvalidExpiredTime();
+        if(expiredAt < block.timestamp.add(minStageDuration))
+            revert InvalidExpiredTime();
         bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
         if(!marketplaceStorage.assetIsAvailable(nftAsset)) revert Unavailable();
 
