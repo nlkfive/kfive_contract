@@ -27,11 +27,14 @@ interface IBlindAuction is IAuction {
     event BlindAuctionBidSuccessful(
         address sender, 
         bytes32 blindAuctionId, 
-        bytes32 blindedBid
+        bytes32 blindedBid,
+        uint256 deposit
     );
     event RevealSuccessful(
         address sender, 
-        bytes32 blindAuctionId
+        bytes32 blindAuctionId,
+        bytes32 blindedBid,
+        uint256 value
     );
     ////////////////////////////////////////////////////////////
     // BLIND AUCTION STORAGE

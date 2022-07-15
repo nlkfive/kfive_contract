@@ -30,7 +30,7 @@ var (
 
 // IBlindAuctionMetaData contains all meta data concerning the IBlindAuction contract.
 var IBlindAuctionMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[],\"name\":\"AuctionEnded\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidBiddingPrice\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidReveal\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidTime\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidWithdraw\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotBidYet\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotRunning\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotStarted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RewardGranted\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"TooEarly\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"TooLate\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"canceller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"AuctionCancelledSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"AuctionRefundSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindedBid\",\"type\":\"bytes32\"}],\"name\":\"BlindAuctionBidSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"assetOwner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startTime\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"}],\"name\":\"BlindAuctionCreatedSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"auctionHighestBidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"}],\"name\":\"GrantAuctionRewardSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"}],\"name\":\"RevealSuccessful\",\"type\":\"event\"}]",
+	ABI: "[{\"inputs\":[],\"name\":\"AuctionEnded\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidBiddingPrice\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidReveal\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidTime\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidWithdraw\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotBidYet\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotRunning\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotStarted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RewardGranted\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"TooEarly\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"TooLate\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"canceller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"}],\"name\":\"AuctionCancelledSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"AuctionRefundSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindedBid\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"deposit\",\"type\":\"uint256\"}],\"name\":\"BlindAuctionBidSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"assetOwner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nftAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startTime\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"biddingEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"revealEnd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startPriceInWei\",\"type\":\"uint256\"}],\"name\":\"BlindAuctionCreatedSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"auctionHighestBidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"auctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"}],\"name\":\"GrantAuctionRewardSuccessful\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindAuctionId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"blindedBid\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"RevealSuccessful\",\"type\":\"event\"}]",
 }
 
 // IBlindAuctionABI is the input ABI used to generate the binding from.
@@ -522,12 +522,13 @@ type IBlindAuctionBlindAuctionBidSuccessful struct {
 	Sender         common.Address
 	BlindAuctionId [32]byte
 	BlindedBid     [32]byte
+	Deposit        *big.Int
 	Raw            types.Log // Blockchain specific contextual infos
 }
 
-// FilterBlindAuctionBidSuccessful is a free log retrieval operation binding the contract event 0x42412bd3e1b349d0fc9c3518c85d09f611398d80842c5d3e36449b76dca01b6b.
+// FilterBlindAuctionBidSuccessful is a free log retrieval operation binding the contract event 0x780a026ee190cbe2ad354edc5ca8c82843cd69966e1a767e8740f3c3fc10c244.
 //
-// Solidity: event BlindAuctionBidSuccessful(address sender, bytes32 blindAuctionId, bytes32 blindedBid)
+// Solidity: event BlindAuctionBidSuccessful(address sender, bytes32 blindAuctionId, bytes32 blindedBid, uint256 deposit)
 func (_IBlindAuction *IBlindAuctionFilterer) FilterBlindAuctionBidSuccessful(opts *bind.FilterOpts) (*IBlindAuctionBlindAuctionBidSuccessfulIterator, error) {
 
 	logs, sub, err := _IBlindAuction.contract.FilterLogs(opts, "BlindAuctionBidSuccessful")
@@ -537,9 +538,9 @@ func (_IBlindAuction *IBlindAuctionFilterer) FilterBlindAuctionBidSuccessful(opt
 	return &IBlindAuctionBlindAuctionBidSuccessfulIterator{contract: _IBlindAuction.contract, event: "BlindAuctionBidSuccessful", logs: logs, sub: sub}, nil
 }
 
-// WatchBlindAuctionBidSuccessful is a free log subscription operation binding the contract event 0x42412bd3e1b349d0fc9c3518c85d09f611398d80842c5d3e36449b76dca01b6b.
+// WatchBlindAuctionBidSuccessful is a free log subscription operation binding the contract event 0x780a026ee190cbe2ad354edc5ca8c82843cd69966e1a767e8740f3c3fc10c244.
 //
-// Solidity: event BlindAuctionBidSuccessful(address sender, bytes32 blindAuctionId, bytes32 blindedBid)
+// Solidity: event BlindAuctionBidSuccessful(address sender, bytes32 blindAuctionId, bytes32 blindedBid, uint256 deposit)
 func (_IBlindAuction *IBlindAuctionFilterer) WatchBlindAuctionBidSuccessful(opts *bind.WatchOpts, sink chan<- *IBlindAuctionBlindAuctionBidSuccessful) (event.Subscription, error) {
 
 	logs, sub, err := _IBlindAuction.contract.WatchLogs(opts, "BlindAuctionBidSuccessful")
@@ -574,9 +575,9 @@ func (_IBlindAuction *IBlindAuctionFilterer) WatchBlindAuctionBidSuccessful(opts
 	}), nil
 }
 
-// ParseBlindAuctionBidSuccessful is a log parse operation binding the contract event 0x42412bd3e1b349d0fc9c3518c85d09f611398d80842c5d3e36449b76dca01b6b.
+// ParseBlindAuctionBidSuccessful is a log parse operation binding the contract event 0x780a026ee190cbe2ad354edc5ca8c82843cd69966e1a767e8740f3c3fc10c244.
 //
-// Solidity: event BlindAuctionBidSuccessful(address sender, bytes32 blindAuctionId, bytes32 blindedBid)
+// Solidity: event BlindAuctionBidSuccessful(address sender, bytes32 blindAuctionId, bytes32 blindedBid, uint256 deposit)
 func (_IBlindAuction *IBlindAuctionFilterer) ParseBlindAuctionBidSuccessful(log types.Log) (*IBlindAuctionBlindAuctionBidSuccessful, error) {
 	event := new(IBlindAuctionBlindAuctionBidSuccessful)
 	if err := _IBlindAuction.contract.UnpackLog(event, "BlindAuctionBidSuccessful", log); err != nil {
@@ -934,12 +935,14 @@ func (it *IBlindAuctionRevealSuccessfulIterator) Close() error {
 type IBlindAuctionRevealSuccessful struct {
 	Sender         common.Address
 	BlindAuctionId [32]byte
+	BlindedBid     [32]byte
+	Value          *big.Int
 	Raw            types.Log // Blockchain specific contextual infos
 }
 
-// FilterRevealSuccessful is a free log retrieval operation binding the contract event 0x61d4ab60470c97b371c5f91be47873283386bb3af4de728e8795ef5318e013d6.
+// FilterRevealSuccessful is a free log retrieval operation binding the contract event 0x765b6ea14057b29f80c3e69d33266575d3150d876ba48f1ed0cda33f045ee80a.
 //
-// Solidity: event RevealSuccessful(address sender, bytes32 blindAuctionId)
+// Solidity: event RevealSuccessful(address sender, bytes32 blindAuctionId, bytes32 blindedBid, uint256 value)
 func (_IBlindAuction *IBlindAuctionFilterer) FilterRevealSuccessful(opts *bind.FilterOpts) (*IBlindAuctionRevealSuccessfulIterator, error) {
 
 	logs, sub, err := _IBlindAuction.contract.FilterLogs(opts, "RevealSuccessful")
@@ -949,9 +952,9 @@ func (_IBlindAuction *IBlindAuctionFilterer) FilterRevealSuccessful(opts *bind.F
 	return &IBlindAuctionRevealSuccessfulIterator{contract: _IBlindAuction.contract, event: "RevealSuccessful", logs: logs, sub: sub}, nil
 }
 
-// WatchRevealSuccessful is a free log subscription operation binding the contract event 0x61d4ab60470c97b371c5f91be47873283386bb3af4de728e8795ef5318e013d6.
+// WatchRevealSuccessful is a free log subscription operation binding the contract event 0x765b6ea14057b29f80c3e69d33266575d3150d876ba48f1ed0cda33f045ee80a.
 //
-// Solidity: event RevealSuccessful(address sender, bytes32 blindAuctionId)
+// Solidity: event RevealSuccessful(address sender, bytes32 blindAuctionId, bytes32 blindedBid, uint256 value)
 func (_IBlindAuction *IBlindAuctionFilterer) WatchRevealSuccessful(opts *bind.WatchOpts, sink chan<- *IBlindAuctionRevealSuccessful) (event.Subscription, error) {
 
 	logs, sub, err := _IBlindAuction.contract.WatchLogs(opts, "RevealSuccessful")
@@ -986,9 +989,9 @@ func (_IBlindAuction *IBlindAuctionFilterer) WatchRevealSuccessful(opts *bind.Wa
 	}), nil
 }
 
-// ParseRevealSuccessful is a log parse operation binding the contract event 0x61d4ab60470c97b371c5f91be47873283386bb3af4de728e8795ef5318e013d6.
+// ParseRevealSuccessful is a log parse operation binding the contract event 0x765b6ea14057b29f80c3e69d33266575d3150d876ba48f1ed0cda33f045ee80a.
 //
-// Solidity: event RevealSuccessful(address sender, bytes32 blindAuctionId)
+// Solidity: event RevealSuccessful(address sender, bytes32 blindAuctionId, bytes32 blindedBid, uint256 value)
 func (_IBlindAuction *IBlindAuctionFilterer) ParseRevealSuccessful(log types.Log) (*IBlindAuctionRevealSuccessful, error) {
 	event := new(IBlindAuctionRevealSuccessful)
 	if err := _IBlindAuction.contract.UnpackLog(event, "RevealSuccessful", log); err != nil {
