@@ -2,7 +2,7 @@
 pragma solidity 0.8.4;
 
 import "./IPublicAuction.sol";
-import "./IOrder.sol";
+import "./ITrading.sol";
 import "./IMarketplaceStorage.sol";
 import "../../common/AccessControl.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
@@ -12,7 +12,7 @@ contract MarketplaceStorage is
     KfiveAccessControl,
     IMarketplaceStorage
 {
-    address orderMarketplace;
+    address tradingMarketplace;
     address publicAuctionMarketplace;
     address blindAuctionMarketplace;
 
@@ -62,18 +62,18 @@ contract MarketplaceStorage is
     }
 
     /**
-     * @dev Update order marketplace address.
+     * @dev Update trading marketplace address.
      *
      * Requirements:
      *
      * - the caller must have the `ADMIN_ROLE`.
      */
-    function updateOrderMarketplace(address _orderMarketplace)
+    function updateTradingMarketplace(address _tradingMarketplace)
         external
         whenNotPaused
         onlyRole(ADMIN_ROLE)
     {
-        orderMarketplace = _orderMarketplace;
+        tradingMarketplace = _tradingMarketplace;
     }
 
     ////////////////////////////////////////////////////////////
@@ -88,7 +88,7 @@ contract MarketplaceStorage is
         return
             runningPublicAuctionIds[nftAsset] == bytes32(0) &&
             runningBlindAuctionIds[nftAsset] == bytes32(0) &&
-            orderByNftAsset[nftAsset].orderId == bytes32(0);
+            tradingByNftAsset[nftAsset].tradingId == bytes32(0);
     }
 
     ////////////////////////////////////////////////////////////
@@ -320,29 +320,29 @@ contract MarketplaceStorage is
     }
 
     ////////////////////////////////////////////////////////////
-    // Order storage
+    // Trading storage
     ////////////////////////////////////////////////////////////
-    // From ERC721 registry assetId to Order (to avoid asset collision)
-    mapping(bytes32 => Order) public orderByNftAsset;
+    // From ERC721 registry assetId to Trading (to avoid asset collision)
+    mapping(bytes32 => Trading) public tradingByNftAsset;
 
-    function createOrder(
+    function createTrading(
         address seller,
         address nftAddress,
         uint256 assetId,
-        bytes32 orderId,
+        bytes32 tradingId,
         uint256 priceInWei,
         uint256 expiredAt
     ) 
         external 
         override 
-        onlyFrom(orderMarketplace) 
+        onlyFrom(tradingMarketplace) 
         whenNotPaused
     {
         bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
         if(!assetIsAvailable(nftAsset)) revert AssetUnvailable();
 
-        orderByNftAsset[nftAsset] = Order({
-            orderId: orderId,
+        tradingByNftAsset[nftAsset] = Trading({
+            tradingId: tradingId,
             seller: seller,
             nftAddress: nftAddress,
             price: priceInWei,
@@ -350,23 +350,23 @@ contract MarketplaceStorage is
         });
     }
 
-    function getOrder(bytes32 nftAsset)
+    function getTrading(bytes32 nftAsset)
         external
         view
         override
-        returns (Order memory order)
+        returns (Trading memory trading)
     {
-        return orderByNftAsset[nftAsset];
+        return tradingByNftAsset[nftAsset];
     }
 
-    function deleteOrder(bytes32 nftAsset)
+    function deleteTrading(bytes32 nftAsset)
         external
         override
         whenNotPaused
-        onlyFrom(orderMarketplace)
+        onlyFrom(tradingMarketplace)
     {
-        if(orderByNftAsset[nftAsset].orderId == bytes32(0)) revert AssetNotExisted();
-        delete orderByNftAsset[nftAsset];
+        if(tradingByNftAsset[nftAsset].tradingId == bytes32(0)) revert AssetNotExisted();
+        delete tradingByNftAsset[nftAsset];
     }
 
     function onlyBefore(uint256 _time) internal view {

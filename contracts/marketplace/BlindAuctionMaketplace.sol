@@ -165,7 +165,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         // save blind value bid
         _blindedBids[blindAuctionId][sender].push(blindedBid);
 
-        emit BlindAuctionBidSuccessful(sender, blindAuctionId, blindedBid);
+        emit BlindAuctionBidSuccessful(sender, blindAuctionId, blindedBid, deposit);
     }
 
     /**
@@ -302,6 +302,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
             ) {
                 maxValue = _values[i];
             }
+            emit RevealSuccessful(sender, blindAuctionId, blindedBids[i], _values[i]);
         }
 
         // update if bid is less than or equal to max deposit and greater than current highest bid
@@ -309,7 +310,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
             marketplaceStorage.updateHighestBidBlindAuction(sender, maxValue, blindAuctionId);
         }
 
-        emit RevealSuccessful(sender, blindAuctionId);
+        
     }
 
     function _unsafe_inc(uint x) private pure returns (uint) {
