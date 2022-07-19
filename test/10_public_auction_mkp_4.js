@@ -434,13 +434,31 @@ contract("Public Auction Marketplace", (accounts) => {
             });
 
             const lastestEvent = await auctionMarketplace.getPastEvents("GrantAuctionRewardSuccessful");
-            console.log(lastestEvent);
+            
+            auctionHighestBidder = lastestEvent[0].returnValues.auctionHighestBidder;
+            id = lastestEvent[0].returnValues.auctionId;
+            assetId = lastestEvent[0].returnValues.assetId;
+
+            eq(auctionHighestBidder, account5);
+            eq(id, auctionId);
+            eq(assetId, 1)
 
             let account5_balance = await kfive.balanceOf(account5, { from: root });
             eq(6 * (10 ** tokenDecimals), account5_balance.toString());
 
             let new_owner = await nlgst.ownerOf(1, {from: root});
             eq(account5, new_owner);
+
+            amount_seller_receive = amountSellerReceiveAfterAuction(4, 1000);
+            account1_balance_final = (10 + amount_seller_receive - 0.1) * (10 ** tokenDecimals);
+            let account1_balance = await kfive.balanceOf(account1, { from: root });
+            eq(account1_balance_final, account1_balance.toString());
+
+            amount_contract_owner_receive = amountContractOwnerReceiveAfterAuction(4, 1000);
+            eq(amount_contract_owner_receive, 0.004);
+            root_balance_final = (0.104) * (10 ** tokenDecimals);
+            let root_balance = await kfive.balanceOf(root, { from: root });
+            eq(root_balance_final, root_balance.toString());
         });
     });
 });

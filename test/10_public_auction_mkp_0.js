@@ -49,8 +49,8 @@ contract("Public Auction Marketplace", (accounts) => {
     const root = accounts[0]
     const account1 = accounts[1]
     const account2 = accounts[2]
-    const beneficary = accounts[3]
-    const admin = accounts[4]
+    const admin = accounts[3]
+    const seller = accounts[4]
     const account5 = accounts[5]
     const account6 = accounts[6]
     const new_owner = accounts[7]
@@ -290,6 +290,259 @@ contract("Public Auction Marketplace", (accounts) => {
                                                                     i.minIncrement, {
                 from: root
             }));
+        });
+
+        it('(Account1) Approve NFT1 to seller', async () => {
+            await nlgst.approve(seller, 2, {
+                from: account1
+            });
+        });
+
+        it('(Seller) Create new auction NFT(1). Cannot, only owner', async () => {
+            const i = {
+                nftID: 2,
+                startPriceInWei: 1 * (10 ** tokenDecimals),
+                startTime: Math.floor(new Date().getTime() / 1000 + 15),
+                biddingEnd: Math.floor(new Date().getTime() / 1000 + 100),
+                minIncrement: 1 * (10 ** tokenDecimals),
+            }
+
+            auctionStartTime = i.startTime;
+            biddingEndedAt = i.biddingEnd;
+            auctionId = publicAuctionInfo(nlgst.address,
+                                          i.nftID,
+                                          i.startPriceInWei,
+                                          i.startTime,
+                                          i.biddingEnd,
+                                          i.minIncrement,
+                                          Math.floor(new Date().getTime()));
+            nftAsset = nftAssetInfo(nlgst.address, i.nftID);
+
+            await u.assertRevert(auctionMarketplace.createAuction( nlgst.address,
+                                                    auctionId,
+                                                    nftAsset,
+                                                    i.nftID,
+                                                    i.startPriceInWei,
+                                                    i.startTime,
+                                                    i.biddingEnd,
+                                                    i.minIncrement, {
+                from: seller
+            }));
+        });
+
+        it('(Root) Transfer Ownership to new_owner', async () => {
+            const i = {
+                new_owner: new_owner,
+            }
+            await auctionMarketplace.transferOwnership(i.new_owner, {
+                from: root
+            });
+
+            let newOwner = await auctionMarketplace.owner({
+                from: root
+            })
+            eq(i.new_owner, newOwner);
+        });
+
+        it('(New_owner) Set a new OwnerCutPerMillion (2.000.000). Cannot because ownerCutPerMillion must smaller than 1.000.000', async () => {
+            const i = {
+                new_ownerCutPerMillion: 2000000,
+            }
+
+            await u.assertRevert(auctionMarketplace.setOwnerCutPerMillion(i.new_ownerCutPerMillion, {
+                from: new_owner
+            }));
+
+            const new_ownerCutPerMillion = await auctionMarketplace.ownerCutPerMillion();
+            eq(new_ownerCutPerMillion.toString(), 1000);
+        });
+
+        it('(New_owner) Set new OwnerCutPerMillion to 200.000', async () => {
+            const i = {
+                new_ownerCutPerMillion: 200000,
+            }
+
+            await u.assertRevert(auctionMarketplace.setOwnerCutPerMillion(i.new_ownerCutPerMillion, {
+                from: new_owner
+            }));
+
+            const new_ownerCutPerMillion = await auctionMarketplace.ownerCutPerMillion();
+            eq(new_ownerCutPerMillion.toString(), 1000);
+        });
+
+        it('(New_owner) Grant ADMIN_ROLE to new_owner', async () => {
+            await auctionMarketplace.grantRole("0x" + keccak256("ADMIN_ROLE"), new_owner, {
+                from: new_owner
+            });
+        });
+
+        it('(New_owner) Set new OwnerCutPerMillion to 200.000', async () => {
+            const i = {
+                new_ownerCutPerMillion: 200000,
+            }
+
+            await auctionMarketplace.setOwnerCutPerMillion(i.new_ownerCutPerMillion, {
+                from: new_owner
+            });
+
+            const new_ownerCutPerMillion = await auctionMarketplace.ownerCutPerMillion();
+            eq(new_ownerCutPerMillion.toString(), i.new_ownerCutPerMillion);
+        });
+
+        it('(Root) Pause Auction Marketplace. Cannot, not owner', async () => {
+            await u.assertRevert(auctionMarketplace.pause({
+                from: root
+            }));
+
+            const pauseStatus = await auctionMarketplace.paused();
+            eq(pauseStatus, false);
+        });
+
+        it('(New_owner) Pause Auction Marketplace', async () => {
+            await auctionMarketplace.pause({
+                from: new_owner
+            });
+
+            const pauseStatus = await auctionMarketplace.paused();
+            eq(pauseStatus, true);
+        });
+
+        it('(Root) UnPause Auction Marketplace. Cannot, not owner', async () => {
+            await u.assertRevert(auctionMarketplace.unpause({
+                from: root
+            }));
+
+            const pauseStatus = await auctionMarketplace.paused();
+            eq(pauseStatus, true);
+        });
+
+        it('(New_owner) UnPause Auction Marketplace', async () => {
+            await auctionMarketplace.unpause({
+                from: new_owner
+            });
+
+            const pauseStatus = await auctionMarketplace.paused();
+            eq(pauseStatus, false);
+        });
+
+        it('(Account1) Add account2 to blacklist. Cannot, only owner', async () => {
+            const i = {
+                evil: account2,
+            }
+
+            await u.assertRevert(auctionMarketplace.addBlackList(i.evil, {
+                from: account1
+            }));
+
+            check_blacklisted = await auctionMarketplace.isBlackListed(account2, {
+                from: root
+            });
+            eq(check_blacklisted, false);
+        });
+
+        it('(Root) Add account2 to blacklist. Cannot, only owner', async () => {
+            const i = {
+                evil: account2,
+            }
+
+            await u.assertRevert(auctionMarketplace.addBlackList(i.evil, {
+                from: root
+            }));
+
+            check_blacklisted = await auctionMarketplace.isBlackListed(account2, {
+                from: root
+            });
+            eq(check_blacklisted, false);
+        });
+
+        it('(Admin) Add account2 to blacklist. Cannot, only owner', async () => {
+            const i = {
+                evil: account2,
+            }
+
+            await u.assertRevert(auctionMarketplace.addBlackList(i.evil, {
+                from: admin
+            }));
+
+            check_blacklisted = await auctionMarketplace.isBlackListed(account2, {
+                from: root
+            });
+            eq(check_blacklisted, false);
+        });
+
+        it('(New_owner) Add account2 to blacklist', async () => {
+            const i = {
+                evil: account2,
+            }
+
+            await auctionMarketplace.addBlackList(i.evil, {
+                from: new_owner
+            });
+
+            check_blacklisted = await auctionMarketplace.isBlackListed(account2, {
+                from: root
+            });
+            eq(check_blacklisted, true);
+        });
+
+        it('(Account1) Remove blacklist. Cannot, only owner', async () => {
+            const i = {
+                evil: account2,
+            }
+
+            await u.assertRevert(auctionMarketplace.removeBlackList(i.evil, {
+                from: account1
+            }));
+
+            check_blacklisted = await auctionMarketplace.isBlackListed(account2, {
+                from: root
+            });
+            eq(check_blacklisted, true);
+        });
+
+        it('(Account2) Remove blacklist. Cannot, only owner', async () => {
+            const i = {
+                evil: account2,
+            }
+
+            await u.assertRevert(auctionMarketplace.removeBlackList(i.evil, {
+                from: account2
+            }));
+
+            check_blacklisted = await auctionMarketplace.isBlackListed(account2, {
+                from: root
+            });
+            eq(check_blacklisted, true);
+        });
+
+        it('(Root) Remove blacklist. Cannot, only owner', async () => {
+            const i = {
+                evil: account2,
+            }
+
+            await u.assertRevert(auctionMarketplace.removeBlackList(i.evil, {
+                from: root
+            }));
+
+            check_blacklisted = await auctionMarketplace.isBlackListed(account2, {
+                from: root
+            });
+            eq(check_blacklisted, true);
+        });
+
+        it('(New_owner) Remove blacklist', async () => {
+            const i = {
+                evil: account2,
+            }
+
+            await auctionMarketplace.removeBlackList(i.evil, {
+                from: new_owner
+            });
+
+            check_blacklisted = await auctionMarketplace.isBlackListed(account2, {
+                from: root
+            });
+            eq(check_blacklisted, false);
         });
     });
 });

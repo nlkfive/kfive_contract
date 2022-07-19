@@ -118,7 +118,7 @@ contract("Public Auction Marketplace", (accounts) => {
         });
     });
 
-    describe('AUCTION 3: Simple public auction marketplace', async () => {
+    describe('AUCTION 1: Simple public auction marketplace', async () => {
         var auctionId;
         var auctionStartTime;
         var auctionBiddingEnd;
@@ -170,7 +170,6 @@ contract("Public Auction Marketplace", (accounts) => {
             await kfive.approve(i.to, i.amount, { from: account1 });
             await kfive.approve(i.to, i.amount, { from: account2 });
             await kfive.approve(i.to, i.amount, { from: account5 });
-            await kfive.approve(i.to, i.amount, { from: account6 });
             await kfive.approve(i.to, i.amount, { from: account8 });
         });
 
@@ -205,12 +204,131 @@ contract("Public Auction Marketplace", (accounts) => {
             });
         });
 
+        it('(Account1) Set new minStageDuration. Cannot, only ADMIN_ROLE', async () => {
+            const i = {
+                new_minStageDuration: 10
+            }
+
+            await u.assertRevert(auctionMarketplace.setMinStageDuration(i.new_minStageDuration, {
+                from: account1  
+            }));
+        });
+
+        it('(Root) Set new minStageDuration = 1000', async () => {
+            const i = {
+                new_minStageDuration: 1000
+            }
+
+            await auctionMarketplace.setMinStageDuration(i.new_minStageDuration, {
+                from: root
+            });
+
+            let new_minStageDuration = await auctionMarketplace.minStageDuration({
+                from: root
+            });
+            eq(new_minStageDuration, i.new_minStageDuration);
+        });
+
+        it('(Account1) Create new auction NFT(1). Cannot, minStageDuration < 1000', async () => {
+            const i = {
+                nftID: 1,
+                startPriceInWei: 1 * (10 ** tokenDecimals),
+                startTime: Math.floor(new Date().getTime() / 1000 + 10),
+                biddingEnd: Math.floor(new Date().getTime() / 1000 + 100),
+                minIncrement: 1 * (10 ** tokenDecimals),
+            }
+
+            auctionStartTime = i.startTime;
+            biddingEndedAt = i.biddingEnd;
+            auctionId = publicAuctionInfo(nlgst.address,
+                                          i.nftID,
+                                          i.startPriceInWei,
+                                          i.startTime,
+                                          i.biddingEnd,
+                                          i.minIncrement,
+                                          Math.floor(new Date().getTime()));
+            nftAsset = nftAssetInfo(nlgst.address, i.nftID);
+
+            await u.assertRevert(auctionMarketplace.createAuction( nlgst.address,
+                                                    auctionId,
+                                                    nftAsset,
+                                                    i.nftID,
+                                                    i.startPriceInWei,
+                                                    i.startTime,
+                                                    i.biddingEnd,
+                                                    i.minIncrement, {
+                from: account1
+            }));
+        });
+
+        it('(Root) Add account1 to blacklist', async () => {
+            const i = {
+                evil: account1,
+            }
+
+            await auctionMarketplace.addBlackList(i.evil, {
+                from: root
+            });
+
+            check_blacklisted = await auctionMarketplace.isBlackListed(account1, {
+                from: root
+            });
+            eq(check_blacklisted, true);
+        });
+
+        it('(Account1) Create new auction NFT(1). Cannot, account1 is in Blacklist', async () => {
+            const i = {
+                nftID: 1,
+                startPriceInWei: 1 * (10 ** tokenDecimals),
+                startTime: Math.floor(new Date().getTime() / 1000 + 10),
+                biddingEnd: Math.floor(new Date().getTime() / 1000 + 100),
+                minIncrement: 1 * (10 ** tokenDecimals),
+            }
+
+            auctionStartTime = i.startTime;
+            biddingEndedAt = i.biddingEnd;
+            auctionId = publicAuctionInfo(nlgst.address,
+                                          i.nftID,
+                                          i.startPriceInWei,
+                                          i.startTime,
+                                          i.biddingEnd,
+                                          i.minIncrement,
+                                          Math.floor(new Date().getTime()));
+            nftAsset = nftAssetInfo(nlgst.address, i.nftID);
+
+            await u.assertRevert(auctionMarketplace.createAuction( nlgst.address,
+                                                    auctionId,
+                                                    nftAsset,
+                                                    i.nftID,
+                                                    i.startPriceInWei,
+                                                    i.startTime,
+                                                    i.biddingEnd,
+                                                    i.minIncrement, {
+                from: account1
+            }));
+        });
+
+        it('(Root) Remove blacklist', async () => {
+            const i = {
+                evil: account1,
+            }
+
+            await auctionMarketplace.removeBlackList(i.evil, {
+                from: root
+            });
+
+            check_blacklisted = await auctionMarketplace.isBlackListed(account1, {
+                from: root
+            });
+            eq(check_blacklisted, false);
+        });
+
         it('(Account1) Create new auction NFT(1) successfully', async () => {
             const i = {
                 nftID: 1,
                 startPriceInWei: 1 * (10 ** tokenDecimals),
-                startTime: Math.floor(new Date().getTime() / 1000 + 15),
-                biddingEnd: Math.floor(new Date().getTime() / 1000 + 100),
+                startTime: Math.floor(new Date().getTime() / 1000 + 10),
+                biddingEnd: Math.floor(new Date().getTime() / 1000 + 1001),
                 minIncrement: 1 * (10 ** tokenDecimals),
             }
 
@@ -272,106 +390,85 @@ contract("Public Auction Marketplace", (accounts) => {
         });
 
         it('Wait until Auction Stage starts', async () => {
-            while (Math.floor(new Date().getTime() / 1000 < auctionStartTime + 1)) {}
+            while (Math.floor(new Date().getTime() / 1000 < auctionStartTime)) {}
         });
 
-        it('(Account2) Bid: 3 KFIVE', async () => {
+        it('(Owner) Add account2 to blacklist', async () => {
             const i = {
-                bidValue: 3 * (10 ** tokenDecimals)
+                evil: account2,
             }
 
-            await auctionMarketplace.bid(nftAsset, auctionId, i.bidValue, {
+            await auctionMarketplace.addBlackList(i.evil, {
+                from: owner
+            });
+
+            check_blacklisted = await auctionMarketplace.isBlackListed(account2, {
+                from: root
+            });
+            eq(check_blacklisted, true);
+        });
+
+        it('(Account2) Bid: 1 KFIVE. Cannot, account2 is in blacklist', async () => {
+            const i = {
+                bidValue: 1 * (10 ** tokenDecimals)
+            }
+
+            await u.assertRevert(auctionMarketplace.bid(nftAsset, auctionId, i.bidValue, {
                 from: account2
-            });
-
-            let account2_balance = await kfive.balanceOf(account2, { from: root });
-            eq(7 * (10 ** tokenDecimals), account2_balance.toString());
-        });
-
-        it('(Account5) Bid: 4 KFIVE', async () => {
-            const i = {
-                bidValue: 4 * (10 ** tokenDecimals)
-            }
-
-            await auctionMarketplace.bid(nftAsset, auctionId, i.bidValue, {
-                from: account5
-            });
-
-            let account5_balance = await kfive.balanceOf(account5, { from: root });
-            eq(6 * (10 ** tokenDecimals), account5_balance.toString());
+            }));
 
             let account2_balance = await kfive.balanceOf(account2, { from: root });
             eq(10 * (10 ** tokenDecimals), account2_balance.toString());
         });
 
-        it('(Account5) Bid: 6 KFIVE', async () => {
+        it('(Owner) Remove account2 from blacklist', async () => {
             const i = {
-                bidValue: 6 * (10 ** tokenDecimals)
+                evil: account2,
             }
 
-            await auctionMarketplace.bid(nftAsset, auctionId, i.bidValue, {
-                from: account5
+            await auctionMarketplace.addBlackList(i.evil, {
+                from: owner
             });
 
-            let account5_balance = await kfive.balanceOf(account5, { from: root });
-            eq(4 * (10 ** tokenDecimals), account5_balance.toString());
+            check_blacklisted = await auctionMarketplace.isBlackListed(account2, {
+                from: root
+            });
+            eq(check_blacklisted, false);
         });
 
-        it('(Account2) Bid: 9 KFIVE', async () => {
+        it('(Account2) Bid: 2 KFIVE', async () => {
             const i = {
-                bidValue: 9 * (10 ** tokenDecimals),
-                amount: web3.utils.toHex(10 * (10 ** tokenDecimals)),
-                to: auctionMarketplace.address,
+                bidValue: 2 * (10 ** tokenDecimals)
             }
-
-            await kfive.approve(i.to, i.amount, { from: account2 });
 
             await auctionMarketplace.bid(nftAsset, auctionId, i.bidValue, {
                 from: account2
             });
 
             let account2_balance = await kfive.balanceOf(account2, { from: root });
-            eq(1 * (10 ** tokenDecimals), account2_balance.toString());
+            eq(8 * (10 ** tokenDecimals), account2_balance.toString());
+        });
+
+        it('(Root) Cancel Auction', async () => {
+            await auctionMarketplace.cancelAuction(nftAsset, auctionId, {
+                from: root
+            });
+
+            let account2_balance = await kfive.balanceOf(account2, { from: root });
+            eq(10 * (10 ** tokenDecimals), account2_balance.toString());
+        });
+
+        it('(Account5) Bid: 5 KFIVE. Cannot, auction has been cancelled', async () => {
+            const i = {
+                bidValue: 5 * (10 ** tokenDecimals)
+            }
+
+            await u.assertRevert(auctionMarketplace.bid(nftAsset, auctionId, i.bidValue, {
+                from: account5
+            }));
 
             let account5_balance = await kfive.balanceOf(account5, { from: root });
             eq(10 * (10 ** tokenDecimals), account5_balance.toString());
-        });
-
-        it('Wait until Bidding Stage end', async () => {
-            while (Math.floor(new Date().getTime() / 1000 < biddingEndedAt + 1)) {}
-        });
-
-        it('(Account2) Receive reward', async () => {
-            await auctionMarketplace.receiveReward(nlgst.address, auctionId, nftAsset, 1, {
-                from: account2
-            });
-
-            const lastestEvent = await auctionMarketplace.getPastEvents("GrantAuctionRewardSuccessful");
-
-            auctionHighestBidder = lastestEvent[0].returnValues.auctionHighestBidder;
-            id = lastestEvent[0].returnValues.auctionId;
-            assetId = lastestEvent[0].returnValues.assetId;
-
-            eq(auctionHighestBidder, account2);
-            eq(id, auctionId);
-            eq(assetId, 1)
-
-            let account2_balance = await kfive.balanceOf(account2, { from: root });
-            eq(1 * (10 ** tokenDecimals), account2_balance.toString());
-
-            let new_owner = await nlgst.ownerOf(1, {from: root});
-            eq(account2, new_owner);
-
-            amount_seller_receive = amountSellerReceiveAfterAuction(9, 1000);
-            eq(amount_seller_receive, 8.991);
-            let account1_balance = await kfive.balanceOf(account1, { from: root });
-            eq(188910000000, account1_balance.toString());
-
-            amount_contract_owner_receive = amountContractOwnerReceiveAfterAuction(9, 1000);
-            eq(amount_contract_owner_receive, 0.009);
-            root_balance_final = (0.109) * (10 ** tokenDecimals);
-            let root_balance = await kfive.balanceOf(root, { from: root });
-            eq(root_balance_final, root_balance.toString());
         });
     });
 });
