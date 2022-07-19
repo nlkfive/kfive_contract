@@ -2,10 +2,10 @@
 pragma solidity 0.8.4;
 
 import "./Marketplace.sol";
-import "./storage/IOrder.sol";
+import "./storage/ITrading.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
-contract OrderMarketplace is IOrder, Marketplace {
+contract TradingMarketplace is ITrading, Marketplace {
     using SafeMath for uint256;
 
     constructor(
@@ -16,45 +16,45 @@ contract OrderMarketplace is IOrder, Marketplace {
     ) Marketplace(_acceptedToken, _beneficary, _marketplaceStorage, _ownerCutPerMillion) { }
 
     /**
-     * @dev Creates a new order
+     * @dev Creates a new trading
      * @param nftAddress - Non fungible registry address
      * @param assetId - ID of the published NFT
      * @param priceInWei - Price in Wei for the supported coin
-     * @param expiredAt - Duration of the order (in hours)
+     * @param expiredAt - Duration of the trading (in hours)
      */
-    function createOrder(
+    function createTrading(
         address nftAddress,
         uint256 assetId,
         uint256 priceInWei,
         uint256 expiredAt
     ) external whenNotPaused {
-        _createOrder(nftAddress, assetId, priceInWei, expiredAt);
+        _createTrading(nftAddress, assetId, priceInWei, expiredAt);
     }
 
     /**
-     * @dev Cancel an already published order
+     * @dev Cancel an already published trading
      *  can only be canceled by seller or the contract owner
      * @param nftAsset - keccak256(abi.encodePacked(nftAddress, assetId))
      */
-    function cancelOrder(bytes32 nftAsset) public whenNotPaused {
-        _cancelOrder(nftAsset);
+    function cancelTrading(bytes32 nftAsset) public whenNotPaused {
+        _cancelTrading(nftAsset);
     }
 
     /**
      * @dev Executes the sale for a published NFT
      * @param nftAddress - Address of the NFT registry
      * @param assetId - ID of the published NFT
-     * @param price - Order price
+     * @param price - Trading price
      */
-    function executeOrder(
+    function executeTrading(
         address nftAddress,
         uint256 assetId,
         uint256 price
     ) external whenNotPaused {
-        _executeOrder(nftAddress, assetId, price);
+        _executeTrading(nftAddress, assetId, price);
     }
 
-    function _createOrder(
+    function _createTrading(
         address nftAddress,
         uint256 assetId,
         uint256 priceInWei,
@@ -77,7 +77,7 @@ contract OrderMarketplace is IOrder, Marketplace {
         bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
         if(!marketplaceStorage.assetIsAvailable(nftAsset)) revert Unavailable();
 
-        bytes32 orderId = keccak256(
+        bytes32 tradingId = keccak256(
             abi.encodePacked(
                 block.timestamp,
                 assetOwner,
@@ -87,11 +87,11 @@ contract OrderMarketplace is IOrder, Marketplace {
             )
         );
 
-        marketplaceStorage.createOrder(
+        marketplaceStorage.createTrading(
             assetOwner,
             nftAddress,
             assetId,
-            orderId,
+            tradingId,
             priceInWei,
             expiredAt
         );
@@ -106,8 +106,8 @@ contract OrderMarketplace is IOrder, Marketplace {
             );
         }
 
-        emit OrderCreated(
-            orderId,
+        emit TradingCreated(
+            tradingId,
             assetId,
             assetOwner,
             nftAddress,
@@ -116,42 +116,42 @@ contract OrderMarketplace is IOrder, Marketplace {
         );
     }
 
-    function _cancelOrder(bytes32 nftAsset) internal {
+    function _cancelTrading(bytes32 nftAsset) internal {
         address sender = _msgSender();
-        Order memory order = marketplaceStorage.getOrder(nftAsset);
-        bytes32 orderId = order.orderId;
+        Trading memory trading = marketplaceStorage.getTrading(nftAsset);
+        bytes32 tradingId = trading.tradingId;
 
-        if(orderId == 0) revert NotExisted();
+        if(tradingId == 0) revert NotExisted();
         if(
-            !(order.seller == sender || hasRole(CANCEL_ROLE, _msgSender()))
+            !(trading.seller == sender || hasRole(CANCEL_ROLE, _msgSender()))
         ) revert Unauthorized();
 
-        marketplaceStorage.deleteOrder(nftAsset);
-        emit OrderCancelled(sender, orderId);
+        marketplaceStorage.deleteTrading(nftAsset);
+        emit TradingCancelled(sender, tradingId);
     }
 
-    function _executeOrder(
+    function _executeTrading(
         address nftAddress,
         uint256 assetId,
         uint256 price
-    ) internal returns (Order memory) {
+    ) internal returns (Trading memory) {
         bytes32 nftAsset = keccak256(abi.encodePacked(nftAddress, assetId));
-        Order memory order = marketplaceStorage.getOrder(nftAsset);
-        if(order.orderId == 0) revert NotExisted();
+        Trading memory trading = marketplaceStorage.getTrading(nftAsset);
+        if(trading.tradingId == 0) revert NotExisted();
 
-        address seller = order.seller;
+        address seller = trading.seller;
         address sender = _msgSender();
         if(seller == sender) revert Unauthorized();
-        if(order.price != price) revert InvalidPrice();
-        if(block.timestamp > order.expiredAt) revert OrderExpired();
+        if(trading.price != price) revert InvalidPrice();
+        if(block.timestamp > trading.expiredAt) revert TradingExpired();
 
         IERC721 nftRegistry = IERC721(nftAddress);
         if(seller != nftRegistry.ownerOf(assetId)) revert Unauthorized();
 
-        bytes32 orderId = order.orderId;
+        bytes32 tradingId = trading.tradingId;
         {
             uint256 saleShareAmount = 0;
-            marketplaceStorage.deleteOrder(nftAsset);
+            marketplaceStorage.deleteTrading(nftAsset);
 
             if (ownerCutPerMillion > 0) {
                 // Calculate sale share
@@ -176,8 +176,8 @@ contract OrderMarketplace is IOrder, Marketplace {
         // Transfer asset owner
         nftRegistry.safeTransferFrom(seller, sender, assetId);
 
-        emit OrderSuccessful(orderId, sender, seller);
+        emit TradingSuccessful(tradingId, sender, seller);
 
-        return order;
+        return trading;
     }
 }

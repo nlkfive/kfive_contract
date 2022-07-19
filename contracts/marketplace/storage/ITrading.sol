@@ -1,31 +1,31 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity 0.8.4;
 
-interface IOrder {
+interface ITrading {
     ////////////////////////////////////////////////////////////
     // ERRORS
     ////////////////////////////////////////////////////////////
     error InvalidExpiredTime();
-    error OrderExpired();
+    error TradingExpired();
     ////////////////////////////////////////////////////////////
     // EVENTS
     ////////////////////////////////////////////////////////////
-    event OrderCreated(
-        bytes32 orderId,
+    event TradingCreated(
+        bytes32 tradingId,
         uint256 assetId,
         address seller,
         address nftAddress,
         uint256 priceInWei,
         uint256 expiredAt
     );
-    event OrderSuccessful(bytes32 id, address buyer, address seller);
-    event OrderCancelled(address who, bytes32 id);
+    event TradingSuccessful(bytes32 id, address buyer, address seller);
+    event TradingCancelled(address who, bytes32 id);
     ////////////////////////////////////////////////////////////
     // STORAGE
     ////////////////////////////////////////////////////////////
-    struct Order {
-        // Order ID
-        bytes32 orderId;
+    struct Trading {
+        // Trading ID
+        bytes32 tradingId;
         // Owner of the NFT
         address seller;
         // NFT registry address

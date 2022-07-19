@@ -4,9 +4,9 @@ pragma solidity 0.8.4;
 import "@openzeppelin/contracts/utils/introspection/IERC165.sol";
 import "./IPublicAuction.sol";
 import "./IBlindAuction.sol";
-import "./IOrder.sol";
+import "./ITrading.sol";
 
-interface IMarketplaceStorage is IERC165, IOrder, IPublicAuction, IBlindAuction {
+interface IMarketplaceStorage is IERC165, ITrading, IPublicAuction, IBlindAuction {
     // Error
     error InvalidMkpSender(); // 0x2d0b96e3
     error AssetNotExisted(); // 0x84791e52
@@ -133,31 +133,31 @@ interface IMarketplaceStorage is IERC165, IOrder, IPublicAuction, IBlindAuction 
     function updateHighestBidBlindAuction(address bidder, uint256 highestBid, bytes32 blindAuctionId) external;
 
     ////////////////////////////////////////////////////////////
-    // Order storage
+    // Trading storage
     ////////////////////////////////////////////////////////////
 
     /**
-     * @dev Create new order
+     * @dev Create new trading
      */
-    function createOrder(
+    function createTrading(
         address seller,
         address nftAddress,
         uint256 assetId,
-        bytes32 orderId,
+        bytes32 tradingId,
         uint256 priceInWei,
         uint256 expiredAt
     ) external;
 
     /**
-     * @dev Get order by nftAsset.
+     * @dev Get trading by nftAsset.
      */
-    function getOrder(bytes32 nftAsset)
+    function getTrading(bytes32 nftAsset)
         external
         view
-        returns (Order memory order);
+        returns (Trading memory trading);
 
     /**
-     * @dev Delete order by nftAsset.
+     * @dev Delete trading by nftAsset.
      */
-    function deleteOrder(bytes32 nftAsset) external;
+    function deleteTrading(bytes32 nftAsset) external;
 }
