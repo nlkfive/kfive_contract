@@ -185,6 +185,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         BlindAuction memory _blindAuction = marketplaceStorage.getBlindAuction(blindAuctionId);
 
         if(!marketplaceStorage.blindAuctionIsEnded(nftAsset, blindAuctionId)) {
+            onlyAfter(_blindAuction.revealEnd);
             marketplaceStorage.endBlindAuction(nftAsset);
         }
 
@@ -306,7 +307,7 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
         }
 
         // update if bid is less than or equal to max deposit and greater than current highest bid
-        if(maxDeposit > maxValue && maxValue > _blindAuction.highestBid) {
+        if(!(maxDeposit < maxValue) && maxValue > _blindAuction.highestBid) {
             marketplaceStorage.updateHighestBidBlindAuction(sender, maxValue, blindAuctionId);
         }
 
