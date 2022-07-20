@@ -119,7 +119,9 @@ contract BlindAuctionMarketplace is IBlindAuction, Marketplace {
 
         BlindAuction memory _blindAuction = marketplaceStorage.getBlindAuction(blindAuctionId);
 
-        onlyBefore(_blindAuction.biddingEnd);
+        if(_blindAuction.highestBidder != address(0)) {
+            onlyBefore(_blindAuction.biddingEnd);
+        }
 
         address sender = _msgSender();
 

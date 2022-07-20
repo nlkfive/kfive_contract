@@ -109,7 +109,9 @@ contract PublicAuctionMarketplace is IPublicAuction, Marketplace {
         PublicAuction memory _publicAuction = marketplaceStorage.getPublicAuction(publicAuctionId);
 
         // Auction cannot be canceled if after bid time
-        onlyBefore(_publicAuction.biddingEnd);
+        if(_publicAuction.highestBidder != address(0)) {
+            onlyBefore(_publicAuction.biddingEnd);
+        }
 
         address sender = _msgSender();
 
