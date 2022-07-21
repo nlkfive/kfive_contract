@@ -370,11 +370,11 @@ contract MarketplaceStorage is
     }
 
     function onlyBefore(uint256 _time) internal view {
-        if (block.timestamp >= _time) revert TooLate(_time);
+        if (!(block.timestamp < _time)) revert TooLate(_time);
     }
 
     function onlyAfter(uint256 _time) internal view {
-        if (block.timestamp <= _time) revert TooEarly(_time);
+        if (!(block.timestamp > _time)) revert TooEarly(_time);
     }
 
     modifier onlyFrom(address contractAddr) {
