@@ -118,7 +118,11 @@ contract("Public Auction Marketplace", (accounts) => {
         });
     });
 
-    describe('AUCTION 2: Simple public auction marketplace', async () => {
+    describe('PUBLIC AUCTION 2: Scenario' + '\n' +
+             '          + Account1 creates Public Auction' + '\n' +
+             '          + Account2 bid 3 KFIVE' + '\n' +
+             '          + Account5 bid 4 KFIVE. Refund 3 KFIVE for account2' + '\n' +
+             '          + Bid End. Account5 receive reward', async () => {
         var auctionId;
         var auctionBiddingEnd;
         var auctionStartTime;

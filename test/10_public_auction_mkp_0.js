@@ -116,7 +116,7 @@ contract("Public Auction Marketplace", (accounts) => {
         });
     });
 
-    describe('AUCTION 0: Simple check functions', async () => {
+    describe('AUCTION 0: Simple check functions: transfer/newOwnerCutPerMillion/Pause/Unpause/Blacklist', async () => {
         var auctionId;
         var auctionBiddingEnd;
         var auctionRevealEnd;
@@ -255,7 +255,7 @@ contract("Public Auction Marketplace", (accounts) => {
             }));
         });
 
-        it('(Root) Update OrderMarketplace in the Storage', async () => {
+        it('(Root) Update Auction Marketplace in the Storage', async () => {
             const i = {
                 auctionMarketplaceAddress: auctionMarketplace.address
             }

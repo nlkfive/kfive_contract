@@ -118,7 +118,13 @@ contract("Public Auction Marketplace", (accounts) => {
         });
     });
 
-    describe('AUCTION 3: Simple public auction marketplace', async () => {
+    describe('PUBLIC AUCTION 3: Scenario' + '\n' +
+             '          + Account1 creates Public Auction' + '\n' +
+             '          + Account2 bid 3 KFIVE' + '\n' +
+             '          + Account2 bid 4 KFIVE' + '\n' +
+             '          + Account5 bid 6 KFIVE. Refund 4 KFIVE for account2' + '\n' +
+             '          + Account2 bid 9 KFIVE. Refund 6 KFIVE for account5' + '\n' +
+             '          + Bid End. Account2 receive reward', async () => {
         var auctionId;
         var auctionStartTime;
         var auctionBiddingEnd;
@@ -195,7 +201,7 @@ contract("Public Auction Marketplace", (accounts) => {
             });
         });
 
-        it('(Root) Update OrderMarketplace in the Storage', async () => {
+        it('(Root) Update Auction Marketplace in the Storage', async () => {
             const i = {
                 auctionMarketplaceAddress: auctionMarketplace.address
             }

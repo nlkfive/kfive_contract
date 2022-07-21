@@ -57,7 +57,7 @@ contract("Public Auction Marketplace", (accounts) => {
     const account6 = accounts[6]
     const new_owner = accounts[7]
     const seller = accounts[8]
-    const canceller = accounts[9]
+    const admin = accounts[9]
     const OFFCHAIN = web3.utils.fromAscii('1')
 
     const BASE_URL = "https://ipfs.io/ipfs/";
@@ -105,7 +105,13 @@ contract("Public Auction Marketplace", (accounts) => {
         });
     });
 
-    describe('AUCTION 5: Simple public auction marketplace', async () => {
+    describe('PUBLIC AUCTION 5: Scenario' + '\n' +
+             '          + Account1 creates Public Auction' + '\n' +
+             '          + Account2 bid 3 KFIVE' + '\n' +
+             '          + Account5 bid 4 KFIVE. Refund 3 KFIVE for account2' + '\n' +
+             '          + Bid End. Account5 receive reward' + '\n' +
+             '          + Change publication fee' + '\n' +
+             '          + Bid End. Account5 receive reward. rootBalance has no change', async () => {
         var auctionId;
         var auctionStartTime;
         var auctionBiddingEnd;
@@ -176,7 +182,7 @@ contract("Public Auction Marketplace", (accounts) => {
             });
         });
 
-        it('(Root) Update OrderMarketplace in the Storage', async () => {
+        it('(Root) Update Auction Marketplace in the Storage', async () => {
             const i = {
                 auctionMarketplaceAddress: auctionMarketplace.address
             }
@@ -287,6 +293,41 @@ contract("Public Auction Marketplace", (accounts) => {
 
         it('Wait until Bidding Stage end', async () => {
             while (Math.floor(new Date().getTime() / 1000 < biddingEndedAt + 1)) {}
+        });
+
+        it('(Account 1) Set publication fee (0.1 KFIVE). Cannot, only ADMIN_ROLE', async () => {
+            let i = {
+                fee: publicationFee1
+            }
+            await u.assertRevert(auctionMarketplace.setPublicationFee(i.fee, {
+                from: account1
+            }));
+
+            let o = {
+                fee: 0
+            }
+
+            fee = await auctionMarketplace.publicationFeeInWei();
+            eq(fee.toString(), o.fee);
+        });
+
+        it('(Root) Grant ADMIN_ROLE to admin', async () => {
+            await auctionMarketplace.grantRole("0x" + keccak256("ADMIN_ROLE"), admin, {
+                from: root
+            });
+        });
+
+        it('(Admin) Set publication fee (0.1 KFIVE)', async () => {
+            let i = {
+                fee: publicationFee1
+            }
+            await auctionMarketplace.setPublicationFee(i.fee, {from: admin});
+
+            let o = {
+                fee: publicationFee1.toString()
+            }
+            fee = await auctionMarketplace.publicationFeeInWei();
+            eq(fee.toString(), o.fee);
         });
 
         it('(Account5) Receive reward', async () => {

@@ -52,16 +52,16 @@ contract("Public Auction Marketplace", (accounts) => {
     const account1 = accounts[1]
     const account2 = accounts[2]
     const beneficary = accounts[3]
-    const pauser = accounts[4]
+    const admin = accounts[4]
     const account5 = accounts[5]
     const account6 = accounts[6]
     const new_owner = accounts[7]
-    const seller = accounts[8]
-    const admin = accounts[9]
+    const account8 = accounts[8]
+    const canceller = accounts[9]
     const OFFCHAIN = web3.utils.fromAscii('1')
 
     const BASE_URL = "https://ipfs.io/ipfs/";
-    const OWNER_CUT_PER_MILLION = 0;
+    const OWNER_CUT_PER_MILLION = 1000;
     const issuedTokenAmount = 10 * (10 ** tokenDecimals);
     const publicationFee1 = 0.1 * (10 ** tokenDecimals);
     const delay = ms => new Promise(res => setTimeout(res, ms));
@@ -88,7 +88,7 @@ contract("Public Auction Marketplace", (accounts) => {
                 acceptedToken: kfive.address,
                 marketplaceStorage: storage.address,
                 owner: root,
-                ownerCutPerMillion: 0,
+                ownerCutPerMillion: 1000,
             }
 
             const acceptedToken = await auctionMarketplace.acceptedToken();
@@ -103,12 +103,33 @@ contract("Public Auction Marketplace", (accounts) => {
             const ownerCutPerMillion = await auctionMarketplace.ownerCutPerMillion();
             eq(ownerCutPerMillion, o.ownerCutPerMillion);
         });
+
+        it('Set publication fee (0.1 KFIVE)', async () => {
+            let i = {
+                fee: publicationFee1
+            }
+            await auctionMarketplace.setPublicationFee(i.fee);
+
+            let o = {
+                fee: publicationFee1.toString()
+            }
+            fee = await auctionMarketplace.publicationFeeInWei();
+            eq(fee.toString(), o.fee);
+        });
     });
 
-    describe('AUCTION 7: Simple public auction marketplace', async () => {
+    describe('PUBLIC AUCTION 8: Scenario' + '\n' +
+             '          + Account1 create Public Auction' + '\n' +
+             '          + Account2 bid 3 KFIVE' + '\n' +
+             '          + Root update new Storage address' + '\n' +
+             '          + Account5 cannot bid 4 KFIVE' + '\n' +
+             '          + Root update old Storage address' + '\n' +
+             '          + Account5 bid 4 KFIVE' + '\n' +
+             '          + Set new beneficary' + '\n' +
+             '          + Bid End. Account5 receive reward, new beneicary receive ownercut amount', async () => {
         var auctionId;
-        var auctionStartTime;
         var auctionBiddingEnd;
+        var auctionStartTime;
         var nftAsset;
 
         before(async () => {
@@ -118,12 +139,14 @@ contract("Public Auction Marketplace", (accounts) => {
             await kfive.issue(account2, issuedToken, OFFCHAIN, { from: root });
             await kfive.issue(account5, issuedToken, OFFCHAIN, { from: root });
             await kfive.issue(account6, issuedToken, OFFCHAIN, { from: root });
+            await kfive.issue(account8, issuedToken, OFFCHAIN, { from: root });
 
             const o = {
                 account1_balance: 10 * (10 ** tokenDecimals),
                 account2_balance: 10 * (10 ** tokenDecimals),
                 account5_balance: 10 * (10 ** tokenDecimals),
                 account6_balance: 10 * (10 ** tokenDecimals),
+                account8_balance: 10 * (10 ** tokenDecimals),
                 auctionMarketplace_balance: 0,
             }
 
@@ -139,6 +162,9 @@ contract("Public Auction Marketplace", (accounts) => {
             let account6_balance = await kfive.balanceOf(account6, { from: root });
             eq(o.account6_balance, account6_balance.toString());
 
+            let account8_balance = await kfive.balanceOf(account8, { from: root });
+            eq(o.account8_balance, account8_balance.toString());
+
             let auctionMarketplace_balance = await kfive.balanceOf(auctionMarketplace.address, { from: root });
             eq(o.auctionMarketplace_balance, auctionMarketplace_balance.toString());
         });
@@ -152,10 +178,10 @@ contract("Public Auction Marketplace", (accounts) => {
             await kfive.approve(i.to, i.amount, { from: account1 });
             await kfive.approve(i.to, i.amount, { from: account2 });
             await kfive.approve(i.to, i.amount, { from: account5 });
-            await kfive.approve(i.to, i.amount, { from: account6 });
+            await kfive.approve(i.to, i.amount, { from: account8 });
         });
 
-        it('(Owner) Mint NFT1 to (Account1)', async () => {
+        it('(Owner) Mint new NFT to (Account1)', async () => {
             const i = {
                 nftID: 1,
                 nftURI: "1",
@@ -166,33 +192,7 @@ contract("Public Auction Marketplace", (accounts) => {
             });
         });
 
-        it('(Owner) Mint NFT2 to (Account1)', async () => {
-            const i = {
-                nftID: 2,
-                nftURI: "2",
-            }
-
-            await nlgst.mint(account1, i.nftID, i.nftURI, {
-                from: root
-            });
-        });
-
-        it('(Account1) Approve NFT to Auction Marketplace', async () => {
-            const i = {
-                nftID1: 1,
-                nftID2: 2,
-            }
-
-            await nlgst.approve(auctionMarketplace.address, i.nftID1, {
-                from: account1
-            });
-
-            await nlgst.approve(auctionMarketplace.address, i.nftID2, {
-                from: account1
-            });
-        });
-
-        it('(Root) Update OrderMarketplace in the Storage', async () => {
+        it('(Root) Update Auction Marketplace in the Storage', async () => {
             const i = {
                 auctionMarketplaceAddress: auctionMarketplace.address
             }
@@ -202,99 +202,21 @@ contract("Public Auction Marketplace", (accounts) => {
             });
         });
 
-        it('(Account1) Create new auction NFT(2) successfully', async () => {
+        it('(Account1) Approve NFT to Auction Marketplace', async () => {
             const i = {
-                nftID: 2,
-                startPriceInWei: 1 * (10 ** tokenDecimals),
-                startTime: Math.floor(new Date().getTime() / 1000 + 15),
-                biddingEnd: Math.floor(new Date().getTime() / 1000 + 100),
-                minIncrement: 1 * (10 ** tokenDecimals),
+                nftID: 1,
             }
 
-            auctionStartTime = i.startTime;
-            biddingEndedAt = i.biddingEnd;
-            auctionId = publicAuctionInfo(nlgst.address,
-                                          i.nftID,
-                                          i.startPriceInWei,
-                                          i.startTime,
-                                          i.biddingEnd,
-                                          i.minIncrement,
-                                          Math.floor(new Date().getTime()));
-            nftAsset = nftAssetInfo(nlgst.address, i.nftID);
-
-            await auctionMarketplace.createAuction( nlgst.address,
-                                                    auctionId,
-                                                    nftAsset,
-                                                    i.nftID,
-                                                    i.startPriceInWei,
-                                                    i.startTime,
-                                                    i.biddingEnd,
-                                                    i.minIncrement, {
+            await nlgst.approve(auctionMarketplace.address, i.nftID, {
                 from: account1
             });
-
-            let o = {
-                rootBalance: 0,
-                account1Balance: (issuedTokenAmount).toString(),
-                seller: account1,
-                nftID: 2,
-                nftAddress: nlgst.address,
-            }
-
-            const rootBalance = await kfive.balanceOf(root);
-            eq(o.rootBalance, rootBalance.toString());
-
-            const account1Balance = await kfive.balanceOf(account1);
-            eq(o.account1Balance, account1Balance.toString());
-
-            const lastestEvent = await auctionMarketplace.getPastEvents("PublicAuctionCreatedSuccessful");
-
-            assetOwner = lastestEvent[0].returnValues.assetOwner;
-            nftAddress = lastestEvent[0].returnValues.nftAddress;
-            publicAuctionId = parseInt(lastestEvent[0].returnValues.publicAuctionId);
-            assetId = parseInt(lastestEvent[0].returnValues.assetId);
-            startTime = parseInt(lastestEvent[0].returnValues.startTime);
-            auctionBiddingEnd = parseInt(lastestEvent[0].returnValues.biddingEnd);
-            startPriceInWei = parseInt(lastestEvent[0].returnValues.startPriceInWei);
-            minIncrement = parseInt(lastestEvent[0].returnValues.minIncrement);
-
-            eq(account1, assetOwner);
-            eq(o.nftAddress, nftAddress);
-            eq(auctionId, publicAuctionId);
-            eq(o.nftID, assetId);
-            eq(auctionStartTime, startTime);
-            eq(biddingEndedAt, auctionBiddingEnd);
-            eq(startPriceInWei, i.startPriceInWei);
-            eq(minIncrement, i.minIncrement);
-        });
-
-        it('(Root) Set publication fee (0.1 KFIVE)', async () => {
-            let i = {
-                fee: publicationFee1
-            }
-            await auctionMarketplace.setPublicationFee(i.fee, {from: root});
-
-            let o = {
-                fee: publicationFee1.toString()
-            }
-            fee = await auctionMarketplace.publicationFeeInWei();
-            eq(fee.toString(), o.fee);
-        });
-
-        it('(Account1) Cancel Auction', async () => {
-            await auctionMarketplace.cancelAuction(nftAsset, auctionId, {
-                from: account1
-            });
-
-            let account1_balance = await kfive.balanceOf(account1, { from: root });
-            eq(10 * (10 ** tokenDecimals), account1_balance.toString());
         });
 
         it('(Account1) Create new auction NFT(1) successfully', async () => {
             const i = {
                 nftID: 1,
                 startPriceInWei: 1 * (10 ** tokenDecimals),
-                startTime: Math.floor(new Date().getTime() / 1000 + 10),
+                startTime: Math.floor(new Date().getTime() / 1000 + 15),
                 biddingEnd: Math.floor(new Date().getTime() / 1000 + 100),
                 minIncrement: 1 * (10 ** tokenDecimals),
             }
@@ -373,6 +295,46 @@ contract("Public Auction Marketplace", (accounts) => {
             eq(7 * (10 ** tokenDecimals), account2_balance.toString());
         });
 
+        it('(Root) Update Storage Address', async () => {
+            new_storage = await STORAGE.new({from: root});
+
+            await auctionMarketplace.updateStorageAddress(new_storage.address, {
+                from: root
+            });
+
+            let new_storage_address = await auctionMarketplace.marketplaceStorage({
+                from: root
+            });
+            eq(new_storage_address, new_storage.address);
+        });
+
+        it('(Account5) Bid: 4 KFIVE. Cannot', async () => {
+            const i = {
+                bidValue: 4 * (10 ** tokenDecimals)
+            }
+
+            await u.assertRevert(auctionMarketplace.bid(nftAsset, auctionId, i.bidValue, {
+                from: account5
+            }));
+
+            let account5_balance = await kfive.balanceOf(account5, { from: root });
+            eq(10 * (10 ** tokenDecimals), account5_balance.toString());
+
+            let account2_balance = await kfive.balanceOf(account2, { from: root });
+            eq(7 * (10 ** tokenDecimals), account2_balance.toString());
+        });
+
+        it('(Root) Update Old Storage Address', async () => {
+            await auctionMarketplace.updateStorageAddress(storage.address, {
+                from: root
+            });
+
+            let old_storage_address = await auctionMarketplace.marketplaceStorage({
+                from: root
+            });
+            eq(old_storage_address, storage.address);
+        });
+
         it('(Account5) Bid: 4 KFIVE', async () => {
             const i = {
                 bidValue: 4 * (10 ** tokenDecimals)
@@ -393,43 +355,26 @@ contract("Public Auction Marketplace", (accounts) => {
             while (Math.floor(new Date().getTime() / 1000 < biddingEndedAt + 1)) {}
         });
 
-        it('(Account1) Set new setOwnerCutPerMillion. Cannot, only Owner or ADMIN_ROLE', async () => {
-            const i = {
-                new_ownerCutPerMillion: 100000,
-            }
-            await u.assertRevert(auctionMarketplace.setOwnerCutPerMillion(i.new_ownerCutPerMillion, {
+        it('(Account1) Set new Beneficary. Cannot, only ADMIN_ROLE', async () => {
+            await u.assertRevert(auctionMarketplace.setBeneficary(beneficary, {
                 from: account1
             }));
-        });
 
-        it('(Root) Grant ADMIN_ROLE to admin', async () => {
-            await auctionMarketplace.grantRole("0x" + keccak256("ADMIN_ROLE"), admin, {
+            let new_beneficary = await auctionMarketplace.beneficary({
                 from: root
             });
+            eq(new_beneficary, root);
         });
 
-        it('(Admin) Set new OwnerCutPerMillion = 1000', async () => {
-            const i = {
-                new_ownerCutPerMillion: 1000,
-            }
-            await auctionMarketplace.setOwnerCutPerMillion(i.new_ownerCutPerMillion, {
-                from: admin
-            });
-
-            const new_ownerCutPerMillion = await auctionMarketplace.ownerCutPerMillion();
-            eq(new_ownerCutPerMillion.toString(), i.new_ownerCutPerMillion);
-        });
-
-        it('(Root) Set new OwnerCutPerMillion = 100000', async () => {
-            const i = {
-                new_ownerCutPerMillion: 100000,
-            }
-            await auctionMarketplace.setOwnerCutPerMillion(i.new_ownerCutPerMillion, {
+        it('(Root) Set new Beneficary', async () => {
+            await auctionMarketplace.setBeneficary(beneficary, {
                 from: root
             });
 
-            const new_ownerCutPerMillion = await auctionMarketplace.ownerCutPerMillion();
-            eq(new_ownerCutPerMillion.toString(), i.new_ownerCutPerMillion);
+            let new_beneficary = await auctionMarketplace.beneficary({
+                from: root
+            });
+            eq(new_beneficary, beneficary);
         });
 
         it('(Account5) Receive reward', async () => {
@@ -438,7 +383,7 @@ contract("Public Auction Marketplace", (accounts) => {
             });
 
             const lastestEvent = await auctionMarketplace.getPastEvents("GrantAuctionRewardSuccessful");
-            
+
             auctionHighestBidder = lastestEvent[0].returnValues.auctionHighestBidder;
             id = lastestEvent[0].returnValues.auctionId;
             assetId = lastestEvent[0].returnValues.assetId;
@@ -453,15 +398,18 @@ contract("Public Auction Marketplace", (accounts) => {
             let new_owner = await nlgst.ownerOf(1, {from: root});
             eq(account5, new_owner);
 
-            amount_seller_receive = amountSellerReceiveAfterAuction(4, 100000);
-            eq(amount_seller_receive, 3.6);
-            account1_balance_final = (13.5) * (10 ** tokenDecimals);
+            amount_seller_receive = amountSellerReceiveAfterAuction(4, 1000);
+            account1_balance_final = (10 + amount_seller_receive - 0.1) * (10 ** tokenDecimals);
             let account1_balance = await kfive.balanceOf(account1, { from: root });
             eq(account1_balance_final, account1_balance.toString());
 
-            amount_contract_owner_receive = amountContractOwnerReceiveAfterAuction(4, 100000);
-            eq(amount_contract_owner_receive, 0.4);
-            root_balance_final = (0.5) * (10 ** tokenDecimals);
+            amount_contract_owner_receive = amountContractOwnerReceiveAfterAuction(4, 1000);
+            eq(amount_contract_owner_receive, 0.004);
+            beneficary_balance_final = (0.004) * (10 ** tokenDecimals);
+            let beneficary_balance = await kfive.balanceOf(beneficary, { from: root });
+            eq(beneficary_balance_final, beneficary_balance.toString());
+
+            root_balance_final = (0.1) * (10 ** tokenDecimals);
             let root_balance = await kfive.balanceOf(root, { from: root });
             eq(root_balance_final, root_balance.toString());
         });
